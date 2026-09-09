@@ -105,6 +105,7 @@ export const Companies: CollectionConfig = {
                   options: [
                     { label: 'Cotitzada en borsa', value: 'public' },
                     { label: 'Privada', value: 'private' },
+                    { label: 'Filial d’un grup', value: 'subsidiary' },
                     { label: 'Fundació o entitat sense ànim de lucre', value: 'nonprofit' },
                     { label: 'Cooperativa o comunitat', value: 'community' },
                     { label: 'Estatal', value: 'state' },
@@ -128,6 +129,8 @@ export const Companies: CollectionConfig = {
               options: [
                 { label: 'Publicitat', value: 'advertising' },
                 { label: 'Subscripcions', value: 'subscription' },
+                { label: 'Model mixt (gratuït i de pagament)', value: 'freemium' },
+                { label: 'Diverses fonts combinades', value: 'mixed' },
                 { label: 'Venda de productes o comissions', value: 'commerce' },
                 { label: 'Serveis al núvol i empresa', value: 'cloud' },
                 { label: 'Maquinari', value: 'hardware' },
