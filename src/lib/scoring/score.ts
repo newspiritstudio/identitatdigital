@@ -94,12 +94,16 @@ const custom = (
 const GOOD_IF_YES = { yes: 1, partial: 0.6, no: 0 }
 const GOOD_IF_NO = { yes: 0, partial: 0.4, no: 1 }
 
-const get = (source: unknown, path: string): any => {
-  return path.split('.').reduce<any>((acc, key) => {
+/**
+ * Lectura per camí dins de la fitxa. Torna `FactLike` per defecte perquè és el
+ * que llegeix la immensa majoria d'indicadors; els que llegeixen un valor
+ * simple ho indiquen amb el paràmetre de tipus.
+ */
+const get = <T = FactLike>(source: unknown, path: string): T =>
+  path.split('.').reduce<unknown>((acc, key) => {
     if (acc === null || acc === undefined) return undefined
     return (acc as Record<string, unknown>)[key]
-  }, source)
-}
+  }, source) as T
 
 /* ──────────────────────── indicadors calculats ───────────────────────────── */
 

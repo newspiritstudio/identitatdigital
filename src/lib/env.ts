@@ -15,7 +15,6 @@ const missing = REQUIRED_VARS.filter((key) => !process.env[key])
 if (missing.length > 0 && process.env.NODE_ENV !== 'test') {
   const message = `Falten variables d'entorn obligatòries: ${missing.join(', ')}`
   if (process.env.NODE_ENV === 'development') {
-    // eslint-disable-next-line no-console
     console.warn(`Avís: ${message}`)
   } else {
     throw new Error(message)

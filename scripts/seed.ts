@@ -217,7 +217,7 @@ async function seed() {
 
   console.log(`Categories (${categories.length})…`)
   for (const category of categories) {
-    const { slug, parent, ...data } = category
+    const { slug, parent: _parent, ...data } = category
     await upsert(payload, 'categories', slug, data)
   }
   for (const category of categories.filter((entry) => entry.parent)) {
@@ -226,7 +226,7 @@ async function seed() {
 
   console.log(`Empreses (${companies.length})…`)
   for (const company of companies) {
-    const { slug, parent, ...data } = company
+    const { slug, parent: _parent, ...data } = company
     await upsert(payload, 'companies', slug, data)
   }
   for (const company of companies.filter((entry) => entry.parent)) {
