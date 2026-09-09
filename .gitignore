@@ -1,0 +1,43 @@
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+
+# Next.js
+/.next/
+/out/
+next-env.d.ts
+.vercel
+
+# TypeScript
+*.tsbuildinfo
+
+# Variables d'entorn
+.env
+.env*.local
+
+# Payload
+/media
+/src/payload-types.ts
+.payload/
+
+# Tests
+/coverage
+/test-results/
+
+# Editors i sistema operatiu
+/.idea/
+/.vscode/
+.DS_Store
+*.swp
+
+# Logs
+logs/
+*.log
+
+# Build
+/build
+/dist
+*.local
+.cache/
+.turbo/

@@ -1,0 +1,53 @@
+{
+  "name": "identitatdigital",
+  "version": "0.1.0",
+  "description": "Identitat.digital — base de coneixement sobre privadesa digital",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev",
+    "devsafe": "rm -rf .next && cross-env NODE_OPTIONS=--no-deprecation next dev",
+    "build": "cross-env NODE_OPTIONS=\"--no-deprecation --max-old-space-size=8000\" next build",
+    "start": "cross-env NODE_OPTIONS=--no-deprecation next start",
+    "lint": "cross-env NODE_OPTIONS=--no-deprecation eslint .",
+    "typecheck": "cross-env NODE_OPTIONS=--no-deprecation tsc --noEmit",
+    "format": "prettier --write .",
+    "payload": "cross-env NODE_OPTIONS=\"--no-deprecation --no-experimental-strip-types\" payload",
+    "generate:types": "cross-env NODE_OPTIONS=\"--no-deprecation --no-experimental-strip-types\" payload generate:types",
+    "generate:importmap": "cross-env NODE_OPTIONS=\"--no-deprecation --no-experimental-strip-types\" payload generate:importmap",
+    "create-admin": "cross-env NODE_OPTIONS=\"--no-deprecation --no-experimental-strip-types\" payload run ./scripts/create-admin.ts",
+    "seed": "cross-env NODE_OPTIONS=\"--no-deprecation --no-experimental-strip-types\" payload run ./scripts/seed.ts",
+    "rescore": "cross-env NODE_OPTIONS=\"--no-deprecation --no-experimental-strip-types\" payload run ./scripts/rescore.ts",
+    "test": "cross-env NODE_OPTIONS=--no-deprecation vitest run --config ./vitest.config.mts"
+  },
+  "dependencies": {
+    "@payloadcms/db-mongodb": "3.88.0",
+    "@payloadcms/next": "3.88.0",
+    "@payloadcms/richtext-lexical": "3.88.0",
+    "@payloadcms/translations": "3.88.0",
+    "@payloadcms/ui": "3.88.0",
+    "cross-env": "^10.1.0",
+    "dotenv": "17.4.2",
+    "graphql": "^16.14.2",
+    "next": "16.3.4",
+    "payload": "3.88.0",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "sharp": "0.35.4"
+  },
+  "devDependencies": {
+    "@types/node": "^26.4.1",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.5",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "16.3.4",
+    "prettier": "^3.9.6",
+    "typescript": "^5.9.3",
+    "vitest": "4.1.11"
+  },
+  "engines": {
+    "node": "^22.13.0 || ^24.0.0 || ^25.0.0 || >=26.0.0",
+    "pnpm": "^11.22.0"
+  },
+  "packageManager": "pnpm@11.22.0"
+}
