@@ -56,6 +56,7 @@ pnpm install
 cp .env.example .env          # omple PAYLOAD_SECRET i SEED_ADMIN_PASSWORD
 pnpm create-admin             # crea el compte administrador
 pnpm seed                     # carrega tot el contingut editorial
+pnpm import-logos             # baixa els logotips de l'App Store
 pnpm dev
 ```
 
@@ -71,6 +72,7 @@ El lloc queda a `http://localhost:3000` i el panell d'administració a
 | `pnpm dev` | Servidor de desenvolupament |
 | `pnpm build` | Compilació de producció |
 | `pnpm seed` | Càrrega idempotent del contingut editorial |
+| `pnpm import-logos` | Baixa els logotips des de l'App Store |
 | `pnpm rescore` | Recalcula totes les puntuacions |
 | `pnpm create-admin` | Crea el compte administrador inicial |
 | `pnpm lint` | ESLint |
@@ -80,6 +82,21 @@ El lloc queda a `http://localhost:3000` i el panell d'administració a
 
 `pnpm seed` es pot executar tantes vegades com calgui: identifica cada document
 pel seu `slug` i l'actualitza en lloc de duplicar-lo.
+
+## Logotips
+
+Les icones no viuen al repositori: es baixen de l'API de consulta pública de
+l'App Store a partir de l'identificador de paquet de cada servei, que es desa a
+`src/seed/store-ids.ts`. Cada fitxer que entra a la biblioteca porta escrit de
+quina marca és, de quina fitxa de la botiga s'ha tret i quin dia.
+
+```bash
+pnpm import-logos                 # només les fitxes que no en tenen
+FORCE_LOGOS=1 pnpm import-logos   # refà totes les icones
+```
+
+Són marques registrades de tercers i s'utilitzen únicament per identificar el
+servei analitzat.
 
 ## Model de dades
 
@@ -163,7 +180,7 @@ src/
   app/
     (frontend)/      Lloc públic mínim
     (payload)/       Panell d'administració
-scripts/             Càrrega, recàlcul i creació d'administrador
+scripts/             Càrrega, recàlcul, logotips i creació d'administrador
 tests/               Proves del motor de puntuació
 docs/                Documentació de la metodologia
 ```

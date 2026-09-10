@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
 
-import { Score, getClient } from '../lib'
+import { Logo, Score, getClient } from '../lib'
 import type { Category, Company } from '@/payload-types'
 
 export const dynamic = 'force-dynamic'
@@ -47,7 +47,10 @@ export default async function AppsPage() {
           {docs.map((app) => (
             <tr key={app.id}>
               <td>
-                <Link href={`/aplicacions/${app.slug}`}>{app.name}</Link>
+                <span className="with-logo">
+                  <Logo logo={app.logo} name={app.name} />
+                  <Link href={`/aplicacions/${app.slug}`}>{app.name}</Link>
+                </span>
                 {app.scores?.provisional ? <> <span className="badge">provisional</span></> : null}
               </td>
               <td>{name(app.company)}</td>

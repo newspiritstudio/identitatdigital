@@ -1,8 +1,9 @@
+import Image from 'next/image'
 import { getPayload } from 'payload'
 import React from 'react'
 
 import config from '@/payload.config'
-import type { App, Source } from '@/payload-types'
+import type { App, Media, Source } from '@/payload-types'
 
 /**
  * Utilitats compartides de la interfície de validació.
@@ -81,6 +82,29 @@ export function Fact({ label, fact, extra }: { label: string; fact: FactLike; ex
         ) : null}
       </dd>
     </div>
+  )
+}
+
+/**
+ * Logotip del servei. Les icones venen de l'App Store i es fan servir per
+ * identificar l'aplicació de què es parla; el crèdit i la data de descàrrega
+ * consten a la biblioteca multimèdia. Si una fitxa encara no en té, no es
+ * dibuixa cap marcador de posició: una fitxa sense icona s'ha de veure.
+ */
+export function Logo({ logo, name, size = 24 }: { logo: App['logo']; name: string; size?: number }) {
+  if (!logo || typeof logo !== 'object') return null
+  const media = logo as Media
+  const src = media.sizes?.thumbnail?.url ?? media.url
+  if (!src) return null
+  return (
+    <Image
+      src={src}
+      alt={media.alt ?? `Logotip de ${name}`}
+      width={size}
+      height={size}
+      className="logo"
+      unoptimized
+    />
   )
 }
 

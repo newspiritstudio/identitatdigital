@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import React from 'react'
 
-import { Fact, STATUS_LABELS, Score, getClient } from '../../lib'
+import { Fact, Logo, STATUS_LABELS, Score, getClient } from '../../lib'
 import type { App, Category, DataType, Incident, ProcessingPurpose } from '@/payload-types'
 
 export const dynamic = 'force-dynamic'
@@ -74,7 +74,10 @@ export default async function AppPage({ params }: { params: Promise<{ slug: stri
 
   return (
     <>
-      <h1>{app.name}</h1>
+      <h1 className="with-logo">
+        <Logo logo={app.logo} name={app.name} size={40} />
+        {app.name}
+      </h1>
       <p className="lede">{app.tagline}</p>
 
       <table>
@@ -99,7 +102,8 @@ export default async function AppPage({ params }: { params: Promise<{ slug: stri
       </table>
       <p className="meta">
         Metodologia {scores?.methodologyVersion ?? '—'}. Cobertura documentada del{' '}
-        {scores?.coverage ?? '—'} % dels indicadors aplicables.
+        {typeof scores?.coverage === 'number' ? Math.round(scores.coverage * 100) : '—'} % dels
+        indicadors aplicables.
         {scores?.provisional ? ' Puntuació provisional: encara no en sabem prou.' : ''}{' '}
         <Link href="/metodologia">Com es calcula</Link>
       </p>
@@ -137,6 +141,8 @@ export default async function AppPage({ params }: { params: Promise<{ slug: stri
                 ['Política de privadesa', app.links?.privacyPolicy],
                 ['Condicions', app.links?.terms],
                 ['Centre de privadesa', app.links?.privacyCenter],
+                ['App Store', app.links?.appStore],
+                ['Google Play', app.links?.playStore],
               ]
                 .filter(([, href]) => Boolean(href))
                 .map(([text, href], index) => (

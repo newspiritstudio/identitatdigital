@@ -197,3 +197,15 @@ ul.plain {
   margin: 1rem 0;
   font-size: 0.85rem;
 }
+
+.with-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Les icones d'aplicació ja venen amb la vora arrodonida d'iOS retallada. */
+.logo {
+  border-radius: 22.5%;
+  flex-shrink: 0;
+}
