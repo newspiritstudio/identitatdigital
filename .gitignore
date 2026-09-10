@@ -41,3 +41,6 @@ logs/
 *.local
 .cache/
 .turbo/
+
+# Evidència regenerable de visual-check (archify)
+docs/*.visual-check.*

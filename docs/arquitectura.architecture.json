@@ -1,0 +1,352 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Arquitectura d'Identitat.digital",
+    "output": "arquitectura.html",
+    "quality_profile": "showcase",
+    "repository": {
+      "url": "https://github.com/newspiritstudio/identitatdigital",
+      "revision": "4dc5cb8ba53a1d870c8285103d6f317286c9fa22"
+    },
+    "views": [
+      {
+        "id": "lectura",
+        "label": "Camí de lectura",
+        "focus": [
+          "lectors",
+          "web",
+          "payload",
+          "mongo"
+        ],
+        "note": "Del navegador a la base de dades sense cap salt HTTP intern."
+      },
+      {
+        "id": "edicio",
+        "label": "Edició i puntuació",
+        "focus": [
+          "editors",
+          "admin",
+          "payload",
+          "scoring"
+        ],
+        "note": "Cada desat torna a calcular les puntuacions i n'arxiva el desglossament."
+      },
+      {
+        "id": "contingut",
+        "label": "Càrrega de contingut",
+        "focus": [
+          "appstore",
+          "scripts",
+          "payload",
+          "media"
+        ],
+        "note": "Els scripts porten el contingut editorial i els logotips al CMS."
+      }
+    ]
+  },
+  "components": [
+    {
+      "id": "lectors",
+      "type": "external",
+      "label": "Persones lectores",
+      "sublabel": "Navegador",
+      "pos": [
+        40,
+        360
+      ],
+      "size": [
+        150,
+        64
+      ]
+    },
+    {
+      "id": "web",
+      "type": "frontend",
+      "label": "Frontend públic",
+      "sublabel": "Next.js 16 · App Router",
+      "tag": "components de servidor",
+      "brand": "next-js",
+      "pos": [
+        350,
+        360
+      ],
+      "size": [
+        210,
+        64
+      ],
+      "sources": [
+        {
+          "path": "src/app/(frontend)/lib.tsx",
+          "label": "getPayload local"
+        }
+      ]
+    },
+    {
+      "id": "payload",
+      "type": "backend",
+      "label": "Payload CMS 3",
+      "sublabel": "API local, dotze col·leccions",
+      "pos": [
+        750,
+        360
+      ],
+      "size": [
+        200,
+        64
+      ],
+      "sources": [
+        {
+          "path": "src/payload.config.ts",
+          "label": "buildConfig"
+        }
+      ]
+    },
+    {
+      "id": "mongo",
+      "type": "database",
+      "label": "MongoDB",
+      "sublabel": "adaptador Mongoose",
+      "brand": "mongodb",
+      "pos": [
+        1090,
+        360
+      ],
+      "size": [
+        180,
+        64
+      ]
+    },
+    {
+      "id": "editors",
+      "type": "external",
+      "label": "Redacció",
+      "sublabel": "Equip editorial",
+      "pos": [
+        40,
+        120
+      ],
+      "size": [
+        150,
+        64
+      ]
+    },
+    {
+      "id": "admin",
+      "type": "frontend",
+      "label": "Panell d'administració",
+      "sublabel": "/admin en català",
+      "pos": [
+        350,
+        120
+      ],
+      "size": [
+        210,
+        64
+      ]
+    },
+    {
+      "id": "httpapi",
+      "type": "backend",
+      "label": "Rutes /api",
+      "sublabel": "REST · GraphQL opcional",
+      "pos": [
+        1090,
+        120
+      ],
+      "size": [
+        190,
+        64
+      ],
+      "sources": [
+        {
+          "path": "src/app/(payload)/api/[...slug]/route.ts",
+          "label": "handlers REST"
+        }
+      ]
+    },
+    {
+      "id": "scoring",
+      "type": "backend",
+      "label": "Motor de puntuació",
+      "sublabel": "hooks de desat",
+      "pos": [
+        750,
+        600
+      ],
+      "size": [
+        200,
+        64
+      ],
+      "sources": [
+        {
+          "path": "src/lib/scoring/hook.ts",
+          "label": "recalculateScores"
+        }
+      ]
+    },
+    {
+      "id": "media",
+      "type": "database",
+      "label": "Biblioteca de mèdia",
+      "sublabel": "mides generades amb sharp",
+      "pos": [
+        1090,
+        600
+      ],
+      "size": [
+        180,
+        64
+      ]
+    },
+    {
+      "id": "scripts",
+      "type": "backend",
+      "label": "Scripts de manteniment",
+      "sublabel": "seed · rescore · logotips",
+      "pos": [
+        350,
+        600
+      ],
+      "size": [
+        210,
+        64
+      ],
+      "sources": [
+        {
+          "path": "scripts/seed.ts",
+          "label": "càrrega editorial"
+        }
+      ]
+    },
+    {
+      "id": "appstore",
+      "type": "external",
+      "label": "Consulta de l'App Store",
+      "sublabel": "icones oficials",
+      "pos": [
+        40,
+        600
+      ],
+      "size": [
+        160,
+        64
+      ]
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "security-group",
+      "label": "Escriptura només amb sessió iniciada",
+      "wraps": [
+        "payload",
+        "mongo",
+        "scoring",
+        "media"
+      ],
+      "pad": 44
+    }
+  ],
+  "connections": [
+    {
+      "id": "llegir",
+      "from": "lectors",
+      "to": "web",
+      "label": "HTTPS",
+      "variant": "emphasis"
+    },
+    {
+      "id": "local-api",
+      "from": "web",
+      "to": "payload",
+      "label": "API local, sense salt HTTP",
+      "variant": "emphasis",
+      "labelDy": -26,
+      "labelDx": -22
+    },
+    {
+      "id": "consultes",
+      "from": "payload",
+      "to": "mongo",
+      "label": "consultes Mongoose",
+      "variant": "emphasis",
+      "labelDy": -26
+    },
+    {
+      "id": "sessio",
+      "from": "editors",
+      "to": "admin",
+      "label": "sessió autenticada",
+      "variant": "security"
+    },
+    {
+      "id": "editar",
+      "from": "admin",
+      "to": "payload",
+      "label": "desa i publica",
+      "toSide": "top",
+      "labelSegment": 0
+    },
+    {
+      "id": "rest",
+      "from": "httpapi",
+      "to": "payload",
+      "label": "mateixa instància",
+      "variant": "dashed",
+      "toSide": "top",
+      "labelSegment": 0
+    },
+    {
+      "id": "puntuar",
+      "from": "payload",
+      "to": "scoring",
+      "label": "recalcula i arxiva en desar",
+      "labelDy": 90
+    },
+    {
+      "id": "fitxers",
+      "from": "payload",
+      "to": "media",
+      "label": "puja i redimensiona"
+    },
+    {
+      "id": "carregar",
+      "from": "scripts",
+      "to": "payload",
+      "label": "payload run"
+    },
+    {
+      "id": "icones",
+      "from": "scripts",
+      "to": "appstore",
+      "label": "descarrega les icones",
+      "variant": "dashed"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Lectura",
+      "items": [
+        "Les pàgines públiques criden l'API local de Payload dins del mateix procés.",
+        "El control d'accés només deixa sortir el contingut publicat."
+      ]
+    },
+    {
+      "dot": "violet",
+      "title": "Puntuació",
+      "items": [
+        "Els hooks recalculen les puntuacions abans de desar cada fitxa.",
+        "Cada desat arxiva una instantània del desglossament del càlcul."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Contingut",
+      "items": [
+        "Els scripts carreguen el contingut editorial per l'API local.",
+        "Els logotips venen de la consulta pública de l'App Store."
+      ]
+    }
+  ]
+}
