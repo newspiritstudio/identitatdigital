@@ -12,6 +12,7 @@ import { defaultLocale, localeLabels, locales } from './i18n/config'
 import { env } from './lib/env'
 
 import { Apps } from './collections/Apps'
+import { Breaches } from './collections/Breaches'
 import { Categories } from './collections/Categories'
 import { Companies } from './collections/Companies'
 import { DataTypes } from './collections/DataTypes'
@@ -63,6 +64,7 @@ export default buildConfig({
     Categories,
     Incidents,
     Sources,
+    Breaches,
     DataTypes,
     ProcessingPurposes,
     ScoringMethodologies,

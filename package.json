@@ -18,6 +18,8 @@
     "create-admin": "cross-env NODE_OPTIONS=\"--no-deprecation --no-experimental-strip-types\" payload run ./scripts/create-admin.ts",
     "seed": "cross-env NODE_OPTIONS=\"--no-deprecation --no-experimental-strip-types\" payload run ./scripts/seed.ts",
     "import-logos": "cross-env NODE_OPTIONS=\"--no-deprecation --no-experimental-strip-types\" payload run ./scripts/import-logos.ts",
+    "import-breaches": "cross-env NODE_OPTIONS=\"--no-deprecation --no-experimental-strip-types\" payload run ./scripts/import-breaches.ts",
+    "build-wordlist": "cross-env NODE_OPTIONS=--no-deprecation node ./scripts/build-wordlist.ts",
     "rescore": "cross-env NODE_OPTIONS=\"--no-deprecation --no-experimental-strip-types\" payload run ./scripts/rescore.ts",
     "test": "cross-env NODE_OPTIONS=--no-deprecation vitest run --config ./vitest.config.mts"
   },

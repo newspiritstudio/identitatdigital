@@ -45,6 +45,7 @@ export const DataTypes: CollectionConfig = {
           admin: { width: '50%' },
           options: [
             { label: 'Identificadors', value: 'identifiers' },
+            { label: 'Credencials i secrets', value: 'credentials' },
             { label: 'Dades de contacte', value: 'contact' },
             { label: 'Ubicació', value: 'location' },
             { label: 'Contingut de la persona usuària', value: 'content' },

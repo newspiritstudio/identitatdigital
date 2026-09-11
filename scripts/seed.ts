@@ -226,8 +226,13 @@ async function seed() {
 
   console.log(`Empreses (${companies.length})…`)
   for (const company of companies) {
-    const { slug, parent: _parent, ...data } = company
-    await upsert(payload, 'companies', slug, data)
+    const { slug, parent: _parent, productDomains, ...data } = company
+    await upsert(payload, 'companies', slug, {
+      ...data,
+      // El camp és un array d'objectes a Payload, però al seed s'escriu com a
+      // llista plana de dominis perquè llegir-ho i mantenir-ho sigui barat.
+      ...(productDomains ? { productDomains: productDomains.map((domain) => ({ domain })) } : {}),
+    })
   }
   for (const company of companies.filter((entry) => entry.parent)) {
     await upsert(payload, 'companies', company.slug, { parent: id('companies', company.parent) })

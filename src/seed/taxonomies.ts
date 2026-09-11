@@ -299,6 +299,133 @@ export const dataTypes: DataTypeSeed[] = [
     description: 'Registres de fallades, rendiment i estabilitat de l’aplicació.',
     appleLabel: 'Diagnostics',
   },
+/* ── Ampliació de setembre de 2026 ──
+   * Tipus de dada que el vocabulari no cobria i que la importació del catàleg de
+   * Have I Been Pwned va deixar al descobert. El vocabulari original responia la
+   * pregunta «què recull una aplicació»; les filtracions plantegen la pregunta
+   * complementària, «quins secrets custodia», i és on hi havia el forat més gran:
+   * dues de cada tres filtracions exposen contrasenyes i no hi havia on desar-ho.
+   *
+   * Afegir vocabulari no mou cap puntuació. El sostre de volum de dades es
+   * calcula sobre la sensibilitat acumulada del que una fitxa declara recollir,
+   * no sobre la mida del catàleg, de manera que aquests tipus només afectaran una
+   * nota quan algú documenti que un servei els recull de debò.
+   */
+  {
+    slug: 'contrasenya',
+    name: 'Contrasenya',
+    family: 'credentials',
+    sensitivity: 5,
+    description:
+      'Contrasenya del compte, tant si es desa xifrada amb una funció de derivació moderna com si es desa amb un resum antic o, en els casos pitjors, en text pla.',
+    whyItMatters:
+      'La gent reutilitza contrasenyes. Una contrasenya filtrada d’un servei sense importància obre els comptes que sí que en tenen, i per això una sola filtració es propaga a mitja vida digital d’una persona.',
+  },
+  {
+    slug: 'pregunta-de-seguretat',
+    name: 'Pregunta i resposta de seguretat',
+    family: 'credentials',
+    sensitivity: 5,
+    description:
+      'Preguntes de recuperació del compte i les seves respostes, sovint desades sense xifrar.',
+    whyItMatters:
+      'La resposta no es pot canviar: el cognom de soltera de la mare és per sempre. Una filtració la crema a tots els serveis alhora, i habitualment permet saltar-se la contrasenya en comptes d’haver-la d’endevinar.',
+  },
+  {
+    slug: 'testimoni-d-autenticacio',
+    name: 'Testimoni d’autenticació',
+    family: 'credentials',
+    sensitivity: 4,
+    description:
+      'Galetes de sessió, testimonis d’accés i claus d’API que mantenen la sessió oberta sense tornar a demanar la contrasenya.',
+    whyItMatters:
+      'Qui té el testimoni entra sense contrasenya i, sovint, sense passar pel segon factor. És la manera més silenciosa de perdre un compte que tens ben protegit.',
+  },
+  {
+    slug: 'data-de-naixement',
+    name: 'Data de naixement',
+    family: 'identifiers',
+    sensitivity: 3,
+    description: 'Data completa o any de naixement declarat al perfil o exigit al registre.',
+    whyItMatters:
+      'Combinada amb el nom i el codi postal identifica una persona concreta amb una precisió altíssima. També és la dada que decideix si el servei et tracta com a menor.',
+  },
+  {
+    slug: 'genere',
+    name: 'Gènere declarat',
+    family: 'identifiers',
+    sensitivity: 2,
+    description: 'Gènere que la persona declara al perfil o que el servei infereix del seu ús.',
+    whyItMatters:
+      'És una de les primeres variables de segmentació publicitària i condiciona què et mostren abans que hagis fet res.',
+  },
+  {
+    slug: 'ocupacio-i-carrec',
+    name: 'Ocupació i càrrec',
+    family: 'identifiers',
+    sensitivity: 3,
+    description: 'Professió, càrrec, empresa ocupadora i situació laboral.',
+    whyItMatters:
+      'És la matèria primera del frau dirigit: saber on treballes i de qui depens permet escriure el correu exacte que et farà caure.',
+  },
+  {
+    slug: 'document-identificatiu-oficial',
+    name: 'Document identificatiu oficial',
+    family: 'identifiers',
+    sensitivity: 5,
+    description:
+      'Número de document nacional d’identitat, passaport, permís de conduir o número de seguretat social, i les imatges d’aquests documents.',
+    whyItMatters:
+      'No es pot canviar quan es filtra i habilita la suplantació amb efectes legals, des d’obrir un contracte fins a demanar un crèdit. És la pèrdua més difícil de reparar.',
+  },
+  {
+    slug: 'origen-etnic-o-nacionalitat',
+    name: 'Origen ètnic o nacionalitat',
+    family: 'special',
+    sensitivity: 5,
+    specialCategory: true,
+    description: 'Origen racial o ètnic, nacionalitat i país de naixement declarats o inferits.',
+    whyItMatters:
+      'És una categoria especial de l’article 9 del RGPD. Tractar-la sense una base reforçada és il·lícit, i fer-la servir per segmentar obre la porta a la discriminació directa.',
+    appleLabel: 'Sensitive Info',
+  },
+  {
+    slug: 'situacio-familiar',
+    name: 'Situació familiar',
+    family: 'identifiers',
+    sensitivity: 3,
+    description: 'Estat civil, convivència, fills a càrrec i estructura de la llar.',
+    whyItMatters:
+      'Defineix moments vitals de gran valor publicitari, com una separació o un embaràs, i és la mena de dada que les plataformes dedueixen abans que la persona l’hagi explicat a ningú.',
+  },
+  {
+    slug: 'nivell-d-ingressos',
+    name: 'Nivell d’ingressos i solvència',
+    family: 'financial',
+    sensitivity: 4,
+    description:
+      'Ingressos estimats o declarats, capacitat de despesa, solvència i segment socioeconòmic assignat.',
+    whyItMatters:
+      'És diferent de la dada de pagament: no diu com pagues sinó quant et poden cobrar. Permet preus personalitzats i decideix quines ofertes no arribes a veure mai.',
+  },
+  {
+    slug: 'nivell-formatiu',
+    name: 'Nivell formatiu',
+    family: 'identifiers',
+    sensitivity: 2,
+    description: 'Estudis cursats, titulacions i centres on s’han obtingut.',
+    whyItMatters:
+      'Per si sol diu poc, però és una de les variables que més afina els models de segmentació quan es creua amb l’ocupació i l’edat.',
+  },
+  {
+    slug: 'llengua',
+    name: 'Llengua',
+    family: 'identifiers',
+    sensitivity: 2,
+    description: 'Llengües que la persona declara parlar o que el servei dedueix del seu ús.',
+    whyItMatters:
+      'Sembla innòcua i sovint no ho és: la llengua és un indici raonable de l’origen, i per aquesta via acaba funcionant com un substitut d’una dada que sí que és especial.',
+  },
 ]
 
 export const purposes: PurposeSeed[] = [

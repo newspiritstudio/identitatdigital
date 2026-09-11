@@ -24,6 +24,8 @@ export default function FrontendLayout({ children }: { children: React.ReactNode
           <nav>
             <Link href="/aplicacions">Aplicacions</Link>
             <Link href="/empreses">Empreses</Link>
+            <Link href="/analisi">Anàlisi</Link>
+            <Link href="/eines">Eines</Link>
             <Link href="/metodologia">Metodologia</Link>
             <Link href="/consultes">Consultes</Link>
           </nav>

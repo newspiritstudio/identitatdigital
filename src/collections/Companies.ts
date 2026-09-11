@@ -145,6 +145,25 @@ export const Companies: CollectionConfig = {
             },
             { name: 'website', label: 'Lloc web', type: 'text' },
             {
+              name: 'productDomains',
+              label: 'Dominis dels seus serveis',
+              type: 'array',
+              admin: {
+                description:
+                  'Dominis amb què la gent es troba els productes del grup, no el domini corporatiu. Serveixen per lligar automàticament les filtracions importades de Have I Been Pwned, que s’indexen pel domini del servei: sense «snapchat.com» aquí, una filtració de Snapchat no troba mai Snap Inc.',
+              },
+              fields: [
+                {
+                  name: 'domain',
+                  label: 'Domini',
+                  type: 'text',
+                  required: true,
+                  index: true,
+                  admin: { description: 'Sense protocol ni «www.». Per exemple: instagram.com' },
+                },
+              ],
+            },
+            {
               name: 'privacyContact',
               label: 'Contacte de privadesa o DPD',
               type: 'text',

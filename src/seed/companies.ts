@@ -23,6 +23,7 @@ export const companies: CompanySeed[] = [
     foundedYear: 2004,
     primaryRevenueModel: 'advertising',
     website: 'https://about.meta.com/',
+    productDomains: ['facebook.com', 'instagram.com', 'threads.net', 'messenger.com', 'meta.com', 'oculus.com'],
     privacyContact: 'https://www.facebook.com/help/contact/540977946302970',
   },
   {
@@ -53,6 +54,7 @@ export const companies: CompanySeed[] = [
     foundedYear: 2009,
     primaryRevenueModel: 'mixed',
     website: 'https://www.whatsapp.com/',
+    productDomains: ['whatsapp.com'],
   },
 
   /* ── Alphabet ── */
@@ -82,6 +84,7 @@ export const companies: CompanySeed[] = [
     foundedYear: 1998,
     primaryRevenueModel: 'advertising',
     website: 'https://about.google/',
+    productDomains: ['google.com', 'youtube.com', 'gmail.com', 'blogger.com', 'android.com', 'waze.com', 'fitbit.com'],
     privacyContact: 'https://support.google.com/policies/troubleshooter/9009584',
   },
   {
@@ -111,6 +114,7 @@ export const companies: CompanySeed[] = [
     foundedYear: 2012,
     primaryRevenueModel: 'advertising',
     website: 'https://www.bytedance.com/',
+    productDomains: ['tiktok.com', 'capcut.com', 'douyin.com'],
   },
   {
     slug: 'tiktok-technology',
@@ -141,6 +145,7 @@ export const companies: CompanySeed[] = [
     foundedYear: 1975,
     primaryRevenueModel: 'mixed',
     website: 'https://www.microsoft.com/',
+    productDomains: ['microsoft.com', 'outlook.com', 'hotmail.com', 'live.com', 'xbox.com', 'skype.com', 'github.com', 'bing.com'],
   },
   {
     slug: 'linkedin-ireland',
@@ -156,6 +161,7 @@ export const companies: CompanySeed[] = [
     foundedYear: 2003,
     primaryRevenueModel: 'mixed',
     website: 'https://www.linkedin.com/',
+    productDomains: ['linkedin.com'],
   },
 
   /* ── Amazon ── */
@@ -172,6 +178,7 @@ export const companies: CompanySeed[] = [
     foundedYear: 1994,
     primaryRevenueModel: 'mixed',
     website: 'https://www.amazon.com/',
+    productDomains: ['amazon.com', 'amazon.es', 'audible.com', 'twitch.tv', 'goodreads.com', 'imdb.com', 'ring.com', 'zappos.com'],
   },
   {
     slug: 'amazon-europe-core',
@@ -203,6 +210,7 @@ export const companies: CompanySeed[] = [
     foundedYear: 2006,
     primaryRevenueModel: 'mixed',
     website: 'https://x.com/',
+    productDomains: ['twitter.com', 'x.com'],
   },
   {
     slug: 'xai',
@@ -215,6 +223,7 @@ export const companies: CompanySeed[] = [
     foundedYear: 2023,
     primaryRevenueModel: 'mixed',
     website: 'https://x.ai/',
+    productDomains: ['x.ai', 'grok.com'],
   },
 
   /* ── Resta ── */
@@ -231,6 +240,7 @@ export const companies: CompanySeed[] = [
     foundedYear: 1997,
     primaryRevenueModel: 'subscription',
     website: 'https://www.netflix.com/',
+    productDomains: ['netflix.com'],
     privacyContact: 'privacy@netflix.com',
   },
   {
@@ -246,6 +256,7 @@ export const companies: CompanySeed[] = [
     foundedYear: 2006,
     primaryRevenueModel: 'freemium',
     website: 'https://www.spotify.com/',
+    productDomains: ['spotify.com'],
     privacyContact: 'privacy@spotify.com',
   },
   {
@@ -259,6 +270,7 @@ export const companies: CompanySeed[] = [
     foundedYear: 2013,
     primaryRevenueModel: 'freemium',
     website: 'https://telegram.org/',
+    productDomains: ['telegram.org', 't.me'],
     privacyContact: 'dpo@telegram.org',
   },
   {
@@ -274,6 +286,7 @@ export const companies: CompanySeed[] = [
     foundedYear: 2011,
     primaryRevenueModel: 'advertising',
     website: 'https://snap.com/',
+    productDomains: ['snapchat.com'],
   },
   {
     slug: 'reddit',
@@ -288,6 +301,7 @@ export const companies: CompanySeed[] = [
     foundedYear: 2005,
     primaryRevenueModel: 'advertising',
     website: 'https://www.redditinc.com/',
+    productDomains: ['reddit.com'],
   },
   {
     slug: 'pinterest',
@@ -302,6 +316,7 @@ export const companies: CompanySeed[] = [
     foundedYear: 2010,
     primaryRevenueModel: 'advertising',
     website: 'https://www.pinterest.com/',
+    productDomains: ['pinterest.com'],
   },
   {
     slug: 'match-group',
@@ -316,6 +331,7 @@ export const companies: CompanySeed[] = [
     foundedYear: 1995,
     primaryRevenueModel: 'freemium',
     website: 'https://mtch.com/',
+    productDomains: ['tinder.com', 'okcupid.com', 'match.com', 'pof.com', 'hinge.co', 'meetic.es', 'ourtime.com'],
   },
   {
     slug: 'delivery-hero',
@@ -329,6 +345,7 @@ export const companies: CompanySeed[] = [
     foundedYear: 2011,
     primaryRevenueModel: 'mixed',
     website: 'https://www.deliveryhero.com/',
+    productDomains: ['deliveryhero.com', 'foodpanda.com', 'pedidosya.com'],
   },
   {
     slug: 'glovo',
@@ -344,6 +361,7 @@ export const companies: CompanySeed[] = [
     foundedYear: 2015,
     primaryRevenueModel: 'mixed',
     website: 'https://glovoapp.com/',
+    productDomains: ['glovoapp.com'],
     privacyContact: 'gdpr@glovoapp.com',
   },
   {
@@ -357,6 +375,7 @@ export const companies: CompanySeed[] = [
     foundedYear: 2018,
     primaryRevenueModel: 'donations',
     website: 'https://signal.org/',
+    productDomains: ['signal.org'],
   },
   {
     slug: 'proton',
@@ -369,6 +388,7 @@ export const companies: CompanySeed[] = [
     foundedYear: 2014,
     primaryRevenueModel: 'freemium',
     website: 'https://proton.me/',
+    productDomains: ['proton.me', 'protonmail.com'],
     privacyContact: 'privacy@proton.me',
   },
   {
@@ -382,6 +402,7 @@ export const companies: CompanySeed[] = [
     foundedYear: 2008,
     primaryRevenueModel: 'advertising',
     website: 'https://duckduckgo.com/',
+    productDomains: ['duckduckgo.com'],
   },
   {
     slug: 'mozilla-foundation',
@@ -394,6 +415,7 @@ export const companies: CompanySeed[] = [
     foundedYear: 2003,
     primaryRevenueModel: 'donations',
     website: 'https://foundation.mozilla.org/',
+    productDomains: ['mozilla.org'],
   },
   {
     slug: 'mozilla-corporation',
@@ -408,6 +430,7 @@ export const companies: CompanySeed[] = [
     foundedYear: 2005,
     primaryRevenueModel: 'mixed',
     website: 'https://www.mozilla.org/',
+    productDomains: ['firefox.com'],
     privacyContact: 'compliance@mozilla.com',
   },
   {
@@ -421,6 +444,7 @@ export const companies: CompanySeed[] = [
     foundedYear: 2015,
     primaryRevenueModel: 'mixed',
     website: 'https://brave.com/',
+    productDomains: ['brave.com'],
     privacyContact: 'privacy@brave.com',
   },
 ]

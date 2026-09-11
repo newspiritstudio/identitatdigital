@@ -58,6 +58,8 @@ export type CompanySeed = {
   foundedYear?: number
   primaryRevenueModel?: string
   website?: string
+  /** Dominis de producte, sense protocol ni «www.». Lliguen les filtracions de HIBP amb el grup. */
+  productDomains?: string[]
   privacyContact?: string
 }
 
