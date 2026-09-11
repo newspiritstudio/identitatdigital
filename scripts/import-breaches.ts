@@ -83,8 +83,11 @@ const DATA_CLASS_MAP: Record<string, string | null> = {
   'Phone numbers': 'numero-de-telefon',
   'Partial phone numbers': 'numero-de-telefon',
   'Physical addresses': 'adreca-postal',
+  'Delivery instructions': 'adreca-postal',
   'Address book contacts': 'llista-de-contactes',
   'Social connections': 'xarxa-de-contactes',
+  'Spoken languages': 'llengua',
+  'Language preferences': 'llengua',
 
   // Dispositiu i xarxa. Els identificadors de maquinari (IMEI, MAC, número de
   // sèrie) van tots a «identificador de dispositiu» perquè fan la mateixa
@@ -97,7 +100,6 @@ const DATA_CLASS_MAP: Record<string, string | null> = {
   'Device information': 'informacio-del-dispositiu',
   'Browser user agent details': 'informacio-del-dispositiu',
   'Time zones': 'informacio-del-dispositiu',
-  'Language preferences': 'informacio-del-dispositiu',
   'Telecommunications carrier': 'xarxa-i-connectivitat',
   'Cellular network names': 'xarxa-i-connectivitat',
   'Apps installed on devices': 'aplicacions-instal-lades',
@@ -144,9 +146,16 @@ const DATA_CLASS_MAP: Record<string, string | null> = {
   'Bank account numbers': 'dades-de-pagament',
   'Payment methods': 'dades-de-pagament',
   'Financial transactions': 'dades-de-pagament',
+  'Cryptocurrency wallet addresses': 'dades-de-pagament',
   Purchases: 'historial-de-compres',
   'Purchasing habits': 'historial-de-compres',
   'Payment histories': 'historial-de-compres',
+  // Tot això només existeix perquè hi ha hagut una compra al darrere: el
+  // programa de punts, el paquet que s'envia i la garantia que es reclama.
+  'Loyalty program details': 'historial-de-compres',
+  'Reward program balances': 'historial-de-compres',
+  'Shipment tracking numbers': 'historial-de-compres',
+  'Warranty claims': 'historial-de-compres',
 
   // Categories especials i salut. Els hàbits de consum (alcohol, tabac,
   // drogues, alimentació) s'hi inclouen perquè permeten deduir estat de salut,
@@ -165,97 +174,100 @@ const DATA_CLASS_MAP: Record<string, string | null> = {
   'Sexual fetishes': 'orientacio-sexual',
   Religions: 'conviccions-i-opinions',
   'Political views': 'conviccions-i-opinions',
+  // Una donació diu a qui dónes suport, que és el mateix que dir què penses.
   'Political donations': 'conviccions-i-opinions',
+  'Charitable donations': 'conviccions-i-opinions',
 
-  // Credencials. El vocabulari del projecte descriu dades personals que un
-  // servei recull, no secrets d'autenticació, i per això no hi ha cap tipus on
-  // encaixin. És el buit més gran que destapa aquesta importació: apareixen a
-  // dues de cada tres filtracions.
-  Passwords: null,
-  'Historical passwords': null,
-  'Password hints': null,
-  'Password strengths': null,
-  'Security questions and answers': null,
-  'Auth tokens': null,
-  PINs: null,
-  'Encrypted keys': null,
-  'Mnemonic phrases': null,
-  'Mothers maiden names': null,
+  // Credencials. La família «credentials» del vocabulari es va obrir arran de
+  // la primera importació: les contrasenyes surten a dues de cada tres
+  // filtracions i abans no tenien on anar. Es distingeix el que la persona
+  // sap (contrasenya, PIN, pista, pregunta de recuperació) del que el servei
+  // li lliura per no haver-l'hi de tornar a demanar (galetes de sessió,
+  // testimonis, claus), perquè el risc no és el mateix: la primera es canvia
+  // en un minut i sovint es reutilitza en vint serveis més.
+  Passwords: 'contrasenya',
+  'Historical passwords': 'contrasenya',
+  'Password hints': 'contrasenya',
+  'Password strengths': 'contrasenya',
+  PINs: 'contrasenya',
+  'Security questions and answers': 'pregunta-de-seguretat',
+  // El cognom de soltera de la mare no és una dada familiar qualsevol: és la
+  // pregunta de recuperació de tota la banca del segle passat.
+  'Mothers maiden names': 'pregunta-de-seguretat',
+  'Auth tokens': 'testimoni-d-autenticacio',
+  'Encrypted keys': 'testimoni-d-autenticacio',
+  'Mnemonic phrases': 'testimoni-d-autenticacio',
 
-  // Atributs de la persona que el projecte encara no nomena.
-  'Dates of birth': null,
-  'Partial dates of birth': null,
-  Ages: null,
-  'Age groups': null,
-  Genders: null,
-  Salutations: null,
-  'Physical attributes': null,
-  'Clothing sizes': null,
-  'Tattoo status': null,
-  'Beauty ratings': null,
-  'Astrological signs': null,
-  'IQ levels': null,
-  'Spoken languages': null,
-  'Deceased date': null,
-  'Deceased statuses': null,
+  // Atributs declarats al perfil.
+  'Dates of birth': 'data-de-naixement',
+  'Partial dates of birth': 'data-de-naixement',
+  Ages: 'data-de-naixement',
+  'Age groups': 'data-de-naixement',
+  Genders: 'genere',
+  // El tractament («Sr.», «Sra.») no és res més que el gènere dit de manera
+  // educada, i en una filtració revela exactament el mateix.
+  Salutations: 'genere',
 
   // Identificació oficial: documents emesos per un estat, que són la matèria
   // primera de la suplantació d'identitat.
-  'Government issued IDs': null,
-  'Partial government issued IDs': null,
-  'Passport numbers': null,
-  'Social security numbers': null,
-  "Driver's licenses": null,
-  'Taxation records': null,
+  'Government issued IDs': 'document-identificatiu-oficial',
+  'Partial government issued IDs': 'document-identificatiu-oficial',
+  'Passport numbers': 'document-identificatiu-oficial',
+  'Social security numbers': 'document-identificatiu-oficial',
+  "Driver's licenses": 'document-identificatiu-oficial',
 
-  // Origen i ciutadania (categories de l'article 9 que el projecte només
-  // cobreix parcialment amb «conviccions i opinions»).
-  Nationalities: null,
-  'Citizenship statuses': null,
-  'Places of birth': null,
-  Ethnicities: null,
-  Races: null,
+  // Origen i ciutadania, categoria especial de l'article 9.
+  Ethnicities: 'origen-etnic-o-nacionalitat',
+  Races: 'origen-etnic-o-nacionalitat',
+  Nationalities: 'origen-etnic-o-nacionalitat',
+  'Citizenship statuses': 'origen-etnic-o-nacionalitat',
+  'Places of birth': 'origen-etnic-o-nacionalitat',
 
-  // Situació familiar.
-  'Marital statuses': null,
-  'Relationship statuses': null,
-  'Family structure': null,
-  'Spouses names': null,
-  "Family members' names": null,
-  'Parenting plans': null,
+  // Situació familiar, inclosos els noms de familiars: són dades de terceres
+  // persones que no s'han registrat enlloc.
+  'Marital statuses': 'situacio-familiar',
+  'Relationship statuses': 'situacio-familiar',
+  'Family structure': 'situacio-familiar',
+  'Spouses names': 'situacio-familiar',
+  "Family members' names": 'situacio-familiar',
+  'Parenting plans': 'situacio-familiar',
 
   // Vida laboral i formativa.
-  'Job titles': null,
-  Occupations: null,
-  Employers: null,
-  'Employment statuses': null,
-  'Career levels': null,
-  'Professional skills': null,
-  'Years of professional experience': null,
-  'Job applications': null,
-  'Company names': null,
-  'Education levels': null,
-  'Academic records': null,
-  'School grades (class levels)': null,
-  'Work habits': null,
+  'Job titles': 'ocupacio-i-carrec',
+  Occupations: 'ocupacio-i-carrec',
+  Employers: 'ocupacio-i-carrec',
+  'Company names': 'ocupacio-i-carrec',
+  'Employment statuses': 'ocupacio-i-carrec',
+  'Career levels': 'ocupacio-i-carrec',
+  'Professional skills': 'ocupacio-i-carrec',
+  'Years of professional experience': 'ocupacio-i-carrec',
+  'Job applications': 'ocupacio-i-carrec',
+  'Education levels': 'nivell-formatiu',
+  'Academic records': 'nivell-formatiu',
+  'School grades (class levels)': 'nivell-formatiu',
 
-  // Situació econòmica, més enllà del mitjà de pagament.
-  'Income levels': null,
-  Earnings: null,
-  'Account balances': null,
-  'Credit status information': null,
-  'Credit scores': null,
-  'Net worths': null,
-  'Socioeconomic levels': null,
-  'Loan information': null,
-  'Financial investments': null,
-  'Living costs': null,
-  'Charitable donations': null,
-  'Utility bills': null,
-  'Home ownership statuses': null,
-  'Cryptocurrency wallet addresses': null,
+  // Situació econòmica, que és una cosa diferent del mitjà de pagament: no és
+  // com pagues, és quant pots pagar i quant et fien.
+  'Income levels': 'nivell-d-ingressos',
+  Earnings: 'nivell-d-ingressos',
+  'Account balances': 'nivell-d-ingressos',
+  'Credit status information': 'nivell-d-ingressos',
+  'Credit scores': 'nivell-d-ingressos',
+  'Net worths': 'nivell-d-ingressos',
+  'Socioeconomic levels': 'nivell-d-ingressos',
+  'Loan information': 'nivell-d-ingressos',
+  'Financial investments': 'nivell-d-ingressos',
+  'Living costs': 'nivell-d-ingressos',
+  'Utility bills': 'nivell-d-ingressos',
+  'Home ownership statuses': 'nivell-d-ingressos',
+  'Taxation records': 'nivell-d-ingressos',
 
-  // Béns, desplaçaments i relació comercial.
+  // El que continua sense equivalent. Són categories de cua llarga —cap no
+  // arriba a deu filtracions— i totes descriuen coses que el projecte no
+  // pregunta a cap fitxa: el cotxe que tens, els viatges que fas, el teu
+  // aspecte o el teu signe del zodíac. Mentre ningú no les necessiti per
+  // respondre una pregunta del directori, val més deixar-les fora del
+  // vocabulari que inflar-lo amb tipus que no es faran servir mai.
   'Vehicle details': null,
   'Vehicle identification numbers (VINs)': null,
   'Vehicle registration plates': null,
@@ -264,15 +276,19 @@ const DATA_CLASS_MAP: Record<string, string | null> = {
   'Travel habits': null,
   'Travel plans': null,
   'Flights taken': null,
+  'Work habits': null,
   Appointments: null,
-  'Delivery instructions': null,
-  'Shipment tracking numbers': null,
-  'Warranty claims': null,
-  'Loyalty program details': null,
-  'Reward program balances': null,
   'VIP statuses': null,
   'Buying preferences': null,
   'Personal interests': null,
+  'Physical attributes': null,
+  'Clothing sizes': null,
+  'Tattoo status': null,
+  'Beauty ratings': null,
+  'Astrological signs': null,
+  'IQ levels': null,
+  'Deceased date': null,
+  'Deceased statuses': null,
   'Homepage URLs': null,
   'User website URLs': null,
 }
@@ -345,14 +361,34 @@ function toHost(value: string | null | undefined): string | undefined {
 }
 
 /**
- * Dos dominis són el mateix lloc si coincideixen o si l'un penja de l'altre.
- * El sufix es compara amb el punt davant (`.meta.com`, no `meta.com`) perquè
- * altrament `carmax.com` semblaria una filtració de `x.com`.
+ * Força de la coincidència entre el domini filtrat i el d'una empresa.
+ *
+ * El sufix es compara sempre amb el punt davant (`.meta.com`, no `meta.com`)
+ * perquè altrament `carmax.com` semblaria una filtració de `x.com`. Els tres
+ * graus no valen igual: que el domini sigui idèntic és una certesa, que la
+ * filtració pengi del domini de l'empresa (`accounts.instagram.com` sota
+ * `instagram.com`) és gairebé tan bo, i que passi al revés —l'empresa consta
+ * amb `about.meta.com` i la filtració és de `meta.com`— és només un indici,
+ * perquè d'un domini en pengen filials que no tenen res a veure.
  */
-function isSameSite(a: string, b: string): boolean {
-  return a === b || a.endsWith(`.${b}`) || b.endsWith(`.${a}`)
+const MATCH_NONE = 0
+const MATCH_PARENT = 1
+const MATCH_SUBDOMAIN = 2
+const MATCH_EXACT = 3
+
+function matchStrength(breachHost: string, companyHost: string): number {
+  if (breachHost === companyHost) return MATCH_EXACT
+  if (breachHost.endsWith(`.${companyHost}`)) return MATCH_SUBDOMAIN
+  if (companyHost.endsWith(`.${breachHost}`)) return MATCH_PARENT
+  return MATCH_NONE
 }
 
+/**
+ * Un domini per fila: el corporatiu de `website` i cadascun dels
+ * `productDomains`. La gent es troba els productes pel seu domini
+ * (`snapchat.com`), no pel de la societat que els signa (`snap.com`), i HIBP
+ * indexa les filtracions pel primer.
+ */
 type CompanyIndexEntry = { id: string; name: string; host: string }
 
 /** Data en ISO per comparar i per desar, o `null` si la font no la porta. */
@@ -497,7 +533,7 @@ async function fetchBreaches(): Promise<HibpBreach[]> {
   return body as HibpBreach[]
 }
 
-/** Totes les empreses amb lloc web, indexades pel domini que s'hi pot llegir. */
+/** Totes les empreses, amb una fila per cada domini que se'ls coneix. */
 async function loadCompanyIndex(payload: Payload): Promise<CompanyIndexEntry[]> {
   const companies = await payload.find({
     collection: 'companies',
@@ -510,24 +546,63 @@ async function loadCompanyIndex(payload: Payload): Promise<CompanyIndexEntry[]> 
 
   const index: CompanyIndexEntry[] = []
   for (const company of companies.docs) {
-    const host = toHost(company.website)
-    if (host) index.push({ id: String(company.id), name: String(company.name), host })
+    const id = String(company.id)
+    const name = String(company.name)
+    const hosts = new Set<string>()
+
+    const corporate = toHost(company.website)
+    if (corporate) hosts.add(corporate)
+    for (const entry of company.productDomains ?? []) {
+      const host = toHost(entry.domain)
+      if (host) hosts.add(host)
+    }
+
+    for (const host of hosts) index.push({ id, name, host })
   }
   return index
 }
 
+type CompanyMatch = { entry?: CompanyIndexEntry; tied?: string[] }
+
 /**
  * Empresa que correspon a un domini filtrat.
  *
- * Si més d'una fitxa hi encaixa (els grups solen compartir lloc web: Meta i
- * Meta Platforms Ireland apunten al mateix), guanya la coincidència exacta i,
- * si no n'hi ha, la primera per ordre alfabètic. La decisió fina és editorial i
- * un cop presa ja no la torna a tocar ningú.
+ * Criteri de desempat, en aquest ordre: guanya la coincidència més forta
+ * (idèntica abans que subdomini, i subdomini abans que domini pare) i, a
+ * igualtat de força, el domini d'empresa més llarg, que és el més concret.
+ *
+ * Si després d'això encara empaten dues empreses diferents —passa amb els
+ * grups que tenen societat i filial apuntant al mateix domini, com ByteDance i
+ * TikTok Technology Limited— la filtració es deixa sense lligar. Endevinar-ho
+ * escriuria una atribució falsa amb aparença de dada verificada, i entre les
+ * dues fitxes l'única que pot decidir és una persona.
  */
-function matchCompany(domain: string | null, index: CompanyIndexEntry[]): CompanyIndexEntry | undefined {
-  if (!domain) return undefined
-  const candidates = index.filter((entry) => isSameSite(domain, entry.host))
-  return candidates.find((entry) => entry.host === domain) ?? candidates[0]
+function matchCompany(domain: string | null, index: CompanyIndexEntry[]): CompanyMatch {
+  if (!domain) return {}
+
+  let best = MATCH_NONE
+  let bestLength = 0
+  let winners: CompanyIndexEntry[] = []
+
+  for (const entry of index) {
+    const strength = matchStrength(domain, entry.host)
+    if (strength === MATCH_NONE) continue
+
+    if (strength > best || (strength === best && entry.host.length > bestLength)) {
+      best = strength
+      bestLength = entry.host.length
+      winners = [entry]
+      continue
+    }
+
+    if (strength === best && entry.host.length === bestLength && !winners.some((w) => w.id === entry.id)) {
+      winners.push(entry)
+    }
+  }
+
+  if (winners.length === 1) return { entry: winners[0] }
+  if (winners.length > 1) return { tied: winners.map((entry) => entry.name) }
+  return {}
 }
 
 type Outcome = 'created' | 'updated' | 'unchanged'
@@ -560,8 +635,9 @@ async function importBreaches(): Promise<void> {
     .filter((slug) => !dataTypeIds.has(slug))
 
   const companyIndex = await loadCompanyIndex(payload)
+  const companiesWithDomain = new Set(companyIndex.map((entry) => entry.id)).size
   console.log(
-    `  ·  ${dataTypeIds.size} tipus de dada i ${companyIndex.length} empreses amb domini al projecte`,
+    `  ·  ${dataTypeIds.size} tipus de dada i ${companyIndex.length} dominis de ${companiesWithDomain} empreses al projecte`,
   )
 
   const existingDocs = await payload.find({
@@ -579,6 +655,7 @@ async function importBreaches(): Promise<void> {
   const unmappedCounts = new Map<string, number>()
   const unknownClasses = new Set<string>()
   const linked: string[] = []
+  const tiedLinks: string[] = []
   const failures: string[] = []
 
   const importOne = async (breach: HibpBreach): Promise<void> => {
@@ -621,11 +698,11 @@ async function importBreaches(): Promise<void> {
     const previousSource = (existing?.companyLinkSource as 'domain' | 'editorial' | null) ?? null
     const protectedLink = previousSource === 'editorial' || (previousCompany !== null && previousSource === null)
 
-    const match = protectedLink ? undefined : matchCompany(domain, companyIndex)
-    const company = protectedLink ? previousCompany : (match?.id ?? null)
+    const match = protectedLink ? {} : matchCompany(domain, companyIndex)
+    const company = protectedLink ? previousCompany : (match.entry?.id ?? null)
     const companyLinkSource: 'domain' | 'editorial' | null = protectedLink
       ? previousSource
-      : match
+      : match.entry
         ? 'domain'
         : null
 
@@ -653,7 +730,8 @@ async function importBreaches(): Promise<void> {
       companyLinkSource,
     }
 
-    if (match && !protectedLink) linked.push(`${data.title} (${domain}) → ${match.name}`)
+    if (match.entry) linked.push(`${data.title} (${domain}) → ${match.entry.name}`)
+    if (match.tied) tiedLinks.push(`${data.title} (${domain}) → ${match.tied.join(' / ')}`)
 
     if (!existing) {
       await payload.create({
@@ -704,6 +782,13 @@ async function importBreaches(): Promise<void> {
   console.log(`\n🔗 Filtracions lligades a una empresa del directori: ${linked.length}`)
   for (const line of linked.slice(0, 30)) console.log(`    ·  ${line}`)
   if (linked.length > 30) console.log(`    ·  … i ${linked.length - 30} més`)
+
+  if (tiedLinks.length) {
+    console.log(
+      `\n🤷 Filtracions amb més d'una empresa igual de possible, deixades sense lligar: ${tiedLinks.length}`,
+    )
+    for (const line of tiedLinks) console.log(`    ·  ${line}`)
+  }
 
   const unmappedSorted = [...unmappedCounts.entries()].sort(
     (a, b) => b[1] - a[1] || a[0].localeCompare(b[0]),
