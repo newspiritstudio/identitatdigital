@@ -1,0 +1,272 @@
+/*
+ * Estils propis de l'eina de contrasenyes.
+ *
+ * El full global (`styles.css`) no es toca. Aquí només hi ha el que la resta del
+ * lloc no necessita: una caixa monoespaiada per ensenyar la contrasenya, botons
+ * i controls de formulari (que el full global no estilitza), i una barra de
+ * força que MAI no va sola: al costat hi ha sempre l'etiqueta escrita i els
+ * bits, perquè el color no és informació per a qui no el veu i una amplada no és
+ * informació per a un lector de pantalla.
+ */
+
+.tool {
+  margin: 1rem 0 2rem;
+}
+
+/* ───────────────────────────── controls ──────────────────────────────────── */
+
+.controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: 0.75rem 1.25rem;
+  margin: 0 0 1rem;
+  border: 0;
+  padding: 0;
+}
+
+.controls legend {
+  font-weight: 600;
+  padding: 0;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: 0.9rem;
+}
+
+.field > span {
+  color: var(--muted);
+}
+
+.field input[type='number'],
+.field select,
+.field input[type='text'],
+.field input[type='password'] {
+  font: inherit;
+  padding: 0.3rem 0.4rem;
+  border: 1px solid var(--line);
+  border-radius: 0.2rem;
+  background: var(--bg);
+  color: var(--text);
+  min-width: 0;
+}
+
+.range {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.range input[type='range'] {
+  flex: 1;
+  min-width: 6rem;
+}
+
+.rangeValue {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  min-width: 2.5ch;
+  text-align: right;
+}
+
+.checks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.check {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+/* ───────────────────────────── botons ────────────────────────────────────── */
+
+.button,
+.buttonPrimary {
+  font: inherit;
+  cursor: pointer;
+  padding: 0.35rem 0.8rem;
+  border-radius: 0.2rem;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  color: var(--text);
+}
+
+.buttonPrimary {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #fff;
+}
+
+.button:hover,
+.buttonPrimary:hover {
+  filter: brightness(0.96);
+}
+
+.button:disabled,
+.buttonPrimary:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+/* Focus sempre visible, i prou gruixut per veure'l sobre el botó blau. */
+.button:focus-visible,
+.buttonPrimary:focus-visible,
+.tool input:focus-visible,
+.tool select:focus-visible,
+.tool a:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin-top: 0.6rem;
+}
+
+/* ───────────────────────── la contrasenya ────────────────────────────────── */
+
+.secret {
+  display: block;
+}
+
+.value {
+  display: block;
+  font-family: ui-monospace, 'SF Mono', 'Cascadia Mono', Menlo, Consolas, monospace;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  word-break: break-all;
+  overflow-wrap: anywhere;
+  padding: 0.6rem 0.7rem;
+  border: 1px solid var(--line);
+  background: #fafafa;
+  user-select: all;
+}
+
+.valueEmpty {
+  color: var(--muted);
+  font-style: italic;
+  font-size: 1rem;
+  letter-spacing: normal;
+}
+
+.copyState {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* ─────────────────────────────── força ───────────────────────────────────── */
+
+.strength {
+  margin: 0.75rem 0 0;
+}
+
+.bits {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+}
+
+.meter {
+  height: 0.4rem;
+  margin: 0.35rem 0;
+  background: #ececec;
+  border-radius: 0.2rem;
+  overflow: hidden;
+}
+
+.meterFill {
+  display: block;
+  height: 100%;
+  background: var(--mid);
+}
+
+.meterFillBad {
+  background: var(--bad);
+}
+
+.meterFillGood {
+  background: var(--good);
+}
+
+.scenarios {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+}
+
+.scenarios th,
+.scenarios td {
+  padding: 0.35rem 0.5rem;
+}
+
+.scenarios td:nth-child(2) {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.assumption {
+  color: var(--muted);
+  font-size: 0.8rem;
+  display: block;
+  margin-top: 0.15rem;
+}
+
+/* ───────────────────────────── resultats ─────────────────────────────────── */
+
+.result {
+  margin-top: 0.75rem;
+  padding: 0.6rem 0.7rem;
+  border: 1px solid var(--line);
+  border-left-width: 4px;
+}
+
+.resultAlert {
+  border-left-color: var(--bad);
+}
+
+.resultOk {
+  border-left-color: var(--good);
+}
+
+.resultUnknown {
+  border-left-color: var(--mid);
+}
+
+.result p {
+  margin: 0 0 0.4rem;
+}
+
+.result p:last-child {
+  margin-bottom: 0;
+}
+
+.count {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+}
+
+.note {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+/* Només per a lectors de pantalla: la contrasenya lletrejada caràcter a caràcter. */
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
