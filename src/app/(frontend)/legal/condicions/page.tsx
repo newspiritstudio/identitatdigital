@@ -19,8 +19,8 @@ export default function TermsPage() {
       <DocMeta version="1.0" updated="12 de setembre de 2026" />
 
       <p className="lede">
-        Les regles del joc d’aquest lloc. Són curtes perquè aquí no hi ha res a comprar, cap compte a
-        obrir i cap dada teva a gestionar. El que sí que hi ha són tres eines que toquen coses
+        Les regles del joc d’aquest lloc. Són curtes perquè aquí no hi ha res a comprar, cap compte
+        a obrir i cap dada teva a gestionar. El que sí que hi ha són tres eines que toquen coses
         delicades, i d’aquestes en parlem amb detall.
       </p>
 
@@ -46,8 +46,8 @@ export default function TermsPage() {
 
       <h2>2. Accés</h2>
       <p>
-        L’accés és lliure i gratuït. No cal registrar-s’hi, no s’hi pot crear cap compte i no
-        t’hi demanem cap dada. No cal instal·lar res ni acceptar res per veure el contingut.
+        L’accés és lliure i gratuït. No cal registrar-s’hi, no s’hi pot crear cap compte i no t’hi
+        demanem cap dada. No cal instal·lar res ni acceptar res per veure el contingut.
       </p>
       <p>
         Ens reservem el dret de modificar, suspendre o retirar qualsevol part del lloc, incloses les
@@ -58,17 +58,17 @@ export default function TermsPage() {
       <h2>3. Naturalesa del contingut</h2>
       <p>
         Identitat.digital documenta el comportament d’aplicacions i empreses en matèria de
-        privadesa, seguretat i control de les dades. Cada afirmació porta el seu estat, el seu nivell
-        d’evidència, el seu detall, la data de verificació i les fonts. Les puntuacions es calculen
-        amb una <Link href="/metodologia">metodologia publicada</Link> i cada xifra desa el seu
-        desglossament complet.
+        privadesa, seguretat i control de les dades. Cada afirmació porta el seu estat, el seu
+        nivell d’evidència, el seu detall, la data de verificació i les fonts. Les puntuacions es
+        calculen amb una <Link href="/metodologia">metodologia publicada</Link> i cada xifra desa el
+        seu desglossament complet.
       </p>
       <Avis>
         <p>
           <strong>El que aquest lloc no és.</strong> No és assessorament jurídic, ni tècnic, ni de
           seguretat. No és una certificació, ni un segell, ni una auditoria. No és un dictamen sobre
-          si una empresa compleix o incompleix la normativa: això només ho pot declarar una autoritat
-          de control o un tribunal.
+          si una empresa compleix o incompleix la normativa: això només ho pot declarar una
+          autoritat de control o un tribunal.
         </p>
         <p>
           Les puntuacions són una <strong>valoració editorial</strong> construïda sobre fets
@@ -78,10 +78,10 @@ export default function TermsPage() {
         </p>
       </Avis>
       <p>
-        El contingut és correcte fins on hem pogut verificar-lo en la data indicada a cada fitxa. Les
-        empreses canvien les seves polítiques sovint i sense avisar. Una fitxa pot quedar desfasada
-        entre dues revisions. Quan passa, la corregim tan aviat com ho sabem, segons el que diu la{' '}
-        <Link href="/legal/politica-editorial">política editorial</Link>.
+        El contingut és correcte fins on hem pogut verificar-lo en la data indicada a cada fitxa.
+        Les empreses canvien les seves polítiques sovint i sense avisar. Una fitxa pot quedar
+        desfasada entre dues revisions. Quan passa, la corregim tan aviat com ho sabem, segons el
+        que diu la <Link href="/legal/politica-editorial">política editorial</Link>.
       </p>
 
       <h2>4. Les eines</h2>
@@ -94,9 +94,9 @@ export default function TermsPage() {
 
       <h3>4.1. Generador de contrasenyes i frases de pas</h3>
       <p>
-        Genera contrasenyes aleatòries i frases de pas al teu dispositiu, amb el generador de nombres
-        aleatoris criptogràficament segur del navegador. Ni la contrasenya ni cap dada derivada
-        s’envien enlloc, no es desen i no les podem recuperar.
+        Genera contrasenyes aleatòries i frases de pas al teu dispositiu, amb el generador de
+        nombres aleatoris criptogràficament segur del navegador. Ni la contrasenya ni cap dada
+        derivada s’envien enlloc, no es desen i no les podem recuperar.
       </p>
       <Avis>
         <p>
@@ -106,18 +106,23 @@ export default function TermsPage() {
         </p>
         <ul>
           <li>
-            <strong>La qualitat de l’aleatorietat depèn del teu navegador i del teu sistema
-            operatiu</strong>, no de nosaltres. No podem garantir el comportament d’un navegador
-            desactualitzat, modificat o compromès.
+            <strong>
+              La qualitat de l’aleatorietat depèn del teu navegador i del teu sistema operatiu
+            </strong>
+            , no de nosaltres. No podem garantir el comportament d’un navegador desactualitzat,
+            modificat o compromès.
           </li>
           <li>
             <strong>No desem res.</strong> Si perds una contrasenya generada aquí, no te la podem
             tornar. Ningú no pot. Desa-la en un gestor de contrasenyes abans de tancar la pestanya.
           </li>
           <li>
-            <strong>No facis servir l’eina en un dispositiu compartit, públic o que sospitis que pot
-            estar compromès.</strong> Cap generació al navegador no protegeix d’un dispositiu que ja
-            està sota control d’altri.
+            <strong>
+              No facis servir l’eina en un dispositiu compartit, públic o que sospitis que pot estar
+              compromès.
+            </strong>{' '}
+            Cap generació al navegador no protegeix d’un dispositiu que ja està sota control
+            d’altri.
           </li>
           <li>
             <strong>L’entropia no ho és tot.</strong> Una contrasenya forta reutilitzada en deu
@@ -135,8 +140,8 @@ export default function TermsPage() {
       <h3>4.2. Comprovació de contrasenyes filtrades</h3>
       <p>
         Aquesta eina et diu si una contrasenya ha aparegut en filtracions de dades conegudes. Ho fa
-        per k-anonimat: el teu navegador calcula el resum SHA-1 de la contrasenya i n’envia només els
-        cinc primers caràcters hexadecimals a una ruta del nostre servidor, que els reenvia a
+        per k-anonimat: el teu navegador calcula el resum SHA-1 de la contrasenya i n’envia només
+        els cinc primers caràcters hexadecimals a una ruta del nostre servidor, que els reenvia a
         l’API de Have I Been Pwned. La contrasenya i el resum sencer no surten mai del teu
         dispositiu. El procediment sencer, pas a pas, és a la{' '}
         <Link href="/legal/privadesa">política de privadesa</Link>.
@@ -194,8 +199,8 @@ export default function TermsPage() {
 
       <p>
         La calculadora d’exposició <strong>recorda la teva tria en aquest navegador</strong>, amb
-        emmagatzematge local i sense enviar-la enlloc, perquè no l’hagis de refer cada vegada.
-        Tens un botó per esborrar-la quan vulguis. El comparador, en canvi, desa la selecció{' '}
+        emmagatzematge local i sense enviar-la enlloc, perquè no l’hagis de refer cada vegada. Tens
+        un botó per esborrar-la quan vulguis. El comparador, en canvi, desa la selecció{' '}
         <strong>a l’adreça de la pàgina</strong>, de manera que la pots copiar i compartir; això vol
         dir que qui rebi l’enllaç en veurà la selecció, que és precisament el que es vol.
       </p>
@@ -210,8 +215,8 @@ export default function TermsPage() {
       <ul>
         <li>Fer servir el lloc per a finalitats il·lícites o contràries a la bona fe.</li>
         <li>
-          Intentar accedir a àrees restringides, al panell d’administració o a dades no publicades, o
-          provar de vulnerar les mesures de seguretat.
+          Intentar accedir a àrees restringides, al panell d’administració o a dades no publicades,
+          o provar de vulnerar les mesures de seguretat.
         </li>
         <li>
           Introduir codi maliciós, o fer accions que danyin, sobrecarreguin o degradin el
@@ -219,8 +224,8 @@ export default function TermsPage() {
         </li>
         <li>
           Fer extraccions automatitzades massives amb una intensitat que perjudiqui el servei per a
-          la resta de persones. La llicència et permet reutilitzar el contingut; el que et demanem és
-          que ho facis a un ritme raonable. Si necessites el conjunt sencer, escriu-nos i te’l
+          la resta de persones. La llicència et permet reutilitzar el contingut; el que et demanem
+          és que ho facis a un ritme raonable. Si necessites el conjunt sencer, escriu-nos i te’l
           facilitarem: és més barat per a tots dos.{' '}
           <Pendent>publicar una exportació o una API oberta del conjunt de dades</Pendent>
         </li>
@@ -237,10 +242,10 @@ export default function TermsPage() {
       <h2>6. Enllaços i contingut de tercers</h2>
       <p>
         El lloc enllaça les seves fonts de manera sistemàtica. Aquests llocs són de tercers i no els
-        controlem. No responem del seu contingut, de la seva disponibilitat ni de les seves pràctiques
-        de privadesa. D’acord amb l’article 17 de la Llei 34/2002, la nostra responsabilitat només
-        naixeria si coneguéssim efectivament la il·licitud d’un contingut enllaçat i no actuéssim amb
-        diligència per retirar-lo.
+        controlem. No responem del seu contingut, de la seva disponibilitat ni de les seves
+        pràctiques de privadesa. D’acord amb l’article 17 de la Llei 34/2002, la nostra
+        responsabilitat només naixeria si coneguéssim efectivament la il·licitud d’un contingut
+        enllaçat i no actuéssim amb diligència per retirar-lo.
       </p>
       <p>
         Si veus un enllaç trencat, desviat o a un contingut il·lícit, digues-nos-ho a{' '}
@@ -268,34 +273,33 @@ export default function TermsPage() {
       </ul>
       <p>
         <strong>Aquestes limitacions no s’apliquen</strong> als casos de dol o culpa greu, ni als
-        danys a la vida, la integritat física o la salut, ni a la responsabilitat que la normativa de
-        persones consumidores declari indisponible. Si ets una persona consumidora, conserves íntegres
-        els drets que et reconeix el text refós de la Llei general per a la defensa de les persones
-        consumidores i usuàries, i cap clàusula d’aquest document no te’ls pot retallar.
+        danys a la vida, la integritat física o la salut, ni a la responsabilitat que la normativa
+        de persones consumidores declari indisponible. Si ets una persona consumidora, conserves
+        íntegres els drets que et reconeix el text refós de la Llei general per a la defensa de les
+        persones consumidores i usuàries, i cap clàusula d’aquest document no te’ls pot retallar.
       </p>
 
       <h2>8. Errors i correccions</h2>
       <p>
         Si trobes una dada equivocada, una font caiguda o una interpretació que et sembla injusta,
         escriu-nos. El procediment de correcció, els terminis i el dret de rèplica de les empreses
-        documentades són a la{' '}
-        <Link href="/legal/politica-editorial">política editorial</Link>. Si has trobat una barrera
-        d’accessibilitat, el camí és a la{' '}
+        documentades són a la <Link href="/legal/politica-editorial">política editorial</Link>. Si
+        has trobat una barrera d’accessibilitat, el camí és a la{' '}
         <Link href="/legal/accessibilitat">declaració d’accessibilitat</Link>.
       </p>
       <p>
         Si has descobert una vulnerabilitat de seguretat en aquest lloc, escriu a{' '}
-        <a href="mailto:admin@newspirit.studio">admin@newspirit.studio</a> descrivint-la i dona’ns un
-        temps raonable per corregir-la abans de fer-la pública. No emprendrem accions contra qui
+        <a href="mailto:admin@newspirit.studio">admin@newspirit.studio</a> descrivint-la i dona’ns
+        un temps raonable per corregir-la abans de fer-la pública. No emprendrem accions contra qui
         investigui de bona fe, sense degradar el servei, sense accedir a dades de tercers i sense
         divulgar res abans d’hora.
       </p>
 
       <h2>9. Modificació d’aquestes condicions</h2>
       <p>
-        Podem actualitzar aquestes condicions quan canviï el lloc, les eines o la normativa. La versió
-        vigent és sempre aquesta, amb el número i la data al capdamunt. Els canvis no tenen efecte
-        retroactiu sobre els usos ja fets del contingut a l’empara de la llicència.
+        Podem actualitzar aquestes condicions quan canviï el lloc, les eines o la normativa. La
+        versió vigent és sempre aquesta, amb el número i la data al capdamunt. Els canvis no tenen
+        efecte retroactiu sobre els usos ja fets del contingut a l’empara de la llicència.
       </p>
 
       <h2>10. Llei aplicable i jurisdicció</h2>
@@ -305,9 +309,9 @@ export default function TermsPage() {
         tribunals de Sabadell.
       </p>
       <p>
-        Si una clàusula d’aquest document resulta nul·la, la resta continua sent vàlida i la clàusula
-        afectada s’ha d’interpretar de la manera que més s’acosti a la seva finalitat dins del que
-        permeti la llei.
+        Si una clàusula d’aquest document resulta nul·la, la resta continua sent vàlida i la
+        clàusula afectada s’ha d’interpretar de la manera que més s’acosti a la seva finalitat dins
+        del que permeti la llei.
       </p>
     </>
   )

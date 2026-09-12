@@ -138,3 +138,10 @@
   border-top: 1px solid var(--line);
   font-size: 0.9rem;
 }
+
+/* Contorn de focus del contenidor desplaçable: hi entra el focus amb teclat i
+ * s'ha de veure (WCAG 2.4.7). */
+.scroller:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}

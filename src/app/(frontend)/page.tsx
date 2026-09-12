@@ -23,30 +23,40 @@ export default async function HomePage() {
       </p>
 
       <h2>Estat de la base de dades</h2>
-      <table>
-        <tbody>
-          <tr>
-            <th>Fitxes d’aplicacions</th>
-            <td>{apps.totalDocs}</td>
-          </tr>
-          <tr>
-            <th>Empreses i grups</th>
-            <td>{companies.totalDocs}</td>
-          </tr>
-          <tr>
-            <th>Fonts documentals</th>
-            <td>{sources.totalDocs}</td>
-          </tr>
-          <tr>
-            <th>Incidents registrats</th>
-            <td>{incidents.totalDocs}</td>
-          </tr>
-          <tr>
-            <th>Filtracions al catàleg</th>
-            <td>{breaches.totalDocs.toLocaleString('ca-ES')}</td>
-          </tr>
-        </tbody>
-      </table>
+      <div
+        className="scroller"
+        role="region"
+        tabIndex={0}
+        aria-label="Recompte de documents publicats a cada col·lecció"
+      >
+        <table>
+          <caption className="visually-hidden">
+            Recompte de documents publicats a cada col·lecció
+          </caption>
+          <tbody>
+            <tr>
+              <th scope="row">Fitxes d’aplicacions</th>
+              <td>{apps.totalDocs}</td>
+            </tr>
+            <tr>
+              <th scope="row">Empreses i grups</th>
+              <td>{companies.totalDocs}</td>
+            </tr>
+            <tr>
+              <th scope="row">Fonts documentals</th>
+              <td>{sources.totalDocs}</td>
+            </tr>
+            <tr>
+              <th scope="row">Incidents registrats</th>
+              <td>{incidents.totalDocs}</td>
+            </tr>
+            <tr>
+              <th scope="row">Filtracions al catàleg</th>
+              <td>{breaches.totalDocs.toLocaleString('ca-ES')}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
       <h2>Per on començar</h2>
       <ul>

@@ -22,8 +22,9 @@ export default function LegalNoticePage() {
       </p>
 
       <h2>Titular del lloc</h2>
-      <TableWrap>
+      <TableWrap label="Dades identificatives del titular del lloc">
         <table>
+          <caption className="visually-hidden">Dades identificatives del titular del lloc</caption>
           <tbody>
             <tr>
               <th scope="row">Denominació social</th>
@@ -93,8 +94,8 @@ export default function LegalNoticePage() {
       <p>
         New Spirit Studio S.L. té subscrita una pòlissa de responsabilitat civil professional amb
         Zurich, número 00000165177759, que inclou una garantia específica de protecció de dades amb
-        un límit de 100.000 euros. Ho fem constar aquí perquè una declaració de responsabilitat sense
-        cobertura darrere val poc.
+        un límit de 100.000 euros. Ho fem constar aquí perquè una declaració de responsabilitat
+        sense cobertura darrere val poc.
       </p>
 
       <h3>Activitat i professions regulades</h3>
@@ -102,8 +103,8 @@ export default function LegalNoticePage() {
         L’activitat de New Spirit Studio S.L. és el desenvolupament de programari i de serveis
         digitals. No és una professió regulada, de manera que no hi ha col·legi professional, ni
         número de col·legiat, ni títol acadèmic homologat que calgui declarar en virtut de l’article
-        10.1.f de la Llei 34/2002. Aquest lloc no presta serveis d’assessorament jurídic ni cap altre
-        servei subjecte a col·legiació.
+        10.1.f de la Llei 34/2002. Aquest lloc no presta serveis d’assessorament jurídic ni cap
+        altre servei subjecte a col·legiació.
       </p>
 
       <h2>Què és Identitat.digital</h2>
@@ -115,13 +116,14 @@ export default function LegalNoticePage() {
       </p>
       <p>
         El projecte forma part de l’activitat pròpia de l’estudi i n’és propietat. No és una
-        associació, ni una fundació, ni un organisme públic, ni té cap mena de reconeixement oficial.
-        És una publicació editorial amb una metodologia declarada i amb totes les fonts a la vista.
+        associació, ni una fundació, ni un organisme públic, ni té cap mena de reconeixement
+        oficial. És una publicació editorial amb una metodologia declarada i amb totes les fonts a
+        la vista.
       </p>
       <p>
-        L’accés al lloc és lliure i gratuït. No cal registrar-s’hi, no s’hi pot obrir cap compte i no
-        s’hi contracta res. Les eines de la secció <Link href="/eines">Eines</Link> funcionen dins del
-        teu navegador i són igualment gratuïtes.
+        L’accés al lloc és lliure i gratuït. No cal registrar-s’hi, no s’hi pot obrir cap compte i
+        no s’hi contracta res. Les eines de la secció <Link href="/eines">Eines</Link> funcionen
+        dins del teu navegador i són igualment gratuïtes.
       </p>
 
       <h2>Aquest lloc no és assessorament</h2>
@@ -148,7 +150,8 @@ export default function LegalNoticePage() {
       <p>
         El contingut editorial del lloc és obra de New Spirit Studio S.L. i està disponible sota una
         llicència oberta: les condicions exactes, i la llista precisa dels materials de tercers que
-        en queden fora, són a la pàgina de <Link href="/legal/llicencia">llicència del contingut</Link>.
+        en queden fora, són a la pàgina de{' '}
+        <Link href="/legal/llicencia">llicència del contingut</Link>.
       </p>
       <p>
         Els noms comercials, les marques i els logotips de les aplicacions i de les empreses
@@ -172,8 +175,8 @@ export default function LegalNoticePage() {
       </p>
       <p>
         Pots enllaçar aquest lloc lliurement. L’única cosa que et demanem és que l’enllaç no doni a
-        entendre una relació, una aprovació o una col·laboració que no existeix, i que no reprodueixi
-        el lloc dins d’un marc que n’amagui l’origen.
+        entendre una relació, una aprovació o una col·laboració que no existeix, i que no
+        reprodueixi el lloc dins d’un marc que n’amagui l’origen.
       </p>
 
       <h2>Disponibilitat del servei</h2>
@@ -181,16 +184,16 @@ export default function LegalNoticePage() {
         Fem el possible perquè el lloc funcioni sempre, però no garantim la disponibilitat
         ininterrompuda ni l’absència d’errors. Podem modificar, suspendre o retirar qualsevol part
         del lloc, inclosos el contingut i les eines, sense avís previ. Les interrupcions per
-        manteniment, per problemes del proveïdor d’allotjament o per causes de força major no generen
-        cap dret a indemnització.
+        manteniment, per problemes del proveïdor d’allotjament o per causes de força major no
+        generen cap dret a indemnització.
       </p>
 
       <h2>Ús acceptable</h2>
       <p>
         No es pot fer servir aquest lloc per a finalitats il·lícites, ni per intentar accedir a les
         seves parts restringides, ni per interferir en el seu funcionament, ni per fer-ne un ús
-        automatitzat que en degradi el servei per a la resta. Les condicions completes, i el que
-        sí que pots fer amb el contingut, són a les{' '}
+        automatitzat que en degradi el servei per a la resta. Les condicions completes, i el que sí
+        que pots fer amb el contingut, són a les{' '}
         <Link href="/legal/condicions">condicions d’ús</Link> i a la{' '}
         <Link href="/legal/llicencia">llicència</Link>.
       </p>
@@ -199,14 +202,14 @@ export default function LegalNoticePage() {
       <p>
         El tractament de dades personals està descrit sencer a la{' '}
         <Link href="/legal/privadesa">política de privadesa</Link>. El resum és que navegar per
-        aquest lloc no requereix cap dada teva: no hi ha comptes, ni formularis, ni galetes per a qui
-        visita, ni analítica, ni rastrejadors.
+        aquest lloc no requereix cap dada teva: no hi ha comptes, ni formularis, ni galetes per a
+        qui visita, ni analítica, ni rastrejadors.
       </p>
 
       <h2>Llei aplicable i jurisdicció</h2>
       <p>
-        Aquest avís legal i la resta de documents legals del lloc es regeixen pel dret espanyol i pel
-        dret de la Unió Europea que hi sigui aplicable.
+        Aquest avís legal i la resta de documents legals del lloc es regeixen pel dret espanyol i
+        pel dret de la Unió Europea que hi sigui aplicable.
       </p>
       <p>
         Si ets una persona consumidora, qualsevol controvèrsia se sotmet als jutjats i tribunals del
@@ -217,17 +220,17 @@ export default function LegalNoticePage() {
       <p>
         Aquest lloc no ofereix cap contractació en línia, de manera que no hi ha cap contracte de
         consum que pugui donar lloc a una reclamació de consum derivada d’aquest lloc. La plataforma
-        europea de resolució de litigis en línia va deixar d’estar operativa el juliol de 2025 i, per
-        tant, no n’enllacem cap adreça. Si tens una queixa, el camí directe és escriure’ns a{' '}
+        europea de resolució de litigis en línia va deixar d’estar operativa el juliol de 2025 i,
+        per tant, no n’enllacem cap adreça. Si tens una queixa, el camí directe és escriure’ns a{' '}
         <a href="mailto:admin@newspirit.studio">admin@newspirit.studio</a>.
       </p>
 
       <h2>Modificacions</h2>
       <p>
         Podem actualitzar aquest avís legal quan canviïn les dades del titular, l’arquitectura del
-        lloc o la normativa aplicable. Cada versió porta el número i la data al capdamunt. Els canvis
-        rellevants es fan constar a l’historial del repositori públic del projecte, de manera que
-        sempre es pot veure què deia abans i què diu ara.
+        lloc o la normativa aplicable. Cada versió porta el número i la data al capdamunt. Els
+        canvis rellevants es fan constar a l’historial del repositori públic del projecte, de manera
+        que sempre es pot veure què deia abans i què diu ara.
       </p>
     </>
   )

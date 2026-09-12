@@ -1,5 +1,21 @@
-.next
+# Dependències i sortides de compilació
 node_modules
-pnpm-lock.yaml
+.next
+dist
+
+# Habilitats de tercers, copiades tal com les publica qui les manté. Reformatar-les
+# faria impossible veure què hi canvia quan s'actualitzen.
+.claude/skills
+
+# Fitxers generats per un script, que ja porten el format que hi posa el generador.
+src/lib/passwords/wordlist.ca.ts
 src/payload-types.ts
 src/app/(payload)/admin/importMap.js
+docs/arquitectura.html
+docs/arquitectura.architecture.json
+
+# Blocs de contingut on el salt de línia és significatiu.
+*.md
+LICENSE
+LICENSE-CONTENT
+NOTICE

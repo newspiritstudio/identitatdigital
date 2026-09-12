@@ -39,6 +39,7 @@ export default function PasswordsPage() {
         La comprovació de filtracions consulta l’índex de{' '}
         <a href="https://haveibeenpwned.com/Passwords" rel="noopener noreferrer" target="_blank">
           Have I Been Pwned
+          <span className="visually-hidden"> (s’obre en una pestanya nova)</span>
         </a>
         , que recull més de vuit-cents milions de contrasenyes aparegudes en filtracions. La manera
         òbvia de consultar-lo seria enviar-hi la contrasenya, i és exactament el que no farem. El
@@ -106,6 +107,7 @@ export default function PasswordsPage() {
           <span className="badge">Filtracions</span>{' '}
           <a href="https://haveibeenpwned.com/Passwords" rel="noopener noreferrer" target="_blank">
             Have I Been Pwned — Pwned Passwords
+            <span className="visually-hidden"> (s’obre en una pestanya nova)</span>
           </a>
           , de Troy Hunt. L’API de consulta per rang és pública i gratuïta. Nosaltres només hi fem
           de pont.
@@ -116,6 +118,7 @@ export default function PasswordsPage() {
           generar el {WORDLIST_META.generatedAt} a partir de{' '}
           <a href={WORDLIST_META.source} rel="noopener noreferrer" target="_blank">
             aquesta font
+            <span className="visually-hidden"> (s’obre en una pestanya nova)</span>
           </a>
           . <span className="meta">{WORDLIST_META.licence}</span>
         </li>

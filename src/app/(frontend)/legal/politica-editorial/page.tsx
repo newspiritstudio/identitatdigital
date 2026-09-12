@@ -20,10 +20,10 @@ export default function EditorialPolicyPage() {
       <DocMeta version="1.0" updated="12 de setembre de 2026" />
 
       <p className="lede">
-        Aquest lloc publica afirmacions sobre el comportament d’empreses identificades pel seu nom, i
-        els posa una nota. Això és una responsabilitat seriosa. Aquest document explica amb quin
-        mètode ho fem, com corregim quan ens equivoquem i com pot respondre una empresa que consideri
-        que ens hem equivocat.
+        Aquest lloc publica afirmacions sobre el comportament d’empreses identificades pel seu nom,
+        i els posa una nota. Això és una responsabilitat seriosa. Aquest document explica amb quin
+        mètode ho fem, com corregim quan ens equivoquem i com pot respondre una empresa que
+        consideri que ens hem equivocat.
       </p>
 
       <Resum>
@@ -39,19 +39,19 @@ export default function EditorialPolicyPage() {
 
       <h3>Cap afirmació important sense font</h3>
       <p>
-        Cada dada d’una fitxa porta el seu estat, el seu nivell d’evidència, el seu detall en català,
-        la data de verificació i els enllaços que la sostenen. Una afirmació sense font no es publica.
-        No és una aspiració: és una restricció del model de dades, i el camp de fonts hi és a totes
-        les afirmacions.
+        Cada dada d’una fitxa porta el seu estat, el seu nivell d’evidència, el seu detall en
+        català, la data de verificació i els enllaços que la sostenen. Una afirmació sense font no
+        es publica. No és una aspiració: és una restricció del model de dades, i el camp de fonts hi
+        és a totes les afirmacions.
       </p>
 
       <h3>Desconegut no vol dir dolent</h3>
       <p>
         El que no hem pogut documentar queda marcat com a desconegut, no com a negatiu, i no mou la
-        puntuació en cap direcció. El que baixa és el <strong>grau de confiança</strong> de l’anàlisi,
-        que es publica al costat de la nota. Així, una empresa que no documenta res no queda
-        artificialment castigada ni artificialment premiada: queda amb una anàlisi de confiança baixa,
-        que és exactament el que és.
+        puntuació en cap direcció. El que baixa és el <strong>grau de confiança</strong> de
+        l’anàlisi, que es publica al costat de la nota. Així, una empresa que no documenta res no
+        queda artificialment castigada ni artificialment premiada: queda amb una anàlisi de
+        confiança baixa, que és exactament el que és.
       </p>
 
       <h3>Tota puntuació és desmuntable</h3>
@@ -76,19 +76,22 @@ export default function EditorialPolicyPage() {
         aparèixer, per no aparèixer o per canviar una nota. Cap empresa documentada revisa la seva
         fitxa abans de publicar-se.{' '}
         <Pendent>
-          declarar el model de finançament del projecte i, si escau, qualsevol coincidència entre una
-          empresa documentada i un client de New Spirit Studio S.L., per fer explícit el conflicte
-          d’interès potencial
+          declarar el model de finançament del projecte i, si escau, qualsevol coincidència entre
+          una empresa documentada i un client de New Spirit Studio S.L., per fer explícit el
+          conflicte d’interès potencial
         </Pendent>
       </p>
 
       <h2>2. Jerarquia de l’evidència</h2>
       <p>
-        No totes les fonts valen igual. Cada afirmació porta declarat el nivell de la que la sosté, i
-        aquest nivell és visible al costat de l’afirmació:
+        No totes les fonts valen igual. Cada afirmació porta declarat el nivell de la que la sosté,
+        i aquest nivell és visible al costat de l’afirmació:
       </p>
-      <TableWrap>
+      <TableWrap label="Nivells de la jerarquia d’evidència, què és cadascun i com es fa servir">
         <table>
+          <caption className="visually-hidden">
+            Nivells de la jerarquia d’evidència, què és cadascun i com es fa servir
+          </caption>
           <thead>
             <tr>
               <th scope="col">Nivell</th>
@@ -133,8 +136,8 @@ export default function EditorialPolicyPage() {
               <td>Premsa</td>
               <td>Informacions periodístiques</td>
               <td>
-                Útil per situar i per arribar a la font primària. No sostenen sola una afirmació greu:
-                es busca sempre el document original.
+                Útil per situar i per arribar a la font primària. No sostenen sola una afirmació
+                greu: es busca sempre el document original.
               </td>
             </tr>
             <tr>
@@ -151,8 +154,8 @@ export default function EditorialPolicyPage() {
       <p>
         Les fonts es desen al catàleg amb el títol i l’idioma originals, l’editor, el tipus, la
         fiabilitat, la data de publicació i la data de consulta. El resum és en català; la citació
-        literal es conserva en l’idioma en què es va publicar, perquè traduir una citació és començar
-        a interpretar-la.
+        literal es conserva en l’idioma en què es va publicar, perquè traduir una citació és
+        començar a interpretar-la.
       </p>
 
       <h2>3. Com es fa una fitxa</h2>
@@ -193,29 +196,32 @@ export default function EditorialPolicyPage() {
       <h2>4. Revisió i caducitat</h2>
       <p>
         Les polítiques de privadesa canvien sovint i sense avisar. Una fitxa correcta avui pot ser
-        incorrecta d’aquí a tres mesos. Per això cada afirmació porta la data en què es va verificar i
-        per això les fitxes es revisen periòdicament.
+        incorrecta d’aquí a tres mesos. Per això cada afirmació porta la data en què es va verificar
+        i per això les fitxes es revisen periòdicament.
       </p>
       <p>
-        Quan una revisió detecta un canvi, s’actualitza l’afirmació, es recalcula la puntuació i queda
-        registrada la instantània anterior amb la versió de metodologia que la va produir. Es pot
-        veure, doncs, si una nota ha baixat perquè l’empresa ha empitjorat o perquè hem canviat la
-        manera de mesurar.
+        Quan una revisió detecta un canvi, s’actualitza l’afirmació, es recalcula la puntuació i
+        queda registrada la instantània anterior amb la versió de metodologia que la va produir. Es
+        pot veure, doncs, si una nota ha baixat perquè l’empresa ha empitjorat o perquè hem canviat
+        la manera de mesurar.
       </p>
       <p>
         <Pendent>
-          fixar i publicar la periodicitat de revisió de les fitxes, per exemple cada sis mesos per a
-          les fitxes de serveis massius i cada dotze per a la resta
+          fixar i publicar la periodicitat de revisió de les fitxes, per exemple cada sis mesos per
+          a les fitxes de serveis massius i cada dotze per a la resta
         </Pendent>
       </p>
 
       <h2>5. Correccions</h2>
       <p>
-        Ens equivocarem. El que determina la credibilitat d’una publicació no és no equivocar-se mai:
-        és què fa quan s’equivoca.
+        Ens equivocarem. El que determina la credibilitat d’una publicació no és no equivocar-se
+        mai: és què fa quan s’equivoca.
       </p>
-      <TableWrap>
+      <TableWrap label="Tipus de correcció, amb un exemple i el tractament que rep">
         <table>
+          <caption className="visually-hidden">
+            Tipus de correcció, amb un exemple i el tractament que rep
+          </caption>
           <thead>
             <tr>
               <th scope="col">Tipus</th>
@@ -236,16 +242,17 @@ export default function EditorialPolicyPage() {
                 interpretada
               </td>
               <td>
-                Es corregeix, es recalcula la puntuació si cal i es publica una <strong>nota de
-                correcció</strong> visible a la fitxa, amb la data i amb què deia abans.
+                Es corregeix, es recalcula la puntuació si cal i es publica una{' '}
+                <strong>nota de correcció</strong> visible a la fitxa, amb la data i amb què deia
+                abans.
               </td>
             </tr>
             <tr>
               <td>Informació desfasada</td>
               <td>L’empresa ha canviat la seva política i la fitxa encara reflecteix l’anterior</td>
               <td>
-                S’actualitza i es fa constar el canvi. La versió anterior queda a l’historial, perquè
-                saber què feia abans una empresa forma part de la informació.
+                S’actualitza i es fa constar el canvi. La versió anterior queda a l’historial,
+                perquè saber què feia abans una empresa forma part de la informació.
               </td>
             </tr>
             <tr>
@@ -261,10 +268,10 @@ export default function EditorialPolicyPage() {
       </TableWrap>
       <Avis>
         <p>
-          <strong>El compromís que més importa:</strong> una afirmació substantiva mai no es modifica
-          ni s’elimina en silenci. Si la canviem, es veu que l’hem canviat, quan i per què. Editar
-          discretament una afirmació desfavorable perquè algú s’ha queixat seria el fracàs complet
-          d’aquest projecte.
+          <strong>El compromís que més importa:</strong> una afirmació substantiva mai no es
+          modifica ni s’elimina en silenci. Si la canviem, es veu que l’hem canviat, quan i per què.
+          Editar discretament una afirmació desfavorable perquè algú s’ha queixat seria el fracàs
+          complet d’aquest projecte.
         </p>
       </Avis>
 
@@ -282,8 +289,8 @@ export default function EditorialPolicyPage() {
       <ul>
         <li>
           <strong>Quina afirmació concreta</strong> consideres inexacta, amb l’adreça de la fitxa.
-          Una queixa genèrica sobre el to o sobre la nota global no es pot processar; una discrepància
-          sobre un indicador concret, sí.
+          Una queixa genèrica sobre el to o sobre la nota global no es pot processar; una
+          discrepància sobre un indicador concret, sí.
         </li>
         <li>
           <strong>Què és inexacte i què seria exacte</strong>, formulat de manera que es pugui
@@ -299,8 +306,11 @@ export default function EditorialPolicyPage() {
       </ul>
 
       <h3>6.2. Què fem, i quan</h3>
-      <TableWrap>
+      <TableWrap label="Terminis de resposta a una rèplica d’una empresa documentada">
         <table>
+          <caption className="visually-hidden">
+            Terminis de resposta a una rèplica d’una empresa documentada
+          </caption>
           <tbody>
             <tr>
               <th scope="row">Acusament de recepció</th>
@@ -331,22 +341,22 @@ export default function EditorialPolicyPage() {
           es pot sostenir, i s’hi incorpora la teva posició identificada com a tal.
         </li>
         <li>
-          <strong>No estem d’acord.</strong> Mantenim l’afirmació i t’expliquem per què, amb les fonts
-          a la vista. En aquest cas, si vols, <strong>publiquem la teva posició al costat de la
-          fitxa</strong>, identificada com a resposta de l’empresa i sense editar-ne el contingut més
-          enllà del que exigeixi la llei.
+          <strong>No estem d’acord.</strong> Mantenim l’afirmació i t’expliquem per què, amb les
+          fonts a la vista. En aquest cas, si vols,{' '}
+          <strong>publiquem la teva posició al costat de la fitxa</strong>, identificada com a
+          resposta de l’empresa i sense editar-ne el contingut més enllà del que exigeixi la llei.
         </li>
       </ol>
       <p>
-        Aquesta tercera possibilitat és la important. Que no et donem la raó no vol dir que et deixem
-        sense veu: la teva versió queda publicada al costat de la nostra i que cadascú jutgi.
+        Aquesta tercera possibilitat és la important. Que no et donem la raó no vol dir que et
+        deixem sense veu: la teva versió queda publicada al costat de la nostra i que cadascú jutgi.
       </p>
 
       <h3>6.3. Què no fem</h3>
       <ul>
         <li>
-          <strong>No retirem contingut verificat perquè algú ho demani.</strong> Una reclamació sense
-          prova documental no mou res.
+          <strong>No retirem contingut verificat perquè algú ho demani.</strong> Una reclamació
+          sense prova documental no mou res.
         </li>
         <li>
           <strong>No acceptem condicions per replicar.</strong> No hi ha acords de confidencialitat,
@@ -364,46 +374,45 @@ export default function EditorialPolicyPage() {
       </ul>
 
       <h3>6.4. Fonament</h3>
-      <p>
-        Aquest procediment va més enllà del que exigeix la llei, i és deliberat.
-      </p>
+      <p>Aquest procediment va més enllà del que exigeix la llei, i és deliberat.</p>
       <p>
         La Llei orgànica 2/1984 regula el dret de rectificació sobre fets inexactes i perjudicials
-        difosos per mitjans de comunicació social, amb un termini de set dies naturals per exercir-lo
-        i l’obligació de publicar la rectificació en els tres dies següents. Sigui o no aquest lloc un
-        «mitjà de comunicació social» en el sentit d’aquella llei —una qüestió discutible per a una
-        base de dades editorial—, n’assumim l’estàndard i hi afegim terminis propis més clars.
+        difosos per mitjans de comunicació social, amb un termini de set dies naturals per
+        exercir-lo i l’obligació de publicar la rectificació en els tres dies següents. Sigui o no
+        aquest lloc un «mitjà de comunicació social» en el sentit d’aquella llei —una qüestió
+        discutible per a una base de dades editorial—, n’assumim l’estàndard i hi afegim terminis
+        propis més clars.
       </p>
       <p>
         Al darrere hi ha el conflicte clàssic entre la llibertat d’informació de l’article 20.1.d de
         la Constitució i el dret a l’honor de l’article 18.1, que la jurisprudència constitucional
         reconeix també, de manera limitada, a les persones jurídiques. La informació preval quan
         concorren tres condicions: <strong>interès públic</strong> —el tractament massiu de dades de
-        milions de persones ho és sens dubte—, <strong>veracitat</strong> —que no vol dir infal·libilitat,
-        sinó diligència raonable en la comprovació— i <strong>absència d’expressions vexatòries</strong>{' '}
-        innecessàries per a la informació.
+        milions de persones ho és sens dubte—, <strong>veracitat</strong> —que no vol dir
+        infal·libilitat, sinó diligència raonable en la comprovació— i{' '}
+        <strong>absència d’expressions vexatòries</strong> innecessàries per a la informació.
       </p>
       <p>
         El model de dades del projecte és, precisament, la prova documental d’aquesta diligència:
-        estat, nivell d’evidència, fonts i data a cada afirmació. Si mai cal acreditar-la davant d’un
-        tribunal, no caldrà reconstruir res.
+        estat, nivell d’evidència, fonts i data a cada afirmació. Si mai cal acreditar-la davant
+        d’un tribunal, no caldrà reconstruir res.
       </p>
       <p>
         Pel que fa a la Llei 3/1991 de competència deslleial: no competim amb les empreses
         documentades ni oferim productes alternatius, de manera que és dubtós que hi entrem. Tot i
         això, complim els seus requisits com a criteri de conducta. Les afirmacions són exactes,
         verdaderes i pertinents, que és el que exclou la denigració del seu article 9; i les
-        comparacions es fan entre serveis que cobreixen la mateixa necessitat, sobre característiques
-        objectives, verificables i representatives, i idèntiques per a tots, que és el que exigeix el
-        seu article 10.
+        comparacions es fan entre serveis que cobreixen la mateixa necessitat, sobre
+        característiques objectives, verificables i representatives, i idèntiques per a tots, que és
+        el que exigeix el seu article 10.
       </p>
 
       <h2>7. Com proposar una correcció si no ets l’empresa</h2>
       <p>
         Qualsevol persona pot assenyalar un error. Escriu a{' '}
-        <a href="mailto:admin@newspirit.studio">admin@newspirit.studio</a> amb l’adreça de la fitxa, la
-        frase concreta i, si pots, una font. Les propostes amb font es processen; les que són només
-        una opinió sobre la nota, no, i no és per menyspreu: és que no hi ha res a comprovar.
+        <a href="mailto:admin@newspirit.studio">admin@newspirit.studio</a> amb l’adreça de la fitxa,
+        la frase concreta i, si pots, una font. Les propostes amb font es processen; les que són
+        només una opinió sobre la nota, no, i no és per menyspreu: és que no hi ha res a comprovar.
       </p>
       <p>
         El contingut editorial viu al repositori públic del projecte com a text revisable, de manera
@@ -413,21 +422,22 @@ export default function EditorialPolicyPage() {
       <h2>8. Persones físiques que apareixen a les fitxes</h2>
       <p>
         Documentem empreses, no persones. Quan una persona física apareix —perquè consta en una
-        resolució, en una sentència o en una font oficial—, hi apareix per la seva funció professional
-        o pública i només en la mesura necessària per entendre el fet. Mai per la seva vida privada.
+        resolució, en una sentència o en una font oficial—, hi apareix per la seva funció
+        professional o pública i només en la mesura necessària per entendre el fet. Mai per la seva
+        vida privada.
       </p>
       <p>
         Qualsevol persona física que hi aparegui pot exercir els drets de rectificació i supressió
         pels canals de la <Link href="/legal/privadesa">política de privadesa</Link>, i la seva
-        sol·licitud es pondera entre el seu dret i l’interès públic de la informació, amb el resultat
-        raonat per escrit.
+        sol·licitud es pondera entre el seu dret i l’interès públic de la informació, amb el
+        resultat raonat per escrit.
       </p>
 
       <h2>9. Revisió d’aquesta política</h2>
       <p>
         Aquesta política es revisa quan canviï el mètode o quan l’experiència demostri que algun
-        compromís no es pot complir. Si un termini d’aquest document resulta irrealista, el canviarem
-        aquí en comptes d’incomplir-lo en silenci.
+        compromís no es pot complir. Si un termini d’aquest document resulta irrealista, el
+        canviarem aquí en comptes d’incomplir-lo en silenci.
       </p>
     </>
   )

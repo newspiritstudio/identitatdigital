@@ -43,25 +43,41 @@ export function Score({ value }: { value?: number | null }) {
   return <span className={scoreClass(value)}>{value}</span>
 }
 
-type FactLike = {
-  status?: string | null
-  evidenceLevel?: string | null
-  detail?: string | null
-  verifiedAt?: string | null
-  sources?: unknown
-} | null | undefined
+type FactLike =
+  | {
+      status?: string | null
+      evidenceLevel?: string | null
+      detail?: string | null
+      verifiedAt?: string | null
+      sources?: unknown
+    }
+  | null
+  | undefined
 
 const asSources = (value: unknown): Source[] =>
-  Array.isArray(value) ? value.filter((entry): entry is Source => typeof entry === 'object' && entry !== null) : []
+  Array.isArray(value)
+    ? value.filter((entry): entry is Source => typeof entry === 'object' && entry !== null)
+    : []
 
 /** Mostra una afirmació amb el seu estat, el seu nivell d'evidència i les seves fonts. */
-export function Fact({ label, fact, extra }: { label: string; fact: FactLike; extra?: React.ReactNode }) {
+export function Fact({
+  label,
+  fact,
+  extra,
+}: {
+  label: string
+  fact: FactLike
+  extra?: React.ReactNode
+}) {
   if (!fact) return null
   const sources = asSources(fact.sources)
   return (
     <div className="fact">
       <dt>
-        {label}: <span className={fact.status === 'unknown' ? 'unknown' : undefined}>{STATUS_LABELS[fact.status ?? 'unknown']}</span>{' '}
+        {label}:{' '}
+        <span className={fact.status === 'unknown' ? 'unknown' : undefined}>
+          {STATUS_LABELS[fact.status ?? 'unknown']}
+        </span>{' '}
         <span className="badge">{LEVEL_LABELS[fact.evidenceLevel ?? 'unknown']}</span>
       </dt>
       <dd>
@@ -75,6 +91,7 @@ export function Fact({ label, fact, extra }: { label: string; fact: FactLike; ex
                 {index > 0 ? ' · ' : ''}
                 <a href={source.url} target="_blank" rel="noreferrer">
                   {source.publisher}
+                  <span className="visually-hidden"> (s’obre en una pestanya nova)</span>
                 </a>
               </React.Fragment>
             ))}
@@ -91,7 +108,15 @@ export function Fact({ label, fact, extra }: { label: string; fact: FactLike; ex
  * consten a la biblioteca multimèdia. Si una fitxa encara no en té, no es
  * dibuixa cap marcador de posició: una fitxa sense icona s'ha de veure.
  */
-export function Logo({ logo, name, size = 24 }: { logo: App['logo']; name: string; size?: number }) {
+export function Logo({
+  logo,
+  name,
+  size = 24,
+}: {
+  logo: App['logo']
+  name: string
+  size?: number
+}) {
   if (!logo || typeof logo !== 'object') return null
   const media = logo as Media
   const src = media.sizes?.thumbnail?.url ?? media.url

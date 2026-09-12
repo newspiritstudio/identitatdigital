@@ -122,8 +122,25 @@ export function Note({ children }: { children: React.ReactNode }) {
   return <p className={styles.note}>{children}</p>
 }
 
-export function Scroller({ children }: { children: React.ReactNode }) {
-  return <div className={styles.scroller}>{children}</div>
+/**
+ * Contenidor desplaçable per a taules amples.
+ *
+ * `tabindex="0"` perquè qui navega amb teclat també el pugui desplaçar (WCAG
+ * 2.1.1) i `role="region"` amb nom perquè el lector de pantalla digui per què
+ * el focus hi ha entrat. El nom repeteix el títol de la taula: sense ell, la
+ * regió s'anuncia buida.
+ */
+export function Scroller({ children, label }: { children: React.ReactNode; label?: string }) {
+  return (
+    <div
+      aria-label={label}
+      className={styles.scroller}
+      role={label === undefined ? undefined : 'region'}
+      tabIndex={0}
+    >
+      {children}
+    </div>
+  )
 }
 
 type DiagramEdge = {

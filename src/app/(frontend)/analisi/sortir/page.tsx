@@ -4,16 +4,7 @@ import type { Metadata } from 'next'
 import { analyseDeletion, analyseJurisdictions, loadCorpus } from '@/lib/analysis'
 
 import { getClient } from '../../lib'
-import {
-  BackToIndex,
-  Bar,
-  KeyNumber,
-  KeyNumbers,
-  Note,
-  Scroller,
-  StatusStack,
-  num,
-} from '../parts'
+import { BackToIndex, Bar, KeyNumber, KeyNumbers, Note, Scroller, StatusStack, num } from '../parts'
 
 export const dynamic = 'force-dynamic'
 
@@ -29,8 +20,7 @@ export default async function LeavingPage() {
 
   /* Denominadors honestos: les fitxes on la pregunta no té sentit surten fora. */
   const deletionApplicable = deletion.possible.total - deletion.possible.na
-  const retentionApplicable =
-    deletion.dataAfterDeletion.total - deletion.dataAfterDeletion.na
+  const retentionApplicable = deletion.dataAfterDeletion.total - deletion.dataAfterDeletion.na
   const retainSomething = deletion.dataAfterDeletion.yes + deletion.dataAfterDeletion.partial
   const withWaiting = apps - deletion.waitingUnknown
   const hardest = deletion.hardestToLeave.filter((app) => app.difficulty !== null).slice(0, 10)
@@ -88,8 +78,8 @@ export default async function LeavingPage() {
       </p>
       <StatusStack tally={deletion.selfService} />
       <p>
-        La segona pregunta és la que separa un tràmit d’una negociació. Un procés autoservei
-        s’acaba quan tu decideixes; un procés que passa per un formulari de suport s’acaba quan algú
+        La segona pregunta és la que separa un tràmit d’una negociació. Un procés autoservei s’acaba
+        quan tu decideixes; un procés que passa per un formulari de suport s’acaba quan algú
         contesta, i mentrestant el compte segueix obert.{' '}
         {deletion.requiresSupportContact > 0
           ? `${num(deletion.requiresSupportContact)} de les ${num(apps)} fitxes declaren que cal contactar amb suport.`
@@ -97,8 +87,11 @@ export default async function LeavingPage() {
       </p>
 
       <h2>Quant costa</h2>
-      <Scroller>
+      <Scroller label="Fitxes repartides per dificultat declarada d’eliminar el compte">
         <table>
+          <caption className="visually-hidden">
+            Fitxes repartides per dificultat declarada d’eliminar el compte
+          </caption>
           <thead>
             <tr>
               <th scope="col">Dificultat declarada</th>
@@ -132,6 +125,9 @@ export default async function LeavingPage() {
 
       <h2>Quant s’espera</h2>
       <table>
+        <caption className="visually-hidden">
+          Fitxes repartides per període d’espera abans que l’eliminació sigui efectiva
+        </caption>
         <thead>
           <tr>
             <th scope="col">Període d’espera</th>
@@ -165,8 +161,12 @@ export default async function LeavingPage() {
       </Note>
 
       <h2>Les fitxes on marxar costa més</h2>
-      <Scroller>
+      <Scroller label="Fitxes on eliminar el compte costa més, amb dificultat, espera, passes i si cal escriure a suport">
         <table>
+          <caption className="visually-hidden">
+            Fitxes on eliminar el compte costa més, amb dificultat, espera, passes i si cal escriure
+            a suport
+          </caption>
           <thead>
             <tr>
               <th scope="col">Fitxa</th>
@@ -207,8 +207,9 @@ export default async function LeavingPage() {
         {num(retainSomething)} de les {num(retentionApplicable)} fitxes on l’indicador aplica
         declaren que, després d’eliminar el compte, es queden alguna cosa. Normalment són registres
         de facturació que la llei obliga a conservar, dades agregades que ja no identifiquen ningú o
-        còpies de seguretat que caduquen al cap d’uns mesos. {num(deletion.withRetainedDataDescription)}{' '}
-        de les {num(apps)} fitxes expliquen per escrit què es queden exactament.
+        còpies de seguretat que caduquen al cap d’uns mesos.{' '}
+        {num(deletion.withRetainedDataDescription)} de les {num(apps)} fitxes expliquen per escrit
+        què es queden exactament.
       </p>
       <p>
         Val la pena no llegir-ho com una trampa: eliminar el compte és eliminar el compte, no
@@ -218,10 +219,13 @@ export default async function LeavingPage() {
 
       <h2>On acaben les dades</h2>
       <p>
-        La jurisdicció declarada decideix davant de quina autoritat es poden exercir els drets i quin
-        tribunal mira una reclamació. Aquest és el repartiment:
+        La jurisdicció declarada decideix davant de quina autoritat es poden exercir els drets i
+        quin tribunal mira una reclamació. Aquest és el repartiment:
       </p>
       <table>
+        <caption className="visually-hidden">
+          Fitxes repartides per jurisdicció declarada a les condicions
+        </caption>
         <thead>
           <tr>
             <th scope="col">Jurisdicció declarada</th>
@@ -251,9 +255,9 @@ export default async function LeavingPage() {
         {jurisdictions.byJurisdiction[0]
           ? `${num(jurisdictions.byJurisdiction[0].apps)} de les ${num(apps)} fitxes situen la seva jurisdicció a ${jurisdictions.byJurisdiction[0].jurisdiction}. `
           : ''}
-        Això explica per què tants procediments europeus acaben sempre davant de la mateixa autoritat
-        de control: la finestreta única del Reglament fa que qui té la seu principal en un país en
-        sigui el supervisor per a tota la Unió.
+        Això explica per què tants procediments europeus acaben sempre davant de la mateixa
+        autoritat de control: la finestreta única del Reglament fa que qui té la seu principal en un
+        país en sigui el supervisor per a tota la Unió.
       </p>
 
       <h2>Transferències fora de la Unió Europea</h2>
@@ -264,6 +268,9 @@ export default async function LeavingPage() {
         demana un mecanisme que mantingui la protecció. El que declaren les fitxes és això:
       </p>
       <table>
+        <caption className="visually-hidden">
+          Mecanisme declarat per a les transferències de dades fora de la Unió Europea
+        </caption>
         <thead>
           <tr>
             <th scope="col">Mecanisme declarat</th>

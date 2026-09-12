@@ -23,7 +23,8 @@ export default function PrivacyPage() {
       <p className="lede">
         Aquest lloc existeix per explicar què fan les aplicacions amb les dades de les persones.
         Seria absurd que la nostra pròpia política de privadesa fos un text llarg i impenetrable. Ho
-        hem intentat evitar: aquí hi ha exactament el que fem, per què ho fem i com pots comprovar-ho.
+        hem intentat evitar: aquí hi ha exactament el que fem, per què ho fem i com pots
+        comprovar-ho.
       </p>
 
       <Resum>
@@ -39,8 +40,8 @@ export default function PrivacyPage() {
             cap servidor que no sigui el nostre.
           </li>
           <li>
-            Les eines de la secció <Link href="/eines">Eines</Link> calculen dins del teu dispositiu.
-            Les teves contrasenyes no surten del navegador, mai.
+            Les eines de la secció <Link href="/eines">Eines</Link> calculen dins del teu
+            dispositiu. Les teves contrasenyes no surten del navegador, mai.
           </li>
           <li>
             L’única dada personal teva que podem arribar a tocar és la teva adreça IP als registres
@@ -51,8 +52,11 @@ export default function PrivacyPage() {
       </Resum>
 
       <h2>1. Qui és responsable del tractament</h2>
-      <TableWrap>
+      <TableWrap label="Dades identificatives del responsable del tractament">
         <table>
+          <caption className="visually-hidden">
+            Dades identificatives del responsable del tractament
+          </caption>
           <tbody>
             <tr>
               <th scope="row">Responsable</th>
@@ -95,15 +99,17 @@ export default function PrivacyPage() {
       </p>
       <ul>
         <li>
-          <strong>Les pàgines es generen al servidor.</strong> El navegador rep HTML ja fet. No hi ha
-          cap biblioteca de tercers carregada des d’una xarxa de distribució externa.
+          <strong>Les pàgines es generen al servidor.</strong> El navegador rep HTML ja fet. No hi
+          ha cap biblioteca de tercers carregada des d’una xarxa de distribució externa.
         </li>
         <li>
-          <strong>La política de seguretat de contingut només permet el nostre propi origen.</strong>{' '}
+          <strong>
+            La política de seguretat de contingut només permet el nostre propi origen.
+          </strong>{' '}
           La directiva <code>connect-src &apos;self&apos;</code> impedeix que qualsevol codi de la
           pàgina obri una connexió a un servidor que no sigui el nostre. Encara que algú hi colés un
-          rastrejador, el navegador el bloquejaria. Això no és una promesa: és una capçalera HTTP que
-          pots inspeccionar amb les eines de desenvolupament del teu navegador.
+          rastrejador, el navegador el bloquejaria. Això no és una promesa: és una capçalera HTTP
+          que pots inspeccionar amb les eines de desenvolupament del teu navegador.
         </li>
         <li>
           <strong>La capçalera de permisos desactiva funcions sensibles.</strong> Càmera, micròfon i
@@ -138,16 +144,17 @@ export default function PrivacyPage() {
         estadístiques ni comercials i no es creuen amb res. Serveixen per a tres coses: que el lloc
         funcioni, detectar atacs i abusos, i poder diagnosticar una errada quan n’hi ha una.
       </p>
-      <TableWrap>
+      <TableWrap label="Tractament dels registres del servidor">
         <table>
+          <caption className="visually-hidden">Tractament dels registres del servidor</caption>
           <tbody>
             <tr>
               <th scope="row">Base jurídica</th>
               <td>
-                Interès legítim, article 6.1.f del Reglament general de protecció de dades. L’interès
-                és mantenir el servei disponible i segur, que és també el teu interès quan el fas
-                servir. La ponderació entre aquest interès i els teus drets consta a l’anàlisi
-                interna del projecte.
+                Interès legítim, article 6.1.f del Reglament general de protecció de dades.
+                L’interès és mantenir el servei disponible i segur, que és també el teu interès quan
+                el fas servir. La ponderació entre aquest interès i els teus drets consta a
+                l’anàlisi interna del projecte.
               </td>
             </tr>
             <tr>
@@ -182,17 +189,21 @@ export default function PrivacyPage() {
       <p>
         De cada persona editora s’hi desa el nom, l’adreça de correu, el rol, la contrasenya —
         guardada com a resum criptogràfic amb sal, mai en clar — i les dades necessàries per aplicar
-        el bloqueig per intents fallits. La sessió caduca al cap de vuit hores i el compte es bloqueja
-        deu minuts després de cinc intents fallits.
+        el bloqueig per intents fallits. La sessió caduca al cap de vuit hores i el compte es
+        bloqueja deu minuts després de cinc intents fallits.
       </p>
-      <TableWrap>
+      <TableWrap label="Tractament dels comptes del panell d’administració">
         <table>
+          <caption className="visually-hidden">
+            Tractament dels comptes del panell d’administració
+          </caption>
           <tbody>
             <tr>
               <th scope="row">Base jurídica</th>
               <td>
-                Execució de la relació contractual o de col·laboració amb la persona editora, article
-                6.1.b, i interès legítim en la seguretat i la traçabilitat de l’edició, article 6.1.f.
+                Execució de la relació contractual o de col·laboració amb la persona editora,
+                article 6.1.b, i interès legítim en la seguretat i la traçabilitat de l’edició,
+                article 6.1.f.
               </td>
             </tr>
             <tr>
@@ -223,15 +234,16 @@ export default function PrivacyPage() {
         aleshores tractem el que hi posis: la teva adreça, el teu nom si el dius i el contingut del
         missatge.
       </p>
-      <TableWrap>
+      <TableWrap label="Tractament dels correus que ens arriben">
         <table>
+          <caption className="visually-hidden">Tractament dels correus que ens arriben</caption>
           <tbody>
             <tr>
               <th scope="row">Base jurídica</th>
               <td>
-                Interès legítim a respondre a qui ens escriu, article 6.1.f. Si el que ens demanes és
-                exercir un dret de protecció de dades, la base és el compliment d’una obligació legal,
-                article 6.1.c, en relació amb els articles 15 a 22 del Reglament.
+                Interès legítim a respondre a qui ens escriu, article 6.1.f. Si el que ens demanes
+                és exercir un dret de protecció de dades, la base és el compliment d’una obligació
+                legal, article 6.1.c, en relació amb els articles 15 a 22 del Reglament.
               </td>
             </tr>
             <tr>
@@ -247,7 +259,9 @@ export default function PrivacyPage() {
               <th scope="row">Destinataris</th>
               <td>
                 El proveïdor de correu electrònic, com a encarregat.{' '}
-                <Pendent>proveïdor de correu de admin@newspirit.studio i ubicació del servei</Pendent>
+                <Pendent>
+                  proveïdor de correu de admin@newspirit.studio i ubicació del servei
+                </Pendent>
               </td>
             </tr>
           </tbody>
@@ -267,8 +281,11 @@ export default function PrivacyPage() {
         pública, mai en la seva esfera privada. No publiquem dades de categories especials de
         l’article 9, ni dades de menors, ni res que no consti en una font citada.
       </p>
-      <TableWrap>
+      <TableWrap label="Tractament de la publicació de contingut sobre empreses i persones">
         <table>
+          <caption className="visually-hidden">
+            Tractament de la publicació de contingut sobre empreses i persones
+          </caption>
           <tbody>
             <tr>
               <th scope="row">Base jurídica</th>
@@ -299,8 +316,8 @@ export default function PrivacyPage() {
             <tr>
               <th scope="row">Drets</th>
               <td>
-                Qualsevol persona que hi aparegui pot escriure’ns. Els procediments de rectificació i
-                de rèplica són a la{' '}
+                Qualsevol persona que hi aparegui pot escriure’ns. Els procediments de rectificació
+                i de rèplica són a la{' '}
                 <Link href="/legal/politica-editorial">política editorial</Link>.
               </td>
             </tr>
@@ -319,9 +336,9 @@ export default function PrivacyPage() {
 
       <h3>4.1. El generador de contrasenyes</h3>
       <p>
-        Les contrasenyes es generen al teu dispositiu amb el generador criptogràfic del navegador. No
-        viatgen enlloc, no les veiem, no les desem i no les podem recuperar. Quan tanques la pestanya,
-        desapareixen.
+        Les contrasenyes es generen al teu dispositiu amb el generador criptogràfic del navegador.
+        No viatgen enlloc, no les veiem, no les desem i no les podem recuperar. Quan tanques la
+        pestanya, desapareixen.
       </p>
 
       <h3>4.2. La comprovació de contrasenyes filtrades</h3>
@@ -353,9 +370,9 @@ export default function PrivacyPage() {
           Been Pwned no arriba a veure ni la teva adreça IP.
         </li>
         <li>
-          L’API respon amb la llista de tots els resums que comencen per aquest prefix, amb el nombre
-          de vegades que cadascun ha aparegut en filtracions. Nosaltres et passem la llista tal com
-          ens arriba.
+          L’API respon amb la llista de tots els resums que comencen per aquest prefix, amb el
+          nombre de vegades que cadascun ha aparegut en filtracions. Nosaltres et passem la llista
+          tal com ens arriba.
         </li>
         <li>
           El teu navegador busca en aquesta llista el teu resum sencer i et diu el resultat. La
@@ -363,23 +380,26 @@ export default function PrivacyPage() {
         </li>
       </ol>
       <p>
-        Conseqüència: <strong>ni nosaltres ni Have I Been Pwned rebem mai la teva contrasenya, ni el
-        seu resum sencer.</strong> El nostre servidor tampoc no desa ni registra aquests prefixos: la
-        petició es reenvia i la resposta es retorna, sense escriure res enlloc.
+        Conseqüència:{' '}
+        <strong>
+          ni nosaltres ni Have I Been Pwned rebem mai la teva contrasenya, ni el seu resum sencer.
+        </strong>{' '}
+        El nostre servidor tampoc no desa ni registra aquests prefixos: la petició es reenvia i la
+        resposta es retorna, sense escriure res enlloc.
       </p>
       <p>
         El prefix de cinc caràcters, aïllat, no permet identificar cap persona ni cap contrasenya, i
         per tant no és una dada personal en el sentit de l’article 4.1 del Reglament. Ara bé, la
         petició HTTP que el transporta sí que arriba al nostre servidor com qualsevol altra, i pot
         deixar rastre als registres descrits a l’apartat 3.1 en els mateixos termes que la resta de
-        peticions: adreça IP, data i ruta. Ho diem perquè la diferència entre «no en desem res» i «no
-        en desem res més enllà del que desa qualsevol servidor» és precisament el tipus de matís que
-        criticaríem si l’ometés una altra empresa.
+        peticions: adreça IP, data i ruta. Ho diem perquè la diferència entre «no en desem res» i
+        «no en desem res més enllà del que desa qualsevol servidor» és precisament el tipus de matís
+        que criticaríem si l’ometés una altra empresa.
       </p>
       <p>
         Per què el prefix passa pel nostre servidor i no va directe des del teu navegador: perquè la
-        nostra política de seguretat de contingut prohibeix al navegador connectar-se a cap domini que
-        no sigui el nostre. Aquesta restricció, que és una mesura de seguretat, obliga a aquest
+        nostra política de seguretat de contingut prohibeix al navegador connectar-se a cap domini
+        que no sigui el nostre. Aquesta restricció, que és una mesura de seguretat, obliga a aquest
         disseny, i de retruc t’hi afegeix privadesa, perquè la teva adreça IP no arriba al tercer.
       </p>
 
@@ -406,9 +426,9 @@ export default function PrivacyPage() {
         </li>
         <li>
           <strong>El comparador no desa res al dispositiu</strong>: posa la selecció a l’adreça de
-          la pàgina perquè puguis copiar l’enllaç i compartir-lo. Això vol dir que qui rebi
-          l’enllaç en veurà la selecció. És el comportament que es vol, i el diem perquè ho sàpigues
-          abans d’enviar-lo.
+          la pàgina perquè puguis copiar l’enllaç i compartir-lo. Això vol dir que qui rebi l’enllaç
+          en veurà la selecció. És el comportament que es vol, i el diem perquè ho sàpigues abans
+          d’enviar-lo.
         </li>
       </ul>
       <Avis>
@@ -422,8 +442,11 @@ export default function PrivacyPage() {
       </Avis>
 
       <h2>5. Taula resum dels tractaments</h2>
-      <TableWrap>
+      <TableWrap label="Resum de tots els tractaments, amb dades, finalitat, base jurídica i conservació">
         <table>
+          <caption className="visually-hidden">
+            Resum de tots els tractaments, amb dades, finalitat, base jurídica i conservació
+          </caption>
           <thead>
             <tr>
               <th scope="col">Tractament</th>
@@ -486,9 +509,9 @@ export default function PrivacyPage() {
         intermediaris de dades, ni socis comercials.
       </p>
       <p>
-        Els únics tercers que hi intervenen són els proveïdors tècnics imprescindibles perquè el lloc
-        funcioni, que actuen com a encarregats del tractament amb el contracte de l’article 28 del
-        Reglament: el proveïdor d’allotjament i el de correu electrònic.{' '}
+        Els únics tercers que hi intervenen són els proveïdors tècnics imprescindibles perquè el
+        lloc funcioni, que actuen com a encarregats del tractament amb el contracte de l’article 28
+        del Reglament: el proveïdor d’allotjament i el de correu electrònic.{' '}
         <Pendent>
           llista definitiva d’encarregats del tractament, amb la seva identitat, el servei que
           presten i la referència del contracte
@@ -496,13 +519,13 @@ export default function PrivacyPage() {
       </p>
       <p>
         A més, quan fas servir la comprovació de contrasenyes, el nostre servidor consulta l’API de
-        Have I Been Pwned. No li enviem cap dada personal teva, de manera que no és un encarregat del
-        tractament: és una font externa que rep un prefix anònim.
+        Have I Been Pwned. No li enviem cap dada personal teva, de manera que no és un encarregat
+        del tractament: és una font externa que rep un prefix anònim.
       </p>
       <p>
-        També podem comunicar dades quan una llei ens hi obligui, o a una autoritat judicial, policial
-        o de control que ho requereixi legítimament. Si això passa mai, i la llei no ens ho prohibeix,
-        ho farem constar.
+        També podem comunicar dades quan una llei ens hi obligui, o a una autoritat judicial,
+        policial o de control que ho requereixi legítimament. Si això passa mai, i la llei no ens ho
+        prohibeix, ho farem constar.
       </p>
 
       <h2>7. Transferències internacionals</h2>
@@ -524,8 +547,11 @@ export default function PrivacyPage() {
         Tens els drets dels articles 15 a 22 del Reglament general de protecció de dades. En aquest
         lloc són inusualment fàcils d’exercir, perquè tenim molt poques dades teves.
       </p>
-      <TableWrap>
+      <TableWrap label="Drets de protecció de dades i com exercir-los">
         <table>
+          <caption className="visually-hidden">
+            Drets de protecció de dades i com exercir-los
+          </caption>
           <tbody>
             <tr>
               <th scope="row">Accés</th>
@@ -541,7 +567,9 @@ export default function PrivacyPage() {
             </tr>
             <tr>
               <th scope="row">Limitació</th>
-              <td>Demanar que les conservem però deixem de fer-ne ús mentre es resol una disputa.</td>
+              <td>
+                Demanar que les conservem però deixem de fer-ne ús mentre es resol una disputa.
+              </td>
             </tr>
             <tr>
               <th scope="row">Oposició</th>
@@ -561,19 +589,18 @@ export default function PrivacyPage() {
             <tr>
               <th scope="row">Decisions automatitzades</th>
               <td>
-                No en prenem. Les puntuacions del lloc es calculen sobre empreses, no sobre persones,
-                i no produeixen cap efecte jurídic ni similar sobre ningú. Per tant, l’article 22 no
-                hi entra.
+                No en prenem. Les puntuacions del lloc es calculen sobre empreses, no sobre
+                persones, i no produeixen cap efecte jurídic ni similar sobre ningú. Per tant,
+                l’article 22 no hi entra.
               </td>
             </tr>
           </tbody>
         </table>
       </TableWrap>
       <p>
-        Per exercir-los, escriu a{' '}
-        <a href="mailto:admin@newspirit.studio">admin@newspirit.studio</a> dient què vols. Et
-        respondrem com a molt tard al cap d’un mes; si la sol·licitud és complexa podem allargar-ho
-        dos mesos més, però t’ho direm dins del primer mes i explicant per què.
+        Per exercir-los, escriu a <a href="mailto:admin@newspirit.studio">admin@newspirit.studio</a>{' '}
+        dient què vols. Et respondrem com a molt tard al cap d’un mes; si la sol·licitud és complexa
+        podem allargar-ho dos mesos més, però t’ho direm dins del primer mes i explicant per què.
       </p>
       <p>
         Només et demanarem documentació identificativa si tenim dubtes raonables sobre qui ets, tal
@@ -587,8 +614,9 @@ export default function PrivacyPage() {
         l’Agència Espanyola de Protecció de Dades, sense cap cost i sense necessitat d’advocat.
         També pots reclamar directament, si ho prefereixes, i sense haver-nos escrit abans.
       </p>
-      <TableWrap>
+      <TableWrap label="Dades de contacte de l’autoritat de control">
         <table>
+          <caption className="visually-hidden">Dades de contacte de l’autoritat de control</caption>
           <tbody>
             <tr>
               <th scope="row">Autoritat</th>
@@ -607,6 +635,7 @@ export default function PrivacyPage() {
               <td>
                 <a href="https://sedeagpd.gob.es" target="_blank" rel="noreferrer">
                   sedeagpd.gob.es
+                  <span className="visually-hidden"> (s’obre en una pestanya nova)</span>
                 </a>
               </td>
             </tr>
@@ -615,6 +644,7 @@ export default function PrivacyPage() {
               <td>
                 <a href="https://www.aepd.es" target="_blank" rel="noreferrer">
                   www.aepd.es
+                  <span className="visually-hidden"> (s’obre en una pestanya nova)</span>
                 </a>
               </td>
             </tr>
@@ -641,15 +671,15 @@ export default function PrivacyPage() {
       </p>
       <p>
         Per tant no hem designat cap delegat. Hem designat un punt de contacte, que és l’adreça de
-        correu d’aquest document, i qualsevol qüestió de protecció de dades hi arriba directament als
-        administradors de la societat.
+        correu d’aquest document, i qualsevol qüestió de protecció de dades hi arriba directament
+        als administradors de la societat.
       </p>
 
       <h2>10. Seguretat</h2>
       <p>
         L’article 32 del Reglament demana mesures tècniques i organitzatives adequades al risc.
-        Aquestes són les que hi ha, i es poden comprovar totes al codi o a les capçaleres de resposta
-        del servidor:
+        Aquestes són les que hi ha, i es poden comprovar totes al codi o a les capçaleres de
+        resposta del servidor:
       </p>
       <ul>
         <li>
@@ -664,8 +694,8 @@ export default function PrivacyPage() {
         <li>
           <strong>Capçaleres complementàries</strong>: <code>X-Content-Type-Options: nosniff</code>,{' '}
           <code>X-Frame-Options: SAMEORIGIN</code>,{' '}
-          <code>Referrer-Policy: strict-origin-when-cross-origin</code> —de manera que quan surts cap
-          a un altre lloc no li enviem la ruta exacta que estaves llegint— i{' '}
+          <code>Referrer-Policy: strict-origin-when-cross-origin</code> —de manera que quan surts
+          cap a un altre lloc no li enviem la ruta exacta que estaves llegint— i{' '}
           <code>Cross-Origin-Opener-Policy: same-origin</code>.
         </li>
         <li>
@@ -681,8 +711,8 @@ export default function PrivacyPage() {
           serveix contingut publicat a qui no ha iniciat sessió.
         </li>
         <li>
-          <strong>L’API GraphQL està desactivada per defecte</strong> i només s’activa
-          explícitament en desenvolupament.
+          <strong>L’API GraphQL està desactivada per defecte</strong> i només s’activa explícitament
+          en desenvolupament.
         </li>
         <li>
           <strong>L’aplicació es nega a arrencar</strong> si falta una variable de configuració
@@ -706,17 +736,17 @@ export default function PrivacyPage() {
 
       <h2>11. Menors</h2>
       <p>
-        Aquest lloc no s’adreça específicament a menors ni en recull cap dada, perquè no recull dades
-        de ningú. Qualsevol persona pot llegir-lo. L’article 7 de la Llei orgànica 3/2018, que fixa
-        els catorze anys per al consentiment, no hi entra, perquè no basem cap tractament en el
+        Aquest lloc no s’adreça específicament a menors ni en recull cap dada, perquè no recull
+        dades de ningú. Qualsevol persona pot llegir-lo. L’article 7 de la Llei orgànica 3/2018, que
+        fixa els catorze anys per al consentiment, no hi entra, perquè no basem cap tractament en el
         consentiment.
       </p>
 
       <h2>12. Canvis en aquesta política</h2>
       <p>
-        Si canviem alguna cosa del que hi ha aquí, canviarà primer el codi. Per això aquesta política
-        porta versió i data, i per això el codi del lloc és públic: perquè es pugui comprovar que el
-        document i el programa diuen el mateix.
+        Si canviem alguna cosa del que hi ha aquí, canviarà primer el codi. Per això aquesta
+        política porta versió i data, i per això el codi del lloc és públic: perquè es pugui
+        comprovar que el document i el programa diuen el mateix.
       </p>
       <p>
         Si algun dia afegim una funció que impliqui tractar dades noves —un butlletí, comentaris, un

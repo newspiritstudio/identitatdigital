@@ -70,19 +70,22 @@ export default async function EvidencePage() {
       <p>
         Un desconegut no és una mala nota: és una tasca pendent. La diferència entre «hem comprovat
         que no ho fan» i «no ho hem mirat» és tot el projecte, i per això les dues coses no es
-        barregen mai en una sola xifra. El que sí que és un incompliment és una afirmació documentada
-        sense font, i aquesta xifra ha de ser zero: ara mateix és{' '}
+        barregen mai en una sola xifra. El que sí que és un incompliment és una afirmació
+        documentada sense font, i aquesta xifra ha de ser zero: ara mateix és{' '}
         {num(analysis.claimsWithoutSources)}.
       </p>
       <StatusStack tally={analysis.claims} unit="afirmacions" />
       <p>
-        Les afirmacions marcades com a «no aplica» surten del denominador. Exigir xifratge d’extrem a
-        extrem a un navegador o un procés d’eliminació de compte a un servei que no en demana seria
-        mesurar el no-res i inflar artificialment la cobertura.
+        Les afirmacions marcades com a «no aplica» surten del denominador. Exigir xifratge d’extrem
+        a extrem a un navegador o un procés d’eliminació de compte a un servei que no en demana
+        seria mesurar el no-res i inflar artificialment la cobertura.
       </p>
 
       <h2>D’on surt el que afirmem</h2>
       <table>
+        <caption className="visually-hidden">
+          Afirmacions documentades del corpus repartides per nivell d’evidència
+        </caption>
         <thead>
           <tr>
             <th scope="col">Nivell d’evidència</th>
@@ -102,12 +105,13 @@ export default async function EvidencePage() {
       </table>
       <Note>
         Aquesta és la limitació estructural del projecte, i no la resol cap millora de mètode:{' '}
-        {num(official?.claims ?? 0)} de les {num(analysis.claims.documented)} afirmacions documentades
-        se sostenen en documents publicats per la mateixa empresa. Són la font més verificable que hi
-        ha —es poden citar, datar i tornar a comprovar— però vol dir que bona part del que sabem és
-        el que les empreses diuen de si mateixes. Només {num(independent?.claims ?? 0)} afirmacions
-        se sostenen en una anàlisi independent i {num(regulator?.claims ?? 0)} en una resolució d’un
-        regulador, que són les úniques fonts que poden contradir-les.
+        {num(official?.claims ?? 0)} de les {num(analysis.claims.documented)} afirmacions
+        documentades se sostenen en documents publicats per la mateixa empresa. Són la font més
+        verificable que hi ha —es poden citar, datar i tornar a comprovar— però vol dir que bona
+        part del que sabem és el que les empreses diuen de si mateixes. Només{' '}
+        {num(independent?.claims ?? 0)} afirmacions se sostenen en una anàlisi independent i{' '}
+        {num(regulator?.claims ?? 0)} en una resolució d’un regulador, que són les úniques fonts que
+        poden contradir-les.
       </Note>
 
       <h2>Els indicadors pitjor documentats</h2>
@@ -115,8 +119,12 @@ export default async function EvidencePage() {
         Aquesta és la llista de feina pendent, ordenada pel percentatge de fitxes on l’indicador
         queda sense resposta.
       </p>
-      <Scroller>
+      <Scroller label="Indicadors amb més afirmacions sense documentar, sobre el total de fitxes on l’indicador aplica">
         <table>
+          <caption className="visually-hidden">
+            Indicadors amb més afirmacions sense documentar, sobre el total de fitxes on l’indicador
+            aplica
+          </caption>
           <thead>
             <tr>
               <th scope="col">Indicador</th>
@@ -169,8 +177,11 @@ export default async function EvidencePage() {
         cobertura i la qualitat de les fonts; el detall del càlcul és a{' '}
         <Link href="/metodologia">la metodologia</Link>.
       </p>
-      <Scroller>
+      <Scroller label="Fitxes amb més indicadors sense documentar i la seva puntuació de confiança">
         <table>
+          <caption className="visually-hidden">
+            Fitxes amb més indicadors sense documentar i la seva puntuació de confiança
+          </caption>
           <thead>
             <tr>
               <th scope="col">Fitxa</th>
@@ -236,8 +247,8 @@ export default async function EvidencePage() {
       <p className="meta">
         Aquesta pàgina es recalcula a cada visita amb el corpus publicat. Si les xifres han canviat
         des de l’última vegada, és que hi ha hagut feina, no que hi hagi hagut una correcció de
-        mètode; els canvis de mètode es documenten a{' '}
-        <Link href="/metodologia">la metodologia</Link>.
+        mètode; els canvis de mètode es documenten a <Link href="/metodologia">la metodologia</Link>
+        .
       </p>
 
       <BackToIndex />

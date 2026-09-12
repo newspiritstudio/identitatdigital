@@ -28,7 +28,8 @@ const MILIO = 1_000_000
 
 const formatAccounts = (value?: number | null): string => {
   if (typeof value !== 'number' || value <= 0) return '—'
-  if (value >= MILIO) return `${(value / MILIO).toLocaleString('ca-ES', { maximumFractionDigits: 1 })} M`
+  if (value >= MILIO)
+    return `${(value / MILIO).toLocaleString('ca-ES', { maximumFractionDigits: 1 })} M`
   return value.toLocaleString('ca-ES')
 }
 
@@ -81,22 +82,32 @@ export default async function BreachesPage() {
         quan les dades que una empresa ha recollit se li escapen.
       </p>
 
-      <table>
-        <tbody>
-          <tr>
-            <th>Filtracions al catàleg</th>
-            <td>{totalDocs.toLocaleString('ca-ES')}</td>
-          </tr>
-          <tr>
-            <th>Lligades a una empresa documentada</th>
-            <td>{linkedTotal.toLocaleString('ca-ES')}</td>
-          </tr>
-          <tr>
-            <th>Comptes afectats a les 150 més grans</th>
-            <td>{formatAccounts(totalAccounts)}</td>
-          </tr>
-        </tbody>
-      </table>
+      <div
+        className="scroller"
+        role="region"
+        tabIndex={0}
+        aria-label="Resum del catàleg de filtracions importat de Have I Been Pwned"
+      >
+        <table>
+          <caption className="visually-hidden">
+            Resum del catàleg de filtracions importat de Have I Been Pwned
+          </caption>
+          <tbody>
+            <tr>
+              <th scope="row">Filtracions al catàleg</th>
+              <td>{totalDocs.toLocaleString('ca-ES')}</td>
+            </tr>
+            <tr>
+              <th scope="row">Lligades a una empresa documentada</th>
+              <td>{linkedTotal.toLocaleString('ca-ES')}</td>
+            </tr>
+            <tr>
+              <th scope="row">Comptes afectats a les 150 més grans</th>
+              <td>{formatAccounts(totalAccounts)}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
       <h2>Empreses que documentem</h2>
       <p>
@@ -111,38 +122,51 @@ export default async function BreachesPage() {
           catàleg.
         </p>
       ) : (
-        <table>
-          <thead>
-            <tr>
-              <th>Filtració</th>
-              <th>Empresa</th>
-              <th>Any</th>
-              <th>Comptes</th>
-              <th>Dades exposades</th>
-            </tr>
-          </thead>
-          <tbody>
-            {linked.map((breach) => {
-              const company = companyOf(breach)
-              const types = dataTypeNames(breach, 4)
-              return (
-                <tr key={breach.id}>
-                  <td>{breach.title}</td>
-                  <td>
-                    {company ? (
-                      <Link href={`/empreses#${company.slug ?? ''}`}>{company.name}</Link>
-                    ) : (
-                      <span className="unknown">—</span>
-                    )}
-                  </td>
-                  <td>{formatYear(breach.breachDate)}</td>
-                  <td>{formatAccounts(breach.pwnCount)}</td>
-                  <td>{types.length > 0 ? types.join(', ') : <span className="unknown">—</span>}</td>
-                </tr>
-              )
-            })}
-          </tbody>
-        </table>
+        <div
+          className="scroller"
+          role="region"
+          tabIndex={0}
+          aria-label="Filtracions lligades a empreses del directori, amb any, comptes exposats i dades exposades"
+        >
+          <table>
+            <caption className="visually-hidden">
+              Filtracions lligades a empreses del directori, amb any, comptes exposats i dades
+              exposades
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">Filtració</th>
+                <th scope="col">Empresa</th>
+                <th scope="col">Any</th>
+                <th scope="col">Comptes</th>
+                <th scope="col">Dades exposades</th>
+              </tr>
+            </thead>
+            <tbody>
+              {linked.map((breach) => {
+                const company = companyOf(breach)
+                const types = dataTypeNames(breach, 4)
+                return (
+                  <tr key={breach.id}>
+                    <td>{breach.title}</td>
+                    <td>
+                      {company ? (
+                        <Link href={`/empreses#${company.slug ?? ''}`}>{company.name}</Link>
+                      ) : (
+                        <span className="unknown">—</span>
+                      )}
+                    </td>
+                    <td>{formatYear(breach.breachDate)}</td>
+                    <td>{formatAccounts(breach.pwnCount)}</td>
+                    <td>
+                      {types.length > 0 ? types.join(', ') : <span className="unknown">—</span>}
+                    </td>
+                  </tr>
+                )
+              })}
+            </tbody>
+          </table>
+        </div>
       )}
 
       <h2>Les cent cinquanta més grans</h2>
@@ -152,36 +176,49 @@ export default async function BreachesPage() {
         acumular dades robades a altres, i no empreses que patissin una filtració pròpia.
       </p>
 
-      <table>
-        <thead>
-          <tr>
-            <th>Filtració</th>
-            <th>Domini</th>
-            <th>Any</th>
-            <th>Comptes</th>
-            <th>Dades exposades</th>
-          </tr>
-        </thead>
-        <tbody>
-          {breaches.map((breach) => {
-            const types = dataTypeNames(breach, 3)
-            const company = companyOf(breach)
-            return (
-              <tr key={breach.id}>
-                <td>
-                  {breach.title}
-                  {breach.isSensitive ? <span className="badge">sensible</span> : null}
-                  {company ? <span className="badge">documentada</span> : null}
-                </td>
-                <td>{breach.domain || <span className="unknown">—</span>}</td>
-                <td>{formatYear(breach.breachDate)}</td>
-                <td>{formatAccounts(breach.pwnCount)}</td>
-                <td>{types.length > 0 ? types.join(', ') : <span className="unknown">—</span>}</td>
-              </tr>
-            )
-          })}
-        </tbody>
-      </table>
+      <div
+        className="scroller"
+        role="region"
+        tabIndex={0}
+        aria-label="Les cent cinquanta filtracions més grans del catàleg, amb domini, any, comptes i dades exposades"
+      >
+        <table>
+          <caption className="visually-hidden">
+            Les cent cinquanta filtracions més grans del catàleg, amb domini, any, comptes i dades
+            exposades
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Filtració</th>
+              <th scope="col">Domini</th>
+              <th scope="col">Any</th>
+              <th scope="col">Comptes</th>
+              <th scope="col">Dades exposades</th>
+            </tr>
+          </thead>
+          <tbody>
+            {breaches.map((breach) => {
+              const types = dataTypeNames(breach, 3)
+              const company = companyOf(breach)
+              return (
+                <tr key={breach.id}>
+                  <td>
+                    {breach.title}
+                    {breach.isSensitive ? <span className="badge">sensible</span> : null}
+                    {company ? <span className="badge">documentada</span> : null}
+                  </td>
+                  <td>{breach.domain || <span className="unknown">—</span>}</td>
+                  <td>{formatYear(breach.breachDate)}</td>
+                  <td>{formatAccounts(breach.pwnCount)}</td>
+                  <td>
+                    {types.length > 0 ? types.join(', ') : <span className="unknown">—</span>}
+                  </td>
+                </tr>
+              )
+            })}
+          </tbody>
+        </table>
+      </div>
 
       <h2>D’on surten aquestes dades</h2>
       <p className="meta">

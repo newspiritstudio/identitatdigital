@@ -248,7 +248,8 @@ const toScale = (value: number | null): number | null =>
  * diferència real ompliria la taula de soroll. El valor exacte continua visible
  * a cada casella perquè qui vulgui el detall el tingui.
  */
-const band = (value: number | null): string => (value === null ? 'x' : String(Math.round(value / 10)))
+const band = (value: number | null): string =>
+  value === null ? 'x' : String(Math.round(value / 10))
 
 const sourcesOfDataMatrix = (app: App): string[] => {
   const rows = Array.isArray(app.dataCollection) ? app.dataCollection : []
@@ -496,7 +497,9 @@ const alternativesOf = (app: App, corpus: Corpus): AlternativeSnapshot[] => {
 
     out.push({
       slug: target && typeof target.slug === 'string' ? target.slug : null,
-      name: target ? (localizedText(target.name) ?? 'Fitxa sense nom') : 'Fitxa encara no publicada',
+      name: target
+        ? (localizedText(target.name) ?? 'Fitxa sense nom')
+        : 'Fitxa encara no publicada',
       comparability,
       comparabilityLabel: COMPARABILITY_LABELS[comparability],
       rationale,
@@ -732,8 +735,7 @@ export const resolveSelection = (
     // Si la categoria demanada no conté les fitxes demanades, mana la que
     // comparteixen les fitxes: l'enllaç s'ha escrit pensant en elles.
     const asked = candidate
-    const holdsAll =
-      asked !== null && requested.every((app) => app.categoryIds.includes(asked.id))
+    const holdsAll = asked !== null && requested.every((app) => app.categoryIds.includes(asked.id))
     if (!holdsAll) {
       candidate =
         snapshot.categories.find((entry) =>

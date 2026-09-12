@@ -50,9 +50,9 @@ export default function LegalIndexPage() {
             <Link href="/legal/privadesa">Política de privadesa</Link>
           </strong>
           <p>
-            Cada tractament de dades que fem, la seva base jurídica, els terminis, els destinataris i
-            els teus drets. Amb la taula completa i amb les dades de contacte de l’Agència Espanyola
-            de Protecció de Dades.
+            Cada tractament de dades que fem, la seva base jurídica, els terminis, els destinataris
+            i els teus drets. Amb la taula completa i amb les dades de contacte de l’Agència
+            Espanyola de Protecció de Dades.
           </p>
         </li>
         <li>

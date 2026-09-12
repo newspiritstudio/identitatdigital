@@ -10,7 +10,8 @@ export const metadata: Metadata = { title: 'Consultes' }
 
 const idOf = (value: unknown): string | null => {
   if (typeof value === 'string' || typeof value === 'number') return String(value)
-  if (value && typeof value === 'object' && 'id' in value) return String((value as { id: unknown }).id)
+  if (value && typeof value === 'object' && 'id' in value)
+    return String((value as { id: unknown }).id)
   return null
 }
 
@@ -26,36 +27,41 @@ const AppLink = ({ app }: { app: App }) => <Link href={`/aplicacions/${app.slug}
 export default async function QueriesPage() {
   const payload = await getClient()
 
-  const [noSelfService, aiTraining, noE2ee, allApps, companies, dataTypes, incidents] = await Promise.all([
-    payload.find({
-      collection: 'apps',
-      where: { 'accountDeletion.selfService.status': { in: ['no', 'partial'] } },
-      limit: 100,
-      depth: 0,
-      sort: 'name',
-    }),
-    payload.find({
-      collection: 'apps',
-      where: { 'dataUses.aiTraining.status': { equals: 'yes' } },
-      limit: 100,
-      depth: 0,
-      sort: 'name',
-    }),
-    payload.find({
-      collection: 'apps',
-      where: { 'security.e2ee.status': { in: ['no', 'partial'] } },
-      limit: 100,
-      depth: 0,
-      sort: 'name',
-    }),
-    payload.find({ collection: 'apps', limit: 200, depth: 1, sort: 'name' }),
-    payload.find({ collection: 'companies', limit: 200, depth: 0 }),
-    payload.find({ collection: 'data-types', limit: 200, depth: 0 }),
-    payload.find({ collection: 'incidents', limit: 200, depth: 0 }),
-  ])
+  const [noSelfService, aiTraining, noE2ee, allApps, companies, dataTypes, incidents] =
+    await Promise.all([
+      payload.find({
+        collection: 'apps',
+        where: { 'accountDeletion.selfService.status': { in: ['no', 'partial'] } },
+        limit: 100,
+        depth: 0,
+        sort: 'name',
+      }),
+      payload.find({
+        collection: 'apps',
+        where: { 'dataUses.aiTraining.status': { equals: 'yes' } },
+        limit: 100,
+        depth: 0,
+        sort: 'name',
+      }),
+      payload.find({
+        collection: 'apps',
+        where: { 'security.e2ee.status': { in: ['no', 'partial'] } },
+        limit: 100,
+        depth: 0,
+        sort: 'name',
+      }),
+      payload.find({ collection: 'apps', limit: 200, depth: 1, sort: 'name' }),
+      payload.find({ collection: 'companies', limit: 200, depth: 0 }),
+      payload.find({ collection: 'data-types', limit: 200, depth: 0 }),
+      payload.find({ collection: 'incidents', limit: 200, depth: 0 }),
+    ])
 
-  const dataTypeById = new Map((dataTypes.docs as DataType[]).map((type) => [String(type.id), type]))
-  const companyById = new Map((companies.docs as Company[]).map((company) => [String(company.id), company]))
+  const dataTypeById = new Map(
+    (dataTypes.docs as DataType[]).map((type) => [String(type.id), type]),
+  )
+  const companyById = new Map(
+    (companies.docs as Company[]).map((company) => [String(company.id), company]),
+  )
 
   /** Puja per l'arbre fins al grup del cim: la pregunta interessant és a qui pertany, de veritat. */
   const rootCompany = (companyId: string | null): Company | undefined => {
@@ -78,9 +84,7 @@ export default async function QueriesPage() {
       if (key) collectionCount.set(key, (collectionCount.get(key) ?? 0) + 1)
     }
   }
-  const mostCollected = [...collectionCount.entries()]
-    .sort((a, b) => b[1] - a[1])
-    .slice(0, 12)
+  const mostCollected = [...collectionCount.entries()].sort((a, b) => b[1] - a[1]).slice(0, 12)
 
   // Categories especials de l'article 9 presents al directori.
   const specialByApp = (allApps.docs as App[])
@@ -148,72 +152,103 @@ export default async function QueriesPage() {
       </ul>
 
       <h2>Les dades que més es recullen</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Tipus de dada</th>
-            <th>Sensibilitat</th>
-            <th>Serveis que la recullen</th>
-          </tr>
-        </thead>
-        <tbody>
-          {mostCollected.map(([key, count]) => (
-            <tr key={key}>
-              <td>{dataTypeById.get(key)?.name ?? key}</td>
-              <td>{dataTypeById.get(key)?.sensitivity ?? '—'}</td>
-              <td>
-                {count} de {allApps.docs.length}
-              </td>
+      <div
+        className="scroller"
+        role="region"
+        tabIndex={0}
+        aria-label="Tipus de dada més recollits, amb la seva sensibilitat i el nombre de serveis que els recullen"
+      >
+        <table>
+          <caption className="visually-hidden">
+            Tipus de dada més recollits, amb la seva sensibilitat i el nombre de serveis que els
+            recullen
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Tipus de dada</th>
+              <th scope="col">Sensibilitat</th>
+              <th scope="col">Serveis que la recullen</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {mostCollected.map(([key, count]) => (
+              <tr key={key}>
+                <td>{dataTypeById.get(key)?.name ?? key}</td>
+                <td>{dataTypeById.get(key)?.sensitivity ?? '—'}</td>
+                <td>
+                  {count} de {allApps.docs.length}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
 
       <h2>Categories especials de l’article 9</h2>
       <p className="meta">
         Dades que el RGPD protegeix de manera reforçada, recollides o inferibles pels serveis del
         directori.
       </p>
-      <table>
-        <thead>
-          <tr>
-            <th>Servei</th>
-            <th>Categories especials</th>
-          </tr>
-        </thead>
-        <tbody>
-          {specialByApp.map((entry) => (
-            <tr key={entry.app.id}>
-              <td>
-                <AppLink app={entry.app} />
-              </td>
-              <td>{entry.types.map((type) => type.name).join(', ')}</td>
+      <div
+        className="scroller"
+        role="region"
+        tabIndex={0}
+        aria-label="Serveis que recullen categories especials de l’article 9 del RGPD"
+      >
+        <table>
+          <caption className="visually-hidden">
+            Serveis que recullen categories especials de l’article 9 del RGPD
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Servei</th>
+              <th scope="col">Categories especials</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {specialByApp.map((entry) => (
+              <tr key={entry.app.id}>
+                <td>
+                  <AppLink app={entry.app} />
+                </td>
+                <td>{entry.types.map((type) => type.name).join(', ')}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
 
       <h2>Sancions fermes acumulades per grup</h2>
       <p className="meta">
         Suma de les sancions registrades al directori, agrupades pujant fins al cim de cada grup
         empresarial. No inclou les anul·lades en apel·lació.
       </p>
-      <table>
-        <thead>
-          <tr>
-            <th>Grup</th>
-            <th>Import acumulat</th>
-          </tr>
-        </thead>
-        <tbody>
-          {fines.map(([name, amount]) => (
-            <tr key={name}>
-              <td>{name}</td>
-              <td>{amount.toLocaleString('ca-ES')} €</td>
+      <div
+        className="scroller"
+        role="region"
+        tabIndex={0}
+        aria-label="Import acumulat de les sancions fermes per grup empresarial"
+      >
+        <table>
+          <caption className="visually-hidden">
+            Import acumulat de les sancions fermes per grup empresarial
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Grup</th>
+              <th scope="col">Import acumulat</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {fines.map(([name, amount]) => (
+              <tr key={name}>
+                <td>{name}</td>
+                <td>{amount.toLocaleString('ca-ES')} €</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </>
   )
 }

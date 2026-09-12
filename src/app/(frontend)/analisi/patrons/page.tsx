@@ -48,8 +48,7 @@ export default async function DarkPatternsPage() {
   const analysis = analyseDarkPatterns(corpus)
 
   const listed = analysis.topApps.length
-  const patternsPerApp =
-    listed > 0 ? Math.round((analysis.totalPatterns / listed) * 10) / 10 : 0
+  const patternsPerApp = listed > 0 ? Math.round((analysis.totalPatterns / listed) * 10) / 10 : 0
 
   if (apps === 0) {
     return (
@@ -65,10 +64,10 @@ export default async function DarkPatternsPage() {
     <>
       <h1>Els patrons enganyosos</h1>
       <p className="lede">
-        Un patró enganyós no és una mentida: és una manera de presentar les opcions que fa que la que
-        convé a l’empresa surti gairebé sola i la que et protegeix costi una mica més. No impedeix
-        res, i justament per això funciona: la configuració per defecte acaba sent la configuració de
-        gairebé tothom.
+        Un patró enganyós no és una mentida: és una manera de presentar les opcions que fa que la
+        que convé a l’empresa surti gairebé sola i la que et protegeix costi una mica més. No
+        impedeix res, i justament per això funciona: la configuració per defecte acaba sent la
+        configuració de gairebé tothom.
       </p>
 
       <KeyNumbers>
@@ -99,11 +98,14 @@ export default async function DarkPatternsPage() {
 
       <h2>Per tipus</h2>
       <p>
-        Un mateix patró pot aparèixer en diverses fitxes, i una fitxa pot tenir-ne de diversos tipus.
-        La columna de fitxes compta en quantes apareix cada tipus.
+        Un mateix patró pot aparèixer en diverses fitxes, i una fitxa pot tenir-ne de diversos
+        tipus. La columna de fitxes compta en quantes apareix cada tipus.
       </p>
-      <Scroller>
+      <Scroller label="Tipus de patró enganyós documentats, amb què fa cadascun i en quantes fitxes apareix">
         <table>
+          <caption className="visually-hidden">
+            Tipus de patró enganyós documentats, amb què fa cadascun i en quantes fitxes apareix
+          </caption>
           <thead>
             <tr>
               <th scope="col">Tipus</th>
@@ -135,6 +137,9 @@ export default async function DarkPatternsPage() {
         apareix. Tres avisos insistents no equivalen a un botó de rebuig que no existeix.
       </p>
       <table>
+        <caption className="visually-hidden">
+          Patrons enganyosos documentats repartits per gravetat
+        </caption>
         <thead>
           <tr>
             <th scope="col">Gravetat</th>
@@ -182,8 +187,11 @@ export default async function DarkPatternsPage() {
         L’ordre no és el nombre de patrons sinó la seva gravetat sumada: un patró greu pesa més que
         dos de lleus. La columna de gravetat desglossa què hi ha darrere de cada posició.
       </p>
-      <Scroller>
+      <Scroller label="Fitxes amb més patrons enganyosos documentats, desglossats per gravetat">
         <table>
+          <caption className="visually-hidden">
+            Fitxes amb més patrons enganyosos documentats, desglossats per gravetat
+          </caption>
           <thead>
             <tr>
               <th scope="col">Fitxa</th>
@@ -239,10 +247,9 @@ export default async function DarkPatternsPage() {
       </p>
       <p>
         Les {num(analysis.appsWithoutPatterns)} fitxes de {num(apps)} on hem revisat la interfície
-        sense trobar-hi cap patró (
-        {pct(percentage(analysis.appsWithoutPatterns, apps))}) demostren que es pot fer d’una altra
-        manera. Cada patró concret, amb la pantalla on apareix i la font que el documenta, és a la
-        fitxa del servei corresponent.
+        sense trobar-hi cap patró ({pct(percentage(analysis.appsWithoutPatterns, apps))}) demostren
+        que es pot fer d’una altra manera. Cada patró concret, amb la pantalla on apareix i la font
+        que el documenta, és a la fitxa del servei corresponent.
       </p>
 
       <BackToIndex />

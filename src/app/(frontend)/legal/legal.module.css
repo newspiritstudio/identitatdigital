@@ -81,3 +81,9 @@
 .avis p:last-child {
   margin-bottom: 0;
 }
+
+/* Igual que a l'anàlisi: el contenidor és focalitzable i el focus s'ha de veure. */
+.tableWrap:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}

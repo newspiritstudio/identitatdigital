@@ -76,9 +76,9 @@ export default async function GroupsPage() {
       <h1>Qui acumula les fitxes</h1>
       <p className="lede">
         La pregunta d’aquesta pàgina no és de qui és cada aplicació —això ja ho diu la fitxa— sinó
-        quantes de les aplicacions que fem servir acaben a la mateixa taula. Un grup es defineix aquí
-        per la matriu última: pugem per la cadena de propietat fins a l’empresa que ja no en té cap
-        per damunt.
+        quantes de les aplicacions que fem servir acaben a la mateixa taula. Un grup es defineix
+        aquí per la matriu última: pugem per la cadena de propietat fins a l’empresa que ja no en té
+        cap per damunt.
       </p>
 
       <KeyNumbers>
@@ -96,8 +96,12 @@ export default async function GroupsPage() {
         La columna de tipus de dada és la unió dels que recullen totes les aplicacions del grup: és
         el perfil que en surt sumat, no el de l’aplicació que més en reculli.
       </p>
-      <Scroller>
+      <Scroller label="Grups empresarials del corpus, amb fitxes, tipus de dada acumulats, empreses, seu i model d’ingressos">
         <table>
+          <caption className="visually-hidden">
+            Grups empresarials del corpus, amb fitxes, tipus de dada acumulats, empreses, seu i
+            model d’ingressos
+          </caption>
           <thead>
             <tr>
               <th scope="col">Grup</th>
@@ -133,9 +137,9 @@ export default async function GroupsPage() {
       <p>
         Una aplicació sola veu una part de la vida de qui la fa servir. {groups[0]?.rootName} en té{' '}
         {num(groups[0]?.appCount ?? 0)} al directori i, entre totes, hi acumula{' '}
-        {num(groups[0]?.dataTypeCount ?? 0)} tipus de dada diferents. Cap de les seves aplicacions no
-        recull tant per si sola: el que hi ha és un cercador, un mapa, un vídeo i un navegador que
-        responen a la mateixa casa.
+        {num(groups[0]?.dataTypeCount ?? 0)} tipus de dada diferents. Cap de les seves aplicacions
+        no recull tant per si sola: el que hi ha és un cercador, un mapa, un vídeo i un navegador
+        que responen a la mateixa casa.
       </p>
       <p>
         El que es pot deduir d’un perfil així no és la suma de les parts. Qui sap què cerques i on
@@ -145,6 +149,10 @@ export default async function GroupsPage() {
       </p>
       {groups[0] ? (
         <table>
+          <caption className="visually-hidden">
+            Tipus de dada que acumula el grup més gran del corpus i quantes de les seves aplicacions
+            els recullen
+          </caption>
           <thead>
             <tr>
               <th scope="col">Dades que acumula {groups[0].rootName}</th>
@@ -173,6 +181,10 @@ export default async function GroupsPage() {
       </p>
       <SharingDiagram edges={graph.edges} />
       <table>
+        <caption className="visually-hidden">
+          Cessions documentades entre empreses del corpus, amb les files de matriu i les fitxes
+          implicades
+        </caption>
         <thead>
           <tr>
             <th scope="col">Qui cedeix</th>
@@ -214,6 +226,9 @@ export default async function GroupsPage() {
         fluxos de dades, sinó com el mapa de la part que les polítiques de privadesa anomenen.
       </Note>
       <table>
+        <caption className="visually-hidden">
+          Empreses amb més files cedides a destinataris que no s’identifiquen pel nom
+        </caption>
         <thead>
           <tr>
             <th scope="col">Empresa</th>
@@ -240,10 +255,13 @@ export default async function GroupsPage() {
 
       <h2>Incidents i sancions per grup</h2>
       <p>
-        El directori registra {num(incidents.total)} incidents —bretxes, sancions, resolucions i usos
-        indeguts— repartits així entre els grups:
+        El directori registra {num(incidents.total)} incidents —bretxes, sancions, resolucions i
+        usos indeguts— repartits així entre els grups:
       </p>
       <table>
+        <caption className="visually-hidden">
+          Incidents i sancions anunciades per grup empresarial
+        </caption>
         <thead>
           <tr>
             <th scope="col">Grup</th>

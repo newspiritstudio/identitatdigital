@@ -337,6 +337,10 @@ function Results({ exposure }: { exposure: Exposure }) {
       </p>
       <div className={styles.wide}>
         <table>
+          <caption className="visually-hidden">
+            Tipus de dada que recullen les aplicacions seleccionades, amb la seva sensibilitat i si
+            queden vinculades a la identitat
+          </caption>
           <thead>
             <tr>
               <th scope="col">Tipus de dada</th>
@@ -511,6 +515,9 @@ function Results({ exposure }: { exposure: Exposure }) {
       </p>
       <div className={styles.wide}>
         <table>
+          <caption className="visually-hidden">
+            Grups empresarials que acumulen dades de les aplicacions seleccionades
+          </caption>
           <thead>
             <tr>
               <th scope="col">Grup</th>
@@ -611,6 +618,10 @@ function Results({ exposure }: { exposure: Exposure }) {
           </p>
           <div className={styles.wide}>
             <table>
+              <caption className="visually-hidden">
+                Alternatives possibles a les aplicacions seleccionades, amb la diferència de
+                puntuació i què s’hi perd
+              </caption>
               <thead>
                 <tr>
                   <th scope="col">Si canviessis</th>

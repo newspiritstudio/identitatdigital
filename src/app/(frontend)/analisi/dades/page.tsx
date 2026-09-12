@@ -40,8 +40,9 @@ export default async function DataTypesPage() {
   const special = analysis.rows.filter((row) => row.specialCategory)
 
   /* Recomptes de buits agregats de totes les files de la matriu. */
-  const sumOf = (key: 'collectionUnknown' | 'linkageUnknown' | 'trackingUnknown' | 'sharingUnknown') =>
-    analysis.rows.reduce((total, row) => total + row[key], 0)
+  const sumOf = (
+    key: 'collectionUnknown' | 'linkageUnknown' | 'trackingUnknown' | 'sharingUnknown',
+  ) => analysis.rows.reduce((total, row) => total + row[key], 0)
   const collectionUnknown = sumOf('collectionUnknown')
   const linkageUnknown = sumOf('linkageUnknown')
   const trackingUnknown = sumOf('trackingUnknown')
@@ -85,8 +86,12 @@ export default async function DataTypesPage() {
         següents es calculen només sobre aquestes fitxes: preguntar si una dada que no es recull
         queda vinculada a la identitat no té resposta possible.
       </p>
-      <Scroller>
+      <Scroller label="Tipus de dada del vocabulari, amb quantes fitxes els recullen, els lliguen a la identitat, els fan servir per al seguiment i els cedeixen a tercers">
         <table>
+          <caption className="visually-hidden">
+            Tipus de dada del vocabulari, amb quantes fitxes els recullen, els lliguen a la
+            identitat, els fan servir per al seguiment i els cedeixen a tercers
+          </caption>
           <thead>
             <tr>
               <th scope="col">Tipus de dada</th>
@@ -102,7 +107,12 @@ export default async function DataTypesPage() {
               <tr key={row.dataTypeId}>
                 <td>
                   {row.name}
-                  {row.specialCategory ? <> <span className="badge">categoria especial</span></> : null}
+                  {row.specialCategory ? (
+                    <>
+                      {' '}
+                      <span className="badge">categoria especial</span>
+                    </>
+                  ) : null}
                 </td>
                 <td className="meta">{FAMILY_LABELS[row.family ?? ''] ?? '—'}</td>
                 <td>
@@ -125,8 +135,7 @@ export default async function DataTypesPage() {
         {num(linkageUnknown)} no diuen si queda vinculada a la identitat, {num(trackingUnknown)} no
         diuen si serveix per al seguiment i {num(sharingUnknown)} no diuen amb qui es comparteix. La
         matriu de dades és, ara mateix, la part més ben documentada del projecte; el que està pitjor
-        documentat és a{' '}
-        <Link href="/analisi/evidencia">la pàgina d’evidència</Link>.
+        documentat és a <Link href="/analisi/evidencia">la pàgina d’evidència</Link>.
       </Note>
 
       <h2>De dada tècnica a historial amb nom</h2>
@@ -134,25 +143,28 @@ export default async function DataTypesPage() {
         La diferència entre una dada recollida i una dada vinculada a la identitat és tot el que hi
         ha entre una estadística i un expedient. {present[0]?.name} apareix a{' '}
         {num(present[0]?.reach ?? 0)} de les {num(apps)} fitxes i{' '}
-        {num(present[0]?.linkedToIdentity ?? 0)} d’aquestes la lliguen a un compte. A partir
-        d’aquí, cada connexió deixa de ser un registre tècnic anònim i passa a ser una línia d’un
-        historial que té nom, hora i lloc aproximat.
+        {num(present[0]?.linkedToIdentity ?? 0)} d’aquestes la lliguen a un compte. A partir d’aquí,
+        cada connexió deixa de ser un registre tècnic anònim i passa a ser una línia d’un historial
+        que té nom, hora i lloc aproximat.
       </p>
       <p>
         Això no és una acusació ni una anomalia: hi ha raons tècniques legítimes per registrar
         aquestes dades —seguretat, detecció d’abús, compliment legal— i moltes polítiques les
-        expliquen. El que la taula deixa veure és una altra cosa: que la mateixa dada que serveix per
-        protegir el compte serveix, al mateix temps i sense que s’hagi de tornar a demanar res, per
-        construir el perfil.
+        expliquen. El que la taula deixa veure és una altra cosa: que la mateixa dada que serveix
+        per protegir el compte serveix, al mateix temps i sense que s’hagi de tornar a demanar res,
+        per construir el perfil.
       </p>
 
       <h2>Les dades que serveixen per seguir la gent</h2>
       <p>
         Seguir algú fora del servei vol dir reconèixer la mateixa persona en llocs on no ha entrat
-        amb aquell compte. Per fer-ho calen identificadors estables, i aquestes són les dades que més
-        fitxes declaren fer servir amb aquesta finalitat.
+        amb aquell compte. Per fer-ho calen identificadors estables, i aquestes són les dades que
+        més fitxes declaren fer servir amb aquesta finalitat.
       </p>
       <table>
+        <caption className="visually-hidden">
+          Tipus de dada utilitzats per fer seguiment fora del servei, ordenats per nombre de fitxes
+        </caption>
         <thead>
           <tr>
             <th scope="col">Tipus de dada</th>
@@ -176,8 +188,8 @@ export default async function DataTypesPage() {
         </tbody>
       </table>
       <p>
-        Aquí és on la cessió a tercers pesa més. De les {num(analysis.totalRows)} files de la matriu,{' '}
-        {num(graph.rowsToThirdParties)} declaren que la dada es comparteix amb tercers,{' '}
+        Aquí és on la cessió a tercers pesa més. De les {num(analysis.totalRows)} files de la
+        matriu, {num(graph.rowsToThirdParties)} declaren que la dada es comparteix amb tercers,{' '}
         {num(graph.rowsWithinGroup)} que es comparteix dins del mateix grup empresarial i{' '}
         {num(graph.rowsSharedWithNobody)} que no es comparteix amb ningú. Qui són aquests tercers és
         una pregunta que el model encara no sap respondre, i està explicada a{' '}
@@ -187,10 +199,13 @@ export default async function DataTypesPage() {
       <h2>Categories especials</h2>
       <p>
         El Reglament general de protecció de dades tracta a part unes quantes categories —salut,
-        biometria, conviccions, orientació sexual, origen ètnic— perquè el dany d’una filtració no és
-        comparable. Al directori hi apareixen així:
+        biometria, conviccions, orientació sexual, origen ètnic— perquè el dany d’una filtració no
+        és comparable. Al directori hi apareixen així:
       </p>
       <table>
+        <caption className="visually-hidden">
+          Categories especials de l’article 9 del RGPD documentades al corpus
+        </caption>
         <thead>
           <tr>
             <th scope="col">Categoria</th>
@@ -220,13 +235,12 @@ export default async function DataTypesPage() {
 
       <h2>El que el catàleg preveu i cap fitxa no documenta</h2>
       <p>
-        {num(absent.length)} dels {num(analysis.rows.length)} tipus de dada catalogats no apareixen a
-        cap fitxa:{' '}
-        {absent.map((row) => row.name.toLowerCase()).join(', ')}.
+        {num(absent.length)} dels {num(analysis.rows.length)} tipus de dada catalogats no apareixen
+        a cap fitxa: {absent.map((row) => row.name.toLowerCase()).join(', ')}.
       </p>
       <Note>
-        Que no hi siguin no vol dir que ningú no els reculli. Una contrasenya o una data de naixement
-        són dades que molts serveis demanen; el que diu aquesta llista és que cap de les{' '}
+        Que no hi siguin no vol dir que ningú no els reculli. Una contrasenya o una data de
+        naixement són dades que molts serveis demanen; el que diu aquesta llista és que cap de les{' '}
         {num(apps)} fitxes no ho ha documentat com a fila de la matriu. És feina nostra pendent, no
         una afirmació sobre els serveis.
       </Note>

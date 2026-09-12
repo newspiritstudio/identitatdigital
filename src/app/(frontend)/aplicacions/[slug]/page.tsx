@@ -44,7 +44,12 @@ const COMPARABILITY: Record<string, string> = {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   const payload = await getClient()
-  const { docs } = await payload.find({ collection: 'apps', where: { slug: { equals: slug } }, limit: 1, depth: 0 })
+  const { docs } = await payload.find({
+    collection: 'apps',
+    where: { slug: { equals: slug } },
+    limit: 1,
+    depth: 0,
+  })
   return { title: docs[0]?.name ?? 'Aplicació' }
 }
 
@@ -80,26 +85,44 @@ export default async function AppPage({ params }: { params: Promise<{ slug: stri
       </h1>
       <p className="lede">{app.tagline}</p>
 
-      <table>
-        <thead>
-          <tr>
-            <th>Privadesa</th>
-            <th>Seguretat</th>
-            <th>Control</th>
-            <th>Global</th>
-            <th>Confiança</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><Score value={scores?.privacy} /></td>
-            <td><Score value={scores?.security} /></td>
-            <td><Score value={scores?.agency} /></td>
-            <td><Score value={scores?.overall} /></td>
-            <td><Score value={scores?.confidence} /></td>
-          </tr>
-        </tbody>
-      </table>
+      <div
+        className="scroller"
+        role="region"
+        tabIndex={0}
+        aria-label={`Puntuacions publicades de ${app.name}`}
+      >
+        <table>
+          <caption className="visually-hidden">{`Puntuacions publicades de ${app.name}`}</caption>
+          <thead>
+            <tr>
+              <th scope="col">Privadesa</th>
+              <th scope="col">Seguretat</th>
+              <th scope="col">Control</th>
+              <th scope="col">Global</th>
+              <th scope="col">Confiança</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <Score value={scores?.privacy} />
+              </td>
+              <td>
+                <Score value={scores?.security} />
+              </td>
+              <td>
+                <Score value={scores?.agency} />
+              </td>
+              <td>
+                <Score value={scores?.overall} />
+              </td>
+              <td>
+                <Score value={scores?.confidence} />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
       <p className="meta">
         Metodologia {scores?.methodologyVersion ?? '—'}. Cobertura documentada del{' '}
         {typeof scores?.coverage === 'number' ? Math.round(scores.coverage * 100) : '—'} % dels
@@ -111,52 +134,64 @@ export default async function AppPage({ params }: { params: Promise<{ slug: stri
       <p>{app.summary}</p>
 
       <h2>Identificació</h2>
-      <table>
-        <tbody>
-          <tr>
-            <th>Empresa</th>
-            <td>{label(app.company)}</td>
-          </tr>
-          <tr>
-            <th>Categories</th>
-            <td>{(app.categories ?? []).map((category) => label(category as Category)).join(', ') || '—'}</td>
-          </tr>
-          <tr>
-            <th>Model de negoci</th>
-            <td>{app.businessModel ?? '—'}</td>
-          </tr>
-          <tr>
-            <th>Jurisdicció</th>
-            <td>{app.jurisdiction ?? '—'}</td>
-          </tr>
-          <tr>
-            <th>Volum</th>
-            <td>{app.userBase ?? '—'}</td>
-          </tr>
-          <tr>
-            <th>Enllaços</th>
-            <td>
-              {[
-                ['Lloc web', app.links?.website],
-                ['Política de privadesa', app.links?.privacyPolicy],
-                ['Condicions', app.links?.terms],
-                ['Centre de privadesa', app.links?.privacyCenter],
-                ['App Store', app.links?.appStore],
-                ['Google Play', app.links?.playStore],
-              ]
-                .filter(([, href]) => Boolean(href))
-                .map(([text, href], index) => (
-                  <React.Fragment key={String(text)}>
-                    {index > 0 ? ' · ' : ''}
-                    <a href={String(href)} target="_blank" rel="noreferrer">
-                      {String(text)}
-                    </a>
-                  </React.Fragment>
-                ))}
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <div
+        className="scroller"
+        role="region"
+        tabIndex={0}
+        aria-label={`Dades identificatives de ${app.name}`}
+      >
+        <table>
+          <caption className="visually-hidden">{`Dades identificatives de ${app.name}`}</caption>
+          <tbody>
+            <tr>
+              <th scope="row">Empresa</th>
+              <td>{label(app.company)}</td>
+            </tr>
+            <tr>
+              <th scope="row">Categories</th>
+              <td>
+                {(app.categories ?? []).map((category) => label(category as Category)).join(', ') ||
+                  '—'}
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">Model de negoci</th>
+              <td>{app.businessModel ?? '—'}</td>
+            </tr>
+            <tr>
+              <th scope="row">Jurisdicció</th>
+              <td>{app.jurisdiction ?? '—'}</td>
+            </tr>
+            <tr>
+              <th scope="row">Volum</th>
+              <td>{app.userBase ?? '—'}</td>
+            </tr>
+            <tr>
+              <th scope="row">Enllaços</th>
+              <td>
+                {[
+                  ['Lloc web', app.links?.website],
+                  ['Política de privadesa', app.links?.privacyPolicy],
+                  ['Condicions', app.links?.terms],
+                  ['Centre de privadesa', app.links?.privacyCenter],
+                  ['App Store', app.links?.appStore],
+                  ['Google Play', app.links?.playStore],
+                ]
+                  .filter(([, href]) => Boolean(href))
+                  .map(([text, href], index) => (
+                    <React.Fragment key={String(text)}>
+                      {index > 0 ? ' · ' : ''}
+                      <a href={String(href)} target="_blank" rel="noreferrer">
+                        {String(text)}
+                        <span className="visually-hidden"> (s’obre en una pestanya nova)</span>
+                      </a>
+                    </React.Fragment>
+                  ))}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
       <dl>
         <Fact label="Cal un compte" fact={app.accountRequired} />
@@ -165,35 +200,45 @@ export default async function AppPage({ params }: { params: Promise<{ slug: stri
 
       <h2>Dades recollides</h2>
       {app.dataSummary ? <p>{app.dataSummary}</p> : null}
-      <table>
-        <thead>
-          <tr>
-            <th>Tipus de dada</th>
-            <th>Es recull</th>
-            <th>Identificable</th>
-            <th>Seguiment</th>
-            <th>Es comparteix amb</th>
-            <th>Finalitats</th>
-          </tr>
-        </thead>
-        <tbody>
-          {(app.dataCollection ?? []).map((row) => (
-            <tr key={row.id}>
-              <td>
-                {label(row.dataType as DataType)}
-                {row.note ? <div className="meta">{row.note}</div> : null}
-              </td>
-              <td>{COLLECTION_STATUS[row.status ?? 'unknown']}</td>
-              <td>{STATUS_LABELS[row.linkedToIdentity ?? 'unknown']}</td>
-              <td>{STATUS_LABELS[row.usedForTracking ?? 'unknown']}</td>
-              <td>{SHARED_WITH[row.sharedWith ?? 'unknown']}</td>
-              <td className="meta">
-                {(row.purposes ?? []).map((purpose) => label(purpose as ProcessingPurpose)).join(', ') || '—'}
-              </td>
+      <div
+        className="scroller"
+        role="region"
+        tabIndex={0}
+        aria-label={`Dades que recull ${app.name}, amb si són identificables, si serveixen per al seguiment, amb qui es comparteixen i per a quines finalitats`}
+      >
+        <table>
+          <caption className="visually-hidden">{`Dades que recull ${app.name}, amb si són identificables, si serveixen per al seguiment, amb qui es comparteixen i per a quines finalitats`}</caption>
+          <thead>
+            <tr>
+              <th scope="col">Tipus de dada</th>
+              <th scope="col">Es recull</th>
+              <th scope="col">Identificable</th>
+              <th scope="col">Seguiment</th>
+              <th scope="col">Es comparteix amb</th>
+              <th scope="col">Finalitats</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {(app.dataCollection ?? []).map((row) => (
+              <tr key={row.id}>
+                <td>
+                  {label(row.dataType as DataType)}
+                  {row.note ? <div className="meta">{row.note}</div> : null}
+                </td>
+                <td>{COLLECTION_STATUS[row.status ?? 'unknown']}</td>
+                <td>{STATUS_LABELS[row.linkedToIdentity ?? 'unknown']}</td>
+                <td>{STATUS_LABELS[row.usedForTracking ?? 'unknown']}</td>
+                <td>{SHARED_WITH[row.sharedWith ?? 'unknown']}</td>
+                <td className="meta">
+                  {(row.purposes ?? [])
+                    .map((purpose) => label(purpose as ProcessingPurpose))
+                    .join(', ') || '—'}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
 
       <h2>Seguiment i usos</h2>
       <dl>
@@ -214,36 +259,45 @@ export default async function AppPage({ params }: { params: Promise<{ slug: stri
         <Fact label="Es pot eliminar" fact={deletion?.possible} />
         <Fact label="Es pot fer sol" fact={deletion?.selfService} />
       </dl>
-      <table>
-        <tbody>
-          <tr>
-            <th>Dificultat</th>
-            <td>{DIFFICULTY[deletion?.difficulty ?? 'unknown']}</td>
-          </tr>
-          <tr>
-            <th>Espera</th>
-            <td>
-              {deletion?.waitingPeriodDays === null || deletion?.waitingPeriodDays === undefined
-                ? '—'
-                : `${deletion.waitingPeriodDays} dies`}
-            </td>
-          </tr>
-          <tr>
-            <th>Cal contactar amb suport</th>
-            <td>{deletion?.requiresSupportContact ? 'Sí' : 'No'}</td>
-          </tr>
-          {deletion?.directUrl ? (
+      <div
+        className="scroller"
+        role="region"
+        tabIndex={0}
+        aria-label={`Com s’elimina el compte de ${app.name}`}
+      >
+        <table>
+          <caption className="visually-hidden">{`Com s’elimina el compte de ${app.name}`}</caption>
+          <tbody>
             <tr>
-              <th>Enllaç directe</th>
+              <th scope="row">Dificultat</th>
+              <td>{DIFFICULTY[deletion?.difficulty ?? 'unknown']}</td>
+            </tr>
+            <tr>
+              <th scope="row">Espera</th>
               <td>
-                <a href={deletion.directUrl} target="_blank" rel="noreferrer">
-                  {deletion.directUrl}
-                </a>
+                {deletion?.waitingPeriodDays === null || deletion?.waitingPeriodDays === undefined
+                  ? '—'
+                  : `${deletion.waitingPeriodDays} dies`}
               </td>
             </tr>
-          ) : null}
-        </tbody>
-      </table>
+            <tr>
+              <th scope="row">Cal contactar amb suport</th>
+              <td>{deletion?.requiresSupportContact ? 'Sí' : 'No'}</td>
+            </tr>
+            {deletion?.directUrl ? (
+              <tr>
+                <th scope="row">Enllaç directe</th>
+                <td>
+                  <a href={deletion.directUrl} target="_blank" rel="noreferrer">
+                    {deletion.directUrl}
+                    <span className="visually-hidden"> (s’obre en una pestanya nova)</span>
+                  </a>
+                </td>
+              </tr>
+            ) : null}
+          </tbody>
+        </table>
+      </div>
       {(deletion?.steps ?? []).length > 0 ? (
         <>
           <h3>Passos</h3>
@@ -271,7 +325,10 @@ export default async function AppPage({ params }: { params: Promise<{ slug: stri
       <dl>
         <Fact label="Exportació de dades" fact={app.userRights?.dataExport} />
         <Fact label="Exercici de drets" fact={app.userRights?.rightsExercise} />
-        <Fact label="Desactivar la publicitat personalitzada" fact={app.controls?.adPersonalizationOptOut} />
+        <Fact
+          label="Desactivar la publicitat personalitzada"
+          fact={app.controls?.adPersonalizationOptOut}
+        />
         <Fact label="Desactivar la telemetria" fact={app.controls?.telemetryOptOut} />
         <Fact label="Controls detallats" fact={app.controls?.granularControls} />
         <Fact label="Patrons enganyosos" fact={app.controls?.darkPatterns} />
@@ -313,32 +370,40 @@ export default async function AppPage({ params }: { params: Promise<{ slug: stri
             : 'Encara no s’ha fet la revisió d’incidents d’aquesta fitxa.'}
         </p>
       ) : (
-        <table>
-          <thead>
-            <tr>
-              <th>Any</th>
-              <th>Incident</th>
-              <th>Gravetat</th>
-              <th>Sanció</th>
-              <th>Estat</th>
-            </tr>
-          </thead>
-          <tbody>
-            {(incidents as Incident[]).map((incident) => (
-              <tr key={incident.id}>
-                <td>{String(incident.occurredAt).slice(0, 4)}</td>
-                <td>{incident.title}</td>
-                <td>{incident.severity}</td>
-                <td>
-                  {incident.regulatory?.fineAmountEur
-                    ? `${incident.regulatory.fineAmountEur.toLocaleString('ca-ES')} €`
-                    : '—'}
-                </td>
-                <td>{incident.regulatory?.status ?? '—'}</td>
+        <div
+          className="scroller"
+          role="region"
+          tabIndex={0}
+          aria-label={`Incidents registrats de ${app.name}, amb any, gravetat, sanció i estat`}
+        >
+          <table>
+            <caption className="visually-hidden">{`Incidents registrats de ${app.name}, amb any, gravetat, sanció i estat`}</caption>
+            <thead>
+              <tr>
+                <th scope="col">Any</th>
+                <th scope="col">Incident</th>
+                <th scope="col">Gravetat</th>
+                <th scope="col">Sanció</th>
+                <th scope="col">Estat</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {(incidents as Incident[]).map((incident) => (
+                <tr key={incident.id}>
+                  <td>{String(incident.occurredAt).slice(0, 4)}</td>
+                  <td>{incident.title}</td>
+                  <td>{incident.severity}</td>
+                  <td>
+                    {incident.regulatory?.fineAmountEur
+                      ? `${incident.regulatory.fineAmountEur.toLocaleString('ca-ES')} €`
+                      : '—'}
+                  </td>
+                  <td>{incident.regulatory?.status ?? '—'}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       )}
 
       <h2>Alternatives</h2>
@@ -354,10 +419,14 @@ export default async function AppPage({ params }: { params: Promise<{ slug: stri
               <li key={alternative.id} className="card" style={{ marginBottom: '0.5rem' }}>
                 <h3>
                   <Link href={`/aplicacions/${target?.slug}`}>{target?.name}</Link>{' '}
-                  <span className="badge">{COMPARABILITY[alternative.comparability ?? 'partial']}</span>
+                  <span className="badge">
+                    {COMPARABILITY[alternative.comparability ?? 'partial']}
+                  </span>
                 </h3>
                 <p>{alternative.rationale}</p>
-                {alternative.tradeOffs ? <p className="meta">A canvi: {alternative.tradeOffs}</p> : null}
+                {alternative.tradeOffs ? (
+                  <p className="meta">A canvi: {alternative.tradeOffs}</p>
+                ) : null}
               </li>
             )
           })}

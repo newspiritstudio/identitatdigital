@@ -19,15 +19,15 @@ export default function AccessibilityPage() {
 
       <Avis>
         <p>
-          <strong>Això és un esborrany, no una declaració de conformitat.</strong> El lloc es troba en
-          una fase de validació de contingut i encara no té el disseny definitiu. No hi ha hagut cap
-          auditoria d’accessibilitat, ni interna ni externa. Publicar ara una declaració de
+          <strong>Això és un esborrany, no una declaració de conformitat.</strong> El lloc es troba
+          en una fase de validació de contingut i encara no té el disseny definitiu. No hi ha hagut
+          cap auditoria d’accessibilitat, ni interna ni externa. Publicar ara una declaració de
           conformitat total o parcial seria una afirmació que no podem sostenir, i aquest projecte
           existeix precisament per assenyalar afirmacions que no se sostenen.
         </p>
         <p>
-          El que hi ha a continuació és l’estat real després de revisar el codi, les mancances que ja
-          coneixem, el que ens comprometem a fer i com informar-nos si trobes una barrera.
+          El que hi ha a continuació és l’estat real després de revisar el codi, les mancances que
+          ja coneixem, el que ens comprometem a fer i com informar-nos si trobes una barrera.
         </p>
       </Avis>
 
@@ -43,21 +43,21 @@ export default function AccessibilityPage() {
       <h2>1. Compromís</h2>
       <p>
         New Spirit Studio S.L. es compromet que Identitat.digital sigui accessible d’acord amb les{' '}
-        <strong>Pautes d’accessibilitat per al contingut web (WCAG) 2.2, nivell AA</strong>, i amb la
-        norma europea harmonitzada <strong>EN 301 549</strong>, que és la que recull els requisits
-        d’accessibilitat per als productes i serveis de tecnologies de la informació a la Unió
-        Europea i que incorpora les WCAG per a la part web.
+        <strong>Pautes d’accessibilitat per al contingut web (WCAG) 2.2, nivell AA</strong>, i amb
+        la norma europea harmonitzada <strong>EN 301 549</strong>, que és la que recull els
+        requisits d’accessibilitat per als productes i serveis de tecnologies de la informació a la
+        Unió Europea i que incorpora les WCAG per a la part web.
       </p>
       <p>
-        Aquest compromís no és decoratiu: un lloc que publica informació d’interès públic sobre drets
-        digitals i que no es pot llegir amb un lector de pantalla estaria excloent precisament les
-        persones que més sovint queden fora de les decisions sobre tecnologia.
+        Aquest compromís no és decoratiu: un lloc que publica informació d’interès públic sobre
+        drets digitals i que no es pot llegir amb un lector de pantalla estaria excloent precisament
+        les persones que més sovint queden fora de les decisions sobre tecnologia.
       </p>
 
       <h2>2. És obligatòria aquesta declaració? No. I l’assumim igualment</h2>
       <p>
-        Cal ser precisos, perquè la resposta canvia segons la norma que es miri. Hem revisat les tres
-        que podrien aplicar.
+        Cal ser precisos, perquè la resposta canvia segons la norma que es miri. Hem revisat les
+        tres que podrien aplicar.
       </p>
 
       <h3>2.1. Reial decret 1112/2018: no aplica</h3>
@@ -80,20 +80,22 @@ export default function AccessibilityPage() {
         juny de 2025. Ara bé, no s’aplica a tot Internet: el seu article 2 conté una{' '}
         <strong>llista tancada</strong> de productes i serveis. Per al que aquí interessa, hi entren
         el comerç electrònic, els serveis bancaris, els llibres electrònics, el transport de
-        passatgers, les comunicacions electròniques i l’accés als serveis de comunicació audiovisual.
+        passatgers, les comunicacions electròniques i l’accés als serveis de comunicació
+        audiovisual.
       </p>
       <p>
-        <strong>Primera raó:</strong> Identitat.digital no és cap d’aquests serveis. En concret, no és
-        comerç electrònic, que la Directiva defineix com els serveis prestats a distància, per via
-        electrònica, <em>amb vista a la celebració d’un contracte amb una persona consumidora</em>.
-        Aquí no es contracta res, no es ven res, no s’obre cap compte i no es fa cap pagament. És una
+        <strong>Primera raó:</strong> Identitat.digital no és cap d’aquests serveis. En concret, no
+        és comerç electrònic, que la Directiva defineix com els serveis prestats a distància, per
+        via electrònica,{' '}
+        <em>amb vista a la celebració d’un contracte amb una persona consumidora</em>. Aquí no es
+        contracta res, no es ven res, no s’obre cap compte i no es fa cap pagament. És una
         publicació informativa gratuïta i, com a tal, queda fora de l’àmbit d’aplicació.
       </p>
       <p>
         <strong>Segona raó, subsidiària:</strong> encara que un dia el projecte incorporés un servei
-        de l’àmbit de la Directiva, l’article 4.5 exclou les microempreses que presten serveis de les
-        obligacions d’accessibilitat, precisament per la desproporció de la càrrega. Ho diem com a
-        argument de reforç, no com a excusa: no pensem acollir-nos-hi.{' '}
+        de l’àmbit de la Directiva, l’article 4.5 exclou les microempreses que presten serveis de
+        les obligacions d’accessibilitat, precisament per la desproporció de la càrrega. Ho diem com
+        a argument de reforç, no com a excusa: no pensem acollir-nos-hi.{' '}
         <Pendent>
           confirmar que New Spirit Studio S.L. compleix la definició de microempresa —menys de deu
           persones treballadores i volum de negoci o balanç anual no superior a dos milions d’euros—
@@ -105,16 +107,16 @@ export default function AccessibilityPage() {
       <p>
         El text refós de la Llei general de drets de les persones amb discapacitat i de la seva
         inclusió social estableix un principi general de no-discriminació i d’accessibilitat
-        universal que abasta els béns, productes i serveis a disposició del públic, i preveu el deure
-        de fer ajustos raonables. Aquest principi <strong>sí que ens obliga</strong> com a criteri de
-        conducta.
+        universal que abasta els béns, productes i serveis a disposició del públic, i preveu el
+        deure de fer ajustos raonables. Aquest principi <strong>sí que ens obliga</strong> com a
+        criteri de conducta.
       </p>
       <p>
         El que aquesta norma no fa és imposar una conformitat tècnica concreta ni obligar a publicar
         cap declaració per a un lloc web privat: aquest desenvolupament reglamentari existeix per al
-        sector públic al Reial decret 1112/2018. La conseqüència pràctica és que tenim un deure de no
-        excloure ningú i de fer ajustos quan se’ns demanin, però no una obligació formal de declarar
-        res.
+        sector públic al Reial decret 1112/2018. La conseqüència pràctica és que tenim un deure de
+        no excloure ningú i de fer ajustos quan se’ns demanin, però no una obligació formal de
+        declarar res.
       </p>
 
       <h3>2.4. Conclusió</h3>
@@ -151,8 +153,8 @@ export default function AccessibilityPage() {
           poden llegir-ho tot.
         </li>
         <li>
-          <strong>Idioma declarat.</strong> L’element arrel porta <code>lang=&quot;ca&quot;</code>, de
-          manera que els lectors de pantalla apliquen la pronunciació catalana.
+          <strong>Idioma declarat.</strong> L’element arrel porta <code>lang=&quot;ca&quot;</code>,
+          de manera que els lectors de pantalla apliquen la pronunciació catalana.
         </li>
         <li>
           <strong>Estructura semàntica.</strong> Es fan servir capçaleres jeràrquiques, regions de
@@ -165,8 +167,11 @@ export default function AccessibilityPage() {
           pot desar sense ell. És una garantia estructural, no una bona intenció.
         </li>
         <li>
-          <strong>Cap animació, cap moviment automàtic, cap contingut intermitent i cap reproducció
-          automàtica.</strong> Els criteris 2.2.2 i 2.3.1 es compleixen per absència de causa.
+          <strong>
+            Cap animació, cap moviment automàtic, cap contingut intermitent i cap reproducció
+            automàtica.
+          </strong>{' '}
+          Els criteris 2.2.2 i 2.3.1 es compleixen per absència de causa.
         </li>
         <li>
           <strong>Contrast de color del text dins dels límits.</strong> Els colors del full d’estil
@@ -186,8 +191,11 @@ export default function AccessibilityPage() {
 
       <h3>3.2. Mancances conegudes</h3>
       <p>Aquestes les hem trobades nosaltres revisant el codi. N’hi haurà més.</p>
-      <TableWrap>
+      <TableWrap label="Mancances d’accessibilitat conegudes, amb el criteri WCAG 2.2 afectat i el seu efecte">
         <table>
+          <caption className="visually-hidden">
+            Mancances d’accessibilitat conegudes, amb el criteri WCAG 2.2 afectat i el seu efecte
+          </caption>
           <thead>
             <tr>
               <th scope="col">Mancança</th>
@@ -207,8 +215,8 @@ export default function AccessibilityPage() {
             <tr>
               <td>
                 Les taules de dades no tenen títol (<code>caption</code>) i les seves capçaleres no
-                declaren l’abast (<code>scope</code>). Un lector de pantalla pot no relacionar bé cada
-                cel·la amb la seva capçalera.
+                declaren l’abast (<code>scope</code>). Un lector de pantalla pot no relacionar bé
+                cada cel·la amb la seva capçalera.
               </td>
               <td>1.3.1 Informació i relacions (A)</td>
               <td>Alt en les taules comparatives, que són el cor del lloc</td>
@@ -263,9 +271,9 @@ export default function AccessibilityPage() {
             </tr>
             <tr>
               <td>
-                Les eines de la secció /eines són interactives i encara no s’han revisat: etiquetatge
-                de camps, missatges d’error, anunci de resultats a tecnologies de suport i ús amb
-                teclat.
+                Les eines de la secció /eines són interactives i encara no s’han revisat:
+                etiquetatge de camps, missatges d’error, anunci de resultats a tecnologies de suport
+                i ús amb teclat.
               </td>
               <td>1.3.1, 3.3.1, 3.3.2, 4.1.2, 4.1.3</td>
               <td>Per determinar</td>
@@ -295,7 +303,8 @@ export default function AccessibilityPage() {
         Els documents als quals enllacem —polítiques de privadesa, resolucions d’autoritats,
         articles— són de tercers i la seva accessibilitat no depèn de nosaltres. Molts d’ells són
         PDF sense etiquetar. Quan sigui possible, el resum en català que publiquem a la fitxa de la
-        font ha de permetre entendre el contingut essencial sense haver d’obrir el document original.
+        font ha de permetre entendre el contingut essencial sense haver d’obrir el document
+        original.
       </p>
 
       <h2>4. Calendari</h2>
@@ -306,8 +315,8 @@ export default function AccessibilityPage() {
       <ol>
         <li>
           <strong>Correccions immediates</strong>, que no depenen del disseny: enllaç per saltar al
-          contingut, títols i abast a les taules, contenidors amb desplaçament, estil de focus propi i
-          indicació dels enllaços externs.
+          contingut, títols i abast a les taules, contenidors amb desplaçament, estil de focus propi
+          i indicació dels enllaços externs.
         </li>
         <li>
           <strong>Revisió de les eines</strong> a mesura que es publiquin, amb els criteris de
@@ -315,7 +324,8 @@ export default function AccessibilityPage() {
         </li>
         <li>
           <strong>Avaluació sistemàtica</strong> amb la metodologia de les WCAG-EM: automàtica per
-          detectar el que és detectable automàticament, i manual per a la resta, que és la major part.
+          detectar el que és detectable automàticament, i manual per a la resta, que és la major
+          part.
         </li>
         <li>
           <strong>Proves amb lector de pantalla i només amb teclat</strong>, i, si és possible, amb
@@ -348,11 +358,11 @@ export default function AccessibilityPage() {
         <li>Una adreça on respondre’t.</li>
       </ul>
       <p>
-        <strong>El que ens comprometem a fer:</strong> acusar-ne recepció en 5 dies hàbils, dir-te en
-        15 dies hàbils si ho podem corregir i quan, i fer-ho. Si una correcció requereix el disseny
-        definitiu i no la podem avançar, t’ho direm clarament i et facilitarem el contingut en un
-        format alternatiu accessible mentrestant. Això últim és el que la llei anomena un ajust
-        raonable, i hi estem obligats amb declaració o sense.
+        <strong>El que ens comprometem a fer:</strong> acusar-ne recepció en 5 dies hàbils, dir-te
+        en 15 dies hàbils si ho podem corregir i quan, i fer-ho. Si una correcció requereix el
+        disseny definitiu i no la podem avançar, t’ho direm clarament i et facilitarem el contingut
+        en un format alternatiu accessible mentrestant. Això últim és el que la llei anomena un
+        ajust raonable, i hi estem obligats amb declaració o sense.
       </p>
 
       <h3>Si no estàs satisfet amb la resposta</h3>
@@ -363,23 +373,23 @@ export default function AccessibilityPage() {
       </p>
       <p>
         El que sí que existeix: pots dirigir-te a l’Oficina d’Atenció a la Discapacitat, a les
-        entitats del moviment associatiu de la discapacitat, o exercir les accions que preveu el text
-        refós de la Llei general de drets de les persones amb discapacitat davant la jurisdicció
-        ordinària. I, en qualsevol cas, insistir-nos. La barrera continua sent nostra i la volem
-        corregir.
+        entitats del moviment associatiu de la discapacitat, o exercir les accions que preveu el
+        text refós de la Llei general de drets de les persones amb discapacitat davant la
+        jurisdicció ordinària. I, en qualsevol cas, insistir-nos. La barrera continua sent nostra i
+        la volem corregir.
       </p>
 
       <h2>6. Preparació d’aquesta declaració</h2>
       <p>
         Preparada el 12 de setembre de 2026 mitjançant una <strong>autoavaluació</strong> basada en
-        la revisió del codi font del lloc. No hi ha hagut avaluació externa, ni proves amb usuaris, ni
-        ús d’eines automàtiques de validació. Es revisarà cada vegada que el lloc canviï de manera
-        substancial i, en tot cas, com a mínim un cop l’any.
+        la revisió del codi font del lloc. No hi ha hagut avaluació externa, ni proves amb usuaris,
+        ni ús d’eines automàtiques de validació. Es revisarà cada vegada que el lloc canviï de
+        manera substancial i, en tot cas, com a mínim un cop l’any.
       </p>
       <p>
         Referències: Directiva (UE) 2019/882; Llei 11/2023; Reial decret legislatiu 1/2013; Reial
-        decret 1112/2018 i Directiva (UE) 2016/2102, a efectes de delimitar l’àmbit; norma EN 301 549;
-        Pautes WCAG 2.2 del W3C.
+        decret 1112/2018 i Directiva (UE) 2016/2102, a efectes de delimitar l’àmbit; norma EN 301
+        549; Pautes WCAG 2.2 del W3C.
       </p>
     </>
   )

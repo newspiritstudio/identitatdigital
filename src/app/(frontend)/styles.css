@@ -6,6 +6,13 @@
   --text: #1a1a1a;
   --muted: #5c5c5c;
   --line: #d8d8d8;
+  /*
+   * Vora amb contrast suficient per a elements d'interfície i objectes
+   * gràfics: 4,5:1 sobre blanc, per damunt del 3:1 que demana el criteri
+   * 1.4.11. `--line` és massa clara per a res que no sigui separar files.
+   */
+  --line-strong: #767676;
+  --focus: #0b3d6e;
   --bg: #ffffff;
   --accent: #14508c;
   --good: #1d6f42;
@@ -19,8 +26,17 @@
 
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
-  font-size: 16px;
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    sans-serif;
+  /*
+   * Mida relativa, no `16px`. Amb una mida fixa, qui hagi apujat la mida de
+   * lletra per defecte del navegador no en nota res i el criteri 1.4.4 queda
+   * incomplert encara que el zoom de pàgina funcioni.
+   */
+  font-size: 100%;
   line-height: 1.55;
   color: var(--text);
   background: var(--bg);
@@ -219,4 +235,162 @@ ul.plain {
 .logo {
   border-radius: 22.5%;
   flex-shrink: 0;
+}
+
+/*
+ * Taules amples. Una taula de diccionari de dades no cap a 400 px i encongir-ne
+ * la lletra la faria il·legible: el que ha de desplaçar-se és la taula, no la
+ * pàgina. `tabindex` al contenidor perquè també es pugui desplaçar amb teclat
+ * (WCAG 2.1.1), i per això cal un nom accessible al mateix element.
+ */
+.scroller {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+.dataset {
+  margin: 2rem 0;
+}
+
+.dataset .meta {
+  margin-top: -0.5rem;
+}
+
+/* ─────────────────────────────── accessibilitat ──────────────────────────── */
+
+/*
+ * Enllaç de salt al contingut (2.4.1). Fora de pantalla fins que rep el focus;
+ * mai amagat amb `display: none`, que el trauria de l'ordre de tabulació i el
+ * faria inútil.
+ */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 10;
+  padding: 0.6rem 1rem;
+  background: var(--bg);
+  color: var(--accent);
+  border: 2px solid var(--focus);
+  border-radius: 0 0 4px 0;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+/*
+ * Indicador de focus (2.4.7 i 2.4.11). Contorn de 3 px amb separació, de
+ * manera que no quedi mai tapat pel fons de l'element ni per la vora d'una
+ * cel·la de taula. Es fa servir `:focus-visible` perquè un clic de ratolí no
+ * deixi el contorn enganxat, i `:focus` com a alternativa per als navegadors
+ * que encara no el tenen.
+ */
+:focus {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/*
+ * `<main>` rep el focus per programa quan s'utilitza l'enllaç de salt. Marcar-lo
+ * amb un contorn de pàgina sencera seria soroll: el que interessa és que el
+ * focus hi sigui, no que es vegi una caixa gegant.
+ */
+main:focus {
+  outline: none;
+}
+
+/*
+ * Reflux a 320 px (1.4.10): res no pot obligar a desplaçar-se en horitzontal
+ * excepte el que per naturalesa no cap, i aquest ha de portar el seu propi
+ * contenidor desplaçable.
+ */
+img,
+svg,
+table {
+  max-width: 100%;
+}
+
+/* Espaiat de text (1.4.12): cap contenidor amb alçada fixa i les paraules
+ * llargues es parteixen en comptes de desbordar. */
+p,
+li,
+dd,
+td,
+th {
+  overflow-wrap: break-word;
+}
+
+/* Moviment (2.3.3). Ara no hi ha animacions, però el dia que n'hi hagi,
+ * aquesta regla ja hi és. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Secció actual del lloc (2.4.8). El subratllat no és l'única marca: també hi
+ * ha `aria-current="page"`, que és el que llegeix un lector de pantalla. */
+.site-header nav a[aria-current='page'] {
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+/* Contenidor desplaçable de taules amples. Amb `tabindex` a la plantilla,
+ * perquè també es pugui desplaçar amb teclat (2.1.1). */
+.scroller:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* Contrast d'elements no textuals (1.4.11): la vora d'una etiqueta és el que
+ * la delimita, i amb `--line` no arribava al 3:1 exigit. */
+.badge {
+  border-color: var(--line-strong);
+}
+
+@media (max-width: 30rem) {
+  main {
+    padding: 1rem 0.75rem 3rem;
+  }
+
+  .site-header,
+  .site-footer {
+    padding: 0.75rem;
+  }
+}
+
+/*
+ * Text només per a tecnologies de suport. S'utilitza als títols de taula: cada
+ * taula del lloc ja té un encapçalament visible just a sobre, i repetir-lo com
+ * a `<caption>` visible seria soroll; però qui navega taula per taula amb un
+ * lector de pantalla no veu aquest encapçalament i necessita saber què té
+ * davant. Mai `display: none` ni `visibility: hidden`, que amagarien el text
+ * també per a aquestes tecnologies.
+ */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
 }

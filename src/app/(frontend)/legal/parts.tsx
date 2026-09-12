@@ -26,8 +26,22 @@ export function Pendent({ children }: { children: React.ReactNode }) {
   return <mark className={styles.pendent}>[PENDENT: {children}]</mark>
 }
 
-export function TableWrap({ children }: { children: React.ReactNode }) {
-  return <div className={styles.tableWrap}>{children}</div>
+/**
+ * Contenidor desplaçable per a les taules dels documents legals. Focalitzable
+ * amb teclat (WCAG 2.1.1) i amb nom de regió quan se li dona, perquè el lector
+ * de pantalla pugui dir on ha entrat el focus.
+ */
+export function TableWrap({ children, label }: { children: React.ReactNode; label?: string }) {
+  return (
+    <div
+      aria-label={label}
+      className={styles.tableWrap}
+      role={label === undefined ? undefined : 'region'}
+      tabIndex={0}
+    >
+      {children}
+    </div>
+  )
 }
 
 export function Resum({ children }: { children: React.ReactNode }) {

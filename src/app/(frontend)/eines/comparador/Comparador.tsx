@@ -139,6 +139,7 @@ function Cell({
                 {index > 0 ? ' · ' : ''}
                 <a href={source.url} target="_blank" rel="noreferrer">
                   {source.publisher}
+                  <span className="visually-hidden"> (s’obre en una pestanya nova)</span>
                 </a>
               </span>
             ))}
@@ -373,7 +374,11 @@ export default function Comparador({
             </div>
             {selection.length > 0 ? (
               <p>
-                <button type="button" className={styles.linkButton} onClick={() => setSelection([])}>
+                <button
+                  type="button"
+                  className={styles.linkButton}
+                  onClick={() => setSelection([])}
+                >
                   Buida la selecció
                 </button>
               </p>
@@ -396,17 +401,16 @@ export default function Comparador({
           {confidenceGap >= snapshot.confidenceGapThreshold ? (
             <p className={styles.warning}>
               <strong>Avís:</strong> les fitxes comparades no estan documentades amb la mateixa
-              profunditat. La confiança va de {Math.min(...confidences)} a {Math.max(...confidences)}{' '}
-              sobre 100. Una diferència de puntuació entre una fitxa molt documentada i una que ho
-              està poc no és una diferència entre els serveis: és una diferència entre el que en
-              sabem.
+              profunditat. La confiança va de {Math.min(...confidences)} a{' '}
+              {Math.max(...confidences)} sobre 100. Una diferència de puntuació entre una fitxa molt
+              documentada i una que ho està poc no és una diferència entre els serveis: és una
+              diferència entre el que en sabem.
             </p>
           ) : null}
 
           {provisional.length > 0 ? (
             <p className={styles.warning}>
-              <strong>Avís:</strong>{' '}
-              {provisional.map((app) => app.name).join(', ')}{' '}
+              <strong>Avís:</strong> {provisional.map((app) => app.name).join(', ')}{' '}
               {provisional.length === 1 ? 'té' : 'tenen'} una puntuació provisional: per sota de{' '}
               {snapshot.provisionalThreshold} punts de confiança encara no en sabem prou per
               sostenir-la.
@@ -499,9 +503,10 @@ export default function Comparador({
           {/* ─────────────── Diferències primer ─────────────── */}
           <h3>Indicador per indicador</h3>
           <p>
-            De {snapshot.indicatorCount} indicadors de la metodologia, <strong>{tally.differing}</strong>{' '}
-            mostren alguna diferència entre les {chosen.length} fitxes triades, {tally.identical}{' '}
-            diuen el mateix i {tally.notApplicable} no apliquen a cap.
+            De {snapshot.indicatorCount} indicadors de la metodologia,{' '}
+            <strong>{tally.differing}</strong> mostren alguna diferència entre les {chosen.length}{' '}
+            fitxes triades, {tally.identical} diuen el mateix i {tally.notApplicable} no apliquen a
+            cap.
           </p>
 
           <div className="filters">
@@ -630,7 +635,10 @@ export default function Comparador({
                         ? target
                         : null
                     return (
-                      <li key={`${app.id}-${alternative.name}`} className={`card ${styles.altCard}`}>
+                      <li
+                        key={`${app.id}-${alternative.name}`}
+                        className={`card ${styles.altCard}`}
+                      >
                         <h4>
                           {alternative.slug ? (
                             <Link href={`/aplicacions/${alternative.slug}`}>

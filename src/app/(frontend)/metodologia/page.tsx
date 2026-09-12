@@ -26,7 +26,8 @@ export default async function MethodologyPage() {
     )
   }
 
-  const byDimension = (key: string) => (methodology.indicators ?? []).filter((indicator) => indicator.dimension === key)
+  const byDimension = (key: string) =>
+    (methodology.indicators ?? []).filter((indicator) => indicator.dimension === key)
 
   return (
     <>
@@ -47,24 +48,34 @@ export default async function MethodologyPage() {
       ))}
 
       <h2>Dimensions</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Dimensió</th>
-            <th>Pes a la puntuació global</th>
-            <th>Indicadors</th>
-          </tr>
-        </thead>
-        <tbody>
-          {(methodology.dimensions ?? []).map((dimension) => (
-            <tr key={dimension.id}>
-              <td>{dimension.label}</td>
-              <td>{Math.round((dimension.weight ?? 0) * 100)} %</td>
-              <td>{byDimension(dimension.key).length}</td>
+      <div
+        className="scroller"
+        role="region"
+        tabIndex={0}
+        aria-label="Dimensions de la puntuació, el seu pes a la nota global i quants indicadors té cadascuna"
+      >
+        <table>
+          <caption className="visually-hidden">
+            Dimensions de la puntuació, el seu pes a la nota global i quants indicadors té cadascuna
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Dimensió</th>
+              <th scope="col">Pes a la puntuació global</th>
+              <th scope="col">Indicadors</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {(methodology.dimensions ?? []).map((dimension) => (
+              <tr key={dimension.id}>
+                <td>{dimension.label}</td>
+                <td>{Math.round((dimension.weight ?? 0) * 100)} %</td>
+                <td>{byDimension(dimension.key).length}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
 
       <h2>Informació desconeguda</h2>
       {methodology.unknownPolicy.split('\n\n').map((paragraph, index) => (
@@ -79,25 +90,35 @@ export default async function MethodologyPage() {
       <h2>Indicadors</h2>
       {(methodology.dimensions ?? []).map((dimension) => (
         <div key={dimension.id}>
-          <h3>{DIMENSION_LABELS[dimension.key as keyof typeof DIMENSION_LABELS] ?? dimension.label}</h3>
-          <table>
-            <thead>
-              <tr>
-                <th>Indicador</th>
-                <th>Pes</th>
-                <th>Què mesura</th>
-              </tr>
-            </thead>
-            <tbody>
-              {byDimension(dimension.key).map((indicator) => (
-                <tr key={indicator.id}>
-                  <td>{indicator.label}</td>
-                  <td>{indicator.weight}</td>
-                  <td className="meta">{indicator.description}</td>
+          <h3>
+            {DIMENSION_LABELS[dimension.key as keyof typeof DIMENSION_LABELS] ?? dimension.label}
+          </h3>
+          <div
+            className="scroller"
+            role="region"
+            tabIndex={0}
+            aria-label={`Indicadors de la dimensió ${DIMENSION_LABELS[dimension.key as keyof typeof DIMENSION_LABELS] ?? dimension.label}, amb el seu pes i què mesuren`}
+          >
+            <table>
+              <caption className="visually-hidden">{`Indicadors de la dimensió ${DIMENSION_LABELS[dimension.key as keyof typeof DIMENSION_LABELS] ?? dimension.label}, amb el seu pes i què mesuren`}</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Indicador</th>
+                  <th scope="col">Pes</th>
+                  <th scope="col">Què mesura</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {byDimension(dimension.key).map((indicator) => (
+                  <tr key={indicator.id}>
+                    <td>{indicator.label}</td>
+                    <td>{indicator.weight}</td>
+                    <td className="meta">{indicator.description}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       ))}
 
