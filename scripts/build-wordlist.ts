@@ -5,6 +5,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { Readable } from 'node:stream'
 import { pipeline } from 'node:stream/promises'
+import type { ReadableStream as NodeReadableStream } from 'node:stream/web'
 
 /**
  * Generador de la llista de paraules catalanes per a frases de pas.
@@ -470,7 +471,15 @@ async function fetchCached(url: string, name: string, force: boolean): Promise<s
     throw new Error(`La descàrrega de ${name} ha respost ${response.status}`)
   }
 
-  await pipeline(Readable.fromWeb(response.body), createWriteStream(path))
+  /*
+   * `response.body` és el `ReadableStream` del DOM i `Readable.fromWeb` en vol
+   * el de `node:stream/web`. En temps d'execució és el mateix objecte —Node
+   * implementa l'estàndard web—, però TypeScript declara els dos tipus per
+   * separat i no els reconcilia. La conversió és per al compilador, no per al
+   * programa.
+   */
+  const body = response.body as unknown as NodeReadableStream<Uint8Array>
+  await pipeline(Readable.fromWeb(body), createWriteStream(path))
   console.log(`  ↓  ${name.padEnd(16)} baixat`)
   return path
 }
@@ -692,13 +701,13 @@ type Selection = {
  */
 function select(
   pool: readonly string[],
-  useOf: (word: string) => number,
+  usageOf: (word: string) => number,
   maxLength: number,
 ): Selection {
   const stats: Record<string, number> = { llargada: 0, prefix: 0, veines: 0 }
   const ranked = pool
     .filter((word) => word.length <= maxLength)
-    .sort((a, b) => useOf(b) - useOf(a) || (a < b ? -1 : a > b ? 1 : 0))
+    .sort((a, b) => usageOf(b) - usageOf(a) || (a < b ? -1 : a > b ? 1 : 0))
   stats.llargada = ranked.length
 
   const prefixes = new Set<string>()
@@ -719,7 +728,7 @@ function select(
      * es descarta la segona si no és prou habitual, perquè en una frase
      * dictada en veu alta la que no se sent mai s'acaba escrivint malament.
      * Si totes dues són corrents, no hi ha confusió possible i es queden. */
-    if (useOf(word) < HABITUAL && hasNeighbour(neighbours, word)) {
+    if (usageOf(word) < HABITUAL && hasNeighbour(neighbours, word)) {
       stats.veines += 1
       continue
     }
@@ -841,7 +850,7 @@ async function buildWordlist(): Promise<void> {
   const sourcesByNoun = await readSourcesByNoun(rootPath)
   const dictionary = await readDictionary(dictPath, frequencies)
 
-  const useOf = (word: string): number =>
+  const usageOf = (word: string): number =>
     (dictionary.singularUse.get(word) ?? 0) + (dictionary.pluralUse.get(word) ?? 0)
 
   const banned = new Set([...BANNED_WORDS, ...OBSCURE_WORDS])
@@ -924,7 +933,7 @@ async function buildWordlist(): Promise<void> {
   /* Sigles, abreviatures i paraules que no diu ningú: si no arriben a un
    * grapat d'aparicions en un corpus de milions de paraules, no són
    * vocabulari corrent i no serveixen per recordar una frase. */
-  pool = pool.filter((word) => useOf(word) >= MIN_USE)
+  pool = pool.filter((word) => usageOf(word) >= MIN_USE)
   funnel.push([`amb ${MIN_USE} usos o més al corpus`, pool.length])
 
   pool = pool.filter((word) => !banned.has(word))
@@ -933,14 +942,14 @@ async function buildWordlist(): Promise<void> {
   /* Si amb el límit de llargada no hi ha prou paraules, s'afluixa d'una en
    * una i es deixa constància, tal com demana l'especificació. */
   let maxLength = MAX_LENGTH
-  let selection = select(pool, useOf, maxLength)
+  let selection = select(pool, usageOf, maxLength)
   while (selection.words.length < WORD_COUNT && maxLength < 14) {
     maxLength += 1
     console.log(
       `  ⚠️  Amb un màxim de ${maxLength - 1} lletres només se n'han reunit ` +
         `${selection.words.length}; s'afluixa el límit fins a ${maxLength}.`,
     )
-    selection = select(pool, useOf, maxLength)
+    selection = select(pool, usageOf, maxLength)
   }
 
   console.log('\n  Filtratge:')

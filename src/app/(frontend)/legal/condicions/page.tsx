@@ -193,10 +193,11 @@ export default function TermsPage() {
       </p>
 
       <p>
-        <Pendent>
-          revisar aquest apartat 4 quan les pàgines de /eines estiguin publicades i verificar que la
-          descripció tècnica de cada eina coincideix amb el codi que s’hi publica
-        </Pendent>
+        La calculadora d’exposició <strong>recorda la teva tria en aquest navegador</strong>, amb
+        emmagatzematge local i sense enviar-la enlloc, perquè no l’hagis de refer cada vegada.
+        Tens un botó per esborrar-la quan vulguis. El comparador, en canvi, desa la selecció{' '}
+        <strong>a l’adreça de la pàgina</strong>, de manera que la pots copiar i compartir; això vol
+        dir que qui rebi l’enllaç en veurà la selecció, que és precisament el que es vol.
       </p>
 
       <h2>5. Ús permès i ús prohibit</h2>

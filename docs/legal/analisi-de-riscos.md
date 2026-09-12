@@ -303,6 +303,14 @@ està confinada a `/admin/*` i no debilita el web públic.
 
 ### Organitzatives
 
+- **Procediment escrit de gestió de violacions de seguretat**, a
+  [`procediment-violacions-seguretat.md`](procediment-violacions-seguretat.md):
+  qui decideix, el còmput de les 72 hores i sis escenaris amb la decisió de
+  notificar ja presa. Es prova un cop l'any amb un simulacre.
+- **Política de còpies de seguretat i continuïtat**, a
+  [`politica-copies-de-seguretat.md`](politica-copies-de-seguretat.md): què es
+  copia i què deliberadament no, xifratge amb clau pròpia abans de sortir de la
+  màquina, retenció immutable i calendari de proves de restauració.
 - Equip reduït amb comptes nominals. No hi ha comptes compartits.
 - El contingut editorial viu al repositori com a codi revisable, de manera que
   tot canvi queda traçat amb el seu autor i la seva data.
@@ -320,8 +328,9 @@ està confinada a `/admin/*` i no debilita el web públic.
 | Dependència d'un tercer per a la comprovació de contrasenyes. | Baix per a la privadesa —no hi viatja cap dada personal—, mitjà per a la disponibilitat. | Gestió d'errors visible a la interfície i avís exprés a les condicions d'ús. |
 | Terminis reals de conservació dels registres no controlats directament. | Per determinar. | `[PENDENT: contractar i configurar l'allotjament amb una retenció de registres alineada amb el criteri de 30 dies]` |
 | Absència de contractes d'encarregat signats. | Alt si es posa en producció sense resoldre'l. | `[PENDENT: signar els contractes de l'article 28 amb tots els proveïdors abans de la posada en producció]` |
-| Absència d'una política documentada de còpies de seguretat i de la seva protecció. | Mitjà, per a la disponibilitat i la integritat de l'article 32.1.b. | `[PENDENT: definir estratègia de còpies, xifratge, ubicació i prova de restauració]` |
-| No hi ha procediment escrit de gestió de violacions de seguretat. | Mitjà. L'obligació dels articles 33 i 34 no admet improvisació en 72 hores. | `[PENDENT: redactar el procediment de detecció, valoració, notificació i registre de violacions]` |
+| Destinació de les còpies de seguretat no contractada. | Mitjà, per a la disponibilitat i la integritat de l'article 32.1.b. L'estratègia ja està definida a [`politica-copies-de-seguretat.md`](politica-copies-de-seguretat.md); el que falta és el proveïdor. | `[PENDENT: contractar una destinació de còpies amb servidors a l'EEE i diferent del proveïdor d'allotjament]` |
+| Avís tardà d'un encarregat del tractament davant d'una violació a casa seva. | Mitjà. L'article 33.2 diu «sense dilació indeguda» sense fixar termini, i un avís a les 60 hores deixa 12 hores per decidir i notificar. | `[PENDENT: exigir una clàusula d'avís en 24 hores a cada contracte de l'article 28]` |
+| Emmagatzematge local de la tria a la calculadora d'exposició. | Baix. No surt del dispositiu, no identifica ningú i s'esborra amb un botó de la mateixa pàgina. El risc real és de confidencialitat en un dispositiu compartit, on una altra persona podria veure quines aplicacions s'han marcat. | Documentat a la política de privadesa i a la de galetes, amb la clau exacta i la manera d'esborrar-ho. Es revisa si algun dia s'hi desa res més que la selecció. |
 
 ## 7. Disparadors de revisió
 

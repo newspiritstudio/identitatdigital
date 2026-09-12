@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
 
-import { DocMeta, Pendent, Resum, TableWrap } from '../parts'
+import { DocMeta, Resum, TableWrap } from '../parts'
 
 export const metadata: Metadata = { title: 'Política de galetes' }
 
@@ -28,9 +28,10 @@ export default function CookiesPage() {
       <Resum>
         <p>
           <strong>Galetes que et posa aquest lloc quan el visites: cap.</strong> Ni pròpies, ni de
-          tercers, ni tècniques, ni de sessió. Tampoc no fem servir emmagatzematge local, ni
-          emmagatzematge de sessió, ni bases de dades al navegador, ni empremtes digitals del
-          dispositiu.
+          tercers, ni tècniques, ni de sessió. Tampoc no fem servir emmagatzematge de sessió, ni
+          bases de dades al navegador, ni empremtes digitals del dispositiu. L’única cosa que es
+          desa al teu dispositiu és la tria de la calculadora d’exposició, si la fas servir, i
+          l’expliquem sencera a l’apartat d’emmagatzematge.
         </p>
       </Resum>
 
@@ -155,22 +156,70 @@ export default function CookiesPage() {
 
       <h2>Emmagatzematge al dispositiu i eines</h2>
       <p>
-        Les eines de la secció <Link href="/eines">Eines</Link> calculen dins del navegador. Avui no
-        desen res al teu dispositiu: ni contrasenyes generades, ni selecció d’aplicacions, ni
-        resultats. Quan tanques la pestanya, no en queda res.
+        Les eines de la secció <Link href="/eines">Eines</Link> calculen dins del navegador. Una
+        d’elles desa una cosa al teu dispositiu i les altres dues no en desen cap. Aquesta és la
+        llista completa, revisada contra el codi publicat:
+      </p>
+      <TableWrap>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Eina</th>
+              <th scope="col">Què desa</th>
+              <th scope="col">On</th>
+              <th scope="col">Durada</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Contrasenyes</th>
+              <td>Res. Ni les contrasenyes generades, ni les que hi escrius, ni els resultats.</td>
+              <td>—</td>
+              <td>Res sobreviu a tancar la pestanya.</td>
+            </tr>
+            <tr>
+              <th scope="row">Exposició personal</th>
+              <td>
+                La llista d’aplicacions que has marcat, i res més. Ni el resultat, ni cap xifra, ni
+                cap identificador.
+              </td>
+              <td>
+                Emmagatzematge local del navegador, clau{' '}
+                <code>identitat.exposicio.seleccio</code>. No és una galeta i no viatja mai en cap
+                petició al servidor.
+              </td>
+              <td>
+                Fins que l’esborris. L’eina té un botó «Esborra la tria», i esborrar les dades del
+                lloc al navegador també la treu.
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">Comparador</th>
+              <td>
+                Res al dispositiu. La selecció va a l’adreça de la pàgina, perquè l’enllaç es pugui
+                compartir.
+              </td>
+              <td>La barra d’adreces.</td>
+              <td>El que duri la pestanya.</td>
+            </tr>
+          </tbody>
+        </table>
+      </TableWrap>
+      <p>
+        Per què l’emmagatzematge de la calculadora no necessita consentiment: l’article 22.2 de la
+        Llei 34/2002 exigeix consentiment per emmagatzemar informació al dispositiu, tret que sigui
+        estrictament necessari per prestar un servei <strong>expressament sol·licitat</strong> per
+        qui el fa servir. Aquí la informació la genera qui fa servir l’eina, s’hi desa perquè
+        l’eina serveixi per a alguna cosa entre visites, no surt mai del dispositiu, no permet
+        identificar ningú i es pot esborrar amb un botó que hi ha a la mateixa pàgina. Tot i això,
+        el criteri que hem seguit no és el mínim legal sinó el que exigim a les fitxes: dir-ho, dir
+        on és i donar la manera de desfer-ho.
       </p>
       <p>
-        Si en el futur alguna eina necessita recordar una tria teva entre visites —per exemple, les
-        aplicacions que has seleccionat al comparador—, ho farem només amb emmagatzematge local del
-        teu dispositiu, sense enviar res al servidor, i ho afegirem a la taula d’aquesta pàgina abans
-        d’activar-ho, amb el seu nom, la seva finalitat i la seva durada. Un canvi així no
-        s’introdueix en silenci.
-      </p>
-      <p>
-        <Pendent>
-          revisar aquest apartat quan les pàgines de /eines estiguin publicades i confirmar que cap
-          d’elles escriu a localStorage, sessionStorage ni IndexedDB
-        </Pendent>
+        Cap eina no fa cap petició a cap servidor, amb una sola excepció que està explicada al
+        detall a la <Link href="/legal/privadesa">política de privadesa</Link>: la comprovació de
+        contrasenyes filtrades envia cinc caràcters hexadecimals del resum SHA-1 a una ruta
+        d’aquest mateix lloc. La contrasenya no hi és, i el resum sencer tampoc.
       </p>
 
       <h2>Com controlar les galetes en general</h2>

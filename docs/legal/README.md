@@ -34,6 +34,8 @@ contenidor de taules, blocs de resum i d'avís) i `legal/legal.module.css`.
 | --- | --- |
 | `registre-activitats-tractament.md` | Art. 30 RGPD. Cinc tractaments en format de fitxa, taula d'encarregats i justificació de per què l'exempció de l'art. 30.5 no s'aplica. |
 | `analisi-de-riscos.md` | Art. 35 RGPD. Aplicació un per un dels nou criteris del WP248 rev.01, ponderació de l'interès legítim, mesures de l'art. 32, riscos residuals i disparadors de revisió. |
+| `procediment-violacions-seguretat.md` | Arts. 33 i 34 RGPD. Qui decideix, el còmput de les 72 hores, sis escenaris amb la decisió de notificar ja presa, el contingut de la notificació a l'AEPD, la comunicació a les persones afectades i la plantilla del registre de l'art. 33.5. |
+| `politica-copies-de-seguretat.md` | Art. 32.1.b i 32.1.c. Què es copia i què no, RPO i RTO, xifratge amb clau pròpia, immutabilitat, calendari de proves de restauració i procediment pas a pas. |
 | `README.md` | Aquest document. |
 
 ### Com s'hi arriba
@@ -60,31 +62,29 @@ de posar el lloc en producció.
 | 3 | **Retenció real dels registres del servidor** configurada pel proveïdor, alineada amb el criteri propi de 30 dies. | `/legal/privadesa` §3.1 · `registre-activitats` T-01 |
 | 4 | **Proveïdor de correu de `admin@newspirit.studio`** i ubicació del servei. | `/legal/privadesa` §3.3 · `registre-activitats` T-03 |
 | 5 | **Dades registrals al Registre Mercantil de Barcelona**: tom, foli, full i inscripció. Obligatòries per l'art. 10.1.a LSSICE. | `/legal/avis-legal` |
-| 6 | **Llicència exacta de la llista de paraules de Softcatalà**, amb nom, versió i atribució exigida. Un altre agent ho està confirmant; el raonament per a cada escenari possible ja està desenvolupat. | `/legal/llicencia` §5.4 |
 
 ### Pendents de verificació quan hi hagi codi nou
 
 | # | Pendent | On surt |
 | --- | --- | --- |
-| 7 | **Revisar les pàgines de `/eines`** quan es publiquin i confirmar, una per una: que no escriuen a `localStorage`, `sessionStorage` ni IndexedDB; que no fan cap petició més enllà de la del prefix de cinc caràcters; i que la descripció tècnica de cada eina coincideix amb el codi. | `/legal/privadesa` §4.3 · `/legal/galetes` · `/legal/condicions` §4 |
-| 8 | **Auditoria d'accessibilitat** i dates concretes de cada fase del calendari, que depenen del disseny definitiu. | `/legal/accessibilitat` §4 |
-| 9 | **Exportació o API oberta del conjunt de dades**, per canalitzar la reutilització massiva sense degradar el servei. | `/legal/condicions` §5 |
+| 6 | **Auditoria d'accessibilitat** i dates concretes de cada fase del calendari, que depenen del disseny definitiu. | `/legal/accessibilitat` §4 |
+| 7 | **Exportació o API oberta del conjunt de dades**, per canalitzar la reutilització massiva sense degradar el servei. | `/legal/condicions` §5 |
 
 ### Decisions de negoci que cal prendre
 
 | # | Pendent | On surt |
 | --- | --- | --- |
-| 10 | **Confirmar que New Spirit Studio S.L. és microempresa** —menys de 10 persones i volum de negoci o balanç no superior a 2 M€— per poder invocar l'art. 4.5 de la Directiva 2019/882 com a argument subsidiari. | `/legal/accessibilitat` §2.2 |
-| 11 | **Model de finançament del projecte**, per declarar-lo a la política editorial. | `/legal/politica-editorial` §1 |
-| 12 | **Coincidència entre empreses documentades i clients de l'estudi.** Si n'hi ha cap, s'ha de declarar com a conflicte d'interès potencial. És el punt més sensible de la independència editorial. | `/legal/politica-editorial` §1 |
-| 13 | **Periodicitat de revisió de les fitxes**, per exemple 6 mesos per als serveis massius i 12 per a la resta. | `/legal/politica-editorial` §4 |
+| 8 | **Confirmar que New Spirit Studio S.L. és microempresa** —menys de 10 persones i volum de negoci o balanç no superior a 2 M€— per poder invocar l'art. 4.5 de la Directiva 2019/882 com a argument subsidiari. | `/legal/accessibilitat` §2.2 |
+| 9 | **Model de finançament del projecte**, per declarar-lo a la política editorial. | `/legal/politica-editorial` §1 |
+| 10 | **Coincidència entre empreses documentades i clients de l'estudi.** Si n'hi ha cap, s'ha de declarar com a conflicte d'interès potencial. És el punt més sensible de la independència editorial. | `/legal/politica-editorial` §1 |
+| 11 | **Periodicitat de revisió de les fitxes**, per exemple 6 mesos per als serveis massius i 12 per a la resta. | `/legal/politica-editorial` §4 |
 
-### Documentació interna que falta redactar
+### Pendents que depenen de la infraestructura
 
 | # | Pendent | On surt |
 | --- | --- | --- |
-| 14 | **Procediment de gestió de violacions de seguretat**: detecció, valoració, notificació en 72 h i registre. L'obligació dels arts. 33 i 34 no admet improvisació. | `analisi-de-riscos` §6 |
-| 15 | **Política de còpies de seguretat**: estratègia, xifratge, ubicació i prova de restauració. Art. 32.1.b i 32.1.c. | `analisi-de-riscos` §6 |
+| 12 | **Clàusula d'avís en 24 hores** als contractes de l'article 28, perquè un avís tardà d'un encarregat no es mengi el termini de 72 hores. | `procediment-violacions-seguretat` §11 |
+| 13 | **Destinació de les còpies de seguretat**: proveïdor diferent del d'allotjament i amb servidors a l'EEE. Depèn del pendent núm. 1. | `politica-copies-de-seguretat` §3 |
 
 ---
 
@@ -173,13 +173,19 @@ Cap d'aquests no és nostre per sublicenciar:
    que és CC BY-SA és el lligam editorial: a quina empresa i a quines aplicacions
    correspon cada filtració i quins tipus de dada del nostre vocabulari hi van
    quedar exposats.
-4. **La llista de paraules en català derivada del diccionari de Softcatalà**,
-   pendent de confirmar la llicència (pendent núm. 7). El document desenvolupa el
-   raonament per als quatre escenaris possibles: CC0, CC BY 4.0, CC BY-SA 3.0 i
-   LGPL/GPL. En el cas més restrictiu —llicència de programari—, la solució és
-   aïllar la llista en un fitxer propi amb la seva llicència i excloure-la
-   expressament, com es fa amb HIBP; no contamina la resta perquè és un fitxer de
-   dades independent.
+4. **La llista de paraules en català derivada del diccionari de Softcatalà.**
+   Confirmat: el projecte *catalan-dict-tools* es distribueix amb **llicència dual
+   GNU GPL v2 o posterior i GNU LGPL v2.1 o posterior**. És el cas més restrictiu
+   dels quatre que s'havien previst, perquè és una llicència de programari i la
+   compatibilitat entre llicències Creative Commons no hi serveix de res. S'hi
+   aplica la solució prevista: la llista viu aïllada a
+   `src/lib/passwords/wordlist.ca.ts`, s'exerceix l'opció de la **LGPL v2.1 o
+   posterior** —la menys restrictiva de les dues que ofereix la font—, el fitxer
+   porta la seva procedència escrita a `WORDLIST_META`, el generador
+   `scripts/build-wordlist.ts` és públic al mateix repositori, cosa que satisfà
+   l'exigència de la LGPL que la forma editable sigui accessible, i la llista
+   queda expressament exclosa de la CC BY-SA. No contamina la resta perquè és un
+   fitxer de dades independent, no un component enllaçat.
 5. **La marca «Identitat.digital», «New Spirit Studio» i la identitat visual.**
 6. **El contingut de tercers enllaçat.**
 
@@ -253,6 +259,29 @@ Es documenta amb la seva taula i s'explica com comprovar-ho en trenta segons amb
 les eines del navegador. Un bàner que no demana consentiment per a res no informa
 de res, i aquesta mena de decoració és part del problema que el projecte
 documenta.
+
+### 3.5 bis. L'emmagatzematge local de la calculadora d'exposició
+
+Revisades les tres eines contra el codi publicat, **l'única escriptura al
+dispositiu de tot el lloc** és la de la calculadora d'exposició, que desa la
+llista d'aplicacions marcades a `localStorage` amb la clau
+`identitat.exposicio.seleccio`. No hi ha res més: ni emmagatzematge de sessió, ni
+IndexedDB, ni cap identificador.
+
+**No necessita consentiment.** L'art. 22.2 LSSICE exigeix consentiment tret que
+l'emmagatzematge sigui estrictament necessari per prestar un servei expressament
+sol·licitat. Aquí la informació la genera qui fa servir l'eina, existeix perquè
+l'eina serveixi per a alguna cosa entre visites, no surt del dispositiu, no
+identifica ningú i s'esborra amb un botó de la mateixa pàgina.
+
+Tot i això, s'ha documentat amb la clau exacta, la durada i la manera d'esborrar
+la dada a `/legal/galetes`, `/legal/privadesa` §4.3 i `/legal/condicions` §4.3.
+El criteri aplicat no és el mínim legal sinó el que el projecte exigeix a les
+fitxes que analitza.
+
+El comparador **no desa res al dispositiu**: posa la selecció a l'adreça de la
+pàgina perquè l'enllaç es pugui compartir, i això es diu expressament perquè qui
+el comparteixi sàpiga què comparteix.
 
 ### 3.6. Registre de l'art. 30: obligatori, i per què
 

@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
 
-import { Avis, DocMeta, Pendent, Resum, TableWrap } from '../parts'
+import { Avis, DocMeta, Resum, TableWrap } from '../parts'
 
 export const metadata: Metadata = { title: 'Llicència del contingut' }
 
@@ -410,51 +410,75 @@ export default function LicensePage() {
 
       <h3>5.4. La llista de paraules en català de les frases de pas</h3>
       <p>
-        El generador de frases de pas fa servir una llista de paraules en català derivada del
-        diccionari de Softcatalà. Aquest material és de Softcatalà i conserva les condicions que hi
-        hagi fixat el seu titular.
+        El generador de frases de pas fa servir una llista de 2.048 paraules catalanes derivada del{' '}
+        <a
+          href="https://github.com/Softcatala/catalan-dict-tools"
+          target="_blank"
+          rel="noreferrer"
+        >
+          diccionari català de Softcatalà
+        </a>{' '}
+        (projecte <em>catalan-dict-tools</em>), que es distribueix amb{' '}
+        <strong>llicència dual GNU GPL v2 o posterior i GNU LGPL v2.1 o posterior</strong>. Del
+        mateix dipòsit surten el diccionari arrel de noms i la taula de freqüències d’ús, que
+        serveixen per descartar tecnicismes i per ordenar els candidats, i que tenen la mateixa
+        llicència.
       </p>
       <p>
-        <Pendent>
-          confirmar la llicència exacta de la llista de paraules de Softcatalà i afegir-hi aquí el
-          seu nom, la seva versió i l’atribució que exigeixi
-        </Pendent>
+        Com que és una llicència de programari i no una llicència de contingut, aquí no serveix de
+        res la compatibilitat entre llicències Creative Commons. La solució és la mateixa que amb
+        Have I Been Pwned, i està feta:
       </p>
-      <p>El raonament que caldrà aplicar, un cop es confirmi, és aquest:</p>
       <ul>
         <li>
-          <strong>Si la llicència és CC0 o de domini públic</strong>, no hi ha cap problema: el
-          material entra al projecte sense obligacions més enllà de la cortesia d’atribuir-lo, que
-          farem igualment.
+          <strong>La llista viu en un fitxer propi</strong>, <code>src/lib/passwords/wordlist.ca.ts</code>,
+          separat de la resta del codi i del contingut. No es barreja amb res.
         </li>
         <li>
-          <strong>Si és CC BY 4.0</strong>, és compatible amb la nostra CC BY-SA 4.0, com passa amb
-          Have I Been Pwned. Cal mantenir-ne l’atribució.
+          <strong>D’entre les dues llicències de la font, exercim l’opció de la LGPL v2.1 o
+          posterior</strong>, que és la menys restrictiva de les dues i la que la mateixa Softcatalà
+          ofereix. Aquest fitxer, doncs, es distribueix sota LGPL v2.1 o posterior, i no sota la
+          llicència MIT de la resta del codi ni sota la CC BY-SA 4.0 del contingut.
         </li>
         <li>
-          <strong>Si és CC BY-SA 3.0</strong>, també és compatible: la pròpia llicència 3.0 permet
-          distribuir les obres derivades sota una versió posterior de la mateixa llicència, i
-          Creative Commons ha declarat la 4.0 compatible en aquest sentit. La llista quedaria
-          coberta per la nostra CC BY-SA 4.0, amb atribució.
+          <strong>El fitxer porta escrita la seva procedència</strong> a la constant{' '}
+          <code>WORDLIST_META</code>: l’adreça exacta de la font, la llicència i la data de
+          generació.
         </li>
         <li>
-          <strong>Si és LGPL o GPL</strong> —cosa habitual als correctors ortogràfics, que sovint es
-          distribueixen amb llicència de programari perquè el diccionari és part d’un component
-          executable—, cal anar amb compte: una llista derivada podria considerar-se obra derivada
-          del diccionari i arrossegar-ne les condicions. En aquest cas, la solució és aïllar la
-          llista en un fitxer propi, distribuir-la amb la seva llicència original i la seva
-          atribució, i excloure-la expressament de la CC BY-SA del contingut, exactament com fem amb
-          Have I Been Pwned. Això no contamina la resta del projecte, perquè la llista és un fitxer de
-          dades independent i no s’hi barreja.
+          <strong>La forma editable és pública.</strong> El fitxer és generat i el generador,{' '}
+          <code>scripts/build-wordlist.ts</code>, és al mateix repositori públic, amb tots els
+          criteris de filtratge explicats un per un. Qui vulgui refer la llista, modificar-la o
+          substituir-la ho pot fer, que és exactament el que la LGPL exigeix que sigui possible.
+        </li>
+        <li>
+          <strong>Queda expressament exclosa</strong> de la llicència CC BY-SA 4.0 d’aquesta pàgina.
         </li>
       </ul>
       <p>
-        Val a dir que hi ha un argument de fons que juga a favor en qualsevol dels casos: les paraules
-        soltes d’una llengua no són obra de ningú i no es poden apropiar. El que podria estar protegit
-        és <em>la selecció concreta</em> del diccionari —per dret sui generis del seu fabricant, si hi
-        ha hagut inversió substancial— i el programari que l’acompanya. Com que el nostre ús consisteix
-        a derivar-ne un subconjunt de paraules aptes per a frases de pas, el camí prudent és respectar
-        la llicència declarada i atribuir-la sempre, que és el que farem.
+        Aquesta separació no afecta la resta del projecte. La llista és un fitxer de dades, no un
+        component enllaçat que arrossegui condicions cap enfora, i les obligacions de la LGPL es
+        compleixen amb la publicació del fitxer, de la seva llicència i del generador que el
+        produeix.
+      </p>
+      <p>
+        Val a dir que hi ha un argument de fons que hi juga a favor: les paraules soltes d’una
+        llengua no són obra de ningú i no es poden apropiar. El que podria estar protegit és{' '}
+        <em>la selecció concreta</em> del diccionari —per dret sui generis del seu fabricant, si hi
+        ha hagut inversió substancial— i el programari que l’acompanya. Com que el nostre ús
+        consisteix a derivar-ne un subconjunt, el camí prudent és respectar la llicència declarada i
+        atribuir-la sempre, que és el que fem, i no discutir si calia.
+      </p>
+      <p className="meta">
+        Atribució: llista derivada del diccionari català de Softcatalà, projecte{' '}
+        <a
+          href="https://github.com/Softcatala/catalan-dict-tools"
+          target="_blank"
+          rel="noreferrer"
+        >
+          catalan-dict-tools
+        </a>
+        , sota GNU LGPL v2.1 o posterior.
       </p>
 
       <h3>5.5. La marca Identitat.digital i la identitat visual del projecte</h3>

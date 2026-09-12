@@ -387,15 +387,37 @@ export default function PrivacyPage() {
       <p>
         Tries aplicacions d’una llista i l’eina calcula, amb les dades que ja tens carregades a la
         pàgina, quines dades teves circulen i quines empreses hi accedeixen. La selecció no s’envia
-        enlloc i el resultat no es desa a cap servidor nostre.
+        enlloc i el resultat no es desa a cap servidor nostre. Cap de les dues eines no fa cap
+        petició mentre les fas servir: la llista sencera d’aplicacions viatja una sola vegada, en
+        carregar la pàgina, i tot el càlcul posterior passa al teu dispositiu.
       </p>
+      <p>
+        Hi ha una diferència entre les dues que val la pena explicar, perquè afecta on acaba la teva
+        tria:
+      </p>
+      <ul>
+        <li>
+          <strong>La calculadora d’exposició recorda la teva selecció</strong> a l’emmagatzematge
+          local del navegador, amb la clau <code>identitat.exposicio.seleccio</code>. Només hi desa
+          la llista d’aplicacions que has marcat: ni el resultat, ni cap xifra, ni cap
+          identificador. No és una galeta, no s’envia en cap petició i no en sabem res. Té un botó
+          «Esborra la tria» que la treu del tot. La taula completa és a la pàgina de{' '}
+          <Link href="/legal/galetes">galetes</Link>.
+        </li>
+        <li>
+          <strong>El comparador no desa res al dispositiu</strong>: posa la selecció a l’adreça de
+          la pàgina perquè puguis copiar l’enllaç i compartir-lo. Això vol dir que qui rebi
+          l’enllaç en veurà la selecció. És el comportament que es vol, i el diem perquè ho sàpigues
+          abans d’enviar-lo.
+        </li>
+      </ul>
       <Avis>
         <p>
-          <Pendent>
-            revisar aquest apartat quan les pàgines de /eines estiguin publicades i confirmar-hi, una
-            per una, que cap d’elles desa res al dispositiu ni fa cap petició més enllà de la del
-            prefix de cinc caràcters
-          </Pendent>
+          <strong>Revisat contra el codi publicat.</strong> A data d’aquesta versió, les tres eines
+          s’han repassat una per una: l’única escriptura al dispositiu és la de la calculadora
+          d’exposició descrita aquí, no n’hi ha cap altra en emmagatzematge local, ni de sessió, ni
+          en cap base de dades del navegador, i l’única petició que surt del navegador mentre les
+          fas servir és la del prefix de cinc caràcters de l’apartat 4.2.
         </p>
       </Avis>
 

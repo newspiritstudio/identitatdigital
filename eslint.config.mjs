@@ -21,5 +21,7 @@ export default defineConfig([
       ],
     },
   },
-  globalIgnores(['.next/**', 'src/app/(payload)/admin/importMap.js']),
+  // El paquet d'archify és codi de tercers instal·lat com a skill: no és nostre
+  // i no s'ha de revisar amb les regles d'aquest projecte.
+  globalIgnores(['.next/**', 'src/app/(payload)/admin/importMap.js', '.claude/skills/**']),
 ])
