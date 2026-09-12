@@ -7,7 +7,7 @@
     "quality_profile": "showcase",
     "repository": {
       "url": "https://github.com/newspiritstudio/identitatdigital",
-      "revision": "4dc5cb8ba53a1d870c8285103d6f317286c9fa22"
+      "revision": "287b98ba99453d604105bf224eb56231b4dc9987"
     },
     "views": [
       {
@@ -33,19 +33,76 @@
         "note": "Cada desat torna a calcular les puntuacions i n'arxiva el desglossament."
       },
       {
+        "id": "analisi",
+        "label": "Anàlisi i dades obertes",
+        "focus": [
+          "web",
+          "analisi",
+          "payload"
+        ],
+        "note": "Funcions pures sobre el corpus sencer: anàlisi, exportacions i fitxes de contractació."
+      },
+      {
         "id": "contingut",
         "label": "Càrrega de contingut",
         "focus": [
-          "appstore",
           "scripts",
           "payload",
-          "media"
+          "externs"
         ],
-        "note": "Els scripts porten el contingut editorial i els logotips al CMS."
+        "note": "Els scripts porten el contingut editorial, els logotips, els idiomes i les filtracions al CMS."
       }
     ]
   },
   "components": [
+    {
+      "id": "editors",
+      "type": "external",
+      "label": "Redacció",
+      "sublabel": "Equip editorial",
+      "pos": [
+        40,
+        70
+      ],
+      "size": [
+        160,
+        64
+      ]
+    },
+    {
+      "id": "admin",
+      "type": "frontend",
+      "label": "Panell d'administració",
+      "sublabel": "/admin en català",
+      "pos": [
+        330,
+        70
+      ],
+      "size": [
+        230,
+        64
+      ]
+    },
+    {
+      "id": "scoring",
+      "type": "backend",
+      "label": "Motor de puntuació",
+      "sublabel": "hooks de desat",
+      "pos": [
+        1090,
+        70
+      ],
+      "size": [
+        210,
+        64
+      ],
+      "sources": [
+        {
+          "path": "src/lib/scoring/hook.ts",
+          "label": "recalculateScores"
+        }
+      ]
+    },
     {
       "id": "lectors",
       "type": "external",
@@ -53,10 +110,10 @@
       "sublabel": "Navegador",
       "pos": [
         40,
-        360
+        254
       ],
       "size": [
-        150,
+        160,
         64
       ]
     },
@@ -68,11 +125,11 @@
       "tag": "components de servidor",
       "brand": "next-js",
       "pos": [
-        350,
-        360
+        330,
+        254
       ],
       "size": [
-        210,
+        230,
         64
       ],
       "sources": [
@@ -87,12 +144,13 @@
       "type": "backend",
       "label": "Payload CMS 3",
       "sublabel": "API local, dotze col·leccions",
+      "tag": "REST i GraphQL a /api",
       "pos": [
-        750,
-        360
+        740,
+        254
       ],
       "size": [
-        200,
+        210,
         64
       ],
       "sources": [
@@ -110,35 +168,21 @@
       "brand": "mongodb",
       "pos": [
         1090,
-        360
+        254
       ],
       "size": [
-        180,
+        190,
         64
       ]
     },
     {
-      "id": "editors",
+      "id": "externs",
       "type": "external",
-      "label": "Redacció",
-      "sublabel": "Equip editorial",
+      "label": "Serveis públics de tercers",
+      "sublabel": "App Store · Have I Been Pwned",
       "pos": [
         40,
-        120
-      ],
-      "size": [
-        150,
-        64
-      ]
-    },
-    {
-      "id": "admin",
-      "type": "frontend",
-      "label": "Panell d'administració",
-      "sublabel": "/admin en català",
-      "pos": [
-        350,
-        120
+        438
       ],
       "size": [
         210,
@@ -146,67 +190,42 @@
       ]
     },
     {
-      "id": "httpapi",
+      "id": "analisi",
       "type": "backend",
-      "label": "Rutes /api",
-      "sublabel": "REST · GraphQL opcional",
+      "label": "Anàlisi i dades obertes",
+      "sublabel": "funcions pures sobre el corpus",
+      "tag": "nou conjunts JSON i CSV",
       "pos": [
-        1090,
-        120
+        330,
+        438
       ],
       "size": [
-        190,
+        230,
         64
       ],
       "sources": [
         {
-          "path": "src/app/(payload)/api/[...slug]/route.ts",
-          "label": "handlers REST"
-        }
-      ]
-    },
-    {
-      "id": "scoring",
-      "type": "backend",
-      "label": "Motor de puntuació",
-      "sublabel": "hooks de desat",
-      "pos": [
-        750,
-        600
-      ],
-      "size": [
-        200,
-        64
-      ],
-      "sources": [
+          "path": "src/lib/analysis/corpus.ts",
+          "label": "loadCorpus"
+        },
         {
-          "path": "src/lib/scoring/hook.ts",
-          "label": "recalculateScores"
+          "path": "src/lib/opendata/datasets.ts",
+          "label": "DATASETS"
+        },
+        {
+          "path": "src/lib/procurement.ts",
+          "label": "fitxes de contractació"
         }
-      ]
-    },
-    {
-      "id": "media",
-      "type": "database",
-      "label": "Biblioteca de mèdia",
-      "sublabel": "mides generades amb sharp",
-      "pos": [
-        1090,
-        600
-      ],
-      "size": [
-        180,
-        64
       ]
     },
     {
       "id": "scripts",
       "type": "backend",
       "label": "Scripts de manteniment",
-      "sublabel": "seed · rescore · logotips",
+      "sublabel": "seed · rescore · importacions",
       "pos": [
-        350,
-        600
+        740,
+        438
       ],
       "size": [
         210,
@@ -220,16 +239,16 @@
       ]
     },
     {
-      "id": "appstore",
-      "type": "external",
-      "label": "Consulta de l'App Store",
-      "sublabel": "icones oficials",
+      "id": "media",
+      "type": "database",
+      "label": "Biblioteca de mèdia",
+      "sublabel": "mides generades amb sharp",
       "pos": [
-        40,
-        600
+        1090,
+        438
       ],
       "size": [
-        160,
+        190,
         64
       ]
     }
@@ -260,17 +279,14 @@
       "from": "web",
       "to": "payload",
       "label": "API local, sense salt HTTP",
-      "variant": "emphasis",
-      "labelDy": -26,
-      "labelDx": -22
+      "variant": "emphasis"
     },
     {
       "id": "consultes",
       "from": "payload",
       "to": "mongo",
       "label": "consultes Mongoose",
-      "variant": "emphasis",
-      "labelDy": -26
+      "variant": "emphasis"
     },
     {
       "id": "sessio",
@@ -284,24 +300,33 @@
       "from": "admin",
       "to": "payload",
       "label": "desa i publica",
-      "toSide": "top",
-      "labelSegment": 0
-    },
-    {
-      "id": "rest",
-      "from": "httpapi",
-      "to": "payload",
-      "label": "mateixa instància",
-      "variant": "dashed",
-      "toSide": "top",
-      "labelSegment": 0
+      "toSide": "top"
     },
     {
       "id": "puntuar",
       "from": "payload",
       "to": "scoring",
       "label": "recalcula i arxiva en desar",
-      "labelDy": 90
+      "fromSide": "top",
+      "toSide": "left"
+    },
+    {
+      "id": "analitzar",
+      "from": "web",
+      "to": "analisi",
+      "label": "corpus sencer, càlcul en memòria",
+      "labelAt": [
+        445,
+        378
+      ]
+    },
+    {
+      "id": "carregar",
+      "from": "scripts",
+      "to": "payload",
+      "label": "payload run",
+      "fromSide": "top",
+      "toSide": "bottom"
     },
     {
       "id": "fitxers",
@@ -310,17 +335,22 @@
       "label": "puja i redimensiona"
     },
     {
-      "id": "carregar",
+      "id": "importar",
       "from": "scripts",
-      "to": "payload",
-      "label": "payload run"
+      "to": "externs",
+      "label": "logotips, idiomes i filtracions",
+      "variant": "dashed",
+      "fromSide": "bottom",
+      "toSide": "bottom"
     },
     {
-      "id": "icones",
-      "from": "scripts",
-      "to": "appstore",
-      "label": "descarrega les icones",
-      "variant": "dashed"
+      "id": "kanonimat",
+      "from": "web",
+      "to": "externs",
+      "label": "cinc caràcters del SHA-1, mai la contrasenya",
+      "variant": "security",
+      "fromSide": "left",
+      "toSide": "top"
     }
   ],
   "cards": [
@@ -341,11 +371,19 @@
       ]
     },
     {
-      "dot": "amber",
-      "title": "Contingut",
+      "dot": "emerald",
+      "title": "Dades obertes",
       "items": [
-        "Els scripts carreguen el contingut editorial per l'API local.",
-        "Els logotips venen de la consulta pública de l'App Store."
+        "L'anàlisi transversal són funcions pures: mateix corpus, mateix resultat.",
+        "Nou conjunts es publiquen a /dades en JSON i CSV, sense clau ni registre."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Tercers",
+      "items": [
+        "Els logotips i els idiomes declarats venen de la consulta pública de l'App Store.",
+        "La comprovació de contrasenyes filtrades és k-anònima i surt del servidor, mai del navegador."
       ]
     }
   ]
