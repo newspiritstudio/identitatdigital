@@ -81,6 +81,15 @@ export default async function HomePage() {
           vocabulari del projecte.
         </li>
         <li>
+          <Link href="/institucions">Escoles i ajuntaments</Link>, amb una fitxa de contractació per
+          aplicació: els punts que la normativa obliga a valorar abans d’adoptar una eina, i el
+          precepte que fa rellevant cadascun.
+        </li>
+        <li>
+          <Link href="/dades">Dades obertes</Link>, el corpus sencer en JSON i CSV, sense registre i
+          amb diccionari de dades.
+        </li>
+        <li>
           <Link href="/metodologia">Metodologia</Link>, que explica com es calcula cada xifra i què
           passa quan no sabem una cosa.
         </li>
