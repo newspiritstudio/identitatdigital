@@ -1,0 +1,212 @@
+/*
+ * El que el full d'estil global no cobreix.
+ *
+ * Tot el que ja existeix a `styles.css` —`card`, `badge`, `meta`, `unknown`,
+ * `score`, `filters`, `sources`, `plain`— es fa servir tal com està. Aquí només
+ * hi ha el que aquesta eina necessita i la resta del lloc no: la taula que ha
+ * de poder-se desplaçar de costat sense arrossegar la pàgina, les marques
+ * d'estat i la columna d'indicadors fixada.
+ */
+
+.tool {
+  margin-top: 1rem;
+}
+
+/* El focus ha de veure's sempre, també dins de les caselles. */
+.tool :focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/*
+ * Contenidor desplaçable.
+ *
+ * La taula comparativa no cap en una pantalla estreta i no ha de cabre-hi: el
+ * que no pot passar és que desbordi la pàgina sencera i deixi el text del
+ * voltant inaccessible. Per això el desplaçament horitzontal viu aquí dins, i
+ * el contenidor és focusable perquè també s'hi pugui arribar amb el teclat.
+ */
+.scroller {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  margin: 0.75rem 0;
+}
+
+.matrix {
+  min-width: 100%;
+  font-size: 0.85rem;
+}
+
+.matrix caption {
+  text-align: left;
+  padding: 0.4rem 0.5rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.matrix th,
+.matrix td {
+  min-width: 13rem;
+  vertical-align: top;
+  /* Les explicacions porten adreces llargues: que trenquin dins de la columna. */
+  overflow-wrap: anywhere;
+}
+
+/*
+ * Capçalera de fila fixada a l'esquerra: sense això, en desplaçar la taula de
+ * costat es perd de vista de quin indicador s'està llegint la casella.
+ * El `box-shadow` fa de vora perquè amb `border-collapse` les vores d'una
+ * cel·la enganxada no es dibuixen.
+ */
+.matrix .rowHead {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  background: var(--bg);
+  box-shadow: inset -1px 0 var(--line);
+  min-width: 14rem;
+}
+
+/*
+ * Fila amb diferència real entre les fitxes comparades. El filet de l'esquerra
+ * acompanya l'etiqueta «Difereix»; qui no distingeixi el color continua tenint
+ * l'etiqueta, que és la que porta la informació.
+ */
+.matrix .diffRow .rowHead {
+  box-shadow:
+    inset 3px 0 var(--accent),
+    inset -1px 0 var(--line);
+}
+
+/*
+ * En pantalles estretes la columna fixada es menja l'espai de la casella. Es
+ * manté fixada —perdre de vista l'indicador mentre es llegeix la casella seria
+ * pitjor— però ocupa menys.
+ */
+@media (max-width: 48rem) {
+  .matrix .rowHead {
+    min-width: 9rem;
+  }
+
+  .matrix th,
+  .matrix td {
+    min-width: 11rem;
+  }
+}
+
+.dimensionTitle {
+  margin-top: 1.5rem;
+  font-size: 1rem;
+}
+
+.claim {
+  margin: 0 0 0.2rem;
+  font-weight: 600;
+}
+
+/* La marca no diu res que el text no digui: només ho repeteix sense color. */
+.mark {
+  margin-right: 0.3rem;
+  font-weight: 700;
+}
+
+.yes {
+  color: var(--good);
+}
+
+.partial,
+.graded {
+  color: var(--text);
+}
+
+.no {
+  color: var(--bad);
+}
+
+.na {
+  color: var(--muted);
+}
+
+/* El global `.unknown` ja posa cursiva i gris; aquí només desfem la negreta. */
+.unknownCell {
+  font-weight: 400;
+}
+
+.scoreBlock {
+  white-space: nowrap;
+}
+
+.evidence {
+  margin-top: 0.3rem;
+  font-size: 0.85rem;
+}
+
+.evidence summary {
+  cursor: pointer;
+  color: var(--accent);
+}
+
+.detail {
+  margin: 0.3rem 0;
+}
+
+.picker {
+  border: 1px solid var(--line);
+  padding: 0.75rem;
+  margin: 1rem 0;
+}
+
+.picker legend {
+  font-weight: 600;
+  padding: 0 0.3rem;
+}
+
+.option {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+}
+
+.option label {
+  cursor: pointer;
+}
+
+.warning {
+  border-left: 3px solid var(--mid);
+  padding: 0.4rem 0 0.4rem 0.75rem;
+  margin: 0.75rem 0;
+}
+
+/* Un botó que fa una acció local, amb aspecte d'enllaç i semàntica de botó. */
+.linkButton {
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  color: var(--accent);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.altCard {
+  margin-bottom: 0.5rem;
+}
+
+.altCard h4 {
+  margin: 0 0 0.25rem;
+  font-size: 1rem;
+}
+
+/* Text només per a lectors de pantalla. */
+.sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
