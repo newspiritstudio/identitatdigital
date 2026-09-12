@@ -69,6 +69,17 @@ a {
   font-size: 0.85rem;
 }
 
+.site-footer nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin: 0.75rem 0;
+}
+
+.site-owner {
+  margin: 0;
+}
+
 h1 {
   font-size: 1.7rem;
   margin-bottom: 0.25rem;
