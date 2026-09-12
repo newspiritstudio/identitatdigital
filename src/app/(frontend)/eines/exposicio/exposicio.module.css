@@ -1,0 +1,198 @@
+/*
+ * El que el full d'estil general no cobreix.
+ *
+ * `styles.css` no es toca: és compartit amb la resta del lloc i hi ha més
+ * feina en curs. Aquí només hi ha el que aquesta eina necessita i enlloc més
+ * no fa falta —la graella de caselles, les barres de proporció i els blocs de
+ * resultats— reutilitzant les mateixes variables de color.
+ */
+
+/* ─────────────────────────────── selecció ────────────────────────────────── */
+
+.picker {
+  border: 1px solid var(--line);
+  padding: 0.75rem 1rem 1rem;
+  margin: 1rem 0 0;
+}
+
+.search {
+  display: block;
+  margin: 0 0 1rem;
+}
+
+.search label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+
+.search input {
+  width: 100%;
+  max-width: 24rem;
+  font: inherit;
+  padding: 0.35rem 0.5rem;
+  border: 1px solid var(--line);
+  border-radius: 0.2rem;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.group {
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin: 0;
+  padding: 0.5rem 0 0.75rem;
+}
+
+.group:first-of-type {
+  border-top: 0;
+}
+
+.group legend {
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0;
+}
+
+.options {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  gap: 0.15rem 0.75rem;
+}
+
+.option {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  padding: 0.15rem 0.25rem;
+  border-radius: 0.2rem;
+  cursor: pointer;
+}
+
+.option:hover {
+  background: #f2f4f7;
+}
+
+.option input {
+  margin: 0;
+  flex-shrink: 0;
+}
+
+/* Focus visible de debò: el contorn el dibuixa l'etiqueta sencera, perquè la
+ * casella nativa és molt petita i el contorn del navegador hi passa desapercebut. */
+.option:has(input:focus-visible) {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.optionName {
+  font-weight: 500;
+}
+
+.optionMeta {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.actions button {
+  font: inherit;
+  font-size: 0.85rem;
+  padding: 0.25rem 0.6rem;
+  border: 1px solid var(--line);
+  border-radius: 0.2rem;
+  background: var(--bg);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.actions button:disabled {
+  color: var(--muted);
+  cursor: default;
+}
+
+.count {
+  color: var(--muted);
+}
+
+/* ─────────────────────────────── resultats ───────────────────────────────── */
+
+.summary {
+  border-left: 3px solid var(--accent);
+  padding: 0.25rem 0 0.25rem 0.75rem;
+  margin: 1.5rem 0 0;
+}
+
+.warning {
+  border: 1px solid var(--mid);
+  padding: 0.5rem 0.75rem;
+  margin: 1rem 0;
+  font-size: 0.9rem;
+}
+
+.empty {
+  border: 1px dashed var(--line);
+  padding: 1rem;
+  margin: 1.5rem 0 0;
+}
+
+/*
+ * Barra de proporció. És decorativa i porta `aria-hidden`: la xifra i el seu
+ * denominador sempre van escrits al costat, de manera que qui no vegi la barra
+ * —per tecnologia assistiva, per impressió o per daltonisme— no perd res.
+ */
+.bar {
+  display: inline-block;
+  vertical-align: middle;
+  width: 6rem;
+  height: 0.55rem;
+  border: 1px solid var(--line);
+  margin-right: 0.4rem;
+}
+
+.barFill {
+  display: block;
+  height: 100%;
+  background: var(--muted);
+}
+
+.tags {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.numeric {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.delta {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+}
+
+.deltaUp {
+  color: var(--good);
+}
+
+.deltaDown {
+  color: var(--bad);
+}
+
+.tradeOff {
+  color: var(--muted);
+}
+
+.wide {
+  overflow-x: auto;
+}
