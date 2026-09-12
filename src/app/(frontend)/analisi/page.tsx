@@ -316,6 +316,15 @@ export default async function AnalysisIndexPage() {
         </li>
         <li className="card">
           <h3>
+            <Link href="/analisi/catala">Català</Link>
+          </h3>
+          <p className="meta">
+            Quantes fitxes es poden fer servir en català i quantes en tradueixen trenta sense
+            incloure’l. Dimensió informativa: no entra a cap puntuació.
+          </p>
+        </li>
+        <li className="card">
+          <h3>
             <Link href="/analisi/evidencia">Evidència</Link>
           </h3>
           <p className="meta">

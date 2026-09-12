@@ -191,6 +191,87 @@ export const Apps: CollectionConfig = {
                 },
               ],
             }),
+            /*
+             * Disponibilitat en català.
+             *
+             * Va deliberadament FORA del càlcul de puntuacions. Que un servei
+             * tingui interfície en català no el fa més respectuós amb la
+             * privadesa, i barrejar les dues coses inflaria la nota d'empreses
+             * que no ho mereixen i castigaria eines petites i molt bones que no
+             * tenen prou gent per traduir-les. És una dimensió d'accés, no de
+             * qualitat: informa la decisió de qui tria, sense contaminar la
+             * mesura. Per la mateixa raó no entra a `EVIDENCED_FACTS` i no mou
+             * les estadístiques de cobertura documental.
+             *
+             * La font primària és la mateixa fitxa de l'App Store, que publica
+             * la llista d'idiomes d'interfície de cada versió. És verificable
+             * per qualsevol persona i es pot tornar a consultar amb
+             * `pnpm import-catalan`.
+             */
+            {
+              name: 'catalan',
+              label: 'Disponibilitat en català',
+              type: 'group',
+              admin: {
+                description:
+                  'Dimensió informativa: no entra al càlcul de cap puntuació ni de la confiança.',
+              },
+              fields: [
+                evidencedFact({
+                  name: 'interfaceAvailable',
+                  label: 'Interfície en català',
+                  description:
+                    'Si el servei es pot fer servir amb la interfície en català. «Parcialment» quan només ho és una part (per exemple, l’aplicació sí i el web no).',
+                }),
+                {
+                  type: 'row',
+                  fields: [
+                    {
+                      name: 'interfaceLanguages',
+                      label: 'Idiomes d’interfície',
+                      type: 'number',
+                      index: true,
+                      admin: {
+                        width: '50%',
+                        description:
+                          'Quants idiomes declara la fitxa de la botiga. Dona context: no és el mateix no tenir català amb cinc idiomes que no tenir-lo amb seixanta.',
+                      },
+                    },
+                    {
+                      name: 'checkedAt',
+                      label: 'Comprovat el',
+                      type: 'date',
+                      admin: {
+                        width: '50%',
+                        date: { pickerAppearance: 'dayOnly', displayFormat: 'dd/MM/yyyy' },
+                      },
+                    },
+                  ],
+                },
+                {
+                  name: 'support',
+                  label: 'Atenció i documentació en català',
+                  type: 'select',
+                  defaultValue: 'unknown',
+                  options: [
+                    { label: 'Sí, atenció i ajuda en català', value: 'yes' },
+                    { label: 'Només l’ajuda, no l’atenció', value: 'help-only' },
+                    { label: 'No', value: 'no' },
+                    { label: 'Desconegut', value: 'unknown' },
+                  ],
+                  admin: {
+                    description:
+                      'La interfície és una cosa i poder-hi reclamar en català n’és una altra.',
+                  },
+                },
+                {
+                  name: 'note',
+                  label: 'Matís',
+                  type: 'textarea',
+                  localized: true,
+                },
+              ],
+            },
             {
               name: 'links',
               label: 'Enllaços oficials',

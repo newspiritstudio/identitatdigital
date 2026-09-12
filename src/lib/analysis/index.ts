@@ -46,6 +46,13 @@ export {
 } from './corpus'
 
 export {
+  analyseCatalan,
+  type CatalanAnalysis,
+  type CatalanApp,
+  type CatalanGroupRow,
+} from './catalan'
+
+export {
   analyseDataTypes,
   type DataTypeReach,
   type DataTypesAnalysis,

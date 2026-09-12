@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 
 import {
+  analyseCatalan,
   analyseDarkPatterns,
   analyseDataTypes,
   analyseDeletion,
@@ -604,5 +605,64 @@ describe('determinisme', () => {
     expect(JSON.stringify(analyseGroups(corpus))).toBe(JSON.stringify(analyseGroups(corpus)))
     expect(JSON.stringify(buildSharingGraph(corpus))).toBe(JSON.stringify(buildSharingGraph(corpus)))
     expect(JSON.stringify(analyseIncidents(corpus))).toBe(JSON.stringify(analyseIncidents(corpus)))
+  })
+})
+
+/* ────────────────────────── disponibilitat en català ─────────────────────── */
+
+describe('analyseCatalan', () => {
+  const catalanCorpus = buildCorpus({
+    apps: [
+      app({
+        id: 'a1',
+        name: 'Amb català',
+        slug: 'amb-catala',
+        company: 'matriu',
+        catalan: { interfaceAvailable: fact('yes'), interfaceLanguages: 40 },
+        scores: { overall: 60 },
+      }),
+      app({
+        id: 'a2',
+        name: 'Sense català',
+        slug: 'sense-catala',
+        company: 'matriu',
+        catalan: { interfaceAvailable: fact('no'), interfaceLanguages: 30 },
+        scores: { overall: 40 },
+      }),
+      // Fitxa sense comprovar: no pot comptar com un «no».
+      app({ id: 'a3', name: 'Sense comprovar', slug: 'sense-comprovar', company: 'tercer' }),
+    ],
+    companies,
+  })
+
+  const analysis = analyseCatalan(catalanCorpus)
+
+  it('no compta les fitxes sense comprovar com un no', () => {
+    expect(analysis.appsConsidered).toBe(3)
+    expect(analysis.checked).toBe(2)
+    expect(analysis.withCatalan).toBe(1)
+    expect(analysis.withoutCatalan).toBe(1)
+    expect(analysis.unknown).toBe(1)
+  })
+
+  it('calcula el percentatge sobre les comprovades, no sobre el total', () => {
+    expect(analysis.share).toBe(50)
+  })
+
+  it('compara els idiomes de les que el tenen i les que no', () => {
+    expect(analysis.averageLanguagesWith).toBe(40)
+    expect(analysis.averageLanguagesWithout).toBe(30)
+  })
+
+  it('agrupa per empresa', () => {
+    const alfa = analysis.groups.find((group) => group.groupName === 'Grup Alfa')
+    expect(alfa).toEqual({ groupName: 'Grup Alfa', apps: 2, withCatalan: 1 })
+  })
+
+  it('no peta amb un corpus buit', () => {
+    const empty = analyseCatalan(emptyCorpus())
+    expect(empty.appsConsidered).toBe(0)
+    expect(empty.share).toBe(0)
+    expect(empty.averageLanguagesWith).toBeNull()
   })
 })

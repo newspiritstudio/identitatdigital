@@ -7,6 +7,14 @@ import type { App, Category, DataType, Incident, ProcessingPurpose } from '@/pay
 
 export const dynamic = 'force-dynamic'
 
+/** Etiquetes de l'atenció en català. */
+const CATALAN_SUPPORT: Record<string, string> = {
+  yes: 'sí, atenció i ajuda en català',
+  'help-only': 'només l’ajuda, no l’atenció',
+  no: 'no',
+  unknown: 'desconegut',
+}
+
 const label = (value: unknown, fallback = '—') =>
   typeof value === 'object' && value !== null && 'name' in value
     ? String((value as { name: unknown }).name)
@@ -197,6 +205,30 @@ export default async function AppPage({ params }: { params: Promise<{ slug: stri
         <Fact label="Cal un compte" fact={app.accountRequired} />
         <Fact label="Codi obert" fact={app.openSource} />
       </dl>
+
+      <h2>Disponibilitat en català</h2>
+      <p className="meta">
+        Aquesta dimensió és informativa i <strong>no entra a cap de les puntuacions</strong>. Tenir
+        interfície en català no fa una empresa més respectuosa amb les dades, i barrejar-ho premiaria
+        les plataformes que tradueixen a seixanta idiomes perquè poden i castigaria eines petites i
+        molt bones. Es publica al costat de la nota, mai a dins.{' '}
+        <Link href="/analisi/catala">Veure-ho per a tot el directori</Link>
+      </p>
+      <dl>
+        <Fact
+          label="Interfície en català"
+          fact={app.catalan?.interfaceAvailable}
+          extra={
+            typeof app.catalan?.interfaceLanguages === 'number' ? (
+              <> Idiomes d’interfície declarats a la botiga: {app.catalan.interfaceLanguages}.</>
+            ) : null
+          }
+        />
+      </dl>
+      {app.catalan?.support && app.catalan.support !== 'unknown' ? (
+        <p>Atenció i documentació en català: {CATALAN_SUPPORT[app.catalan.support]}.</p>
+      ) : null}
+      {app.catalan?.note ? <p>{app.catalan.note}</p> : null}
 
       <h2>Dades recollides</h2>
       {app.dataSummary ? <p>{app.dataSummary}</p> : null}

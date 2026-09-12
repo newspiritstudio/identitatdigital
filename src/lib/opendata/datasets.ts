@@ -161,6 +161,10 @@ const appsDataset: DatasetSpec = {
       type: 'text',
       description: 'Enllaç a la política de privadesa citada.',
     },
+    { name: 'catala_interficie', type: 'text', description: 'Estat de l’afirmació «interfície en català». Dimensió informativa: no entra a cap puntuació.' },
+    { name: 'catala_idiomes_botiga', type: 'number', description: 'Idiomes d’interfície que l’empresa declara a la seva fitxa de l’App Store.' },
+    { name: 'catala_atencio', type: 'text', description: 'Atenció i documentació en català: yes, help-only, no o unknown.' },
+    { name: 'catala_comprovat_el', type: 'data', description: 'Data de la darrera comprovació d’idiomes.' },
     { name: 'fitxa', type: 'text', description: 'Camí de la fitxa dins del lloc.' },
   ],
   build: ({ corpus }) =>
@@ -195,6 +199,10 @@ const appsDataset: DatasetSpec = {
         revisat_el: day(at(app, 'review.lastReviewedAt')),
         lloc_web: str(at(app, 'links.website')),
         politica_privadesa: str(at(app, 'links.privacyPolicy')),
+        catala_interficie: factStatus(at(app, 'catalan.interfaceAvailable')),
+        catala_idiomes_botiga: num(at(app, 'catalan.interfaceLanguages')),
+        catala_atencio: str(at(app, 'catalan.support')),
+        catala_comprovat_el: day(at(app, 'catalan.checkedAt')),
         fitxa: `/aplicacions/${str(app.slug) ?? ''}`,
       }
     }),
