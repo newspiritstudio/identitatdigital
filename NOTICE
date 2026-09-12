@@ -1,0 +1,59 @@
+# Material de tercers
+
+Res del que hi ha en aquesta llista no és nostre per sublicenciar. Ni la
+llicència MIT del programari (LICENSE) ni la CC BY-SA 4.0 del contingut
+(LICENSE-CONTENT) s'hi apliquen.
+
+## 1. Llista de paraules en català · LGPL v2.1 o posterior
+
+`src/lib/passwords/wordlist.ca.ts`
+
+Llista de 2.048 paraules derivada del **diccionari català de Softcatalà**,
+projecte `catalan-dict-tools`, que es distribueix amb llicència dual GNU GPL
+v2 o posterior i GNU LGPL v2.1 o posterior.
+
+    https://github.com/Softcatala/catalan-dict-tools
+
+D'entre les dues opcions, exercim la de la **LGPL v2.1 o posterior**. Aquest
+fitxer es distribueix sota aquesta llicència i no sota l'MIT de la resta del
+codi. El generador que el produeix, `scripts/build-wordlist.ts`, és públic al
+mateix repositori: és el que fa que la forma editable sigui accessible, tal
+com la LGPL exigeix.
+
+## 2. Catàleg de filtracions · CC BY 4.0
+
+Col·lecció `breaches`, importada amb `scripts/import-breaches.ts`.
+
+Dades cortesia de **Have I Been Pwned**, de Troy Hunt, sota llicència Creative
+Commons Reconeixement 4.0 Internacional, amb atribució i enllaç obligatoris.
+
+    https://haveibeenpwned.com
+
+El que sí que és nostre, i sí que és CC BY-SA 4.0, és el lligam editorial: a
+quina empresa i a quines aplicacions correspon cada filtració, i quins tipus
+de dada del nostre vocabulari hi van quedar exposats.
+
+## 3. Logotips, icones, noms i marques de les empreses analitzades
+
+Marques registrades de tercers, obtingudes de l'API pública de consulta de
+l'App Store. S'utilitzen a títol nominatiu, per identificar el servei del qual
+es parla, a l'empara de l'art. 37 de la Llei 17/2001 i de l'art. 14 del
+Reglament (UE) 2017/1001.
+
+Les llicències Creative Commons diuen expressament que no concedeixen cap dret
+sobre marques. Aquestes icones **no** entren a la CC BY-SA del contingut.
+
+## 4. Citacions literals de polítiques, condicions i resolucions
+
+Es publiquen a l'empara del dret de citació (art. 32.1 TRLPI i art. 5.3.d de
+la Directiva 2001/29/CE) i no es poden sublicenciar. Qui les reutilitzi ho fa
+sota el seu propi dret de citació.
+
+## 5. La marca Identitat.digital i la identitat visual
+
+El nom «Identitat.digital», el nom «New Spirit Studio», els seus logotips i la
+identitat visual del lloc queden fora de totes dues llicències.
+
+## 6. Contingut de tercers enllaçat
+
+Els llocs enllaçats tenen les seves pròpies condicions.
