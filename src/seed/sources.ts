@@ -23,11 +23,9 @@ const s = (
 })
 
 /**
- * Catàleg de fonts.
- *
- * Es reutilitzen entre fitxes: la política de privadesa de Meta sosté
- * afirmacions de Facebook, d'Instagram i, en part, de WhatsApp. Els títols es
- * conserven en l'idioma original; el resum és en català.
+ * Catàleg de fonts. Es reutilitzen entre fitxes: la política de privadesa de
+ * Meta sosté afirmacions de Facebook, d'Instagram i, en part, de WhatsApp. Els
+ * títols es conserven en l'idioma original i el resum és en català.
  */
 export const sources: SourceSeed[] = [
   /* ─────────────── Meta ─────────────── */

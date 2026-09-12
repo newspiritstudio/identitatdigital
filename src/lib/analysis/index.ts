@@ -1,12 +1,5 @@
 /**
- * Biblioteca d'anàlisi transversal.
- *
- * El projecte ja sap explicar molt bé una aplicació. Això és el que permet
- * explicar-les totes alhora: llegir el corpus sencer i respondre preguntes que
- * cap fitxa no pot respondre tota sola —qui recull què, qui acaba tenint-ho,
- * com se surt, i quanta part de tot plegat encara no sabem.
- *
- * Ús habitual:
+ * Anàlisi transversal: preguntes que no es responen mirant una fitxa sola.
  *
  * ```ts
  * const corpus = await loadCorpus(payload)
@@ -14,9 +7,8 @@
  * const grups = analyseGroups(corpus)
  * ```
  *
- * `loadCorpus` és l'única funció d'aquest mòdul que toca la base de dades.
- * Totes les altres són pures: mateix corpus, mateix resultat, sempre, amb un
- * ordre estable per als llistats.
+ * `loadCorpus` toca la base de dades. Les altres funcions són pures i ordenen
+ * els llistats de manera estable.
  */
 
 export {

@@ -6,9 +6,9 @@ import { slugField } from '@/fields/slug'
 /**
  * Finalitats del tractament.
  *
- * La quantitat de dades recollides diu poc per si sola: el que canvia la
- * valoració és per a què s'utilitzen. `privacyImpact` és el que permet que
- * «prevenció del frau» i «publicitat personalitzada» no pesin igual.
+ * La quantitat de dades recollides diu poc per si sola; el que canvia la
+ * valoració és per a què s'utilitzen. `privacyImpact` fa que «prevenció del
+ * frau» i «publicitat personalitzada» no pesin igual.
  */
 export const ProcessingPurposes: CollectionConfig = {
   slug: 'processing-purposes',

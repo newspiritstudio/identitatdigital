@@ -10,16 +10,12 @@ export const metadata: Metadata = {
 /**
  * Guia de gestors de contrasenyes.
  *
- * DECISIÓ EDITORIAL IMPORTANT: aquesta pàgina NO compara productes concrets ni
- * en recomana cap. El projecte sencer es basa a no afirmar res sense font
- * documentada, i encara no hem documentat cap gestor amb el mateix rigor amb
- * què hem documentat les vint-i-cinc fitxes del directori. Publicar una taula
- * comparativa sense aquesta feina feta seria fer exactament el que retreiem als
- * llocs que recomanen productes «els cinc millors» sense ensenyar el mètode.
+ * La pàgina no compara productes ni en recomana cap. Encara no hem documentat
+ * cap gestor amb el rigor que demanem a les fitxes del directori, i sense
+ * aquesta feina una taula comparativa seria una llista d'opinions.
  *
- * El que sí que es pot fer avui, i és el que fa la pàgina, és donar els
- * criteris —els mateixos indicadors que fem servir per puntuar qualsevol
- * servei— perquè qui llegeix pugui aplicar-los ell mateix a la seva tria.
+ * El que sí que dona són els criteris, que són els mateixos indicadors amb què
+ * puntuem qualsevol servei, perquè qui llegeix els apliqui a la seva tria.
  */
 export default function PasswordManagersPage() {
   return (
@@ -61,9 +57,9 @@ export default function PasswordManagersPage() {
           només saps tu.
         </li>
         <li>
-          <strong>Les omple</strong> al lloc correcte. Això no és comoditat: és protecció contra la
-          suplantació de llocs web. Un gestor no omple les credencials de la teva entitat bancària en
-          un domini que se li assembla, i tu sí que ho faries.
+          <strong>Les omple</strong> al lloc correcte, cosa que protegeix contra la suplantació de
+          llocs web. Un gestor no omple les credencials de la teva entitat bancària en un domini que
+          se li assembla, i tu sí que ho faries.
         </li>
         <li>
           <strong>T’avisa</strong> de les que has repetit i de les que han aparegut en filtracions.
@@ -84,13 +80,13 @@ export default function PasswordManagersPage() {
         </li>
         <li>
           <strong>Que el proveïdor no pugui recuperar-te la contrasenya mestra.</strong> Sona
-          incòmode i és exactament el que vols: si te la pot recuperar, és que hi té accés d’alguna
-          manera. La contrapartida és que el codi de recuperació és teu i l’has de guardar bé.
+          incòmode, però si te la pot recuperar és que hi té accés d’alguna manera. La contrapartida
+          és que el codi de recuperació és teu i l’has de guardar bé.
         </li>
         <li>
           <strong>Auditories independents publicades, amb informe llegible i data.</strong> Un
-          «auditat per una empresa líder» sense informe no és una auditoria: és un eslògan. Mira la
-          data: una auditoria de fa cinc anys parla d’un programa que ja no existeix.
+          «auditat per una empresa líder» sense informe publicat no acredita res. Mira la data: una
+          auditoria de fa cinc anys parla d’un programa que ja no existeix.
         </li>
         <li>
           <strong>Codi obert de la part que xifra.</strong> No garanteix que estigui bé, però permet
@@ -99,8 +95,8 @@ export default function PasswordManagersPage() {
         </li>
         <li>
           <strong>Exportació completa en format obert.</strong> Has de poder emportar-te tot el
-          magatzem en un fitxer que un altre gestor pugui llegir. Un gestor del qual no se’n pot
-          sortir no és un magatzem: és una presó amb bones intencions.
+          magatzem en un fitxer que un altre gestor pugui llegir. Si no se’n pot sortir, el
+          magatzem es converteix en una dependència.
         </li>
         <li>
           <strong>Verificació en dos passos amb clau física o aplicació.</strong> No amb SMS, que és
@@ -169,9 +165,8 @@ export default function PasswordManagersPage() {
       <p>
         Perquè encara no hem documentat cap gestor amb el mateix rigor amb què hem documentat les
         fitxes del <Link href="/aplicacions">directori</Link>: cada afirmació amb la seva font, el
-        seu nivell d’evidència i la seva data. Publicar una llista dels «millors» sense aquesta feina
-        feta seria fer exactament el que retraiem als llocs que recomanen productes sense ensenyar el
-        mètode, i aquest projecte no es pot permetre aquesta contradicció.
+        seu nivell d’evidència i la seva data. Sense aquesta feina, una llista dels «millors» seria
+        la nostra opinió amb aparença de mètode.
       </p>
       <p>
         Quan les fitxes hi siguin, sortiran al directori amb la mateixa puntuació desmuntable que la

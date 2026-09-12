@@ -13,9 +13,8 @@ import { appStoreBundleIds } from '@/seed/store-ids'
  * imatges no ho són, i per això no es desen enlloc.
  *
  * Cada fitxer que entra a la biblioteca porta escrit d'on ve, de qui és i quan
- * es va descarregar. Els logotips són marques registrades de tercers: aquí
- * s'utilitzen únicament per identificar el servei del qual es parla, que és
- * exactament la funció que fa una marca.
+ * es va descarregar. Els logotips són marques registrades de tercers i aquí
+ * s'utilitzen només per identificar el servei del qual es parla.
  *
  * És idempotent: una aplicació que ja té logotip no es torna a baixar. Amb
  * `FORCE_LOGOS=1` es refà la importació, útil quan una empresa canvia la icona.

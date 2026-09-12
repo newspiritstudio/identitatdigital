@@ -9,20 +9,14 @@ import {
 import type { App, Breach, Category, Company, DataType, Incident } from '@/payload-types'
 
 /**
- * Corpus: la fotografia completa del directori en un sol objecte.
+ * Corpus: tot el directori carregat en un sol objecte.
  *
- * Tot el mòdul d'anàlisi es divideix en dues meitats amb una frontera molt
- * estricta: `loadCorpus` és l'única funció que parla amb Payload, i tota la
- * resta són funcions pures que reben aquest `Corpus` i no toquen res més. La
- * raó és que les anàlisis transversals han de poder-se provar amb fixtures
- * escrites a mà i han de donar sempre el mateix resultat amb les mateixes
- * dades: si una funció d'anàlisi pogués consultar la base de dades, ni una cosa
- * ni l'altra serien certes.
+ * `loadCorpus` és l'única funció del mòdul que parla amb Payload. La resta
+ * reben el corpus ja carregat, cosa que permet provar-les amb fixtures
+ * escrites a mà.
  *
- * El corpus real sempre està incomplet —hi ha camps buits, relacions que no
- * resolen i col·leccions que encara s'estan omplint— i això no és un error a
- * corregir sinó l'estat normal del projecte. Per això cap funció d'aquest mòdul
- * no llança excepcions per dades que falten: les compta.
+ * Cap funció d'aquí no llança excepcions quan falten dades. El corpus real
+ * sempre té camps buits i relacions que no resolen; els comptem i seguim.
  */
 export type Corpus = {
   /** Només fitxes publicades: els esborranys són feina en curs, no coneixement. */
@@ -77,8 +71,8 @@ export const relationIds = (value: unknown): string[] => {
 /**
  * Lectura per camí. Els documents reals tenen grups sencers absents (una fitxa
  * antiga sense la pestanya de seguretat, per exemple), i `app.security.e2ee`
- * petaria. Aquí un camí que no existeix val `undefined`, que és exactament el
- * mateix que «no ho hem documentat».
+ * petaria. Aquí un camí que no existeix val `undefined`, igual que «no ho hem
+ * documentat».
  */
 export const at = (source: unknown, path: string): unknown =>
   path.split('.').reduce<unknown>((acc, key) => {

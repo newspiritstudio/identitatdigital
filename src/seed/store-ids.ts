@@ -1,17 +1,16 @@
 /**
  * Identificació de cada servei a l'App Store.
  *
- * El logotip d'una aplicació no és una dada editorial, però sí que ho és saber
- * d'on l'hem tret. Guardar l'identificador de paquet —i no la URL de la imatge,
- * que caduca a cada versió— permet tornar a demanar la icona vigent quan calgui
- * i deixa constància de quina fitxa concreta de la botiga hem consultat.
+ * Es desa l'identificador de paquet i no la URL de la imatge, que canvia a cada
+ * versió. Així es pot tornar a demanar la icona vigent i queda constància de
+ * quina fitxa de la botiga s'ha consultat.
  *
- * Es fa servir l'App Store i no Google Play perquè Apple publica una API de
- * consulta documentada i estable, cosa que fa la importació reproduïble i
- * verificable sense haver de llegir el codi d'una pàgina web.
+ * S'usa l'App Store i no Google Play perquè Apple publica una API de consulta
+ * documentada, i això fa la importació repetible sense llegir el codi d'una
+ * pàgina web.
  *
- * Els serveis que no tenen aplicació mòbil pròpia no hi són: la seva absència
- * és intencionada i el script d'importació ho fa constar.
+ * Els serveis sense aplicació mòbil pròpia no hi consten; l'script
+ * d'importació ho fa saber.
  */
 export const appStoreBundleIds: Record<string, string> = {
   /* Meta */

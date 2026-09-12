@@ -18,11 +18,8 @@ const idOf = (value: unknown): string | null => {
 const AppLink = ({ app }: { app: App }) => <Link href={`/aplicacions/${app.slug}`}>{app.name}</Link>
 
 /**
- * Consultes creuades.
- *
- * Aquesta pàgina existeix per comprovar una cosa concreta: que el model de
- * dades permet fer preguntes que travessen les fitxes. Si aquestes consultes
- * necessitessin llegir text lliure, el model estaria mal fet.
+ * Consultes creuades. Serveixen per comprovar que el model permet preguntar
+ * coses que travessen les fitxes sense haver de llegir text lliure.
  */
 export default async function QueriesPage() {
   const payload = await getClient()

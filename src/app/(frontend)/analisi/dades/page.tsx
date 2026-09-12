@@ -148,11 +148,10 @@ export default async function DataTypesPage() {
         que té nom, hora i lloc aproximat.
       </p>
       <p>
-        Això no és una acusació ni una anomalia: hi ha raons tècniques legítimes per registrar
-        aquestes dades —seguretat, detecció d’abús, compliment legal— i moltes polítiques les
-        expliquen. El que la taula deixa veure és una altra cosa: que la mateixa dada que serveix
-        per protegir el compte serveix, al mateix temps i sense que s’hagi de tornar a demanar res,
-        per construir el perfil.
+        Hi ha raons tècniques legítimes per registrar aquestes dades, com la seguretat, la detecció
+        d’abús o el compliment legal, i moltes polítiques les expliquen. El que la taula deixa veure
+        és que la mateixa dada que serveix per protegir el compte serveix, al mateix temps i sense
+        tornar a demanar res, per construir el perfil.
       </p>
 
       <h2>Les dades que serveixen per seguir la gent</h2>

@@ -1,13 +1,12 @@
 /**
  * Tipus de la instantània que viatja del servidor al navegador.
  *
- * Aquest fitxer no importa res: ni Payload, ni el mòdul d'anàlisi, ni React.
- * És a propòsit. El component de client l'importa amb `import type`, i així la
- * frontera entre servidor i client queda garantida pel sistema de tipus i no
- * per la disciplina de qui hi escrigui després.
+ * El fitxer no importa res, ni Payload ni el mòdul d'anàlisi ni React. El
+ * component de client l'importa amb `import type`, així que la frontera entre
+ * servidor i client la garanteix el sistema de tipus.
  *
- * Tot el que hi ha aquí ha de ser serialitzable: cadenes, nombres, booleans,
- * matrius i objectes plans. Cap `Map`, cap `Date`, cap funció.
+ * Tot ha de ser serialitzable: cadenes, nombres, booleans, matrius i objectes
+ * plans. Cap `Map`, cap `Date`, cap funció.
  */
 
 /* ─────────────────────────── vocabularis tancats ─────────────────────────── */

@@ -2,15 +2,14 @@
 
 **Versió 1.0 — 12 de setembre de 2026**
 
-Aquest document diu **qui decideix què** a Identitat.digital, **què passa quan
-qui decideix té un conflicte d'interessos** i **què passa si el projecte
-s'acaba**. És la peça que la [política editorial](https://identitat.digital/legal/politica-editorial)
-pressuposa: allà s'explica com es fa una fitxa; aquí, qui pot fer-la.
+Aquest document diu qui decideix què a Identitat.digital, què passa quan qui
+decideix té un conflicte d'interessos i què passa si el projecte s'acaba. La
+[política editorial](https://identitat.digital/legal/politica-editorial) explica
+com es fa una fitxa; aquí hi ha qui pot fer-la.
 
-El projecte publica notes sobre empreses identificades pel seu nom. Ho fa una
-empresa que ven serveis digitals. Aquesta combinació només és defensable si les
-regles són públiques i incòmodes per a nosaltres mateixos. Per això aquest
-document existeix i per això és al repositori i no només al peu de pàgina.
+El projecte publica notes sobre empreses identificades pel seu nom, i ho fa una
+empresa que ven serveis digitals. Per això les regles són públiques i són al
+repositori, no només al peu de pàgina.
 
 ---
 
@@ -47,18 +46,16 @@ d'això.
 | Resoldre una rèplica contestada                | Consell editorial | Registre de correccions                                 |
 | Canviar aquest document                        | Consell editorial | Versió nova + historial                                 |
 
-**Regla de desempat.** Amb dos membres i desacord, preval l'opció que
-**publica més informació** o que **corregeix a favor de l'empresa afectada**.
-No hi ha cap escenari en què l'empat serveixi per callar.
+**Regla de desempat.** Amb dos membres i desacord, preval l'opció que publica
+més informació o que corregeix a favor de l'empresa afectada. Un empat no pot
+acabar mai en no publicar res.
 
-**Cap decisió sobre una fitxa concreta no és mai unipersonal quan hi ha un
-conflicte d'interessos declarat.** Vegeu la secció següent.
+Quan hi ha un conflicte d'interessos declarat, cap decisió sobre una fitxa no és
+unipersonal. Vegeu la secció següent.
 
 ---
 
 ## 3. Conflictes d'interessos
-
-Aquest és el punt feble del projecte i s'ha de tractar com a tal.
 
 New Spirit Studio, S.L. presta serveis digitals a clients, alguns dels quals
 són administracions públiques i empreses. És perfectament possible que una
@@ -74,8 +71,7 @@ estat o vulgui ser client nostre.
    d'aquella fitxa. Els fixa un altre membre del consell, a partir de les
    mateixes fonts públiques.
 3. **Publicitat.** Quan una fitxa hagi estat afectada per una abstenció, la
-   fitxa ho diu. No és una nota a peu de pàgina interna: és informació que el
-   lector necessita per calibrar el que llegeix.
+   fitxa ho diu, perquè és informació que cal per calibrar el que s'hi llegeix.
 4. **Prohibició de pagament.** No s'accepta cap pagament, patrocini, permuta,
    accés privilegiat ni acord de qualsevol mena d'una empresa analitzada o del
    seu grup a canvi de modificar, avançar, retardar, destacar o retirar una
@@ -86,8 +82,8 @@ estat o vulgui ser client nostre.
    alternativa concreta, ho faria sense cobrar-ne res, i el criteri seria
    públic.
 6. **Model de finançament declarat.** El projecte l'autofinança New Spirit
-   Studio, S.L. amb recursos propis. Qualsevol ingrés extern futur —un ajut
-   públic, una subvenció, una donació— es declara a la política editorial amb
+   Studio, S.L. amb recursos propis. Qualsevol ingrés extern futur (un ajut
+   públic, una subvenció, una donació) es declara a la política editorial amb
    l'organisme, l'import i l'any **abans** que aquests diners afectin cap
    fitxa. Un finançament que condicioni quines empreses s'analitzen o què se'n
    diu no s'accepta, vingui d'on vingui.
@@ -101,9 +97,9 @@ canvia aquesta línia i s'aplica la regla 2.
 
 ## 4. Compromís de permanència de les dades
 
-El conjunt de dades és, i continuarà sent, **CC BY-SA 4.0**. Això és
-irrevocable per als continguts ja publicats: una llicència Creative Commons
-concedida no es pot retirar, i no pretenem trobar-hi la lletra petita.
+El conjunt de dades és, i continuarà sent, CC BY-SA 4.0. Per als continguts ja
+publicats això és irrevocable: una llicència Creative Commons concedida no es pot
+retirar.
 
 A més, l'entitat es compromet a:
 
@@ -117,9 +113,7 @@ A més, l'entitat es compromet a:
 **Clàusula de continuïtat.** Si el projecte s'atura, si l'entitat es dissol o
 si es transmet a un tercer, el compromís és dipositar la darrera versió
 completa del conjunt de dades i del codi en un repositori públic d'accés lliure
-allotjat fora de la infraestructura pròpia, amb les mateixes llicències. Un
-projecte que demana transparència a les altres empreses no pot desaparèixer
-enduent-se les dades.
+allotjat fora de la infraestructura pròpia, amb les mateixes llicències.
 
 ---
 

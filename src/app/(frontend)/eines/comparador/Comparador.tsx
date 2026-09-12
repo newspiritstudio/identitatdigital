@@ -402,9 +402,8 @@ export default function Comparador({
             <p className={styles.warning}>
               <strong>Avís:</strong> les fitxes comparades no estan documentades amb la mateixa
               profunditat. La confiança va de {Math.min(...confidences)} a{' '}
-              {Math.max(...confidences)} sobre 100. Una diferència de puntuació entre una fitxa molt
-              documentada i una que ho està poc no és una diferència entre els serveis: és una
-              diferència entre el que en sabem.
+              {Math.max(...confidences)} sobre 100. Entre una fitxa molt documentada i una que ho
+              està poc, la diferència de puntuació mesura el que en sabem, no els serveis.
             </p>
           ) : null}
 

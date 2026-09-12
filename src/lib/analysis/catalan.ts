@@ -15,20 +15,12 @@ import {
 /**
  * Disponibilitat en català del directori.
  *
- * És l'única dimensió del projecte que es publica **fora** de la puntuació, i
- * la raó és metodològica, no política: que un servei tingui interfície en
- * català no diu res de com tracta les dades. Si sumés a la nota global,
- * premiaria les plataformes més grans —que tradueixen a seixanta idiomes
- * perquè tenen equips per fer-ho— i castigaria eines petites i molt
- * respectuoses fetes per cinc persones. Barrejar accés i qualitat espatllaria
- * totes dues mesures alhora.
+ * Aquesta dimensió es publica fora de la puntuació. Tenir interfície en català
+ * no diu res de com un servei tracta les dades, i sumar-ho a la nota premiaria
+ * les plataformes amb equips de traducció grans.
  *
- * Publicar-la al costat, en canvi, respon una pregunta que la nota no respon i
- * que aquí importa: dels serveis que valen la pena, quins es poden fer servir
- * en la llengua pròpia?
- *
- * La font és sempre la mateixa i és verificable: la llista d'idiomes
- * d'interfície que cada empresa declara a la seva fitxa de l'App Store.
+ * La font és la llista d'idiomes d'interfície que cada empresa declara a la
+ * seva fitxa de l'App Store.
  */
 
 export type CatalanApp = AppRef & {

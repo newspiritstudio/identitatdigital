@@ -41,8 +41,8 @@ export default function EditorialPolicyPage() {
       <p>
         Cada dada d’una fitxa porta el seu estat, el seu nivell d’evidència, el seu detall en
         català, la data de verificació i els enllaços que la sostenen. Una afirmació sense font no
-        es publica. No és una aspiració: és una restricció del model de dades, i el camp de fonts hi
-        és a totes les afirmacions.
+        es publica. És una restricció del model de dades, i el camp de fonts hi és a totes les
+        afirmacions.
       </p>
 
       <h3>Desconegut no vol dir dolent</h3>
@@ -50,8 +50,7 @@ export default function EditorialPolicyPage() {
         El que no hem pogut documentar queda marcat com a desconegut, no com a negatiu, i no mou la
         puntuació en cap direcció. El que baixa és el <strong>grau de confiança</strong> de
         l’anàlisi, que es publica al costat de la nota. Així, una empresa que no documenta res no
-        queda artificialment castigada ni artificialment premiada: queda amb una anàlisi de
-        confiança baixa, que és exactament el que és.
+        queda ni castigada ni premiada: queda amb una anàlisi de confiança baixa.
       </p>
 
       <h3>Tota puntuació és desmuntable</h3>
@@ -302,8 +301,8 @@ export default function EditorialPolicyPage() {
 
       <h2>6. Dret de rèplica de les empreses documentades</h2>
       <p>
-        Tota empresa que aparegui en aquest lloc té dret a respondre. No és una concessió: és la
-        contrapartida de publicar informació que l’afecta.
+        Tota empresa que aparegui en aquest lloc té dret a respondre, com a contrapartida de
+        publicar informació que l’afecta.
       </p>
 
       <h3>6.1. Com exercir-lo</h3>

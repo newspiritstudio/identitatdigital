@@ -139,7 +139,7 @@ export const metaApps: AppSeed[] = [
         app: 'signal',
         comparability: 'equivalent',
         rationale:
-          'Cobreix exactament la mateixa necessitat —missatgeria, trucades i grups xifrats d’extrem a extrem— amb el mateix protocol criptogràfic, però sense agenda al servidor, sense metadades explotables i sense pertànyer a un grup publicitari.',
+          'Cobreix la mateixa necessitat (missatgeria, trucades i grups xifrats d’extrem a extrem) amb el mateix protocol criptogràfic, però sense agenda al servidor, sense metadades explotables i sense pertànyer a un grup publicitari.',
         tradeOffs:
           'La base d’usuaris és molt més petita, cosa que a la pràctica obliga a mantenir els dos serveis o a convèncer l’entorn.',
       },

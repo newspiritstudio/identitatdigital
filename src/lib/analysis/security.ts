@@ -12,12 +12,8 @@ import {
 } from './corpus'
 
 /**
- * Mesures de seguretat a tot el directori.
- *
- * Aquí la temptació és fer un rànquing. No ho fem: el mòdul compta pràctiques,
- * no reparteix notes —això ja ho fa `src/lib/scoring`— i separa sempre el «no
- * ho té» del «no ho sabem», perquè la diferència entre les dues coses és,
- * precisament, la meitat de la feina que ens queda per fer.
+ * Recompte de mesures de seguretat a tot el directori. Separa «no ho té» de
+ * «no ho sabem» i no ordena res: les notes les posa `src/lib/scoring`.
  */
 
 export const E2EE_SCOPES = [

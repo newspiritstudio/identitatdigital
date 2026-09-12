@@ -3,11 +3,8 @@ import React from 'react'
 import styles from './legal.module.css'
 
 /**
- * Peces compartides pels documents legals.
- *
- * No són components de disseny: són la manera d'aconseguir que tots els
- * documents datin igual, marquin igual el que encara no sabem i deixin les
- * taules amples utilitzables en una pantalla estreta.
+ * Peces compartides pels documents legals: metadades de versió i data, marca de
+ * pendent, blocs de resum i d'avís i contenidor per a les taules amples.
  */
 
 export function DocMeta({ version, updated }: { version: string; updated: string }) {

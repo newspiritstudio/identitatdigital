@@ -25,26 +25,17 @@ const TWO_POW_32 = 2 ** 32
 /**
  * Retorna un enter uniforme dins de [0, bound).
  *
- * PER QUÈ NO `source() % bound`, QUE SERIA UNA LÍNIA:
+ * No és `source() % bound` perquè el mòdul introdueix biaix. La font dona 2^32
+ * valors i `bound` no divideix 2^32 per a cap alfabet que no sigui potència de
+ * dos (26 lletres, 10 xifres, 28 símbols, 62 alfanumèrics), de manera que els
+ * primers `2^32 % bound` residus surten una vegada més que la resta. Amb 62
+ * caràcters, els 40 primers són lleugerament més probables que els 22 últims.
+ * La diferència és minúscula però sistemàtica, i qui ataca pot ordenar l'espai
+ * de cerca de més probable a menys probable.
  *
- * Perquè introdueix biaix i el biaix és real, no una pedanteria acadèmica. La
- * font dona 2^32 valors possibles. Si `bound` no divideix 2^32 —i no ho fa per
- * a cap alfabet que no sigui una potència de dos: 26 lletres, 10 xifres, 28
- * símbols, 62 alfanumèrics— els primers `2^32 % bound` residus surten una
- * vegada més que la resta. Amb 62 caràcters, els 40 primers de l'alfabet són
- * lleugerament més probables que els 22 últims. La diferència per caràcter és
- * minúscula, però és sistemàtica i coneguda: qui ataca pot ordenar l'espai de
- * cerca de més probable a menys probable i escurçar la feina. Una eina que
- * promet entropia ha de donar entropia, no gairebé.
- *
- * El remei és descartar (rebutjar) els valors que cauen a la cua incompleta i
- * tornar a demanar-ne un altre. La probabilitat de rebuig és, com a molt,
- * inferior a una milionèsima per a qualsevol alfabet d'aquesta eina, de manera
- * que el bucle acaba de seguida; el cost és irrellevant i la distribució queda
- * exacta.
- *
- * NO SIMPLIFIQUIS AIXÒ A UN MÒDUL. Si algú vol «netejar» aquesta funció, que
- * llegeixi primer aquest comentari i després torni a considerar-ho.
+ * El remei és rebutjar els valors que cauen a la cua incompleta i demanar-ne un
+ * altre. La probabilitat de rebuig queda per sota d'una milionèsima per a
+ * qualsevol alfabet d'aquesta eina.
  */
 export function randomBelow(bound: number, source: Uint32Source = cryptoUint32): number {
   if (!Number.isInteger(bound) || bound < 1 || bound > TWO_POW_32) {

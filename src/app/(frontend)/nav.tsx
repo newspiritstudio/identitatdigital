@@ -6,12 +6,11 @@ import { usePathname } from 'next/navigation'
 /**
  * Navegació principal amb indicació de secció actual.
  *
- * `aria-current="page"` a l'enllaç de la secció on som (WCAG 2.4.8: saber on
- * ets dins del lloc). Es marca la secció, no la coincidència exacta, perquè
- * dins d'«Anàlisi» hi ha sis pàgines i totes són «Anàlisi».
+ * `aria-current="page"` a l'enllaç de la secció on som (WCAG 2.4.8). Es marca
+ * la secció i no la coincidència exacta, perquè dins d'«Anàlisi» hi ha sis
+ * pàgines i totes hi pertanyen.
  *
- * És l'únic component de client del capçal, i no fa servir cap
- * emmagatzematge ni cap efecte: només llegeix el camí de la URL actual.
+ * Únic component de client del capçal. Només llegeix el camí de la URL.
  */
 const LINKS = [
   { href: '/aplicacions', label: 'Aplicacions' },

@@ -117,7 +117,7 @@ copiar el text d'una fitxa però tenir problemes per reutilitzar el conjunt.
 
 **Per què BY-SA i no BY.** BY fa circular més ràpid, però permet que algú
 incorpori el corpus verificat a un producte tancat i no torni res. La inversió
-del projecte és en verificació, i és exactament el material que una empresa
+del projecte és en verificació, que és justament el material que una empresa
 d'extracció de dades voldria incorporar sense contribuir-hi. BY-SA garanteix
 reciprocitat sense tancar cap porta comercial.
 
@@ -236,10 +236,8 @@ Analitzades les tres normes possibles:
   obligació de publicar cap declaració per a un lloc privat.
 
 **Conclusió: cap norma obliga aquest lloc a publicar una declaració
-d'accessibilitat.** S'assumeix igualment perquè un projecte que exigeix
-transparència a les grans plataformes no pot escudar-se en una exempció legal,
-perquè l'accessibilitat és condició del dret a la informació, i perquè
-declarar-ho obliga a complir-ho.
+d'accessibilitat.** S'assumeix igualment perquè l'accessibilitat és condició del
+dret a la informació i perquè declarar-ho obliga a complir-ho.
 
 La declaració es publica amb estat **«parcialment conforme»** (versió 1.0),
 després de corregir les mancances que recollia l'esborrany anterior i de fer una
@@ -259,8 +257,8 @@ el criteri que incompleixen. El calendari té dates: proves manuals de teclat i 
 lector de pantalla abans del 31 de desembre de 2026 i avaluació WCAG-EM al primer
 trimestre de 2027.
 
-Signar una conformitat total sense avaluació externa seria exactament el tipus
-d'afirmació buida que el projecte documenta a les fitxes d'altres empreses.
+Signar una conformitat total sense avaluació externa seria una afirmació sense
+suport.
 
 ### 3.5. Galetes: cap bàner, i el fonament
 
@@ -368,11 +366,9 @@ publicats i avisar amb 90 dies abans de trencar el format.
 
 Els documents estan escrits en frases curtes i veu activa, amb l'explicació abans
 de la cita normativa. Cada document porta versió i data. Cada afirmació tècnica
-és comprovable al codi o a les capçaleres HTTP, i quan hi ha una debilitat —la
+és comprovable al codi o a les capçaleres HTTP. Les debilitats conegudes (la
 política de seguretat de contingut amb `'unsafe-inline'`, la traça residual de la
-comprovació de contrasenyes als registres— es diu abans que la trobi ningú altre.
-Un projecte que denuncia polítiques de privadesa impenetrables no es pot permetre
-escriure'n una.
+comprovació de contrasenyes als registres) consten als documents.
 
 ---
 

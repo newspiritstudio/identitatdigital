@@ -64,10 +64,9 @@ export default async function DarkPatternsPage() {
     <>
       <h1>Els patrons enganyosos</h1>
       <p className="lede">
-        Un patró enganyós no és una mentida: és una manera de presentar les opcions que fa que la
-        que convé a l’empresa surti gairebé sola i la que et protegeix costi una mica més. No
-        impedeix res, i justament per això funciona: la configuració per defecte acaba sent la
-        configuració de gairebé tothom.
+        Un patró enganyós és una manera de presentar les opcions perquè la que convé a l’empresa
+        surti gairebé sola i la que et protegeix costi una mica més. No impedeix res, i per això
+        funciona: la configuració per defecte acaba sent la de gairebé tothom.
       </p>
 
       <KeyNumbers>

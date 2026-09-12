@@ -49,8 +49,7 @@ export default async function AnalysisIndexPage() {
   const transport = security.measures.find((measure) => measure.key === 'transport-encryption')
   const e2eeApplicable = security.e2ee.total - security.e2ee.na
 
-  /* Sense fitxes publicades no hi ha res a analitzar, i inventar-s'ho seria
-   * exactament el contrari del que fa aquesta secció. */
+  /* Sense fitxes publicades no hi ha res a analitzar. */
   if (apps === 0 || mostCollected === undefined || worstIndicator === undefined) {
     return (
       <>

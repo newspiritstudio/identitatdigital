@@ -4,10 +4,9 @@ import { isEditor, isPublic } from '@/lib/access'
 import { slugField } from '@/fields/slug'
 
 /**
- * Les categories no són només etiquetes de navegació: són la unitat de
- * comparació del sistema d'alternatives. `functionalNeed` descriu la necessitat
- * que cobreix la categoria, i és el que impedeix recomanar un gestor de
- * contrasenyes a qui busca substituir un servei de missatgeria.
+ * Categories de servei. `functionalNeed` descriu la necessitat que cobreix cada
+ * categoria, i és el que evita proposar un gestor de contrasenyes com a
+ * alternativa a una missatgeria.
  */
 export const Categories: CollectionConfig = {
   slug: 'categories',

@@ -17,14 +17,13 @@ const relationId = (value: unknown): string | null => {
 /**
  * Recalcula les puntuacions cada vegada que es desa una fitxa.
  *
- * Es fa a `beforeChange` i no a la lectura per tres motius: les puntuacions
- * queden emmagatzemades i per tant es poden ordenar i filtrar des de l'API,
- * el frontend no ha de recalcular res, i el valor desat és exactament el que
- * es guarda a l'historial.
+ * Es fa a `beforeChange` i no a la lectura perquè així queden desades i es
+ * poden ordenar i filtrar des de l'API, el frontend no ha de recalcular res i
+ * l'historial guarda el mateix valor que es publica.
  *
- * Els pesos de sensibilitat viuen a `data-types`, així que la funció pura de
- * càlcul necessita que li portin aquestes metadades: aquí es resolen amb una
- * sola consulta per desat.
+ * Els pesos de sensibilitat viuen a `data-types`, de manera que la funció pura
+ * de càlcul necessita aquestes metadades. Es resolen amb una sola consulta per
+ * desat.
  */
 export const recalculateScores: CollectionBeforeChangeHook = async ({
   data,

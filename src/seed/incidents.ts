@@ -5,9 +5,8 @@ import type { IncidentSeed } from './types'
  *
  * Només hi entren fets acreditats per una resolució d'una autoritat de control,
  * un comunicat de la mateixa empresa o una cobertura periodística contrastada.
- * L'estat de la sanció importa tant com l'import: una multa anul·lada en
- * apel·lació no és una multa, i el sistema de puntuació no la pot tractar com
- * si ho fos.
+ * L'estat de la sanció importa tant com l'import, perquè una multa anul·lada en
+ * apel·lació no pot pesar igual al càlcul.
  */
 export const incidents: IncidentSeed[] = [
   /* ── Meta ── */

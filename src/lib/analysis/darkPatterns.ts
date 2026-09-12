@@ -16,11 +16,9 @@ import {
 /**
  * Patrons enganyosos documentats a tot el directori.
  *
- * Aquest mòdul té una trampa fàcil d'evitar i fàcil de caure-hi: comptar les
- * fitxes sense patrons documentats com a fitxes netes. La majoria de vegades el
- * que vol dir una llista buida és que ningú no ha mirat la interfície amb prou
- * atenció. Per això el recompte per tipus i el recompte d'estats van sempre
- * junts: el primer diu què hem trobat, el segon diu on hem mirat.
+ * Compte amb llegir una fitxa sense patrons com una fitxa neta: gairebé sempre
+ * vol dir que ningú no n'ha mirat la interfície amb prou atenció. Per això el
+ * recompte per tipus va sempre acompanyat del recompte d'estats.
  */
 
 export const DARK_PATTERN_TYPES = [

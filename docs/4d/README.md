@@ -32,5 +32,5 @@ formulari no s'ha enviat i cap document no s'ha tramès a l'organització.
    ha crescut, les del formulari han de ser les del dia.
 3. Confirmar la disponibilitat real per ser a Barcelona el 29 d'octubre de
    2026. Sense aquesta assistència no hi ha ni el 90 % ni el 10 %.
-4. Adjuntar l'enllaç al repositori públic, que és l'única part de la
-   candidatura que el jurat pot verificar sense creure's res.
+4. Adjuntar l'enllaç al repositori públic, que és la part de la candidatura que
+   es pot verificar directament.

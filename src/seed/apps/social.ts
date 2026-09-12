@@ -754,7 +754,7 @@ export const socialApps: AppSeed[] = [
     categories: ['descobriment-visual'],
     tagline: 'Descobriment visual i inferència d’intenció de compra',
     summary:
-      'Pinterest sembla inofensiu perquè el que s’hi desa són imatges, però un tauler d’inspiració és una declaració d’intencions extraordinàriament precisa: reformes, embarassos, casaments, dietes, mudances. Aquesta anticipació és exactament el que el fa valuós per als anunciants.',
+      'Pinterest sembla inofensiu perquè el que s’hi desa són imatges, però un tauler d’inspiració és una declaració d’intencions extraordinàriament precisa: reformes, embarassos, casaments, dietes, mudances. Aquesta anticipació és el que el fa valuós per als anunciants.',
     platforms: ['web', 'ios', 'android'],
     businessModel: 'advertising',
     jurisdiction: 'Irlanda, per a persones usuàries de l’Espai Econòmic Europeu',

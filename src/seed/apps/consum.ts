@@ -275,7 +275,7 @@ export const consumApps: AppSeed[] = [
       lastReviewedAt: '2026-09-09',
       incidentsReviewed: true,
       editorialNotes:
-        'La troballa més útil d’aquesta fitxa és l’absència de baixa autoservei, verificada revisant la configuració de l’aplicació i la documentació pública. És exactament el tipus d’informació que el directori ha d’aportar i que no es troba resumida enlloc.',
+        'La troballa més útil d’aquesta fitxa és l’absència de baixa autoservei, verificada revisant la configuració de l’aplicació i la documentació pública. No consta resumida enlloc.',
       openQuestions: [
         'Quin és el temps mitjà real de resposta a una sol·licitud de supressió per correu electrònic?',
       ],

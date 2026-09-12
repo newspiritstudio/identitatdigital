@@ -108,8 +108,8 @@ export default function PrivacyPage() {
           </strong>{' '}
           La directiva <code>connect-src &apos;self&apos;</code> impedeix que qualsevol codi de la
           pàgina obri una connexió a un servidor que no sigui el nostre. Encara que algú hi colés un
-          rastrejador, el navegador el bloquejaria. Això no és una promesa: és una capçalera HTTP
-          que pots inspeccionar amb les eines de desenvolupament del teu navegador.
+          rastrejador, el navegador el bloquejaria. És una capçalera HTTP que pots inspeccionar amb
+          les eines de desenvolupament del teu navegador.
         </li>
         <li>
           <strong>La capçalera de permisos desactiva funcions sensibles.</strong> Càmera, micròfon i
@@ -343,9 +343,8 @@ export default function PrivacyPage() {
 
       <h3>4.2. La comprovació de contrasenyes filtrades</h3>
       <p>
-        Aquesta és la part que mereix una explicació llarga, perquè és exactament el tipus
-        d’afirmació que aquest projecte exigeix que les empreses demostrin. Així que la demostrem
-        nosaltres.
+        Aquesta part mereix una explicació llarga, perquè és el tipus d’afirmació que aquest
+        projecte exigeix que les empreses demostrin.
       </p>
       <p>
         La comprovació funciona amb una tècnica anomenada <strong>k-anonimat</strong>. El

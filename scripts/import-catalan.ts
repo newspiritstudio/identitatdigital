@@ -8,30 +8,21 @@ import { appStoreBundleIds } from '@/seed/store-ids'
 /**
  * Comprovació de la disponibilitat en català des de l'App Store.
  *
- * QUÈ COMPROVA. La fitxa pública de cada aplicació a l'App Store declara la
- * llista d'idiomes d'interfície de la versió publicada. És un fet que l'empresa
- * mateixa declara, que qualsevol persona pot tornar a llegir i que no depèn de
- * la nostra interpretació. Amb això n'hi ha prou per respondre una pregunta
- * concreta: aquest servei es pot fer servir en català o no.
+ * La fitxa pública de cada aplicació a l'App Store declara els idiomes
+ * d'interfície de la versió publicada. Ho declara l'empresa, qualsevol persona
+ * ho pot tornar a llegir i respon la pregunta que ens interessa: aquest servei
+ * es pot fer servir en català o no.
  *
- * QUÈ NO COMPROVA. Ni la qualitat de la traducció, ni si el web té el mateix
- * tracte que l'aplicació, ni si l'atenció al client respon en català. Tot això
- * es documenta a mà als camps `support` i `note`, i el que no s'hagi mirat es
- * queda com a desconegut.
+ * No diu res de la qualitat de la traducció, ni del web, ni de si l'atenció al
+ * client respon en català. Això es documenta a mà als camps `support` i `note`,
+ * i el que no s'hagi mirat es queda com a desconegut.
  *
- * PER QUÈ NO PUNTUA. Tenir interfície en català no fa una empresa més
- * respectuosa amb la privadesa. Si això sumés a la nota, premiaria plataformes
- * enormes —que tradueixen a seixanta idiomes perquè poden— i castigaria eines
- * petites i molt bones fetes per equips de cinc persones. És una dimensió
- * d'accés, no de qualitat, i el projecte la publica al costat de la nota,
- * mai a dins.
+ * Els serveis sense aplicació mòbil no hi surten. Marcar-los `no` seria
+ * afirmar una cosa que no hem comprovat, així que queden com a desconeguts
+ * fins que algú ho miri.
  *
- * ELS SERVEIS SENSE APLICACIÓ MÒBIL no hi són. L'absència és intencionada: no
- * els posem `no`, que seria afirmar una cosa que no hem comprovat, sinó que els
- * deixem com a desconeguts perquè algú ho miri a mà.
- *
- * És idempotent i es pot tornar a executar tants cops com calgui: reescriu
- * l'estat, la data de comprovació i la font, i no duplica res.
+ * L'script és idempotent: reescriu l'estat, la data de comprovació i la font,
+ * i no duplica res.
  */
 
 const STORE_COUNTRY = 'ES'

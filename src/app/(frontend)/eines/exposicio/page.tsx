@@ -22,10 +22,8 @@ export const metadata: Metadata = { title: 'Calculadora d’exposició personal'
  *  - Al navegador, el component de client fa tot el càlcul. La tria d'aplicacions
  *    no s'envia enlloc, no es desa a cap servidor i no genera cap petició.
  *
- * Aquesta divisió no és una preferència tècnica. Una eina que explica qui recull
- * dades teves i que, per funcionar, n'hagués de recollir, es desacreditaria
- * sola: l'única manera de sostenir el que diu la resta del lloc és que això es
- * pugui comprovar des de fora.
+ * La instantània es retalla al servidor (vegeu `snapshot.ts`) perquè el
+ * navegador no rebi camps que l'eina no fa servir.
  */
 export default async function ExposurePage() {
   const payload = await getClient()

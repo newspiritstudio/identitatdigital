@@ -6,13 +6,12 @@ import { slugField } from '@/fields/slug'
 /**
  * Catàleg normalitzat de tipus de dades personals.
  *
- * És la peça que fa possible la consulta creuada: «quines aplicacions recullen
- * ubicació precisa?» és una cerca per relació, no una cerca de text lliure dins
- * de vint redaccions diferents de la mateixa idea.
+ * Amb el catàleg, «quines aplicacions recullen ubicació precisa?» és una cerca
+ * per relació i no una cerca de text lliure dins de vint redaccions diferents
+ * de la mateixa idea.
  *
- * `sensitivity` alimenta directament la dimensió de minimització de dades del
- * Privacy Score: no és el mateix recollir el fus horari que la orientació
- * sexual.
+ * `sensitivity` alimenta la dimensió de minimització de dades de la puntuació
+ * de privadesa: el fus horari i l'orientació sexual no poden pesar igual.
  */
 export const DataTypes: CollectionConfig = {
   slug: 'data-types',

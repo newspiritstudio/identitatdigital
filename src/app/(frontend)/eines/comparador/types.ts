@@ -4,17 +4,14 @@ import type { Dimension } from '@/lib/scoring/methodology'
 /**
  * Frontera entre el servidor i el navegador.
  *
- * Tot el que hi ha en aquest fitxer és una estructura de dades plana: cadenes,
- * nombres, booleans, llistes i objectes literals. Cap `Date`, cap `Map`, cap
- * classe i cap funció. La raó és que la pàgina és un component de servidor que
- * prepara una instantània i la passa a un component de client: el que travessa
- * aquesta frontera s'ha de poder serialitzar, i el que no es pot serialitzar
- * peta en temps d'execució, no en compilació.
+ * Tot són estructures planes: cadenes, nombres, booleans, llistes i objectes
+ * literals. Cap `Date`, cap `Map`, cap classe i cap funció. La pàgina és un
+ * component de servidor que prepara una instantània i la passa a un component
+ * de client, i el que no es pot serialitzar falla en temps d'execució.
  *
- * La segona raó és de privadesa. La instantània es calcula sencera al servidor
- * i viatja una sola vegada; a partir d'aquí, triar categoria, triar fitxes i
- * filtrar indicadors són operacions locals del navegador. No hi ha cap petició
- * que digui al servidor què està mirant la persona usuària.
+ * La instantània es calcula sencera al servidor i viatja una sola vegada.
+ * Triar categoria, triar fitxes i filtrar indicadors són operacions locals del
+ * navegador, de manera que cap petició no diu al servidor què s'està mirant.
  */
 
 /** Font citable, ja resolta a enllaç. */

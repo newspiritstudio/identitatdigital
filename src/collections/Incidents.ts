@@ -6,9 +6,9 @@ import { slugField } from '@/fields/slug'
 /**
  * Bretxes, sancions i usos indeguts documentats.
  *
- * Viuen fora de la fitxa perquè un mateix incident afecta sovint diverses
- * aplicacions del mateix grup —una sanció a Meta toca Facebook, Instagram i
- * WhatsApp alhora— i perquè són contingut editorial per si mateixos.
+ * Viuen fora de la fitxa perquè un mateix incident sovint afecta diverses
+ * aplicacions del mateix grup: una sanció a Meta toca Facebook, Instagram i
+ * WhatsApp alhora.
  */
 export const Incidents: CollectionConfig = {
   slug: 'incidents',

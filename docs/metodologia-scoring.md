@@ -199,7 +199,7 @@ No diem que el servei sigui bo o dolent: diem que encara no en sabem prou.
 Cada fitxa desa, dins del camp `scores.breakdown`, el desglossament complet de
 tots els indicadors: quin valor ha pres, amb quin pes, amb quin nivell
 d'evidència i si s'ha exclòs i per què. Qualsevol persona pot refer el càlcul a
-mà i arribar al mateix número, o assenyalar exactament on discrepa.
+mà i arribar al mateix número, o assenyalar on discrepa.
 
 Cada canvi de puntuació genera una instantània a la col·lecció d'historials de
 puntuació, amb la data i la versió de metodologia utilitzada. Això permet

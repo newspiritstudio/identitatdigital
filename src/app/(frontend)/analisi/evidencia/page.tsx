@@ -68,10 +68,9 @@ export default async function EvidencePage() {
 
       <h2>La regla</h2>
       <p>
-        Un desconegut no és una mala nota: és una tasca pendent. La diferència entre «hem comprovat
-        que no ho fan» i «no ho hem mirat» és tot el projecte, i per això les dues coses no es
-        barregen mai en una sola xifra. El que sí que és un incompliment és una afirmació
-        documentada sense font, i aquesta xifra ha de ser zero: ara mateix és{' '}
+        Un desconegut és una tasca pendent, no una mala nota. «Hem comprovat que no ho fan» i «no
+        ho hem mirat» no es barregen mai en una sola xifra. El que sí que és un incompliment és una
+        afirmació documentada sense font, i aquesta xifra ha de ser zero: ara mateix és{' '}
         {num(analysis.claimsWithoutSources)}.
       </p>
       <StatusStack tally={analysis.claims} unit="afirmacions" />

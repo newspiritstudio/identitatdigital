@@ -207,9 +207,8 @@ export default function LicensePage() {
         impedir l’extracció o la reutilització de la totalitat o d’una part substancial.
       </p>
       <p>
-        Identitat.digital encaixa exactament en el supòsit: la inversió no és en generar dades
-        noves, sinó en <em>obtenir-les i verificar-les</em>, que és precisament el que la Directiva
-        protegeix. Localitzar una política de privadesa, llegir-la, extreure’n l’afirmació
+        Identitat.digital hi encaixa: la inversió no és en generar dades noves, sinó en{' '}
+        <em>obtenir-les i verificar-les</em>, que és el que la Directiva protegeix. Localitzar una política de privadesa, llegir-la, extreure’n l’afirmació
         rellevant, contrastar-la amb una resolució d’una autoritat de control, datar-la i
         enllaçar-la, cent vegades per fitxa, és una inversió substancial en verificació.
       </p>
@@ -250,9 +249,8 @@ export default function LicensePage() {
       <p>
         <strong>En contra:</strong> permet que algú es baixi les vint-i-cinc fitxes, les vint-i-nou
         empreses i les cent una fonts, en faci un producte tancat, hi posi publicitat o un mur de
-        pagament, i no torni res. No és un problema teòric: una base de dades verificada d’aquesta
-        mena és exactament el material que una empresa d’extracció de dades voldria incorporar sense
-        contribuir-hi. El projecte hi hauria posat la inversió de verificació i perdria el control
+        pagament, i no torni res. El risc no és teòric: una base de dades verificada com aquesta és
+        material aprofitable per a una empresa d’extracció de dades. El projecte hi hauria posat la inversió de verificació i perdria el control
         sobre si el resultat continua sent públic.
       </p>
 
@@ -263,8 +261,7 @@ export default function LicensePage() {
       <p>
         La primera és pràctica: <strong>deixaria fora els mitjans de comunicació</strong>. Gairebé
         tots els diaris són empreses comercials. Una llicència no comercial els obligaria a
-        demanar-nos permís cada vegada que volguessin reproduir una taula, que és exactament el
-        contrari del que volem. També deixaria fora la Viquipèdia, que és CC BY-SA i no pot
+        demanar-nos permís cada vegada que volguessin reproduir una taula. També deixaria fora la Viquipèdia, que és CC BY-SA i no pot
         incorporar material no comercial.
       </p>
       <p>
@@ -468,7 +465,7 @@ export default function LicensePage() {
           <strong>La forma editable és pública.</strong> El fitxer és generat i el generador,{' '}
           <code>scripts/build-wordlist.ts</code>, és al mateix repositori públic, amb tots els
           criteris de filtratge explicats un per un. Qui vulgui refer la llista, modificar-la o
-          substituir-la ho pot fer, que és exactament el que la LGPL exigeix que sigui possible.
+          substituir-la ho pot fer, que és el que la LGPL exigeix que sigui possible.
         </li>
         <li>
           <strong>Queda expressament exclosa</strong> de la llicència CC BY-SA 4.0 d’aquesta pàgina.
@@ -577,8 +574,7 @@ export default function LicensePage() {
         <strong>no pot prohibir</strong> a un tercer l’ús del signe quan es fa per{' '}
         <strong>identificar o referir-se a productes o serveis com a propis del titular</strong>,
         especialment quan és necessari per indicar la destinació d’un producte o d’un servei. És el
-        que s’anomena ús referencial o nominatiu, i és exactament el que fem: assenyalar de quin
-        producte parlem.
+        que s’anomena ús referencial o nominatiu: assenyalar de quin producte parlem.
       </p>
       <p>
         La condició que hi posen tots dos articles és que l’ús sigui conforme a les pràctiques

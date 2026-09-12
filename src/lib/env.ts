@@ -1,9 +1,6 @@
 /**
- * Lectura centralitzada de la configuració d'entorn.
- *
- * El projecte falla d'hora i amb un missatge clar quan falta una variable
- * imprescindible: una base de coneixement que arrenca contra una base de dades
- * equivocada és pitjor que una que no arrenca.
+ * Lectura centralitzada de la configuració d'entorn. Falla d'hora i amb un
+ * missatge clar quan falta una variable imprescindible.
  */
 
 const REQUIRED_VARS = ['DATABASE_URI', 'PAYLOAD_SECRET', 'APP_URL'] as const

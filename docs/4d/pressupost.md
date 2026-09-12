@@ -18,20 +18,20 @@ L'ordre de prioritat és aquest, i es manté sigui quin sigui l'import:
 
 1. **Fitxes noves.** És el que fa útil el projecte per a qui el consulta. Amb
    5.000 € el compromís baixa de 100 a 60 aplicacions documentades, i el
-   calendari es reajusta proporcionalment. Cap altra partida no es menja aquesta.
-2. **Infraestructura.** Sense lloc en marxa no hi ha projecte.
-3. **Vigilància de fonts.** Una fitxa que no sap que ha quedat antiga és pitjor
-   que no tenir-la, per això va abans que la resta.
+   calendari es reajusta proporcionalment.
+2. **Infraestructura**, sense la qual el lloc no es manté en marxa.
+3. **Vigilància de fonts**, perquè una fitxa desactualitzada que no ho declara
+   fa més mal que bé.
 4. **Guia per a institucions.**
 5. **Avaluació d'accessibilitat**, que si cal es manté com a autoavaluació amb el
    comprovador propi, que ja existeix i ja és públic.
 
-El que **no** es retalla en cap escenari és el caràcter obert del resultat. Tot
-el que es produeixi es publica amb les mateixes llicències el dia que existeix.
+El caràcter obert del resultat no es retalla en cap escenari: tot el que es
+produeixi es publica amb les mateixes llicències el dia que existeix.
 
 ## Sobre el pagament en dos trams
 
 El 90 % a la presentació del 29 d'octubre de 2026 i el 10 % en acabar encaixen
-amb el calendari: la fase de documentació, que és la que concentra la despesa,
+amb el calendari, perquè la fase de documentació, que concentra la despesa,
 comença just després de la presentació. El 10 % final es cobra contra la memòria
-i l'informe anual, que són lliurables públics i comprovables.
+i l'informe anual, tots dos públics.

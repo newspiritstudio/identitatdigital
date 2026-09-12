@@ -8,17 +8,14 @@ import { buildComparatorSnapshot, resolveSelection } from './snapshot'
 /**
  * Comparador d'aplicacions i cercador d'alternatives.
  *
- * La pàgina és un component de servidor que fa una sola cosa: llegir el corpus,
- * preparar-ne una instantània mínima i serialitzable i passar-la al navegador.
- * A partir d'aquí no hi torna a haver cap petició: triar categoria, triar
- * fitxes, amagar els indicadors coincidents i obrir l'evidència són operacions
- * locals. El servidor no arriba a saber què compara ningú.
+ * Component de servidor: llegeix el corpus, en prepara una instantània mínima i
+ * serialitzable i la passa al navegador. A partir d'aquí no hi ha cap petició
+ * més; triar categoria, triar fitxes, amagar els indicadors coincidents i obrir
+ * l'evidència són operacions locals.
  *
- * L'única excepció és deliberada i és el que fa útil l'eina: la selecció també
- * viatja per l'URL (`?a=whatsapp&b=signal`). Serveix per compartir una
- * comparació amb algú altre, que és exactament el que la gent voldrà fer amb
- * això, i per això s'escriu i es llegeix explícitament en lloc d'amagar-se en
- * un estat intern.
+ * L'excepció és la selecció, que viatja per l'URL (`?a=whatsapp&b=signal`) per
+ * poder compartir una comparació. Per això s'escriu i es llegeix de manera
+ * explícita, en lloc de quedar-se en un estat intern.
  *
  * És dinàmica perquè depèn del corpus publicat i dels paràmetres de consulta:
  * una versió estàtica quedaria congelada a la primera compilació.

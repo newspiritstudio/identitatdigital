@@ -3,24 +3,17 @@ import 'dotenv/config'
 /**
  * Comprovació automàtica d'accessibilitat del lloc publicat.
  *
- * QUÈ ÉS. Un rastrejador que demana cada pàgina pública al servidor, en llegeix
- * l'HTML que s'envia al navegador i hi busca les barreres que es poden detectar
- * sense obrir un navegador: text alternatiu absent, capçaleres de taula sense
- * abast, camps de formulari sense etiqueta, enllaços sense text, identificadors
- * repetits, salts de nivell a les capçaleres i tabulació forçada.
+ * Demana cada pàgina pública al servidor, en llegeix l'HTML i hi busca les
+ * barreres detectables sense obrir un navegador: text alternatiu absent,
+ * capçaleres de taula sense abast, camps sense etiqueta, enllaços sense text,
+ * identificadors repetits, salts de nivell i tabulació forçada.
  *
- * QUÈ NO ÉS. Una avaluació de conformitat. Les eines automàtiques detecten
- * entre un quart i un terç dels problemes reals; la resta —ordre de lectura,
- * sentit del text alternatiu, claredat dels missatges d'error, si el focus es
- * veu de debò sobre el fons que hi ha— només es troba mirant-s'ho una persona.
- * Que això passi net vol dir que no hi ha els errors que una màquina sap
- * trobar, ni un sol pas més enllà.
+ * No és una avaluació de conformitat. Les eines automàtiques detecten entre un
+ * quart i un terç dels problemes reals; l'ordre de lectura, el sentit del text
+ * alternatiu o si el focus es veu de debò sobre el fons només ho troba una
+ * persona mirant-s'ho.
  *
- * PER QUÈ ÉS NOSTRE I NO UNA EINA DE TERCERS. Perquè així és part del
- * repositori, es pot llegir, es pot discutir i s'executa sense enviar el lloc a
- * cap servei extern. Cada comprovació porta escrit el criteri de les WCAG 2.2
- * que la justifica, de manera que el resultat es pugui contrastar amb la norma
- * i no amb la nostra paraula.
+ * Cada comprovació porta escrit el criteri de les WCAG 2.2 que la justifica.
  *
  *   pnpm check-a11y                    # contra http://localhost:3000
  *   BASE=https://identitat.digital pnpm check-a11y

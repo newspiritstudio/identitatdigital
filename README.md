@@ -5,31 +5,23 @@ realment les aplicacions que fem servir cada dia: quines dades recullen, amb qui
 les comparteixen, com les protegeixen, si te'n pots anar i què queda quan ho
 fas.
 
-Aquest repositori és la **fase 1**: el model de dades, el sistema de puntuació,
-les primeres vint-i-cinc fitxes documentades, l'anàlisi transversal del corpus i
-les eines pràctiques. El frontend és deliberadament mínim; serveix per validar el
-contingut, no per ser el lloc web final.
+Aquest repositori és la fase 1: el model de dades, el sistema de puntuació, les
+primeres vint-i-cinc fitxes, l'anàlisi transversal del corpus i les eines. El
+frontend és mínim i serveix per validar el contingut, no per ser el lloc web
+final.
 
 ## Principis
 
-**Cap afirmació important sense font.** Cada dada d'una fitxa porta el seu
-estat, el seu nivell d'evidència i els enllaços que la sostenen. Una afirmació
-sense font no es publica.
-
-**Desconegut no vol dir dolent.** El que no hem pogut documentar queda marcat
-com a desconegut, no com a negatiu. No mou la puntuació en cap direcció: el que
-baixa és el grau de confiança de l'anàlisi.
-
-**Tota puntuació és desmuntable.** Cada xifra desa el desglossament complet de
-com s'ha calculat. Qualsevol persona pot refer el càlcul o assenyalar on
-discrepa.
-
-**Historicitat.** Es pot saber què deia una política, quan la vam consultar, què
-ha canviat i per què s'ha mogut una puntuació.
-
-**Independència.** La informació sobre eliminació de comptes viu estructurada
-dins del projecte i contrastada amb la documentació oficial vigent. No depenem
-de cap directori extern.
+- Cada dada d'una fitxa porta el seu estat, el seu nivell d'evidència i els
+  enllaços que la sostenen. Una afirmació sense font no es publica.
+- El que no hem pogut documentar queda marcat com a desconegut. No mou la
+  puntuació en cap direcció; el que baixa és el grau de confiança.
+- Cada puntuació desa el desglossament de com s'ha calculat, de manera que
+  qualsevol pugui refer el càlcul o assenyalar on discrepa.
+- Es conserva què deia una política, quan la vam consultar i per què s'ha mogut
+  una nota.
+- La informació sobre eliminació de comptes és nostra i està contrastada amb la
+  documentació oficial vigent. No depenem de cap directori extern.
 
 ## Estat actual
 
@@ -115,20 +107,19 @@ s'importa a la col·lecció `breaches` i es pot consultar a `/filtracions`.
 pnpm import-breaches
 ```
 
-Una filtració **no és un incident i no mou cap puntuació**. És evidència d'un
-tercer, no una anàlisi nostra: només els incidents escrits editorialment entren
-al càlcul. El que sí que hi afegeix el projecte és la traducció, que és la part
-que no existeix enlloc més. Les categories de dades de HIBP, escrites en anglès i
-amb vocabulari propi, queden mapades als nostres tipus de dada, de manera que una
-filtració es llegeix amb les mateixes paraules que una fitxa d'aplicació.
+Una filtració no és un incident i no mou cap puntuació: és evidència d'un tercer
+i només els incidents escrits editorialment entren al càlcul. El que hi afegim és
+la traducció. Les categories de dades de HIBP, en anglès i amb vocabulari propi,
+queden mapades als nostres tipus de dada, de manera que una filtració es llegeix
+amb les mateixes paraules que una fitxa d'aplicació.
 
 El lligam entre una filtració i una empresa es dedueix del domini. Com que HIBP
 indexa el domini del **servei** (`snapchat.com`) i el directori desa el domini
 **corporatiu** (`snap.com`), les empreses porten un camp `productDomains` amb els
 dominis amb què la gent es troba els seus productes. Quan dues societats del
-mateix grup encaixen igual de bé amb una filtració, es deixa sense lligar en
-comptes d'endevinar quina en respon: decidir quina societat respon d'una filtració
-és una decisió jurídica, no una comparació de cadenes.
+mateix grup encaixen igual de bé amb una filtració, es deixa sense lligar: quina
+societat en respon és una qüestió jurídica i no la pot resoldre una comparació de
+cadenes.
 
 Les dades de HIBP són CC BY 4.0 i es publiquen amb l'atribució i l'enllaç que la
 llicència exigeix.
@@ -143,8 +134,7 @@ viu a `src/lib/analysis/` i es fa sobre el corpus complet, amb proves pròpies.
 
 ## Eines
 
-A `/eines` hi ha tres eines pràctiques. Totes calculen al navegador i cap no desa
-res:
+A `/eines` hi ha tres eines. Totes calculen al navegador i cap no desa res:
 
 - **Contrasenyes** (`/eines/contrasenyes`): generador de contrasenyes i de frases
   de pas en català amb entropia real, i comprovació contra les contrasenyes
@@ -157,11 +147,9 @@ res:
 - **Comparador** (`/eines/comparador`): dues o tres aplicacions de la mateixa
   categoria, indicador per indicador.
 
-A `/eines/gestors` hi ha, a més, els vuit criteris per triar un gestor de
-contrasenyes. Deliberadament **no hi ha cap taula comparativa**: no hem
-documentat cap gestor amb el mateix nivell d'exigència que demanem a les fitxes
-d'aplicacions, i publicar una comparativa sense aquesta feina feta seria aplicar
-un estàndard més baix al que recomanem que al que analitzem.
+A `/eines/gestors` hi ha els vuit criteris per triar un gestor de contrasenyes.
+No hi ha taula comparativa perquè encara no hem documentat cap gestor amb
+l'exigència que demanem a les fitxes d'aplicacions.
 
 La política de seguretat de contingut del lloc és `connect-src 'self'`, de manera
 que cap pàgina pot parlar amb cap tercer encara que ho volgués. Per això la
@@ -169,9 +157,9 @@ consulta de contrasenyes filtrades passa per una ruta pròpia que actua de pont.
 
 ## Dades obertes
 
-Tot el corpus es publica en obert a `/dades`, en **nou conjunts** —aplicacions,
+Tot el corpus es publica en obert a `/dades`, en nou conjunts (aplicacions,
 recollida de dades, indicadors, empreses, tipus de dada, incidents, filtracions,
-patrons foscos i fonts—, cadascun en JSON i en CSV:
+patrons foscos i fonts), cadascun en JSON i en CSV:
 
 ```
 /dades/index.json          manifest amb tots els conjunts i les seves columnes
@@ -184,8 +172,8 @@ llegir des de qualsevol lloc sense passar per cap servidor intermedi. El CSV
 segueix l'RFC 4180, amb marca d'ordre de bytes perquè l'Excel l'obri bé en
 català, i les llistes dins d'una cel·la separades per `|`.
 
-La regla que governa l'exportació és que **un camp buit vol dir buit**: mai no
-s'omple un desconegut amb un zero, un fals o la paraula «desconegut». El
+A l'exportació, un camp buit vol dir buit: no s'omple cap desconegut amb un
+zero, un fals o la paraula «desconegut». El
 diccionari complet de columnes és a la mateixa pàgina `/dades` i el codi a
 `src/lib/opendata/`.
 
@@ -196,12 +184,12 @@ han de decidir si una aplicació pot entrar a l'aula o al lloc de treball, les
 quatre clàusules mínimes d'un contracte d'encarregat del tractament i una **fitxa
 de contractació generada per a cada aplicació documentada**.
 
-Cada fitxa passa deu comprovacions amb la seva base jurídica —categories
+Cada fitxa passa deu comprovacions amb la seva base jurídica (categories
 especials, transferències internacionals, publicitat, entrenament de models,
-compartició, seguretat, sortida, patrons foscos, incidents i català— i marca cada
-una com a aturada, revisió, correcta o desconeguda. Es generen íntegrament des
-del corpus, de manera que cap empresa no pot rebre un tracte més dur que una
-altra. El càlcul és a `src/lib/procurement.ts`.
+compartició, seguretat, sortida, patrons foscos, incidents i català) i marca cada
+una com a aturada, revisió, correcta o desconeguda. Es generen des del corpus,
+així que cap empresa no rep un tracte diferent. El càlcul és a
+`src/lib/procurement.ts`.
 
 ## Disponibilitat en català
 
@@ -214,16 +202,15 @@ aplicació, i per tant és citable i repetible:
 pnpm import-catalan
 ```
 
-L'anàlisi conjunta és a `/analisi/catala`. **Aquesta dimensió no entra al càlcul
-de cap puntuació ni del grau de confiança**, i està deliberadament fora de la
-llista d'indicadors: una aplicació que no és en català pot ser excel·lent en
-privadesa, i barrejar-ho seria fer trampa amb el mètode.
+L'anàlisi conjunta és a `/analisi/catala`. Aquesta dimensió no entra al càlcul
+de cap puntuació ni del grau de confiança, i queda fora de la llista
+d'indicadors: una aplicació que no és en català pot ser bona en privadesa.
 
 ## Documentació legal
 
 Els set documents públics són a `/legal` i el codi que els genera a
-`src/app/(frontend)/legal/`. La documentació interna que no es publica —registre
-d'activitats de tractament de l'article 30 i anàlisi de riscos— és a
+`src/app/(frontend)/legal/`. La documentació interna que no es publica (registre
+d'activitats de tractament de l'article 30 i anàlisi de riscos) és a
 `docs/legal/`, amb un índex que explica cada decisió i el que queda pendent.
 
 ## Model de dades
@@ -326,26 +313,23 @@ tests/               Proves de puntuació, anàlisi i contrasenyes
 docs/                Metodologia, arquitectura, governança i documentació legal
 ```
 
-El contingut editorial viu al repositori com a TypeScript tipat, no com a un
-abocament de base de dades. Es pot llegir, revisar i discutir en una petició de
-canvis com qualsevol altre text.
+El contingut editorial viu al repositori com a TypeScript tipat, de manera que
+es pot revisar en una petició de canvis com qualsevol altre text.
 
 ## Llicència
 
-**El codi és MIT. El contingut és CC BY-SA 4.0.** Són dues llicències diferents
-per a dues coses diferents: el programa d'una banda, el que hi ha escrit a dins
-de l'altra.
+El codi és MIT i el contingut és CC BY-SA 4.0: una llicència per al programa i
+una altra per al que hi ha escrit a dins.
 
 El contingut editorial, les puntuacions, el seu desglossament i la selecció i
 disposició del conjunt es publiquen sota **Creative Commons
 Reconeixement-CompartirIgual 4.0 Internacional**. És la versió 4.0 perquè és
 l'única que llicencia expressament el dret *sui generis* del fabricant de bases
-de dades, que en un projecte que essencialment és una base de dades verificada és
-el dret que més importa.
+de dades, que aquí és el dret que més importa.
 
 En queden exclosos, perquè no són nostres per sublicenciar: els logotips i les
 marques de les empreses analitzades, les citacions literals de polítiques i
-resolucions —publicades a l'empara del dret de citació—, el catàleg de Have I
+resolucions, publicades a l'empara del dret de citació, el catàleg de Have I
 Been Pwned, que conserva la seva CC BY 4.0, i la llista de paraules en català.
 
 La llista completa i exacta d'aquestes exclusions, amb la base jurídica de cada
@@ -359,9 +343,9 @@ i el raonament de cada decisió a **[docs/legal/README.md](docs/legal/README.md)
 
 Qui decideix què es publica, què passa quan hi ha un conflicte d'interessos i què
 passa amb les dades si el projecte s'atura és a
-**[docs/governanca.md](docs/governanca.md)**. Inclou la regla de desempat —davant
+**[docs/governanca.md](docs/governanca.md)**. Inclou la regla de desempat (davant
 el dubte preval l'opció que publica més informació o que corregeix a favor de
-l'empresa afectada—, la prohibició de cobrar de cap empresa analitzada i el
+l'empresa afectada), la prohibició de cobrar de cap empresa analitzada i el
 compromís de mantenir les exportacions obertes.
 
 ## Accessibilitat
@@ -375,8 +359,7 @@ pnpm start        # en un terminal
 pnpm check-a11y   # en un altre
 ```
 
-L'última execució dona 78 pàgines i cap incidència. Això vol dir exactament que
-no hi ha els errors que una eina automàtica detecta, i res més: les eines
-automàtiques troben entre un quart i un terç de les barreres reals. La declaració
-pública, amb les excepcions conegudes i el calendari de proves manuals, és a
-`/legal/accessibilitat`.
+L'última execució dona 78 pàgines i cap incidència. Cal llegir-ho amb mesura:
+una eina automàtica detecta entre un quart i un terç de les barreres reals. La
+declaració pública, amb les excepcions conegudes i el calendari de proves
+manuals, és a `/legal/accessibilitat`.

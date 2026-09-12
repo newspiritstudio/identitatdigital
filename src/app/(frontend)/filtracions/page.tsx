@@ -11,17 +11,13 @@ export const metadata: Metadata = { title: 'Filtracions' }
 /**
  * Catàleg de filtracions de dades.
  *
- * Aquestes dades no són nostres: venen de Have I Been Pwned i les mostrem tal
- * com les publica, amb l'atribució que la seva llicència exigeix. Per això
- * aquesta pàgina no en dona cap puntuació ni cap valoració. Una filtració
- * documentada per un tercer és una evidència; convertir-la en judici sobre una
- * empresa demana feina editorial nostra, i això té un lloc propi que són els
- * incidents.
+ * Les dades venen de Have I Been Pwned i es mostren tal com les publica, amb
+ * l'atribució que demana la seva llicència. La pàgina no en dona cap puntuació:
+ * convertir una filtració en judici sobre una empresa demana feina editorial i
+ * això viu als incidents.
  *
- * El que sí que aporta el projecte és la traducció: les categories de HIBP,
- * escrites en anglès i amb el seu propi vocabulari, queden mapades als tipus de
- * dada del projecte, de manera que una filtració es pot llegir amb les mateixes
- * paraules que una fitxa d'aplicació.
+ * El que hi posa el projecte és la traducció. Les categories de HIBP, en anglès
+ * i amb vocabulari propi, queden mapades als tipus de dada d'aquí.
  */
 
 const MILIO = 1_000_000

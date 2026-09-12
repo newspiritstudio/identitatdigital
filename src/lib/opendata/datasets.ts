@@ -17,23 +17,16 @@ import type { CellValue } from './csv'
 /**
  * Exportació oberta del corpus.
  *
- * Per què existeix aquest mòdul. El projecte demana a les empreses que deixin
- * emportar-se les dades en un format que serveixi per a alguna cosa. Publicar
- * només pàgines HTML seria fer exactament el que retreiem: ensenyar-ho tot i no
- * deixar-ne agafar res. Aquí hi ha el corpus sencer, en JSON i en CSV, sense
- * registre, sense clau i sense límit d'ús.
+ * El corpus sencer en JSON i en CSV, sense registre, sense clau i sense límit
+ * d'ús. Tres coses que convé no tocar:
  *
- * Tres regles governen tot el fitxer:
- *
- *  1. **Cap dada personal.** No hi ha res de cap persona usuària perquè el lloc
- *     no en recull. Les úniques persones que hi poden aparèixer són càrrecs
- *     públics esmentats en incidents, i ho fan dins de textos ja publicats.
- *  2. **`unknown` viatja sencer.** L'estat d'una afirmació s'exporta tal com
- *     és, amb els cinc valors possibles. Qui reutilitzi això ha de poder
- *     distingir «no» de «no ho sabem», que és tota la gràcia del projecte.
- *  3. **Els identificadors interns hi són.** Sense `id` i `slug` no es poden
- *     creuar els conjunts entre si, i llavors són vuit fitxers solts en comptes
- *     d'una base de dades.
+ *  1. No hi ha cap dada personal, perquè el lloc no en recull. Les úniques
+ *     persones que hi apareixen són càrrecs públics citats en incidents ja
+ *     publicats.
+ *  2. L'estat d'una afirmació s'exporta amb els cinc valors possibles, de
+ *     manera que qui reutilitzi això pugui distingir «no» de «no ho sabem».
+ *  3. Hi van els identificadors interns. Sense `id` i `slug` els conjunts no
+ *     es poden creuar entre si.
  */
 
 export type Row = Record<string, CellValue>

@@ -644,9 +644,9 @@ function CheckPanel({
               <strong>No apareix a l’índex de Have I Been Pwned.</strong>
             </p>
             <p className={styles.note}>
-              Això vol dir exactament una cosa: que no és a les filtracions que aquest índex ha
-              recollit. No vol dir que sigui forta, ni que no sigui endevinable, ni que no surti en
-              una filtració que encara no s’ha fet pública.
+              Vol dir que no és a les filtracions que aquest índex ha recollit. No que sigui
+              forta, ni que no sigui endevinable, ni que no surti en una filtració que encara no
+              s’ha fet pública.
             </p>
           </div>
         )}

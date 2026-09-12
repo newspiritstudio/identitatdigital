@@ -18,11 +18,8 @@ const CA = new Intl.NumberFormat('ca-ES')
 /**
  * Diccionari de dades i descàrrega.
  *
- * Aquesta pàgina és la contrapartida del que el projecte reclama a les altres
- * empreses: si demanem exportacions completes i en format utilitzable, les hem
- * de publicar primer. Aquí hi ha tot el corpus, columna per columna, amb el
- * recompte de files real calculat en el moment de servir la pàgina, de manera
- * que no pugui quedar desfasat respecte del que es descarrega.
+ * El recompte de files es calcula en el moment de servir la pàgina, executant
+ * cada `build()`, perquè no pugui quedar desfasat respecte del que es baixa.
  */
 export default async function OpenDataPage() {
   const payload = await getClient()

@@ -5,11 +5,9 @@ import { isAdmin, isEditor, isPublic } from '@/lib/access'
 /**
  * Versions publicades de la metodologia de puntuació.
  *
- * El càlcul viu al codi (`src/lib/scoring/`), que és on ha de viure perquè
- * sigui reproduïble. Aquesta col·lecció n'és la publicació: el document que
- * qualsevol persona pot llegir per entendre —i discutir— com hem arribat a un
- * número. Es sincronitza des del codi amb `pnpm seed`, de manera que no poden
- * divergir en silenci.
+ * El càlcul viu al codi (`src/lib/scoring/`); aquesta col·lecció n'és la
+ * publicació llegible. Es genera des del codi amb `pnpm seed`, així que el
+ * document i el motor no poden divergir.
  */
 export const ScoringMethodologies: CollectionConfig = {
   slug: 'scoring-methodologies',

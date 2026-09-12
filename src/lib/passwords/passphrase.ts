@@ -56,21 +56,17 @@ export function bitsPerWord(wordlistSize: number): number {
 /**
  * Entropia d'una frase de pas, en bits.
  *
- * Les paraules aporten `n × log2(mida de la llista)`, i amb 2048 paraules és
- * exactament 11n: sis paraules són 66 bits i set en són 77. Aquí no hi ha cap
- * aproximació ni cap heurística, perquè coneixem exactament com s'ha generat.
+ * Les paraules aporten `n × log2(mida de la llista)`. Amb 2048 paraules són
+ * 11n bits justos: sis paraules en fan 66 i set, 77. No hi ha cap aproximació,
+ * perquè sabem com s'ha generat la frase.
  *
- * LA XIFRA DEL FINAL. Una xifra decimal en una posició coneguda aporta log2(10)
- * = 3,32 bits. Sembla que doni molt més perquè la contrasenya «es veu» més
- * complicada, però qui ataca sap que hi pot haver una xifra al final: és el
- * costum més previsible que hi ha, i multiplicar la feina per deu no és res
- * comparat amb els 11 bits (×2048) que aportaria una paraula més. Si vols més
- * força, afegeix una paraula, no una xifra.
+ * La xifra del final aporta log2(10) = 3,32 bits. Sembla més perquè la frase es
+ * veu més complicada, però qui ataca ja compta que n'hi pugui haver una al
+ * final. Una paraula més aporta 11 bits.
  *
- * LES MAJÚSCULES INICIALS. Aporten exactament ZERO bits i no apareixen en
- * aquest càlcul. Posar en majúscula la inicial de cada paraula és una
- * transformació fixa: qui ataca l'aplica també. Només serveix per passar
- * formularis que exigeixen una majúscula.
+ * Les majúscules inicials aporten zero bits i no entren al càlcul. Posar en
+ * majúscula la inicial de cada paraula és una transformació fixa que qui ataca
+ * aplica igual. Serveixen per passar formularis que n'exigeixen una.
  */
 export function passphraseEntropyBits(
   wordCount: number,

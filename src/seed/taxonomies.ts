@@ -3,9 +3,8 @@ import type { CategorySeed, DataTypeSeed, PurposeSeed } from './types'
 /**
  * Vocabularis controlats del projecte.
  *
- * Són la infraestructura que fa possible preguntar al directori sencer. Si
- * «ubicació precisa» s'escriu de vint maneres diferents, la pregunta «quines
- * aplicacions recullen ubicació precisa?» no té resposta.
+ * Si «ubicació precisa» s'escriu de vint maneres diferents, no es pot consultar
+ * el directori sencer per aquesta dada.
  */
 
 export const dataTypes: DataTypeSeed[] = [

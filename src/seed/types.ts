@@ -5,8 +5,8 @@ import type { EvidenceLevel, EvidenceStatus } from '@/fields/evidence'
  *
  * Les relacions s'escriuen per identificador llegible (`slug`) i el script de
  * càrrega les resol a identificadors de base de dades. Així el dataset es pot
- * llegir, revisar i discutir com un text, que és exactament el que ha de ser:
- * la primera edició del contingut d'Identitat.digital.
+ * llegir i revisar com un text, i discutir-lo en una petició de canvis com
+ * qualsevol altre fitxer del repositori.
  */
 
 export type FactSeed = {

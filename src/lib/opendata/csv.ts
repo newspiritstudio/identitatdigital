@@ -1,23 +1,17 @@
 /**
  * Serialització CSV conforme a l'RFC 4180.
  *
- * Decisions, perquè un CSV mal fet és pitjor que no publicar-ne cap:
+ * Decisions de format:
  *
- *  - **Separador coma.** És el que diu l'RFC. El punt i coma és una convenció
- *    d'Excel en configuracions regionals europees, no un estàndard.
- *  - **Marca d'ordre de bytes al davant.** Sense ella, Excel obre el fitxer
- *    com a Latin-1 i tots els accents queden trencats. Qui reutilitzi aquestes
- *    dades ho farà sovint amb un full de càlcul: publicar un CSV que es veu
- *    malament al programa que farà servir la majoria de gent no és publicar-lo.
- *    Les biblioteques serioses (`pandas`, `csv` de Python amb `utf-8-sig`, R)
- *    la salten sense dir res.
- *  - **Fi de línia CRLF.** També és el que diu l'RFC.
- *  - **Llistes separades per barra vertical.** Un camp amb diversos valors
- *    (categories, plataformes, fonts) es representa `a|b|c`. La barra vertical
- *    no apareix a cap valor del corpus i no obliga a niar cometes.
- *  - **Buit vol dir buit, no zero.** Un valor absent surt com a camp buit i mai
- *    com a `0`, `false` o `«desconegut»`: aquest projecte no pot permetre's
- *    que una exportació confongui «no ho sabem» amb «no».
+ *  - Separador coma i fi de línia CRLF, que és el que diu l'RFC. El punt i
+ *    coma és una convenció d'Excel en configuracions europees.
+ *  - Marca d'ordre de bytes al davant. Sense ella l'Excel obre el fitxer com a
+ *    Latin-1 i trenca tots els accents; `pandas`, el `csv` de Python amb
+ *    `utf-8-sig` i R la salten sense dir res.
+ *  - Els camps amb diversos valors (categories, plataformes, fonts) es
+ *    representen `a|b|c`. La barra vertical no apareix a cap valor del corpus.
+ *  - Un valor absent surt com a camp buit, mai com a `0`, `false` o
+ *    «desconegut».
  */
 
 const CRLF = '\r\n'

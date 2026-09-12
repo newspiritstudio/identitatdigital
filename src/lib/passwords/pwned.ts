@@ -13,14 +13,12 @@
  *     rep la llista de sufixos del calaix.
  *  4. El navegador busca el seu sufix dins de la llista, localment.
  *
- * Ni el nostre servidor ni Have I Been Pwned arriben a veure mai la contrasenya
- * ni el resum sencer. El que saben, com a molt, és que algú ha preguntat per un
- * calaix on hi ha vuit-centes contrasenyes diferents, i això no els permet dir
- * quina.
+ * Ni el nostre servidor ni Have I Been Pwned veuen la contrasenya ni el resum
+ * sencer. Com a molt saben que algú ha preguntat per un calaix amb vuit-centes
+ * contrasenyes diferents a dins.
  *
- * El resum SHA-1 aquí no s'usa com a mesura de seguretat —SHA-1 està trencat per
- * a col·lisions— sinó com a identificador: és el que fa servir l'índex de Have I
- * Been Pwned i per tant és el que cal calcular per consultar-lo.
+ * El SHA-1 no s'usa aquí com a mesura de seguretat, que per a col·lisions està
+ * trencat, sinó com a identificador: és l'índex que publica Have I Been Pwned.
  */
 
 /** Exactament cinc caràcters hexadecimals. Res més. */

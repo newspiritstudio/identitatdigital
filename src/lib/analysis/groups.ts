@@ -12,12 +12,8 @@ import {
 } from './corpus'
 
 /**
- * Grups empresarials: qui hi ha realment darrere de cada fitxa.
- *
- * La pregunta que respon aquest mòdul no és «de quina empresa és aquesta app?»
- * —això ja ho diu la fitxa— sinó «quantes de les aplicacions que faig servir
- * acaben a la mateixa taula?». És la pregunta que no es pot respondre mirant
- * fitxes d'una en una i la que fa evident la concentració del sector.
+ * Grups empresarials: quantes fitxes acaben sota la mateixa matriu un cop
+ * resolta la cadena de propietat.
  */
 
 /** Resultat de pujar per la cadena de matrius d'una empresa. */

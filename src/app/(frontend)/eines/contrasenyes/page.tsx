@@ -13,14 +13,11 @@ export const metadata: Metadata = {
 /**
  * Pàgina de l'eina de contrasenyes.
  *
- * Component de servidor prim: aquí només hi ha el text, que és fix, i la crida
- * al component de client que fa la feina. Cap contrasenya no es genera ni es
- * comprova al servidor, i per tant el servidor no en pot veure cap.
+ * Component de servidor prim: el text, que és fix, i la crida al component de
+ * client que fa la feina. Cap contrasenya no es genera ni es comprova aquí.
  *
- * L'explicació del k-anonimat no és un annex: forma part de l'eina. Aquest
- * projecte demana a les empreses que expliquin què fan amb les dades de qui les
- * fa servir, i la manera de no ser una contradicció ambulant és explicar-ho aquí
- * amb el mateix detall i deixar-ho comprovable.
+ * L'explicació del k-anonimat forma part de la pàgina i no d'un annex, perquè
+ * és el que permet comprovar la promesa que fa l'eina.
  */
 export default function PasswordsPage() {
   return (
@@ -41,9 +38,9 @@ export default function PasswordsPage() {
           Have I Been Pwned
           <span className="visually-hidden"> (s’obre en una pestanya nova)</span>
         </a>
-        , que recull més de vuit-cents milions de contrasenyes aparegudes en filtracions. La manera
-        òbvia de consultar-lo seria enviar-hi la contrasenya, i és exactament el que no farem. El
-        mètode que fem servir es diu <strong>k-anonimat</strong> i funciona així:
+        , que recull més de vuit-cents milions de contrasenyes aparegudes en filtracions.
+        Consultar-lo enviant-hi la contrasenya seria el més senzill i és el que no farem. El mètode
+        que fem servir es diu <strong>k-anonimat</strong> i funciona així:
       </p>
       <ol>
         <li>

@@ -61,10 +61,8 @@ import {
 /**
  * Etiquetes de les afirmacions.
  *
- * «No» i «Sense documentar» s'escriuen deliberadament diferents des de la
- * primera lletra: en una taula densa, «No» i «No documentat» es confonen d'un
- * cop d'ull, i confondre-les és exactament l'error que aquest projecte no es
- * pot permetre.
+ * «No» i «Sense documentar» s'escriuen diferents des de la primera lletra. En
+ * una taula densa, «No» i «No documentat» es confonen d'un cop d'ull.
  */
 const CLAIM_LABELS: Record<EvidenceStatus, string> = {
   yes: 'Sí',

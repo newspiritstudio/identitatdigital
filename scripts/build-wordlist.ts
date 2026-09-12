@@ -10,53 +10,41 @@ import type { ReadableStream as NodeReadableStream } from 'node:stream/web'
 /**
  * Generador de la llista de paraules catalanes per a frases de pas.
  *
- * Una frase de pas és una contrasenya feta d'unes quantes paraules triades a
- * l'atzar d'una llista pública. La seguretat no ve de les paraules, que són
- * conegudes, sinó de la mida de la llista: si té 2048 entrades i se n'agafen
- * sis amb un generador criptogràfic, hi ha 2048⁶ combinacions possibles. És el
- * mateix principi de les llistes «diceware» de l'Electronic Frontier
- * Foundation, però en català, perquè una frase que es recorda és una frase
- * que no s'apunta en un post-it.
+ * La seguretat d'una frase de pas no ve de les paraules, que són públiques,
+ * sinó de la mida de la llista: amb 2048 entrades i sis paraules triades amb un
+ * generador criptogràfic hi ha 2048⁶ combinacions. Mateix principi que les
+ * llistes «diceware» de l'Electronic Frontier Foundation, en català.
  *
- * Per què exactament 2048 i ni una més: 2048 = 2^11, o sigui 11 bits
- * d'entropia justos per paraula. Amb qualsevol altra mida el càlcul de força
- * és log2(n), un nombre amb decimals que s'ha d'arrodonir i que converteix el
- * missatge «aquesta frase té 66 bits» en una aproximació. Amb 2048 el compte
- * és exacte i es fa de memòria: paraules × 11. A més, un tirat de 11 bits es
- * llegeix directament dels bytes que dóna `crypto.getRandomValues` sense
- * biaix, amb un simple rebuig dels valors fora de rang.
+ * La mida és 2048 = 2^11 perquè dona 11 bits justos per paraula: el càlcul de
+ * força és paraules × 11 sense decimals, i un tirat d'11 bits es llegeix
+ * directament dels bytes de `crypto.getRandomValues` amb rebuig dels valors
+ * fora de rang.
  *
- * D'on surten les paraules: del diccionari català de Softcatalà que fa servir
- * el corrector LanguageTool. És un fitxer de 39 MB amb 1,3 milions de formes
- * flexionades, tres columnes separades per espais (forma, lema, etiqueta
- * morfològica EAGLES). Té tot el català, i «tot el català» vol dir també
- * quinze mil termes de medicina i de química que ningú no sap escriure. La
- * feina d'aquest script és, sobretot, treure'ls.
+ * Font: el diccionari català de Softcatalà que fa servir LanguageTool, un
+ * fitxer de 39 MB amb 1,3 milions de formes flexionades en tres columnes
+ * (forma, lema, etiqueta EAGLES). Conté tot el català, terminologia mèdica i
+ * química incloses, i la feina d'aquest script és sobretot treure-la.
  *
- * Per separar el vocabulari corrent del vocabulari tècnic fa falta un senyal
- * que el diccionari no dóna, perquè un diccionari no diu quines paraules diu
- * la gent. S'hi afegeixen dues fonts auxiliars, totes dues només per triar,
- * mai per aportar paraules noves a la llista:
+ * Com que el diccionari no diu quines paraules són d'ús corrent, s'hi afegeixen
+ * dues fonts auxiliars, totes dues només per filtrar i mai per aportar paraules
+ * noves:
  *
  *   1. El diccionari arrel de Softcatalà, que per a cada nom apunta de quines
  *      obres surt. Els noms que només consten al diccionari de salut o al
- *      Termcat són terminologia especialitzada i cauen.
- *   2. La taula de freqüències d'ús que el mateix projecte publica al costat
- *      del diccionari: 227.000 formes amb el nombre de vegades que surten en
- *      un corpus de text català. Serveix per ordenar els candidats de més
- *      corrent a menys corrent i quedar-se amb el cap de la llista.
+ *      Termcat cauen.
+ *   2. La taula de freqüències d'ús del mateix projecte, 227.000 formes amb el
+ *      nombre d'aparicions en un corpus de text català, per ordenar els
+ *      candidats de més corrent a menys.
  *
- * Totes tres surten del mateix dipòsit i tenen, doncs, la mateixa llicència,
- * citada a la capçalera del fitxer generat i a la constant WORDLIST_META.
+ * Totes tres surten del mateix dipòsit i comparteixen llicència, citada a la
+ * capçalera del fitxer generat i a WORDLIST_META.
  *
  * Ús:
  *   pnpm build-wordlist              genera src/lib/passwords/wordlist.ca.ts
  *   FORCE_DOWNLOAD=1 pnpm build-wordlist   ignora la memòria cau i torna a baixar
  *
- * És determinista: dues execucions seguides escriuen exactament els mateixos
- * bytes. La data de generació només es refresca quan la llista canvia de debò;
- * si no, es conserva la que ja hi havia, perquè una execució de comprovació no
- * embruti el `git diff`.
+ * És determinista. La data de generació només es refresca quan la llista canvia,
+ * perquè una execució de comprovació no embruti el `git diff`.
  */
 
 /* ------------------------------------------------------------------ */

@@ -6,10 +6,9 @@ import { slugField } from '@/fields/slug'
 /**
  * Una sola col·lecció per a empreses i grups, amb una relació a si mateixa.
  *
- * Separar «grup empresarial» d'«empresa» obligaria a decidir a priori quantes
- * capes té cada conglomerat, i n'hi ha de tres (Alphabet → Google LLC →
- * YouTube LLC) i de dues. Amb `parent` la jerarquia és tan profunda com calgui
- * i la pregunta «quines aplicacions són de Meta?» es respon pujant per l'arbre.
+ * Separar «grup empresarial» d'«empresa» obligaria a fixar quantes capes té
+ * cada conglomerat, i n'hi ha de dues i de tres (Alphabet, Google LLC, YouTube
+ * LLC). Amb `parent` la jerarquia és tan profunda com calgui.
  */
 export const Companies: CollectionConfig = {
   slug: 'companies',

@@ -176,7 +176,7 @@ export const googleApps: AppSeed[] = [
       lastReviewedAt: '2026-09-09',
       incidentsReviewed: true,
       editorialNotes:
-        'Exemple útil de puntuació matisada: Google té controls i exportació excel·lents i seguretat de primer nivell, però el nucli del servei és la publicitat basada en el perfilat. La dimensió de control puja i la de privadesa baixa, i això és exactament el que ha de passar.',
+        'Exemple útil de puntuació matisada: Google té controls i exportació excel·lents i seguretat de primer nivell, però el nucli del servei és la publicitat basada en el perfilat. La dimensió de control puja i la de privadesa baixa, com ha de ser.',
       openQuestions: [
         'Quina proporció de persones usuàries modifica realment el termini d’esborrat automàtic?',
       ],

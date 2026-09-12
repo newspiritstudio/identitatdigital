@@ -5,10 +5,9 @@ import { isEditor, isPublic } from '@/lib/access'
 /**
  * Instantànies de polítiques i condicions.
  *
- * Les plataformes reescriuen les seves polítiques sense avisar i sense deixar
- * rastre del text anterior. Sense aquesta col·lecció, una afirmació nostra de
- * 2026 esdevé indefensable el dia que el document canvia. Amb ella podem dir
- * què deia el document, quan ho deia i quan el vam llegir.
+ * Les plataformes reescriuen les polítiques sense deixar rastre del text
+ * anterior. Guardar-ne una còpia datada permet sostenir una afirmació nostra el
+ * dia que el document original canvia.
  */
 export const PolicySnapshots: CollectionConfig = {
   slug: 'policy-snapshots',

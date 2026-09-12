@@ -17,14 +17,9 @@ export const metadata: Metadata = {
 const CA = new Intl.NumberFormat('ca-ES')
 
 /**
- * Protocol institucional.
- *
- * L'anàlisi d'aquest lloc s'adreça, de manera natural, a qui tria una
- * aplicació per a si mateix. Però les decisions que afecten més gent no les
- * pren cadascú: les pren una escola que obre un grup de missatgeria amb les
- * famílies o un ajuntament que trasllada un servei a una plataforma. Aquesta
- * secció agafa el mateix corpus i el reordena en l'ordre en què el necessita
- * qui ha de signar un expedient.
+ * Protocol institucional: el mateix corpus, reordenat com el necessita una
+ * escola o un ajuntament que ha de justificar per escrit una eina que farà
+ * servir molta gent.
  */
 export default async function InstitutionsPage() {
   const payload = await getClient()
@@ -46,18 +41,17 @@ export default async function InstitutionsPage() {
         necessita qui ha de signar.
       </p>
 
-      <h2>El problema, dit sense eufemismes</h2>
+      <h2>El problema</h2>
       <p>
-        Una eina gratuïta no és un regal: és un contracte. Quan una entitat pública hi posa dades de
-        les quals respon, passa a ser responsable del tractament i la plataforma passa a ser
-        encarregada, amb tot el que això comporta. Que no hi hagi factura no treu ni una sola de les
-        obligacions de l’article 28 del Reglament general de protecció de dades.
+        Fer servir una eina gratuïta és signar un contracte. Quan una entitat pública hi posa dades
+        de les quals respon, passa a ser responsable del tractament i la plataforma passa a ser
+        encarregada. Que no hi hagi factura no treu cap de les obligacions de l’article 28 del
+        Reglament general de protecció de dades.
       </p>
       <p>
         La conseqüència pràctica és desagradable: moltes entitats tenen, ara mateix, un encarregat
         del tractament amb qui no han signat res, del qual no coneixen els subencarregats i del qual
-        no saben com recuperarien les dades si volguessin marxar. Això no és una opinió sobre les
-        plataformes; és una descripció de l’expedient.
+        no saben com recuperarien les dades si volguessin marxar.
       </p>
 
       <h2>El protocol, en set passes</h2>

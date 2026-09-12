@@ -83,16 +83,13 @@ export interface CrackScenario {
  * Una xifra de temps de trencament sense dir quin atac se suposa és soroll: el
  * mateix conjunt de bits pot ser «tres-cents anys» o «vint minuts» segons què
  * assumeixis, i qui publica la xifra tria l'escenari que li convé. Per això n'hi
- * ha tres i per això la diferència entre el primer i l'últim és de deu ordres de
- * magnitud: perquè es vegi que el resultat és una conseqüència de la suposició.
+ * ha tres, i entre el primer i l'últim hi ha deu ordres de magnitud.
  *
- * Tots tres són atacs FORA DE LÍNIA: qui ataca ja té a les mans el fitxer de
- * resums, normalment perquè hi ha hagut una filtració, i pot provar tantes
- * combinacions com li permeti el maquinari sense que ningú no l'aturi. Un atac
- * EN LÍNIA, provant contra el formulari d'entrada d'un servei, va de deu a cent
- * provatures per segon i topa amb limitacions de ritme i bloquejos; contra un
- * atac així, gairebé qualsevol contrasenya generada aquí és inabastable. El cas
- * dolent és el de fora de línia, i és el que val la pena mirar.
+ * Tots tres són atacs fora de línia: qui ataca ja té el fitxer de resums,
+ * normalment per una filtració, i pot provar tantes combinacions com li permeti
+ * el maquinari. Un atac en línia contra el formulari d'entrada d'un servei va
+ * de deu a cent provatures per segon i topa amb limitacions de ritme, així que
+ * gairebé qualsevol contrasenya generada aquí li queda fora de l'abast.
  *
  * Les xifres són ordres de magnitud arrodonits cap amunt, del costat pessimista.
  */
@@ -192,24 +189,19 @@ const SEQUENCES = ['abcdefghijklmnopqrstuvwxyz', '0123456789', 'qwertyuiop', 'as
  * Mira una contrasenya escrita per una persona i en diu el poc que se'n pot dir
  * honestament.
  *
- * PER QUÈ AIXÒ NO RETORNA UNA XIFRA DE FORÇA. L'entropia és una propietat del
- * PROCÉS que ha generat la contrasenya, no de la cadena de caràcters. Quan
- * l'eina genera una contrasenya, coneixem el procés —tantes tries uniformes
- * dins de tant alfabet— i el compte és exacte. Quan algú n'escriu una, el procés
- * és un cervell humà: tria noms, dates, paraules del diccionari, substitucions
- * previsibles (a→@, e→3, i→1, una majúscula al començament, un signe
- * d'admiració al final) i estructures que es repeteixen en milions de
- * contrasenyes filtrades. Els programes d'atac moderns proven exactament aquests
- * patrons primer.
+ * No retorna cap xifra de força. L'entropia és una propietat del procés que ha
+ * generat la contrasenya, no de la cadena. Quan la genera l'eina coneixem el
+ * procés i el compte surt exacte; quan l'escriu una persona, el procés tria
+ * noms, dates, paraules del diccionari, substitucions previsibles (a→@, e→3,
+ * i→1, majúscula al començament, admiració al final) i estructures que es
+ * repeteixen en milions de contrasenyes filtrades. Els programes d'atac proven
+ * aquests patrons primer.
  *
- * «Tr0ub4dor&3» té 11 caràcters i 4 classes: la fórmula ingènua li donaria uns
- * 65 bits, i en realitat cau davant d'un atac de diccionari amb regles de
- * mutació. Ensenyar 65 bits seria una xifra falsament tranquil·litzadora, i és
- * pitjor que no ensenyar-ne cap.
+ * «Tr0ub4dor&3» té 11 caràcters i 4 classes. La fórmula ingènua li donaria uns
+ * 65 bits i en canvi cau davant d'un atac de diccionari amb regles de mutació.
  *
- * Per això aquí no hi ha cap número de força: hi ha el sostre teòric, marcat com
- * a sostre, i una llista de senyals d'alerta. Si vols una xifra de debò, genera
- * la contrasenya amb l'eina.
+ * El que sí que hi ha és el sostre teòric, marcat com a sostre, i una llista de
+ * senyals d'alerta.
  */
 export function evaluateTypedPassword(value: string): TypedPasswordEvaluation {
   const classes: CharacterClass[] = []

@@ -154,10 +154,9 @@ export default async function LeavingPage() {
       <Note>
         La mediana de {num(deletion.medianWaitingDays ?? 0)} dies es calcula sobre les{' '}
         {num(withWaiting)} fitxes que declaren període, no sobre les {num(apps)}. El màxim declarat
-        és de {num(deletion.maxWaitingDays ?? 0)} dies. Un període d’espera no és sempre una trampa:
-        sovint és un marge de recuperació per si t’has equivocat. Però mentre dura, el compte encara
-        existeix i es pot reactivar entrant-hi, que és exactament el que fa que molta gent no acabi
-        de marxar.
+        és de {num(deletion.maxWaitingDays ?? 0)} dies. Un període d’espera sovint és un marge de
+        recuperació per si t’has equivocat. Mentre dura, però, el compte encara existeix i es
+        reactiva només entrant-hi, i molta gent acaba no marxant.
       </Note>
 
       <h2>Les fitxes on marxar costa més</h2>

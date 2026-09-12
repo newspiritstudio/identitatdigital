@@ -344,8 +344,8 @@ const selectIndicator = (
 }
 
 /**
- * Patrons enganyosos: l'absència d'evidència no és evidència d'absència, així
- * que cal una afirmació explícita. La llista documentada només modula el valor.
+ * Patrons enganyosos: cal una afirmació explícita, perquè no haver-ne trobat cap
+ * no vol dir que no n'hi hagi. La llista documentada només modula el valor.
  */
 const darkPatternsIndicator = (app: unknown): IndicatorOutcome => {
   const fact = get(app, 'controls.darkPatterns') as FactLike

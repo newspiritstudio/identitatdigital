@@ -64,21 +64,18 @@ export function selectedClasses(options: PasswordOptions): CharacterClass[] {
 /**
  * Entropia d'una contrasenya generada per aquesta eina, en bits.
  *
- * CAS SENSE RESTRICCIONS. Si no forcem res, cada posició és una tria uniforme i
- * independent dins d'un alfabet de `n` caràcters: l'entropia és exactament
- * `longitud × log2(n)`. Aquí no hi ha cap aproximació.
+ * Sense restriccions, cada posició és una tria uniforme i independent dins d'un
+ * alfabet de `n` caràcters, i l'entropia és `longitud × log2(n)` sense cap
+ * aproximació.
  *
- * CAS AMB CLASSES FORÇADES. Quan exigim que hi hagi com a mínim una minúscula,
- * una majúscula, una xifra i un símbol, ja no estem triant uniformement dins de
- * n^longitud: estem triant dins del subconjunt de contrasenyes que compleixen
- * la condició, i a més ho fem amb una distribució que no és perfectament
- * uniforme dins d'aquest subconjunt. Presentar `longitud × log2(n)` seria
- * inflar la xifra, perquè les restriccions sempre treuen possibilitats.
+ * Amb classes forçades (com a mínim una minúscula, una majúscula, una xifra i
+ * un símbol) la tria ja no és uniforme dins de n^longitud, sinó dins del
+ * subconjunt que compleix la condició. Presentar `longitud × log2(n)` inflaria
+ * la xifra, perquè les restriccions treuen possibilitats.
  *
- * L'APROXIMACIÓ QUE FEM SERVIR és fitar l'entropia mínima (la mesura correcta
- * per a la resistència a endevinar-la, no l'entropia de Shannon) comptant només
- * el que aporta cada tria per separat i renunciant del tot al que aporta la
- * barreja de posicions:
+ * L'aproximació que fem servir fita l'entropia mínima, que és la mesura
+ * correcta per a la resistència a endevinar-la, comptant el que aporta cada
+ * tria per separat i renunciant al que aporta la barreja de posicions:
  *
  *     bits ≥ Σ log2(mida de cada classe forçada) + (longitud − k) × log2(n)
  *

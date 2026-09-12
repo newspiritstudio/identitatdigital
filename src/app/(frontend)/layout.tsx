@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 /**
  * Estructura comuna de totes les pàgines.
  *
- * Tres coses hi són per accessibilitat i no s'han de treure:
+ * Hi ha tres elements que hi són per accessibilitat i no s'han de treure:
  *
  *  - L'enllaç de salt al contingut, primer element focalitzable del document i
  *    visible només quan té el focus (WCAG 2.4.1). Sense ell, qui navega amb

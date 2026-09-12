@@ -11,12 +11,7 @@ import {
 } from './corpus'
 
 /**
- * Abast de cada tipus de dada a tot el directori.
- *
- * És la pregunta inversa de la fitxa: en comptes de «què recull aquesta app?»,
- * «qui recull això?». La resposta canvia la conversa, perquè fa evident que
- * certes dades —la ubicació precisa, la llista de contactes— no són una
- * particularitat d'un servei sinó la norma del sector.
+ * Abast de cada tipus de dada: quantes fitxes el recullen i quines.
  */
 
 /** Estat d'una fila de la matriu de dades. */

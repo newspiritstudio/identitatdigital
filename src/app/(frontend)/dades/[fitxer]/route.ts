@@ -11,13 +11,11 @@ import { toCsv } from '@/lib/opendata/csv'
  * `/dades/index.json`, que és el manifest llegible per màquines amb la llista
  * de conjunts, les seves columnes i les llicències.
  *
- * Sense clau, sense registre, sense límit d'ús i amb `Access-Control-Allow-Origin: *`
- * perquè es pugui llegir des de qualsevol lloc, inclosos quaderns i pàgines de
- * tercers. Demanar a les empreses que deixin emportar-se les dades i després
- * posar un formulari davant de les nostres seria una broma.
+ * Sense clau, sense registre, sense límit d'ús i amb `Access-Control-Allow-Origin: *`,
+ * de manera que es pugui llegir des de quaderns i pàgines de tercers.
  *
- * Es recalcula cada dia. El corpus canvia a ritme editorial, no per minuts, i
- * una hora de memòria cau evita refer nou consultes per cada descàrrega.
+ * La memòria cau és d'una hora: el corpus canvia a ritme editorial i així no cal
+ * refer nou consultes per descàrrega.
  */
 export const revalidate = 3600
 

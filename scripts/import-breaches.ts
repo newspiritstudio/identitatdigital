@@ -159,7 +159,7 @@ const DATA_CLASS_MAP: Record<string, string | null> = {
 
   // Categories especials i salut. Els hàbits de consum (alcohol, tabac,
   // drogues, alimentació) s'hi inclouen perquè permeten deduir estat de salut,
-  // que és exactament el que els fa perillosos en una filtració.
+  // que és el que els fa perillosos en una filtració.
   'Biometric data': 'dades-biometriques',
   'Personal health data': 'dades-de-salut',
   'HIV statuses': 'dades-de-salut',
@@ -205,7 +205,7 @@ const DATA_CLASS_MAP: Record<string, string | null> = {
   'Age groups': 'data-de-naixement',
   Genders: 'genere',
   // El tractament («Sr.», «Sra.») no és res més que el gènere dit de manera
-  // educada, i en una filtració revela exactament el mateix.
+  // educada, i en una filtració revela el mateix.
   Salutations: 'genere',
 
   // Identificació oficial: documents emesos per un estat, que són la matèria

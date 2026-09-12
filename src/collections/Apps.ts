@@ -8,15 +8,13 @@ import { recalculateScores, recordScoreSnapshot } from '@/lib/scoring/hook'
 /**
  * Fitxa d'una aplicació, plataforma o servei digital.
  *
- * És deliberadament una col·lecció gran, però no plana: tot el que s'hi troba
- * està agrupat per pestanyes i cada afirmació rellevant porta el seu estat, el
- * seu nivell d'evidència i les seves fonts. Trencar-la en deu col·leccions
- * faria impossible editar una fitxa sense saltar entre pantalles, i el volum
- * real de camps per fitxa (unes quaranta afirmacions) no ho justifica.
+ * És una col·lecció gran, agrupada per pestanyes. Amb unes quaranta afirmacions
+ * per fitxa, trencar-la en deu col·leccions obligaria a saltar entre pantalles
+ * per editar-ne una de sola.
  *
- * El que sí que viu fora són les entitats que es reutilitzen entre fitxes:
- * fonts, empreses, tipus de dada, finalitats, incidents, instantànies de
- * polítiques i historial de puntuacions.
+ * A fora hi viuen les entitats que es reutilitzen entre fitxes: fonts,
+ * empreses, tipus de dada, finalitats, incidents, instantànies de polítiques i
+ * historial de puntuacions.
  */
 export const Apps: CollectionConfig = {
   slug: 'apps',

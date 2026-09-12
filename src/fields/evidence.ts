@@ -1,14 +1,13 @@
 import type { Field, GroupField } from 'payload'
 
 /**
- * Vocabulari compartit de l'«evidence first».
+ * Vocabulari compartit de les afirmacions amb evidència.
  *
- * `status` diu QUÈ afirmem, `evidenceLevel` diu AMB QUIN SUPORT ho afirmem i
- * `sources` diu D'ON surt. Els tres viatgen sempre junts: cap afirmació
- * rellevant del projecte pot existir sense aquesta tripleta.
+ * `status` és el que afirmem, `evidenceLevel` el suport que té i `sources` els
+ * documents on consta. Van sempre junts.
  *
- * La distinció entre `unknown` i `na` és deliberada i té conseqüències al
- * càlcul de puntuacions:
+ * `unknown` i `na` no volen dir el mateix, i el càlcul de puntuacions els
+ * tracta diferent:
  *
  *   - `unknown` = no ho hem pogut documentar. No penalitza la puntuació, però
  *     sí que baixa el Confidence Score. UNKNOWN ≠ NO.

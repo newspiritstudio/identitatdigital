@@ -14,10 +14,6 @@ import { resolveOwnershipChain } from './groups'
 
 /**
  * Jurisdiccions, seus i transferències internacionals.
- *
- * La jurisdicció decideix quins drets es poden exercir de veritat i davant de
- * qui. Mirada fitxa a fitxa sembla un tecnicisme del peu de pàgina; mirada de
- * cop explica per què tants procediments acaben sempre a la mateixa autoritat.
  */
 
 export const TRANSFER_MECHANISMS = [

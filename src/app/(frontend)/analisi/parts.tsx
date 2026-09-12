@@ -6,12 +6,9 @@ import type { StatusTally } from '@/lib/analysis'
 import styles from './analisi.module.css'
 
 /**
- * Peces compartides de la secció d'anàlisi.
- *
- * Cap d'aquests components no calcula res: reben xifres ja calculades per
- * `src/lib/analysis` i es limiten a dibuixar-les. La regla que compleixen tots
- * és la mateixa: al costat de qualsevol representació gràfica hi va sempre la
- * xifra escrita amb el seu denominador.
+ * Components de presentació de la secció d'anàlisi. No calculen res: reben les
+ * xifres de `src/lib/analysis`. Al costat de cada representació gràfica hi va
+ * sempre la xifra escrita amb el seu denominador.
  */
 
 const CA = new Intl.NumberFormat('ca-ES')

@@ -21,17 +21,11 @@ import {
 } from './corpus'
 
 /**
- * La mètrica d'honestedat del projecte.
+ * Cobertura d'evidència: quina part del que afirmem té font, de quina qualitat
+ * i què queda per mirar.
  *
- * Aquest mòdul no mesura les aplicacions: ens mesura a nosaltres. Diu quina
- * part del que afirmem està documentada, amb quina qualitat de font i què ens
- * queda per mirar. És la peça que fa creïbles totes les altres, perquè un
- * directori que no sap dir quant no sap acaba fent passar el silenci per
- * conclusió.
- *
- * Regla que governa tot el fitxer: `unknown` no és una nota dolenta. És una
- * tasca pendent. El que compta com a incompliment no és un desconegut sinó una
- * afirmació sense font.
+ * Un `unknown` no compta com a incompliment. El que hi compta és una afirmació
+ * publicada sense cap font.
  */
 
 export const EVIDENCE_LEVEL_LABELS: Record<EvidenceLevel, string> = {
@@ -147,7 +141,7 @@ export const EVIDENCED_FACTS: ReadonlyArray<{ key: string; label: string; path: 
 /**
  * Camps de selecció amb vocabulari tancat que també poden quedar en
  * «desconegut». No porten fonts ni nivell d'evidència, però un buit aquí és
- * exactament el mateix tipus de deute que un `unknown` d'una afirmació, i
+ * el mateix tipus de deute que un `unknown` d'una afirmació, i
  * deixar-los fora inflaria artificialment la cobertura.
  */
 export const SELECT_INDICATORS: ReadonlyArray<{ key: string; label: string; path: string }> = [

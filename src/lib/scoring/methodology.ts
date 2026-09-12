@@ -5,15 +5,14 @@
  * publica al CMS i la documentació de `docs/metodologia-scoring.md` es generen
  * a partir d'aquí. Si canvia un pes, canvia la versió.
  *
- * Tres regles governen tot el sistema:
+ * Regles del càlcul:
  *
- *  1. Cap indicador desconegut mou la puntuació. Els indicadors sense evidència
- *     surten del denominador; el que se'n ressent és el Confidence Score, no el
- *     Privacy Score. UNKNOWN ≠ NO, i tampoc ≠ SÍ.
- *  2. Cap indicador que no aplica compta. Exigir xifratge d'extrem a extrem a un
- *     navegador seria mesurar una cosa que no existeix.
- *  3. Tot indicador que puntua ha de venir d'un `evidencedFact` amb fonts. La
- *     qualitat d'aquestes fonts entra al Confidence Score.
+ *  1. Un indicador desconegut surt del denominador. Baixa el Confidence Score,
+ *     no el Privacy Score.
+ *  2. Un indicador que no aplica tampoc no compta. Exigir xifratge d'extrem a
+ *     extrem a un navegador mesuraria una cosa que no hi és.
+ *  3. Tot indicador que puntua ve d'un `evidencedFact` amb fonts, i la qualitat
+ *     d'aquestes fonts entra al Confidence Score.
  */
 
 export const METHODOLOGY_VERSION = '1.0'

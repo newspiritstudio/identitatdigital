@@ -13,11 +13,8 @@ import {
 } from './corpus'
 
 /**
- * Com se surt de cada servei.
- *
- * És l'apartat que més sovint contradiu el discurs comercial, i el que millor
- * es llegeix en conjunt: una sola fitxa que diu «cal esperar trenta dies» no
- * sorprèn ningú; vint fitxes alhora dibuixen una pràctica de sector.
+ * Com se surt de cada servei: dificultat declarada, passos, període d'espera i
+ * què es conserva després.
  */
 
 export const DELETION_DIFFICULTIES = ['easy', 'medium', 'hard', 'impossible'] as const

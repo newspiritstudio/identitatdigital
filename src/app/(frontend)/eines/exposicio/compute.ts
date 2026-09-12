@@ -15,13 +15,10 @@ import type {
  * la instantània i la llista d'aplicacions triades, i retornen nombres. No fan
  * cap petició, no llegeixen ni escriuen res i no depenen de React.
  *
- * Per què no es reutilitza `src/lib/analysis` tal com és: aquelles funcions
- * responen preguntes sobre el directori sencer —quantes fitxes del corpus
- * recullen ubicació precisa, quin grup n'acumula més— i el denominador hi és
- * sempre el corpus. Aquí el denominador és «les que has triat», que és una
- * pregunta diferent i que, a més, canvia a cada clic. El que sí que es respecta
- * és la seva manera de comptar: desconegut no és mai zero, i cap xifra surt
- * sense el seu denominador al costat.
+ * No es reutilitza `src/lib/analysis` perquè allà el denominador és sempre el
+ * corpus sencer i aquí és «les que has triat», que canvia a cada clic. Sí que
+ * se'n manté la manera de comptar: desconegut no és mai zero i cap xifra surt
+ * sense el seu denominador.
  */
 
 /* ──────────────────────────── ordre estable ──────────────────────────────── */
@@ -172,20 +169,18 @@ export const emptyExposure = (): Exposure => ({
 /**
  * Analitza una selecció d'aplicacions.
  *
- * Decisions que val la pena deixar escrites:
+ * Criteris de recompte:
  *
- *  - «Es recull» inclou les dades opcionals. Una dada que la persona activa
- *    acaba igualment als servidors de qui la demana; el que canvia és qui ha
- *    pres la decisió, i això es diu a part en comptes de amagar-ho dins d'un
- *    sol recompte.
+ *  - «Es recull» inclou les dades opcionals, perquè una dada que la persona
+ *    activa acaba igualment als servidors de qui la demana. Qui ha pres la
+ *    decisió es diu a part.
  *  - Les preguntes sobre vinculació a la identitat i sobre seguiment només es
- *    compten sobre les fitxes que recullen la dada. Preguntar si una dada que no
- *    es recull queda vinculada a la identitat no té resposta possible.
+ *    compten sobre les fitxes que recullen la dada.
  *  - Un tipus de dada compta una vegada per aplicació encara que la fitxa el
- *    reculli en dues files. Si no, una fitxa detallada semblaria més invasiva
- *    que una de sumària només per estar més ben escrita.
- *  - No es calcula cap puntuació d'exposició global. Seria una xifra sense
- *    metodologia publicada, i el projecte no en té cap de no publicada.
+ *    reculli en dues files, perquè si no una fitxa detallada semblaria més
+ *    invasiva que una de sumària.
+ *  - No es calcula cap puntuació d'exposició global: seria una xifra sense
+ *    metodologia publicada.
  */
 export const analyseSelection = (snapshot: Snapshot, selected: string[]): Exposure => {
   const chosen = new Set(selected)

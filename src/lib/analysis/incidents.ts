@@ -10,12 +10,8 @@ import {
 import { ultimateParentId } from './groups'
 
 /**
- * Incidents, sancions i filtracions.
- *
- * Vist fitxa a fitxa, un incident és una anècdota amb data. Vist de conjunt,
- * el que apareix és un patró de reincidència i una concentració de sancions en
- * molt poques cases. Aquest mòdul no puntua res —de la puntuació se'n cuida
- * `src/lib/scoring`— i es limita a comptar.
+ * Recompte d'incidents, sancions i filtracions per empresa, grup i any. No
+ * puntua res; de la puntuació se'n cuida `src/lib/scoring`.
  */
 
 export const INCIDENT_TYPES = [

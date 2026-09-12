@@ -9,10 +9,8 @@ export const metadata: Metadata = { title: 'Declaració d’accessibilitat' }
  *
  * Passa d'esborrany a declaració real quan hi ha una avaluació de debò al
  * darrere. La que hi ha és una autoavaluació amb un comprovador automàtic
- * propi, i per això l'estat declarat és PARCIALMENT conforme i no conforme:
- * una eina automàtica troba entre un quart i un terç de les barreres reals, i
- * dir el contrari seria exactament el tipus de compromís buit que aquest
- * projecte documenta a les fitxes d'altres empreses.
+ * propi, i per això l'estat declarat és parcialment conforme: una eina
+ * automàtica troba entre un quart i un terç de les barreres reals.
  */
 export default function AccessibilityPage() {
   return (
@@ -163,18 +161,16 @@ export default function AccessibilityPage() {
       </p>
       <p>
         <strong>Resultat de la darrera execució, el 12 de setembre de 2026: 78 pàgines
-        analitzades, cap incidència.</strong> Això vol dir exactament una cosa, i convé no
-        estirar-la: que no hi ha els errors que una eina automàtica sap detectar. Les eines
-        automàtiques troben entre un quart i un terç de les barreres reals. La resta —si l’ordre de
-        lectura té sentit, si un text alternatiu diu el que ha de dir, si el focus es veu de debò
-        sobre el fons que hi ha— només es troba mirant-s’ho una persona, i això encara no s’ha fet
-        amb mètode.
+        analitzades, cap incidència.</strong> El resultat no s’ha d’estirar més enllà del que diu:
+        no hi ha els errors que una eina automàtica sap detectar. Les eines automàtiques troben
+        entre un quart i un terç de les barreres reals. Si l’ordre de lectura té sentit, si un text
+        alternatiu diu el que ha de dir o si el focus es veu sobre el fons que hi ha només ho troba
+        una persona mirant-s’ho, i això encara no s’ha fet amb mètode.
       </p>
       <p>
-        Que el comprovador sigui nostre i sigui al repositori no és una comoditat: és el que permet
-        que qualsevol persona el llegeixi, hi trobi els forats i ens digui què no mira. Una
-        declaració que es recolzés en una eina de tercers que no podem ensenyar seria més fàcil de
-        signar i molt més difícil de comprovar.
+        El comprovador és al repositori perquè qualsevol persona el pugui llegir, hi trobi els
+        forats i ens digui què no mira. Amb una eina de tercers que no podem ensenyar, la
+        declaració seria més fàcil de signar i més difícil de comprovar.
       </p>
 
       <h3>3.2. El que ja funciona</h3>

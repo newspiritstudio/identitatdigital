@@ -6,9 +6,8 @@ export const metadata: Metadata = { title: 'Eines' }
 /**
  * Índex de les eines pràctiques.
  *
- * La regla comuna a totes: el càlcul passa al navegador i no es desa res. Una
- * eina sobre privadesa que recollís dades per funcionar seria una contradicció,
- * i ho diem a cada pàgina perquè es pugui comprovar, no perquè ens creguin.
+ * El càlcul passa al navegador i no es desa res. Cada pàgina explica com
+ * comprovar-ho.
  */
 export default function ToolsPage() {
   return (

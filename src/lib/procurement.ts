@@ -15,24 +15,18 @@ import type { App } from '@/payload-types'
 /**
  * Fitxa de contractació per a escoles i ajuntaments.
  *
- * PER QUÈ EXISTEIX. Una escola que tria una eina de comunicació amb les
- * famílies i un ajuntament que obre un compte en una xarxa social prenen una
- * decisió de tractament de dades en nom de milers de persones que no han triat
- * res. Ho fan, gairebé sempre, sense cap expedient: l'eina és gratuïta, tothom
- * la fa servir i ningú no ha demanat res per escrit. El corpus d'aquest projecte
- * ja conté la informació que caldria per fer-ho bé; l'únic que faltava era
- * presentar-la en l'ordre en què la necessita qui ha de signar.
+ * Una escola que tria una eina per parlar amb les famílies decideix sobre les
+ * dades de milers de persones que no han triat res, i sovint ho fa sense cap
+ * expedient. El corpus ja conté la informació que caldria; això la reordena
+ * com la necessita qui ha de signar.
  *
- * QUÈ ÉS I QUÈ NO ÉS. És una **preparació de l'expedient**: els punts que la
- * normativa obliga a valorar, amb el que en sabem i les fonts. No és un
- * dictamen jurídic, no substitueix l'avaluació d'impacte quan cal fer-la i no
- * diu «contracta» ni «no contractis». La decisió i la responsabilitat són de
- * l'òrgan de contractació.
+ * És una preparació d'expedient: els punts que la normativa obliga a valorar,
+ * amb el que en sabem i les fonts. No és un dictamen jurídic, no substitueix
+ * l'avaluació d'impacte quan cal fer-la i no diu si s'ha de contractar.
  *
- * COM ESTÀ ORGANITZADA. Cada alerta porta el precepte concret que la fa
- * rellevant. Una alerta no vol dir que l'eina sigui il·legal: vol dir que
- * l'expedient ha de dir alguna cosa sobre aquest punt i que, si no ho diu, el
- * punt queda sense resoldre.
+ * Cada alerta porta el precepte que la fa rellevant. Una alerta no vol dir que
+ * l'eina sigui il·legal, sinó que l'expedient ha de dir alguna cosa sobre
+ * aquest punt.
  */
 
 export type FlagLevel = 'stop' | 'check' | 'ok' | 'unknown'

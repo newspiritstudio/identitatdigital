@@ -1,32 +1,21 @@
 import { normalisePrefix } from '@/lib/passwords/pwned'
 
 /**
- * Procurador cap a l'API de contrasenyes filtrades de Have I Been Pwned.
+ * Pont cap a l'API de contrasenyes filtrades de Have I Been Pwned.
  *
- * QUÈ HI PASSA PER AQUÍ. Cinc caràcters hexadecimals. Res més. El navegador
- * calcula el resum SHA-1 de la contrasenya, n'agafa els cinc primers caràcters i
- * ens els envia; nosaltres els reenviem a `api.pwnedpasswords.com/range/{prefix}`
- * i tornem la llista de sufixos tal com arriba, sense tocar-la. El navegador hi
- * busca el seu sufix localment. Ni aquest servidor ni Have I Been Pwned veuen
- * mai la contrasenya ni el resum sencer: el calaix de vint bits que demanem
- * conté unes vuit-centes contrasenyes diferents i no es pot saber per quina
- * preguntàvem.
+ * Hi passen cinc caràcters hexadecimals i res més. El procediment sencer està
+ * explicat a `src/lib/passwords/pwned.ts`; aquí el prefix es reenvia a
+ * `api.pwnedpasswords.com/range/{prefix}` i la llista de sufixos torna tal com
+ * arriba.
  *
- * PER QUÈ HI HA UN PROCURADOR I NO ES CRIDA HIBP DIRECTAMENT DES DEL NAVEGADOR.
- * Perquè així el navegador de qui fa servir l'eina no obre cap connexió a un
- * tercer: l'adreça IP i les capçaleres que arriben a Have I Been Pwned són les
- * del nostre servidor, no les seves. És una capa més de separació, no una
- * capa d'observació: vegeu el punt següent.
+ * El pont hi és perquè el navegador de qui fa servir l'eina no obri cap
+ * connexió a un tercer: l'adreça IP que arriba a Have I Been Pwned és la del
+ * servidor. A canvi, la ruta no escriu enlloc res que vingui de la petició. No
+ * hi ha cap `console.log` amb el prefix, ni mètrica, ni agregat; els errors que
+ * registra parlen de la connexió amb Have I Been Pwned. Qui hi afegeixi una
+ * traça amb el prefix trenca la promesa que fa la pàgina.
  *
- * NO ES REGISTRA MAI EL PREFIX. Ni amb `console.log`, ni en cap sistema de
- * registre, ni en cap mètrica, ni transformat, ni agregat. Aquesta ruta no
- * escriu enlloc res que vingui de la petició; els errors que registra parlen de
- * l'estat de la connexió amb Have I Been Pwned i mai del que ens han demanat.
- * Ho diem a la pàgina i s'ha de poder comprovar llegint aquestes trenta línies.
- * Si algú hi afegeix una traça amb el prefix, trenca la promesa.
- *
- * L'API de contrasenyes filtrades és pública, no demana cap clau i no té límit
- * de peticions. No cal, doncs, cap gestió de credencials.
+ * L'API és pública, no demana clau i no té límit de peticions.
  */
 
 // Cap resposta d'aquí no s'ha de desar ni prerenderitzar.
@@ -74,11 +63,9 @@ export async function GET(request: Request): Promise<Response> {
         /*
          * Encoixinament. Amb `Add-Padding: true`, Have I Been Pwned afegeix
          * entrades falses amb el comptador a zero fins a igualar la mida de
-         * totes les respostes. Sense això, la LONGITUD de la resposta —visible
-         * per a qualsevol que miri el trànsit xifrat sense poder-lo llegir—
-         * identificaria el calaix consultat. És exactament la mena de detall
-         * que aquest projecte reclama a les altres empreses, i per tant se
-         * l'ha d'aplicar.
+         * totes les respostes. Sense això, la longitud de la resposta, visible
+         * per a qui miri el trànsit xifrat encara que no el pugui llegir,
+         * identificaria el calaix consultat.
          */
         'Add-Padding': 'true',
         Accept: 'text/plain',

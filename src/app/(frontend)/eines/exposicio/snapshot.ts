@@ -25,21 +25,14 @@ import type {
 /**
  * Construcció de la instantània que es baixa el navegador.
  *
- * Aquest fitxer només s'executa al servidor. Rep el `Corpus` sencer —vint-i-cinc
- * fitxes amb desenes de camps cadascuna, més empreses, tipus de dada i
- * categories— i en destil·la l'estricte mínim que la calculadora necessita.
+ * S'executa només al servidor. Rep el corpus sencer i en deixa el mínim que la
+ * calculadora necessita: si l'eina no ho calcula ni ho mostra, no viatja. Fora
+ * queden els resums editorials, les fonts, les polítiques, els indicadors de
+ * seguretat un per un, els incidents i els logotips.
  *
- * La regla per decidir què hi entra ha estat una sola: si l'eina no ho calcula
- * ni ho mostra, no viatja. Per això no hi ha resums editorials, ni fonts, ni
- * polítiques de privadesa, ni indicadors de seguretat un per un, ni incidents,
- * ni logotips. Són els camps que fan gran una fitxa i cap d'ells no entra en
- * cap de les sis preguntes que respon la calculadora.
- *
- * La segona decisió és que el càlcul viu al navegador i, per tant, la
- * instantània ha d'estar preparada per ser recombinada: les relacions ja venen
- * resoltes (l'empresa amb nom, la matriu última amb nom, l'alternativa amb la
- * seva puntuació) perquè el client no hagi de recórrer cap graf ni conservar
- * índexs auxiliars.
+ * El càlcul viu al navegador, així que les relacions ja venen resoltes
+ * (l'empresa amb nom, la matriu última amb nom, l'alternativa amb la seva
+ * puntuació) i el client no ha de recórrer cap graf.
  */
 
 const ROW_STATUSES: readonly RowStatus[] = ['yes', 'optional', 'no', 'unknown']

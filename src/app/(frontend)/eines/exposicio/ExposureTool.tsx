@@ -10,14 +10,12 @@ import { COMPARABILITY_LABELS, DIMENSION_LABELS, type AppLite, type Snapshot } f
 /**
  * La calculadora, sencera, dins del navegador.
  *
- * No hi ha cap `fetch`, cap `action`, cap formulari que s'enviï enlloc i cap
- * escriptura fora de `localStorage`. És deliberat i és comprovable: amb la
- * pestanya de xarxa de les eines de desenvolupament oberta, marcar i desmarcar
- * aplicacions no genera ni una sola petició.
+ * No hi ha cap `fetch`, cap `action`, cap formulari que s'enviï enlloc ni cap
+ * escriptura fora de `localStorage`. Amb la pestanya de xarxa oberta, marcar i
+ * desmarcar aplicacions no genera cap petició.
  *
- * L'única cosa que travessa la frontera servidor–client és la instantània, que
- * arriba ja calculada com a propietat i és la mateixa per a tothom: no depèn de
- * qui la demana ni del que hagi triat abans.
+ * L'únic que travessa la frontera servidor-client és la instantània, que arriba
+ * ja calculada com a propietat i és la mateixa per a tothom.
  */
 
 const STORAGE_KEY = 'identitat.exposicio.seleccio'
@@ -228,7 +226,7 @@ export default function ExposureTool({ snapshot }: { snapshot: Snapshot }) {
        * `aria-live` faria que un lector de pantalla recités quatre taules cada
        * vegada que es marca una casella, que és soroll, no accessibilitat. La
        * regió viva és només la línia de resum de dins —el `role="status"` de
-       * `Results`—, que és discreta i diu exactament què ha canviat; la resta
+       * `Results`—, que és discreta i diu què ha canviat; la resta
        * queda com una regió navegable amb nom.
        */}
       <section aria-label="Resultats de la selecció">
@@ -482,8 +480,8 @@ function Results({ exposure }: { exposure: Exposure }) {
       <p>
         Les polítiques de privadesa parlen de «socis», «proveïdors de serveis» i «tercers» sense
         anomenar-los. Quan passa, la fitxa ho recull com el que és: sabem que la dada surt, no sabem
-        cap on. Això no és un zero; és un forat de documentació que fa que el recompte d’empreses de
-        sobre sigui necessàriament un mínim, mai un total.
+        cap on. Compta com un forat de documentació, no com un zero, i per això el recompte
+        d’empreses de sobre és sempre un mínim.
       </p>
       <ul>
         <li>

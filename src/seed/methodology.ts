@@ -28,11 +28,11 @@ export const methodologyDoc = {
   principles: [
     {
       title: 'Desconegut no vol dir dolent',
-      body: "Quan no hem pogut documentar una pràctica, l'indicador surt del càlcul: no suma ni resta. Penalitzar el silenci equivaldria a inventar-nos una acusació, i premiar-lo equivaldria a recompensar l'opacitat. El que baixa és el grau de confiança, que és exactament la magnitud que ha de baixar.",
+      body: "Quan no hem pogut documentar una pràctica, l'indicador surt del càlcul: no suma ni resta. Penalitzar el silenci equivaldria a inventar-nos una acusació, i premiar-lo equivaldria a recompensar l'opacitat. El que baixa és el grau de confiança.",
     },
     {
       title: 'Tota puntuació és desmuntable',
-      body: "Cada fitxa desa el desglossament de tots els indicadors: quin valor ha pres, amb quin pes, amb quina evidència i si s'ha exclòs. Qualsevol persona ha de poder refer el càlcul a mà i arribar al mateix número, o assenyalar exactament on discrepa.",
+      body: "Cada fitxa desa el desglossament de tots els indicadors: quin valor ha pres, amb quin pes, amb quina evidència i si s'ha exclòs. Qualsevol persona ha de poder refer el càlcul a mà i arribar al mateix número, o assenyalar on discrepa.",
     },
     {
       title: 'Es mesura el que es pot documentar',

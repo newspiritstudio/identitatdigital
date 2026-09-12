@@ -5,17 +5,16 @@ import { isEditor, isPublic } from '@/lib/access'
 /**
  * Filtracions de dades importades de Have I Been Pwned.
  *
- * Aquesta col·lecció és un mirall d'una font externa, no contingut editorial:
- * els camps que venen de HIBP són de només lectura al panell i els reescriu
- * cada importació. El que sí que és nostre és el lligam amb el model del
- * projecte, és a dir, a quina empresa i a quines aplicacions correspon la
- * filtració i quins tipus de dada del nostre vocabulari hi van quedar exposats.
+ * La col·lecció és un mirall d'una font externa: els camps que venen de HIBP
+ * són de només lectura al panell i els reescriu cada importació. El lligam amb
+ * el model del projecte sí que és nostre (a quina empresa i a quines
+ * aplicacions correspon la filtració, quins tipus de dada hi van quedar
+ * exposats).
  *
- * Una filtració NO és un incident. Els incidents són fitxes redactades i
- * contrastades per l'equip; una filtració és una dada de tercers que serveix
- * d'evidència i que, si mereix anàlisi pròpia, es promou a incident amb el camp
- * `incident`. Per això les filtracions no toquen cap puntuació: entrarien al
- * càlcul sense passar pel filtre de fonts del projecte.
+ * Una filtració no és un incident. Els incidents són fitxes redactades i
+ * contrastades per l'equip; una filtració és una dada de tercers que, si mereix
+ * anàlisi pròpia, es promou a incident amb el camp `incident`. Per això no
+ * toquen cap puntuació: entrarien al càlcul sense passar pel filtre de fonts.
  */
 export const Breaches: CollectionConfig = {
   slug: 'breaches',
