@@ -1,0 +1,83 @@
+/*
+ * Estils propis de les pàgines legals. Són pocs a propòsit: la resta ve de
+ * `styles.css`, que aquest mòdul no toca.
+ */
+
+.docMeta {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 0;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.75rem;
+}
+
+/*
+ * Marca visible per a la informació que encara no tenim. Un buit assenyalat és
+ * millor que un buit omplert a l'atzar.
+ */
+.pendent {
+  background: #fff3cd;
+  color: #6b4e00;
+  border: 1px solid #e0c86a;
+  border-radius: 0.2rem;
+  padding: 0 0.25rem;
+  font-size: 0.9em;
+  font-weight: 600;
+}
+
+/* Les taules de tractaments són amples: aquí poden desplaçar-se soles. */
+.tableWrap {
+  overflow-x: auto;
+  margin: 0.5rem 0 1rem;
+}
+
+.toc {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.toc li {
+  border: 1px solid var(--line);
+  padding: 0.75rem;
+}
+
+.toc strong {
+  display: block;
+  font-size: 1rem;
+}
+
+.toc p {
+  margin: 0.25rem 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* Resum de l'essencial al capdamunt d'un document llarg. */
+.resum {
+  border-left: 3px solid var(--accent);
+  padding: 0.25rem 0 0.25rem 0.9rem;
+  margin: 1.25rem 0 1.5rem;
+}
+
+.resum ul {
+  margin: 0.5rem 0 0;
+  padding-left: 1.2rem;
+}
+
+.avis {
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--bad);
+  padding: 0.75rem 0.9rem;
+  margin: 1rem 0;
+}
+
+.avis p:first-child {
+  margin-top: 0;
+}
+
+.avis p:last-child {
+  margin-bottom: 0;
+}
