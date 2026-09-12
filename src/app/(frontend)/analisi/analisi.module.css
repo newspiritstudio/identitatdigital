@@ -1,0 +1,140 @@
+/*
+ * Estils propis de la secció d'anàlisi.
+ *
+ * El full global no es toca: aquí només hi ha el que serveix per representar
+ * proporcions. Tot és CSS o SVG en línia, sense cap biblioteca de gràfics, i
+ * cap representació no va mai sola: al costat de cada barra hi ha la xifra
+ * escrita, perquè un lector de pantalla no pot llegir una amplada.
+ */
+
+.numbers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr));
+  gap: 0.75rem;
+  margin: 1rem 0 1.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.number {
+  border: 1px solid var(--line);
+  padding: 0.6rem 0.7rem;
+}
+
+.number strong {
+  display: block;
+  font-size: 1.45rem;
+  line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+}
+
+.number span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+/* Barra horitzontal proporcional. */
+.bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 8rem;
+}
+
+.track {
+  flex: 1 1 3rem;
+  height: 0.55rem;
+  background: #f1f1f1;
+  border: 1px solid var(--line);
+}
+
+.fill {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+}
+
+.faint {
+  background: #9db3c6;
+}
+
+.value {
+  flex: 0 0 auto;
+  font-size: 0.82rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* Barra apilada dels cinc estats d'una afirmació. Colors deliberadament
+ * neutres: segons l'indicador, un «no» pot ser una bona notícia. */
+.stack {
+  display: flex;
+  width: 100%;
+  height: 0.75rem;
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.segYes {
+  background: #14508c;
+}
+
+.segPartial {
+  background: #5b86ae;
+}
+
+.segNo {
+  background: #c9d4dd;
+}
+
+.segUnknown {
+  background: repeating-linear-gradient(45deg, #dcdcdc, #dcdcdc 3px, #f7f7f7 3px, #f7f7f7 6px);
+}
+
+.segNa {
+  background: #f7f7f7;
+}
+
+.legend {
+  margin: 0.35rem 0 0;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.legend b {
+  color: var(--text);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Contenidor per al diagrama i per a les taules amples. */
+.scroller {
+  overflow-x: auto;
+}
+
+.diagram {
+  min-width: 34rem;
+  height: auto;
+  max-width: 100%;
+}
+
+.note {
+  border-left: 3px solid var(--line);
+  padding-left: 0.8rem;
+  margin: 1rem 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.next {
+  margin-top: 2.5rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.9rem;
+}
