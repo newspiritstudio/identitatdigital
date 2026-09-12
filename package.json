@@ -22,7 +22,8 @@
     "build-wordlist": "cross-env NODE_OPTIONS=--no-deprecation node ./scripts/build-wordlist.ts",
     "rescore": "cross-env NODE_OPTIONS=\"--no-deprecation --no-experimental-strip-types\" payload run ./scripts/rescore.ts",
     "test": "cross-env NODE_OPTIONS=--no-deprecation vitest run --config ./vitest.config.mts",
-    "import-catalan": "cross-env NODE_OPTIONS=\"--no-deprecation --no-experimental-strip-types\" payload run ./scripts/import-catalan.ts"
+    "import-catalan": "cross-env NODE_OPTIONS=\"--no-deprecation --no-experimental-strip-types\" payload run ./scripts/import-catalan.ts",
+    "check-a11y": "cross-env NODE_OPTIONS=--no-deprecation node ./scripts/check-accessibility.ts"
   },
   "dependencies": {
     "@payloadcms/db-mongodb": "3.88.0",

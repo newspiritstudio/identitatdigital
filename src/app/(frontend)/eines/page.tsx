@@ -15,16 +15,16 @@ export default function ToolsPage() {
     <>
       <h1>Eines</h1>
       <p className="lede">
-        Tres eines per passar de saber què fan amb les teves dades a fer-hi alguna cosa. Totes
-        funcionen dins del navegador: ni les contrasenyes, ni les aplicacions que triïs, ni cap
-        resultat surten del teu dispositiu ni es desen enlloc.
+        Eines per passar de saber què fan amb les teves dades a fer-hi alguna cosa. Les que calculen
+        ho fan dins del navegador: ni les contrasenyes, ni les aplicacions que triïs, ni cap resultat
+        surten del teu dispositiu ni es desen enlloc.
       </p>
 
       <div className="grid">
         <article className="card">
-          <h3>
+          <h2>
             <Link href="/eines/contrasenyes">Contrasenyes</Link>
-          </h3>
+          </h2>
           <p>
             Genera contrasenyes i frases de pas amb entropia real, i comprova si una contrasenya ja
             ha aparegut en alguna filtració coneguda sense arribar a enviar-la enlloc.
@@ -32,9 +32,9 @@ export default function ToolsPage() {
         </article>
 
         <article className="card">
-          <h3>
+          <h2>
             <Link href="/eines/exposicio">Exposició personal</Link>
-          </h3>
+          </h2>
           <p>
             Tria les aplicacions que fas servir i mira quines dades teves circulen, quantes empreses
             hi accedeixen i quins grups empresarials n’acumulen més.
@@ -42,9 +42,19 @@ export default function ToolsPage() {
         </article>
 
         <article className="card">
-          <h3>
+          <h2>
+            <Link href="/eines/gestors">Gestors de contrasenyes</Link>
+          </h2>
+          <p>
+            Què fa realment un magatzem de contrasenyes, quins vuit criteris el fan bo i com es tria,
+            amb el mateix vocabulari amb què el directori analitza qualsevol altre servei.
+          </p>
+        </article>
+
+        <article className="card">
+          <h2>
             <Link href="/eines/comparador">Comparador i alternatives</Link>
-          </h3>
+          </h2>
           <p>
             Posa dues o tres aplicacions de la mateixa categoria una al costat de l’altra, indicador
             per indicador, i mira què guanyaries canviant.

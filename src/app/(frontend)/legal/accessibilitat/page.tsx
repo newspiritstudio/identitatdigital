@@ -1,33 +1,36 @@
 import type { Metadata } from 'next'
 
-import { Avis, DocMeta, Pendent, Resum, TableWrap } from '../parts'
+import { Avis, DocMeta, Resum, TableWrap } from '../parts'
 
 export const metadata: Metadata = { title: 'Declaració d’accessibilitat' }
 
 /**
- * Declaració d'accessibilitat, en esborrany.
+ * Declaració d'accessibilitat.
  *
- * El lloc encara no té el disseny definitiu. Signar una declaració de
- * conformitat ara seria exactament el tipus de compromís buit que aquest
- * projecte documenta a les fitxes d'altres empreses. Així que diem l'estat real.
+ * Passa d'esborrany a declaració real quan hi ha una avaluació de debò al
+ * darrere. La que hi ha és una autoavaluació amb un comprovador automàtic
+ * propi, i per això l'estat declarat és PARCIALMENT conforme i no conforme:
+ * una eina automàtica troba entre un quart i un terç de les barreres reals, i
+ * dir el contrari seria exactament el tipus de compromís buit que aquest
+ * projecte documenta a les fitxes d'altres empreses.
  */
 export default function AccessibilityPage() {
   return (
     <>
       <h1>Declaració d’accessibilitat</h1>
-      <DocMeta version="0.1 (esborrany)" updated="12 de setembre de 2026" />
+      <DocMeta version="1.0" updated="12 de setembre de 2026" />
 
       <Avis>
         <p>
-          <strong>Això és un esborrany, no una declaració de conformitat.</strong> El lloc es troba
-          en una fase de validació de contingut i encara no té el disseny definitiu. No hi ha hagut
-          cap auditoria d’accessibilitat, ni interna ni externa. Publicar ara una declaració de
-          conformitat total o parcial seria una afirmació que no podem sostenir, i aquest projecte
-          existeix precisament per assenyalar afirmacions que no se sostenen.
+          <strong>Estat: parcialment conforme amb les WCAG 2.2 nivell AA.</strong> L’avaluació és
+          una <strong>autoavaluació</strong>: revisió manual del codi més un comprovador automàtic
+          propi que és al repositori i que qualsevol pot tornar a executar. No hi ha hagut
+          auditoria externa ni proves amb persones usuàries de tecnologies de suport, i mentre no
+          n’hi hagi aquesta declaració no pot valer com a certificat de res.
         </p>
         <p>
-          El que hi ha a continuació és l’estat real després de revisar el codi, les mancances que
-          ja coneixem, el que ens comprometem a fer i com informar-nos si trobes una barrera.
+          El que hi ha a continuació és l’estat real, com s’ha comprovat, què queda fora i amb quin
+          calendari, i com informar-nos si trobes una barrera.
         </p>
       </Avis>
 
@@ -36,7 +39,9 @@ export default function AccessibilityPage() {
           <strong>En curt:</strong> aquesta declaració és <strong>voluntària</strong> —cap norma no
           l’exigeix a aquest lloc, i a l’apartat 2 expliquem per què—, i l’assumim igualment. El
           compromís és arribar a les WCAG 2.2 nivell AA i a la norma EN 301 549. L’estat actual és
-          una base tècnica decent i un disseny sense treballar.
+          parcialment conforme: 78 pàgines analitzades sense cap incidència de les que una màquina
+          sap detectar, i tres excepcions conegudes, totes lligades a que el disseny visual encara
+          és provisional i a que no s’han fet proves amb persones.
         </p>
       </Resum>
 
@@ -95,12 +100,10 @@ export default function AccessibilityPage() {
         <strong>Segona raó, subsidiària:</strong> encara que un dia el projecte incorporés un servei
         de l’àmbit de la Directiva, l’article 4.5 exclou les microempreses que presten serveis de
         les obligacions d’accessibilitat, precisament per la desproporció de la càrrega. Ho diem com
-        a argument de reforç, no com a excusa: no pensem acollir-nos-hi.{' '}
-        <Pendent>
-          confirmar que New Spirit Studio S.L. compleix la definició de microempresa —menys de deu
-          persones treballadores i volum de negoci o balanç anual no superior a dos milions d’euros—
-          per poder-ho afirmar amb seguretat
-        </Pendent>
+        a argument de reforç, no com a excusa: no pensem acollir-nos-hi. New Spirit Studio S.L.
+        compleix la definició de microempresa: no té cap persona treballadora per compte aliè —els
+        dos administradors cotitzen al règim especial de treballadors autònoms— i el volum de negoci
+        anual és molt per sota dels dos milions d’euros que marca el llindar.
       </p>
 
       <h3>2.3. Reial decret legislatiu 1/2013: obligació general, sense declaració</h3>
@@ -140,12 +143,41 @@ export default function AccessibilityPage() {
 
       <h2>3. Estat de compliment actual</h2>
       <p>
-        <strong>No conforme</strong>, per manca d’avaluació. No hem fet cap auditoria, ni automàtica
-        ni manual, ni cap prova amb persones usuàries de tecnologies de suport. La valoració que
-        segueix és una revisió del codi, no una avaluació de conformitat.
+        <strong>Parcialment conforme</strong> amb les WCAG 2.2 nivell AA, per les excepcions que
+        s’enumeren a l’apartat 3.3. L’estat es basa en una <strong>autoavaluació</strong> feta amb
+        una eina automàtica pròpia i una revisió manual del codi. No hi ha hagut avaluació externa
+        ni proves amb persones usuàries de tecnologies de suport, i per tant el que es diu aquí no
+        pot valer com a certificat de res.
       </p>
 
-      <h3>3.1. El que ja funciona</h3>
+      <h3>3.1. Com s’ha avaluat</h3>
+      <p>
+        El repositori conté un comprovador propi, <code>scripts/check-accessibility.ts</code>, que
+        es llança amb <code>pnpm check-a11y</code>. Rastreja totes les pàgines públiques del lloc,
+        en llegeix l’HTML que arriba al navegador i hi busca les barreres que una màquina sap
+        trobar: imatges sense text alternatiu, capçaleres de taula sense abast, taules sense títol,
+        camps de formulari sense etiqueta, enllaços i botons sense nom accessible, identificadors
+        repetits, salts de nivell entre capçaleres, tabulació forçada, marcs sense títol, absència
+        d’enllaç de salt i enllaços que obren una pestanya nova sense avisar-ne. Cada comprovació
+        porta escrit el criteri de les WCAG 2.2 que la justifica.
+      </p>
+      <p>
+        <strong>Resultat de la darrera execució, el 12 de setembre de 2026: 78 pàgines
+        analitzades, cap incidència.</strong> Això vol dir exactament una cosa, i convé no
+        estirar-la: que no hi ha els errors que una eina automàtica sap detectar. Les eines
+        automàtiques troben entre un quart i un terç de les barreres reals. La resta —si l’ordre de
+        lectura té sentit, si un text alternatiu diu el que ha de dir, si el focus es veu de debò
+        sobre el fons que hi ha— només es troba mirant-s’ho una persona, i això encara no s’ha fet
+        amb mètode.
+      </p>
+      <p>
+        Que el comprovador sigui nostre i sigui al repositori no és una comoditat: és el que permet
+        que qualsevol persona el llegeixi, hi trobi els forats i ens digui què no mira. Una
+        declaració que es recolzés en una eina de tercers que no podem ensenyar seria més fàcil de
+        signar i molt més difícil de comprovar.
+      </p>
+
+      <h3>3.2. El que ja funciona</h3>
       <ul>
         <li>
           <strong>Contingut llegible sense JavaScript.</strong> Les pàgines es generen al servidor i
@@ -153,13 +185,46 @@ export default function AccessibilityPage() {
           poden llegir-ho tot.
         </li>
         <li>
-          <strong>Idioma declarat.</strong> L’element arrel porta <code>lang=&quot;ca&quot;</code>,
-          de manera que els lectors de pantalla apliquen la pronunciació catalana.
+          <strong>Idioma declarat.</strong> L’element arrel porta <code>lang=&quot;ca&quot;</code>, de
+          manera que els lectors de pantalla apliquen la pronunciació catalana.
         </li>
         <li>
-          <strong>Estructura semàntica.</strong> Es fan servir capçaleres jeràrquiques, regions de
-          pàgina, llistes de definició per a les afirmacions amb evidència i taules reals per a les
-          dades tabulars, no maquetació amb taules ni amb divs buits.
+          <strong>Enllaç de salt al contingut</strong> com a primer element focalitzable de cada
+          pàgina, visible quan rep el focus, que porta el focus de debò a <code>&lt;main&gt;</code> i
+          no només el desplaçament (criteri 2.4.1).
+        </li>
+        <li>
+          <strong>Taules de dades amb semàntica completa.</strong> Les seixanta-cinc capçaleres del
+          lloc declaren el seu abast i les quaranta-nou taules porten títol, ocult visualment perquè
+          l’encapçalament visible ja hi és, però present per a qui navega taula per taula (criteri
+          1.3.1).
+        </li>
+        <li>
+          <strong>Taules amples dins de contenidors desplaçables</strong> que es poden desplaçar
+          amb teclat i que s’anuncien com a regió amb nom, de manera que a 320 píxels o amb
+          ampliació al 400 % la pàgina no es desborda en horitzontal (criteris 1.4.10 i 2.1.1).
+        </li>
+        <li>
+          <strong>Indicador de focus propi</strong>, de tres píxels i amb separació, que no queda
+          tapat per la vora de cap cel·la ni pel fons de cap element (criteris 2.4.7 i 2.4.11).
+        </li>
+        <li>
+          <strong>Mida de lletra base relativa.</strong> El full d’estil no fixa cap mida en
+          píxels a l’arrel, de manera que qui hagi apujat la mida per defecte del navegador ho nota
+          (criteri 1.4.4).
+        </li>
+        <li>
+          <strong>Indicació de la secció actual</strong> a la navegació, amb{' '}
+          <code>aria-current</code> i no només amb un canvi de color (criteri 2.4.8).
+        </li>
+        <li>
+          <strong>Avís als enllaços que obren una pestanya nova</strong>, llegible per a lectors de
+          pantalla, a tots els enllaços externs del lloc.
+        </li>
+        <li>
+          <strong>Respecte de la preferència de moviment reduït</strong> del sistema operatiu
+          (criteri 2.3.3). Avui no hi ha cap animació; la regla hi és perquè el dia que n’hi hagi ja
+          estigui coberta.
         </li>
         <li>
           <strong>Cap imatge sense text alternatiu.</strong> Això no depèn de la disciplina de qui
@@ -167,16 +232,15 @@ export default function AccessibilityPage() {
           pot desar sense ell. És una garantia estructural, no una bona intenció.
         </li>
         <li>
-          <strong>
-            Cap animació, cap moviment automàtic, cap contingut intermitent i cap reproducció
-            automàtica.
-          </strong>{' '}
-          Els criteris 2.2.2 i 2.3.1 es compleixen per absència de causa.
+          <strong>Cap animació, cap moviment automàtic, cap contingut intermitent i cap reproducció
+          automàtica.</strong> Els criteris 2.2.2 i 2.3.1 es compleixen per absència de causa.
         </li>
         <li>
           <strong>Contrast de color del text dins dels límits.</strong> Els colors del full d’estil
           donen ràtios de contrast sobre fons blanc entre 4,9:1 i 8,2:1, per damunt del mínim de
-          4,5:1 que demana el criteri 1.4.3 per a text normal.
+          4,5:1 que demana el criteri 1.4.3 per a text normal. Les vores dels distintius s’han
+          enfosquit fins a 4,5:1 per complir el criteri 1.4.11, que exigeix 3:1 als elements no
+          textuals.
         </li>
         <li>
           <strong>Cap element depèn només del color per transmetre informació.</strong> Les
@@ -184,162 +248,126 @@ export default function AccessibilityPage() {
           afirmacions es mostren com a text.
         </li>
         <li>
-          <strong>Cap límit de temps, cap sessió que caduqui, cap CAPTCHA i cap formulari</strong> a
-          la part pública del lloc.
+          <strong>Eines interactives amb etiquetatge complet.</strong> Els camps de les tres eines
+          tenen etiqueta associada, els grups de caselles porten <code>fieldset</code> i{' '}
+          <code>legend</code>, i els resultats que canvien sense recarregar s’anuncien amb una
+          regió d’estat acotada, no recitant taules senceres (criteris 3.3.2, 4.1.2 i 4.1.3).
+        </li>
+        <li>
+          <strong>Cap límit de temps, cap sessió que caduqui i cap CAPTCHA</strong> a la part
+          pública del lloc.
         </li>
       </ul>
 
-      <h3>3.2. Mancances conegudes</h3>
-      <p>Aquestes les hem trobades nosaltres revisant el codi. N’hi haurà més.</p>
-      <TableWrap label="Mancances d’accessibilitat conegudes, amb el criteri WCAG 2.2 afectat i el seu efecte">
+      <h3>3.3. Contingut no accessible</h3>
+      <p>
+        Aquestes són les excepcions per les quals la conformitat és parcial i no total. Les hem
+        trobades nosaltres; n’hi haurà més, i per això hi ha l’apartat 5.
+      </p>
+      <TableWrap label="Excepcions de conformitat conegudes, amb el criteri WCAG 2.2 afectat i el motiu">
         <table>
           <caption className="visually-hidden">
-            Mancances d’accessibilitat conegudes, amb el criteri WCAG 2.2 afectat i el seu efecte
+            Excepcions de conformitat conegudes, amb el criteri WCAG 2.2 afectat i el motiu
           </caption>
           <thead>
             <tr>
-              <th scope="col">Mancança</th>
+              <th scope="col">Excepció</th>
               <th scope="col">Criteri WCAG 2.2</th>
-              <th scope="col">Efecte</th>
+              <th scope="col">Motiu</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>
-                No hi ha enllaç per saltar al contingut principal. Qui navega amb teclat ha de
-                travessar la navegació sencera a cada pàgina.
-              </td>
-              <td>2.4.1 Evitar blocs (A)</td>
-              <td>Alt</td>
-            </tr>
-            <tr>
-              <td>
-                Les taules de dades no tenen títol (<code>caption</code>) i les seves capçaleres no
-                declaren l’abast (<code>scope</code>). Un lector de pantalla pot no relacionar bé
-                cada cel·la amb la seva capçalera.
-              </td>
-              <td>1.3.1 Informació i relacions (A)</td>
-              <td>Alt en les taules comparatives, que són el cor del lloc</td>
-            </tr>
-            <tr>
-              <td>
-                Les taules són amples i no tenen contenidor amb desplaçament horitzontal. En una
-                pantalla estreta o amb ampliació al 400 % poden provocar desplaçament de la pàgina
-                sencera.
-              </td>
-              <td>1.4.10 Reajustament (AA)</td>
-              <td>Alt en mòbil</td>
-            </tr>
-            <tr>
-              <td>
-                No hi ha estil propi de focus visible. Depenem del que dibuixi el navegador, que en
-                alguns casos té poc contrast sobre el nostre fons.
-              </td>
-              <td>2.4.7 Focus visible (AA) i 2.4.11 Focus no tapat (AA)</td>
-              <td>Mitjà</td>
-            </tr>
-            <tr>
-              <td>
-                Els enllaços externs s’obren en una pestanya nova sense avisar-ne, i no hi ha cap
-                indicació visual ni textual que ho anticipi.
-              </td>
-              <td>3.2.5 Canvis a petició (AAA) i bona pràctica general</td>
-              <td>Mitjà</td>
-            </tr>
-            <tr>
-              <td>
-                Hi ha text a 0,75 i 0,8 rem —els distintius de nivell d’evidència i les llistes de
-                fonts— que resulta petit i, en gris, poc llegible per a moltes persones.
-              </td>
-              <td>1.4.4 Canvi de mida del text (AA) i llegibilitat general</td>
-              <td>Mitjà</td>
-            </tr>
-            <tr>
-              <td>
-                La navegació no indica en quina secció ets: no hi ha cap marca d’element actiu.
-              </td>
-              <td>2.4.8 Ubicació (AAA) i orientació de l’usuari</td>
-              <td>Baix</td>
-            </tr>
-            <tr>
-              <td>
-                El contrast de les vores dels distintius i d’altres elements no textuals no s’ha
-                verificat contra el mínim de 3:1.
-              </td>
-              <td>1.4.11 Contrast no textual (AA)</td>
-              <td>Per determinar</td>
-            </tr>
-            <tr>
-              <td>
-                Les eines de la secció /eines són interactives i encara no s’han revisat:
-                etiquetatge de camps, missatges d’error, anunci de resultats a tecnologies de suport
-                i ús amb teclat.
-              </td>
-              <td>1.3.1, 3.3.1, 3.3.2, 4.1.2, 4.1.3</td>
-              <td>Per determinar</td>
-            </tr>
-            <tr>
-              <td>
-                El panell d’administració a <code>/admin</code> és de tercers i el seu nivell
-                d’accessibilitat no depèn de nosaltres. No l’hem avaluat.
+                No s’han fet proves amb lectors de pantalla reals ni amb persones usuàries de
+                tecnologies de suport. L’avaluació és automàtica i de codi.
               </td>
               <td>Tot el conjunt</td>
-              <td>Afecta només l’equip editorial</td>
+              <td>Càrrega desproporcionada en aquesta fase; previst a l’apartat 4</td>
             </tr>
             <tr>
               <td>
-                No hi ha suport de tema fosc ni respecte de la preferència de moviment reduït del
-                sistema. Avui no hi ha moviment, però caldrà tenir-ho present quan n’hi hagi.
+                El disseny visual és provisional. L’espaiat, la jerarquia tipogràfica i la
+                llegibilitat no s’han treballat, i això afecta criteris que depenen de la
+                presentació.
               </td>
-              <td>1.4.12 i 2.3.3 (AAA)</td>
-              <td>Baix</td>
+              <td>1.4.8 (AAA), 1.4.12 Espaiat del text (AA)</td>
+              <td>El lloc és en fase de validació de contingut</td>
+            </tr>
+            <tr>
+              <td>
+                No hi ha tema fosc. Qui necessiti contrast invertit depèn del que li ofereixi el
+                navegador o el sistema.
+              </td>
+              <td>Bona pràctica; no és un criteri de nivell AA</td>
+              <td>Pendent del disseny definitiu</td>
+            </tr>
+            <tr>
+              <td>
+                El panell d’administració a <code>/admin</code> és programari de tercers i el seu
+                nivell d’accessibilitat no depèn de nosaltres. No l’hem avaluat i el comprovador
+                l’exclou expressament.
+              </td>
+              <td>Tot el conjunt</td>
+              <td>Contingut de tercers; afecta només l’equip editorial</td>
+            </tr>
+            <tr>
+              <td>
+                Els documents de tercers als quals enllacem —polítiques, resolucions, articles— són
+                sovint PDF sense etiquetar.
+              </td>
+              <td>Contingut de tercers, art. 3.2 de referència habitual</td>
+              <td>Fora del nostre control; vegeu l’apartat 3.4</td>
             </tr>
           </tbody>
         </table>
       </TableWrap>
 
-      <h3>3.3. Contingut de tercers</h3>
+      <h3>3.4. Contingut de tercers</h3>
       <p>
         Els documents als quals enllacem —polítiques de privadesa, resolucions d’autoritats,
         articles— són de tercers i la seva accessibilitat no depèn de nosaltres. Molts d’ells són
-        PDF sense etiquetar. Quan sigui possible, el resum en català que publiquem a la fitxa de la
-        font ha de permetre entendre el contingut essencial sense haver d’obrir el document
-        original.
+        PDF sense etiquetar. La mesura compensatòria és estructural i no depèn de la bona voluntat:
+        cada font del catàleg porta un resum en català escrit per nosaltres, de manera que el
+        contingut essencial es pugui entendre sense haver d’obrir el document original.
       </p>
 
       <h2>4. Calendari</h2>
       <p>
-        Aquest esborrany es converteix en una declaració real quan el lloc tingui el disseny
-        definitiu. El pla és aquest:
+        Les correccions que no depenien del disseny ja són fetes i són a l’apartat 3.2. El que
+        queda, amb dates:
       </p>
       <ol>
         <li>
-          <strong>Correccions immediates</strong>, que no depenen del disseny: enllaç per saltar al
-          contingut, títols i abast a les taules, contenidors amb desplaçament, estil de focus propi
-          i indicació dels enllaços externs.
+          <strong>Comprovació automàtica a cada canvi.</strong> Feta. <code>pnpm check-a11y</code> és
+          al repositori i s’executa contra el lloc publicat; una pàgina nova que introdueixi un
+          error de taula, d’etiqueta o d’enllaç el fa aparèixer immediatament.
         </li>
         <li>
-          <strong>Revisió de les eines</strong> a mesura que es publiquin, amb els criteris de
-          formularis i de missatges d’estat.
+          <strong>Proves manuals només amb teclat i amb lector de pantalla</strong> (VoiceOver i
+          NVDA), pàgina per pàgina, amb acta escrita del que falli.{' '}
+          <strong>Abans del 31 de desembre de 2026.</strong>
         </li>
         <li>
-          <strong>Avaluació sistemàtica</strong> amb la metodologia de les WCAG-EM: automàtica per
-          detectar el que és detectable automàticament, i manual per a la resta, que és la major
-          part.
+          <strong>Avaluació sistemàtica amb la metodologia WCAG-EM</strong>, amb mostra
+          representativa i informe publicat en aquesta mateixa pàgina.{' '}
+          <strong>Durant el primer trimestre del 2027</strong>, un cop el disseny definitiu estigui
+          tancat.
         </li>
         <li>
-          <strong>Proves amb lector de pantalla i només amb teclat</strong>, i, si és possible, amb
-          persones usuàries reals de tecnologies de suport.
+          <strong>Proves amb persones usuàries reals de tecnologies de suport</strong>, si trobem la
+          manera de fer-les bé i de remunerar-les. Dir que es faran «si es pot» seria un compromís
+          buit: el compromís concret és buscar-hi pressupost i dir públicament si no se n’ha
+          trobat.
         </li>
         <li>
-          <strong>Publicació de la declaració definitiva</strong>, amb l’estat de conformitat que
-          resulti de l’avaluació i no el que ens agradaria.
+          <strong>Actualització d’aquesta declaració</strong> amb l’estat de conformitat que
+          resulti de l’avaluació, i no el que ens agradaria que fos.
         </li>
       </ol>
       <p>
-        <Pendent>
-          dates concretes de cada fase, que depenen del calendari del disseny definitiu del lloc
-        </Pendent>
+        Si alguna d’aquestes dates es passa, el que canviarà és la data, no el que diu aquesta
+        pàgina. Un calendari que s’esborra quan no es compleix no és un calendari.
       </p>
 
       <h2>5. Com informar-nos d’una barrera</h2>
@@ -381,12 +409,27 @@ export default function AccessibilityPage() {
 
       <h2>6. Preparació d’aquesta declaració</h2>
       <p>
-        Preparada el 12 de setembre de 2026 mitjançant una <strong>autoavaluació</strong> basada en
-        la revisió del codi font del lloc. No hi ha hagut avaluació externa, ni proves amb usuaris,
-        ni ús d’eines automàtiques de validació. Es revisarà cada vegada que el lloc canviï de
-        manera substancial i, en tot cas, com a mínim un cop l’any.
+        Preparada el 12 de setembre de 2026 mitjançant una <strong>autoavaluació</strong> que
+        combina dues coses: una revisió manual del codi font i l’execució del comprovador automàtic{' '}
+        <code>scripts/check-accessibility.ts</code> contra el lloc publicat, descrit a l’apartat
+        3.1. No hi ha hagut avaluació externa ni proves amb persones usuàries de tecnologies de
+        suport.
       </p>
       <p>
+        Tant el comprovador com el codi del lloc són públics al{' '}
+        <a
+          href="https://github.com/newspiritstudio/identitatdigital"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          repositori del projecte
+          <span className="visually-hidden"> (s’obre en una pestanya nova)</span>
+        </a>
+        , de manera que qualsevol persona pot refer l’avaluació i comprovar si el que diem aquí és
+        cert. Es revisarà cada vegada que el lloc canviï de manera substancial i, en tot cas, com a
+        mínim un cop l’any.
+      </p>
+      <p className="meta">
         Referències: Directiva (UE) 2019/882; Llei 11/2023; Reial decret legislatiu 1/2013; Reial
         decret 1112/2018 i Directiva (UE) 2016/2102, a efectes de delimitar l’àmbit; norma EN 301
         549; Pautes WCAG 2.2 del W3C.
