@@ -44,6 +44,8 @@ de cap directori extern.
 | Categories | 14 |
 | Indicadors de puntuació | 38 |
 | Filtracions importades de Have I Been Pwned | 1.035 |
+| Conjunts de dades oberts publicats | 9 |
+| Aplicacions amb la disponibilitat en català comprovada | 25 |
 
 ## Requisits
 
@@ -76,12 +78,14 @@ El lloc queda a `http://localhost:3000` i el panell d'administració a
 | `pnpm seed` | Càrrega idempotent del contingut editorial |
 | `pnpm import-logos` | Baixa els logotips des de l'App Store |
 | `pnpm import-breaches` | Importa el catàleg de filtracions de Have I Been Pwned |
+| `pnpm import-catalan` | Comprova la disponibilitat en català a l'App Store |
 | `pnpm build-wordlist` | Regenera la llista de paraules de les frases de pas |
 | `pnpm rescore` | Recalcula totes les puntuacions |
 | `pnpm create-admin` | Crea el compte administrador inicial |
 | `pnpm lint` | ESLint |
 | `pnpm typecheck` | Comprovació de tipus |
 | `pnpm test` | Proves del motor de puntuació |
+| `pnpm check-a11y` | Comprovador d'accessibilitat propi sobre el lloc en marxa |
 | `pnpm generate:types` | Regenera els tipus de Payload |
 
 `pnpm seed` es pot executar tantes vegades com calgui: identifica cada document
@@ -153,9 +157,67 @@ res:
 - **Comparador** (`/eines/comparador`): dues o tres aplicacions de la mateixa
   categoria, indicador per indicador.
 
+A `/eines/gestors` hi ha, a més, els vuit criteris per triar un gestor de
+contrasenyes. Deliberadament **no hi ha cap taula comparativa**: no hem
+documentat cap gestor amb el mateix nivell d'exigència que demanem a les fitxes
+d'aplicacions, i publicar una comparativa sense aquesta feina feta seria aplicar
+un estàndard més baix al que recomanem que al que analitzem.
+
 La política de seguretat de contingut del lloc és `connect-src 'self'`, de manera
 que cap pàgina pot parlar amb cap tercer encara que ho volgués. Per això la
 consulta de contrasenyes filtrades passa per una ruta pròpia que actua de pont.
+
+## Dades obertes
+
+Tot el corpus es publica en obert a `/dades`, en **nou conjunts** —aplicacions,
+recollida de dades, indicadors, empreses, tipus de dada, incidents, filtracions,
+patrons foscos i fonts—, cadascun en JSON i en CSV:
+
+```
+/dades/index.json          manifest amb tots els conjunts i les seves columnes
+/dades/aplicacions.json    un conjunt en JSON
+/dades/aplicacions.csv     el mateix conjunt en CSV
+```
+
+Les respostes porten `Access-Control-Allow-Origin: *`, de manera que es poden
+llegir des de qualsevol lloc sense passar per cap servidor intermedi. El CSV
+segueix l'RFC 4180, amb marca d'ordre de bytes perquè l'Excel l'obri bé en
+català, i les llistes dins d'una cel·la separades per `|`.
+
+La regla que governa l'exportació és que **un camp buit vol dir buit**: mai no
+s'omple un desconegut amb un zero, un fals o la paraula «desconegut». El
+diccionari complet de columnes és a la mateixa pàgina `/dades` i el codi a
+`src/lib/opendata/`.
+
+## Institucions
+
+A `/institucions` hi ha el protocol de set passos per a escoles i ajuntaments que
+han de decidir si una aplicació pot entrar a l'aula o al lloc de treball, les
+quatre clàusules mínimes d'un contracte d'encarregat del tractament i una **fitxa
+de contractació generada per a cada aplicació documentada**.
+
+Cada fitxa passa deu comprovacions amb la seva base jurídica —categories
+especials, transferències internacionals, publicitat, entrenament de models,
+compartició, seguretat, sortida, patrons foscos, incidents i català— i marca cada
+una com a aturada, revisió, correcta o desconeguda. Es generen íntegrament des
+del corpus, de manera que cap empresa no pot rebre un tracte més dur que una
+altra. El càlcul és a `src/lib/procurement.ts`.
+
+## Disponibilitat en català
+
+Cada fitxa desa si la interfície està disponible en català, quants idiomes
+declara la botiga i quin dia ho vam comprovar. La font és l'API de consulta
+pública de l'App Store, que publica la llista de codis d'idioma de cada
+aplicació, i per tant és citable i repetible:
+
+```bash
+pnpm import-catalan
+```
+
+L'anàlisi conjunta és a `/analisi/catala`. **Aquesta dimensió no entra al càlcul
+de cap puntuació ni del grau de confiança**, i està deliberadament fora de la
+llista d'indicadors: una aplicació que no és en català pot ser excel·lent en
+privadesa, i barrejar-ho seria fer trampa amb el mètode.
 
 ## Documentació legal
 
@@ -246,18 +308,22 @@ src/
     env.ts           Lectura i validació de variables d'entorn
     scoring/         Motor de puntuació i metodologia
     analysis/        Anàlisi transversal del corpus
+    opendata/        Conjunts de dades oberts i serialitzador CSV
+    procurement.ts   Fitxes de contractació per a institucions
     passwords/       Entropia, frases de pas i k-anonimat
   seed/              Contingut editorial com a dades tipades
   app/
     (frontend)/      Lloc públic mínim
       analisi/       Anàlisi transversal
+      dades/         Dades obertes: diccionari i descàrregues
       eines/         Eines pràctiques i pont de k-anonimat
       filtracions/   Catàleg de filtracions
+      institucions/  Protocol i fitxes de contractació
       legal/         Documents legals públics
     (payload)/       Panell d'administració
-scripts/             Càrrega, recàlcul, logotips, filtracions i llista de paraules
+scripts/             Càrrega, recàlcul, importacions i comprovació d'accessibilitat
 tests/               Proves de puntuació, anàlisi i contrasenyes
-docs/                Metodologia, arquitectura i documentació legal interna
+docs/                Metodologia, arquitectura, governança i documentació legal
 ```
 
 El contingut editorial viu al repositori com a TypeScript tipat, no com a un
@@ -282,5 +348,35 @@ marques de les empreses analitzades, les citacions literals de polítiques i
 resolucions —publicades a l'empara del dret de citació—, el catàleg de Have I
 Been Pwned, que conserva la seva CC BY 4.0, i la llista de paraules en català.
 
+La llista completa i exacta d'aquestes exclusions, amb la base jurídica de cada
+una, és al fitxer **[NOTICE](NOTICE)**, que forma part de les condicions tant de
+[LICENSE](LICENSE) com de [LICENSE-CONTENT](LICENSE-CONTENT).
+
 El detall complet és a **[/legal/llicencia](src/app/(frontend)/legal/llicencia/page.tsx)**
 i el raonament de cada decisió a **[docs/legal/README.md](docs/legal/README.md)**.
+
+## Governança
+
+Qui decideix què es publica, què passa quan hi ha un conflicte d'interessos i què
+passa amb les dades si el projecte s'atura és a
+**[docs/governanca.md](docs/governanca.md)**. Inclou la regla de desempat —davant
+el dubte preval l'opció que publica més informació o que corregeix a favor de
+l'empresa afectada—, la prohibició de cobrar de cap empresa analitzada i el
+compromís de mantenir les exportacions obertes.
+
+## Accessibilitat
+
+El lloc es comprova amb un verificador propi sense dependències que recorre totes
+les pàgines públiques i aplica tretze famílies de comprovacions, cadascuna citant
+el criteri de les WCAG 2.2 AA que la justifica:
+
+```bash
+pnpm start        # en un terminal
+pnpm check-a11y   # en un altre
+```
+
+L'última execució dona 78 pàgines i cap incidència. Això vol dir exactament que
+no hi ha els errors que una eina automàtica detecta, i res més: les eines
+automàtiques troben entre un quart i un terç de les barreres reals. La declaració
+pública, amb les excepcions conegudes i el calendari de proves manuals, és a
+`/legal/accessibilitat`.

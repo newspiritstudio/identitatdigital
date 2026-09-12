@@ -337,6 +337,14 @@ export default function LicensePage() {
         fitxes ha de complir la clàusula de compartir igual.
       </p>
 
+      <p>
+        Els dos textos de llicència són al repositori públic, en fitxers separats: <code>LICENSE</code>{' '}
+        per al codi i <code>LICENSE-CONTENT</code> per al contingut. Tots dos remeten al fitxer{' '}
+        <code>NOTICE</code>, que enumera un per un els materials exclosos que descriu l’apartat
+        següent, amb la base jurídica de cada exclusió. El <code>NOTICE</code> forma part de les
+        condicions: qui reutilitza el conjunt l’ha de conservar.
+      </p>
+
       <h2>5. Avís d’exclusió: què no cobreix aquesta llicència</h2>
       <Avis>
         <p>
@@ -648,7 +656,24 @@ export default function LicensePage() {
         rèplica amb terminis concrets.
       </p>
 
-      <h2>9. Referències</h2>
+      <h2>9. Qui decideix tot això</h2>
+      <p>
+        Les regles de decisió del projecte —qui pot canviar la metodologia, què passa quan qui edita
+        té un conflicte d’interessos amb l’empresa analitzada, i què passa amb el conjunt de dades
+        si el projecte s’atura— són al document de governança, públic al repositori:{' '}
+        <a
+          href="https://github.com/newspiritstudio/identitatdigital/blob/main/docs/governanca.md"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <code>docs/governanca.md</code>
+          <span className="visually-hidden"> (s’obre en una pestanya nova)</span>
+        </a>
+        . Hi consta el compromís de mantenir les exportacions obertes i la clàusula de continuïtat
+        que obliga a dipositar les dades en un repositori extern si l’entitat desapareix.
+      </p>
+
+      <h2>10. Referències</h2>
       <ul>
         <li>
           Reial decret legislatiu 1/1996, text refós de la Llei de propietat intel·lectual: articles

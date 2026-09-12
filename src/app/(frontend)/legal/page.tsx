@@ -96,20 +96,38 @@ export default function LegalIndexPage() {
             <Link href="/legal/accessibilitat">Declaració d’accessibilitat</Link>
           </strong>
           <p>
-            Esborrany. El lloc encara no té el disseny definitiu i no volem signar una conformitat
-            que no podem sostenir. Diu l’estat real, les mancances conegudes i com informar d’una
+            Parcialment conforme amb les WCAG 2.2 AA. Diu com s’ha avaluat, què ja funciona, les
+            tres excepcions conegudes, el calendari de les proves que falten i com informar d’una
             barrera.
           </p>
         </li>
       </ul>
 
+      <h2>Governança</h2>
+      <p>
+        Qui pot canviar la metodologia, què passa quan qui edita una fitxa té un vincle comercial
+        amb l’empresa que hi surt i què passa amb les dades si el projecte s’atura són decisions que
+        no caben en cap dels set documents anteriors, i que igualment has de poder comprovar. Són
+        al{' '}
+        <a
+          href="https://github.com/newspiritstudio/identitatdigital/blob/main/docs/governanca.md"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          document de governança
+          <span className="visually-hidden"> (s’obre en una pestanya nova)</span>
+        </a>
+        , públic al repositori i referenciat des de la mateixa llicència del contingut.
+      </p>
+
       <h2>Documentació interna</h2>
       <p>
-        Dos documents més no es publiquen aquí perquè no van adreçats a qui visita el lloc, sinó a
-        qui l’ha de mantenir i, si algun dia cal, a l’autoritat de control: el registre d’activitats
-        de tractament de l’article 30 del Reglament general de protecció de dades i l’anàlisi de si
-        cal una avaluació d’impacte de l’article 35. Viuen al repositori del projecte, a{' '}
-        <code>docs/legal/</code>.
+        Quatre documents més no es publiquen aquí perquè no van adreçats a qui visita el lloc, sinó
+        a qui l’ha de mantenir i, si algun dia cal, a l’autoritat de control: el registre
+        d’activitats de tractament de l’article 30 del Reglament general de protecció de dades,
+        l’anàlisi de si cal una avaluació d’impacte de l’article 35, el procediment de violacions de
+        seguretat dels articles 33 i 34 i la política de còpies de seguretat. Viuen al repositori
+        del projecte, a <code>docs/legal/</code>.
       </p>
 
       <h2>Contacte</h2>

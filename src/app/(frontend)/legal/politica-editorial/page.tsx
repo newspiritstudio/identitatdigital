@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
 
-import { Avis, DocMeta, Pendent, Resum, TableWrap } from '../parts'
+import { Avis, DocMeta, Resum, TableWrap } from '../parts'
 
 export const metadata: Metadata = { title: 'Política editorial' }
 
@@ -74,12 +74,31 @@ export default function EditorialPolicyPage() {
       <p>
         Sense publicitat, sense enllaços d’afiliació, sense contingut patrocinat, sense pagament per
         aparèixer, per no aparèixer o per canviar una nota. Cap empresa documentada revisa la seva
-        fitxa abans de publicar-se.{' '}
-        <Pendent>
-          declarar el model de finançament del projecte i, si escau, qualsevol coincidència entre
-          una empresa documentada i un client de New Spirit Studio S.L., per fer explícit el
-          conflicte d’interès potencial
-        </Pendent>
+        fitxa abans de publicar-se.
+      </p>
+      <p>
+        <strong>Model de finançament.</strong> El projecte l’autofinança íntegrament New Spirit
+        Studio, S.L. amb recursos propis. No rep publicitat, ni patrocini, ni comissions
+        d’afiliació, ni pagament de cap empresa documentada ni del seu grup. Si algun dia rebés un
+        ajut públic o una subvenció, es diria aquí, amb l’organisme, l’import i l’any, abans que
+        aquests diners toquessin cap fitxa.
+      </p>
+      <p>
+        <strong>Conflictes d’interès.</strong> New Spirit Studio, S.L. ven serveis digitals, i per
+        tant és possible que una empresa documentada, la seva matriu o un competidor seu sigui o
+        hagi estat client nostre. A la data d’aquesta versió, <strong>cap</strong> de les empreses
+        del corpus no ho és ni ho ha estat. Quan passi, la fitxa afectada ho dirà i qui tingui el
+        vincle no en fixarà els indicadors. El procediment complet —declaració prèvia, abstenció,
+        publicitat a la fitxa i finestra de vint-i-quatre mesos— és al{' '}
+        <a
+          href="https://github.com/newspiritstudio/identitatdigital/blob/main/docs/governanca.md"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          document de governança
+          <span className="visually-hidden"> (s’obre en una pestanya nova)</span>
+        </a>
+        .
       </p>
 
       <h2>2. Jerarquia de l’evidència</h2>
@@ -206,10 +225,16 @@ export default function EditorialPolicyPage() {
         la manera de mesurar.
       </p>
       <p>
-        <Pendent>
-          fixar i publicar la periodicitat de revisió de les fitxes, per exemple cada sis mesos per
-          a les fitxes de serveis massius i cada dotze per a la resta
-        </Pendent>
+        <strong>Cada quan es revisa una fitxa.</strong> Com a màxim cada <strong>sis mesos</strong>{' '}
+        per als serveis amb més de cent milions de persones usuàries declarades, i com a màxim cada{' '}
+        <strong>dotze</strong> per a la resta. A banda del calendari, una fitxa es revisa
+        immediatament quan la font canvia de data, quan un regulador publica una resolució que
+        l’afecta, quan l’empresa exerceix el dret de rèplica o quan algú ens assenyala un error.
+      </p>
+      <p>
+        La data de verificació de cada afirmació és visible a la fitxa i s’exporta al conjunt de
+        dades obert, de manera que no cal creure’ns: es pot comprovar quina part del que llegeixes
+        és recent i quina no.
       </p>
 
       <h2>5. Correccions</h2>

@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
 
-import { Avis, DocMeta, Pendent, Resum } from '../parts'
+import { Avis, DocMeta, Resum } from '../parts'
 
 export const metadata: Metadata = { title: 'Condicions d’ús' }
 
@@ -224,10 +224,10 @@ export default function TermsPage() {
         </li>
         <li>
           Fer extraccions automatitzades massives amb una intensitat que perjudiqui el servei per a
-          la resta de persones. La llicència et permet reutilitzar el contingut; el que et demanem
-          és que ho facis a un ritme raonable. Si necessites el conjunt sencer, escriu-nos i te’l
-          facilitarem: és més barat per a tots dos.{' '}
-          <Pendent>publicar una exportació o una API oberta del conjunt de dades</Pendent>
+          la resta de persones. No et cal: el conjunt sencer es publica en obert a{' '}
+          <Link href="/dades">/dades</Link>, en nou fitxers JSON i CSV, sense registre, sense clau i
+          amb <code>Access-Control-Allow-Origin: *</code>. Baixar-te’l d’allà és més ràpid per a tu
+          i més barat per a nosaltres que recórrer el lloc pàgina per pàgina.
         </li>
         <li>
           Presentar el contingut de manera que suggereixi una relació, una aprovació o un patrocini

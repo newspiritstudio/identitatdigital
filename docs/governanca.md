@@ -85,6 +85,12 @@ estat o vulgui ser client nostre.
    d'afiliació, ni comissions per recomanació. Si algun dia recomanés una
    alternativa concreta, ho faria sense cobrar-ne res, i el criteri seria
    públic.
+6. **Model de finançament declarat.** El projecte l'autofinança New Spirit
+   Studio, S.L. amb recursos propis. Qualsevol ingrés extern futur —un ajut
+   públic, una subvenció, una donació— es declara a la política editorial amb
+   l'organisme, l'import i l'any **abans** que aquests diners afectin cap
+   fitxa. Un finançament que condicioni quines empreses s'analitzen o què se'n
+   diu no s'accepta, vingui d'on vingui.
 
 **Declaració vigent a la data d'aquesta versió:** cap de les vint-i-cinc
 aplicacions del corpus inicial, ni les empreses que les publiquen, ni les seves
@@ -101,8 +107,8 @@ concedida no es pot retirar, i no pretenem trobar-hi la lletra petita.
 
 A més, l'entitat es compromet a:
 
-- **Mantenir les exportacions obertes** (JSON i CSV) accessibles sense registre,
-  sense clau i sense límit d'ús.
+- **Mantenir les exportacions obertes** (JSON i CSV, a `/dades`) accessibles
+  sense registre, sense clau i sense límit d'ús.
 - **No degradar-les**: cap versió futura no publicarà menys camps que els que
   ja s'han publicat, llevat que un camp desaparegui del model sencer.
 - **Avisar amb 90 dies** abans de qualsevol canvi que trenqui el format de les

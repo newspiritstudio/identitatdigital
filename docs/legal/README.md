@@ -3,7 +3,7 @@
 Índex del conjunt de documents legals del projecte: què cobreix cadascun, què
 queda pendent i quines decisions s'han pres i per què.
 
-**Versió 1.0 · 12 de setembre de 2026**
+**Versió 1.1 · 12 de setembre de 2026**
 **Titular:** New Spirit Studio S.L. · NIF B75352872
 
 ---
@@ -21,7 +21,7 @@ queda pendent i quines decisions s'han pres i per què.
 | `/legal/condicions` | `legal/condicions/page.tsx` | Condicions d'ús, amb exempcions específiques per al generador de contrasenyes i per a la comprovació de filtracions. |
 | `/legal/llicencia` | `legal/llicencia/page.tsx` | Llicència del contingut, dret sui generis, avís d'exclusió de materials de tercers i ús nominatiu de marques alienes. |
 | `/legal/politica-editorial` | `legal/politica-editorial/page.tsx` | Mètode, jerarquia d'evidència, correccions i dret de rèplica de les empreses documentades. |
-| `/legal/accessibilitat` | `legal/accessibilitat/page.tsx` | Esborrany. EN 301 549, WCAG 2.2 AA, estat real, mancances, calendari i canal d'avisos. |
+| `/legal/accessibilitat` | `legal/accessibilitat/page.tsx` | EN 301 549 i WCAG 2.2 AA. Estat **parcialment conforme**, mètode d'autoavaluació amb el comprovador propi, tres excepcions conegudes, calendari i canal d'avisos. |
 
 Peces compartides: `legal/parts.tsx` (metadades de document, marca de pendent,
 contenidor de taules, blocs de resum i d'avís) i `legal/legal.module.css`.
@@ -37,6 +37,11 @@ contenidor de taules, blocs de resum i d'avís) i `legal/legal.module.css`.
 | `procediment-violacions-seguretat.md` | Arts. 33 i 34 RGPD. Qui decideix, el còmput de les 72 hores, sis escenaris amb la decisió de notificar ja presa, el contingut de la notificació a l'AEPD, la comunicació a les persones afectades i la plantilla del registre de l'art. 33.5. |
 | `politica-copies-de-seguretat.md` | Art. 32.1.b i 32.1.c. Què es copia i què no, RPO i RTO, xifratge amb clau pròpia, immutabilitat, calendari de proves de restauració i procediment pas a pas. |
 | `README.md` | Aquest document. |
+
+A més, `docs/governanca.md` **sí que és públic** i està enllaçat des de
+`LICENSE-CONTENT`, des de `/legal` i des de `/legal/llicencia`: diu qui decideix
+què, com es tracta un conflicte d'interessos i què passa amb les dades si el
+projecte s'atura.
 
 ### Com s'hi arriba
 
@@ -67,17 +72,16 @@ de posar el lloc en producció.
 
 | # | Pendent | On surt |
 | --- | --- | --- |
-| 6 | **Auditoria d'accessibilitat** i dates concretes de cada fase del calendari, que depenen del disseny definitiu. | `/legal/accessibilitat` §4 |
-| 7 | **Exportació o API oberta del conjunt de dades**, per canalitzar la reutilització massiva sense degradar el servei. | `/legal/condicions` §5 |
+| 6 | **Proves manuals de teclat i de lector de pantalla** abans del 31 de desembre de 2026, i **avaluació segons WCAG-EM** al primer trimestre de 2027. L'autoavaluació amb el comprovador propi ja està feta i publicada. | `/legal/accessibilitat` §4 |
 
-### Decisions de negoci que cal prendre
+### Decisions de negoci: preses
 
-| # | Pendent | On surt |
-| --- | --- | --- |
-| 8 | **Confirmar que New Spirit Studio S.L. és microempresa** —menys de 10 persones i volum de negoci o balanç no superior a 2 M€— per poder invocar l'art. 4.5 de la Directiva 2019/882 com a argument subsidiari. | `/legal/accessibilitat` §2.2 |
-| 9 | **Model de finançament del projecte**, per declarar-lo a la política editorial. | `/legal/politica-editorial` §1 |
-| 10 | **Coincidència entre empreses documentades i clients de l'estudi.** Si n'hi ha cap, s'ha de declarar com a conflicte d'interès potencial. És el punt més sensible de la independència editorial. | `/legal/politica-editorial` §1 |
-| 11 | **Periodicitat de revisió de les fitxes**, per exemple 6 mesos per als serveis massius i 12 per a la resta. | `/legal/politica-editorial` §4 |
+| # | Decisió | Com ha quedat | On surt |
+| --- | --- | --- | --- |
+| 8 | Condició de microempresa | Confirmada: cap persona contractada, els dos administradors al RETA i un volum de negoci molt per sota dels 2 M€. L'art. 4.5 de la Directiva 2019/882 és invocable com a argument subsidiari, però **no s'invoca**: la declaració s'assumeix igualment. | `/legal/accessibilitat` §2.2 |
+| 9 | Model de finançament | Autofinançament amb recursos propis de New Spirit Studio S.L. Sense publicitat, patrocini ni afiliació. Qualsevol ingrés extern futur es declararà amb organisme, import i any abans d'afectar cap fitxa. | `/legal/politica-editorial` §1 · `docs/governanca.md` §3 regla 6 |
+| 10 | Coincidència amb clients de l'estudi | Cap de les 25 aplicacions del corpus, ni les empreses que les publiquen, ni les seves matrius, no són ni han estat clients. El procediment per quan canviï —declaració, abstenció i publicitat a la fitxa— és a la governança. | `/legal/politica-editorial` §1 · `docs/governanca.md` §3 |
+| 11 | Periodicitat de revisió | Sis mesos per als serveis amb més de cent milions de persones usuàries declarades, dotze per a la resta, i revisió immediata quan canvia la font, hi ha resolució d'un regulador, s'exerceix rèplica o algú assenyala un error. | `/legal/politica-editorial` §4 |
 
 ### Pendents que depenen de la infraestructura
 
@@ -237,11 +241,26 @@ transparència a les grans plataformes no pot escudar-se en una exempció legal,
 perquè l'accessibilitat és condició del dret a la informació, i perquè
 declarar-ho obliga a complir-ho.
 
-La declaració es publica **com a esborrany, amb estat «no conforme per manca
-d'avaluació»**, i no com una conformitat parcial o total. No hi ha hagut cap
-auditoria i signar-ne una seria exactament el tipus d'afirmació buida que el
-projecte documenta a les fitxes d'altres empreses. Recull onze mancances
-concretes trobades revisant el codi, amb el seu criteri WCAG i el seu impacte.
+La declaració es publica amb estat **«parcialment conforme»** (versió 1.0),
+després de corregir les mancances que recollia l'esborrany anterior i de fer una
+**autoavaluació** en dos passos: revisió manual del codi font i execució del
+comprovador propi `scripts/check-accessibility.ts` contra el lloc publicat. El
+comprovador recorre totes les pàgines públiques i aplica tretze famílies de
+comprovacions, cadascuna citant el criteri de les WCAG 2.2 que la justifica.
+L'última execució dona **78 pàgines i cap incidència**.
+
+Aquesta xifra es publica amb el seu límit escrit al costat: vol dir que no hi ha
+els errors que una eina automàtica detecta, i res més. Les eines automàtiques
+troben entre un quart i un terç de les barreres reals, i per això l'estat és
+«parcialment conforme» i no «conforme». Les tres excepcions conegudes —contingut
+de tercers enllaçat, taules amples que exigeixen desplaçament horitzontal i el
+panell d'administració de Payload, que no és nostre— consten a la declaració amb
+el criteri que incompleixen. El calendari té dates: proves manuals de teclat i de
+lector de pantalla abans del 31 de desembre de 2026 i avaluació WCAG-EM al primer
+trimestre de 2027.
+
+Signar una conformitat total sense avaluació externa seria exactament el tipus
+d'afirmació buida que el projecte documenta a les fitxes d'altres empreses.
 
 ### 3.5. Galetes: cap bàner, i el fonament
 
@@ -320,7 +339,32 @@ serveis de la societat de la informació però **no elaborem perfils a gran
 escala**, que és la condició que activaria aquell apartat. S'ha designat un punt
 de contacte únic.
 
-### 3.9. Estil
+### 3.9. Repositori públic, `NOTICE` i dades obertes
+
+El repositori és **públic** des del 12 de setembre de 2026. Ho havia de ser: el
+lloc afirma en cinc llocs diferents que el codi és obert i comprovable, i
+mantenir-lo tancat convertia aquestes cinc afirmacions en el mateix tipus de
+promesa no verificable que el projecte retreu a les empreses que documenta. Abans
+d'obrir-lo es va escombrar l'historial sencer buscant secrets —`PAYLOAD_SECRET`,
+cadenes de connexió amb credencials, claus d'API i capçaleres de clau privada— i
+només hi ha `.env.example`.
+
+Les exclusions de llicència de l'apartat 3.2 no viuen només a `/legal/llicencia`:
+són al fitxer **`NOTICE`** de l'arrel, que enumera cada material exclòs amb la
+seva base jurídica i que **forma part de les condicions** tant de `LICENSE`
+(codi, MIT) com de `LICENSE-CONTENT` (contingut, CC BY-SA 4.0). Qui reutilitzi el
+conjunt l'ha de conservar; és la manera que l'exclusió viatgi amb les dades i no
+es quedi en una pàgina web que ningú no copia.
+
+El conjunt de dades es publica en obert a `/dades`, en nou fitxers JSON i CSV amb
+`Access-Control-Allow-Origin: *`. Això tanca el pendent núm. 7 de la versió
+anterior i, sobretot, canvia la naturalesa de la restricció d'extraccions
+massives de `/legal/condicions` §5: ja no es demana moderació sense oferir
+alternativa, sinó que s'ofereix la via bona. La contrapartida assumida és el
+compromís de permanència de `docs/governanca.md` §4: no degradar els camps
+publicats i avisar amb 90 dies abans de trencar el format.
+
+### 3.10. Estil
 
 Els documents estan escrits en frases curtes i veu activa, amb l'explicació abans
 de la cita normativa. Cada document porta versió i data. Cada afirmació tècnica
@@ -341,6 +385,13 @@ escriure'n una.
 - **El registre d'activitats i l'anàlisi de riscos** es revisen com a mínim un
   cop l'any, i immediatament amb qualsevol dels disparadors de l'apartat 7 de
   `analisi-de-riscos.md`.
+- **La governança es revisa un cop l'any** i sempre que canviï el consell
+  editorial, aparegui un conflicte d'interessos nou o canviï el model de
+  finançament. Si canvia, canvia també la declaració de l'apartat 1 de
+  `/legal/politica-editorial`.
+- **L'accessibilitat es torna a comprovar amb `pnpm check-a11y`** a cada canvi
+  substancial del lloc, i com a mínim un cop l'any. Un resultat nou obliga a
+  revisar `/legal/accessibilitat`.
 - **Els documents publicables i el codi han de dir el mateix.** Aquesta és la
   premissa de tot el paquet: qualsevol canvi al codi que afecti la privadesa o la
   seguretat obliga a revisar `/legal/privadesa`, `/legal/galetes` i
