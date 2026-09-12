@@ -68,9 +68,7 @@ export default function LegalNoticePage() {
             </tr>
             <tr>
               <th scope="row">Nom de domini</th>
-              <td>
-                <Pendent>domini definitiu del lloc en producció</Pendent>
-              </td>
+              <td>identitat.digital</td>
             </tr>
           </tbody>
         </table>

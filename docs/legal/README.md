@@ -36,10 +36,13 @@ contenidor de taules, blocs de resum i d'avís) i `legal/legal.module.css`.
 | `analisi-de-riscos.md` | Art. 35 RGPD. Aplicació un per un dels nou criteris del WP248 rev.01, ponderació de l'interès legítim, mesures de l'art. 32, riscos residuals i disparadors de revisió. |
 | `README.md` | Aquest document. |
 
-### Falta enllaçar-ho
+### Com s'hi arriba
 
-Els enllaços del peu de pàgina no s'han afegit: `layout.tsx` queda fora de
-l'abast d'aquest encàrrec. Cal afegir-hi `/legal` o els set documents un per un.
+El peu de pàgina de `src/app/(frontend)/layout.tsx` porta la navegació als set
+documents més l'índex, dins d'un `<nav aria-label="Informació legal">`, i la
+identificació del titular. Aquesta identificació ha de continuar sent permanent i
+accessible des de qualsevol pàgina: és el que exigeix l'art. 10 LSSICE, i moure-la
+a una pàgina interior trencaria el compliment.
 
 ---
 
@@ -57,32 +60,31 @@ de posar el lloc en producció.
 | 3 | **Retenció real dels registres del servidor** configurada pel proveïdor, alineada amb el criteri propi de 30 dies. | `/legal/privadesa` §3.1 · `registre-activitats` T-01 |
 | 4 | **Proveïdor de correu de `admin@newspirit.studio`** i ubicació del servei. | `/legal/privadesa` §3.3 · `registre-activitats` T-03 |
 | 5 | **Dades registrals al Registre Mercantil de Barcelona**: tom, foli, full i inscripció. Obligatòries per l'art. 10.1.a LSSICE. | `/legal/avis-legal` |
-| 6 | **Domini definitiu** del lloc en producció. | `/legal/avis-legal` |
-| 7 | **Llicència exacta de la llista de paraules de Softcatalà**, amb nom, versió i atribució exigida. Un altre agent ho està confirmant; el raonament per a cada escenari possible ja està desenvolupat. | `/legal/llicencia` §5.4 |
+| 6 | **Llicència exacta de la llista de paraules de Softcatalà**, amb nom, versió i atribució exigida. Un altre agent ho està confirmant; el raonament per a cada escenari possible ja està desenvolupat. | `/legal/llicencia` §5.4 |
 
 ### Pendents de verificació quan hi hagi codi nou
 
 | # | Pendent | On surt |
 | --- | --- | --- |
-| 8 | **Revisar les pàgines de `/eines`** quan es publiquin i confirmar, una per una: que no escriuen a `localStorage`, `sessionStorage` ni IndexedDB; que no fan cap petició més enllà de la del prefix de cinc caràcters; i que la descripció tècnica de cada eina coincideix amb el codi. | `/legal/privadesa` §4.3 · `/legal/galetes` · `/legal/condicions` §4 |
-| 9 | **Auditoria d'accessibilitat** i dates concretes de cada fase del calendari, que depenen del disseny definitiu. | `/legal/accessibilitat` §4 |
-| 10 | **Exportació o API oberta del conjunt de dades**, per canalitzar la reutilització massiva sense degradar el servei. | `/legal/condicions` §5 |
+| 7 | **Revisar les pàgines de `/eines`** quan es publiquin i confirmar, una per una: que no escriuen a `localStorage`, `sessionStorage` ni IndexedDB; que no fan cap petició més enllà de la del prefix de cinc caràcters; i que la descripció tècnica de cada eina coincideix amb el codi. | `/legal/privadesa` §4.3 · `/legal/galetes` · `/legal/condicions` §4 |
+| 8 | **Auditoria d'accessibilitat** i dates concretes de cada fase del calendari, que depenen del disseny definitiu. | `/legal/accessibilitat` §4 |
+| 9 | **Exportació o API oberta del conjunt de dades**, per canalitzar la reutilització massiva sense degradar el servei. | `/legal/condicions` §5 |
 
 ### Decisions de negoci que cal prendre
 
 | # | Pendent | On surt |
 | --- | --- | --- |
-| 11 | **Confirmar que New Spirit Studio S.L. és microempresa** —menys de 10 persones i volum de negoci o balanç no superior a 2 M€— per poder invocar l'art. 4.5 de la Directiva 2019/882 com a argument subsidiari. | `/legal/accessibilitat` §2.2 |
-| 12 | **Model de finançament del projecte**, per declarar-lo a la política editorial. | `/legal/politica-editorial` §1 |
-| 13 | **Coincidència entre empreses documentades i clients de l'estudi.** Si n'hi ha cap, s'ha de declarar com a conflicte d'interès potencial. És el punt més sensible de la independència editorial. | `/legal/politica-editorial` §1 |
-| 14 | **Periodicitat de revisió de les fitxes**, per exemple 6 mesos per als serveis massius i 12 per a la resta. | `/legal/politica-editorial` §4 |
+| 10 | **Confirmar que New Spirit Studio S.L. és microempresa** —menys de 10 persones i volum de negoci o balanç no superior a 2 M€— per poder invocar l'art. 4.5 de la Directiva 2019/882 com a argument subsidiari. | `/legal/accessibilitat` §2.2 |
+| 11 | **Model de finançament del projecte**, per declarar-lo a la política editorial. | `/legal/politica-editorial` §1 |
+| 12 | **Coincidència entre empreses documentades i clients de l'estudi.** Si n'hi ha cap, s'ha de declarar com a conflicte d'interès potencial. És el punt més sensible de la independència editorial. | `/legal/politica-editorial` §1 |
+| 13 | **Periodicitat de revisió de les fitxes**, per exemple 6 mesos per als serveis massius i 12 per a la resta. | `/legal/politica-editorial` §4 |
 
 ### Documentació interna que falta redactar
 
 | # | Pendent | On surt |
 | --- | --- | --- |
-| 15 | **Procediment de gestió de violacions de seguretat**: detecció, valoració, notificació en 72 h i registre. L'obligació dels arts. 33 i 34 no admet improvisació. | `analisi-de-riscos` §6 |
-| 16 | **Política de còpies de seguretat**: estratègia, xifratge, ubicació i prova de restauració. Art. 32.1.b i 32.1.c. | `analisi-de-riscos` §6 |
+| 14 | **Procediment de gestió de violacions de seguretat**: detecció, valoració, notificació en 72 h i registre. L'obligació dels arts. 33 i 34 no admet improvisació. | `analisi-de-riscos` §6 |
+| 15 | **Política de còpies de seguretat**: estratègia, xifratge, ubicació i prova de restauració. Art. 32.1.b i 32.1.c. | `analisi-de-riscos` §6 |
 
 ---
 

@@ -5,9 +5,10 @@ realment les aplicacions que fem servir cada dia: quines dades recullen, amb qui
 les comparteixen, com les protegeixen, si te'n pots anar i què queda quan ho
 fas.
 
-Aquest repositori és la **fase 1**: el model de dades, el sistema de puntuació i
-les primeres vint-i-cinc fitxes documentades. El frontend és deliberadament
-mínim; serveix per validar el contingut, no per ser el lloc web final.
+Aquest repositori és la **fase 1**: el model de dades, el sistema de puntuació,
+les primeres vint-i-cinc fitxes documentades, l'anàlisi transversal del corpus i
+les eines pràctiques. El frontend és deliberadament mínim; serveix per validar el
+contingut, no per ser el lloc web final.
 
 ## Principis
 
@@ -38,10 +39,11 @@ de cap directori extern.
 | Empreses i filials | 29 |
 | Fonts al catàleg | 101 |
 | Incidents i sancions | 23 |
-| Tipus de dada | 34 |
+| Tipus de dada | 46 |
 | Finalitats de tractament | 16 |
 | Categories | 14 |
 | Indicadors de puntuació | 38 |
+| Filtracions importades de Have I Been Pwned | 1.035 |
 
 ## Requisits
 
@@ -73,6 +75,8 @@ El lloc queda a `http://localhost:3000` i el panell d'administració a
 | `pnpm build` | Compilació de producció |
 | `pnpm seed` | Càrrega idempotent del contingut editorial |
 | `pnpm import-logos` | Baixa els logotips des de l'App Store |
+| `pnpm import-breaches` | Importa el catàleg de filtracions de Have I Been Pwned |
+| `pnpm build-wordlist` | Regenera la llista de paraules de les frases de pas |
 | `pnpm rescore` | Recalcula totes les puntuacions |
 | `pnpm create-admin` | Crea el compte administrador inicial |
 | `pnpm lint` | ESLint |
@@ -97,6 +101,68 @@ FORCE_LOGOS=1 pnpm import-logos   # refà totes les icones
 
 Són marques registrades de tercers i s'utilitzen únicament per identificar el
 servei analitzat.
+
+## Filtracions
+
+El catàleg públic de filtracions de [Have I Been Pwned](https://haveibeenpwned.com)
+s'importa a la col·lecció `breaches` i es pot consultar a `/filtracions`.
+
+```bash
+pnpm import-breaches
+```
+
+Una filtració **no és un incident i no mou cap puntuació**. És evidència d'un
+tercer, no una anàlisi nostra: només els incidents escrits editorialment entren
+al càlcul. El que sí que hi afegeix el projecte és la traducció, que és la part
+que no existeix enlloc més. Les categories de dades de HIBP, escrites en anglès i
+amb vocabulari propi, queden mapades als nostres tipus de dada, de manera que una
+filtració es llegeix amb les mateixes paraules que una fitxa d'aplicació.
+
+El lligam entre una filtració i una empresa es dedueix del domini. Com que HIBP
+indexa el domini del **servei** (`snapchat.com`) i el directori desa el domini
+**corporatiu** (`snap.com`), les empreses porten un camp `productDomains` amb els
+dominis amb què la gent es troba els seus productes. Quan dues societats del
+mateix grup encaixen igual de bé amb una filtració, es deixa sense lligar en
+comptes d'endevinar quina en respon: decidir quina societat respon d'una filtració
+és una decisió jurídica, no una comparació de cadenes.
+
+Les dades de HIBP són CC BY 4.0 i es publiquen amb l'atribució i l'enllaç que la
+llicència exigeix.
+
+## Anàlisi transversal
+
+A `/analisi` hi ha les preguntes que no es poden respondre mirant una fitxa sola:
+quines dades demana tothom, quins grups empresarials concentren més exposició,
+quins patrons foscos es repeteixen, en quines jurisdiccions viuen les dades, com
+de fàcil és marxar i quina qualitat d'evidència sosté cada conclusió. El càlcul
+viu a `src/lib/analysis/` i es fa sobre el corpus complet, amb proves pròpies.
+
+## Eines
+
+A `/eines` hi ha tres eines pràctiques. Totes calculen al navegador i cap no desa
+res:
+
+- **Contrasenyes** (`/eines/contrasenyes`): generador de contrasenyes i de frases
+  de pas en català amb entropia real, i comprovació contra les contrasenyes
+  filtrades. La comprovació fa servir el **k-anonimat**: el navegador calcula el
+  resum SHA-1 de la contrasenya i només n'envia els cinc primers caràcters
+  hexadecimals, mai la contrasenya.
+- **Exposició personal** (`/eines/exposicio`): quines dades teves circulen, quantes
+  empreses hi accedeixen i quins grups n'acumulen més, a partir de les aplicacions
+  que triïs.
+- **Comparador** (`/eines/comparador`): dues o tres aplicacions de la mateixa
+  categoria, indicador per indicador.
+
+La política de seguretat de contingut del lloc és `connect-src 'self'`, de manera
+que cap pàgina pot parlar amb cap tercer encara que ho volgués. Per això la
+consulta de contrasenyes filtrades passa per una ruta pròpia que actua de pont.
+
+## Documentació legal
+
+Els set documents públics són a `/legal` i el codi que els genera a
+`src/app/(frontend)/legal/`. La documentació interna que no es publica —registre
+d'activitats de tractament de l'article 30 i anàlisi de riscos— és a
+`docs/legal/`, amb un índex que explica cada decisió i el que queda pendent.
 
 ## Model de dades
 
@@ -134,6 +200,9 @@ recorreguda, anul·lada o en tramitació.
 
 **ScoreSnapshots** desa cada canvi de puntuació amb la data i la versió de
 metodologia que la va produir.
+
+**Breaches** desa el catàleg de filtracions importat de Have I Been Pwned, amb la
+correspondència als tipus de dada del projecte i el lligam editorial a l'empresa.
 
 **ScoringMethodologies** publica la metodologia vigent. Es genera des de les
 constants del codi, de manera que el document públic i el motor de càlcul no
@@ -176,13 +245,19 @@ src/
     access.ts        Control d'accés
     env.ts           Lectura i validació de variables d'entorn
     scoring/         Motor de puntuació i metodologia
+    analysis/        Anàlisi transversal del corpus
+    passwords/       Entropia, frases de pas i k-anonimat
   seed/              Contingut editorial com a dades tipades
   app/
     (frontend)/      Lloc públic mínim
+      analisi/       Anàlisi transversal
+      eines/         Eines pràctiques i pont de k-anonimat
+      filtracions/   Catàleg de filtracions
+      legal/         Documents legals públics
     (payload)/       Panell d'administració
-scripts/             Càrrega, recàlcul, logotips i creació d'administrador
-tests/               Proves del motor de puntuació
-docs/                Documentació de la metodologia
+scripts/             Càrrega, recàlcul, logotips, filtracions i llista de paraules
+tests/               Proves de puntuació, anàlisi i contrasenyes
+docs/                Metodologia, arquitectura i documentació legal interna
 ```
 
 El contingut editorial viu al repositori com a TypeScript tipat, no com a un
@@ -191,5 +266,21 @@ canvis com qualsevol altre text.
 
 ## Llicència
 
-MIT per al codi. El contingut editorial i les puntuacions són obra pròpia
-d'Identitat.digital.
+**El codi és MIT. El contingut és CC BY-SA 4.0.** Són dues llicències diferents
+per a dues coses diferents: el programa d'una banda, el que hi ha escrit a dins
+de l'altra.
+
+El contingut editorial, les puntuacions, el seu desglossament i la selecció i
+disposició del conjunt es publiquen sota **Creative Commons
+Reconeixement-CompartirIgual 4.0 Internacional**. És la versió 4.0 perquè és
+l'única que llicencia expressament el dret *sui generis* del fabricant de bases
+de dades, que en un projecte que essencialment és una base de dades verificada és
+el dret que més importa.
+
+En queden exclosos, perquè no són nostres per sublicenciar: els logotips i les
+marques de les empreses analitzades, les citacions literals de polítiques i
+resolucions —publicades a l'empara del dret de citació—, el catàleg de Have I
+Been Pwned, que conserva la seva CC BY 4.0, i la llista de paraules en català.
+
+El detall complet és a **[/legal/llicencia](src/app/(frontend)/legal/llicencia/page.tsx)**
+i el raonament de cada decisió a **[docs/legal/README.md](docs/legal/README.md)**.

@@ -6,11 +6,12 @@ export const dynamic = 'force-dynamic'
 
 export default async function HomePage() {
   const payload = await getClient()
-  const [apps, companies, sources, incidents] = await Promise.all([
+  const [apps, companies, sources, incidents, breaches] = await Promise.all([
     payload.count({ collection: 'apps' }),
     payload.count({ collection: 'companies' }),
     payload.count({ collection: 'sources' }),
     payload.count({ collection: 'incidents' }),
+    payload.count({ collection: 'breaches' }),
   ])
 
   return (
@@ -40,6 +41,10 @@ export default async function HomePage() {
             <th>Incidents registrats</th>
             <td>{incidents.totalDocs}</td>
           </tr>
+          <tr>
+            <th>Filtracions al catàleg</th>
+            <td>{breaches.totalDocs.toLocaleString('ca-ES')}</td>
+          </tr>
         </tbody>
       </table>
 
@@ -52,6 +57,18 @@ export default async function HomePage() {
         <li>
           <Link href="/empreses">Empreses i grups</Link>, per veure quantes aplicacions acaben al
           mateix lloc.
+        </li>
+        <li>
+          <Link href="/analisi">Anàlisi transversal</Link>, que mira les vint-i-cinc fitxes alhora:
+          quines dades demana tothom, qui acumula més i com de fàcil és marxar.
+        </li>
+        <li>
+          <Link href="/eines">Eines</Link>, per passar de saber-ho a fer-hi alguna cosa. Generador
+          de contrasenyes, calculadora d’exposició i comparador, tots calculant al navegador.
+        </li>
+        <li>
+          <Link href="/filtracions">Filtracions</Link>, el catàleg de Have I Been Pwned traduït al
+          vocabulari del projecte.
         </li>
         <li>
           <Link href="/metodologia">Metodologia</Link>, que explica com es calcula cada xifra i què
