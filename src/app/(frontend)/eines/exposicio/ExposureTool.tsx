@@ -321,8 +321,8 @@ function Results({ exposure }: { exposure: Exposure }) {
         {exposure.unknowns.share} % encara no ho està: {exposure.unknowns.status} files de la matriu
         de dades no diuen si la dada es recull, {exposure.unknowns.sharing} no diuen amb qui es
         comparteix i {exposure.unknowns.indicators} indicadors de puntuació aplicables no s’han
-        pogut documentar. El que llegiràs a sota és el que consta documentat, no tot el que passa:
-        un buit de documentació no és una absència de tractament.
+        pogut documentar. A sota hi ha el que consta documentat, que no és tot el que passa: un
+        buit a la fitxa no vol dir que el servei no ho faci.
       </p>
 
       {/* ─────────────── 1. Dades ─────────────── */}
@@ -412,7 +412,7 @@ function Results({ exposure }: { exposure: Exposure }) {
           <p>
             Aquestes dades tenen un règim jurídic propi: el tractament està prohibit per defecte i
             només és lícit si es compleix una de les excepcions de l’article 9.2, normalment el
-            consentiment explícit. Per això es diuen a part i no barrejades amb la resta.
+            consentiment explícit, i per això es compten a part.
           </p>
           <ul className="plain">
             {exposure.specialCategories.map((dataType) => (
