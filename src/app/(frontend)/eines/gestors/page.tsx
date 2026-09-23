@@ -25,9 +25,9 @@ export default function PasswordManagersPage() {
       </p>
       <h1>Gestors de contrasenyes</h1>
       <p className="lede">
-        Un gestor de contrasenyes és la millora de seguretat més gran que es pot fer en una tarda.
-        No perquè sigui màgic, sinó perquè resol el problema real: ningú no pot recordar cent
-        contrasenyes diferents, i per això les repeteix.
+        Un gestor de contrasenyes és la millora de seguretat més gran que es pot fer en una tarda:
+        resol el problema de fons, que ningú no pot recordar cent contrasenyes diferents i acaba
+        repetint-les.
       </p>
 
       <h2>Per què la repetició és el problema</h2>

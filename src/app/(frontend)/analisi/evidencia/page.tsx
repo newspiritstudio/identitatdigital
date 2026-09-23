@@ -54,9 +54,7 @@ export default async function EvidencePage() {
       <h1>Què sabem i què no</h1>
       <p className="lede">
         Aquesta pàgina no mesura les aplicacions: ens mesura a nosaltres. Diu quina part del que
-        afirmem està documentada, amb quina mena de font i què ens queda per mirar. És la pàgina que
-        fa creïbles totes les altres, perquè un directori que no sap dir quant no sap acaba fent
-        passar el silenci per conclusió.
+        afirmem està documentada, amb quina mena de font i què ens queda per mirar.
       </p>
 
       <KeyNumbers>
@@ -69,8 +67,8 @@ export default async function EvidencePage() {
       <h2>La regla</h2>
       <p>
         Un desconegut és una tasca pendent, no una mala nota. «Hem comprovat que no ho fan» i «no
-        ho hem mirat» no es barregen mai en una sola xifra. El que sí que és un incompliment és una
-        afirmació documentada sense font, i aquesta xifra ha de ser zero: ara mateix és{' '}
+        ho hem mirat» no es barregen mai en una sola xifra. L’incompliment és publicar una
+        afirmació sense font, i aquesta xifra ha de ser zero: ara mateix és{' '}
         {num(analysis.claimsWithoutSources)}.
       </p>
       <StatusStack tally={analysis.claims} unit="afirmacions" />
@@ -151,7 +149,7 @@ export default async function EvidencePage() {
 
       {auditsIndicator && auditsIndicator.unknown > 0 ? (
         <>
-          <h2>Un buit que val la pena mirar de prop: les auditories independents</h2>
+          <h2>Les auditories independents</h2>
           <p>
             {num(auditsIndicator.unknown)} de les {num(auditsIndicator.applicable)} fitxes no diuen
             res sobre si el servei publica auditories de seguretat independents (
