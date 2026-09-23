@@ -137,6 +137,7 @@ const appData = (app: AppSeed) => ({
   jurisdiction: app.jurisdiction,
   userBase: app.userBase,
   serviceStatus: app.serviceStatus ?? 'active',
+  brandColor: app.brandColor,
   links: app.links,
   accountRequired: fact(app.accountRequired),
   openSource: fact(app.openSource),

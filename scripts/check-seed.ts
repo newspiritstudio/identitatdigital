@@ -119,8 +119,27 @@ const checkApp = (app: AppSeed) => {
   if (!app.tagline || !app.summary) err(w, 'falta tagline o summary')
   app.platforms?.forEach((p) => oneOf(`${w}.platforms`, p, ['ios', 'android', 'web', 'windows', 'macos', 'linux', 'other']))
   oneOf(`${w}.businessModel`, app.businessModel, ['advertising', 'subscription', 'freemium', 'paid', 'commerce', 'donations', 'public-service', 'unknown'])
-  for (const key of Object.keys(app.links ?? {}))
-    oneOf(`${w}.links`, key, ['website', 'privacyPolicy', 'terms', 'privacyCenter', 'appStore', 'playStore'])
+  for (const [key, url] of Object.entries(app.links ?? {})) {
+    oneOf(`${w}.links`, key, [
+      'website',
+      'privacyPolicy',
+      'terms',
+      'privacyCenter',
+      'appStore',
+      'playStore',
+      'deleteAccount',
+      'dataExport',
+      'rightsRequest',
+      'adSettings',
+      'subprocessors',
+      'security',
+      'transparencyReport',
+      'statusOrChangelog',
+    ])
+    if (url && !/^https?:\/\//.test(url)) err(`${w}.links.${key}`, 'adreça sense protocol')
+  }
+  if (app.brandColor && !/^#[0-9a-fA-F]{6}$/.test(app.brandColor))
+    err(`${w}.brandColor`, 'el color ha de ser hexadecimal de sis dígits')
   checkFact(`${w}.accountRequired`, app.accountRequired)
   checkFact(`${w}.openSource`, app.openSource)
 

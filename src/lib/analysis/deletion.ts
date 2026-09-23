@@ -151,7 +151,7 @@ export const analyseDeletion = (corpus: Corpus): DeletionAnalysis => {
       if (factStatus(at(deletion, 'selfService')) === 'yes') supportContradictions += 1
     }
 
-    const directUrl = at(deletion, 'directUrl')
+    const directUrl = at(deletion, 'directUrl') ?? at(app, 'links.deleteAccount')
     if (typeof directUrl === 'string' && directUrl.trim().length > 0) withDirectUrl += 1
 
     const steps = at(deletion, 'steps')

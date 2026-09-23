@@ -51,6 +51,20 @@ export const Apps: CollectionConfig = {
       admin: { position: 'sidebar' },
     },
     {
+      name: 'brandColor',
+      label: 'Color de marca',
+      type: 'text',
+      admin: {
+        position: 'sidebar',
+        description:
+          'Color identificatiu del servei en hexadecimal (#1DB954). Serveix per a l’accent de la fitxa; si es deixa buit, la fitxa es veu amb els colors del lloc.',
+      },
+      validate: (value: unknown) =>
+        !value || /^#[0-9a-fA-F]{6}$/.test(String(value))
+          ? true
+          : 'Ha de ser un color hexadecimal de sis dígits, com ara #1DB954.',
+    },
+    {
       name: 'serviceStatus',
       label: 'Estat del servei',
       type: 'select',
@@ -409,6 +423,78 @@ export const Apps: CollectionConfig = {
                   fields: [
                     { name: 'appStore', label: 'App Store', type: 'text', admin: { width: '50%' } },
                     { name: 'playStore', label: 'Google Play', type: 'text', admin: { width: '50%' } },
+                  ],
+                },
+                {
+                  type: 'row',
+                  fields: [
+                    {
+                      name: 'deleteAccount',
+                      label: 'Esborrar el compte',
+                      type: 'text',
+                      admin: {
+                        width: '50%',
+                        description:
+                          'Si es deixa buit, la fitxa mostra l’adreça directa d’eliminació de la pestanya «Eliminació i drets».',
+                      },
+                    },
+                    {
+                      name: 'dataExport',
+                      label: 'Descarregar les teves dades',
+                      type: 'text',
+                      admin: { width: '50%' },
+                    },
+                  ],
+                },
+                {
+                  type: 'row',
+                  fields: [
+                    {
+                      name: 'rightsRequest',
+                      label: 'Exercir els drets RGPD',
+                      type: 'text',
+                      admin: { width: '50%', description: 'Formulari o adreça de contacte de protecció de dades.' },
+                    },
+                    {
+                      name: 'adSettings',
+                      label: 'Configuració de publicitat',
+                      type: 'text',
+                      admin: { width: '50%' },
+                    },
+                  ],
+                },
+                {
+                  type: 'row',
+                  fields: [
+                    {
+                      name: 'subprocessors',
+                      label: 'Llista de subencarregats',
+                      type: 'text',
+                      admin: { width: '50%', description: 'Pàgina amb els tercers que tracten dades per compte del servei.' },
+                    },
+                    {
+                      name: 'security',
+                      label: 'Pàgina de seguretat',
+                      type: 'text',
+                      admin: { width: '50%' },
+                    },
+                  ],
+                },
+                {
+                  type: 'row',
+                  fields: [
+                    {
+                      name: 'transparencyReport',
+                      label: 'Informe de transparència',
+                      type: 'text',
+                      admin: { width: '50%' },
+                    },
+                    {
+                      name: 'statusOrChangelog',
+                      label: 'Historial de canvis de la política',
+                      type: 'text',
+                      admin: { width: '50%', description: 'Pàgina on el servei publica els canvis de les condicions o de la política.' },
+                    },
                   ],
                 },
               ],

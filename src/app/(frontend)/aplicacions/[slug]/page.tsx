@@ -104,9 +104,46 @@ export default async function AppPage({ params }: { params: Promise<{ slug: stri
   const deletion = app.accountDeletion
   const scores = app.scores
 
+  /*
+   * Enllaços oficials. Es dibuixen només els que existeixen, i l'ordre és el de
+   * la utilitat per a qui llegeix: primer què fan amb les dades, després com
+   * te'n vas. L'adreça d'eliminació ja es documenta a la pestanya d'eliminació,
+   * així que el camp d'enllaços només cal omplir-lo si cal una altra adreça.
+   */
+  type LinkKind = 'action' | 'reference'
+  const links: [string, string | null | undefined, LinkKind][] = [
+    ['Esborrar el compte', app.links?.deleteAccount ?? deletion?.directUrl, 'action'],
+    ['Descarregar les teves dades', app.links?.dataExport, 'action'],
+    ['Exercir els drets', app.links?.rightsRequest, 'action'],
+    ['Configuració de privadesa', app.links?.privacyCenter, 'action'],
+    ['Configuració de publicitat', app.links?.adSettings, 'action'],
+    ['Política de privadesa', app.links?.privacyPolicy, 'reference'],
+    ['Condicions', app.links?.terms, 'reference'],
+    ['Subencarregats', app.links?.subprocessors, 'reference'],
+    ['Seguretat', app.links?.security, 'reference'],
+    ['Informe de transparència', app.links?.transparencyReport, 'reference'],
+    ['Canvis de la política', app.links?.statusOrChangelog, 'reference'],
+    ['Lloc web', app.links?.website, 'reference'],
+    ['App Store', app.links?.appStore, 'reference'],
+    ['Google Play', app.links?.playStore, 'reference'],
+  ]
+  const visibleLinks = links.filter(
+    (entry): entry is [string, string, LinkKind] => Boolean(entry[1]),
+  )
+
+  // El color de marca és decoratiu i opcional: viatja com a variable CSS als
+  // elements que l'utilitzen, i si la fitxa no en té, tot es veu com la resta
+  // del lloc.
+  const brand = app.brandColor
+    ? ({ '--brand': app.brandColor } as React.CSSProperties)
+    : undefined
+
   return (
     <>
-      <h1 className="with-logo">
+      <h1
+        className={app.brandColor ? 'with-logo branded' : 'with-logo'}
+        style={brand}
+      >
         <Logo logo={app.logo} name={app.name} size={40} />
         {app.name}
       </h1>
@@ -160,6 +197,26 @@ export default async function AppPage({ params }: { params: Promise<{ slug: stri
 
       <p>{app.summary}</p>
 
+      {visibleLinks.length > 0 ? (
+        <nav className="applinks" aria-label={`Enllaços oficials de ${app.name}`} style={brand}>
+          <ul>
+            {visibleLinks.map(([text, href, kind]) => (
+              <li key={text}>
+                <a
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={kind === 'action' ? 'applink action' : 'applink'}
+                >
+                  {text}
+                  <span className="visually-hidden"> (s’obre en una pestanya nova)</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      ) : null}
+
       <h2>Identificació</h2>
       <div
         className="scroller"
@@ -196,29 +253,6 @@ export default async function AppPage({ params }: { params: Promise<{ slug: stri
             <tr>
               <th scope="row">Volum</th>
               <td>{app.userBase ?? '—'}</td>
-            </tr>
-            <tr>
-              <th scope="row">Enllaços</th>
-              <td>
-                {[
-                  ['Lloc web', app.links?.website],
-                  ['Política de privadesa', app.links?.privacyPolicy],
-                  ['Condicions', app.links?.terms],
-                  ['Centre de privadesa', app.links?.privacyCenter],
-                  ['App Store', app.links?.appStore],
-                  ['Google Play', app.links?.playStore],
-                ]
-                  .filter(([, href]) => Boolean(href))
-                  .map(([text, href], index) => (
-                    <React.Fragment key={String(text)}>
-                      {index > 0 ? ' · ' : ''}
-                      <a href={String(href)} target="_blank" rel="noreferrer">
-                        {String(text)}
-                        <span className="visually-hidden"> (s’obre en una pestanya nova)</span>
-                      </a>
-                    </React.Fragment>
-                  ))}
-              </td>
             </tr>
           </tbody>
         </table>

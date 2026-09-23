@@ -137,6 +137,27 @@ export type PublicServiceSeed = {
   mandatoryRetention: FactSeed
 }
 
+/**
+ * Enllaços oficials que pot mostrar una fitxa. Es dibuixen només si hi són, i
+ * els dos que hauria de tenir tothom són la política de privadesa i la via per
+ * esborrar el compte.
+ */
+export type AppLinkKey =
+  | 'website'
+  | 'privacyPolicy'
+  | 'terms'
+  | 'privacyCenter'
+  | 'appStore'
+  | 'playStore'
+  | 'deleteAccount'
+  | 'dataExport'
+  | 'rightsRequest'
+  | 'adSettings'
+  | 'subprocessors'
+  | 'security'
+  | 'transparencyReport'
+  | 'statusOrChangelog'
+
 export type AppSeed = {
   slug: string
   name: string
@@ -149,7 +170,9 @@ export type AppSeed = {
   jurisdiction?: string
   userBase?: string
   serviceStatus?: 'active' | 'discontinued' | 'merged'
-  links?: Record<string, string>
+  /** Color identificatiu del servei, en hexadecimal de sis dígits. */
+  brandColor?: string
+  links?: Partial<Record<AppLinkKey, string>>
   accountRequired: FactSeed
   openSource: FactSeed
   publicService?: PublicServiceSeed

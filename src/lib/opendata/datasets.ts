@@ -159,6 +159,11 @@ const appsDataset: DatasetSpec = {
     { name: 'catala_atencio', type: 'text', description: 'Atenció i documentació en català: yes, help-only, no o unknown.' },
     { name: 'catala_comprovat_el', type: 'data', description: 'Data de la darrera comprovació d’idiomes.' },
     { name: 'fitxa', type: 'text', description: 'Camí de la fitxa dins del lloc.' },
+    {
+      name: 'esborrar_compte',
+      type: 'text',
+      description: 'Adreça directa per eliminar el compte, quan n’hi ha una de documentada.',
+    },
   ],
   build: ({ corpus }) =>
     corpus.apps.map((app) => {
@@ -197,6 +202,8 @@ const appsDataset: DatasetSpec = {
         catala_atencio: str(at(app, 'catalan.support')),
         catala_comprovat_el: day(at(app, 'catalan.checkedAt')),
         fitxa: `/aplicacions/${str(app.slug) ?? ''}`,
+        esborrar_compte:
+          str(at(app, 'accountDeletion.directUrl')) ?? str(at(app, 'links.deleteAccount')),
       }
     }),
 }

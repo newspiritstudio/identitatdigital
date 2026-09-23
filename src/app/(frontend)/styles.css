@@ -394,3 +394,47 @@ th {
   white-space: nowrap;
   border: 0;
 }
+
+/*
+ * Color de marca d'una fitxa. És decoratiu: identifica el servei d'un cop d'ull
+ * i no codifica cap informació, de manera que no cal que compleixi contrast de
+ * text. Si la fitxa no en té, el títol es veu com la resta del lloc.
+ */
+h1.branded {
+  border-bottom: 3px solid var(--brand);
+  padding-bottom: 0.3rem;
+}
+
+/*
+ * Enllaços oficials d'una fitxa. Els primers són coses que la persona pot fer
+ * ara mateix —esborrar el compte, demanar les dades— i per això es distingeixen
+ * dels documents, que només es llegeixen. Són enllaços de debò, no botons: han
+ * de poder copiar-se i obrir-se en una pestanya nova.
+ */
+.applinks ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 1rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+.applink {
+  display: inline-block;
+  border: 1px solid var(--line);
+  border-radius: 0.2rem;
+  padding: 0.25rem 0.6rem;
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+
+.applink:hover,
+.applink:focus-visible {
+  text-decoration: underline;
+}
+
+.applink.action {
+  border-color: var(--brand, currentColor);
+  font-weight: 600;
+}

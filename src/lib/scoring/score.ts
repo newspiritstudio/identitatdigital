@@ -302,7 +302,10 @@ const deletionUrlIndicator = (app: unknown): IndicatorOutcome => {
   const possible = get(app, 'accountDeletion.possible') as FactLike
   const status = typeof possible?.status === 'string' ? possible.status : 'unknown'
   if (status === 'unknown') return custom('deletion-direct-url', null, true, level(possible))
-  const url = get(app, 'accountDeletion.directUrl')
+  // L'adreça pot estar al bloc d'eliminació o al d'enllaços oficials: per a la
+  // persona lectora és la mateixa cosa, i qui edita la fitxa no ha d'endevinar
+  // quin dels dos camps compta.
+  const url = get(app, 'accountDeletion.directUrl') ?? get(app, 'links.deleteAccount')
   return custom('deletion-direct-url', url ? 1 : 0.35, true, level(possible))
 }
 
