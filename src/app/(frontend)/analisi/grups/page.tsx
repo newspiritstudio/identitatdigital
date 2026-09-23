@@ -142,10 +142,10 @@ export default async function GroupsPage() {
         que responen a la mateixa casa.
       </p>
       <p>
-        El que es pot deduir d’un perfil així no és la suma de les parts. Qui sap què cerques i on
-        vas, o amb qui parles i què mires, no necessita que li diguis res més: la combinació respon
-        preguntes que cap de les dades no responia per separat. És per això que la propietat importa
-        tant com la política de privadesa.
+        D’un perfil així se’n dedueix més que de la suma de les parts. Qui sap què cerques i on vas,
+        o amb qui parles i què mires, pot respondre preguntes que cap de les dades no responia per
+        separat. Per això mirem de qui és cada aplicació i no només què diu la seva política de
+        privadesa.
       </p>
       {groups[0] ? (
         <table>

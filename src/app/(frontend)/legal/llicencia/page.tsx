@@ -247,11 +247,11 @@ export default function LicensePage() {
         que és l’objectiu del projecte.
       </p>
       <p>
-        <strong>En contra:</strong> permet que algú es baixi les vint-i-cinc fitxes, les vint-i-nou
-        empreses i les cent una fonts, en faci un producte tancat, hi posi publicitat o un mur de
-        pagament, i no torni res. El risc no és teòric: una base de dades verificada com aquesta és
-        material aprofitable per a una empresa d’extracció de dades. El projecte hi hauria posat la inversió de verificació i perdria el control
-        sobre si el resultat continua sent públic.
+        <strong>En contra:</strong> permet que algú es baixi les quatre-centes fitxes, les empreses
+        i les fonts, en faci un producte tancat, hi posi publicitat o un mur de pagament, i no torni
+        res. Una base de dades verificada com aquesta és material aprofitable per a una empresa
+        d’extracció de dades: el projecte hi hauria posat totes les hores de verificació i perdria el
+        control sobre si el resultat continua sent públic.
       </p>
 
       <h3>Reconeixement-NoComercial (CC BY-NC)</h3>

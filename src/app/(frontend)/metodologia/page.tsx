@@ -7,6 +7,8 @@ export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = { title: 'Metodologia' }
 
+const DATA = new Intl.DateTimeFormat('ca-ES', { day: 'numeric', month: 'long', year: 'numeric' })
+
 export default async function MethodologyPage() {
   const payload = await getClient()
   const { docs } = await payload.find({
@@ -26,15 +28,17 @@ export default async function MethodologyPage() {
     )
   }
 
-  const byDimension = (key: string) =>
-    (methodology.indicators ?? []).filter((indicator) => indicator.dimension === key)
+  const byDimension = (key: string, scope: string) =>
+    (methodology.indicators ?? []).filter(
+      (indicator) => indicator.dimension === key && (indicator.scope ?? 'all') === scope,
+    )
 
   return (
     <>
       <h1>Metodologia de puntuació</h1>
       <p className="lede">
         Versió {methodology.version}, vigent des del{' '}
-        {String(methodology.effectiveFrom).slice(0, 10)}.
+        {DATA.format(new Date(methodology.effectiveFrom))}.
       </p>
 
       <p>{methodology.summary}</p>
@@ -70,7 +74,7 @@ export default async function MethodologyPage() {
               <tr key={dimension.id}>
                 <td>{dimension.label}</td>
                 <td>{Math.round((dimension.weight ?? 0) * 100)} %</td>
-                <td>{byDimension(dimension.key).length}</td>
+                <td>{byDimension(dimension.key, 'all').length}</td>
               </tr>
             ))}
           </tbody>
@@ -109,7 +113,7 @@ export default async function MethodologyPage() {
                 </tr>
               </thead>
               <tbody>
-                {byDimension(dimension.key).map((indicator) => (
+                {byDimension(dimension.key, 'all').map((indicator) => (
                   <tr key={indicator.id}>
                     <td>{indicator.label}</td>
                     <td>{indicator.weight}</td>
@@ -121,6 +125,55 @@ export default async function MethodologyPage() {
           </div>
         </div>
       ))}
+
+      {(methodology.indicators ?? []).some((indicator) => indicator.scope === 'public-service') ? (
+        <>
+          <h2>Indicadors de servei públic</h2>
+          <p>
+            Les fitxes marcades com a servei públic es puntuen amb set indicadors més, que
+            substitueixen el programa de recompenses i l’informe de transparència. Un ajuntament no
+            té cap d’aquestes dues coses i no té sentit restar-li punts per això; el que sí que ha de
+            tenir és una base legal publicada, un registre d’activitats de tractament i un delegat de
+            protecció de dades.
+          </p>
+          {(methodology.dimensions ?? [])
+            .filter((dimension) => byDimension(dimension.key, 'public-service').length > 0)
+            .map((dimension) => (
+              <div key={dimension.id}>
+                <h3>
+                  {DIMENSION_LABELS[dimension.key as keyof typeof DIMENSION_LABELS] ??
+                    dimension.label}
+                </h3>
+                <div
+                  className="scroller"
+                  role="region"
+                  tabIndex={0}
+                  aria-label={`Indicadors de servei públic de la dimensió ${DIMENSION_LABELS[dimension.key as keyof typeof DIMENSION_LABELS] ?? dimension.label}`}
+                >
+                  <table>
+                    <caption className="visually-hidden">{`Indicadors de servei públic de la dimensió ${DIMENSION_LABELS[dimension.key as keyof typeof DIMENSION_LABELS] ?? dimension.label}`}</caption>
+                    <thead>
+                      <tr>
+                        <th scope="col">Indicador</th>
+                        <th scope="col">Pes</th>
+                        <th scope="col">Què mesura</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {byDimension(dimension.key, 'public-service').map((indicator) => (
+                        <tr key={indicator.id}>
+                          <td>{indicator.label}</td>
+                          <td>{indicator.weight}</td>
+                          <td className="meta">{indicator.description}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            ))}
+        </>
+      ) : null}
 
       {methodology.changelog ? (
         <>

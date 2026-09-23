@@ -73,9 +73,8 @@ export default async function BreachesPage() {
       <h1>Filtracions de dades</h1>
       <p className="lede">
         {totalDocs.toLocaleString('ca-ES')} filtracions documentades per Have I Been Pwned. No són
-        anàlisis nostres i no mouen cap puntuació: són evidència de tercers que incorporem perquè
-        expliquen una part de la història que una política de privadesa no explica mai, què passa
-        quan les dades que una empresa ha recollit se li escapen.
+        anàlisis nostres i no mouen cap puntuació. Les incorporem perquè mostren què va passar quan
+        les dades que una empresa havia recollit se li van escapar.
       </p>
 
       <div

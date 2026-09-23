@@ -48,8 +48,8 @@ export default function EditorialPolicyPage() {
       <h3>Desconegut no vol dir dolent</h3>
       <p>
         El que no hem pogut documentar queda marcat com a desconegut, no com a negatiu, i no mou la
-        puntuació en cap direcció. El que baixa és el <strong>grau de confiança</strong> de
-        l’anàlisi, que es publica al costat de la nota. Així, una empresa que no documenta res no
+        puntuació en cap direcció. Baixa el <strong>grau de confiança</strong> de l’anàlisi, que es
+        publica al costat de la nota. Així, una empresa que no documenta res no
         queda ni castigada ni premiada: queda amb una anàlisi de confiança baixa.
       </p>
 
@@ -162,8 +162,7 @@ export default function EditorialPolicyPage() {
               <td>Valoració editorial</td>
               <td>La nostra interpretació d’uns fets documentats</td>
               <td>
-                Es marca sempre com a tal i mai no es presenta com un fet. És on discrepar és més
-                legítim.
+                Es marca sempre com a tal i mai no es presenta com un fet.
               </td>
             </tr>
           </tbody>
@@ -238,8 +237,8 @@ export default function EditorialPolicyPage() {
 
       <h2>5. Correccions</h2>
       <p>
-        Ens equivocarem. El que determina la credibilitat d’una publicació no és no equivocar-se
-        mai: és què fa quan s’equivoca.
+        Ens equivocarem. Per això hi ha un procediment escrit per a quan passi, amb el rastre del
+        canvi visible a la fitxa.
       </p>
       <TableWrap label="Tipus de correcció, amb un exemple i el tractament que rep">
         <table>
@@ -372,8 +371,8 @@ export default function EditorialPolicyPage() {
         </li>
       </ol>
       <p>
-        Aquesta tercera possibilitat és la important. Que no et donem la raó no vol dir que et
-        deixem sense veu: la teva versió queda publicada al costat de la nostra i que cadascú jutgi.
+        La tercera possibilitat és la que fem servir quan no ens posem d’acord: la teva versió queda
+        publicada al costat de la nostra, i que cadascú jutgi.
       </p>
 
       <h3>6.3. Què no fem</h3>

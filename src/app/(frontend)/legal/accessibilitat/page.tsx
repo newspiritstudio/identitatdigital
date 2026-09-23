@@ -225,7 +225,7 @@ export default function AccessibilityPage() {
         <li>
           <strong>Cap imatge sense text alternatiu.</strong> Això no depèn de la disciplina de qui
           edita: el camp de text alternatiu és obligatori al gestor de continguts i una imatge no es
-          pot desar sense ell. És una garantia estructural, no una bona intenció.
+          pot desar sense ell.
         </li>
         <li>
           <strong>Cap animació, cap moviment automàtic, cap contingut intermitent i cap reproducció

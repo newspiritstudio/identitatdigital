@@ -18,8 +18,9 @@ export default async function HomePage() {
     <>
       <h1>Identitat.digital</h1>
       <p className="lede">
-        Base de coneixement sobre privadesa, seguretat i control de les dades a les aplicacions que
-        fem servir cada dia. Cada afirmació porta la seva font, i el que no sabem ho diu.
+        Què fan amb les teves dades les aplicacions que tens al telèfon. Quatre-centes fitxes
+        documentades una per una, amb la font de cada afirmació i amb els buits marcats com a
+        buits.
       </p>
 
       <h2>Estat de la base de dades</h2>
@@ -69,12 +70,12 @@ export default async function HomePage() {
           mateix lloc.
         </li>
         <li>
-          <Link href="/analisi">Anàlisi transversal</Link>, que mira les vint-i-cinc fitxes alhora:
-          quines dades demana tothom, qui acumula més i com de fàcil és marxar.
+          <Link href="/analisi">Anàlisi transversal</Link>, que mira les 400 fitxes alhora: quines
+          dades demana tothom, qui acumula més i què costa marxar.
         </li>
         <li>
-          <Link href="/eines">Eines</Link>, per passar de saber-ho a fer-hi alguna cosa. Generador
-          de contrasenyes, calculadora d’exposició i comparador, tots calculant al navegador.
+          <Link href="/eines">Eines</Link>: generador de contrasenyes, calculadora d’exposició i
+          comparador de fitxes. Calculen al navegador i no envien res a cap servidor.
         </li>
         <li>
           <Link href="/filtracions">Filtracions</Link>, el catàleg de Have I Been Pwned traduït al
@@ -94,8 +95,8 @@ export default async function HomePage() {
           passa quan no sabem una cosa.
         </li>
         <li>
-          <Link href="/consultes">Consultes creuades</Link>, que és on es veu si el model de dades
-          serveix per a alguna cosa més que descriure fitxes una per una.
+          <Link href="/consultes">Consultes creuades</Link>: preguntes que travessen diverses
+          col·leccions alhora, com ara quines aplicacions de salut comparteixen dades amb tercers.
         </li>
       </ul>
     </>

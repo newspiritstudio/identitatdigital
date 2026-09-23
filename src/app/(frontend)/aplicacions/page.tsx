@@ -28,9 +28,8 @@ export default async function AppsPage() {
     <>
       <h1>Aplicacions</h1>
       <p className="lede">
-        {docs.length} fitxes ordenades per puntuació global. La columna de confiança diu fins a quin
-        punt hem pogut documentar cada anàlisi: una puntuació amb confiança baixa és una anàlisi
-        oberta, no un veredicte.
+        {docs.length} fitxes ordenades per puntuació global. La columna de confiança diu quanta part
+        de la fitxa hem pogut documentar. Si és baixa, encara hi falta feina per fer.
       </p>
 
       <div

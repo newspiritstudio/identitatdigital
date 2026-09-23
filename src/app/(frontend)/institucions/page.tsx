@@ -49,18 +49,18 @@ export default async function InstitutionsPage() {
         Reglament general de protecció de dades.
       </p>
       <p>
-        La conseqüència pràctica és desagradable: moltes entitats tenen, ara mateix, un encarregat
-        del tractament amb qui no han signat res, del qual no coneixen els subencarregats i del qual
-        no saben com recuperarien les dades si volguessin marxar.
+        Moltes entitats tenen, ara mateix, un encarregat del tractament amb qui no han signat res,
+        del qual no coneixen els subencarregats i del qual no saben com recuperarien les dades si
+        volguessin marxar.
       </p>
 
       <h2>El protocol, en set passes</h2>
       <ol>
         <li>
           <strong>Escriviu la necessitat abans que el nom.</strong> «Cal comunicar-se amb les
-          famílies» no és «cal un grup de WhatsApp». La necessitat funcional escrita primer és
-          l’única cosa que permet comparar alternatives; si la primera línia de l’expedient ja porta
-          una marca, la resta del procés és decorativa.
+          famílies» no és «cal un grup de WhatsApp». Amb la necessitat escrita en termes funcionals
+          es poden comparar alternatives; si la primera línia de l’expedient ja porta una marca, la
+          comparació ja no es farà.
         </li>
         <li>
           <strong>Mireu la fitxa de contractació.</strong> A sota n’hi ha una per a cada aplicació
@@ -90,8 +90,8 @@ export default async function InstitutionsPage() {
         </li>
         <li>
           <strong>Deixeu-ho escrit i poseu-hi data de revisió.</strong> Les condicions de les
-          plataformes canvien sense avisar. Un expedient amb data de caducitat és l’única manera que
-          la decisió es torni a mirar.
+          plataformes canvien sense avisar. Si l’expedient no porta data de caducitat, la decisió no
+          es tornarà a mirar mai.
         </li>
       </ol>
 
@@ -104,7 +104,7 @@ export default async function InstitutionsPage() {
         <li>
           <strong>Exclusió expressa de l’entrenament de models.</strong> El contingut de l’entitat
           queda fora de qualsevol entrenament, propi o de tercers. Feu-ho constar encara que avui el
-          proveïdor no ho faci: el que no està escrit canvia amb una actualització de condicions.
+          proveïdor no entreni res: les condicions s’actualitzen.
         </li>
         <li>
           <strong>Notificació de violacions de seguretat en 24 hores.</strong> L’entitat té 72 hores
@@ -120,8 +120,8 @@ export default async function InstitutionsPage() {
       <p>
         Una per aplicació, generades del mateix corpus que la resta del lloc.{' '}
         {CA.format(withStops)} de les {CA.format(sheets.length)} fitxes tenen algun punt marcat com a
-        atenció. Una alerta no vol dir que l’eina sigui il·legal: vol dir que l’expedient ha de dir
-        alguna cosa sobre aquell punt i que, si no ho diu, el punt queda sense resoldre.
+        atenció. Una alerta no diu que l’eina sigui il·legal; diu que l’expedient ha de resoldre
+        aquell punt abans de signar.
       </p>
       <ul className="grid">
         {sheets.map((sheet) => (

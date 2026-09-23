@@ -256,8 +256,8 @@ export default function CookiesPage() {
       </ul>
       <p className="meta">
         Les sancions de la CNIL a Google i a Facebook per fer més difícil rebutjar les galetes que
-        acceptar-les estan documentades a les fitxes corresponents d’aquest mateix lloc. És
-        precisament per això que aquí no hi ha cap botó.
+        acceptar-les estan documentades a les fitxes corresponents d’aquest mateix lloc. Aquí no hi
+        ha cap botó per rebutjar perquè no hi ha res a rebutjar.
       </p>
     </>
   )
