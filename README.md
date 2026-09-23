@@ -27,10 +27,10 @@ final.
 
 | | |
 | --- | --- |
-| Aplicacions documentades | 215 |
-| Empreses i filials | 222 |
-| Fonts al catàleg | 868 |
-| Incidents i sancions | 108 |
+| Aplicacions documentades | 400 |
+| Empreses i filials | 427 |
+| Fonts al catàleg | 1.429 |
+| Incidents i sancions | 130 |
 | Tipus de dada | 46 |
 | Finalitats de tractament | 16 |
 | Categories | 40 |
