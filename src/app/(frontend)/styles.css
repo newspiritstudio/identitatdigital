@@ -13,7 +13,7 @@
    */
   --line-strong: #767676;
   --focus: #0b3d6e;
-  --bg: #ffffff;
+  --bg: #f1f1f1;
   --accent: #14508c;
   --good: #1d6f42;
   --mid: #8a6d1b;
@@ -236,6 +236,9 @@ ul.plain {
   border-radius: 22.5%;
   flex-shrink: 0;
 }
+.logo.appgrid-logo {
+  box-shadow: 0 0 16px -10px #000  ! important;
+}
 
 /*
  * Taules amples. Una taula de diccionari de dades no cap a 400 px i encongir-ne
@@ -395,6 +398,7 @@ th {
   border: 0;
 }
 
+<<<<<<< Updated upstream
 /*
  * Color de marca d'una fitxa. És decoratiu: identifica el servei d'un cop d'ull
  * i no codifica cap informació, de manera que no cal que compleixi contrast de
@@ -438,3 +442,62 @@ h1.branded {
   border-color: var(--brand, currentColor);
   font-weight: 600;
 }
+=======
+
+.apps-search {
+  margin: 2rem 0;
+}
+
+.apps-search input {
+  width: 100%;
+  max-width: 500px;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  font: inherit;
+}
+
+.apps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1rem;
+}
+
+.app-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  gap: 0.75rem;
+  min-height: 160px;
+  padding: 1.5rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
+  transition:
+    border-color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.app-card:hover {
+  transform: translateY(-2px);
+  border-color: currentColor;
+}
+
+.app-card span {
+  font-weight: 600;
+}
+
+.apps-empty {
+  margin-top: 2rem;
+  color: var(--muted);
+}
+
+#contingut:has(.apps-search) {
+  background-color: white;
+padding: 20px 40px;
+border-radius: 26px;
+}
+>>>>>>> Stashed changes

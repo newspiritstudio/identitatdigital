@@ -1,6 +1,6 @@
-import Link from 'next/link'
 import type { Metadata } from 'next'
 
+<<<<<<< Updated upstream
 import { Logo, Score, getClient } from '../lib'
 import { loadCorpus, relationId, relationIds } from '@/lib/analysis'
 import type { Media } from '@/payload-types'
@@ -8,10 +8,21 @@ import type { Media } from '@/payload-types'
 export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = { title: 'Aplicacions' }
+=======
+import { getClient } from '../lib'
+import AppsGrid from './AppsGrid'
+
+export const dynamic = 'force-dynamic'
+
+export const metadata: Metadata = {
+  title: 'Aplicacions',
+}
+>>>>>>> Stashed changes
 
 export default async function AppsPage() {
   const payload = await getClient()
 
+<<<<<<< Updated upstream
   /*
    * La taula surt del corpus, que ja viu a la memòria del procés, i les
    * relacions es resolen contra els seus índexs. Demanar-ho amb profunditat 1
@@ -34,16 +45,25 @@ export default async function AppsPage() {
   const docs = [...corpus.apps].sort(
     (a, b) => (b.scores?.overall ?? -1) - (a.scores?.overall ?? -1),
   )
+=======
+  const { docs } = await payload.find({
+    collection: 'apps',
+    limit: 200,
+    depth: 1,
+    sort: 'name',
+    where: {
+      _status: {
+        equals: 'published',
+      },
+    },
+  })
+>>>>>>> Stashed changes
 
   return (
     <>
       <h1>Aplicacions</h1>
-      <p className="lede">
-        {docs.length} fitxes ordenades per puntuació global. La columna de confiança diu fins a quin
-        punt hem pogut documentar cada anàlisi: una puntuació amb confiança baixa és una anàlisi
-        oberta, no un veredicte.
-      </p>
 
+<<<<<<< Updated upstream
       <div
         className="scroller"
         role="region"
@@ -108,6 +128,16 @@ export default async function AppsPage() {
           </tbody>
         </table>
       </div>
+=======
+      <AppsGrid
+        apps={docs.map((app) => ({
+          id: app.id,
+          name: app.name,
+          slug: app.slug,
+          logo: app.logo,
+        }))}
+      />
+>>>>>>> Stashed changes
     </>
   )
 }
