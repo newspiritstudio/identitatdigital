@@ -3,11 +3,12 @@ import { getPayload } from 'payload'
 import type { Payload } from 'payload'
 
 import config from '@/payload.config'
-import { apps } from '@/seed/apps'
-import { companies } from '@/seed/companies'
-import { incidents } from '@/seed/incidents'
+import { apps as wave1Apps } from '@/seed/apps'
+import { companies as wave1Companies } from '@/seed/companies'
+import { incidents as wave1Incidents } from '@/seed/incidents'
 import { methodologyDoc } from '@/seed/methodology'
-import { sources } from '@/seed/sources'
+import { wave2 } from '@/seed/onada2'
+import { sources as wave1Sources } from '@/seed/sources'
 import { categories, dataTypes, purposes } from '@/seed/taxonomies'
 import type { AppSeed, DataRowSeed, FactSeed } from '@/seed/types'
 
@@ -24,6 +25,11 @@ import type { AppSeed, DataRowSeed, FactSeed } from '@/seed/types'
  * els incidents al final, perquè en desar-se forcen el recàlcul de les
  * puntuacions de les aplicacions afectades.
  */
+
+const apps = [...wave1Apps, ...wave2.apps]
+const companies = [...wave1Companies, ...wave2.companies]
+const incidents = [...wave1Incidents, ...wave2.incidents]
+const sources = [...wave1Sources, ...wave2.sources]
 
 type IdMap = Map<string, string>
 
@@ -101,7 +107,8 @@ const fact = (input?: FactSeed): Record<string, unknown> | undefined => {
 const facts = (input: Record<string, unknown>): Record<string, unknown> => {
   const out: Record<string, unknown> = {}
   for (const [key, value] of Object.entries(input)) {
-    out[key] = value && typeof value === 'object' && 'status' in value ? fact(value as FactSeed) : value
+    out[key] =
+      value && typeof value === 'object' && 'status' in value ? fact(value as FactSeed) : value
   }
   return out
 }
@@ -221,7 +228,9 @@ async function seed() {
     await upsert(payload, 'categories', slug, data)
   }
   for (const category of categories.filter((entry) => entry.parent)) {
-    await upsert(payload, 'categories', category.slug, { parent: id('categories', category.parent) })
+    await upsert(payload, 'categories', category.slug, {
+      parent: id('categories', category.parent),
+    })
   }
 
   console.log(`Empreses (${companies.length})…`)
@@ -271,12 +280,16 @@ async function seed() {
   console.log('Alternatives entre aplicacions…')
   for (const app of apps.filter((entry) => entry.alternatives?.length)) {
     await upsert(payload, 'apps', app.slug, {
-      alternatives: (app.alternatives ?? []).map((alternative) => ({
-        app: id('apps', alternative.app),
-        comparability: alternative.comparability,
-        rationale: alternative.rationale,
-        tradeOffs: alternative.tradeOffs,
-      })),
+      // Una alternativa pot apuntar a una fitxa d'un lot encara no documentat:
+      // s'omet fins que la fitxa existeixi.
+      alternatives: (app.alternatives ?? [])
+        .filter((alternative) => registry.apps.has(alternative.app))
+        .map((alternative) => ({
+          app: id('apps', alternative.app),
+          comparability: alternative.comparability,
+          rationale: alternative.rationale,
+          tradeOffs: alternative.tradeOffs,
+        })),
       _status: 'published',
     })
   }
@@ -294,7 +307,8 @@ async function seed() {
 
   const scored = await payload.find({
     collection: 'apps',
-    limit: 100,
+    limit: 0,
+    pagination: false,
     depth: 0,
     sort: '-scores.overall',
     overrideAccess: true,

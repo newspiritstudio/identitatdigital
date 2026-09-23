@@ -27,13 +27,13 @@ final.
 
 | | |
 | --- | --- |
-| Aplicacions documentades | 25 |
-| Empreses i filials | 29 |
-| Fonts al catàleg | 101 |
-| Incidents i sancions | 23 |
+| Aplicacions documentades | 215 |
+| Empreses i filials | 222 |
+| Fonts al catàleg | 868 |
+| Incidents i sancions | 108 |
 | Tipus de dada | 46 |
 | Finalitats de tractament | 16 |
-| Categories | 14 |
+| Categories | 40 |
 | Indicadors de puntuació | 38 |
 | Filtracions importades de Have I Been Pwned | 1.035 |
 | Conjunts de dades oberts publicats | 9 |

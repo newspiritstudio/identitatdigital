@@ -29,28 +29,31 @@ export default async function QueriesPage() {
       payload.find({
         collection: 'apps',
         where: { 'accountDeletion.selfService.status': { in: ['no', 'partial'] } },
-        limit: 100,
+        limit: 0,
+        pagination: false,
         depth: 0,
         sort: 'name',
       }),
       payload.find({
         collection: 'apps',
         where: { 'dataUses.aiTraining.status': { equals: 'yes' } },
-        limit: 100,
+        limit: 0,
+        pagination: false,
         depth: 0,
         sort: 'name',
       }),
       payload.find({
         collection: 'apps',
         where: { 'security.e2ee.status': { in: ['no', 'partial'] } },
-        limit: 100,
+        limit: 0,
+        pagination: false,
         depth: 0,
         sort: 'name',
       }),
-      payload.find({ collection: 'apps', limit: 200, depth: 1, sort: 'name' }),
-      payload.find({ collection: 'companies', limit: 200, depth: 0 }),
-      payload.find({ collection: 'data-types', limit: 200, depth: 0 }),
-      payload.find({ collection: 'incidents', limit: 200, depth: 0 }),
+      payload.find({ collection: 'apps', limit: 0, pagination: false, depth: 1, sort: 'name' }),
+      payload.find({ collection: 'companies', limit: 0, pagination: false, depth: 0 }),
+      payload.find({ collection: 'data-types', limit: 0, pagination: false, depth: 0 }),
+      payload.find({ collection: 'incidents', limit: 0, pagination: false, depth: 0 }),
     ])
 
   const dataTypeById = new Map(

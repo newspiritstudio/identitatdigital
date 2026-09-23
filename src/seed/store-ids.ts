@@ -1,3 +1,5 @@
+import { wave2 } from './onada2'
+
 /**
  * Identificació de cada servei a l'App Store.
  *
@@ -12,7 +14,7 @@
  * Els serveis sense aplicació mòbil pròpia no hi consten; l'script
  * d'importació ho fa saber.
  */
-export const appStoreBundleIds: Record<string, string> = {
+const wave1: Record<string, string> = {
   /* Meta */
   whatsapp: 'net.whatsapp.WhatsApp',
   instagram: 'com.burbn.instagram',
@@ -48,3 +50,6 @@ export const appStoreBundleIds: Record<string, string> = {
   firefox: 'org.mozilla.ios.Firefox',
   brave: 'com.brave.ios.browser',
 }
+
+/** Primera onada i lots de la segona, en un sol mapa. */
+export const appStoreBundleIds: Record<string, string> = { ...wave1, ...wave2.storeIds }

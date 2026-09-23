@@ -17,7 +17,8 @@ export default async function AppsPage() {
   const payload = await getClient()
   const { docs } = await payload.find({
     collection: 'apps',
-    limit: 200,
+    limit: 0,
+    pagination: false,
     depth: 1,
     sort: '-scores.overall',
     where: { _status: { equals: 'published' } },

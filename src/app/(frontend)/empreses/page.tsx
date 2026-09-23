@@ -17,8 +17,8 @@ const idOf = (value: unknown): string | null => {
 export default async function CompaniesPage() {
   const payload = await getClient()
   const [{ docs: companies }, { docs: apps }] = await Promise.all([
-    payload.find({ collection: 'companies', limit: 200, depth: 0, sort: 'name' }),
-    payload.find({ collection: 'apps', limit: 200, depth: 0, sort: 'name', where: { _status: { equals: 'published' } } }),
+    payload.find({ collection: 'companies', limit: 0, pagination: false, depth: 0, sort: 'name' }),
+    payload.find({ collection: 'apps', limit: 0, pagination: false, depth: 0, sort: 'name', where: { _status: { equals: 'published' } } }),
   ])
 
   const byParent = new Map<string | null, Company[]>()

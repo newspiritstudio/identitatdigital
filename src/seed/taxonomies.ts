@@ -643,4 +643,187 @@ export const categories: CategorySeed[] = [
     privacyContext:
       'El perfil és públic per voluntat pròpia, però l’historial de cerca de feina és una dada sensible en el context laboral.',
   },
+  /* ── Segona onada: categories que demana el rànquing de l'App Store ── */
+  {
+    slug: 'assistents-d-ia',
+    name: 'Assistents d’intel·ligència artificial',
+    functionalNeed: 'Conversar amb un model de llenguatge per escriure, resumir, programar o resoldre dubtes.',
+    privacyContext:
+      'La gent explica a un xatbot coses que no explicaria a un cercador. Que les converses serveixin per entrenar models, i si ho pots evitar, és la primera pregunta.',
+  },
+  {
+    slug: 'ofimatica-i-productivitat',
+    name: 'Ofimàtica i productivitat',
+    functionalNeed: 'Crear documents, fulls de càlcul i notes, organitzar l’agenda i escanejar papers.',
+    privacyContext:
+      'Els documents de feina i els papers escanejats contenen contractes, nòmines i dades de terceres persones. Importa on es desen i qui hi pot accedir.',
+  },
+  {
+    slug: 'emmagatzematge-al-nuvol',
+    name: 'Emmagatzematge al núvol',
+    functionalNeed: 'Desar fotos i fitxers fora del dispositiu i sincronitzar-los.',
+    privacyContext:
+      'Una còpia de totes les fotos d’una vida és també un arxiu de cares, llocs i dates. La diferència és si el proveïdor les pot analitzar o només guardar.',
+  },
+  {
+    slug: 'videoconferencia-i-feina',
+    name: 'Videoconferència i comunicació de feina',
+    functionalNeed: 'Fer reunions en línia i coordinar equips de treball.',
+    privacyContext:
+      'Sovint no el tria la persona usuària sinó l’organització. Això desplaça el control de les dades cap a l’administrador del compte de feina o d’escola.',
+  },
+  {
+    slug: 'autenticacio-i-seguretat',
+    name: 'Autenticació i seguretat',
+    functionalNeed: 'Generar codis d’accés, protegir connexions i gestionar la identitat digital.',
+    privacyContext:
+      'Són eines de protecció, i per això es jutgen amb més exigència: una aplicació de seguretat que recull més del necessari contradiu la seva raó de ser.',
+  },
+  {
+    slug: 'administracio-publica',
+    name: 'Tràmits i administració pública',
+    functionalNeed: 'Identificar-se davant de l’administració, fer tràmits i rebre notificacions oficials.',
+    privacyContext:
+      'No hi ha alternativa de mercat: si l’administració ofereix el tràmit només per una aplicació, cal fer-la servir. La base legal és l’obligació legal o l’interès públic, no el consentiment.',
+  },
+  {
+    slug: 'educacio',
+    name: 'Educació',
+    functionalNeed: 'Aprendre, seguir el curs escolar i comunicar-se amb el centre educatiu.',
+    privacyContext:
+      'Moltes persones usuàries són menors i no han triat l’eina. Les dades acadèmiques i de comportament a l’aula mereixen la protecció reforçada que el RGPD dona a la infància.',
+  },
+  {
+    slug: 'banca-i-finances',
+    name: 'Banca, pagaments i inversió',
+    functionalNeed: 'Gestionar comptes, pagar, enviar diners i invertir.',
+    privacyContext:
+      'Els moviments d’un compte revelen salut, ideologia, relacions i rutines. La normativa de blanqueig obliga a conservar-ne molts, però no a fer-los servir per a màrqueting.',
+  },
+  {
+    slug: 'mobilitat-i-transport',
+    name: 'Mobilitat i transport',
+    functionalNeed: 'Moure’s per la ciutat: transport públic, vehicles amb conductor, bicicletes, aparcament i carburant.',
+    privacyContext:
+      'Cada trajecte deixa un origen, un destí i una hora. Acumulats, diuen on vius, on treballes i qui visites.',
+  },
+  {
+    slug: 'viatges-i-allotjament',
+    name: 'Viatges i allotjament',
+    functionalNeed: 'Reservar vols, trens, hotels i activitats.',
+    privacyContext:
+      'Reservar un viatge exigeix el document d’identitat i dades de passatgers que les autoritats poden reclamar. El que cal mirar és què se’n fa més enllà del viatge.',
+  },
+  {
+    slug: 'salut-i-assistencia-sanitaria',
+    name: 'Salut i assistència sanitària',
+    functionalNeed: 'Demanar cita mèdica, consultar l’historial i gestionar la cobertura sanitària.',
+    privacyContext:
+      'Les dades de salut són categoria especial de l’article 9 del RGPD. El tractament ha de ser el mínim imprescindible i mai no hauria d’alimentar publicitat.',
+  },
+  {
+    slug: 'benestar-i-activitat-fisica',
+    name: 'Benestar i activitat física',
+    functionalNeed: 'Registrar entrenaments, alimentació, cicle menstrual o estat d’ànim.',
+    privacyContext:
+      'Moltes d’aquestes dades són de salut encara que l’aplicació no sigui sanitària. Que es presentin com a «benestar» no les treu de la protecció especial.',
+  },
+  {
+    slug: 'noticies-i-mitjans',
+    name: 'Notícies, ràdio i mitjans',
+    functionalNeed: 'Informar-se i escoltar la ràdio o els pòdcasts d’un mitjà.',
+    privacyContext:
+      'El que llegeixes permet inferir opinions polítiques, una categoria especial. Els mitjans solen viure de la publicitat programàtica, que multiplica els tercers presents.',
+  },
+  {
+    slug: 'meteorologia',
+    name: 'Meteorologia',
+    functionalNeed: 'Consultar la previsió del temps i les alertes.',
+    privacyContext:
+      'Una previsió només necessita una ubicació aproximada. Les aplicacions gratuïtes del temps s’han fet famoses per vendre la ubicació precisa i contínua.',
+  },
+  {
+    slug: 'feina-i-ocupacio',
+    name: 'Feina i ocupació',
+    functionalNeed: 'Buscar feina, enviar el currículum i gestionar la relació amb l’empresa de treball temporal.',
+    privacyContext:
+      'Un currículum és un expedient complet: formació, trajectòria, edat, sovint foto. Qui el veu i durant quant de temps el conserven decideix molt més que la cerca.',
+  },
+  {
+    slug: 'habitatge',
+    name: 'Habitatge',
+    functionalNeed: 'Buscar pis per comprar o llogar i contactar amb qui l’ofereix.',
+    privacyContext:
+      'Les cerques d’habitatge revelen ingressos, situació familiar i on vols viure. Els contactes amb anunciants solen passar a immobiliàries que són responsables pel seu compte.',
+  },
+  {
+    slug: 'compravenda-entre-particulars',
+    name: 'Compravenda entre particulars',
+    functionalNeed: 'Vendre i comprar objectes de segona mà a altres persones.',
+    privacyContext:
+      'Tractar amb persones desconegudes obliga a verificar identitats i a moderar, però també exposa ubicació i hàbits de consum a la plataforma i a la contrapart.',
+  },
+  {
+    slug: 'alimentacio-i-restauracio',
+    name: 'Supermercats, restauració i fidelització',
+    functionalNeed: 'Fer la compra, demanar menjar a un establiment i acumular descomptes.',
+    privacyContext:
+      'Els programes de punts són un intercanvi explícit: descomptes a canvi del tiquet de compra detallat. El que es compra al supermercat diu molt de la salut i la família.',
+  },
+  {
+    slug: 'llibres-i-lectura',
+    name: 'Llibres, audiollibres i lectura',
+    functionalNeed: 'Llegir o escoltar llibres i històries en format digital.',
+    privacyContext:
+      'Què llegeixes, fins on i a quina hora és una dada íntima. Les biblioteques la protegeixen per tradició; les plataformes comercials, no sempre.',
+  },
+  {
+    slug: 'edicio-de-foto-i-video',
+    name: 'Edició de foto i vídeo',
+    functionalNeed: 'Retocar imatges, muntar vídeos i generar contingut visual, sovint amb IA.',
+    privacyContext:
+      'Pujar una foto de la cara per editar-la pot equivaler a cedir una dada biomètrica. Cal saber si la imatge es processa al dispositiu o al servidor i si serveix per entrenar models.',
+  },
+  {
+    slug: 'traduccio-i-referencia',
+    name: 'Traducció, diccionaris i referència',
+    functionalNeed: 'Traduir textos i veu, consultar diccionaris i identificar objectes.',
+    privacyContext:
+      'El que es tradueix sovint és privat: correus, contractes, converses. La qüestió és si el text s’envia al servidor i si s’hi queda.',
+  },
+  {
+    slug: 'utilitats',
+    name: 'Utilitats',
+    functionalNeed: 'Resoldre tasques puntuals del dispositiu: widgets, comandaments, neteja o personalització.',
+    privacyContext:
+      'Moltes utilitats gratuïtes les publiquen desenvolupadors petits que es financen amb SDK publicitaris. Demanen permisos que la funció no justifica.',
+  },
+  {
+    slug: 'esports-i-resultats',
+    name: 'Esports i resultats',
+    functionalNeed: 'Seguir competicions, gestionar fitxes federatives i reservar pistes.',
+    privacyContext:
+      'Sol ser un àmbit amb poca exigència de dades, però les federacions tracten menors i les aplicacions de resultats viuen de publicitat i de socis d’apostes.',
+  },
+  {
+    slug: 'apostes',
+    name: 'Apostes i joc en línia',
+    functionalNeed: 'Fer apostes esportives i jugar a jocs d’atzar amb diners.',
+    privacyContext:
+      'La llei obliga a verificar la identitat i a detectar el joc problemàtic. El risc és que el mateix perfil que hauria de protegir serveixi per retenir qui més perd.',
+  },
+  {
+    slug: 'telecomunicacions',
+    name: 'Operadors de telecomunicacions',
+    functionalNeed: 'Gestionar la línia mòbil, la fibra i la factura.',
+    privacyContext:
+      'L’operador coneix a qui truques i on és el mòbil en cada moment. Aquestes metadades tenen una protecció específica, a banda del RGPD.',
+  },
+  {
+    slug: 'llar-connectada',
+    name: 'Llar connectada',
+    functionalNeed: 'Controlar càmeres, altaveus, electrodomèstics i alarmes des del mòbil.',
+    privacyContext:
+      'Els dispositius de casa veuen i escolten l’espai més privat. El núvol del fabricant, i la jurisdicció on és, fan de porta a aquest espai.',
+  },
 ]

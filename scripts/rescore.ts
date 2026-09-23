@@ -13,7 +13,7 @@ import { METHODOLOGY_VERSION } from '@/lib/scoring/methodology'
  */
 async function rescore() {
   const payload = await getPayload({ config })
-  const { docs } = await payload.find({ collection: 'apps', limit: 500, depth: 0, overrideAccess: true })
+  const { docs } = await payload.find({ collection: 'apps', limit: 0, pagination: false, depth: 0, overrideAccess: true })
 
   console.log(`\n🔄 Recalculant ${docs.length} fitxes amb la metodologia ${METHODOLOGY_VERSION}\n`)
 
