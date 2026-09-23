@@ -4,9 +4,11 @@ import {
   DATA_VOLUME_CAP,
   DIMENSIONS,
   DIMENSION_WEIGHTS,
+  EXCLUDED_BY_MANDATORY_RETENTION,
   INDICATORS_BY_KEY,
   METHODOLOGY_VERSION,
   PROVISIONAL_CONFIDENCE_THRESHOLD,
+  REPLACED_FOR_PUBLIC_SERVICE,
   type Dimension,
 } from './methodology'
 import type {
@@ -373,9 +375,64 @@ const exportFormatIndicator = (app: unknown): IndicatorOutcome => {
   return custom('export-formats', EXPORT_FORMAT_VALUES[quality], true, level(exportFact))
 }
 
+/* ────────────────────────── serveis públics ──────────────────────────────── */
+
+const isPublicService = (app: unknown): boolean =>
+  get<boolean | undefined>(app, 'publicService.isPublicService') === true
+
+const ENS_CATEGORY_VALUES: Record<string, number> = {
+  high: 1,
+  medium: 0.85,
+  basic: 0.7,
+}
+
+/**
+ * Conformitat amb l'Esquema Nacional de Seguretat. La categoria del sistema
+ * modula el valor: declarar-se conforme a la categoria bàsica en un servei que
+ * tracta dades de salut no és el mateix que certificar-se a la categoria alta.
+ */
+const ensConformityIndicator = (app: unknown): IndicatorOutcome => {
+  const fact = get(app, 'publicService.ensConformity') as FactLike
+  const status = typeof fact?.status === 'string' ? fact.status : 'unknown'
+  if (status === 'na') return custom('ens-conformity', null, false, level(fact))
+  if (status === 'unknown') return custom('ens-conformity', null, true, level(fact))
+  if (status === 'no') return custom('ens-conformity', 0, true, level(fact))
+  const category = typeof fact?.category === 'string' ? fact.category : null
+  const base = category && category in ENS_CATEGORY_VALUES ? ENS_CATEGORY_VALUES[category] : 0.8
+  return custom(
+    'ens-conformity',
+    status === 'partial' ? base * 0.6 : base,
+    true,
+    level(fact),
+    category ? `Categoria ${category}.` : undefined,
+  )
+}
+
+const publicServiceIndicators = (app: unknown): IndicatorOutcome[] => [
+  fromFact('legal-basis', get(app, 'publicService.legalBasis'), GOOD_IF_YES),
+  fromFact('processing-registry', get(app, 'publicService.processingRegistry'), GOOD_IF_YES),
+  fromFact('dpia', get(app, 'publicService.dpia'), GOOD_IF_YES),
+  ensConformityIndicator(app),
+  fromFact('dpo', get(app, 'publicService.dpo'), GOOD_IF_YES),
+  fromFact('offline-alternative', get(app, 'publicService.offlineAlternative'), GOOD_IF_YES),
+  fromFact(
+    'accessibility-statement',
+    get(app, 'publicService.accessibilityStatement'),
+    GOOD_IF_YES,
+  ),
+]
+
+/** Marca un indicador com a no aplicable, conservant la resta de l'anàlisi. */
+const exclude = (indicator: IndicatorOutcome, note: string): IndicatorOutcome => ({
+  ...indicator,
+  value: null,
+  applicable: false,
+  note,
+})
+
 /* ─────────────────────────── càlcul principal ────────────────────────────── */
 
-const collectIndicators = (app: unknown, ctx: ScoringContext): IndicatorOutcome[] => [
+const baseIndicators = (app: unknown, ctx: ScoringContext): IndicatorOutcome[] => [
   // Privadesa
   dataVolumeIndicator(app, ctx),
   dataSensitivityIndicator(app, ctx),
@@ -420,6 +477,41 @@ const collectIndicators = (app: unknown, ctx: ScoringContext): IndicatorOutcome[
   darkPatternsIndicator(app),
   fromFact('no-account-required', get(app, 'accountRequired'), GOOD_IF_NO),
 ]
+
+/**
+ * Conjunt final d'indicadors. Un servei públic no es mesura amb la vara del
+ * sector privat: se li afegeix el bloc d'indicadors públics, se li treuen els
+ * que el bloc substitueix i, si la conservació de les dades és una obligació
+ * legal documentada, també els d'eliminació del compte.
+ */
+const collectIndicators = (app: unknown, ctx: ScoringContext): IndicatorOutcome[] => {
+  const base = baseIndicators(app, ctx)
+  if (!isPublicService(app)) return base
+
+  const retention = get(app, 'publicService.mandatoryRetention') as FactLike
+  const mandatoryRetention = retention?.status === 'yes'
+
+  const adjusted = base.map((indicator) => {
+    if ((REPLACED_FOR_PUBLIC_SERVICE as readonly string[]).includes(indicator.key)) {
+      return exclude(
+        indicator,
+        'Servei públic: el substitueixen la conformitat amb l’ENS i el registre d’activitats de tractament.',
+      )
+    }
+    if (
+      mandatoryRetention &&
+      (EXCLUDED_BY_MANDATORY_RETENTION as readonly string[]).includes(indicator.key)
+    ) {
+      return exclude(
+        indicator,
+        'La conservació de les dades és una obligació legal documentada, no una decisió del servei.',
+      )
+    }
+    return indicator
+  })
+
+  return [...adjusted, ...publicServiceIndicators(app)]
+}
 
 const recencyFactor = (app: unknown, indicators: IndicatorOutcome[], now: Date): number => {
   const dates: number[] = []

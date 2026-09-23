@@ -45,7 +45,13 @@ export const EVIDENCE_LEVEL_LABELS: Record<EvidenceLevel, string> = {
  * (n'hi ha de calculats) i no totes les afirmacions amb evidència puntuen. El
  * que mesurem aquí és la documentació, no la nota.
  */
-export const EVIDENCED_FACTS: ReadonlyArray<{ key: string; label: string; path: string }> = [
+export const EVIDENCED_FACTS: ReadonlyArray<{
+  key: string
+  label: string
+  path: string
+  /** `public-service` només es compta a les fitxes marcades com a servei públic. */
+  scope?: 'public-service'
+}> = [
   { key: 'account-required', label: 'Cal un compte', path: 'accountRequired' },
   { key: 'open-source', label: 'Codi obert', path: 'openSource' },
   {
@@ -135,6 +141,49 @@ export const EVIDENCED_FACTS: ReadonlyArray<{ key: string; label: string; path: 
     key: 'vulnerability-disclosure',
     label: 'Divulgació de vulnerabilitats',
     path: 'security.vulnerabilityDisclosure',
+  },
+  {
+    key: 'legal-basis',
+    label: 'Base jurídica declarada',
+    path: 'publicService.legalBasis',
+    scope: 'public-service',
+  },
+  {
+    key: 'processing-registry',
+    label: 'Registre d’activitats de tractament',
+    path: 'publicService.processingRegistry',
+    scope: 'public-service',
+  },
+  { key: 'dpia', label: 'Avaluació d’impacte', path: 'publicService.dpia', scope: 'public-service' },
+  {
+    key: 'ens-conformity',
+    label: 'Conformitat amb l’ENS',
+    path: 'publicService.ensConformity',
+    scope: 'public-service',
+  },
+  {
+    key: 'dpo',
+    label: 'Delegat de protecció de dades',
+    path: 'publicService.dpo',
+    scope: 'public-service',
+  },
+  {
+    key: 'offline-alternative',
+    label: 'Alternativa no digital',
+    path: 'publicService.offlineAlternative',
+    scope: 'public-service',
+  },
+  {
+    key: 'accessibility-statement',
+    label: 'Declaració d’accessibilitat',
+    path: 'publicService.accessibilityStatement',
+    scope: 'public-service',
+  },
+  {
+    key: 'mandatory-retention',
+    label: 'Conservació obligada per llei',
+    path: 'publicService.mandatoryRetention',
+    scope: 'public-service',
   },
 ]
 
@@ -274,7 +323,11 @@ export const analyseEvidence = (corpus: Corpus): EvidenceAnalysis => {
     let withoutSources = 0
     const appLevels: EvidenceLevel[] = []
 
+    const publicService = at(app, 'publicService.isPublicService') === true
+
     for (const indicator of EVIDENCED_FACTS) {
+      // El bloc públic no és un buit de recerca a les fitxes comercials.
+      if (indicator.scope === 'public-service' && !publicService) continue
       const fact = at(app, indicator.path)
       const status = factStatus(fact)
       statuses.push(status)

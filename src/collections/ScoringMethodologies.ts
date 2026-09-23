@@ -110,6 +110,16 @@ export const ScoringMethodologies: CollectionConfig = {
             { name: 'label', label: 'Nom', type: 'text', localized: true, required: true, admin: { width: '30%' } },
           ],
         },
+        {
+          name: 'scope',
+          label: 'Àmbit',
+          type: 'select',
+          defaultValue: 'all',
+          options: [
+            { label: 'Tots els serveis', value: 'all' },
+            { label: 'Només serveis públics', value: 'public-service' },
+          ],
+        },
         { name: 'description', label: 'Descripció', type: 'textarea', localized: true },
       ],
     },

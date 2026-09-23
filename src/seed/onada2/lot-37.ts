@@ -200,6 +200,18 @@ export const lot: SeedLot = {
     s('uk-eta-gov-guidance', 'Get an electronic travel authorisation (ETA) to visit the UK', 'https://www.gov.uk/guidance/apply-for-an-electronic-travel-authorisation-eta', 'GOV.UK', 'support-doc', 'primary', {
       summary: 'Guia oficial del tràmit: qui necessita l’ETA, què costa i com comprovar-ne l’estat un cop concedida.',
     }),
+    s('uk-eta-apply', 'Get an electronic travel authorisation (ETA) to visit the UK: Apply for an ETA', 'https://www.gov.uk/eta/apply', 'GOV.UK', 'support-doc', 'primary', {
+      summary:
+        'Pàgina del tràmit. Detalla les dues vies per demanar l’ETA —l’aplicació o el formulari web— i diu que qui no pugui instal·lar l’aplicació ha de fer-ho en línia i que, per sol·licitar-la per a una persona que no és present, la via web és obligatòria.',
+    }),
+    s('uk-eta-beta-assessment', 'Electronic Travel Authorisation (ETA) beta assessment', 'https://www.gov.uk/service-standard-reports/electronic-travel-authorisation-eta-beta-assessment', 'Government Digital Service', 'audit', 'authority', {
+      summary:
+        'Avaluació del servei contra l’estàndard de serveis digitals britànic, del 6 de febrer del 2025. Resultat global àmbar: el punt «make sure everyone can use the service» queda pendent de proves completes amb tecnologies d’assistència, el panell constata que no hi ha suport digital assistit oficial i que la navegació cap a la versió web s’ha dificultat expressament.',
+    }),
+    s('uk-home-office-charter', 'Home Office personal information charter', 'https://www.gov.uk/government/organisations/home-office/about/personal-information-charter', 'Home Office', 'privacy-center', 'primary', {
+      summary:
+        'Carta d’informació personal del ministeri: enumera les categories de dades que tracta —biomètriques, identificadors, dades penals, origen ètnic—, publica el contacte del delegat de protecció de dades i de la unitat de sol·licituds d’accés, i recorda el dret a reclamar davant de l’ICO.',
+    }),
 
     /* ── Yepexpress ── */
     s('yepexpress-app-store', 'Yepexpress — App Store (Privacidad de la app)', 'https://apps.apple.com/es/app/id6630366971', 'Apple', 'app-store', 'primary', {
@@ -346,7 +358,7 @@ export const lot: SeedLot = {
       summary:
         'L’aplicació del Home Office serveix per demanar l’autorització electrònica de viatge que ara necessiten els ciutadans de la Unió Europea per entrar al Regne Unit. Demana el passaport i una imatge facial, decideix de manera automatitzada i, un cop enviada la sol·licitud, el mateix avís de privadesa adverteix que potser ja no es pot retirar. A canvi, és dels pocs serveis d’aquest lot que publica terminis de conservació exactes: tres anys els biomètrics facials i quinze anys la resta.',
       platforms: ['ios', 'android'],
-      businessModel: 'unknown',
+      businessModel: 'public-service',
       jurisdiction: 'Regne Unit',
       userBase: 'Obligatòria per a la majoria de visitants de la Unió Europea des del 2025',
       links: {
@@ -356,6 +368,24 @@ export const lot: SeedLot = {
       },
       accountRequired: f('yes', 'official', ['uk-eta-privacy-notice', 'uk-eta-gov-guidance'], 'No hi ha cap ús anònim: l’aplicació existeix per presentar una sol·licitud identificada davant del Home Office, que costa 20 lliures.'),
       openSource: f('no', 'official', ['uk-eta-app-store'], undefined, { licence: 'Privativa' }),
+      publicService: {
+        isPublicService: true,
+        administrationLevel: 'other',
+        legalBasis: f('yes', 'official', ['uk-eta-privacy-notice'], 'L’avís de privadesa cita els articles 6.1.e (missió d’interès públic) i 9.2.g (interès públic essencial) del RGPD britànic i concreta la norma d’immigració que empara el tràmit, no només una invocació genèrica de l’interès públic.', {
+          norm: 'Section 11C de la Immigration Act 1971 i apèndix «Electronic Travel Authorisations» de les Immigration Rules; articles 6.1.e i 9.2.g del RGPD britànic',
+        }),
+        processingRegistry: f('partial', 'official', ['uk-home-office-charter', 'uk-eta-privacy-notice'], 'El Regne Unit no obliga a publicar el registre d’activitats de tractament: l’equivalent és el «personal information charter» del Home Office, que enumera les categories de dades que tracta el ministeri i remet als avisos específics, com el de l’ETA. Es pot resseguir el tractament, però no hi ha cap fitxa d’activitat identificable com la de l’article 31 de la LOPDGDD.', {
+          url: 'https://www.gov.uk/government/organisations/home-office/about/personal-information-charter',
+        }),
+        dpia: unknown('L’avís de privadesa no esmenta cap avaluació d’impacte i no n’hem trobat cap de publicada per al programa ETA, tot i que hi ha tractament biomètric i decisions automatitzades.'),
+        ensConformity: na('L’Esquema Nacional de Seguretat és espanyol i no s’aplica al Home Office britànic.'),
+        dpo: f('yes', 'official', ['uk-home-office-charter'], 'El ministeri publica el delegat de protecció de dades amb adreça electrònica i postal, i hi afegeix el canal de sol·licituds d’accés i el dret de reclamar davant de l’ICO.', {
+          contact: 'dpo@homeoffice.gov.uk',
+        }),
+        offlineAlternative: f('partial', 'official', ['uk-eta-apply', 'uk-eta-beta-assessment', 'uk-eta-gov-guidance'], 'Qui no pot instal·lar l’aplicació pot fer el tràmit al formulari web, que a més és l’única via per sol·licitar l’ETA per a una persona que no és present. Fora de la pantalla no hi ha res: UKVI adverteix que no atén consultes d’ETA per telèfon i el panell d’avaluació del servei constata que no hi ha suport digital assistit oficial i que la navegació cap a la versió web s’ha dificultat expressament.'),
+        accessibilityStatement: unknown('No hem localitzat cap declaració d’accessibilitat de l’aplicació, que és el que exigeix l’equivalent britànic del Reial decret 1112/2018, les Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018. L’avaluació beta del febrer del 2025 va deixar en àmbar el punt «make sure everyone can use the service» perquè les proves de cap a cap amb tecnologies d’assistència encara no s’havien completat.'),
+        mandatoryRetention: unknown('L’avís fixa quinze anys de conservació de les dades biogràfiques i tres anys de la imatge facial, però no cita cap norma que obligui a conservar-les: no podem afirmar si és una obligació legal o una política interna del ministeri.'),
+      },
       dataSummary:
         'La imatge facial i el passaport, units a la nacionalitat i a l’adreça, formen un expedient d’immigració que es queda al ministeri de l’Interior britànic quinze anys després de l’última actuació, encara que el viatge duri un cap de setmana.',
       dataCollection: [

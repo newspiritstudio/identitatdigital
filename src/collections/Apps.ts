@@ -148,6 +148,7 @@ export const Apps: CollectionConfig = {
                     { label: 'Pagament únic', value: 'paid' },
                     { label: 'Comerç o comissions', value: 'commerce' },
                     { label: 'Donacions o finançament sense ànim de lucre', value: 'donations' },
+                    { label: 'Servei públic finançat amb impostos', value: 'public-service' },
                     { label: 'Desconegut', value: 'unknown' },
                   ],
                 },
@@ -189,6 +190,119 @@ export const Apps: CollectionConfig = {
                 },
               ],
             }),
+            /*
+             * Serveis públics.
+             *
+             * Un servei que presta una administració no es pot mesurar amb la
+             * mateixa vara que un de comercial: no té model de negoci, no fa
+             * programes de recompenses i sovint no permet donar-se de baixa
+             * perquè la llei l'obliga a conservar l'expedient. El que sí que ha
+             * de fer és declarar la base jurídica, publicar el registre
+             * d'activitats de tractament, conformar-se a l'Esquema Nacional de
+             * Seguretat i oferir una via no digital. Aquest grup activa el bloc
+             * d'indicadors públics del motor de puntuació.
+             */
+            {
+              name: 'publicService',
+              label: 'Servei públic',
+              type: 'group',
+              admin: {
+                description:
+                  'Només per a serveis prestats per una administració pública o per un encàrrec seu.',
+              },
+              fields: [
+                {
+                  type: 'row',
+                  fields: [
+                    {
+                      name: 'isPublicService',
+                      label: 'És un servei públic',
+                      type: 'checkbox',
+                      index: true,
+                      defaultValue: false,
+                      admin: { width: '50%' },
+                    },
+                    {
+                      name: 'administrationLevel',
+                      label: 'Àmbit de l’administració',
+                      type: 'select',
+                      admin: { width: '50%' },
+                      options: [
+                        { label: 'Europea', value: 'european' },
+                        { label: 'Estatal', value: 'state' },
+                        { label: 'Autonòmica', value: 'regional' },
+                        { label: 'Local', value: 'local' },
+                        { label: 'Altres organismes públics', value: 'other' },
+                      ],
+                    },
+                  ],
+                },
+                evidencedFact({
+                  name: 'legalBasis',
+                  label: 'Base jurídica declarada',
+                  description:
+                    'La norma que empara el tractament, citada article per article. «Parcialment» quan s’invoca l’interès públic sense concretar la norma.',
+                  extraFields: [
+                    { name: 'norm', label: 'Norma i article', type: 'text', localized: true },
+                  ],
+                }),
+                evidencedFact({
+                  name: 'processingRegistry',
+                  label: 'Registre d’activitats de tractament públic',
+                  description:
+                    'Article 31 de la LOPDGDD. «Parcialment» si el registre existeix però no s’hi localitza l’activitat del servei.',
+                  extraFields: [{ name: 'url', label: 'Enllaç al registre', type: 'text' }],
+                }),
+                evidencedFact({
+                  name: 'dpia',
+                  label: 'Avaluació d’impacte publicada',
+                  extraFields: [{ name: 'url', label: 'Enllaç a l’avaluació', type: 'text' }],
+                }),
+                evidencedFact({
+                  name: 'ensConformity',
+                  label: 'Conformitat amb l’Esquema Nacional de Seguretat',
+                  description:
+                    'Declaració o certificació vigent. Marca la categoria del sistema si consta.',
+                  extraFields: [
+                    {
+                      name: 'category',
+                      label: 'Categoria del sistema',
+                      type: 'select',
+                      options: [
+                        { label: 'Alta', value: 'high' },
+                        { label: 'Mitjana', value: 'medium' },
+                        { label: 'Bàsica', value: 'basic' },
+                      ],
+                    },
+                    { name: 'url', label: 'Enllaç a la declaració', type: 'text' },
+                  ],
+                }),
+                evidencedFact({
+                  name: 'dpo',
+                  label: 'Delegat de protecció de dades identificat',
+                  extraFields: [{ name: 'contact', label: 'Contacte publicat', type: 'text' }],
+                }),
+                evidencedFact({
+                  name: 'offlineAlternative',
+                  label: 'Alternativa no digital',
+                  description:
+                    'Es pot fer el mateix tràmit presencialment, per telèfon o per correu. «Parcialment» si només una part.',
+                }),
+                evidencedFact({
+                  name: 'accessibilityStatement',
+                  label: 'Declaració d’accessibilitat',
+                  description:
+                    'Reial decret 1112/2018. «Parcialment» quan la declaració existeix però el servei s’hi declara parcialment conforme.',
+                  extraFields: [{ name: 'url', label: 'Enllaç a la declaració', type: 'text' }],
+                }),
+                evidencedFact({
+                  name: 'mandatoryRetention',
+                  label: 'Conservació obligada per llei',
+                  description:
+                    'Quan és «Sí», els indicadors d’eliminació del compte queden fora del càlcul: no poder marxar no és una decisió del servei sinó un manament legal. Cal citar la norma al detall.',
+                }),
+              ],
+            },
             /*
              * Disponibilitat en català.
              *

@@ -133,3 +133,55 @@ describe('computeScores', () => {
     expect(result.overall).toBe(100)
   })
 })
+
+describe('serveis públics', () => {
+  const publicApp = (overrides: Record<string, unknown> = {}) => ({
+    security: { bugBounty: fact('no'), transportEncryption: fact('yes') },
+    transparency: { transparencyReport: fact('no') },
+    accountDeletion: { possible: fact('no'), selfService: fact('no'), difficulty: 'impossible' },
+    retention: { dataAfterDeletion: fact('yes') },
+    publicService: {
+      isPublicService: true,
+      legalBasis: fact('yes'),
+      processingRegistry: fact('yes'),
+      dpia: fact('unknown', 'unknown'),
+      ensConformity: fact('yes', 'official', { category: 'high' }),
+      dpo: fact('yes'),
+      offlineAlternative: fact('yes'),
+      accessibilityStatement: fact('partial'),
+      mandatoryRetention: fact('no'),
+      ...overrides,
+    },
+  })
+
+  it('no aplica el bloc públic a un servei comercial', () => {
+    const commercial = { security: { bugBounty: fact('no') } }
+    const keys = computeScores(commercial, ctx()).indicators.map((i) => i.key)
+    expect(keys).not.toContain('ens-conformity')
+    expect(keys).not.toContain('legal-basis')
+  })
+
+  it('substitueix el programa de recompenses i l’informe de transparència', () => {
+    const result = computeScores(publicApp(), ctx())
+    const bugBounty = result.indicators.find((i) => i.key === 'bug-bounty')
+    const report = result.indicators.find((i) => i.key === 'transparency-report')
+    const ens = result.indicators.find((i) => i.key === 'ens-conformity')
+
+    expect(bugBounty?.applicable).toBe(false)
+    expect(report?.applicable).toBe(false)
+    expect(ens?.value).toBe(1)
+  })
+
+  it('treu del càlcul l’eliminació del compte quan la conservació és obligació legal', () => {
+    const sense = computeScores(publicApp(), ctx())
+    const amb = computeScores(publicApp({ mandatoryRetention: fact('yes') }), ctx())
+
+    const deletion = (result: ReturnType<typeof computeScores>) =>
+      result.indicators.find((i) => i.key === 'deletion-possible')
+
+    expect(deletion(sense)?.applicable).toBe(true)
+    expect(deletion(amb)?.applicable).toBe(false)
+    // Deixar de penalitzar un impossible legal ha de millorar la dimensió de control.
+    expect(amb.agency as number).toBeGreaterThan(sense.agency as number)
+  })
+})

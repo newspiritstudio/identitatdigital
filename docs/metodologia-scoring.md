@@ -1,6 +1,6 @@
 # Metodologia de puntuació
 
-Versió 1.0 · vigent des del 9 de setembre de 2026
+Versió 1.1 · vigent des del 23 de setembre de 2026
 
 Aquest document explica com Identitat.digital converteix una fitxa documentada
 en quatre xifres. El càlcul viu al codi, a `src/lib/scoring/`, que és on ha de
@@ -130,6 +130,45 @@ La resta són indicadors calculats, que es descriuen més avall.
 | Exercici de drets | 5 | Canal per exercir els drets del RGPD |
 | Patrons enganyosos | 9 | Disseny que empeny contra els teus interessos |
 | No cal compte | 4 | Si es pot fer servir sense registrar-se |
+
+## Serveis públics
+
+Una administració no té model de negoci, no fa programes de recompenses per
+errors i sovint no et deixa donar-te de baixa perquè una llei l'obliga a
+conservar l'expedient. Mesurar-la amb els indicadors del sector privat la
+penalitzaria precisament per complir la norma: La Meva Salut perdia punts per no
+poder esborrar una història clínica que la Llei 21/2000 mana guardar quinze
+anys.
+
+Les fitxes marcades com a **servei públic** canvien de bloc d'indicadors.
+
+**En surten** (els substitueix el bloc públic):
+
+| Indicador | Per què |
+| --- | --- |
+| Programa de recompenses | El substitueix la conformitat amb l'ENS |
+| Informe de transparència | El substitueix el registre d'activitats de tractament |
+
+**Hi entren:**
+
+| Indicador | Dimensió | Pes | Què mesura |
+| --- | --- | --- | --- |
+| Base jurídica declarada | Privadesa | 10 | Norma que empara el tractament, citada article per article |
+| Registre d'activitats de tractament | Privadesa | 6 | Publicació que exigeix l'article 31 de la LOPDGDD |
+| Avaluació d'impacte | Privadesa | 6 | AIPD accessible quan el tractament l'exigeix |
+| Conformitat amb l'ENS | Seguretat | 12 | Declaració o certificació vigent i categoria del sistema |
+| Delegat de protecció de dades | Control | 5 | Contacte directe publicat |
+| Alternativa no digital | Control | 8 | Es pot fer el tràmit sense l'aplicació |
+| Declaració d'accessibilitat | Control | 5 | Reial decret 1112/2018, amb grau de conformitat |
+
+A més, quan la fitxa documenta amb font que **la conservació és una obligació
+legal**, els cinc indicadors d'eliminació del compte i el de dades retingudes
+després d'esborrar queden fora del càlcul: no poder marxar deixa de ser una
+decisió del servei.
+
+El que **no** canvia és la minimització. Una llei empara el tractament, però no
+eximeix de ser proporcionat: recollir més dades de les necessàries continua
+puntuant igual de malament, tingui o no cobertura legal.
 
 ## Indicadors calculats
 

@@ -214,10 +214,45 @@ export const lot: SeedLot = {
       summary:
         'Política de privadesa de B:SM. Declara que no preveu transferències internacionals ni perfilats, remet el detall de finalitats al registre d’activitats de tractament i dona el contacte del delegat de protecció de dades.',
     }),
+    s('bsm-registre-tractament', 'Registre d’Activitats de Tractament de B:SM', 'https://transparencia.bsmsa.cat/coneix-BSM/registre-dactivitats-de-tractament', 'Barcelona de Serveis Municipals', 'privacy-center', 'primary', {
+      language: 'ca',
+      summary:
+        'Registre publicat al portal de transparència de B:SM, en full de càlcul, PDF i CSV. Inclou una activitat anomenada «Gestió d’usuaris SMOU», però totes les caselles —finalitat, base jurídica, destinataris i terminis— hi diuen «En revisió». Identifica la delegada de protecció de dades i remet les mesures de seguretat a l’annex II del Reial decret 311/2022.',
+    }),
+    s('bsm-ens-certificat', 'Certificación de conformidad con el Esquema Nacional de Seguridad — Barcelona Serveis Municipals', 'https://transparencia.bsmsa.cat/sites/default/files/Media/Files/2026-03/ENS%20certificate_BSM_signedDNV.pdf', 'DNV Business Assurance', 'audit', 'independent', {
+      language: 'es',
+      publishedAt: '2026-02-10',
+      summary:
+        'Certificat número C849967-ENS, acreditat per l’ENAC, vigent del 10 de febrer de 2026 al 10 de febrer de 2028. Declara conformes de categoria mitjana els sistemes que donen suport als serveis digitals de mobilitat que B:SM ofereix «a través de la aplicación SMOU» i al Bicing, amb 68 mesures i el centre de dades a Barcelona.',
+    }),
+    s('smou-accessibilitat', 'Accessibilitat | SMOU', 'https://www.smou.cat/accessibilitat', 'Barcelona de Serveis Municipals', 'support-doc', 'primary', {
+      language: 'ca',
+      summary:
+        'Pàgina d’accessibilitat del web smou.cat. Enumera mesures aplicades i diu que el desenvolupament s’ha basat en les WCAG 2.0 nivell AA, però no declara cap grau de conformitat, no porta data ni cita el Reial decret 1112/2018, i només ofereix una adreça de correu com a via de contacte.',
+    }),
+    s('areaverda-parquimetre', 'Parquímetres | AREA Barcelona', 'https://www.areaverda.cat/ca/informacio/parquimetre', 'Barcelona de Serveis Municipals', 'support-doc', 'primary', {
+      language: 'ca',
+      summary:
+        'Pàgina oficial dels parquímetres de Barcelona. Detalla que des de la màquina del carrer es poden obtenir tiquets d’àrea Blava, Verda, Resident, DUM i gremis i anul·lar una denúncia, introduint només la matrícula i pagant-hi directament.',
+    }),
     s('ile-de-france-mobilites-app-store', 'Île-de-France Mobilités a l’App Store', 'https://apps.apple.com/es/app/id484527651', 'Apple', 'app-store', 'primary', {
       language: 'es',
       summary:
         'Etiqueta de privadesa de l’aplicació de transport de la regió de París: cap dada declarada per rastrejar i la ubicació precisa declarada com a no vinculada a la identitat.',
+    }),
+    s('ile-de-france-mobilites-donnees-personnelles', 'Données personnelles — Politique de confidentialité', 'https://www.iledefrance-mobilites.fr/donnees-personnelles', 'Île-de-France Mobilités', 'privacy-policy', 'primary', {
+      language: 'fr',
+      publishedAt: '2019-11-27',
+      archiveUrl: 'https://web.archive.org/web/20260820143555/https://www.iledefrance-mobilites.fr/donnees-personnelles',
+      summary:
+        'Política de confidencialitat del compte Île-de-France Mobilités i del servei Connect, consultada a través d’una còpia de l’Internet Archive perquè el web original respon amb un error 403. Detalla la base jurídica de cada finalitat, diu que els tractaments s’inscriuen al registre que manté la delegada de protecció de dades, fixa el tancament automàtic del compte als dos anys d’inactivitat i publica el contacte dpo@iledefrance-mobilites.fr.',
+    }),
+    s('ile-de-france-mobilites-accessibilite', 'Accessibilité du site : partiellement conforme', 'https://www.iledefrance-mobilites.fr/accessibilite', 'Île-de-France Mobilités', 'support-doc', 'primary', {
+      language: 'fr',
+      publishedAt: '2024-12-12',
+      archiveUrl: 'https://web.archive.org/web/20260216211309/https://www.iledefrance-mobilites.fr/accessibilite',
+      summary:
+        'Declaració d’accessibilitat de l’article 47 de la Llei 2005-102, recuperada de l’Internet Archive. L’auditoria RGAA 4.1.2 feta per Temesis conclou que es respecta el 52,24 % dels criteris (35 conformes i 32 no conformes) i el servei s’hi declara «partiellement conforme». Cobreix el lloc web, no les aplicacions mòbils, i obre la via de recurs davant el Défenseur des droits.',
     }),
     s('waiis-privacy-policy', 'Política de privacidad de Waiis', 'https://waiis.com/politica-de-privacidad/', 'WAIIS Solutions Iberia', 'privacy-policy', 'primary', {
       language: 'es',
@@ -233,6 +268,26 @@ export const lot: SeedLot = {
       language: 'es',
       summary:
         'Etiqueta de privadesa de l’aplicació de la Generalitat Valenciana: només declara la ubicació precisa, no vinculada a la identitat, i cap dada de rastreig.',
+    }),
+    s('atmv-proteccio-de-dades', 'Informació sobre Protecció de Dades — ATMV', 'https://atmv.gva.es/va/proteccio-de-dades', 'Autoritat de Transport Metropolità de València', 'privacy-center', 'primary', {
+      language: 'ca',
+      summary:
+        'Pàgina de protecció de dades de l’Autoritat de Transport Metropolità de València. Identifica l’ATMV com a responsable, dona el contacte de la delegada de protecció de dades de la Generalitat (dpd@gva.es) i publica el registre d’activitats de tractament com una llista de fitxes en PDF, activitat per activitat.',
+    }),
+    s('atmv-rat-atencio-client', 'Registre d’activitats de tractament de l’ATMV: Servei d’atenció i informació al client', 'https://atmv.gva.es/documents/165949857/169360120/Servei+d%27atenci%C3%B3+i+informaci%C3%B3+al+client.pdf/1e1ca934-572c-4b77-bcaf-d662fecb2747?t=1679566296956', 'Autoritat de Transport Metropolità de València', 'privacy-center', 'primary', {
+      language: 'ca',
+      summary:
+        'Fitxa del registre d’activitats de tractament de l’ATMV per a l’atenció al client. Declara com a base jurídica l’article 6.1.e del RGPD, concretat en l’article 90 de la Llei 13/2016 que crea l’ATMV i en el Decret 81/2017 del Consell que n’aprova el reglament. No esmenta cap aplicació mòbil.',
+    }),
+    s('atmv-oficina-atencio', 'On estem i oficina d’atenció — ATMV', 'https://atmv.gva.es/va/on-estem', 'Autoritat de Transport Metropolità de València', 'support-doc', 'primary', {
+      language: 'ca',
+      summary:
+        'Oficina d’atenció presencial de l’ATMV a l’estació de metro de Colón (plaça dels Pinazo), amb horari publicat, quatre telèfons i l’adreça atmv.info@gva.es. El web de l’ATMV publica també el mapa dels punts de venda físics de títols.',
+    }),
+    s('gva-accessibilitat', 'Accessibilitat | Generalitat Valenciana', 'https://www.gva.es/accessibilitat', 'Generalitat Valenciana', 'support-doc', 'primary', {
+      language: 'ca',
+      summary:
+        'Pàgina d’accessibilitat del portal gva.es. Diu que el portal «ha sigut desenvolupat seguint» el Reial decret 1112/2018, però no declara cap grau de conformitat, no porta data de revisió, no informa del resultat de cap auditoria ni obre una via de reclamació, i només es refereix al portal web.',
     }),
     s('compartir-ubicacion-gps-privacy-policy', 'Alphalogy Studio Privacy Policy', 'https://www.alphalogy.net/privacy', 'Alphalogy Studio', 'privacy-policy', 'primary', {
       language: 'en',
@@ -628,7 +683,7 @@ export const lot: SeedLot = {
       summary:
         'SMOU concentra el Bicing, el parquímetre, els aparcaments, el taxi i la grua de Barcelona en una sola aplicació, amb la matrícula del vehicle i una targeta bancària per compte. L’enllaç de privadesa que declara a l’App Store és l’avís legal genèric de l’Ajuntament, no una política específica del servei, i l’etiqueta declara el correu electrònic per a «publicitat o màrqueting del desenvolupador», cosa poc habitual en un servei públic.',
       platforms: ['ios', 'android', 'web'],
-      businessModel: 'commerce',
+      businessModel: 'public-service',
       jurisdiction: 'Espanya',
       links: {
         website: 'https://www.smou.cat/',
@@ -638,6 +693,18 @@ export const lot: SeedLot = {
       },
       accountRequired: f('partial', 'official', ['smou-terms'], 'Sense iniciar sessió es pot veure el mapa, les estacions de Bicing i la previsió de places; activar qualsevol servei de pagament exigeix registre i verificació del correu.'),
       openSource: f('no', 'official', ['smou-app-store'], undefined, { licence: 'Privativa' }),
+      publicService: {
+        isPublicService: true,
+        administrationLevel: 'local',
+        legalBasis: f('no', 'official', ['bsm-privacy-policy', 'bsm-registre-tractament'], 'La política de B:SM no declara cap base jurídica: remet la licitud de cada finalitat al registre d’activitats de tractament. I l’activitat «Gestió d’usuaris SMOU» del registre té la casella de la base jurídica amb el text «En revisió». El servei municipal que cobra l’estacionament regulat de Barcelona no diu, doncs, quina norma empara el tractament.'),
+        processingRegistry: f('partial', 'official', ['bsm-registre-tractament'], 'B:SM publica el registre al portal de transparència, en full de càlcul, PDF i CSV, i s’hi localitza l’activitat «Gestió d’usuaris SMOU». Però és una fila buida: finalitat, base jurídica, categories d’interessats, destinataris i terminis de conservació hi consten com a «En revisió». El registre existeix i l’activitat s’hi troba; el contingut, no.', { url: 'https://transparencia.bsmsa.cat/coneix-BSM/registre-dactivitats-de-tractament' }),
+        dpia: unknown('B:SM no publica cap avaluació d’impacte relativa a la protecció de dades, ni al portal de transparència ni al registre d’activitats de tractament.'),
+        ensConformity: f('yes', 'independent', ['bsm-ens-certificat'], 'Certificat de conformitat amb el Reial decret 311/2022 emès per DNV, número C849967-ENS amb acreditació ENAC, vigent del 10 de febrer de 2026 al 10 de febrer de 2028. L’abast cita expressament els sistemes que sostenen «los servicios digitales para la movilidad urbana ofrecidos por Barcelona de Serveis Municipals a través de la aplicación SMOU», amb 68 mesures de categoria mitjana.', { category: 'medium', url: 'https://transparencia.bsmsa.cat/sites/default/files/Media/Files/2026-03/ENS%20certificate_BSM_signedDNV.pdf' }),
+        dpo: f('yes', 'official', ['bsm-privacy-policy', 'bsm-registre-tractament'], 'B:SM ha nomenat delegada de protecció de dades, Núria Furquet Suàrez, amb contacte publicat tant a l’avís legal com a cada fitxa del registre d’activitats de tractament.', { contact: 'dpo@bsmsa.cat' }),
+        offlineAlternative: f('yes', 'official', ['areaverda-parquimetre', 'smou-terms'], 'Els parquímetres del carrer expedeixen tiquets d’àrea Blava, Verda, Resident, DUM i gremis i permeten anul·lar una denúncia sense instal·lar l’aplicació: només cal la matrícula i pagar-hi. L’alta al Bicing també es pot fer presencialment a l’oficina d’atenció al client.'),
+        accessibilityStatement: f('partial', 'official', ['smou-accessibilitat'], 'smou.cat té una pàgina d’accessibilitat que diu haver seguit les WCAG 2.0 nivell AA i ofereix el correu accessibilitat@bsmsa.cat, però no és una declaració del Reial decret 1112/2018: no hi consta el grau de conformitat, ni la data de revisió, ni el resultat d’una auditoria, ni la via de reclamació. I es refereix al web, no a l’aplicació mòbil.', { url: 'https://www.smou.cat/accessibilitat' }),
+        mandatoryRetention: f('no', 'official', ['bsm-privacy-policy'], 'Cap norma obliga a conservar el compte: la política només preveu el bloqueig posterior a la supressió que estableix l’article 32 de la Llei orgànica 3/2018, que limita l’ús de les dades però no impedeix donar-se de baixa.'),
+      },
       dataSummary:
         'La matrícula, els inicis i les aturades d’estacionament i els trajectes de Bicing indiquen on és el teu cotxe i a quina hora et mous per la ciutat. B:SM diu que la localització es tracta de manera anònima, però l’etiqueta de l’App Store declara la ubicació precisa vinculada a la identitat.',
       dataCollection: [
@@ -738,7 +805,7 @@ export const lot: SeedLot = {
       summary:
         'L’app de l’autoritat de transport de la regió de París ven títols, recarrega el passi Navigo i planifica trajectes. L’etiqueta de l’App Store és de les més contingudes del lot: cap dada utilitzada per rastrejar i la ubicació declarada com a no vinculada a la identitat. No hem pogut documentar-ne res més: el web d’Île-de-France Mobilités bloqueja les consultes automatitzades amb un error 403 i la política de confidencialitat no s’ha deixat llegir.',
       platforms: ['ios', 'android', 'web'],
-      businessModel: 'unknown',
+      businessModel: 'public-service',
       jurisdiction: 'França',
       links: {
         website: 'https://www.iledefrance-mobilites.fr/',
@@ -747,6 +814,18 @@ export const lot: SeedLot = {
       },
       accountRequired: f('partial', 'editorial', [], 'La cerca d’itineraris i els horaris funcionen sense compte; comprar títols o recarregar el passi Navigo obliga a identificar-se.'),
       openSource: f('no', 'official', ['ile-de-france-mobilites-app-store'], undefined, { licence: 'Privativa' }),
+      publicService: {
+        isPublicService: true,
+        administrationLevel: 'other',
+        legalBasis: f('partial', 'official', ['ile-de-france-mobilites-donnees-personnelles'], 'La política invoca el Reglament (UE) 2016/679 i la llei 78-17 «Informatique et libertés» i assigna una base jurídica a cada finalitat: execució de les condicions generals, interès legítim, consentiment per a la prospecció comercial no anàloga i «mission de service public d’Île-de-France Mobilités» per a les comunicacions als usuaris del transport. Cita les normes, però no els articles, i no identifica la norma que crea l’autoritat.', { norm: 'Reglament (UE) 2016/679 i llei 78-17 de 6 de gener de 1978' }),
+        processingRegistry: f('no', 'official', ['ile-de-france-mobilites-donnees-personnelles'], 'La política declara que els tractaments «ont fait l’objet d’une inscription au registre des traitements tenus par le délégué à la protection des données», però aquest registre no es publica enlloc. El dret francès no imposa publicar-lo —l’article 31 de la LOPDGDD és espanyol—, i per això el que hauria de ser verificable queda intern.'),
+        dpia: unknown('No hem trobat cap avaluació d’impacte publicada sobre el compte Île-de-France Mobilités ni sobre el passi Navigo, i el web de l’autoritat bloqueja les consultes automatitzades.'),
+        ensConformity: na('L’Esquema Nacional de Seguretat és espanyol i no s’aplica a una autoritat francesa.'),
+        dpo: f('yes', 'official', ['ile-de-france-mobilites-donnees-personnelles'], 'Île-de-France Mobilités ha designat una delegada de protecció de dades amb contacte publicat, i la política reparteix explícitament els àmbits de competència entre aquest delegat i el de Comutitres S.A.S., que gestiona els títols Navigo.', { contact: 'dpo@iledefrance-mobilites.fr' }),
+        offlineAlternative: f('yes', 'official', ['ile-de-france-mobilites-donnees-personnelles'], 'La mateixa política enumera els títols en suport físic —passi Navigo, Navigo Easy, Navigo Découverte i el bitllet de cartró magnètic— i un servei d’atenció telefònica unificat, de manera que viatjar i comprar títols no depèn de l’aplicació.'),
+        accessibilityStatement: f('partial', 'official', ['ile-de-france-mobilites-accessibilite'], 'La norma aplicable no és el Reial decret 1112/2018 sinó l’article 47 de la Llei 2005-102 i el referencial francès RGAA. La declaració, establerta el 12 de desembre de 2024 i actualitzada el 4 de setembre de 2025, es declara «partiellement conforme»: l’auditoria RGAA 4.1.2 de Temesis dona 52,24 % de criteris respectats, amb 32 de no conformes, i obre la via del Défenseur des droits. Cobreix el lloc web; de l’aplicació mòbil no en diu res.', { url: 'https://www.iledefrance-mobilites.fr/accessibilite' }),
+        mandatoryRetention: f('no', 'official', ['ile-de-france-mobilites-donnees-personnelles'], 'El compte es pot tancar a petició de la persona usuària i es tanca sol als dos anys d’inactivitat. L’arxivament posterior es limita al que exigeixin obligacions legals o al termini de prescripció, sense que cap norma impedeixi marxar.'),
+      },
       dataSummary:
         'Un títol de transport digital lliga la identitat als desplaçaments dins de la xarxa. L’etiqueta declara la ubicació com a no vinculada a la identitat, però sense la política no podem saber com es tracten les validacions ni quant de temps es conserven.',
       dataCollection: [
@@ -965,7 +1044,7 @@ export const lot: SeedLot = {
       summary:
         'GVA SUMA-T mostra horaris i parades del transport metropolità de València i anuncia que en el futur vendrà títols digitals amb un moneder virtual. L’etiqueta de privadesa és mínima: només la ubicació precisa, declarada com a no vinculada a la identitat, i cap dada de rastreig. Però la política de privadesa que declara a l’App Store, una nota legal de gva.es, respon «recurso no encontrado»: l’aplicació no té cap document de privadesa consultable.',
       platforms: ['ios', 'android'],
-      businessModel: 'unknown',
+      businessModel: 'public-service',
       jurisdiction: 'Espanya',
       links: {
         website: 'https://sumat.gva.es/',
@@ -973,6 +1052,18 @@ export const lot: SeedLot = {
       },
       accountRequired: f('no', 'official', ['gva-suma-t-app-store'], 'L’etiqueta no declara cap dada de contacte ni identificador de compte; la descripció de l’app diu que la compra de títols arribarà en versions futures.'),
       openSource: f('no', 'official', ['gva-suma-t-app-store'], undefined, { licence: 'Privativa' }),
+      publicService: {
+        isPublicService: true,
+        administrationLevel: 'regional',
+        legalBasis: f('partial', 'official', ['atmv-rat-atencio-client', 'gva-suma-t-app-store'], 'L’ATMV, l’organisme que hi ha darrere de sumat.gva.es, sí que documenta la licitud dels seus tractaments: l’article 6.1.e del RGPD, concretat en l’article 90 de la Llei 13/2016 de mesures fiscals, que crea l’Autoritat, i en el Decret 81/2017 del Consell que n’aprova el reglament. Però cap activitat cobreix l’aplicació, i l’enllaç de privadesa que la Generalitat declara a l’App Store no existeix: l’app mateixa no diu amb quina norma tracta la ubicació.', { norm: 'Article 6.1.e del RGPD, article 90 de la Llei 13/2016 i Decret 81/2017 del Consell' }),
+        processingRegistry: f('partial', 'official', ['atmv-proteccio-de-dades'], 'L’ATMV publica el registre d’activitats de tractament al seu web, fitxa per fitxa en PDF: vint activitats, de la gestió de targetes personalitzades a l’atenció al client. Cap no esmenta l’aplicació GVA SUMA-T ni el tractament de la ubicació dels dispositius, de manera que el registre existeix però l’activitat del servei no s’hi localitza.', { url: 'https://atmv.gva.es/va/proteccio-de-dades' }),
+        dpia: unknown('No hem trobat cap avaluació d’impacte publicada, ni a l’ATMV ni a la Generalitat Valenciana, sobre aquesta aplicació.'),
+        ensConformity: unknown('La seu electrònica de la Generalitat inclou el Reial decret 311/2022 a la llista de normativa reguladora, però no hi hem trobat cap declaració ni certificació de conformitat, i menys encara amb l’abast d’aquesta aplicació.'),
+        dpo: f('yes', 'official', ['atmv-proteccio-de-dades'], 'L’ATMV remet a la delegada de protecció de dades de la Generalitat, amb correu i adreça postal a la Ciutat Administrativa 9 d’Octubre. És un contacte únic per a tota l’Administració autonòmica, no específic del servei.', { contact: 'dpd@gva.es' }),
+        offlineAlternative: f('yes', 'official', ['atmv-oficina-atencio', 'gva-suma-t-app-store'], 'L’aplicació, de moment, només consulta horaris i parades. L’ATMV manté una oficina d’atenció presencial a l’estació de metro de Colón amb horari i telèfons publicats, i un mapa dels punts de venda físics de títols: res del que fa l’app no obliga a instal·lar-la.'),
+        accessibilityStatement: f('partial', 'official', ['gva-accessibilitat'], 'La pàgina d’accessibilitat de gva.es diu que el portal s’ha desenvolupat «seguint» el Reial decret 1112/2018, però no declara el grau de conformitat, no porta data, no publica cap resultat d’auditoria ni obre la via de reclamació que la norma exigeix. I parla del portal web: l’aplicació, que el mateix reial decret cobreix, no té declaració pròpia.', { url: 'https://www.gva.es/accessibilitat' }),
+        mandatoryRetention: f('no', 'official', ['gva-suma-t-app-store'], 'En la versió actual l’aplicació no crea cap compte ni obre cap expedient, de manera que no hi ha res que cap norma obligui a conservar.'),
+      },
       dataSummary:
         'Amb la informació disponible, l’únic que revela l’aplicació és on ets quan consultes un horari. Si arriba el moneder virtual anunciat, la imatge canviarà del tot i caldrà tornar a revisar la fitxa.',
       dataCollection: [

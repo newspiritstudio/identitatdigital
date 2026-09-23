@@ -93,7 +93,7 @@ const citaSanitaria: AppSeed = {
   summary:
     'L’aplicació permet demanar, canviar i anul·lar cites d’atenció primària i de primera consulta hospitalària del Servei Madrileny de Salut. No té compte propi: la persona s’identifica cada vegada amb el codi de la targeta sanitària, la data de naixement i el DNI o NIE. L’etiqueta de l’App Store diu que no recull cap dada, però no hem trobat cap clàusula de protecció de dades pròpia de l’aplicació, i les cites revelen per si mateixes el vincle amb serveis sanitaris concrets.',
   platforms: ['ios', 'android', 'web'],
-  businessModel: 'unknown',
+  businessModel: 'public-service',
   jurisdiction: 'Espanya (Comunitat de Madrid)',
   links: {
     website: 'https://www.comunidad.madrid/salud/cita-sanitaria',
@@ -102,6 +102,24 @@ const citaSanitaria: AppSeed = {
   },
   accountRequired: f('no', 'official', ['cita-sanitaria-madrid-servei', 'cita-sanitaria-madrid-tsv-2023'], 'No hi ha registre: cada cita es demana amb el codi de la targeta sanitària, la data de naixement i el DNI o NIE. Per als menors de 16 anys s’introdueix el DNI de la persona adulta responsable.'),
   openSource: unknown('No hem trobat el codi publicat.'),
+  publicService: {
+    isPublicService: true,
+    administrationLevel: 'regional',
+    legalBasis: unknown('No hem trobat cap clàusula de protecció de dades pròpia de l’aplicació ni del servei de cita prèvia que citi la norma que empara el tractament.'),
+    processingRegistry: f('partial', 'official', ['comunidad-madrid-rat', 'comunidad-madrid-proteccion-datos'], 'La Comunitat publica el registre d’activitats de tractament amb un cercador per conselleries, però no hi hem localitzat de manera identificable l’activitat de la cita sanitària.', {
+      url: 'https://www.comunidad.madrid/proteccion-datos/registro-actividades-tratamiento-rat',
+    }),
+    dpia: unknown('No hem trobat publicada cap avaluació d’impacte relativa a la protecció de dades d’aquest servei.'),
+    ensConformity: unknown('No hem trobat cap declaració ni certificació de conformitat amb l’Esquema Nacional de Seguretat d’aquest sistema.'),
+    dpo: f('yes', 'official', ['comunidad-madrid-dpd'], 'Comitè Delegat de Protecció de Dades de la Conselleria de Sanitat, amb adreça de contacte publicada al portal de la Comunitat.', {
+      contact: 'protecciondedatos.sanidad@madrid.org',
+    }),
+    offlineAlternative: f('yes', 'official', ['cita-sanitaria-madrid-servei'], 'La cita es pot demanar també per web, pel telèfon del centre de salut, als quioscos digitals dels centres i presencialment; a l’atenció hospitalària hi ha el Centre de Gestió de Cites.'),
+    accessibilityStatement: f('no', 'official', ['comunidad-madrid-accessibilitat'], 'La declaració d’accessibilitat del portal de la Comunitat es declara «no conforme» amb el Reial decret 1112/2018 (abril del 2024, revisada el maig del 2025) i no cobreix les aplicacions mòbils; no n’hem trobat cap de pròpia de l’aplicació.', {
+      url: 'https://www.comunidad.madrid/atencion-ciudadano/declaracion-accesibilidad',
+    }),
+    mandatoryRetention: unknown('No hem trobat documentat quina norma obliga a conservar les cites ni durant quant de temps; l’aplicació no té compte que es pugui eliminar.'),
+  },
   dataSummary:
     'El codi de la targeta, el DNI i la data de naixement identifiquen la persona sense ambigüitat. Les cites diuen amb quin servei sanitari es relaciona i quan, i en el cas dels menors vinculen la criatura amb la persona adulta que la cita.',
   dataCollection: [
@@ -182,7 +200,7 @@ const tarjetaSanitaria: AppSeed = {
   summary:
     'La Tarjeta Sanitaria Virtual substitueix la targeta física als centres de salut i a les farmàcies i dona accés a «Mi Carpeta de Salud»: informes clínics, analítiques, medicació, cites i baixes laborals. Es tracten dades de salut per obligació legal, sense cessions llevat de les previstes per llei. El 2025 la Comunitat va eliminar el codi per SMS a l’accés a les dades personals i el va substituir per una validació automàtica del número a través de Telefónica.',
   platforms: ['ios', 'android', 'web'],
-  businessModel: 'unknown',
+  businessModel: 'public-service',
   jurisdiction: 'Espanya (Comunitat de Madrid)',
   userBase: 'Uns 2,5 milions de persones tenien la targeta virtual activa el 2023, segons la Comunitat',
   links: {
@@ -192,6 +210,28 @@ const tarjetaSanitaria: AppSeed = {
   },
   accountRequired: f('yes', 'official', ['tarjeta-sanitaria-servei'], 'Cal activar-la amb Cl@ve Permanent, el sistema IDentifica, certificat digital o DNI electrònic, o bé amb un codi QR que lliuren als centres de salut.'),
   openSource: unknown('No hem trobat el codi publicat.'),
+  publicService: {
+    isPublicService: true,
+    administrationLevel: 'regional',
+    legalBasis: f('partial', 'official', ['tarjeta-sanitaria-carpeta-proteccion-datos'], 'La clàusula enumera el RGPD, la Llei orgànica 3/2018 i les lleis 41/2002, 14/1986, 39/2015, 19/2013 i 10/2019, però no concreta ni l’article habilitant ni la lletra de l’article 6.1 del RGPD que empara el tractament.', {
+      norm: 'Llei 41/2002 i Llei 14/1986, citades sense article',
+    }),
+    processingRegistry: f('partial', 'official', ['comunidad-madrid-rat', 'comunidad-madrid-proteccion-datos'], 'El registre d’activitats de tractament de la Comunitat inclou les conselleries i les entitats adscrites, però no hi hem localitzat de manera identificable l’activitat de la targeta sanitària virtual ni de la carpeta de salut.', {
+      url: 'https://www.comunidad.madrid/proteccion-datos/registro-actividades-tratamiento-rat',
+    }),
+    dpia: unknown('No hem trobat publicada cap avaluació d’impacte, tot i que el servei tracta dades de salut a gran escala.'),
+    ensConformity: unknown('No hem trobat cap declaració ni certificació de conformitat amb l’Esquema Nacional de Seguretat de la carpeta de salut ni de la targeta virtual.'),
+    dpo: f('yes', 'official', ['tarjeta-sanitaria-carpeta-proteccion-datos', 'comunidad-madrid-dpd'], 'La clàusula identifica el Comitè Delegat de Protecció de Dades de la Conselleria de Sanitat amb adreça postal, i el portal de la Comunitat en publica el correu.', {
+      contact: 'protecciondedatos.sanidad@madrid.org',
+    }),
+    offlineAlternative: f('partial', 'official', ['tarjeta-sanitaria-servei'], 'L’activació es pot fer presencialment als centres de salut, als hospitals del Servei Madrileny de Salut i a les oficines de registre, però no hem trobat confirmat un accés equivalent a la carpeta de salut sense l’aplicació.'),
+    accessibilityStatement: f('no', 'official', ['comunidad-madrid-accessibilitat'], 'La declaració del portal de la Comunitat es declara «no conforme» amb el Reial decret 1112/2018 i no cobreix les aplicacions mòbils; ni l’aplicació ni la carpeta virtual en tenen una de pròpia.', {
+      url: 'https://www.comunidad.madrid/atencion-ciudadano/declaracion-accesibilidad',
+    }),
+    mandatoryRetention: f('yes', 'official', ['tarjeta-sanitaria-carpeta-proteccion-datos', 'boe-llei-41-2002'], 'La clàusula diu que les dades es conserven «durante los años necesarios para cumplir con la normativa vigente». La documentació clínica que mostra la carpeta de salut està sotmesa a l’article 17 de la Llei 41/2002, que obliga els centres a conservar-la com a mínim cinc anys des de l’alta de cada procés assistencial: no és una decisió del servei.', {
+      norm: 'Llei 41/2002, article 17',
+    }),
+  },
   dataSummary:
     'És la història clínica de la persona al mòbil: diagnòstics en informes, resultats d’analítiques, medicació, cites i baixes laborals. Qualsevol accés indegut al dispositiu o al compte exposa categories especials de dades de l’article 9 del RGPD.',
   dataCollection: [
@@ -274,7 +314,7 @@ const tarjetaTransporte: AppSeed = {
   summary:
     'L’aplicació del Consorci Regional de Transports de Madrid serveix per consultar el saldo i carregar títols a la Tarjeta Transporte Público acostant-la a l’iPhone. Segons el consorci, només recull el model del telèfon i la versió del sistema. El risc principal és fora de l’aplicació: el novembre de 2023 un atac va extreure noms, adreces, correus i telèfons dels titulars de la targeta i informació de vendes de títols.',
   platforms: ['ios'],
-  businessModel: 'unknown',
+  businessModel: 'public-service',
   jurisdiction: 'Espanya (Comunitat de Madrid)',
   links: {
     website: 'https://www.crtm.es/app-tarjeta-transporte',
@@ -283,6 +323,24 @@ const tarjetaTransporte: AppSeed = {
   },
   accountRequired: unknown('La documentació no parla de cap registre; per carregar cal donar d’alta una targeta bancària a l’aplicació.'),
   openSource: unknown('No hem trobat el codi publicat.'),
+  publicService: {
+    isPublicService: true,
+    administrationLevel: 'regional',
+    legalBasis: f('partial', 'official', ['crtm-proteccion-datos'], 'La clàusula invoca el Reglament general de protecció de dades com a marc, però no cita cap norma amb rang ni article que empari el tractament de les dades de la targeta de transport.'),
+    processingRegistry: f('partial', 'official', ['crtm-proteccion-datos', 'comunidad-madrid-rat'], 'La clàusula remet al registre d’activitats de tractament de la Comunitat, que inclou la Conselleria de Vivienda, Transportes e Infraestructuras i els organismes adscrits, entre els quals el consorci; no hi hem localitzat de manera identificable l’activitat de l’aplicació.', {
+      url: 'https://www.comunidad.madrid/proteccion-datos/registro-actividades-tratamiento-rat',
+    }),
+    dpia: unknown('No hem trobat publicada cap avaluació d’impacte, tampoc després de l’atac del 2023.'),
+    ensConformity: unknown('No hem trobat cap declaració ni certificació de conformitat amb l’Esquema Nacional de Seguretat dels sistemes del consorci.'),
+    dpo: f('yes', 'official', ['crtm-proteccion-datos', 'comunidad-madrid-dpd'], 'El consorci publica el correu del seu delegat de protecció de dades, que també consta a la llista de delegats de la Comunitat.', {
+      contact: 'crtm_protecciondatos@madrid.org',
+    }),
+    offlineAlternative: f('yes', 'official', ['tarjeta-transporte-crtm-app'], 'El consorci diu que l’aplicació carrega títols «en las mismas condiciones que cualquier otra red de distribución (Metro, estancos, etc.)»: la recàrrega presencial continua disponible.'),
+    accessibilityStatement: f('no', 'official', ['crtm-accessibilitat'], 'El consorci publica la declaració d’accessibilitat del portal web (preparada el maig del 2025 i revisada el setembre del 2025), que es declara «no conforme» amb el Reial decret 1112/2018 i que no esmenta l’aplicació mòbil.', {
+      url: 'https://www.crtm.es/accesibilidad',
+    }),
+    mandatoryRetention: unknown('La clàusula no fixa terminis de conservació i no hem trobat cap norma que obligui a conservar les dades de la targeta de transport.'),
+  },
   dataSummary:
     'L’aplicació en si revela poc, però la targeta de transport personal està vinculada a nom, adreça i telèfon als sistemes del consorci, i les recàrregues diuen quin títol es fa servir i amb quina freqüència.',
   dataCollection: [
@@ -365,7 +423,7 @@ const emtMadrid: AppSeed = {
   summary:
     'L’aplicació d’EMT dona informació de línies, parades i temps d’arribada, i amb un compte mPass permet rebre avisos de les línies que es fan servir. La política és curta i concreta: dades identificatives, geolocalització i dades de reclamacions, sense transferències fora de l’Espai Econòmic Europeu. Les dades d’ús s’anonimitzen i es conserven sis anys més després de deixar de ser persona usuària.',
   platforms: ['ios', 'android'],
-  businessModel: 'unknown',
+  businessModel: 'public-service',
   jurisdiction: 'Espanya (Ajuntament de Madrid)',
   links: {
     website: 'https://www.emtmadrid.es/',
@@ -374,6 +432,20 @@ const emtMadrid: AppSeed = {
   },
   accountRequired: f('partial', 'official', ['emt-madrid-privacy-policy'], 'La consulta de línies i parades és lliure; els avisos personalitzats requereixen un compte mPass.'),
   openSource: unknown('No hem trobat el codi publicat.'),
+  publicService: {
+    isPublicService: true,
+    administrationLevel: 'local',
+    legalBasis: f('partial', 'official', ['emt-madrid-privacy-policy'], 'La política legitima el tractament en el consentiment de la persona i, per a l’anonimització de les dades d’ús, en l’interès legítim d’EMT; no cita cap norma que empari la prestació del servei públic.'),
+    processingRegistry: unknown('No hem trobat publicat el registre d’activitats de tractament d’EMT ni cap entrada identificable d’aquesta aplicació al de l’Ajuntament de Madrid.'),
+    dpia: unknown('No hem trobat publicada cap avaluació d’impacte relativa a la protecció de dades.'),
+    ensConformity: unknown('EMT és una societat mercantil municipal; no hem trobat cap declaració de conformitat amb l’Esquema Nacional de Seguretat dels seus sistemes.'),
+    dpo: f('yes', 'official', ['emt-madrid-privacy-policy'], 'La política identifica el delegat de protecció de dades d’EMT amb correu electrònic i adreça postal.', {
+      contact: 'dpd@emtmadrid.es',
+    }),
+    offlineAlternative: f('yes', 'editorial', ['emt-madrid-privacy-policy'], 'Interpretació pròpia: l’aplicació és informativa i la política diu que la consulta de línies i parades no necessita compte; el servei d’autobús es pot fer servir sense instal·lar-la, amb la informació de les marquesines i el telèfon d’atenció.'),
+    accessibilityStatement: unknown('No hem trobat cap declaració d’accessibilitat del Reial decret 1112/2018 al web d’EMT: el peu de pàgina només enllaça l’avís legal, la privadesa i una pàgina de responsabilitat social sobre l’accessibilitat dels vehicles.'),
+    mandatoryRetention: f('no', 'official', ['emt-madrid-privacy-policy'], 'La política només preveu conservar les dades mentre duri la condició de persona usuària més un màxim de sis anys per a possibles responsabilitats; no invoca cap obligació legal de conservació que impedeixi esborrar el compte.'),
+  },
   dataSummary:
     'Les parades i línies preferides i els avisos d’arribada dibuixen els desplaçaments habituals: on viu i on treballa la persona i a quina hora es mou.',
   dataCollection: [
@@ -460,7 +532,7 @@ const bicimad: AppSeed = {
   summary:
     'BiciMAD és un servei de l’Ajuntament de Madrid que gestiona EMT com a encarregada del tractament. El registre demana DNI, data de naixement, adreça i dades bancàries a través del compte mPass. La política ho diu clar: el GPS de la bicicleta no es pot desconnectar i serveix per fer un mapatge dels trajectes de cada persona. El 2019 un atac a diverses estacions va exposar noms i saldos de persones usuàries.',
   platforms: ['ios', 'android'],
-  businessModel: 'commerce',
+  businessModel: 'public-service',
   jurisdiction: 'Espanya (Ajuntament de Madrid)',
   links: {
     website: 'https://www.bicimad.com/',
@@ -470,6 +542,22 @@ const bicimad: AppSeed = {
   },
   accountRequired: f('yes', 'official', ['bicimad-privacy-policy'], 'Cal registrar-se amb dades identificatives i donar-se d’alta a mPass, obligatori per als pagaments.'),
   openSource: unknown('No hem trobat el codi publicat.'),
+  publicService: {
+    isPublicService: true,
+    administrationLevel: 'local',
+    legalBasis: f('partial', 'official', ['bicimad-privacy-policy'], 'La política legitima el tractament en la relació contractual o precontractual (article 6.1.b del RGPD), però no cita cap norma del servei públic de bicicleta ni l’ordenança que l’empara.', {
+      norm: 'RGPD, article 6.1.b',
+    }),
+    processingRegistry: unknown('No hem localitzat al registre d’activitats de tractament de l’Ajuntament de Madrid cap entrada identificable del servei BiciMAD.'),
+    dpia: unknown('No hem trobat publicada cap avaluació d’impacte, tot i que el GPS de la bicicleta fa un mapatge dels trajectes de cada persona.'),
+    ensConformity: unknown('No hem trobat cap declaració ni certificació de conformitat amb l’Esquema Nacional de Seguretat d’aquest servei.'),
+    dpo: f('yes', 'official', ['bicimad-privacy-policy'], 'La política identifica l’Oficina de Protecció de Dades de l’Ajuntament de Madrid amb correu electrònic i adreça postal.', {
+      contact: 'oficprotecciondatos@madrid.es',
+    }),
+    offlineAlternative: f('yes', 'official', ['bicimad-servei'], 'El servei es pot fer servir sense l’aplicació: amb la targeta vinculada passada per la base o pel candau de la bicicleta.'),
+    accessibilityStatement: unknown('El web de BiciMAD no enllaça cap declaració d’accessibilitat i no n’hem trobat cap que cobreixi l’aplicació.'),
+    mandatoryRetention: f('no', 'official', ['bicimad-privacy-policy'], 'La política preveu conservar les dades durant la relació contractual i mantenir-les bloquejades un màxim de sis anys per a possibles responsabilitats; no invoca cap obligació legal de conservació que impedeixi donar de baixa el compte.'),
+  },
   dataSummary:
     'El mapatge dels trajectes, lligat al DNI i al compte bancari, mostra rutines diàries amb molta precisió: d’on surt i on arriba cada persona i a quina hora. En els comptes de menors, a més, queda vinculat qui en té la tutela.',
   dataCollection: [
@@ -1241,6 +1329,23 @@ export const lot: SeedLot = {
       summary: 'Nota oficial: se suprimeix el codi per SMS i la validació es fa automàticament amb les API Open Gateway de Telefónica.',
     }),
 
+    s('comunidad-madrid-rat', 'Registro de actividades de tratamiento (RAT) — Comunidad de Madrid', 'https://www.comunidad.madrid/proteccion-datos/registro-actividades-tratamiento-rat', 'Comunidad de Madrid', 'privacy-center', 'primary', {
+      language: 'es',
+      summary: 'Registre d’activitats de tractament amb cercador per conselleries, apartat per a altres organismes públics i tractaments en què la Comunitat actua com a encarregada.',
+    }),
+    s('comunidad-madrid-dpd', 'Datos de contacto de los delegados de protección de datos (DPD)', 'https://www.comunidad.madrid/proteccion-datos/datos-contacto-delegados-proteccion-datos-dpd', 'Comunidad de Madrid', 'privacy-center', 'primary', {
+      language: 'es',
+      summary: 'Llista de delegats de protecció de dades per conselleria i organisme, amb les adreces electròniques de Sanitat i del Consorci Regional de Transports.',
+    }),
+    s('comunidad-madrid-accessibilitat', 'Declaración de accesibilidad — Comunidad de Madrid', 'https://www.comunidad.madrid/atencion-ciudadano/declaracion-accesibilidad', 'Comunidad de Madrid', 'support-doc', 'primary', {
+      language: 'es',
+      summary: 'Declaració del Reial decret 1112/2018 del portal comunidad.madrid: es declara «no conforme», preparada l’abril del 2024 i revisada el maig del 2025, sense esmentar les aplicacions mòbils.',
+    }),
+    s('boe-llei-41-2002', 'Ley 41/2002, básica reguladora de la autonomía del paciente y de derechos y obligaciones en materia de información y documentación clínica', 'https://www.boe.es/buscar/act.php?id=BOE-A-2002-22188', 'Boletín Oficial del Estado', 'legislation', 'authority', {
+      language: 'es',
+      summary: 'Text consolidat; l’article 17 obliga els centres sanitaris a conservar la documentació clínica com a mínim cinc anys des de l’alta de cada procés assistencial.',
+    }),
+
     /* CRTM */
     s('crtm-proteccion-datos', 'Protección de datos — Consorcio Regional de Transportes de Madrid', 'https://www.crtm.es/proteccion-de-datos', 'Consorcio Regional de Transportes de Madrid', 'privacy-policy', 'primary', {
       language: 'es',
@@ -1257,6 +1362,10 @@ export const lot: SeedLot = {
     s('tarjeta-transporte-instruccions-ios', 'Instrucciones de uso de la app Tarjeta Transporte (iOS)', 'https://www.crtm.es/billetes-y-tarifas/apps-crtm/tarjeta-transporte/instrucciones-de-uso-de-la-app-tarjeta-transporte-ios/?idPestana=0&lang=es', 'Consorcio Regional de Transportes de Madrid', 'support-doc', 'primary', {
       language: 'es',
       summary: 'Instruccions: alta de targetes Visa o Mastercard amb un càrrec de verificació de zero euros i esborrat lliscant cap a l’esquerra.',
+    }),
+    s('crtm-accessibilitat', 'Accesibilidad — Consorcio Regional de Transportes de Madrid', 'https://www.crtm.es/accesibilidad', 'Consorcio Regional de Transportes de Madrid', 'support-doc', 'primary', {
+      language: 'es',
+      summary: 'Declaració d’accessibilitat del Reial decret 1112/2018 del portal crtm.es: «no conforme», preparada el maig del 2025 i revisada el setembre del 2025.',
     }),
     s('tarjeta-transporte-ciberataque-2023', 'Un ciberataque puso en jaque datos personales de los titulares de Tarjetas de Transporte Público de Madrid', 'https://www.eldiario.es/madrid/somos/ciberataque-puso-jaque-datos-personales-titulares-tarjetas-transporte-publico-madrid_1_10957558.html', 'elDiario.es', 'press', 'secondary', {
       language: 'es',
@@ -1280,6 +1389,10 @@ export const lot: SeedLot = {
     s('bicimad-terms', 'Términos y condiciones asociados al servicio BiciMAD', 'https://www.bicimad.com/sites/default/files/2023-03/T%C3%A9rminos%20y%20condiciones%20bicimad.pdf', 'Ayuntamiento de Madrid / EMT Madrid', 'terms', 'primary', {
       language: 'es',
       summary: 'Condicions del servei; l’apartat 3.7 diu que la baixa es fa a l’àrea d’usuari de l’aplicació i no retorna saldos.',
+    }),
+    s('bicimad-servei', 'bicimad — Cómo funciona', 'https://www.bicimad.com/', 'Ayuntamiento de Madrid / EMT Madrid', 'support-doc', 'primary', {
+      language: 'es',
+      summary: 'Pàgina del servei: explica que, sense aplicació, la bicicleta es desbloqueja passant la targeta vinculada per la base o pel candau.',
     }),
     s('bicimad-ciberataque-2019', 'La EMT denuncia a la Policía un ataque informático en 19 estaciones de Bicimad para acceder a datos de usuarios', 'https://www.telemadrid.es/noticias/madrid/EMT-Policia-informatico-estaciones-Bicimad-0-2185581436--20191213120128.html', 'Telemadrid', 'press', 'secondary', {
       language: 'es',

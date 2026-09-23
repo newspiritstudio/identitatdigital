@@ -140,6 +140,12 @@ const appData = (app: AppSeed) => ({
   links: app.links,
   accountRequired: fact(app.accountRequired),
   openSource: fact(app.openSource),
+  publicService: app.publicService
+    ? {
+        ...facts(app.publicService as unknown as Record<string, unknown>),
+        isPublicService: true,
+      }
+    : { isPublicService: false },
   dataSummary: app.dataSummary,
   dataCollection: app.dataCollection.map(dataRow),
   tracking: facts(app.tracking),

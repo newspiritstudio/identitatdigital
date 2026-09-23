@@ -119,6 +119,24 @@ export type AlternativeSeed = {
   tradeOffs?: string
 }
 
+/**
+ * Bloc de servei públic. Activa els indicadors que només s'apliquen a una
+ * administració i desactiva els que el sector privat compleix d'una altra
+ * manera. Vegeu `src/lib/scoring/methodology.ts`.
+ */
+export type PublicServiceSeed = {
+  isPublicService: true
+  administrationLevel?: 'european' | 'state' | 'regional' | 'local' | 'other'
+  legalBasis: FactSeed
+  processingRegistry: FactSeed
+  dpia: FactSeed
+  ensConformity: FactSeed
+  dpo: FactSeed
+  offlineAlternative: FactSeed
+  accessibilityStatement: FactSeed
+  mandatoryRetention: FactSeed
+}
+
 export type AppSeed = {
   slug: string
   name: string
@@ -134,6 +152,7 @@ export type AppSeed = {
   links?: Record<string, string>
   accountRequired: FactSeed
   openSource: FactSeed
+  publicService?: PublicServiceSeed
   dataSummary?: string
   dataCollection: DataRowSeed[]
   tracking: Record<string, FactSeed | unknown>

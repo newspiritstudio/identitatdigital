@@ -703,7 +703,7 @@ const aemet: AppSeed = {
   summary:
     'L’aplicació oficial de l’agència meteorològica estatal declara a l’App Store que no recull cap dada, i la política diu que la ubicació es gestiona dins del dispositiu i no s’envia a l’AEMET. És, de llarg, el perfil de dades més net d’aquest lot. La contrapartida és documental: la política té quatre paràgrafs, no identifica el responsable ni el delegat de protecció de dades, no diu com s’exerceixen els drets i no concreta quant de temps es conserven els registres d’accés, que sí que inclouen l’adreça IP.',
   platforms: ['ios', 'android', 'web', 'macos'],
-  businessModel: 'unknown',
+  businessModel: 'public-service',
   jurisdiction: 'Espanya; agència estatal adscrita al Ministeri per a la Transició Ecològica i el Repte Demogràfic',
   links: {
     website: 'https://www.aemet.es/es/app/eltiempodeAEMET',
@@ -713,6 +713,49 @@ const aemet: AppSeed = {
   },
   accountRequired: f('no', 'official', ['aemet-app-store', 'aemet-privacy-app'], 'Ni la fitxa de l’App Store ni la política descriuen cap registre ni cap compte.'),
   openSource: unknown('No hem trobat publicat el codi de l’aplicació. Les dades meteorològiques sí que es publiquen com a dades obertes reutilitzables.'),
+  publicService: {
+    isPublicService: true,
+    administrationLevel: 'state',
+    legalBasis: f(
+      'partial',
+      'official',
+      ['aemet-privacy-app'],
+      'La política es limita a invocar un «compromiso de cumplimiento» del RGPD i de la Llei orgànica 3/2018, sense concretar cap base jurídica ni cap article. Diu que les dades «quedarán incorporados a la correspondiente actividad de tratamiento», però no diu quina.',
+      { norm: 'Reglament (UE) 2016/679 i Llei orgànica 3/2018, citats sense article ni base jurídica concreta' },
+    ),
+    processingRegistry: unknown(
+      'La política al·ludeix a «la correspondiente actividad de tratamiento» però no enllaça cap registre. No hem pogut localitzar el registre d’activitats de tractament de l’AEMET: el dia de la verificació tot el domini aemet.es responia amb un error 502 i la seu electrònica no en publica cap.',
+    ),
+    dpia: unknown('No hem trobat publicada cap avaluació d’impacte relativa a la protecció de dades d’aquest servei.'),
+    ensConformity: unknown(
+      'No hem trobat cap declaració de conformitat amb l’Esquema Nacional de Seguretat (Reial decret 311/2022) ni al web de l’agència —inaccessible el dia de la verificació— ni a la seu electrònica.',
+    ),
+    dpo: f(
+      'no',
+      'official',
+      ['aemet-privacy-app'],
+      'L’únic document de privadesa que l’aplicació enllaça no identifica el responsable del tractament ni designa cap delegat de protecció de dades amb contacte publicat.',
+    ),
+    offlineAlternative: f(
+      'yes',
+      'official',
+      ['aemet-privacy-app', 'aemet-nota-legal'],
+      'No hi ha cap tràmit que depengui de l’aplicació: les prediccions, els avisos i les imatges de radar són accessibles sense instal·lar-la al web aemet.es —que és on es publiquen la política i la nota legal— i, a més, com a dades obertes reutilitzables.',
+    ),
+    accessibilityStatement: f(
+      'partial',
+      'official',
+      ['aemet-accessibilitat-ios'],
+      'Hi ha declaració d’accessibilitat de la versió per a iOS i s’hi declara «parcialment conforme» amb el Reial decret 1112/2018, però es refereix a la versió 2.9 i no s’ha revisat des del novembre del 2022.',
+      { url: 'https://www.aemet.es/es/app/eltiempodeAEMET/declaracion-accesibilidad-iOS' },
+    ),
+    mandatoryRetention: f(
+      'no',
+      'official',
+      ['aemet-privacy-app'],
+      'No hi ha compte ni expedient administratiu: la política descriu els registres d’accés amb adreça IP com a «temporales», amb finalitat estadística i d’assegurament del servei, i no invoca cap norma que n’obligui la conservació.',
+    ),
+  },
   dataSummary:
     'Si la política diu la veritat, el que queda del costat de l’AEMET és un registre d’accés amb l’adreça IP. És poc, però no és res: l’adreça IP és una dada personal i la política no diu ni durant quant de temps es conserva ni amb quina base jurídica.',
   dataCollection: [
@@ -803,7 +846,7 @@ const laMevaSalut: AppSeed = {
   summary:
     'La Meva Salut és la porta d’entrada a la història clínica compartida de Catalunya: informes, medicació, vacunes, resultats de proves i cites. La política és exemplar en la part jurídica —responsable identificat, bases jurídiques citades article per article, cap transferència fora de la Unió Europea i terminis legals explícits— i és de les poques d’aquest lot que diu exactament què es conserva i durant quant de temps. El que no ofereix és una sortida: l’accés es fa amb idCAT Mòbil, certificat o Cl@ve, i la història clínica té terminis de conservació propis que no depenen de la voluntat de la persona.',
   platforms: ['ios', 'android', 'web'],
-  businessModel: 'unknown',
+  businessModel: 'public-service',
   jurisdiction: 'Catalunya; servei públic del Departament de Salut de la Generalitat',
   links: {
     website: 'https://lamevasalut.gencat.cat/',
@@ -813,6 +856,60 @@ const laMevaSalut: AppSeed = {
   },
   accountRequired: f('yes', 'official', ['la-meva-salut-catsalut', 'la-meva-salut-privacitat'], 'Cal identificació digital amb idCAT Mòbil, certificat digital o DNI electrònic, tenir la targeta sanitària individual i 16 anys o més. Per als comptes antics encara funciona la contrasenya, però no se’n creen de noves.'),
   openSource: unknown('No hem trobat publicat el codi de l’aplicació.'),
+  publicService: {
+    isPublicService: true,
+    administrationLevel: 'regional',
+    legalBasis: f(
+      'yes',
+      'official',
+      ['la-meva-salut-privacitat', 'departament-salut-registre-tractament'],
+      'La política identifica el Departament de Salut com a responsable i cita els articles 6.1.c), 6.1.e) i 9.2.c), g), h), i) i j) del RGPD i la disposició addicional dissetena de la Llei orgànica 3/2018. El registre d’activitats del Departament concreta la mateixa base amb la Llei 21/2000, la Llei 16/2020 que la modifica i la Llei 41/2002.',
+      {
+        norm: 'RGPD, articles 6.1.c), 6.1.e) i 9.2.c), g), h), i) i j); Llei orgànica 3/2018, disposició addicional dissetena; Llei 21/2000, article 12',
+      },
+    ),
+    processingRegistry: f(
+      'partial',
+      'official',
+      ['departament-salut-registre-tractament', 'catsalut-registre-tractament'],
+      'Tant el Departament de Salut com el CatSalut publiquen el registre d’activitats de tractament en un full de càlcul descarregable, i totes dues activitats sanitàries hi consten amb base jurídica, terminis i delegat. Cap dels dos registres, però, no anomena La Meva Salut ni la història clínica compartida: les activitats més properes són el «Sistema integrat d’informació de Salut de Catalunya» del CatSalut i els «Fons extraordinaris d’històries clíniques de centres sanitaris tancats» del Departament.',
+      { url: 'https://salutweb.gencat.cat/web/.content/_departament/proteccio-de-dades/registre-activitats-tractament.xlsx' },
+    ),
+    dpia: unknown(
+      'No hem trobat publicada cap avaluació d’impacte relativa a la protecció de dades, ni al web de La Meva Salut ni a les pàgines de protecció de dades del Departament de Salut i del CatSalut.',
+    ),
+    ensConformity: unknown(
+      'No hem trobat cap declaració ni certificació de conformitat amb l’Esquema Nacional de Seguretat (Reial decret 311/2022) del servei ni del CatSalut. El registre d’activitats del Departament de Salut descriu les mesures de seguretat remetent al «Marc de ciberseguretat per a la protecció de dades» de la Generalitat, que no és l’ENS.',
+    ),
+    dpo: f(
+      'yes',
+      'official',
+      ['la-meva-salut-privacitat', 'departament-salut-registre-tractament'],
+      'La política i el registre d’activitats identifiquen el mateix delegat de protecció de dades, compartit per l’àmbit de salut, amb adreça de contacte publicada. La política hi afegeix una bústia específica de protecció de dades del Departament.',
+      { contact: 'dpd@ticsalutsocial.cat' },
+    ),
+    offlineAlternative: f(
+      'yes',
+      'official',
+      ['la-meva-salut-catsalut'],
+      'Tot el que fa l’aplicació es pot fer sense ella: la contrasenya d’accés es demana presencialment al centre d’atenció primària amb la targeta sanitària i el document d’identitat, l’idCAT Mòbil es pot donar d’alta a les oficines d’atenció ciutadana, les visites es programen al mateix centre i el 061 Salut Respon atén per telèfon.',
+    ),
+    accessibilityStatement: f(
+      'partial',
+      'official',
+      ['la-meva-salut-accessibilitat-ios'],
+      'La declaració d’accessibilitat de l’aplicació per a iOS diu «parcialment conforme» amb el Reial decret 1112/2018, el Decret 216/2023 i la norma EN 301 549 v2.1.2, i hi enumera els incompliments. És del 25 d’octubre del 2022 i no s’ha revisat des d’aleshores; l’enllaç «Declaració d’accessibilitat» del web de La Meva Salut, a més, no hi porta, sinó a la fitxa general del servei al CatSalut.',
+      {
+        url: 'https://catsalut.gencat.cat/ca/serveis-sanitaris/la-meva-salut/declaracio-accessibilitat-app-la-meva-salut-ios/',
+      },
+    ),
+    mandatoryRetention: f(
+      'yes',
+      'official',
+      ['la-meva-salut-privacitat', 'la-meva-salut-llei-21-2000', 'la-meva-salut-llei-41-2002'],
+      'La història clínica té terminis de conservació imposats per llei, no decidits pel servei: l’article 17.1 de la Llei 41/2002 obliga a conservar la documentació clínica com a mínim cinc anys des de l’alta de cada procés assistencial, i l’article 12 de la Llei 21/2000 de Catalunya fixa quinze anys per al nucli de la documentació —consentiments informats, informes d’alta, fulls operatoris i d’anestèsia, proves complementàries i informes d’anatomia patològica— i la conservació indefinida del que sigui rellevant per a l’assistència, l’epidemiologia, la recerca o els efectes judicials. La política del servei recull aquests terminis, i el registre d’accessos es conserva un mínim de dos anys.',
+    ),
+  },
   dataSummary:
     'És el conjunt de dades més sensible de tot el lot: diagnòstics, medicació, vacunes, resultats de proves i visites. A diferència de la resta, aquestes dades no les genera l’aplicació sinó el sistema sanitari, i la persona no en pot demanar l’esborrat: la llei obliga a conservar la història clínica.',
   dataCollection: [
@@ -1416,6 +1513,29 @@ export const lot: SeedLot = {
     s('la-meva-salut-catsalut', 'La Meva Salut — CatSalut', 'https://catsalut.gencat.cat/ca/serveis-sanitaris/la-meva-salut/', 'Servei Català de la Salut', 'support-doc', 'primary', {
       language: 'ca',
       summary: 'Fitxa del servei: requisits d’accés (targeta sanitària individual, 16 anys), identificació amb idCAT Mòbil, certificat digital o DNI electrònic, i canal d’atenció del 061 Salut Respon.',
+    }),
+    s('la-meva-salut-accessibilitat-ios', 'Declaració d’accessibilitat de l’app La Meva Salut (iOS)', 'https://catsalut.gencat.cat/ca/serveis-sanitaris/la-meva-salut/declaracio-accessibilitat-app-la-meva-salut-ios/', 'Servei Català de la Salut', 'support-doc', 'primary', {
+      language: 'ca',
+      publishedAt: '2022-10-25',
+      summary: 'Declaració «parcialment conforme» amb el Reial decret 1112/2018, el Decret 216/2023 i la norma EN 301 549 v2.1.2, amb la llista d’incompliments (subtítols dels vídeos, conversió de continguts, lectors de pantalla i documentació accessible). Feta i revisada el 25 d’octubre del 2022.',
+    }),
+    s('departament-salut-registre-tractament', 'Registre d’activitats de tractament del Departament de Salut', 'https://salutweb.gencat.cat/web/.content/_departament/proteccio-de-dades/registre-activitats-tractament.xlsx', 'Departament de Salut', 'support-doc', 'primary', {
+      language: 'ca',
+      summary: 'Full de càlcul amb les activitats de tractament del Departament, amb responsable, delegat (dpd@ticsalutsocial.cat), bases jurídiques —articles 6.1.c), 6.1.e), 6.1.d) i 9.2 del RGPD, Llei 21/2000, Llei 16/2020 i Llei 41/2002—, terminis de conservació i mesures de seguretat remeses al «Marc de ciberseguretat per a la protecció de dades». No hi consta cap activitat anomenada La Meva Salut.',
+    }),
+    s('catsalut-registre-tractament', 'Registre d’activitats de tractament del CatSalut', 'https://catsalut.gencat.cat/ca/coneix-catsalut/proteccio-de-dades/registre-activitats-tractament/', 'Servei Català de la Salut', 'support-doc', 'primary', {
+      language: 'ca',
+      summary: 'Registre d’activitats del Servei Català de la Salut, descarregable en full de càlcul. Hi consta el «Sistema integrat d’informació de Salut de Catalunya», amb la finalitat de disposar de la història clínica dels pacients, però no cap activitat identificada com La Meva Salut.',
+    }),
+    s('la-meva-salut-llei-21-2000', 'Ley 21/2000, de 29 de diciembre, sobre los derechos de información concerniente a la salud y la autonomía del paciente, y la documentación clínica', 'https://www.boe.es/buscar/act.php?id=BOE-A-2001-2353', 'Agència Estatal Butlletí Oficial de l’Estat', 'legislation', 'authority', {
+      language: 'es',
+      publishedAt: '2000-12-29',
+      summary: 'Text consolidat de la llei catalana de documentació clínica. L’article 12 fixa la conservació de quinze anys per al nucli de la història clínica des de l’alta de cada procés assistencial, permet destruir la resta al cap de cinc anys i imposa la conservació indefinida del que sigui rellevant per a l’assistència, l’epidemiologia, la recerca o els efectes judicials.',
+    }),
+    s('la-meva-salut-llei-41-2002', 'Ley 41/2002, de 14 de noviembre, básica reguladora de la autonomía del paciente y de derechos y obligaciones en materia de información y documentación clínica', 'https://www.boe.es/buscar/act.php?id=BOE-A-2002-22188', 'Agència Estatal Butlletí Oficial de l’Estat', 'legislation', 'authority', {
+      language: 'es',
+      publishedAt: '2002-11-14',
+      summary: 'Text consolidat. L’article 17.1 obliga els centres sanitaris a conservar la documentació clínica «como mínimo, cinco años contados desde la fecha del alta de cada proceso asistencial».',
     }),
     /* Vítaly */
     s('vitaly-app-store', 'Vítaly en App Store (Privacidad de la app)', appStore('6470290292'), 'Apple / PREVING INVESTMENTS S.L.', 'app-store', 'primary', {

@@ -32,6 +32,7 @@ const certificadoDigitalFnmt: AppSeed = {
   summary:
     'L’aplicació de la Fábrica Nacional de Moneda y Timbre serveix per sol·licitar, descarregar i fer servir el certificat de persona física, la clau amb què milions de persones signen davant de l’administració. L’etiqueta de l’App Store diu «No se recopilan datos», però el tràmit tracta el DNI, el domicili, el telèfon i, si s’acredita la identitat per vídeo, la imatge de la cara i del document. La política que enllaça la fitxa de l’App Store és la genèrica de l’organisme, no una política de l’aplicació.',
   platforms: ['ios', 'android'],
+  businessModel: 'public-service',
   jurisdiction: 'Espanya; autoritat de control: Agencia Española de Protección de Datos',
   userBase: 'Milions de certificats de ciutadà en vigor a Espanya',
   links: {
@@ -41,6 +42,28 @@ const certificadoDigitalFnmt: AppSeed = {
   },
   accountRequired: f('no', 'official', ['fnmt-rcm-certificado-movil'], 'No hi ha compte d’usuari: el vincle és el codi de sol·licitud i l’acreditació de la identitat. Només es pot tenir un certificat de ciutadà actiu alhora.'),
   openSource: unknown('No hem trobat cap repositori públic del codi de l’aplicació.'),
+  publicService: {
+    isPublicService: true,
+    administrationLevel: 'state',
+    legalBasis: f('yes', 'official', ['fnmt-rcm-rat', 'fnmt-rcm-politica-certificado-movil'], 'El registre d’activitats descriu el tractament «Gestión de la PKI» com a execució del contracte i compliment d’una obligació legal, amb l’article 6.1.c) del RGPD i la Llei 6/2020 citats expressament. La política del certificat mòbil remet a aquest mateix tractament, el número 13 del registre.', {
+      norm: 'Reglament (UE) 2016/679, article 6.1.c), i Llei 6/2020, d’11 de novembre, de serveis electrònics de confiança',
+    }),
+    processingRegistry: f('yes', 'official', ['fnmt-rcm-rat', 'fnmt-rcm-politica-certificado-movil'], 'El registre publicat, amb data de juny del 2026, conté el tractament número 13, «Gestión de la PKI», que és exactament el del certificat de ciutadà: finalitats, categories de dades, encarregats, comunicacions i termini de supressió.', {
+      url: 'https://www.fnmt.es/documents/10179/10671624/RAT.pdf/1e61cdb7-bc0b-339b-e82e-edbd3c32830c',
+    }),
+    dpia: unknown('No hem trobat publicada cap avaluació d’impacte relativa a la gestió de la PKI ni a la vídeo-identificació, que és on hi hauria tractament biomètric.'),
+    ensConformity: f('yes', 'official', ['fnmt-rcm-declaracion-conformidad-ens'], 'La seu electrònica publica una declaració de conformitat amb l’Esquema Nacional de Seguretat i hi enllaça el segell amb el certificat de conformitat del 2025. La declaració, però, encara s’empara en l’article 41 del Reial decret 3/2010, derogat pel Reial decret 311/2022, i no diu en quina categoria està classificat el sistema.'),
+    dpo: f('yes', 'official', ['fnmt-rcm-politica-privacidad'], 'La política de l’organisme identifica el delegat de protecció de dades amb adreça postal i correu electrònic publicats.', {
+      contact: 'dpd@fnmt.es',
+    }),
+    offlineAlternative: f('yes', 'official', ['fnmt-rcm-certificado-software', 'fnmt-rcm-anular'], 'El mateix certificat s’obté sense l’aplicació: es demana pel navegador, s’acredita la identitat presencialment en una oficina d’acreditació i es descarrega com a certificat programari. L’anul·lació també es pot demanar per telèfon o presencialment.'),
+    accessibilityStatement: f('partial', 'official', ['fnmt-rcm-accesibilidad'], 'La seu es declara «parcialmente conforme» amb el Reial decret 1112/2018: imatges amb text alternatiu incorrecte, formularis amb CAPTCHA poc accessibles i documents PDF que perden l’accessibilitat en signar-los. És una autoavaluació de l’organisme, preparada el 24 d’abril del 2023 i revisada l’1 de juliol del 2026, i cobreix el web de la seu, no l’aplicació mòbil.', {
+      url: 'https://www.sede.fnmt.gob.es/accesibilidad',
+    }),
+    mandatoryRetention: f('yes', 'official', ['fnmt-rcm-ley-6-2020', 'fnmt-rcm-rat'], 'La llei obliga el prestador qualificat a conservar la informació relativa al servei prestat durant quinze anys des de l’extinció del certificat, i el registre d’activitats fixa el mateix termini de supressió. Per això revocar el certificat no esborra el rastre: no marxar del tot no és una decisió de la FNMT.', {
+      norm: 'Llei 6/2020, article 9.3.a), en relació amb l’article 24.2.h) del Reglament (UE) 910/2014',
+    }),
+  },
   dataSummary:
     'Per emetre un certificat cal provar qui ets davant d’un prestador qualificat: número de DNI, nom, domicili, telèfon i correu, més la clau pública del certificat i el seu número de sèrie. Si l’acreditació es fa per vídeo, s’hi afegeixen la imatge de la cara i la del document. Un cop emès, el certificat és la traça que identifica la persona a cada tràmit administratiu que signa.',
   dataCollection: [
@@ -115,7 +138,7 @@ const certificadoDigitalFnmt: AppSeed = {
     transportEncryption: f('yes', 'official', ['fnmt-rcm-certificaciones'], 'Prestador qualificat de serveis de confiança sota el Reglament eIDAS, amb certificació ETSI.'),
     atRestEncryption: unknown('No consta documentació pública específica sobre el xifratge en repòs de les dades de sol·licitud.'),
     mfa: f('partial', 'official', ['fnmt-rcm-certificado-movil'], 'No hi ha compte amb contrasenya: l’acreditació es fa amb el DNIe per NFC i el seu PIN, per vídeo-identificació o presencialment, i la instal·lació del certificat demana codi de desbloqueig i contrasenya de la còpia.'),
-    independentAudits: f('yes', 'official', ['fnmt-rcm-certificaciones'], 'ISO/IEC 27001 amb certificació d’AENOR, adequació a l’Esquema Nacional de Seguridad i auditories de conformitat eIDAS com a prestador qualificat.'),
+    independentAudits: f('yes', 'official', ['fnmt-rcm-certificaciones', 'fnmt-rcm-declaracion-conformidad-ens'], 'ISO/IEC 27001 amb certificació d’AENOR i auditories de conformitat eIDAS com a prestador qualificat. La conformitat amb l’Esquema Nacional de Seguretat no consta a la pàgina de certificacions, sinó a la declaració publicada a la seu electrònica.'),
     bugBounty: unknown('No hem trobat cap programa de recompenses ni cap canal propi de divulgació responsable.'),
     vulnerabilityDisclosure: unknown('No hi ha fitxer security.txt als dominis fnmt.es ni sede.fnmt.gob.es, i no hem trobat cap política publicada de divulgació de vulnerabilitats.'),
   },
@@ -159,6 +182,7 @@ const bonoCulturalJoven: AppSeed = {
   summary:
     'El Bono Cultural Joven és l’ajuda de 400 euros per a qui compleix divuit anys. L’aplicació serveix per consultar la sol·licitud i el saldo; l’alta es fa pel web amb un codi que gestiona la FNMT. El responsable del tractament és el Ministeri de Cultura, i la FNMT, Correos i Tragsatec hi actuen com a encarregats. L’App Store declara que no es recull cap dada, i l’enllaç de política que hi consta apunta encara a la convocatòria del 2025.',
   platforms: ['ios', 'android', 'web'],
+  businessModel: 'public-service',
   jurisdiction: 'Espanya; autoritat de control: Agencia Española de Protección de Datos',
   userBase: 'Adreçada a tota la població que compleix 18 anys l’any de la convocatòria',
   links: {
@@ -168,6 +192,28 @@ const bonoCulturalJoven: AppSeed = {
   },
   accountRequired: f('yes', 'official', ['bono-cultural-joven-politica-privacidad'], 'Cal haver presentat la sol·licitud de l’ajuda i identificar-se; l’aplicació només mostra l’estat i el saldo de qui ja hi és beneficiari.'),
   openSource: unknown('No hem trobat cap repositori públic del codi.'),
+  publicService: {
+    isPublicService: true,
+    administrationLevel: 'state',
+    legalBasis: f('yes', 'official', ['bono-cultural-joven-real-decreto', 'bono-cultural-joven-rat-cultura'], 'L’article 15.4.a) del reial decret de la convocatòria cita els articles 6.1.a), 6.1.c), 6.1.e) i 9.2.g) del RGPD i l’obligació legal que deriva de la disposició addicional centèsima quarta de la Llei 31/2022; el consentiment només empara l’enviament de comunicacions per aplicacions de missatgeria. El detall és que la política publicada al web encara invoca el reial decret de la convocatòria anterior.', {
+      norm: 'Reial decret 401/2026, article 15.4.a); Reglament (UE) 2016/679, articles 6.1.c) i 6.1.e)',
+    }),
+    processingRegistry: f('yes', 'official', ['bono-cultural-joven-rat-cultura'], 'El registre d’activitats del Ministeri de Cultura, actualitzat el setembre del 2026, té una fitxa pròpia del tractament «Bono Cultural Joven» amb les categories de dades, els destinataris, el termini de conservació i la llista nominal de transferències internacionals.', {
+      url: 'https://www.cultura.gob.es/servicios-a-la-ciudadania/proteccion-datos/pagina-master-rat1/actividad-13.html',
+    }),
+    dpia: unknown('Ni el reial decret ni la política ni la fitxa del registre esmenten cap avaluació d’impacte, i no n’hem trobat cap de publicada.'),
+    ensConformity: f('partial', 'official', ['bono-cultural-joven-rat-cultura', 'bono-cultural-joven-real-decreto'], 'La fitxa del registre i l’article 15.4.e) del reial decret diuen que s’apliquen les mesures de l’annex II del Reial decret 311/2022 i la política de seguretat del Ministeri aprovada per l’Ordre CLT/832/2024. Invocar la norma no és declarar-s’hi conforme: no hem trobat cap declaració ni certificació de conformitat de la plataforma del bo ni la categoria del sistema.'),
+    dpo: f('yes', 'official', ['bono-cultural-joven-real-decreto', 'bono-cultural-joven-politica-privacidad'], 'El reial decret identifica el delegat de protecció de dades amb el càrrec, l’adreça postal i el correu electrònic; per a l’exercici de drets, el registre remet també al delegat de la FNMT-RCM com a encarregada.', {
+      contact: 'dpd@cultura.gob.es',
+    }),
+    offlineAlternative: f('no', 'official', ['bono-cultural-joven-real-decreto'], 'L’article 10.3 obliga a presentar la sol·licitud per mitjans electrònics, a través de l’aplicació informàtica específica del programa. L’aplicació mòbil no és imprescindible, perquè el tràmit es pot fer des del web, però fora del canal electrònic no hi ha cap via presencial ni postal per demanar l’ajuda.'),
+    accessibilityStatement: f('partial', 'official', ['bono-cultural-joven-accesibilidad'], 'El web es declara «parcialmente conforme» amb el Reial decret 1112/2018 per enllaços amb text no significatiu, del tipus «aquí» o «pinche aquí» (requisit 9.2.4.4 de la UNE-EN 301549:2022). La declaració es va preparar el 16 de juliol del 2024 a partir d’un informe de l’Observatorio de Accesibilidad Web i cobreix el lloc web, no l’aplicació mòbil.', {
+      url: 'https://bonoculturajoven.gob.es/accesibilidad.html',
+    }),
+    mandatoryRetention: f('yes', 'official', ['bono-cultural-joven-rat-cultura', 'bono-cultural-joven-ley-38-2003', 'bono-cultural-joven-real-decreto'], 'El registre conserva les dades mentre se’n puguin derivar responsabilitats, amb els terminis de la normativa de subvencions i la d’arxius: el dret de l’Administració a reconèixer o liquidar el reintegrament prescriu als quatre anys. Mentre l’expedient de la subvenció sigui viu, la supressió cedeix davant l’obligació legal de conservar-lo.', {
+      norm: 'Llei 38/2003, article 39.1, i Reial decret 401/2026, article 15.4.h)',
+    }),
+  },
   dataSummary:
     'La sol·licitud creua la identitat de la persona jove amb la data de naixement, la residència i la comprovació de requisits, i el consum del bo deixa el rastre de les compres culturals fetes amb la targeta que emet Correos. És un cas on la dada sensible no és la identitat sinó el que s’hi compra: llibres, entrades i subscripcions diuen molt de les aficions i les idees d’una persona.',
   dataCollection: [
@@ -195,7 +241,7 @@ const bonoCulturalJoven: AppSeed = {
     thirdPartySharing: f('yes', 'official', ['bono-cultural-joven-politica-privacidad'], 'Administracions públiques competents i entitats obligades per la normativa europea, tributària i de prevenció del blanqueig de capitals; FNMT-RCM, Correos i Tragsatec hi actuen com a encarregats del tractament.'),
     intraGroupSharing: na('El responsable és un ministeri; no hi ha grup empresarial.'),
     dataBrokerSales: f('no', 'official', ['bono-cultural-joven-politica-privacidad'], 'La política no preveu cap cessió comercial.'),
-    internationalTransfers: unknown('La política no esmenta transferències fora de l’Espai Econòmic Europeu.'),
+    internationalTransfers: f('yes', 'official', ['bono-cultural-joven-rat-cultura', 'bono-cultural-joven-politica-privacidad'], 'La política no en diu res, però el registre d’activitats del ministeri les llista nominalment: AWS, Zendesk, Snowflake, Braze, Dynatrace i Meta als Estats Units, a l’empara del marc de privadesa de dades, i Majorel/Teleperformance a Colòmbia amb clàusules contractuals tipus.', { mechanism: 'sccs' }),
   },
   transparency: {
     policyClarity: 'medium',
@@ -1678,9 +1724,25 @@ export const lot: SeedLot = {
       language: 'es',
       summary: 'Certificacions del prestador: ISO/IEC 27001, adequació a l’Esquema Nacional de Seguridad i conformitat ETSI com a prestador qualificat eIDAS.',
     }),
-    s('fnmt-rcm-rat', 'Registro de Actividades de Tratamiento de la FNMT-RCM', 'https://www.fnmt.es/documents/10179/10671624/RAT.pdf', 'FNMT-RCM', 'support-doc', 'primary', {
+    s('fnmt-rcm-rat', 'Registro de Actividades de Tratamiento de la FNMT-RCM', 'https://www.fnmt.es/documents/10179/10671624/RAT.pdf/1e61cdb7-bc0b-339b-e82e-edbd3c32830c', 'FNMT-RCM', 'support-doc', 'primary', {
       language: 'es',
       summary: 'Inventari públic dels tractaments de l’organisme, amb finalitats, bases legals i criteris de conservació.',
+    }),
+    s('fnmt-rcm-declaracion-conformidad-ens', 'Declaración de conformidad con el Esquema Nacional de Seguridad — Sede electrónica de la FNMT-RCM', 'https://www.sede.fnmt.gob.es/sobre-sede/declaracion-de-conformidad', 'FNMT-RCM', 'technical-doc', 'primary', {
+      language: 'es',
+      summary: 'Declaració de conformitat amb l’Esquema Nacional de Seguretat dels serveis i sistemes de la seu. Es fonamenta encara en l’article 41 del Reial decret 3/2010 i no publica la categoria del sistema; el segell de la pàgina de normativa enllaça el certificat de conformitat del 2025.',
+    }),
+    s('fnmt-rcm-accesibilidad', 'Declaración de Accesibilidad — Sede electrónica de la FNMT-RCM', 'https://www.sede.fnmt.gob.es/accesibilidad', 'FNMT-RCM', 'support-doc', 'primary', {
+      language: 'es',
+      summary: 'Declaració d’accessibilitat de la seu: «parcialmente conforme» amb el Reial decret 1112/2018, per autoavaluació, preparada l’abril del 2023 i revisada el juliol del 2026.',
+    }),
+    s('fnmt-rcm-certificado-software', 'Obtener certificado software — persona física', 'https://www.sede.fnmt.gob.es/certificados/persona-fisica/obtener-certificado-software', 'FNMT-RCM', 'support-doc', 'primary', {
+      language: 'es',
+      summary: 'Via alternativa a l’aplicació: sol·licitud pel navegador, acreditació presencial de la identitat en una oficina d’acreditació i descàrrega del certificat programari.',
+    }),
+    s('fnmt-rcm-ley-6-2020', 'Ley 6/2020, de 11 de noviembre, reguladora de determinados aspectos de los servicios electrónicos de confianza', 'https://www.boe.es/buscar/act.php?id=BOE-A-2020-14046', 'Boletín Oficial del Estado', 'legislation', 'authority', {
+      language: 'es',
+      summary: 'Norma que empara el servei de certificació i que fixa, a l’article 9.3.a), la conservació obligatòria de la informació del servei durant quinze anys des de l’extinció del certificat.',
     }),
     s('certificado-digital-fnmt-app-store', 'Certificado digital FNMT a l’App Store (Espanya)', 'https://apps.apple.com/es/app/id6449721772', 'Apple', 'app-store', 'primary', {
       language: 'es',
@@ -1697,6 +1759,18 @@ export const lot: SeedLot = {
     s('bono-cultural-joven-real-decreto', 'Real Decreto 401/2026 por el que se regula la concesión del Bono Cultural Joven', 'https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-10885', 'Boletín Oficial del Estado', 'legislation', 'authority', {
       language: 'es',
       summary: 'Norma de la convocatòria vigent: requisits de l’ajuda, categories de despesa i tractament de dades, amb informe previ de l’AEPD.',
+    }),
+    s('bono-cultural-joven-rat-cultura', 'Registro de Actividades de Tratamiento del Ministerio de Cultura — actividad «Bono Cultural Joven»', 'https://www.cultura.gob.es/servicios-a-la-ciudadania/proteccion-datos/pagina-master-rat1/actividad-13.html', 'Ministerio de Cultura', 'support-doc', 'primary', {
+      language: 'es',
+      summary: 'Fitxa del registre d’activitats dedicada al bo: bases jurídiques, categories de dades, destinataris, mesures de seguretat de l’annex II del Reial decret 311/2022, termini de conservació i llista nominal de transferències internacionals.',
+    }),
+    s('bono-cultural-joven-accesibilidad', 'Declaración de Accesibilidad — Bono Cultural Joven', 'https://bonoculturajoven.gob.es/accesibilidad.html', 'Ministerio de Cultura', 'support-doc', 'primary', {
+      language: 'es',
+      summary: 'Declaració d’accessibilitat del web del bo: «parcialmente conforme» amb el Reial decret 1112/2018 per enllaços amb text no significatiu, preparada el juliol del 2024 amb un informe de l’Observatorio de Accesibilidad Web.',
+    }),
+    s('bono-cultural-joven-ley-38-2003', 'Ley 38/2003, de 17 de noviembre, General de Subvenciones', 'https://www.boe.es/buscar/act.php?id=BOE-A-2003-20977', 'Boletín Oficial del Estado', 'legislation', 'authority', {
+      language: 'es',
+      summary: 'Norma general de subvencions; l’article 39.1 fixa en quatre anys la prescripció del dret de l’Administració a reconèixer o liquidar el reintegrament, que és el que manté viu l’expedient.',
     }),
   ],
   apps: [

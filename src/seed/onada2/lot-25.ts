@@ -210,6 +210,56 @@ export const lot: SeedLot = {
       summary:
         'Política específica de l’aplicació, en gallec: tres nivells d’identificació, dades identificatives i de salut tractades, permisos que demana cada sistema operatiu —inclòs el de rastreig a iOS per generar estadístiques de navegació—, base d’interès públic, absència de cessions i avaluació d’impacte feta.',
     }),
+    s('espaisalut-rat', 'Registro de actividades de tratamiento (RAT) de la Dirección General del Servicio de Salud de las Islas Baleares', 'https://www.ibsalut.es/es/servicio-de-salud/proteccion-de-datos-personales/534-registro-de-actividades-de-tratamiento/3946-registro-de-actividades-de-tratamiento-del-servicio-de-salud-de-las-islas-baleares', 'Servei de Salut de les Illes Balears', 'privacy-center', 'primary', {
+      language: 'es',
+      summary:
+        'Registre d’activitats de tractament de la Direcció General de l’IB-Salut, publicat per unitats: inclou els tractaments «Historia Clínica» i «Historia de clínica compartida», amb la Llei 14/1986 general de sanitat i la Llei 41/2002 com a referències normatives. No hi consta cap activitat identificada com a EspaiSalut.',
+    }),
+    s('espaisalut-dpd', 'Delegado de protección de datos — IB-SALUT', 'https://www.ibsalut.es/es/servicio-de-salud/organizacion/organos-de-direccion/direccion-general/delegado-de-proteccion-de-datos', 'Servei de Salut de les Illes Balears', 'privacy-center', 'primary', {
+      language: 'es',
+      summary:
+        'Fitxa del delegat de protecció de dades de l’IB-Salut: nom, adreça postal del Servei de Protecció de Dades (c/ de la Reina Esclarmunda, 9, Palma) i telèfon. No hi publica cap adreça electrònica ni formulari.',
+    }),
+    s('espaisalut-accessibilitat', 'Accesibilidad — IB-SALUT', 'https://ibsalut.es/es/accesibilidad', 'Servei de Salut de les Illes Balears', 'support-doc', 'primary', {
+      language: 'es',
+      summary:
+        'Declaració d’accessibilitat conforme al Reial decret 1112/2018, feta el 19 d’octubre de 2021 i revisada el 26 d’octubre del mateix any: cobreix el web www.ibsalut.es i el Portal del Pacient, que declara que «aún no son conformes», i no esmenta l’aplicació mòbil.',
+    }),
+    s('espaisalut-seguretat-informacio', 'Seguridad de la información — IB-SALUT', 'https://ibsalut.es/es/profesionales/e-salud-tecnologias-de-la-informacion-y-la-comunicacion/seguridad-de-la-informacion', 'Servei de Salut de les Illes Balears', 'technical-doc', 'primary', {
+      language: 'es',
+      summary:
+        'Pàgina de seguretat de la informació de l’IB-Salut: certificació de conformitat amb l’Esquema Nacional de Seguretat (Reial decret 311/2022) dels sistemes que donen suport als serveis de l’Oficina de Seguretat, sense cap menció de la categoria ni dels sistemes assistencials.',
+    }),
+    s('espaisalut-cita-previa', 'Cita previa IB-SALUT', 'https://www.ibsalut.es/es/info-ciudadania/cita-previa-ibsalut', 'Servei de Salut de les Illes Balears', 'support-doc', 'primary', {
+      language: 'es',
+      summary:
+        'Canals per demanar cita d’atenció primària: el portal i l’aplicació EspaiSalut, el telèfon INFOSALUT CONNECTA 971 220 000 —de dilluns a dissabte de 7 a 21 h i diumenges i festius de 8 a 21 h— i el mateix centre de salut.',
+    }),
+    s('mi-salud-digital-clm-rat', 'Historia Clínica del SESCAM — Registro de actividades de tratamiento de Castilla-La Mancha', 'https://rat.castillalamancha.es/info/1154', 'Junta de Comunidades de Castilla-La Mancha', 'privacy-center', 'primary', {
+      language: 'es',
+      summary:
+        'Fitxa del tractament «Historia Clínica del SESCAM» al registre públic d’activitats de tractament de Castella-la Manxa, amb la Direcció General d’Assistència Sanitària com a responsable i una conservació remesa a la normativa d’arxius, sense termini concret.',
+    }),
+    s('mi-salud-digital-clm-accessibilitat', 'Accesibilidad — Portal de la Junta de Comunidades de Castilla-La Mancha', 'https://www.castillalamancha.es/accesibilidad', 'Junta de Comunidades de Castilla-La Mancha', 'support-doc', 'primary', {
+      language: 'es',
+      summary:
+        'Declaració d’accessibilitat del portal autonòmic, feta el 14 de març de 2026 i revisada el 16 d’abril: es declara «parcialmente conforme» amb el Reial decret 1112/2018 i acota l’abast a www.castillalamancha.es, sense esmentar cap aplicació mòbil.',
+    }),
+    s('mi-salud-digital-clm-cita-previa', 'Cita previa — Sanidad de Castilla-La Mancha', 'https://sanidad.castillalamancha.es/ciudadanos/cita-previa', 'SESCAM', 'support-doc', 'primary', {
+      language: 'es',
+      summary:
+        'Pàgina oficial de cita prèvia del SESCAM: només hi consten el web i l’aplicació mòbil com a canals per demanar cita; els telèfons dels centres s’ofereixen al cercador de centres, no com a via de cita.',
+    }),
+    s('sergas-mobil-rexistro-actividades', 'Rexistro de actividades de tratamento — Xunta de Galicia', 'https://www.xunta.gal/rexistro-de-actividades', 'Xunta de Galicia', 'privacy-center', 'primary', {
+      language: 'other',
+      summary:
+        'Registre d’activitats de tractament de la Xunta, organitzat per conselleries: la Conselleria de Sanidade hi té una entrada única amb el document de les seves activitats, sense desglossar-hi cap sistema ni aplicació concreta.',
+    }),
+    s('sergas-mobil-delegados-proteccion-datos', 'Delegados/as de protección de datos — Xunta de Galicia', 'https://www.xunta.gal/delegados-de-proteccion-de-datos', 'Xunta de Galicia', 'privacy-center', 'primary', {
+      language: 'other',
+      summary:
+        'Pàgina de la Xunta que explica que hi ha un delegat de protecció de dades per àmbit sectorial, amb un per conselleria, i que hi remet per un formulari de contacte sense publicar-ne l’adreça electrònica ni la postal.',
+    }),
     s('hm-hospitales-app-store', 'HM Hospitales a l’App Store', appStore('1260901154'), 'Apple', 'app-store', 'primary', {
       language: 'es',
       summary:
@@ -316,6 +366,7 @@ export const lot: SeedLot = {
       summary:
         'EspaiSalut és l’aplicació oficial del Servei de Salut de les Illes Balears: targeta sanitària, cites d’atenció primària, informes, resultats de proves, al·lèrgies i full de medicació. L’accés a les dades clíniques es fa amb Cl@ve o un sistema equivalent, de manera que no hi ha cap contrasenya pròpia. L’etiqueta de privadesa només declara adreça postal, correu i identificadors, sense esmentar les dades de salut que l’aplicació mostra. No hi ha cap política de privadesa específica de l’aplicació: cal anar a la de la seu electrònica, que remet el detall de cada tractament al registre d’activitats.',
       platforms: ['ios', 'android', 'web'],
+      businessModel: 'public-service',
       jurisdiction: 'Espanya (UE); servei públic de la comunitat autònoma de les Illes Balears',
       links: {
         website: 'https://www.ibsalut.es/',
@@ -324,6 +375,18 @@ export const lot: SeedLot = {
       },
       accountRequired: f('partial', 'official', ['espaisalut-app-description'], 'Algunes consultes generals són obertes, però l’accés a la informació personal i a les dades clíniques exigeix autenticar-se amb Cl@ve o un sistema equivalent.'),
       openSource: f('no', 'official', ['espaisalut-app-store'], undefined, { licence: 'Privativa' }),
+      publicService: {
+        isPublicService: true,
+        administrationLevel: 'regional',
+        legalBasis: f('partial', 'official', ['espaisalut-privacy-policy', 'espaisalut-rat'], 'La política de privadesa només invoca el Reglament (UE) 2016/679 i la Llei orgànica 3/2018 i remet la base jurídica de cada tractament al registre d’activitats. El registre sí que cita normes sectorials, però sense article: la Llei 14/1986 general de sanitat i la Llei 41/2002 d’autonomia del pacient.', { norm: 'Llei 14/1986, general de sanitat, i Llei 41/2002, d’autonomia del pacient (citades al RAT sense article)' }),
+        processingRegistry: f('partial', 'official', ['espaisalut-rat'], 'L’IB-Salut publica el registre d’activitats de tractament per unitats —direcció general, hospitals, gerències i SAMU 061— i el de la direcció general inclou els tractaments «Historia Clínica» i «Historia de clínica compartida», però no hi ha cap activitat identificable com a EspaiSalut.', { url: 'https://www.ibsalut.es/es/servicio-de-salud/proteccion-de-datos-personales/534-registro-de-actividades-de-tratamiento' }),
+        dpia: unknown('No hem trobat publicada cap avaluació d’impacte relativa a la protecció de dades d’EspaiSalut ni de la història de salut electrònica.'),
+        ensConformity: f('partial', 'official', ['espaisalut-seguretat-informacio', 'espaisalut-privacy-policy'], 'L’IB-Salut publica una certificació de conformitat amb el Reial decret 311/2022, però només dels sistemes que donen suport als serveis de l’Oficina de Seguretat, no dels sistemes assistencials ni de l’aplicació, i no en declara la categoria.'),
+        dpo: f('partial', 'official', ['espaisalut-dpd'], 'L’IB-Salut identifica el delegat de protecció de dades amb nom, adreça postal del Servei de Protecció de Dades i telèfon, però no en publica cap adreça electrònica ni cap formulari de contacte.', { contact: 'Servei de Protecció de Dades, c/ de la Reina Esclarmunda, 9, 07003 Palma — tel. 971 175 600' }),
+        offlineAlternative: f('yes', 'official', ['espaisalut-cita-previa'], 'Les cites d’atenció primària es poden demanar pel telèfon INFOSALUT CONNECTA 971 220 000 o directament al centre de salut, sense passar per l’aplicació.'),
+        accessibilityStatement: f('partial', 'official', ['espaisalut-accessibilitat'], 'Hi ha declaració d’accessibilitat conforme al Reial decret 1112/2018, però és de l’octubre del 2021, declara que el web i el Portal del Pacient «aún no son conformes» i no cobreix l’aplicació mòbil.', { url: 'https://ibsalut.es/es/accesibilidad' }),
+        mandatoryRetention: f('yes', 'official', ['boe-llei-41-2002', 'espaisalut-rat'], 'L’aplicació dona accés a la història clínica, i l’article 17.1 de la Llei 41/2002 obliga els centres sanitaris a conservar la documentació clínica com a mínim cinc anys des de l’alta de cada procés assistencial. El registre d’activitats de l’IB-Salut cita la mateixa llei com a referència normativa dels tractaments de la història clínica.'),
+      },
       dataSummary:
         'Reunides, les dades diuen quines malalties té una persona, quins medicaments pren, quines al·lèrgies té registrades i quan i on visita el metge. L’IB-Salut ja les té com a servei sanitari; el que hi afegeix l’aplicació és un canal mòbil i els identificadors del dispositiu.',
       dataCollection: [
@@ -424,6 +487,7 @@ export const lot: SeedLot = {
       summary:
         'L’aplicació del Servei de Salut de Castella-la Manxa serveix per demanar, canviar o anul·lar cites, consultar la llista d’espera, buscar farmàcies de guàrdia i veure la carpeta de salut amb al·lèrgies, vacunes i medicació. Per a segons quins tràmits n’hi ha prou amb el codi d’identificació personal imprès a la targeta sanitària; per a d’altres cal DNI electrònic, certificat o Cl@ve. L’etiqueta de privadesa de l’App Store afirma que no es recull cap dada, una afirmació difícil de sostenir per a una aplicació que mostra la història clínica. La política de privadesa és la general del SESCAM, sense cap apartat propi per a l’app.',
       platforms: ['ios', 'android', 'web'],
+      businessModel: 'public-service',
       jurisdiction: 'Espanya (UE); servei públic de la comunitat autònoma de Castella-la Manxa',
       links: {
         website: 'https://sanidad.castillalamancha.es/',
@@ -432,6 +496,18 @@ export const lot: SeedLot = {
       },
       accountRequired: f('partial', 'official', ['mi-salud-digital-clm-app-store'], 'Buscar farmàcies no demana identificació; les cites i la carpeta de salut sí, amb el codi d’identificació personal de la targeta sanitària, el DNI electrònic, el certificat digital, Cl@ve o un usuari propi de Mi Salud Digital.'),
       openSource: f('no', 'official', ['mi-salud-digital-clm-app-store'], undefined, { licence: 'Privativa' }),
+      publicService: {
+        isPublicService: true,
+        administrationLevel: 'regional',
+        legalBasis: f('partial', 'official', ['mi-salud-digital-clm-privacy-policy'], 'La política invoca el compliment d’una obligació legal, la missió d’interès públic i l’exercici de poders públics, i concreta que les dades sanitàries es tracten pels fins de les lletres g), h) i i) de l’article 9.2 del Reglament (UE) 2016/679; com a norma sectorial només cita la Llei 8/2000 d’ordenació sanitària de Castella-la Manxa, sense article.', { norm: 'Article 9.2 g), h) i i) del RGPD; Llei 8/2000, d’ordenació sanitària de Castella-la Manxa' }),
+        processingRegistry: f('yes', 'official', ['mi-salud-digital-clm-privacy-policy', 'mi-salud-digital-clm-rat'], 'La política enllaça un a un més de cinquanta tractaments del registre públic de Castella-la Manxa, entre els quals «Historia Clínica del SESCAM», que és el que sosté la carpeta de salut de l’aplicació.', { url: 'https://rat.castillalamancha.es/info/1154' }),
+        dpia: unknown('No hem trobat publicada cap avaluació d’impacte relativa a la protecció de dades de l’aplicació ni de la carpeta de salut.'),
+        ensConformity: f('partial', 'official', ['mi-salud-digital-clm-privacy-policy'], 'La política diu que les mesures de seguretat implantades es corresponen amb l’annex II del Reial decret 311/2022, però no publica cap declaració ni certificació de conformitat ni la categoria del sistema.'),
+        dpo: f('yes', 'official', ['mi-salud-digital-clm-privacy-policy'], 'La política identifica el delegat de protecció de dades del SESCAM amb adreça electrònica i adreça postal al Comitè Tècnic de Seguretat de la Informació de la Secretaria General, a Toledo.', { contact: 'dpd@sescam.jccm.es' }),
+        offlineAlternative: f('partial', 'official', ['mi-salud-digital-clm-cita-previa'], 'La pàgina oficial de cita prèvia només ofereix el web i l’aplicació com a canals per demanar cita; els telèfons dels centres hi apareixen al cercador de centres, però no s’hi declaren com a via per citar-se.'),
+        accessibilityStatement: f('partial', 'official', ['mi-salud-digital-clm-accessibilitat'], 'La declaració d’accessibilitat a què remet el web sanitari és la del portal autonòmic, que es declara «parcialment conforme» amb el Reial decret 1112/2018 i acota l’abast a www.castillalamancha.es, sense esmentar cap aplicació mòbil.', { url: 'https://www.castillalamancha.es/accesibilidad' }),
+        mandatoryRetention: f('yes', 'official', ['boe-llei-41-2002', 'mi-salud-digital-clm-privacy-policy'], 'L’aplicació dona accés a la història clínica del SESCAM, i l’article 17.1 de la Llei 41/2002 obliga a conservar la documentació clínica com a mínim cinc anys des de l’alta de cada procés assistencial: es pot esborrar l’usuari propi de Mi Salud Digital, però no l’expedient clínic.'),
+      },
       dataSummary:
         'La carpeta de salut mostra al·lèrgies, vacunes, medicació dispensada i informes clínics: el conjunt dibuixa l’estat de salut d’una persona i el seu calendari de visites. Que el codi de la targeta sanitària serveixi per identificar-se fa que una dada impresa en una targeta física obri part d’aquesta informació.',
       dataCollection: [
@@ -530,6 +606,7 @@ export const lot: SeedLot = {
       summary:
         'Sergas Móbil és el punt d’entrada als serveis electrònics del Servizo Galego de Saúde: targeta sanitària virtual, cites, videoconsulta, torn d’espera al centre i trucada al 061 amb coordenades GPS. La política de privadesa és de les més detallades que hem llegit en una aplicació pública espanyola: enumera els permisos de cada sistema operatiu, els nivells d’identificació i les garanties aplicades, i diu que s’ha fet una avaluació d’impacte. Alhora, és de les poques aplicacions públiques que declaren a l’App Store dades usades per rastrejar-te, perquè a iOS demana el permís de rastreig per generar estadístiques d’hàbits de navegació.',
       platforms: ['ios', 'android'],
+      businessModel: 'public-service',
       jurisdiction: 'Espanya (UE); servei públic de la comunitat autònoma de Galícia',
       userBase: 'Més de 1.600 valoracions a l’App Store espanyol, amb una nota mitjana d’1,9 sobre 5.',
       links: {
@@ -539,6 +616,18 @@ export const lot: SeedLot = {
       },
       accountRequired: f('yes', 'official', ['sergas-mobil-privacy-policy'], 'Cal registrar-s’hi amb un dels tres nivells d’identificació: el codi CIP de la targeta sanitària, un codi numèric enviat per SMS o Chave365 o certificat digital.'),
       openSource: f('no', 'official', ['sergas-mobil-app-store'], undefined, { licence: 'Privativa' }),
+      publicService: {
+        isPublicService: true,
+        administrationLevel: 'regional',
+        legalBasis: f('partial', 'official', ['sergas-mobil-privacy-policy'], 'La política invoca la missió d’interès públic i cita la Llei 8/2008 de salut de Galícia com a norma sectorial, però sense concretar-ne cap article ni lligar cada funcionalitat a una base jurídica.', { norm: 'Llei 8/2008, do 10 de xullo, de saúde de Galicia (citada sense article)' }),
+        processingRegistry: f('partial', 'official', ['sergas-mobil-rexistro-actividades', 'sergas-mobil-privacy-policy'], 'La Xunta publica el registre d’activitats de tractament per conselleries i la de Sanidade hi té una entrada, però el document no desglossa cap activitat identificable com a Sergas Móbil; la política de l’aplicació no hi enllaça directament.', { url: 'https://www.xunta.gal/rexistro-de-actividades' }),
+        dpia: f('partial', 'official', ['sergas-mobil-privacy-policy'], 'La política declara que el compliment del principi de responsabilitat proactiva s’ha documentat en una avaluació d’impacte relativa a la protecció de dades, que s’actualitzarà a mesura que evolucioni el sistema, però no en publica el document ni cap resum.'),
+        ensConformity: f('partial', 'official', ['sergas-mobil-privacy-policy'], 'La política diu que als tractaments s’hi apliquen les mesures que corresponguin segons l’Esquema Nacional de Seguretat, però encara el cita pel Reial decret 3/2010, derogat pel Reial decret 311/2022, i no publica cap declaració de conformitat ni la categoria del sistema.'),
+        dpo: f('partial', 'official', ['sergas-mobil-privacy-policy', 'sergas-mobil-delegados-proteccion-datos'], 'La política remet al directori de delegats de protecció de dades de la Xunta, que confirma que n’hi ha un per conselleria però només n’ofereix un formulari de contacte, sense adreça electrònica ni postal publicades.', { contact: 'https://www.xunta.gal/delegados-de-proteccion-de-datos' }),
+        offlineAlternative: unknown('No hem pogut llegir cap pàgina oficial del Sergas que enumeri els canals no digitals per demanar cita o fer els tràmits que ofereix l’aplicació: les pàgines de cita prèvia i d’accessibilitat de sergas.gal es generen amb JavaScript i no n’hem obtingut el contingut.'),
+        accessibilityStatement: unknown('La pàgina d’accessibilitat de sergas.gal no ens ha retornat cap text: no hem pogut comprovar si hi ha declaració conforme al Reial decret 1112/2018 ni si cobreix l’aplicació.'),
+        mandatoryRetention: f('yes', 'official', ['boe-llei-41-2002', 'sergas-mobil-privacy-policy'], 'L’aplicació dona accés a la carpeta de salut del pacient, i l’article 17.1 de la Llei 41/2002 obliga a conservar la documentació clínica com a mínim cinc anys des de l’alta de cada procés assistencial: la supressió que es demana per la seu electrònica de la Xunta pot afectar el compte de l’aplicació, però no l’expedient clínic.'),
+      },
       dataSummary:
         'Les dades diuen qui és la persona, quines cites té, quines videoconsultes fa i on és quan truca al 061 o quan arriba al centre sanitari. L’ús del Bluetooth i de la Wi-Fi per guiar per dins dels hospitals hi afegeix un rastre de moviment dins de l’edifici.',
       dataCollection: [

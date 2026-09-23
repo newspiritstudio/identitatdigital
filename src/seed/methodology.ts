@@ -18,7 +18,7 @@ import {
  */
 export const methodologyDoc = {
   version: METHODOLOGY_VERSION,
-  effectiveFrom: '2026-09-09',
+  effectiveFrom: '2026-09-23',
   status: 'current' as const,
   summary: `Identitat.digital puntua cada servei en tres dimensions —privadesa, seguretat i control de la persona usuària— i n'obté una puntuació global ponderada (${Math.round(
     DIMENSION_WEIGHTS.privacy * 100,
@@ -47,6 +47,10 @@ export const methodologyDoc = {
       body: "Les puntuacions són comparables entre serveis que cobreixen la mateixa necessitat funcional. Un gestor de correu i una xarxa social poden tenir la mateixa xifra i no voler dir el mateix, perquè la selecció d'indicadors aplicables no és idèntica.",
     },
     {
+      title: 'Un servei públic no es mesura com un de comercial',
+      body: "Una administració no té model de negoci, no fa programes de recompenses per errors i sovint no permet donar-se de baixa perquè una llei l'obliga a conservar l'expedient. Mesurar-la amb la vara del sector privat la penalitzaria per complir la norma. Per això les fitxes marcades com a servei públic canvien de bloc d'indicadors: en surten el programa de recompenses i l'informe de transparència, i hi entren la base jurídica declarada, el registre d'activitats de tractament, l'avaluació d'impacte, la conformitat amb l'Esquema Nacional de Seguretat, el delegat de protecció de dades, l'alternativa no digital i la declaració d'accessibilitat. Quan la conservació de les dades és una obligació legal documentada, els indicadors d'eliminació del compte també queden fora. El que no canvia és la minimització: un manament legal empara el tractament, però no eximeix de ser proporcionat.",
+    },
+    {
       title: 'Una versió per cada canvi de regles',
       body: "Si es modifica un pes, s'afegeix un indicador o se'n canvia el càlcul, es publica una versió nova de la metodologia. Les puntuacions antigues conserven la versió amb què es van calcular i continuen sent explicables.",
     },
@@ -62,6 +66,7 @@ export const methodologyDoc = {
     weight: indicator.weight,
     label: indicator.label,
     description: indicator.description,
+    scope: indicator.scope ?? 'all',
   })),
   unknownPolicy: `Cada afirmació d'una fitxa pot prendre cinc valors: sí, parcialment, no, desconegut i no aplica. «Desconegut» i «no aplica» treuen l'indicador del numerador i del denominador de la seva dimensió, de manera que no poden moure la puntuació en cap direcció. La diferència entre tots dos és el grau de confiança: «desconegut» hi compta com a cobertura no assolida, perquè és informació que hauríem de tenir i no tenim; «no aplica» en queda completament fora, perquè no hi ha res a saber.
 
@@ -83,5 +88,7 @@ Actualitat (${Math.round(
   )} %): antiguitat de les verificacions. Una fitxa verificada fa menys de sis mesos manté el factor íntegre i decau progressivament fins als dos anys, quan es considera que la informació ja no és fiable sense tornar-la a comprovar.
 
 El grau de confiança no valora el servei. Un servei excel·lent pot tenir una confiança baixa si encara no l'hem documentat prou, i un servei pèssim pot tenir-la molt alta si la seva mala pràctica està perfectament acreditada.`,
-  changelog: `Primera versió publicada. Fixa les tres dimensions, els ${INDICATORS.length} indicadors, el tractament de la informació desconeguda i un sostre de volum de dades de ${DATA_VOLUME_CAP} punts de sensibilitat acumulada per normalitzar la minimització.`,
+  changelog: `Versió 1.1. Incorpora el bloc d'indicadors de serveis públics: base jurídica declarada, registre d'activitats de tractament, avaluació d'impacte, conformitat amb l'Esquema Nacional de Seguretat, delegat de protecció de dades, alternativa no digital i declaració d'accessibilitat. A les fitxes marcades com a servei públic, aquests indicadors substitueixen el programa de recompenses i l'informe de transparència, i els indicadors d'eliminació del compte queden fora del càlcul quan la conservació està obligada per llei. Cap pes de les dimensions ni dels indicadors comuns no s'ha modificat, de manera que les puntuacions dels serveis comercials no varien.
+
+Versió 1.0. Primera versió publicada. Fixa les tres dimensions, els indicadors comuns, el tractament de la informació desconeguda i un sostre de volum de dades de ${DATA_VOLUME_CAP} punts de sensibilitat acumulada per normalitzar la minimització. El catàleg actual té ${INDICATORS.length} indicadors.`,
 }

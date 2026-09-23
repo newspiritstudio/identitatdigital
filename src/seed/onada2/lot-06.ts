@@ -102,6 +102,7 @@ const carpeta: AppSeed = {
   summary:
     'Mi Carpeta Ciudadana mostra en un sol lloc dades que guarden altres administracions: partida de naixement, prestacions, béns immobles, títols, certificats de discapacitat, vehicles i expedients oberts. L’Agència Estatal d’Administració Digital diu que no les desa i que només les consulta quan les demanes, però sí que conserva preferències, un resum personal i els justificants generats. No hi ha publicitat ni transferències fora de la UE; el punt feble és la transparència, perquè l’etiqueta de l’App Store afirma que l’aplicació no recull cap dada.',
   platforms: ['ios', 'android', 'web'],
+  businessModel: 'public-service',
   jurisdiction: 'Espanya; servei públic de l’Administració General de l’Estat',
   links: {
     website: 'https://carpetaciudadana.gob.es/',
@@ -110,6 +111,26 @@ const carpeta: AppSeed = {
   },
   accountRequired: f('yes', 'official', ['carpeta-ciudadana-app-store'], 'L’accés es fa amb les credencials de la plataforma Cl@ve; no hi ha un compte propi amb contrasenya.'),
   openSource: unknown('No hem trobat publicat el codi de l’aplicació.'),
+  publicService: {
+    isPublicService: true,
+    administrationLevel: 'state',
+    legalBasis: f('partial', 'official', ['carpeta-ciudadana-privacy', 'aead-rat-sgad'], 'La política invoca el consentiment (article 6.1.a del RGPD) per a la configuració de privadesa, els avisos i el resum personal, i el compliment d’una missió d’interès públic (article 6.1.e) per a la resta. De la normativa habilitant, però, només en dona el nom: Llei 39/2015, Llei 40/2015 i Reial decret 203/2021, sense cap article. El registre d’activitats encara va més curt i hi inscriu només el consentiment.', {
+      norm: 'RGPD, article 6.1.a i 6.1.e; Llei 39/2015 i Llei 40/2015, citades sense article',
+    }),
+    processingRegistry: f('yes', 'official', ['aead-rat-sgad', 'carpeta-ciudadana-privacy'], 'El registre del ministeri conté dues fitxes identificables del servei: «Mi Carpeta Ciudadana», per a les dades de contacte i les preferències de la persona usuària, i «Mi Carpeta Ciudadana (encargado)», per a les dades que la Carpeta consulta a altres administracions.', {
+      url: 'https://digital.gob.es/content/dam/portal-mtdfp/ministerio/proteccion-datos/RAT_SGAD.pdf',
+    }),
+    dpia: unknown('No hem trobat publicada cap avaluació d’impacte relativa a la protecció de dades, tot i que el servei reuneix dades de salut, laborals i patrimonials de desenes d’administracions.'),
+    ensConformity: f('partial', 'official', ['carpeta-ciudadana-privacy', 'aead-rat-sgad'], 'Tant la política com el registre d’activitats declaren que les mesures aplicades són les de l’annex II del Reial decret 311/2022, però no hem trobat publicada ni la declaració de conformitat amb l’Esquema Nacional de Seguretat ni la categoria del sistema.'),
+    dpo: f('yes', 'official', ['carpeta-ciudadana-privacy'], 'La política identifica el delegat de protecció de dades del Ministeri per a la Transformació Digital i de la Funció Pública, amb correu electrònic i adreça postal.', {
+      contact: 'dpd@digital.gob.es',
+    }),
+    offlineAlternative: f('yes', 'official', ['boe-ley-39-2015', 'carpeta-ciudadana-privacy'], 'La Carpeta no té dades pròpies: només ensenya el que continua guardant cada administració d’origen, on es pot demanar pels canals de sempre. L’article 14.1 de la Llei 39/2015 garanteix a les persones físiques que puguin triar no relacionar-s’hi per mitjans electrònics.'),
+    accessibilityStatement: f('partial', 'official', ['carpeta-ciudadana-accessibilitat'], 'L’aplicació mòbil té declaració d’accessibilitat pròpia i s’hi declara «parcialment conforme» amb el Reial decret 1112/2018, sobretot pels documents PDF que es descarreguen des de l’aplicació. És una autoavaluació de l’AEAD preparada el 12 de setembre de 2022, i aquella és també l’última revisió: fa més de tres anys que no es refà.', {
+      url: 'https://masinformacioncarpeta.carpetaciudadana.gob.es/infocc/accesibilidad-app',
+    }),
+    mandatoryRetention: f('no', 'official', ['carpeta-ciudadana-privacy'], 'Cap norma obliga a conservar el que desa la Carpeta: el consentiment del resum personal es pot retirar i la política fixa terminis de supressió per inactivitat. Les dades que no es poden esborrar són les de les administracions d’origen, que la Carpeta no guarda.'),
+  },
   dataSummary:
     'Per disseny, l’aplicació pot ensenyar gairebé tota la relació d’una persona amb l’Estat: identitat, família, feina i pensió, salut i discapacitat, patrimoni, vehicles i tràmits pendents. Que aquestes dades no es desin a la Carpeta redueix el risc, però l’accés al compte Cl@ve dona accés a tot el conjunt.',
   dataCollection: [
@@ -209,6 +230,7 @@ const notifica: AppSeed = {
   summary:
     'Notifica és l’aplicació de la Direcció Electrònica Habilitada Única (DEHú), on es reben i es recullen les notificacions de les administracions adherides. L’AEAD només és responsable de les dades de contacte i del dispositiu; el contingut de cada notificació és de l’organisme que l’envia. La política no preveu perfils, decisions automatitzades ni transferències fora de la UE. L’etiqueta de l’App Store, però, diu que no es recull cap dada.',
   platforms: ['ios', 'android', 'web'],
+  businessModel: 'public-service',
   jurisdiction: 'Espanya; servei públic de l’Administració General de l’Estat',
   links: {
     website: 'https://dehu.redsara.es/',
@@ -217,6 +239,26 @@ const notifica: AppSeed = {
   },
   accountRequired: f('yes', 'official', ['notifica-app-store'], 'Cal identificar-se amb algun dels sistemes de Cl@ve.'),
   openSource: unknown('No hem trobat publicat el codi de l’aplicació.'),
+  publicService: {
+    isPublicService: true,
+    administrationLevel: 'state',
+    legalBasis: f('partial', 'official', ['notifica-privacy'], 'La política diu que els tractaments es basen en el compliment d’una obligació legal «de conformitat amb l’article 6.1 del RGPD», sense dir quina lletra, i enumera després la Llei 39/2015, la Llei 40/2015 i el Reial decret 203/2021 sense concretar-ne cap article.', {
+      norm: 'RGPD, article 6.1 (sense lletra); Llei 39/2015 i Reial decret 203/2021, citades sense article',
+    }),
+    processingRegistry: f('yes', 'official', ['aead-rat-sgad', 'notifica-privacy'], 'La política enllaça el registre del ministeri, que hi té dues fitxes identificables: «Envío de avisos sobre comunicaciones y notificaciones al ciudadano», amb l’AEAD com a responsable del correu i el telèfon dels avisos, i «Acceso del ciudadano a las notificaciones y comunicaciones administrativas emitidas por las Administraciones Públicas (encargado)», que és la de la DEHú i on el responsable és cada administració usuària.', {
+      url: 'https://digital.gob.es/content/dam/portal-mtdfp/ministerio/proteccion-datos/RAT_SGAD.pdf',
+    }),
+    dpia: unknown('No hem trobat publicada cap avaluació d’impacte, tot i que el mateix registre d’activitats admet que el contingut de les notificacions pot incloure dades de salut o sancions.'),
+    ensConformity: f('partial', 'official', ['notifica-privacy', 'aead-rat-sgad'], 'La política i el registre d’activitats declaren que les mesures implantades són les de l’annex II del Reial decret 311/2022, però no hem trobat publicada ni la declaració de conformitat amb l’Esquema Nacional de Seguretat ni la categoria del sistema.'),
+    dpo: f('yes', 'official', ['notifica-privacy'], 'La política identifica el delegat de protecció de dades amb correu i adreça postal, i el presenta com a via de reclamació prèvia i potestativa.', {
+      contact: 'dpd@digital.gob.es',
+    }),
+    offlineAlternative: f('partial', 'official', ['boe-ley-39-2015', 'notifica-dehu-portal'], 'L’aplicació mai és obligatòria: el mateix servei és al portal web de la DEHú. La bústia electrònica, en canvi, només té alternativa en paper per a les persones físiques, que segons l’article 14.1 de la Llei 39/2015 poden triar el canal. L’article 14.2 obliga a relacionar-se electrònicament les persones jurídiques, les entitats sense personalitat i qui exerceix una professió col·legiada.'),
+    accessibilityStatement: f('partial', 'official', ['notifica-accessibilitat'], 'L’aplicació DEHú-Notifica té declaració pròpia i s’hi declara «parcialment conforme» amb el Reial decret 1112/2018: ordre del focus, idioma del programari, etiquetes del formulari de contacte i documents descarregables. L’autoavaluació la va fer un tercer i la declaració es va preparar i revisar el 29 d’octubre de 2025.', {
+      url: 'https://dehu.redsara.es/es/accesibility-app',
+    }),
+    mandatoryRetention: f('yes', 'official', ['boe-ley-39-2015', 'notifica-dehu-portal'], 'La bústia de la DEHú no es pot eliminar perquè no és un compte voluntari: l’article 43 de la Llei 39/2015 estableix que les notificacions electròniques es practiquen per compareixença a la Direcció Electrònica Habilitada única, l’article 14.2 obliga bona part dels destinataris a rebre-les per aquesta via, i les notificacions i els justificants de compareixença formen part de l’expedient administratiu que l’article 70.1 obliga a conservar l’organisme emissor. El que sí que s’esborra a petició són les dades de contacte i els dispositius dels avisos.'),
+  },
   dataSummary:
     'Les notificacions poden contenir sancions, requeriments d’Hisenda, resolucions de prestacions o citacions judicials. El servei només hi fa d’intermediari, però un accés indegut al compte les exposaria totes.',
   dataCollection: [
@@ -304,6 +346,7 @@ const autofirma: AppSeed = {
   summary:
     'Autofirma permet signar tràmits web i documents PDF amb un certificat digital o amb el DNI electrònic per NFC. No cal cap compte i el codi de l’aplicació d’iOS és públic; les restes d’una integració antiga amb Google Analytics hi són comentades i no s’executen. La política pròpia és dins de l’aplicació, perquè l’enllaç de l’App Store porta a la pàgina de protecció de dades d’un ministeri que ja no en respon.',
   platforms: ['ios', 'android', 'windows', 'macos', 'linux'],
+  businessModel: 'public-service',
   jurisdiction: 'Espanya; servei públic de l’Administració General de l’Estat',
   links: {
     website: 'https://administracionelectronica.gob.es/',
@@ -314,6 +357,26 @@ const autofirma: AppSeed = {
   openSource: f('yes', 'official', ['autofirma-ios-repo'], 'El codi de l’aplicació d’iOS és públic al repositori del Centre de Transferència de Tecnologia. Aquest repositori no declara cap llicència, a diferència del client d’escriptori, que és GPL 2+ i EUPL 1.1.', {
     licence: 'Codi publicat sense llicència declarada (el client d’escriptori és GPL 2+ i EUPL 1.1)',
   }),
+  publicService: {
+    isPublicService: true,
+    administrationLevel: 'state',
+    legalBasis: f('partial', 'official', ['autofirma-privacy'], 'La política invoca el consentiment i el compliment d’una missió d’interès públic (article 6.1.e del RGPD), però cita malament el primer: parla de l’«article 6.4a) del RGPD», que no existeix; el consentiment és a l’article 6.1.a. De la normativa habilitant només en dona el nom, sense articles.', {
+      norm: 'RGPD, article 6.1.e; el consentiment s’hi cita com a «article 6.4a», inexistent',
+    }),
+    processingRegistry: f('partial', 'official', ['autofirma-privacy', 'aead-rat-sgad'], 'La política enllaça el registre d’activitats del ministeri, però no s’hi troba cap fitxa amb el nom d’Autofirma. La més propera és «Identidad digital y firma electrónica», que descriu la identificació i la signatura per accedir als serveis de les administracions i que, curiosament, declara com a base jurídica l’article 89 del RGPD, el de les garanties per a l’arxiu en interès públic.', {
+      url: 'https://digital.gob.es/content/dam/portal-mtdfp/ministerio/proteccion-datos/RAT_SGAD.pdf',
+    }),
+    dpia: unknown('No hem trobat publicada cap avaluació d’impacte de l’aplicació ni del servei de signatura trifàsica que hi ha al darrere.'),
+    ensConformity: f('partial', 'official', ['autofirma-privacy'], 'La política declara que les mesures implantades són les de l’annex II del Reial decret 311/2022, però no hem trobat publicada ni la declaració de conformitat amb l’Esquema Nacional de Seguretat ni la categoria del sistema.'),
+    dpo: f('yes', 'official', ['autofirma-privacy'], 'La política identifica el delegat de protecció de dades del ministeri amb correu i adreça postal, i dona una adreça específica de l’AEAD per a les bretxes de seguretat.', {
+      contact: 'dpd@digital.gob.es',
+    }),
+    offlineAlternative: f('yes', 'official', ['boe-ley-39-2015', 'autofirma-privacy'], 'Signar amb aquesta aplicació no és mai l’única via: les persones físiques poden presentar el tràmit en paper a les oficines d’assistència en matèria de registres, perquè l’article 14.1 de la Llei 39/2015 els deixa triar el canal, i qui hagi de signar electrònicament ho pot fer amb altres clients de signatura, entre ells el mateix Autofirma d’escriptori.'),
+    accessibilityStatement: f('no', 'official', ['autofirma-accessibilitat'], 'L’AEAD publica una declaració d’accessibilitat del portal firmaelectronica.gob.es —«parcialment conforme» amb el Reial decret 1112/2018, preparada el 2 d’abril de 2025—, però hi diu expressament que s’aplica només al lloc web. No n’hi ha cap per a l’aplicació mòbil, que el mateix reial decret també cobreix.', {
+      url: 'https://firmaelectronica.gob.es/Home/Accesibilidad.html',
+    }),
+    mandatoryRetention: f('no', 'official', ['autofirma-privacy'], 'No hi ha cap compte ni cap dada conservada en servidors del servei que una norma obligui a mantenir: el certificat i l’historial de signatures es queden al dispositiu i desapareixen quan es desinstal·la l’aplicació.'),
+  },
   dataSummary:
     'El certificat digital identifica la persona davant de qualsevol administració i els documents que se signen poden contenir dades fiscals, sanitàries o laborals. Tot això passa per l’aplicació, que ho guarda al dispositiu.',
   dataCollection: [
@@ -1285,6 +1348,26 @@ export const lot: SeedLot = {
     s('autofirma-ios-repo', 'ctt-gob-es/firma-ios', 'https://github.com/ctt-gob-es/firma-ios', 'Centro de Transferencia de Tecnología', 'repository', 'primary', {
       language: 'es',
       summary: 'Codi de l’aplicació d’iOS. Inclou la biblioteca de Google Analytics, però la inicialització és comentada; l’historial es desa en local.',
+    }),
+    s('carpeta-ciudadana-accessibilitat', 'Accesibilidad App — Mi Carpeta Ciudadana', 'https://masinformacioncarpeta.carpetaciudadana.gob.es/infocc/accesibilidad-app', 'Agencia Estatal de Administración Digital', 'support-doc', 'primary', {
+      language: 'es',
+      publishedAt: '2022-09-12',
+      summary: 'Declaració d’accessibilitat de l’aplicació mòbil: «parcialment conforme» amb el Reial decret 1112/2018, amb els PDF descarregats com a principal incompliment. Autoavaluació de l’AEAD, sense revisar des del 2022.',
+    }),
+    s('notifica-accessibilitat', 'Declaración de Accesibilidad de la Aplicación Dehú Notifica', 'https://dehu.redsara.es/es/accesibility-app', 'Agencia Estatal de Administración Digital', 'support-doc', 'primary', {
+      language: 'es',
+      publishedAt: '2025-10-29',
+      summary: 'Declaració d’accessibilitat de l’aplicació DEHú-Notifica 1.5.11: «parcialment conforme» amb el Reial decret 1112/2018, amb incompliments de l’ordre del focus, l’idioma del programari i les etiquetes del formulari de contacte. Autoavaluació feta per un tercer. Llegida al codi del portal, que carrega amb JavaScript.',
+    }),
+    s('autofirma-accessibilitat', 'Accesibilidad — Portal Firma Electrónica', 'https://firmaelectronica.gob.es/Home/Accesibilidad.html', 'Agencia Estatal de Administración Digital', 'support-doc', 'primary', {
+      language: 'es',
+      publishedAt: '2025-04-02',
+      summary: 'Declaració d’accessibilitat de l’AEAD limitada expressament al lloc web firmaelectronica.gob.es, «parcialment conforme» amb el Reial decret 1112/2018. No cobreix l’aplicació mòbil d’Autofirma.',
+    }),
+    s('boe-ley-39-2015', 'Ley 39/2015, de 1 de octubre, del Procedimiento Administrativo Común de las Administraciones Públicas', 'https://www.boe.es/buscar/act.php?id=BOE-A-2015-10565', 'Agencia Estatal Boletín Oficial del Estado', 'legislation', 'authority', {
+      language: 'es',
+      publishedAt: '2015-10-02',
+      summary: 'Text consolidat. Article 14.1: les persones físiques trien si es relacionen amb l’Administració per mitjans electrònics; article 14.2: hi estan obligades les persones jurídiques, les entitats sense personalitat i qui exerceix una professió col·legiada. Article 43: notificacions electròniques per compareixença a la Direcció Electrònica Habilitada única. Article 70.1: l’expedient administratiu.',
     }),
 
     /* ── Next Vision ── */

@@ -417,6 +417,26 @@ export const lot: SeedLot = {
       summary:
         'Secció «Seguridad de los datos» de Google Play. Declara que no es comparteixen dades amb tercers, que es xifren en trànsit i que se’n pot demanar l’eliminació.',
     }),
+    s('renfe-politica-privacidad-general', 'Política de privacidad', 'https://www.renfe.com/es/es/ayuda/informacion-legal-viajeros/privacidad-cookies/politica-privacidad', 'Renfe Viajeros, S.M.E., S.A.', 'privacy-policy', 'primary', {
+      language: 'es',
+      summary:
+        'Política general del grup. Publica el contacte del delegat de protecció de dades i cita les normes que emparen alguns tractaments —el Reglament (UE) 2021/782, el Reial decret 1575/1989 i el Reial decret 627/2014—, però sense concretar-ne cap article i sense cap referència al registre d’activitats de tractament.',
+    }),
+    s('renfe-certificaciones-ciberseguridad', 'Certificaciones de ciberseguridad', 'https://www.renfe.com/es/es/ayuda/informacion-legal-viajeros/certificaciones-ciberseguridad', 'Renfe Viajeros, S.M.E., S.A.', 'technical-doc', 'primary', {
+      language: 'es',
+      summary:
+        'Pàgina on el grup Renfe declara la certificació en l’Esquema Nacional de Seguretat del Reial decret 311/2022 i la norma ISO 27001:2022. No hi consta ni la categoria del sistema, ni l’abast, ni l’entitat certificadora, ni les dates.',
+    }),
+    s('renfe-accesibilidad-app', 'Declaración de accesibilidad de la app Renfe', 'https://www.renfe.com/es/es/ayuda/informacion-legal-viajeros/accesibilidad-web/accesibilidad-app-renfe', 'Renfe Viajeros, S.M.E., S.A.', 'support-doc', 'primary', {
+      language: 'es',
+      summary:
+        'Declaració d’accessibilitat de les versions d’Android i iOS, preparada i revisada el 13 de novembre del 2024 amb avaluació externa del centre tecnològic CTIC. Es declara «parcialmente conforme» amb el Reial decret 1112/2018 i la norma UNE-EN 301549:2022, i enumera el contingut no accessible.',
+    }),
+    s('renfe-condiciones-venta', 'Condiciones legales de venta de billetes', 'https://www.renfe.com/es/es/ayuda/informacion-legal-viajeros/billetes-abonos/condiciones-legales-venta-billetes', 'Renfe Viajeros, S.M.E., S.A.', 'terms', 'primary', {
+      language: 'es',
+      summary:
+        'Condicions de venda. Recullen que els bitllets es poden adquirir «en las estaciones, Oficinas de ventas o agencias de viaje autorizadas», a més dels canals digitals i de les màquines d’autovenda.',
+    }),
 
     /* ───────────────────────── Vueling ───────────────────────── */
     s('vueling-privacy-policy', 'Política de privacidad', 'https://www.vueling.com/es/legal/politica-de-privacidad', 'Vueling Airlines, S.A.', 'privacy-policy', 'primary', {
@@ -819,7 +839,7 @@ export const lot: SeedLot = {
       summary:
         'L’aplicació de l’operadora ferroviària pública és, en declaracions de botiga, la més continguda del lot: no hi ha cap categoria sota «Datos utilizados para rastrearte» i la ubicació es declara com a dada no vinculada amb la identitat. La política de l’aplicació identifica el responsable, el delegat de protecció de dades i la base jurídica de cada finalitat, però no fixa cap termini de conservació concret ni explica com es dona de baixa un compte «Mi Renfe».',
       platforms: ['ios', 'android', 'web'],
-      businessModel: 'commerce',
+      businessModel: 'public-service',
       jurisdiction: 'Espanya',
       userBase: 'Milions de bitllets venuts cada any a Espanya',
       links: {
@@ -830,6 +850,26 @@ export const lot: SeedLot = {
       },
       accountRequired: f('partial', 'official', ['renfe-privacy-policy'], 'Es pot comprar com a convidat, però el compte «Mi Renfe» és necessari per gestionar els bitllets, els canvis i el programa de fidelització.'),
       openSource: f('no', 'editorial', [], 'Aplicació privativa: no consta cap publicació del codi font.', { licence: 'Privativa' }),
+      publicService: {
+        isPublicService: true,
+        administrationLevel: 'state',
+        legalBasis: f('partial', 'official', ['renfe-privacy-policy', 'renfe-politica-privacidad-general'], 'La política assigna una base jurídica a cada finalitat —relació contractual per a la compra i la gestió del bitllet, interès legítim per a la seguretat i les enquestes, consentiment per a la publicitat i per a WhatsApp— i cita normes concretes per als avisos de viatge, però no en concreta cap article.', {
+          norm: 'Reglament (UE) 2021/782 sobre els drets i les obligacions dels viatgers de ferrocarril, citat sense article; la política general hi afegeix el Reial decret 1575/1989 i el Reial decret 627/2014',
+        }),
+        processingRegistry: unknown('Renfe Viajeros és sector públic institucional estatal i l’article 31 de la LOPDGDD li obliga a fer públic el registre d’activitats de tractament, però no l’hem localitzat ni a la informació legal del web ni enllaçat des de cap de les dues polítiques de privadesa.'),
+        dpia: unknown('No hem trobat publicada cap avaluació d’impacte relativa a la protecció de dades de l’aplicació ni dels seus tractaments.'),
+        ensConformity: f('yes', 'official', ['renfe-certificaciones-ciberseguridad'], 'El grup declara la certificació en l’Esquema Nacional de Seguretat del Reial decret 311/2022, juntament amb la ISO 27001:2022. No hi publica la categoria del sistema, ni l’abast certificat, ni l’entitat certificadora, ni la data, de manera que no hem pogut comprovar si l’aplicació hi queda coberta.', {
+          url: 'https://www.renfe.com/es/es/ayuda/informacion-legal-viajeros/certificaciones-ciberseguridad',
+        }),
+        dpo: f('yes', 'official', ['renfe-privacy-policy', 'renfe-politica-privacidad-general'], 'Totes dues polítiques publiquen el contacte del delegat de protecció de dades del grup Renfe i el presenten com a canal de reclamació previ a l’Agència Espanyola de Protecció de Dades.', {
+          contact: 'dpd@renfe.es',
+        }),
+        offlineAlternative: f('yes', 'official', ['renfe-condiciones-venta'], 'El bitllet es pot comprar «en las estaciones, Oficinas de ventas o agencias de viaje autorizadas», sense cap compte ni aplicació: el tràmit complet existeix fora del telèfon.'),
+        accessibilityStatement: f('partial', 'official', ['renfe-accesibilidad-app'], 'Renfe publica la declaració d’accessibilitat de les versions d’Android i iOS, preparada i revisada el 13 de novembre del 2024 amb avaluació externa del centre tecnològic CTIC. S’hi declara «parcialmente conforme» amb el Reial decret 1112/2018 i enumera el contingut no accessible: text alternatiu absent, contrast insuficient, impossibilitat de girar la pantalla, navegació per teclat inaccessible i mida de text del dispositiu no respectada.', {
+          url: 'https://www.renfe.com/es/es/ayuda/informacion-legal-viajeros/accesibilidad-web/accesibilidad-app-renfe',
+        }),
+        mandatoryRetention: f('no', 'official', ['renfe-privacy-policy'], 'Cap de les dues polítiques invoca una norma que obligui a conservar les dades i impedeixi tancar el compte: el criteri declarat és el temps estrictament necessari «o hasta que solicite la supresión». Els terminis fiscals de la facturació afecten els justificants de compra, no l’existència del compte «Mi Renfe».'),
+      },
       dataSummary:
         'Un historial de bitllets de tren és un mapa de la vida d’una persona a escala estatal: on va, amb quina freqüència, amb qui i quan no és a casa. Que sigui una empresa pública qui el custodia no el fa menys revelador.',
       dataCollection: [
@@ -905,7 +945,7 @@ export const lot: SeedLot = {
         transportEncryption: f('yes', 'official', ['renfe-play-data-safety'], 'Google Play declara que les dades es xifren en trànsit.'),
         atRestEncryption: unknown('No consta informació pública sobre el xifratge en repòs.'),
         mfa: unknown('No hem trobat documentació sobre la verificació en dos passos del compte «Mi Renfe».'),
-        independentAudits: unknown('No consta cap auditoria publicada, ni tampoc la certificació de l’Esquema Nacional de Seguretat.'),
+        independentAudits: f('partial', 'official', ['renfe-certificaciones-ciberseguridad'], 'El grup declara la certificació ISO 27001:2022 i la conformitat amb l’Esquema Nacional de Seguretat, però no en publica ni l’abast, ni l’entitat certificadora, ni la data, de manera que no es pot comprovar si l’aplicació hi queda coberta. No hem trobat cap auditoria independent publicada.'),
         bugBounty: unknown('No hem trobat cap programa de recompenses públic.'),
         vulnerabilityDisclosure: unknown('El fitxer /.well-known/security.txt de renfe.com respon, però sense contingut: no hi ha cap canal documentat.'),
       },

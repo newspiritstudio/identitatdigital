@@ -43,6 +43,25 @@ const DIFFICULTY: Record<string, string> = {
   unknown: 'No documentada',
 }
 
+const BUSINESS_MODEL: Record<string, string> = {
+  advertising: 'Publicitat',
+  subscription: 'Subscripció',
+  freemium: 'Freemium',
+  paid: 'Pagament únic',
+  commerce: 'Comerç o comissions',
+  donations: 'Donacions o finançament sense ànim de lucre',
+  'public-service': 'Servei públic finançat amb impostos',
+  unknown: 'No documentat',
+}
+
+const ADMINISTRATION_LEVEL: Record<string, string> = {
+  european: 'Administració europea',
+  state: 'Administració estatal',
+  regional: 'Administració autonòmica',
+  local: 'Administració local',
+  other: 'Altres organismes públics',
+}
+
 const COMPARABILITY: Record<string, string> = {
   equivalent: 'Cobreix la mateixa necessitat',
   partial: 'La cobreix parcialment',
@@ -164,7 +183,11 @@ export default async function AppPage({ params }: { params: Promise<{ slug: stri
             </tr>
             <tr>
               <th scope="row">Model de negoci</th>
-              <td>{app.businessModel ?? '—'}</td>
+              <td>
+                {app.publicService?.isPublicService
+                  ? BUSINESS_MODEL['public-service']
+                  : (BUSINESS_MODEL[app.businessModel ?? 'unknown'] ?? '—')}
+              </td>
             </tr>
             <tr>
               <th scope="row">Jurisdicció</th>
@@ -205,6 +228,40 @@ export default async function AppPage({ params }: { params: Promise<{ slug: stri
         <Fact label="Cal un compte" fact={app.accountRequired} />
         <Fact label="Codi obert" fact={app.openSource} />
       </dl>
+
+      {app.publicService?.isPublicService ? (
+        <>
+          <h2>Servei públic</h2>
+          <p className="meta">
+            {ADMINISTRATION_LEVEL[app.publicService.administrationLevel ?? 'other'] ??
+              'Administració pública'}
+            . Aquest servei no es mesura amb la vara del sector privat: no té model de negoci ni
+            programa de recompenses, però ha de declarar la base jurídica, publicar el registre
+            d’activitats de tractament i conformar-se a l’Esquema Nacional de Seguretat. Aquests
+            indicadors substitueixen els comercials dins del càlcul.{' '}
+            <Link href="/metodologia">Com es calcula</Link>
+          </p>
+          <dl>
+            <Fact label="Base jurídica declarada" fact={app.publicService.legalBasis} />
+            <Fact
+              label="Registre d’activitats de tractament"
+              fact={app.publicService.processingRegistry}
+            />
+            <Fact label="Avaluació d’impacte" fact={app.publicService.dpia} />
+            <Fact label="Conformitat amb l’ENS" fact={app.publicService.ensConformity} />
+            <Fact label="Delegat de protecció de dades" fact={app.publicService.dpo} />
+            <Fact label="Alternativa no digital" fact={app.publicService.offlineAlternative} />
+            <Fact
+              label="Declaració d’accessibilitat"
+              fact={app.publicService.accessibilityStatement}
+            />
+            <Fact
+              label="Conservació obligada per llei"
+              fact={app.publicService.mandatoryRetention}
+            />
+          </dl>
+        </>
+      ) : null}
 
       <h2>Disponibilitat en català</h2>
       <p className="meta">

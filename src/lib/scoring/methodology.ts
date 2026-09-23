@@ -13,9 +13,17 @@
  *     extrem a un navegador mesuraria una cosa que no hi és.
  *  3. Tot indicador que puntua ve d'un `evidencedFact` amb fonts, i la qualitat
  *     d'aquestes fonts entra al Confidence Score.
+ *  4. Hi ha indicadors que només s'apliquen als serveis públics (`scope:
+ *     'public-service'`). Un servei que presta una administració no es mesura
+ *     amb les mateixes garanties que un servei comercial: no fa programes de
+ *     recompenses ni informes de transparència, però ha de declarar la base
+ *     jurídica, publicar el registre d'activitats de tractament i conformar-se
+ *     a l'Esquema Nacional de Seguretat. Els indicadors d'un àmbit queden fora
+ *     del càlcul de l'altre, de manera que el denominador s'ajusta sol i les
+ *     puntuacions continuen sent comparables.
  */
 
-export const METHODOLOGY_VERSION = '1.0'
+export const METHODOLOGY_VERSION = '1.1'
 
 export const DIMENSIONS = ['privacy', 'security', 'agency'] as const
 export type Dimension = (typeof DIMENSIONS)[number]
@@ -54,12 +62,19 @@ export const PROVISIONAL_CONFIDENCE_THRESHOLD = 50
  */
 export const DATA_VOLUME_CAP = 34
 
+/**
+ * Àmbit d'un indicador. `all` s'aplica a tots els serveis; `public-service`
+ * només als que presta una administració pública.
+ */
+export type IndicatorScope = 'all' | 'public-service'
+
 export type IndicatorSpec = {
   key: string
   dimension: Dimension
   weight: number
   label: string
   description: string
+  scope?: IndicatorScope
 }
 
 export const INDICATORS: IndicatorSpec[] = [
@@ -347,9 +362,99 @@ export const INDICATORS: IndicatorSpec[] = [
     label: 'Ús sense compte',
     description: 'Possibilitat d’utilitzar el servei sense identificar-se.',
   },
+
+  // ─── Serveis públics ──────────────────────────────────────────────────────
+  {
+    key: 'legal-basis',
+    dimension: 'privacy',
+    weight: 10,
+    scope: 'public-service',
+    label: 'Base jurídica declarada',
+    description:
+      'Norma amb rang suficient que empara el tractament, citada article per article. En un servei públic el consentiment no és la base habitual: l’obligació legal o la missió d’interès públic han de constar.',
+  },
+  {
+    key: 'processing-registry',
+    dimension: 'privacy',
+    weight: 6,
+    scope: 'public-service',
+    label: 'Registre d’activitats de tractament públic',
+    description:
+      'Publicació del registre que exigeix l’article 31 de la LOPDGDD, amb l’activitat concreta del servei localitzable.',
+  },
+  {
+    key: 'dpia',
+    dimension: 'privacy',
+    weight: 6,
+    scope: 'public-service',
+    label: 'Avaluació d’impacte publicada',
+    description:
+      'Avaluació d’impacte relativa a la protecció de dades accessible, obligatòria en tractaments a gran escala de dades sensibles.',
+  },
+  {
+    key: 'ens-conformity',
+    dimension: 'security',
+    weight: 12,
+    scope: 'public-service',
+    label: 'Conformitat amb l’Esquema Nacional de Seguretat',
+    description:
+      'Declaració o certificació de conformitat vigent amb la categoria del sistema. És l’equivalent públic de les auditories i els programes de recompenses del sector privat.',
+  },
+  {
+    key: 'dpo',
+    dimension: 'agency',
+    weight: 5,
+    scope: 'public-service',
+    label: 'Delegat de protecció de dades identificat',
+    description:
+      'Persona o unitat delegada de protecció de dades amb contacte directe publicat, obligatòria a tota administració.',
+  },
+  {
+    key: 'offline-alternative',
+    dimension: 'agency',
+    weight: 8,
+    scope: 'public-service',
+    label: 'Alternativa no digital',
+    description:
+      'Possibilitat de fer el mateix tràmit sense l’aplicació. Quan el servei és obligatori i no en té, el poder de decisió de la persona és nul.',
+  },
+  {
+    key: 'accessibility-statement',
+    dimension: 'agency',
+    weight: 5,
+    scope: 'public-service',
+    label: 'Declaració d’accessibilitat',
+    description:
+      'Declaració vigent i localitzable segons el Reial decret 1112/2018, amb el grau de conformitat i el mecanisme de queixa.',
+  },
 ]
 
 export const INDICATORS_BY_KEY = new Map(INDICATORS.map((indicator) => [indicator.key, indicator]))
 
 export const indicatorsFor = (dimension: Dimension) =>
   INDICATORS.filter((indicator) => indicator.dimension === dimension)
+
+export const indicatorsInScope = (scope: IndicatorScope) =>
+  INDICATORS.filter((indicator) => (indicator.scope ?? 'all') === scope)
+
+/**
+ * Indicadors que un servei públic no pot complir amb la forma que tenen al
+ * sector privat i que el bloc públic substitueix: el programa de recompenses i
+ * l'informe de transparència els cobreixen la conformitat amb l'ENS i el
+ * registre d'activitats de tractament.
+ */
+export const REPLACED_FOR_PUBLIC_SERVICE = ['bug-bounty', 'transparency-report'] as const
+
+/**
+ * Indicadors d'eliminació que deixen d'aplicar quan la conservació de les dades
+ * és una obligació legal documentada. No poder esborrar una història clínica no
+ * és una mala pràctica del servei: és el que mana la llei.
+ */
+export const EXCLUDED_BY_MANDATORY_RETENTION = [
+  'deletion-possible',
+  'deletion-self-service',
+  'deletion-direct-url',
+  'deletion-difficulty',
+  'deletion-waiting',
+  'data-after-deletion',
+] as const

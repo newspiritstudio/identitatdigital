@@ -239,6 +239,26 @@ export const lot: SeedLot = {
       summary:
         'Informació general de protecció de dades de la DGT: registre d’activitats de tractament, exercici dels drets amb un formulari oficial i dades de contacte del delegat de protecció de dades (protecciondedatos@dgt.es, C/ Josefa Valcárcel 44, Madrid).',
     }),
+    s('midgt-dgt-canals', 'Conoce todos los trámites — Canales disponibles para la tramitación', 'https://www.dgt.es/nuestros-servicios/conoce-todos-los-tramites/', 'Dirección General de Tráfico', 'support-doc', 'primary', {
+      language: 'es',
+      summary:
+        'Pàgina oficial dels tràmits de la DGT: segons el tràmit, es pot triar entre la seu electrònica, l’aplicació miDGT, el telèfon 060 i l’atenció presencial a les jefatures i oficines de trànsit, a més d’oficines de Correus, ajuntaments col·laboradors, autoescoles, ITV i entitats bancàries.',
+    }),
+    s('midgt-dgt-ens', 'Certificado de Conformidad Esquema Nacional de Seguridad (ENS) — Sede Electrónica DGT', 'https://sede.dgt.gob.es/es/contenido/esquema-nacional-de-seguridad/index.html', 'Dirección General de Tráfico', 'technical-doc', 'primary', {
+      language: 'es',
+      summary:
+        'La DGT informa que el 21 de gener de 2025 va obtenir la certificació de nivell mitjà de l’Esquema Nacional de Seguretat (Reial decret 311/2022) per al sistema d’ingressos de l’organisme, amb el certificat de conformitat en PDF. No hi consta cap altre sistema dins de l’abast.',
+    }),
+    s('midgt-dgt-accessibilitat', 'Declaración de accesibilidad — Dirección General de Tráfico', 'https://www.dgt.es/contenido/declaracion-de-accesibilidad/', 'Dirección General de Tráfico', 'support-doc', 'primary', {
+      language: 'es',
+      summary:
+        'Declaració d’accessibilitat de la DGT, feta el 24 de setembre de 2020 per autoavaluació i revisada el mateix mes: el lloc www.dgt.es és «parcialmente conforme» amb el Reial decret 1112/2018. L’abast són les pàgines del domini www.dgt.es i n’exclou els subdominis; no esmenta cap aplicació per a dispositius mòbils.',
+    }),
+    s('midgt-boe-trafic', 'Real Decreto Legislativo 6/2015, texto refundido de la Ley sobre Tráfico, Circulación de Vehículos a Motor y Seguridad Vial', 'https://www.boe.es/buscar/act.php?id=BOE-A-2015-11722', 'Agencia Estatal Boletín Oficial del Estado', 'legislation', 'primary', {
+      language: 'es',
+      summary:
+        'Text refós consolidat de la Llei sobre trànsit. L’article 5.h) atribueix al Ministeri de l’Interior la gestió dels registres de vehicles, de conductors i infractors, de professionals de l’ensenyament de la conducció i de centres de formació, que són els que consulta miDGT.',
+    }),
 
     /* ── MiDNI ── */
     s('midni-app-store', 'MiDNI — App Store (Privacidad de la app)', appStore('6477598076'), 'Apple / Dirección General de la Policía', 'app-store', 'primary', {
@@ -250,6 +270,11 @@ export const lot: SeedLot = {
       language: 'es',
       summary:
         'Pàgina oficial de MiDNI: responsable del tractament (Direcció General de la Policia, NIF S2816015H, Divisió de Documentació), registre previ amb el DNI electrònic, verificació del telèfon amb un SMS de validesa limitada, tractament en servidors propis sense tercers, mesures de nivell alt de l’Esquema Nacional de Seguretat i exercici dels drets davant del delegat de protecció de dades.',
+    }),
+    s('midni-dnie-accessibilitat', 'Declaración de Accesibilidad — Portal del DNI electrónico', 'https://www.dnielectronico.es/PortalDNIe/PRF1_Cons02.action?pag=REF_700&id_menu=0', 'Dirección General de la Policía', 'support-doc', 'primary', {
+      language: 'es',
+      summary:
+        'Declaració d’accessibilitat de la Divisió de Documentació de la Direcció General de la Policia, preparada per autoavaluació el 20 de setembre de 2020: el lloc www.dnielectronico.es és «parcialmente conforme» amb el Reial decret 1112/2018 i hi enumera els incompliments (orientació de pantalla, contrast, imatges de text i reajust del text). L’abast declarat és el lloc web; no esmenta l’aplicació MiDNI.',
     }),
 
     /* ── Mi DIGI ── */
@@ -886,7 +911,7 @@ export const lot: SeedLot = {
       summary:
         'miDGT porta al mòbil el permís de conducció digital, amb validesa per circular per Espanya, i la documentació dels vehicles. També mostra els punts, la caducitat del permís, la ITV i les sancions, i permet pagar-les. A l’App Store hi consta «No se recopilan datos», una declaració difícil de conciliar amb un servei que consulta els registres de conductors i de vehicles, i l’enllaç a la política de privadesa que hi publica la DGT ja no existeix.',
       platforms: ['ios', 'android'],
-      businessModel: 'unknown',
+      businessModel: 'public-service',
       jurisdiction: 'Espanya',
       links: {
         website: 'https://www.dgt.es/',
@@ -895,6 +920,18 @@ export const lot: SeedLot = {
       },
       accountRequired: f('yes', 'official', ['midgt-dgt-noticia', 'midgt-app-store'], 'Cal identificar-se amb Cl@ve, amb certificat digital o amb un codi d’un sol ús enviat per SMS al telèfon que consta a la DGT.'),
       openSource: unknown('No hem trobat el codi publicat.'),
+      publicService: {
+        isPublicService: true,
+        administrationLevel: 'state',
+        legalBasis: f('partial', 'official', ['midgt-dgt-proteccion-datos'], 'La informació de protecció de dades diu que els tractaments de la DGT es fan «en cumplimiento de obligaciones legales, o de una misión realizada en interés público o está basada en el consentimiento» i remet la base legal concreta a cada fitxa del registre d’activitats de tractament. No cita cap norma ni article per a l’aplicació.', { norm: 'Reglament (UE) 2016/679, article 6, sense concretar la norma habilitant' }),
+        processingRegistry: f('partial', 'official', ['midgt-dgt-proteccion-datos'], 'La DGT declara que tots els seus tractaments consten al Registre d’Activitats de Tractament de la DGT dins del RAT del Ministeri de l’Interior i hi enllaça l’inventari. El document del ministeri no es pot consultar de manera automatitzada i no hem pogut confirmar que hi hagi una activitat identificable per a miDGT.', { url: 'https://www.interior.gob.es/opencms/pdf/servicios-al-ciudadano/participacion-ciudadana/proteccion-de-datos-de-caracter-personal/tutela-de-los-derechos/Inventario_de_Actividades_de_Tratamiento_del_Ministerio_del_Interior.pdf' }),
+        dpia: unknown('No hem trobat publicada cap avaluació d’impacte relativa a la protecció de dades de l’aplicació.'),
+        ensConformity: f('partial', 'official', ['midgt-dgt-ens'], 'La seu electrònica publica el certificat de conformitat de nivell mitjà amb l’Esquema Nacional de Seguretat, obtingut el 21 de gener de 2025, però l’abast declarat és el sistema d’ingressos de l’organisme, no l’aplicació.', { category: 'medium', url: 'https://sede.dgt.gob.es/es/contenido/esquema-nacional-de-seguridad/index.html' }),
+        dpo: f('yes', 'official', ['midgt-dgt-proteccion-datos'], 'Delegat de protecció de dades de la DGT amb adreça postal (C/ Josefa Valcárcel 44, 3a planta, 28071 Madrid) i un correu d’atenció exclusiva a l’exercici dels drets.', { contact: 'protecciondedatos@dgt.es' }),
+        offlineAlternative: f('yes', 'official', ['midgt-dgt-canals'], 'Segons el tràmit, la DGT ofereix la seu electrònica, l’aplicació, el telèfon 060 i l’atenció presencial a les jefatures i oficines de trànsit, a més d’oficines de Correus, ajuntaments col·laboradors, autoescoles i ITV. L’aplicació és un canal més, no l’únic.'),
+        accessibilityStatement: f('no', 'official', ['midgt-dgt-accessibilitat'], 'La declaració d’accessibilitat de la DGT és de setembre de 2020, s’aplica només a les pàgines del domini www.dgt.es i n’exclou els subdominis: no cobreix l’aplicació, tot i que el Reial decret 1112/2018 també abasta les aplicacions per a dispositius mòbils del sector públic.', { url: 'https://www.dgt.es/contenido/declaracion-de-accesibilidad/' }),
+        mandatoryRetention: f('yes', 'official', ['midgt-boe-trafic', 'midgt-dgt-proteccion-datos'], 'L’aplicació no crea cap compte propi: mostra les dades dels registres de vehicles i de conductors i infractors que el Ministeri de l’Interior ha de gestionar per llei, i que es conserven segons la normativa d’arxius. No es pot demanar que se n’esborri l’expedient.', { norm: 'Reial decret legislatiu 6/2015, article 5.h)' }),
+      },
       dataSummary:
         'El permís, els punts, els vehicles i les sancions són l’historial administratiu de la vida al volant. Aquí no van a parar a cap anunciant, però el rastre queda als registres de la DGT i l’aplicació no explica què en desa al telèfon.',
       dataCollection: [
@@ -983,7 +1020,7 @@ export const lot: SeedLot = {
       summary:
         'MiDNI permet portar el document nacional d’identitat al mòbil amb la mateixa validesa que la targeta física i mostrar només els atributs que calgui en cada cas. El registre previ exigeix un DNI electrònic amb certificats vigents i un lector, o bé anar a un punt d’actualització; el telèfon es verifica amb un SMS. La Direcció General de la Policia diu que tot el tractament es fa en servidors propis, sense tercers, amb mesures de nivell alt de l’Esquema Nacional de Seguretat.',
       platforms: ['ios', 'android'],
-      businessModel: 'unknown',
+      businessModel: 'public-service',
       jurisdiction: 'Espanya',
       links: {
         website: 'https://www.midni.gob.es/',
@@ -992,6 +1029,18 @@ export const lot: SeedLot = {
       },
       accountRequired: f('yes', 'official', ['midni-dnie-info'], 'Cal registrar-se prèviament amb el DNI electrònic i un lector, o presencialment en un punt d’actualització, i verificar el telèfon amb un SMS.'),
       openSource: unknown('No hem trobat el codi publicat.'),
+      publicService: {
+        isPublicService: true,
+        administrationLevel: 'state',
+        legalBasis: f('partial', 'official', ['midni-dnie-info'], 'La política invoca l’article 6.1, lletres b) i e), del RGPD i diu que el tractament és necessari per a l’exercici de poders públics «en el ámbito de la Ley Orgánica 4/2015, de 30 de marzo, de protección de la seguridad ciudadana», sense concretar-ne cap article.', { norm: 'Llei orgànica 4/2015, sense article concret; RGPD, article 6.1.b) i e)' }),
+        processingRegistry: unknown('La política de MiDNI no remet a cap fitxa del registre d’activitats de tractament, i l’inventari del Ministeri de l’Interior no es pot consultar de manera automatitzada.'),
+        dpia: unknown('No hem trobat publicada cap avaluació d’impacte relativa a la protecció de dades de l’aplicació.'),
+        ensConformity: f('partial', 'official', ['midni-dnie-info'], 'La Direcció General de la Policia declara que ha aplicat les mesures de seguretat de nivell alt de l’Esquema Nacional de Seguretat, però no publica cap declaració ni certificació de conformitat referida al servei.', { category: 'high' }),
+        dpo: f('yes', 'official', ['midni-dnie-info'], 'Delegat de protecció de dades de la Direcció General de la Policia, amb adreça postal (C/ Rafael Calvo, 33, 28010 Madrid) i correu publicat.', { contact: 'policianacional.dpd@policia.es' }),
+        offlineAlternative: f('yes', 'official', ['midni-dnie-info'], 'La política diu que l’ús de l’aplicació «es totalmente voluntaria» i que «en ningún caso se le puede exigir su uso»: la targeta física del DNI continua identificant amb la mateixa validesa.'),
+        accessibilityStatement: f('no', 'official', ['midni-dnie-accessibilitat'], 'La declaració d’accessibilitat de la Divisió de Documentació és de setembre de 2020 i s’aplica al lloc www.dnielectronico.es; no cobreix l’aplicació ni el portal midni.gob.es, tot i que el Reial decret 1112/2018 també abasta les aplicacions mòbils del sector públic.', { url: 'https://www.dnielectronico.es/PortalDNIe/PRF1_Cons02.action?pag=REF_700&id_menu=0' }),
+        mandatoryRetention: f('no', 'official', ['midni-dnie-info'], 'Les dades del registre de l’aplicació es conserven «mientras aquel continúe haciendo uso de la APP»: cap norma no obliga a mantenir-lo, perquè el servei és un afegit voluntari al DNI físic.'),
+      },
       dataSummary:
         'És la identitat legal sencera dins del telèfon. El risc no és la publicitat sinó la usurpació: qui controli l’aplicació pot acreditar-se com una altra persona davant de tercers.',
       dataCollection: [

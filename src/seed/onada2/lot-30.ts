@@ -355,6 +355,18 @@ export const lot: SeedLot = {
       language: 'es',
       summary: 'Descriu el sistema de gestió de la seguretat conforme a l’Esquema Nacional de Seguretat per als serveis i els centres de dades de l’Agència.',
     }),
+    s('aeat-rat-clave', 'Agencia Tributaria: 5.13. Registro del Sistema de Identificación Cl@ve', 'https://sede.agenciatributaria.gob.es/Sede/todas-gestiones/procedimientos-no-tributarios/tratamiento-datos-personales/tratamiento-datos-personales/informacion-interesado-sobre-proteccion-datos/5-registro-actividades-tratamiento/5_13-registro-sistema-identificacion-clave.html', 'Agencia Estatal de Administración Tributaria', 'privacy-center', 'primary', {
+      language: 'es',
+      summary: 'Fitxa del registre d’activitats de tractament per al registre de les persones a Cl@ve. L’Agència hi actua com a encarregada del tractament segons l’Ordre PRE/1838/2014 i la Resolució de 14 de desembre del 2015. Pàgina actualitzada el 23 d’octubre del 2025.',
+    }),
+    s('aeat-rat-apps-moviles', 'Agencia Tributaria: 5.24. Aplicaciones móviles de la AEAT', 'https://sede.agenciatributaria.gob.es/Sede/todas-gestiones/procedimientos-no-tributarios/tratamiento-datos-personales/tratamiento-datos-personales/informacion-interesado-sobre-proteccion-datos/5-registro-actividades-tratamiento/5_24-aplicaciones-moviles-aeat.html', 'Agencia Estatal de Administración Tributaria', 'privacy-center', 'primary', {
+      language: 'es',
+      summary: 'Fitxa del registre d’activitats de tractament per a les aplicacions mòbils de l’Agència. Declara com a base jurídica el consentiment de l’article 6.1.a del RGPD i preveu l’anàlisi i la mineria de les dades. Pàgina actualitzada el 17 de gener del 2025.',
+    }),
+    s('aeat-declaracion-accesibilidad', 'Declaración de accesibilidad — Sede electrónica de la Agencia Tributaria', 'https://sede.agenciatributaria.gob.es/Sede/condiciones-uso-sede-electronica/accesibilidad/declaracion-accesibilidad.html', 'Agencia Estatal de Administración Tributaria', 'support-doc', 'primary', {
+      language: 'es',
+      summary: 'La seu electrònica es declara «parcialmente conforme» amb el Reial decret 1112/2018. Declaració del 23 de gener del 2025, revisada el 6 d’octubre del 2025. Només cobreix els webs dels dominis de l’Agència, no les aplicacions mòbils.',
+    }),
 
     /* ── Importass ── */
     s('importass-app-store', 'Importass Seguridad Social — App Store (Privacidad de la app)', 'https://apps.apple.com/es/app/id6502392871', 'Apple', 'app-store', 'primary', {
@@ -367,7 +379,27 @@ export const lot: SeedLot = {
     }),
     s('seg-social-proteccion-datos', 'Protección de datos — Sede electrónica de la Seguridad Social', 'https://sede.seg-social.gob.es/wps/portal/sede/sede/Inicio/informacionUtil/SS-Proteccion_de_datos/', 'Seguridad Social', 'privacy-policy', 'primary', {
       language: 'es',
-      summary: 'Informació general de protecció de dades de la Seguretat Social: responsables, delegat de protecció de dades, destinataris i exercici de drets. No hi ha una política específica de l’app.',
+      summary: 'Informació general de protecció de dades de la Seguretat Social: responsables, delegat de protecció de dades, destinataris i exercici de drets. Hi enllaça els registres d’activitats de cada entitat. No hi ha una política específica de l’app.',
+    }),
+    s('tgss-registro-tratamiento', 'Actividades de tratamiento de datos de carácter personal de la Tesorería General de la Seguridad Social', 'https://sede.seg-social.gob.es/binarios/es/ASSI_TGSS', 'Tesorería General de la Seguridad Social', 'privacy-center', 'primary', {
+      language: 'es',
+      summary: 'Registre d’activitats de tractament de la TGSS, publicat el 8 de maig del 2024. Inclou «Afiliación e inscripción de empresas» i «Bases de cotización», les activitats que hi ha darrere de la vida laboral i les bases que mostra l’app, amb la base jurídica, els terminis de conservació i les mesures de l’annex II del Reial decret 311/2022.',
+    }),
+    s('seg-social-certificacion-ens', 'Certificación ENS e ISO de la Seguridad Social', 'https://www.seg-social.es/wps/portal/wss/internet/HerramientasWeb/0d32d60e-ab65-4cad-b27f-6f60027fe73a', 'Seguridad Social', 'audit', 'primary', {
+      language: 'es',
+      summary: 'Certificat de conformitat amb l’Esquema Nacional de Seguretat de categoria ALTA i certificat UNE-EN ISO/IEC 27001:2023. L’abast inclou expressament els sistemes que donen suport a la seu electrònica, TUSS i Importass. Documents publicats el 26 de gener del 2026.',
+    }),
+    s('seg-social-declaracion-accesibilidad', 'Accesibilidad — Sede electrónica de la Seguridad Social', 'https://sede.seg-social.gob.es/wps/portal/sede/sede/Inicio/Accesibilidad', 'Seguridad Social', 'support-doc', 'primary', {
+      language: 'es',
+      summary: 'La seu electrònica es declara «parcialmente conforme» amb el Reial decret 1112/2018 i enumera els incompliments de la UNE-EN 301549:2022. Declaració i revisió del 18 de maig del 2026. No s’hi esmenta l’app d’Importass.',
+    }),
+    s('importass-portal-web', 'Importass — Trámites y servicios', 'https://portal.seg-social.gob.es/wps/portal/importass/importass/Categorias', 'Tesorería General de la Seguridad Social', 'support-doc', 'primary', {
+      language: 'es',
+      summary: 'Portal web d’Importass amb els mateixos tràmits que l’app: vida laboral i informes, altes, baixes i modificacions, pagaments i deutes. Permet demanar que un informe s’enviï al domicili.',
+    }),
+    s('lgss-afiliacion', 'Real Decreto Legislativo 8/2015, por el que se aprueba el texto refundido de la Ley General de la Seguridad Social', 'https://www.boe.es/buscar/act.php?id=BOE-A-2015-11724', 'Agencia Estatal Boletín Oficial del Estado', 'legislation', 'authority', {
+      language: 'es',
+      summary: 'L’article 15 estableix que l’afiliació a la Seguretat Social és obligatòria i «única para toda su vida y para todo el sistema», de manera que l’expedient d’afiliació no es pot suprimir a petició de la persona.',
     }),
 
     /* ── CamScanner ── */
@@ -1135,7 +1167,7 @@ export const lot: SeedLot = {
       summary:
         'L’app Cl@ve serveix per identificar-se i signar tràmits amb les administracions. Tracta dades molt sensibles, com el DNI o el NIE, el telèfon i el correu, però la política diu que només les fa servir per a aquest sistema. L’analítica de Firebase només s’activa si la persona ho autoritza. Es pot renunciar al servei des de la mateixa app, i l’app està disponible en català.',
       platforms: ['ios', 'android'],
-      businessModel: 'unknown',
+      businessModel: 'public-service',
       jurisdiction: 'Espanya',
       links: {
         website: 'https://sede.agenciatributaria.gob.es/',
@@ -1144,6 +1176,24 @@ export const lot: SeedLot = {
       },
       accountRequired: f('yes', 'official', ['clave-privacy-policy'], 'Cal estar registrat a Cl@ve i activar el dispositiu amb el DNI o el NIE i un codi per SMS.'),
       openSource: unknown('No hem trobat el codi publicat.'),
+      publicService: {
+        isPublicService: true,
+        administrationLevel: 'state',
+        legalBasis: f('partial', 'official', ['clave-privacy-policy', 'aeat-rat-clave', 'aeat-rat-apps-moviles'], 'La política diu que el tractament es basa en el consentiment i enumera les normes del servei —l’Ordre HAP/2142/2014, que crea el fitxer Cl@ve, l’Ordre PRE/1838/2014 i la Resolució de 14 de desembre del 2015— sense concretar-ne cap article. El registre d’activitats hi afegeix que l’Agència hi actua com a encarregada del tractament, i per a les aplicacions mòbils invoca l’article 6.1.a del RGPD.', {
+          norm: 'Ordre PRE/1838/2014, de 8 d’octubre, que publica l’Acord del Consell de Ministres de 19 de setembre del 2014 pel qual s’aprova Cl@ve',
+        }),
+        processingRegistry: f('yes', 'official', ['aeat-rat-clave', 'aeat-rat-apps-moviles'], 'El registre d’activitats de tractament de l’Agència és públic i hi consten les activitats 5.13 «Registro del Sistema de Identificación Cl@ve», 5.24 «Aplicaciones móviles de la AEAT» i 5.97 «Autenticación del Sistema de Identificación Cl@ve PIN».', {
+          url: 'https://sede.agenciatributaria.gob.es/Sede/todas-gestiones/procedimientos-no-tributarios/tratamiento-datos-personales/tratamiento-datos-personales/informacion-interesado-sobre-proteccion-datos/5-registro-actividades-tratamiento.html',
+        }),
+        dpia: unknown('No hem trobat publicada cap avaluació d’impacte relativa a la protecció de dades del sistema Cl@ve ni de l’app.'),
+        ensConformity: f('partial', 'official', ['clave-privacy-policy', 'aeat-medidas-seguridad'], 'La política de l’app diu que s’apliquen les mesures que exigeix el Reial decret 311/2022 i la informació de protecció de dades descriu un sistema de gestió de la seguretat conforme a l’ENS, però no hem trobat publicada cap declaració ni certificació de conformitat amb la categoria del sistema.'),
+        dpo: f('yes', 'official', ['clave-privacy-policy'], 'La política identifica el delegat de protecció de dades de l’Agència amb adreça de contacte.', { contact: 'dpd@correo.aeat.es' }),
+        offlineAlternative: f('yes', 'official', ['clave-privacy-policy', 'clave-renunciar'], 'Les gestions de Cl@ve es presten igual des de la seu electrònica de l’Agència o de la Seguretat Social sense l’app, i el registre a Cl@ve i la renúncia també es poden fer presencialment a les oficines de registre.'),
+        accessibilityStatement: f('partial', 'official', ['aeat-declaracion-accesibilidad'], 'La seu electrònica es declara parcialment conforme amb el Reial decret 1112/2018, amb declaració del 23 de gener del 2025 revisada el 6 d’octubre del 2025, però només cobreix els webs: no hi ha declaració d’accessibilitat de l’app.', {
+          url: 'https://sede.agenciatributaria.gob.es/Sede/condiciones-uso-sede-electronica/accesibilidad/declaracion-accesibilidad.html',
+        }),
+        mandatoryRetention: f('no', 'official', ['clave-renunciar', 'clave-privacy-policy'], 'Cap norma obliga a mantenir-se registrat a Cl@ve: s’hi pot renunciar des de l’app o des de la seu electrònica, i les dades desades al mòbil s’esborren amb «desactivar dispositivo».'),
+      },
       dataSummary:
         'Les dades identifiquen la persona de manera inequívoca i són la clau d’accés a la seva vida administrativa: impostos, Seguretat Social, salut. El risc principal no és la publicitat sinó la usurpació d’identitat.',
       dataCollection: [
@@ -1237,7 +1287,7 @@ export const lot: SeedLot = {
       summary:
         'Importass dona accés a la vida laboral, les bases de cotització, els deutes i els tràmits d’autònoms i de treballadores de la llar. Són dades que revelen la trajectòria laboral i els ingressos. L’etiqueta de l’App Store és mínima i l’enllaç de privadesa remet a la pàgina general de la Seguretat Social, sense res específic de l’app.',
       platforms: ['ios', 'android'],
-      businessModel: 'unknown',
+      businessModel: 'public-service',
       jurisdiction: 'Espanya',
       links: {
         website: 'https://sede.seg-social.gob.es/wps/portal/sede/sede/SSMovil/listadoAplicaciones/detalleAplicacionMobile/apptesoreria',
@@ -1246,6 +1296,31 @@ export const lot: SeedLot = {
       },
       accountRequired: f('yes', 'official', ['importass-app-page'], 'Cal identificar-se amb Cl@ve, certificat electrònic o SMS al telèfon registrat a la Seguretat Social.'),
       openSource: unknown(),
+      publicService: {
+        isPublicService: true,
+        administrationLevel: 'state',
+        legalBasis: f('partial', 'official', ['tgss-registro-tratamiento'], 'El registre d’activitats invoca els articles 6.1.c i 6.1.e del RGPD amb la Llei general de la Seguretat Social i el Reglament general de cotització, sense concretar-ne cap article, i hi suma el consentiment de l’article 6.1.a en tractaments que són obligatoris, com l’afiliació.', {
+          norm: 'Reial decret legislatiu 8/2015, text refós de la Llei general de la Seguretat Social',
+        }),
+        processingRegistry: f('yes', 'official', ['tgss-registro-tratamiento', 'seg-social-proteccion-datos'], 'La Seguretat Social publica el registre d’activitats de cada entitat. El de la TGSS, del 8 de maig del 2024, inclou «Afiliación e inscripción de empresas» i «Bases de cotización», que són les dades que mostra l’app.', {
+          url: 'https://sede.seg-social.gob.es/binarios/es/ASSI_TGSS',
+        }),
+        dpia: unknown('No hem trobat publicada cap avaluació d’impacte relativa a la protecció de dades de l’app ni dels tractaments d’afiliació i cotització.'),
+        ensConformity: f('yes', 'official', ['seg-social-certificacion-ens'], 'Certificat de conformitat amb l’Esquema Nacional de Seguretat de categoria alta, acompanyat de la ISO/IEC 27001:2023, i l’abast esmenta expressament els sistemes de la seu electrònica i d’Importass.', {
+          category: 'high',
+          url: 'https://www.seg-social.es/wps/portal/wss/internet/HerramientasWeb/0d32d60e-ab65-4cad-b27f-6f60027fe73a',
+        }),
+        dpo: f('yes', 'official', ['seg-social-proteccion-datos', 'tgss-registro-tratamiento'], 'El delegat de protecció de dades de la Seguretat Social consta amb adreça postal i electrònica, i es repeteix a cada fitxa del registre d’activitats de la TGSS.', {
+          contact: 'delegado.protecciondatos@seg-social.es',
+        }),
+        offlineAlternative: f('partial', 'official', ['importass-portal-web', 'importass-app-page'], 'Els mateixos tràmits es fan des del portal web d’Importass i des de la seu electrònica sense instal·lar l’app, i els informes es poden demanar perquè arribin al domicili, però no hem trobat documentat un canal presencial o telefònic equivalent per a tots els tràmits de la TGSS.'),
+        accessibilityStatement: f('partial', 'official', ['seg-social-declaracion-accesibilidad'], 'La seu electrònica es declara parcialment conforme amb el Reial decret 1112/2018, amb declaració i revisió del 18 de maig del 2026 i una llista llarga d’incompliments. No hi ha declaració d’accessibilitat de l’app.', {
+          url: 'https://sede.seg-social.gob.es/wps/portal/sede/sede/Inicio/Accesibilidad',
+        }),
+        mandatoryRetention: f('yes', 'official', ['lgss-afiliacion', 'tgss-registro-tratamiento'], 'L’article 15 del text refós de la Llei general de la Seguretat Social estableix que l’afiliació és obligatòria i «única para toda su vida y para todo el sistema», i el registre d’activitats hi afegeix que les dades es conserven segons la normativa d’arxius i documentació. Per això l’expedient no es pot suprimir a petició de la persona.', {
+          norm: 'Reial decret legislatiu 8/2015, article 15',
+        }),
+      },
       dataSummary:
         'La vida laboral, les bases de cotització i els deutes amb la Seguretat Social mostren on ha treballat una persona, quant ha cobrat i si passa dificultats econòmiques.',
       dataCollection: [

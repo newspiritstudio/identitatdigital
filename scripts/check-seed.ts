@@ -118,11 +118,20 @@ const checkApp = (app: AppSeed) => {
   refs(w, 'categories', app.categories)
   if (!app.tagline || !app.summary) err(w, 'falta tagline o summary')
   app.platforms?.forEach((p) => oneOf(`${w}.platforms`, p, ['ios', 'android', 'web', 'windows', 'macos', 'linux', 'other']))
-  oneOf(`${w}.businessModel`, app.businessModel, ['advertising', 'subscription', 'freemium', 'paid', 'commerce', 'donations', 'unknown'])
+  oneOf(`${w}.businessModel`, app.businessModel, ['advertising', 'subscription', 'freemium', 'paid', 'commerce', 'donations', 'public-service', 'unknown'])
   for (const key of Object.keys(app.links ?? {}))
     oneOf(`${w}.links`, key, ['website', 'privacyPolicy', 'terms', 'privacyCenter', 'appStore', 'playStore'])
   checkFact(`${w}.accountRequired`, app.accountRequired)
   checkFact(`${w}.openSource`, app.openSource)
+
+  const ps = app.publicService
+  if (ps) {
+    if (ps.isPublicService !== true) err(`${w}.publicService`, 'el bloc existeix però isPublicService no és true')
+    oneOf(`${w}.publicService.administrationLevel`, ps.administrationLevel, ['european', 'state', 'regional', 'local', 'other'])
+    for (const key of ['legalBasis', 'processingRegistry', 'dpia', 'ensConformity', 'dpo', 'offlineAlternative', 'accessibilityStatement', 'mandatoryRetention'] as const)
+      checkFact(`${w}.publicService.${key}`, ps[key])
+    oneOf(`${w}.publicService.ensConformity.category`, (ps.ensConformity as Record<string, unknown>)?.category, ['high', 'medium', 'basic'])
+  }
 
   if (!app.dataCollection?.length) err(w, 'matriu de dades buida')
   for (const row of app.dataCollection ?? []) {

@@ -556,6 +556,7 @@ const ipasen: AppSeed = {
   summary:
     'iPasen és la finestra mòbil de Séneca, el sistema de gestió escolar de la Junta: famílies i alumnat hi veuen notes, faltes d’assistència i missatges del professorat, i hi signen documents. La política de privadesa es limita a dir que l’aplicació no afegeix dades a les que ja té la Conselleria i remet a drets de l’antiga llei (accés, rectificació, cancel·lació i oposició). L’App Store diu que no recull cap dada.',
   platforms: ['ios', 'android'],
+  businessModel: 'public-service',
   jurisdiction: 'Espanya (Andalusia); autoritat de control: Consejo de Transparencia y Protección de Datos de Andalucía',
   links: {
     website: 'https://www.juntadeandalucia.es/educacion/portales/web/educacion/ipasen',
@@ -564,6 +565,26 @@ const ipasen: AppSeed = {
   },
   accountRequired: f('yes', 'official', ['ipasen-privacy-policy'], 'Només hi poden entrar tutors legals i alumnat matriculat en centres de la Conselleria.'),
   openSource: unknown('No hem trobat cap repositori públic del codi.'),
+  publicService: {
+    isPublicService: true,
+    administrationLevel: 'regional',
+    legalBasis: f('yes', 'official', ['junta-andalucia-rat-educacio'], 'El registre d’activitats de la Conselleria empara el seguiment acadèmic de l’alumnat en l’article 6.1.e del RGPD i, per a les dades de salut i de discapacitat, en els apartats a), c) i g) de l’article 9.2, amb la Llei orgànica 2/2006 i la Llei 17/2007 d’educació d’Andalusia. La política de l’aplicació, en canvi, no cita cap norma vigent: encara parla de fitxers declarats i de drets ARCO.', {
+      norm: 'RGPD, articles 6.1.e i 9.2 a), c) i g); Llei orgànica 2/2006, de 3 de maig, d’educació; Llei 17/2007, de 10 de desembre, d’educació d’Andalusia',
+    }),
+    processingRegistry: f('yes', 'official', ['junta-andalucia-rat-educacio'], 'L’activitat «CE-Gestión de actividades educativas y seguimiento académico del alumnado» consta al registre públic de la Junta, amb finalitats, categories de dades, cessions i terminis. No hi anomena ni iPasen ni Séneca, però és l’activitat que dona cobertura a l’aplicació.', {
+      url: 'https://www.juntadeandalucia.es/protecciondedatos/detalle/231565.html',
+    }),
+    dpia: unknown('No hem trobat publicada cap avaluació d’impacte sobre Séneca ni sobre iPasen, tot i que hi ha dades de menors i categories especials.'),
+    ensConformity: f('partial', 'official', ['junta-andalucia-rat-educacio', 'junta-andalucia-ens-certificat'], 'El registre diu que s’apliquen les mesures de l’annex II del Reial decret 311/2022, però no hi ha cap declaració de conformitat ni categoria publicada per a Séneca. El certificat d’ENS que publica la Junta és de l’Agència Digital d’Andalusia i cobreix el portal institucional, el punt d’accés general i la seu electrònica, no l’aplicació.'),
+    dpo: f('yes', 'official', ['junta-andalucia-rat-educacio'], 'El registre d’activitats publica el correu del delegat de protecció de dades de la Conselleria de Desenvolupament Educatiu i Formació Professional.', {
+      contact: 'dpd.ced@juntadeandalucia.es',
+    }),
+    offlineAlternative: f('partial', 'official', ['ipasen-portal-pasen'], 'El portal PASEN manté un accés web amb usuari i clau o amb certificat —l’accés amb codi QR sí que demana l’aplicació— i, per a qualsevol dubte, remet al centre educatiu. No hem trobat cap document que reguli una via presencial, telefònica o per correu per consultar notes, faltes i comunicacions.'),
+    accessibilityStatement: f('partial', 'official', ['junta-andalucia-accessibilitat'], 'La Junta declara el seu web «parcialment conforme» amb el Reial decret 1112/2018, per autoavaluació segons la UNE-EN 301-549:2022 i amb revisió del 16 de setembre de 2025. La declaració cobreix juntadeandalucia.es; no n’hi ha cap d’específica per a l’aplicació mòbil.', {
+      url: 'https://www.juntadeandalucia.es/informacion/accesibilidad.html',
+    }),
+    mandatoryRetention: f('yes', 'official', ['junta-andalucia-rat-educacio'], 'El registre d’activitats diu que els documents oficials d’avaluació —expedient acadèmic, actes d’avaluació, historial acadèmic i informe personal per trasllat— «se conservarán permanentemente», i la resta de dades, mentre l’alumnat estigui escolaritzat i pels terminis de la normativa d’arxius. La conservació és un mandat de la normativa educativa (Llei orgànica 2/2006 i Llei 17/2007 d’educació d’Andalusia), no una decisió de l’aplicació: l’expedient escolar no es pot esborrar.'),
+  },
   dataSummary:
     'iPasen recull la vida escolar d’infants i adolescents: qualificacions, absències, incidències, comunicacions amb el professorat i documents signats. Són dades de menors que acompanyen tota l’escolarització i que el centre i les famílies consulten en temps real.',
   dataCollection: [
@@ -652,6 +673,7 @@ const saludResponde: AppSeed = {
   summary:
     'Salud Responde serveix per demanar i canviar cites d’atenció primària del Servei Andalús de Salut. L’última versió és del gener del 2023 i l’enllaç a la política de privadesa de l’App Store porta a una pàgina que ja no existeix. L’etiqueta declara que no es recull cap dada, tot i que demanar cita implica identificar-se davant el sistema sanitari. Queda coberta per la política general del SAS.',
   platforms: ['ios', 'android'],
+  businessModel: 'public-service',
   jurisdiction: 'Espanya (Andalusia); autoritat de control: Consejo de Transparencia y Protección de Datos de Andalucía',
   links: {
     privacyPolicy: 'https://www.sspa.juntadeandalucia.es/servicioandaluzdesalud/politica-de-privacidad',
@@ -659,6 +681,26 @@ const saludResponde: AppSeed = {
   },
   accountRequired: unknown('No hem pogut verificar com s’identifica la persona per demanar cita.'),
   openSource: unknown('No hem trobat cap repositori públic del codi.'),
+  publicService: {
+    isPublicService: true,
+    administrationLevel: 'regional',
+    legalBasis: f('partial', 'official', ['sas-privacy-policy'], 'La política del SAS no té cap apartat per a Salud Responde. L’aplicació queda sota el tractament genèric de dades «no especials» dels sistemes en línia, que la política empara només en l’article 6.1.e del RGPD, l’interès públic, sense concretar la norma sanitària que hi dona cobertura.', {
+      norm: 'RGPD, article 6.1.e',
+    }),
+    processingRegistry: f('partial', 'official', ['junta-andalucia-rat-buscador', 'sas-privacy-policy'], 'El registre d’activitats de la Junta és públic i s’hi pot cercar per organisme, però no hi ha cap activitat que porti el nom de Salud Responde. La política només esmenta el «servicio de notificaciones de Salud Responde» dins d’un tractament genèric; les cites d’atenció primària formen part de l’activitat de la història de salut.', {
+      url: 'https://www.juntadeandalucia.es/protecciondedatos/buscador.html',
+    }),
+    dpia: unknown('No hem trobat publicada cap avaluació d’impacte de l’aplicació.'),
+    ensConformity: f('partial', 'official', ['sas-privacy-policy', 'junta-andalucia-rat-historia-salut'], 'El SAS diu que aplica les mesures de l’annex II de l’Esquema Nacional de Seguretat, però cita el Reial decret 3/2010, derogat pel Reial decret 311/2022. No consta cap declaració de conformitat ni cap categoria per a aquesta aplicació.'),
+    dpo: f('yes', 'official', ['sas-privacy-policy'], 'El SAS identifica el delegat de protecció de dades i en publica el correu com a canal de comunicació informal i de reclamació.', {
+      contact: 'dpd.sspa@juntadeandalucia.es',
+    }),
+    offlineAlternative: f('yes', 'official', ['sas-salud-responde-servei'], 'Salud Responde és, abans que res, un servei telefònic: el 955 54 50 60 atén les 24 hores tots els dies de l’any i hi gestiona les mateixes cites que l’aplicació. També es poden demanar al taulell del centre de salut.'),
+    accessibilityStatement: f('partial', 'official', ['sas-accessibilitat'], 'El SAS declara el seu web «parcialment conforme» amb el Reial decret 1112/2018, amb una darrera revisió del 10 d’agost de 2020. La declaració s’aplica al portal sspa.juntadeandalucia.es i no esmenta les aplicacions mòbils.', {
+      url: 'https://www.sspa.juntadeandalucia.es/servicioandaluzdesalud/accesibilidad',
+    }),
+    mandatoryRetention: f('yes', 'official', ['junta-andalucia-rat-historia-salut', 'sas-privacy-policy'], 'Les cites d’atenció primària s’incorporen a la història de salut, i el registre d’activitats del SAS en fixa la conservació per l’article 17 de la Llei 41/2002, bàsica reguladora de l’autonomia del pacient, que obliga a conservar la documentació clínica com a mínim cinc anys des de l’alta de cada procés, a més del que disposa la normativa d’arxius. Per això la persona no pot fer desaparèixer el seu rastre de cites, encara que deixi d’usar l’aplicació.'),
+  },
   dataSummary:
     'Les cites mèdiques diuen quan i amb quina freqüència una persona va al metge o a infermeria, i en quin centre. Són dades de salut encara que no incloguin el diagnòstic.',
   dataCollection: [
@@ -750,6 +792,7 @@ const sae: AppSeed = {
   summary:
     'L’aplicació del Servei Andalús d’Ocupació permet renovar la demanda d’ocupació, demanar cita, consultar ofertes i enviar el currículum. La política diu expressament que no es fan decisions automatitzades ni perfils i que les dades no surten de l’Espai Econòmic Europeu. És l’única aplicació andalusa del lot que declara dades a l’App Store: dades d’ús i errors vinculats a la identitat.',
   platforms: ['ios', 'android'],
+  businessModel: 'public-service',
   jurisdiction: 'Espanya (Andalusia); autoritat de control: Consejo de Transparencia y Protección de Datos de Andalucía',
   links: {
     privacyPolicy: 'https://ws054.juntadeandalucia.es/comun/aviso-legal.html',
@@ -757,6 +800,26 @@ const sae: AppSeed = {
   },
   accountRequired: f('yes', 'official', ['sae-app-store'], 'Cal identificar-se amb les credencials (clau i PIN) que facilita el SAE.'),
   openSource: unknown('No hem trobat cap repositori públic del codi.'),
+  publicService: {
+    isPublicService: true,
+    administrationLevel: 'regional',
+    legalBasis: f('yes', 'official', ['sae-rat-demandants', 'sae-privacy-policy'], 'La política es queda en l’interès públic i l’obligació legal (articles 6.1.e i 6.1.c del RGPD) sense concretar, però el registre d’activitats «SAE-Personas demandantes de empleo» hi afegeix la norma: la Llei 4/2002 de creació del Servei Andalús d’Ocupació i la Llei 3/2023 d’ocupació.', {
+      norm: 'RGPD, articles 6.1.c i 6.1.e; Llei 4/2002, de 16 de desembre, de creació del Servicio Andaluz de Empleo; Llei 3/2023, de 28 de febrer, d’ocupació',
+    }),
+    processingRegistry: f('yes', 'official', ['sae-rat-demandants', 'sae-privacy-policy'], 'La política enllaça el registre d’activitats del SAE, on l’activitat «SAE-Personas demandantes de empleo» identifica la finalitat d’intermediació, les dades (inclosos salut i col·lectius en risc d’exclusió) i les cessions al Servicio Público de Empleo Estatal i a les entitats que ofereixen feina.', {
+      url: 'https://www.juntadeandalucia.es/protecciondedatos/detalle/170037.html',
+    }),
+    dpia: unknown('No hem trobat publicada cap avaluació d’impacte del tractament de les persones demandants d’ocupació.'),
+    ensConformity: f('partial', 'official', ['sae-privacy-policy', 'sae-rat-demandants'], 'El SAE diu que aplica les mesures de l’annex II del Reial decret 311/2022 i que té una política de seguretat aprovada per la Resolució de 14 de març de 2023, però no publica cap declaració ni certificació de conformitat ni la categoria del sistema.'),
+    dpo: f('yes', 'official', ['sae-privacy-policy', 'sae-rat-demandants'], 'La política i el registre d’activitats publiquen el correu del delegat de protecció de dades del SAE, i també s’hi pot anar en persona a la seu.', {
+      contact: 'dpd.sae.ceeta@juntadeandalucia.es',
+    }),
+    offlineAlternative: f('yes', 'official', ['sae-portal-demanda'], 'El portal del SAE diu que la demanda es pot renovar «por Internet, APP o en cualquier oficina de empleo», i manté la cita amb l’oficina per a la resta de gestions.'),
+    accessibilityStatement: f('partial', 'official', ['sae-accessibilitat'], 'El SAE declara l’Àrea de Gestió (ws054.juntadeandalucia.es i els seus subdominis) «parcialment conforme» amb el Reial decret 1112/2018, per autoavaluació i amb una darrera revisió del 19 d’octubre de 2022. La declaració no cobreix l’aplicació mòbil.', {
+      url: 'https://ws054.juntadeandalucia.es/comun/accesibilidad.html',
+    }),
+    mandatoryRetention: f('partial', 'official', ['sae-rat-demandants', 'sae-privacy-policy'], 'Ni la política ni el registre d’activitats citen cap norma que impedeixi suprimir les dades: parlen de conservar-les el temps necessari per a la finalitat, segons la Llei 58/2003 general tributària per als aspectes econòmics i segons la normativa d’arxius i documentació d’Andalusia. És una conservació per terminis d’arxiu i de prescripció, no un mandat exprés de mantenir l’expedient.'),
+  },
   dataSummary:
     'La demanda d’ocupació diu que una persona està a l’atur o en busca de feina, amb la seva formació, experiència, cites a l’oficina i candidatures. Són dades que poden afectar prestacions i subvencions i que l’administració conserva segons la normativa d’arxius.',
   dataCollection: [
@@ -851,6 +914,7 @@ const saludAndalucia: AppSeed = {
   summary:
     'Salud Andalucía dona accés a la targeta sanitària virtual, cites, medicació, informes, proves i vacunes de la història de salut andalusa, i fins i tot a videotrucades amb professionals. La política del SAS ho detalla i diu que no es venen dades ni es fan perfils, però l’App Store declara que l’aplicació no recull cap dada. Per retirar-se’n, la política diu que n’hi ha prou de desinstal·lar-la; les dades clíniques queden a la història de salut.',
   platforms: ['ios', 'android'],
+  businessModel: 'public-service',
   jurisdiction: 'Espanya (Andalusia); autoritat de control: Consejo de Transparencia y Protección de Datos de Andalucía',
   links: {
     website: 'https://www.sspa.juntadeandalucia.es/servicioandaluzdesalud/ciudadania/app-salud-andalucia',
@@ -859,6 +923,26 @@ const saludAndalucia: AppSeed = {
   },
   accountRequired: f('partial', 'official', ['sas-privacy-policy'], 'La informació pública és oberta; els tràmits i la història de salut requereixen identificar-se amb Cl@ve, certificat digital, codi QR o dades conegudes.'),
   openSource: unknown('No hem trobat cap repositori públic del codi.'),
+  publicService: {
+    isPublicService: true,
+    administrationLevel: 'regional',
+    legalBasis: f('yes', 'official', ['sas-privacy-policy'], 'La política del SAS empara ClicSalud+ i les seves aplicacions, Salud Andalucía inclosa, en els articles 6.1.e i 6.1.c del RGPD i concreta les normes sanitàries: la Llei 14/1986 general de sanitat, la Llei 2/1998 de salut d’Andalusia i la Llei 41/2002 d’autonomia del pacient.', {
+      norm: 'RGPD, articles 6.1.c i 6.1.e; Llei 14/1986, de 25 d’abril, general de sanitat; Llei 2/1998, de 15 de juny, de salut d’Andalusia; Llei 41/2002, de 14 de novembre, d’autonomia del pacient',
+    }),
+    processingRegistry: f('yes', 'official', ['junta-andalucia-rat-historia-salut', 'sas-privacy-policy'], 'La política inclou una versió simplificada del registre que anomena Salud Andalucía, i el registre públic de la Junta té l’activitat «SAS-Historia de Salud del Sistema Sanitario Público de Andalucía», amb responsable, finalitats, cessions i terminis.', {
+      url: 'https://www.juntadeandalucia.es/protecciondedatos/detalle/210584.html',
+    }),
+    dpia: unknown('No hem trobat publicada cap avaluació d’impacte de l’aplicació ni de la història de salut d’Andalusia.'),
+    ensConformity: f('partial', 'official', ['sas-privacy-policy', 'junta-andalucia-rat-historia-salut'], 'El SAS diu que aplica les mesures de l’annex II de l’Esquema Nacional de Seguretat, però ho fa citant el Reial decret 3/2010, derogat pel Reial decret 311/2022, i només esmenta una categoria —el nivell alt— per a l’eina Zoom, no per a l’aplicació. No publica cap declaració de conformitat.'),
+    dpo: f('yes', 'official', ['sas-privacy-policy'], 'El SAS identifica el delegat de protecció de dades, en publica el correu i el presenta com la via prèvia a la reclamació davant l’autoritat de control.', {
+      contact: 'dpd.sspa@juntadeandalucia.es',
+    }),
+    offlineAlternative: f('partial', 'official', ['sas-salud-responde-servei', 'sas-privacy-policy'], 'Les cites i bona part dels tràmits es poden fer pel telèfon de Salud Responde (955 54 50 60, les 24 hores) o al centre de salut, i la targeta sanitària física continua existint. No hem documentat cap via no digital equivalent per consultar els informes, les proves i la medicació que mostra l’aplicació.'),
+    accessibilityStatement: f('partial', 'official', ['sas-accessibilitat'], 'El SAS declara el seu web «parcialment conforme» amb el Reial decret 1112/2018, amb una darrera revisió del 10 d’agost de 2020. La declaració s’aplica al portal i no esmenta les aplicacions mòbils, tot i que el reial decret també les cobreix.', {
+      url: 'https://www.sspa.juntadeandalucia.es/servicioandaluzdesalud/accesibilidad',
+    }),
+    mandatoryRetention: f('yes', 'official', ['junta-andalucia-rat-historia-salut', 'sas-privacy-policy'], 'El registre d’activitats de la història de salut fixa la conservació en l’article 17 de la Llei 41/2002, bàsica reguladora de l’autonomia del pacient —documentació clínica conservada com a mínim cinc anys des de l’alta de cada procés—, amb els afegits de l’article 23 de la Llei orgànica 2/2010 i de l’article 52 de la Llei 14/2007 d’investigació biomèdica, i el que disposa la normativa d’arxius. Desinstal·lar l’aplicació esborra les dades que recull l’app, però no la història clínica, que la llei obliga a mantenir.'),
+  },
   dataSummary:
     'L’aplicació dona accés a la història clínica: medicació, informes, resultats de proves, vacunes, baixes laborals i llista d’espera quirúrgica. És la categoria de dades més sensible del RGPD, lligada al número d’usuari del sistema sanitari i al DNI.',
   dataCollection: [
@@ -1197,6 +1281,51 @@ export const lot: SeedLot = {
     s('sae-app-store', 'Servicio Andaluz de Empleo (App Store)', 'https://apps.apple.com/es/app/id1470032437', 'Apple', 'app-store', 'primary', {
       language: 'es',
       summary: 'Etiqueta: dades d’ús i d’errors vinculades a la identitat. Accés amb clau i PIN del SAE, geolocalització d’oficines i signatura per SMS.',
+    }),
+    s('junta-andalucia-rat-buscador', 'Buscador del Registro de Actividades de Tratamiento', 'https://www.juntadeandalucia.es/protecciondedatos/buscador.html', 'Junta de Andalucía', 'privacy-center', 'primary', {
+      language: 'es',
+      summary: 'Cercador públic de les activitats de tractament de la Junta, per organisme i per títol. No hi ha cap activitat que porti el nom de Salud Responde.',
+    }),
+    s('junta-andalucia-rat-educacio', 'CE-Gestión de actividades educativas y seguimiento académico del alumnado', 'https://www.juntadeandalucia.es/protecciondedatos/detalle/231565.html', 'Junta de Andalucía', 'privacy-center', 'primary', {
+      language: 'es',
+      summary: 'Activitat de tractament de la Conselleria d’Educació: base jurídica als articles 6.1.e i 9.2 del RGPD amb la Llei orgànica 2/2006 i la Llei 17/2007, delegat dpd.ced@juntadeandalucia.es, mesures de l’annex II del Reial decret 311/2022 i conservació permanent dels documents oficials d’avaluació.',
+    }),
+    s('junta-andalucia-rat-historia-salut', 'SAS-Historia de Salud del Sistema Sanitario Público de Andalucía', 'https://www.juntadeandalucia.es/protecciondedatos/detalle/210584.html', 'Junta de Andalucía', 'privacy-center', 'primary', {
+      language: 'es',
+      summary: 'Activitat de tractament de la història clínica andalusa: dades especialment protegides, cessions al Sistema Nacional de Salut i als tribunals, i conservació per l’article 17 de la Llei 41/2002, entre altres normes.',
+    }),
+    s('sae-rat-demandants', 'SAE-Personas demandantes de empleo', 'https://www.juntadeandalucia.es/protecciondedatos/detalle/170037.html', 'Junta de Andalucía', 'privacy-center', 'primary', {
+      language: 'es',
+      summary: 'Activitat de tractament del SAE per a la intermediació laboral: base jurídica amb la Llei 4/2002 i la Llei 3/2023 d’ocupació, cessions al SEPE i a les entitats oferents, i mesures de l’annex II del Reial decret 311/2022.',
+    }),
+    s('junta-andalucia-ens-certificat', 'Certificado de Conformidad con el Esquema Nacional de Seguridad (Agencia Digital de Andalucía)', 'https://www.juntadeandalucia.es/sites/default/files/2026-07/DOC-170-Certificado_de_Conformidad_ENS_ADA15__PORTALJDA__MEDIA_2026_signed.pdf', 'Audertis Audit Services', 'audit', 'independent', {
+      language: 'es',
+      publishedAt: '2026-06-11',
+      summary: 'Certificat de categoria MITJANA segons el Reial decret 311/2022 per als sistemes de l’Agència Digital d’Andalusia que donen suport al portal institucional, al punt d’accés general i a la seu electrònica de la Junta. No cobreix les aplicacions sectorials.',
+    }),
+    s('junta-andalucia-accessibilitat', 'Declaración de accesibilidad (Junta de Andalucía)', 'https://www.juntadeandalucia.es/informacion/accesibilidad.html', 'Junta de Andalucía', 'technical-doc', 'primary', {
+      language: 'es',
+      summary: 'Declaració «parcialment conforme» amb el Reial decret 1112/2018, preparada per autoavaluació amb la UNE-EN 301-549:2022 i revisada el 16 de setembre de 2025.',
+    }),
+    s('sas-accessibilitat', 'Declaración de accesibilidad (Servicio Andaluz de Salud)', 'https://www.sspa.juntadeandalucia.es/servicioandaluzdesalud/accesibilidad', 'Servicio Andaluz de Salud', 'technical-doc', 'primary', {
+      language: 'es',
+      summary: 'Declaració «parcialment conforme» amb el Reial decret 1112/2018 per al portal del SAS, amb una darrera revisió del 10 d’agost de 2020 i sense cap menció a les aplicacions mòbils.',
+    }),
+    s('sae-accessibilitat', 'Declaración de Accesibilidad (Área de Gestión SAE)', 'https://ws054.juntadeandalucia.es/comun/accesibilidad.html', 'Servicio Andaluz de Empleo', 'technical-doc', 'primary', {
+      language: 'es',
+      summary: 'Declaració «parcialment conforme» amb el Reial decret 1112/2018 per a ws054.juntadeandalucia.es i els seus subdominis, per autoavaluació i amb revisió del 19 d’octubre de 2022.',
+    }),
+    s('sas-salud-responde-servei', 'Salud Responde', 'https://www.sspa.juntadeandalucia.es/servicioandaluzdesalud/el-sas/servicios-y-centros/salud-responde', 'Servicio Andaluz de Salud', 'support-doc', 'primary', {
+      language: 'es',
+      summary: 'Pàgina del servei multicanal del SAS: telèfon 955 54 50 60, les 24 hores tots els dies de l’any, per a informació i gestions sanitàries i administratives.',
+    }),
+    s('sae-portal-demanda', 'Servicio Andaluz de Empleo (portal de la Junta)', 'https://www.juntadeandalucia.es/organismos/empleoempresaytrabajoautonomo/sae.html', 'Junta de Andalucía', 'support-doc', 'primary', {
+      language: 'es',
+      summary: 'Portal del SAE: la demanda d’ocupació es pot renovar «por Internet, APP o en cualquier oficina de empleo», amb cita prèvia per a l’oficina.',
+    }),
+    s('ipasen-portal-pasen', 'PASEN (Consejería de Educación)', 'https://seneca.juntadeandalucia.es/seneca/jsp/portalpasen/', 'Junta de Andalucía', 'support-doc', 'primary', {
+      language: 'es',
+      summary: 'Portal web de PASEN, amb accés per usuari i clau o amb certificat; l’accés amb codi QR requereix l’aplicació iPasen i, per a qualsevol dubte, remet al centre educatiu.',
     }),
     s('junta-andalucia-security-txt', 'security.txt (juntadeandalucia.es)', 'https://www.juntadeandalucia.es/.well-known/security.txt', 'Junta de Andalucía', 'technical-doc', 'primary', {
       summary: 'Contacte de seguretat de la Junta: atencion.cert@juntadeandalucia.es i AndalucíaCERT.',
