@@ -17,8 +17,27 @@ const idOf = (value: unknown): string | null => {
 export default async function CompaniesPage() {
   const payload = await getClient()
   const [{ docs: companies }, { docs: apps }] = await Promise.all([
-    payload.find({ collection: 'companies', limit: 0, pagination: false, depth: 0, sort: 'name' }),
-    payload.find({ collection: 'apps', limit: 0, pagination: false, depth: 0, sort: 'name', where: { _status: { equals: 'published' } } }),
+    payload.find({
+      collection: 'companies',
+      limit: 0,
+      pagination: false,
+      depth: 0,
+      sort: 'name',
+      overrideAccess: true,
+      select: { name: true, parent: true, headquartersCountry: true },
+    }),
+    // De cada fitxa només en surt l'enllaç: demanar-la sencera multiplicava per
+    // vint el temps de resposta de la pàgina.
+    payload.find({
+      collection: 'apps',
+      limit: 0,
+      pagination: false,
+      depth: 0,
+      sort: 'name',
+      overrideAccess: true,
+      where: { _status: { equals: 'published' } },
+      select: { name: true, slug: true, company: true },
+    }),
   ])
 
   const byParent = new Map<string | null, Company[]>()

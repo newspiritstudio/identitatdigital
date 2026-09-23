@@ -35,6 +35,16 @@ const SHARED_WITH: Record<string, string> = {
   unknown: 'No documentat',
 }
 
+/*
+ * Una administració no té grup empresarial ni empresa responsable. Les
+ * etiquetes que parlen d'empreses es canvien per les del sector públic quan la
+ * fitxa és d'un servei públic; la resta són iguals per a tothom.
+ */
+const PUBLIC_SHARED_WITH: Record<string, string> = {
+  ...SHARED_WITH,
+  group: 'Altres òrgans de la mateixa administració',
+}
+
 const DIFFICULTY: Record<string, string> = {
   easy: 'Fàcil',
   medium: 'Mitjana',
@@ -84,11 +94,17 @@ export default async function AppPage({ params }: { params: Promise<{ slug: stri
   const { slug } = await params
   const payload = await getClient()
 
+  /*
+   * Profunditat 1: n'hi ha prou per tenir les fonts de cada afirmació, les
+   * categories i les alternatives. A profunditat 2, cada alternativa arrossega
+   * la seva pròpia fitxa sencera amb totes les fonts, i la pàgina passava de
+   * mig segon a mig minut.
+   */
   const { docs } = await payload.find({
     collection: 'apps',
     where: { slug: { equals: slug } },
     limit: 1,
-    depth: 2,
+    depth: 1,
   })
   const app = docs[0] as App | undefined
   if (!app) notFound()
@@ -103,6 +119,8 @@ export default async function AppPage({ params }: { params: Promise<{ slug: stri
 
   const deletion = app.accountDeletion
   const scores = app.scores
+  const isPublic = app.publicService?.isPublicService === true
+  const sharedWith = isPublic ? PUBLIC_SHARED_WITH : SHARED_WITH
 
   /*
    * Enllaços oficials. Es dibuixen només els que existeixen, i l'ordre és el de
@@ -228,7 +246,7 @@ export default async function AppPage({ params }: { params: Promise<{ slug: stri
           <caption className="visually-hidden">{`Dades identificatives de ${app.name}`}</caption>
           <tbody>
             <tr>
-              <th scope="row">Empresa</th>
+              <th scope="row">{isPublic ? 'Organisme responsable' : 'Empresa'}</th>
               <td>{label(app.company)}</td>
             </tr>
             <tr>
@@ -351,7 +369,7 @@ export default async function AppPage({ params }: { params: Promise<{ slug: stri
                 <td>{COLLECTION_STATUS[row.status ?? 'unknown']}</td>
                 <td>{STATUS_LABELS[row.linkedToIdentity ?? 'unknown']}</td>
                 <td>{STATUS_LABELS[row.usedForTracking ?? 'unknown']}</td>
-                <td>{SHARED_WITH[row.sharedWith ?? 'unknown']}</td>
+                <td>{sharedWith[row.sharedWith ?? 'unknown']}</td>
                 <td className="meta">
                   {(row.purposes ?? [])
                     .map((purpose) => label(purpose as ProcessingPurpose))
@@ -372,7 +390,10 @@ export default async function AppPage({ params }: { params: Promise<{ slug: stri
         <Fact label="Elaboració de perfils" fact={app.dataUses?.profiling} />
         <Fact label="Entrenament de models d’IA" fact={app.dataUses?.aiTraining} />
         <Fact label="Cessió a tercers" fact={app.sharing?.thirdPartySharing} />
-        <Fact label="Compartició dins del grup" fact={app.sharing?.intraGroupSharing} />
+        <Fact
+          label={isPublic ? 'Cessions dins de l’administració' : 'Compartició dins del grup'}
+          fact={app.sharing?.intraGroupSharing}
+        />
         <Fact label="Venda a intermediaris de dades" fact={app.sharing?.dataBrokerSales} />
         <Fact label="Transferències internacionals" fact={app.sharing?.internationalTransfers} />
       </dl>

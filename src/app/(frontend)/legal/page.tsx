@@ -20,7 +20,7 @@ export default function LegalIndexPage() {
       <DocMeta version="1.0" updated="12 de setembre de 2026" />
 
       <p className="lede">
-        Set documents. Cap d’ells està escrit per protegir-nos a nosaltres de tu: estan escrits
+        Cinc documents. Cap d’ells està escrit per protegir-nos a nosaltres de tu: estan escrits
         perquè puguis comprovar què fa aquest lloc amb les teves dades, què pots fer amb el que hi
         publiquem i a qui has de reclamar si alguna cosa no va bé.
       </p>
@@ -75,24 +75,6 @@ export default function LegalIndexPage() {
         </li>
         <li>
           <strong>
-            <Link href="/legal/llicencia">Llicència del contingut</Link>
-          </strong>
-          <p>
-            Què pots copiar, adaptar i republicar, sota quines condicions, i quins materials de
-            tercers queden fora de la llicència perquè no són nostres per donar-los.
-          </p>
-        </li>
-        <li>
-          <strong>
-            <Link href="/legal/politica-editorial">Política editorial</Link>
-          </strong>
-          <p>
-            Com decidim què publiquem, com corregim els errors i com pot respondre una empresa
-            documentada que consideri que ens hem equivocat.
-          </p>
-        </li>
-        <li>
-          <strong>
             <Link href="/legal/accessibilitat">Declaració d’accessibilitat</Link>
           </strong>
           <p>
@@ -107,7 +89,7 @@ export default function LegalIndexPage() {
       <p>
         Qui pot canviar la metodologia, què passa quan qui edita una fitxa té un vincle comercial
         amb l’empresa que hi surt i què passa amb les dades si el projecte s’atura són decisions que
-        no caben en cap dels set documents anteriors, i que igualment has de poder comprovar. Són
+        no caben en cap dels documents anteriors, i que igualment has de poder comprovar. Són
         al{' '}
         <a
           href="https://github.com/newspiritstudio/identitatdigital/blob/main/docs/governanca.md"
@@ -117,7 +99,7 @@ export default function LegalIndexPage() {
           document de governança
           <span className="visually-hidden"> (s’obre en una pestanya nova)</span>
         </a>
-        , públic al repositori i referenciat des de la mateixa llicència del contingut.
+        , públic al repositori.
       </p>
 
       <h2>Documentació interna</h2>

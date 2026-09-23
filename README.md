@@ -336,8 +336,7 @@ La llista completa i exacta d'aquestes exclusions, amb la base jurídica de cada
 una, és al fitxer **[NOTICE](NOTICE)**, que forma part de les condicions tant de
 [LICENSE](LICENSE) com de [LICENSE-CONTENT](LICENSE-CONTENT).
 
-El detall complet és a **[/legal/llicencia](src/app/(frontend)/legal/llicencia/page.tsx)**
-i el raonament de cada decisió a **[docs/legal/README.md](docs/legal/README.md)**.
+El raonament de cada decisió és a **[docs/legal/README.md](docs/legal/README.md)**.
 
 ## Governança
 

@@ -302,7 +302,90 @@ export const buildCorpus = (input: {
  *    corpus ha de continuar sent vàlid encara que no hi hagi cap document o
  *    encara que la col·lecció no hi sigui.
  */
+/**
+ * Identificador de l'estat del contingut: quants documents hi ha i quan es va
+ * desar el darrer de cada col·lecció. Són sis consultes d'un sol document, i
+ * serveixen per saber si el corpus que tenim a la memòria encara val.
+ */
+const contentToken = async (payload: Payload): Promise<string> => {
+  const collections = ['apps', 'companies', 'data-types', 'categories', 'incidents', 'breaches'] as const
+  const parts = await Promise.all(
+    collections.map(async (collection) => {
+      try {
+        const found = await payload.find({
+          collection,
+          limit: 1,
+          depth: 0,
+          overrideAccess: true,
+          sort: '-updatedAt',
+          select: { updatedAt: true },
+        })
+        return `${collection}:${found.totalDocs}:${String(found.docs[0]?.updatedAt ?? '')}`
+      } catch {
+        return `${collection}:0:`
+      }
+    }),
+  )
+  return parts.join('|')
+}
+
+/*
+ * La memòria viu a `globalThis` i no al mòdul. En desenvolupament, cada canvi
+ * de codi recarrega els mòduls però no el procés: si la memòria fos del mòdul,
+ * cada estalvi de fitxer obligaria a tornar a llegir tot el directori.
+ *
+ * `pending` desa la càrrega en curs. Sense això, tres peticions simultànies a
+ * tres pàgines d'anàlisi construeixen tres corpus alhora i totes tres van tres
+ * vegades més lentes; amb això, la segona i la tercera esperen la primera.
+ */
+type CorpusMemory = {
+  cached: { token: string; corpus: Corpus } | null
+  pending: { token: string; promise: Promise<Corpus> } | null
+}
+
+const MEMORY = Symbol.for('identitat.corpus')
+const memory = ((globalThis as Record<symbol, unknown>)[MEMORY] ??= {
+  cached: null,
+  pending: null,
+}) as CorpusMemory
+
+/** Buida la memòria del corpus. Els scripts que escriuen contingut l'han de cridar. */
+export const forgetCorpus = () => {
+  memory.cached = null
+  memory.pending = null
+}
+
 export const loadCorpus = async (
+  payload: Payload,
+  options: { now?: Date; fresh?: boolean } = {},
+): Promise<Corpus> => {
+  /*
+   * Construir el corpus vol dir llegir quatre-centes fitxes senceres amb tota
+   * la seva evidència, i cada pàgina d'anàlisi el necessita igual. Es desa a la
+   * memòria del procés i es torna a llegir només quan canvia alguna cosa: el
+   * testimoni de contingut costa mil·lisegons i la càrrega, segons.
+   */
+  if (!options.fresh && !options.now) {
+    const token = await contentToken(payload)
+    if (memory.cached?.token === token) return memory.cached.corpus
+    if (memory.pending?.token === token) return memory.pending.promise
+    const promise = readCorpus(payload, options).then((corpus) => {
+      memory.cached = { token, corpus }
+      if (memory.pending?.token === token) memory.pending = null
+      return corpus
+    })
+    memory.pending = { token, promise }
+    try {
+      return await promise
+    } catch (error) {
+      if (memory.pending?.token === token) memory.pending = null
+      throw error
+    }
+  }
+  return readCorpus(payload, options)
+}
+
+const readCorpus = async (
   payload: Payload,
   options: { now?: Date } = {},
 ): Promise<Corpus> => {

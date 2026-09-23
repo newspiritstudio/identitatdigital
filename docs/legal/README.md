@@ -19,8 +19,6 @@ queda pendent i quines decisions s'han pres i per què.
 | `/legal/privadesa` | `legal/privadesa/page.tsx` | Arts. 12, 13 i 14 RGPD i LOPDGDD: taula de tractaments, bases jurídiques, terminis, destinataris, transferències, drets i reclamació davant l'AEPD. Inclou l'explicació detallada del k-anonimat. |
 | `/legal/galetes` | `legal/galetes/page.tsx` | Art. 22.2 LSSICE i Guia de galetes de l'AEPD: per què no hi ha bàner, l'única galeta del sistema i com comprovar-ho. |
 | `/legal/condicions` | `legal/condicions/page.tsx` | Condicions d'ús, amb exempcions específiques per al generador de contrasenyes i per a la comprovació de filtracions. |
-| `/legal/llicencia` | `legal/llicencia/page.tsx` | Llicència del contingut, dret sui generis, avís d'exclusió de materials de tercers i ús nominatiu de marques alienes. |
-| `/legal/politica-editorial` | `legal/politica-editorial/page.tsx` | Mètode, jerarquia d'evidència, correccions i dret de rèplica de les empreses documentades. |
 | `/legal/accessibilitat` | `legal/accessibilitat/page.tsx` | EN 301 549 i WCAG 2.2 AA. Estat **parcialment conforme**, mètode d'autoavaluació amb el comprovador propi, tres excepcions conegudes, calendari i canal d'avisos. |
 
 Peces compartides: `legal/parts.tsx` (metadades de document, marca de pendent,
@@ -39,7 +37,7 @@ contenidor de taules, blocs de resum i d'avís) i `legal/legal.module.css`.
 | `README.md` | Aquest document. |
 
 A més, `docs/governanca.md` **sí que és públic** i està enllaçat des de
-`LICENSE-CONTENT`, des de `/legal` i des de `/legal/llicencia`: diu qui decideix
+`LICENSE-CONTENT` i des de `/legal`: diu qui decideix
 què, com es tracta un conflicte d'interessos i què passa amb les dades si el
 projecte s'atura.
 
@@ -79,9 +77,9 @@ de posar el lloc en producció.
 | # | Decisió | Com ha quedat | On surt |
 | --- | --- | --- | --- |
 | 8 | Condició de microempresa | Confirmada: cap persona contractada, els dos administradors al RETA i un volum de negoci molt per sota dels 2 M€. L'art. 4.5 de la Directiva 2019/882 és invocable com a argument subsidiari, però **no s'invoca**: la declaració s'assumeix igualment. | `/legal/accessibilitat` §2.2 |
-| 9 | Model de finançament | Autofinançament amb recursos propis de New Spirit Studio S.L. Sense publicitat, patrocini ni afiliació. Qualsevol ingrés extern futur es declararà amb organisme, import i any abans d'afectar cap fitxa. | `/legal/politica-editorial` §1 · `docs/governanca.md` §3 regla 6 |
-| 10 | Coincidència amb clients de l'estudi | Cap de les 25 aplicacions del corpus, ni les empreses que les publiquen, ni les seves matrius, no són ni han estat clients. El procediment per quan canviï —declaració, abstenció i publicitat a la fitxa— és a la governança. | `/legal/politica-editorial` §1 · `docs/governanca.md` §3 |
-| 11 | Periodicitat de revisió | Sis mesos per als serveis amb més de cent milions de persones usuàries declarades, dotze per a la resta, i revisió immediata quan canvia la font, hi ha resolució d'un regulador, s'exerceix rèplica o algú assenyala un error. | `/legal/politica-editorial` §4 |
+| 9 | Model de finançament | Autofinançament amb recursos propis de New Spirit Studio S.L. Sense publicitat, patrocini ni afiliació. Qualsevol ingrés extern futur es declararà amb organisme, import i any abans d'afectar cap fitxa. | `docs/governanca.md` §3 regla 6 |
+| 10 | Coincidència amb clients de l'estudi | Cap de les 25 aplicacions del corpus, ni les empreses que les publiquen, ni les seves matrius, no són ni han estat clients. El procediment per quan canviï —declaració, abstenció i publicitat a la fitxa— és a la governança. | `docs/governanca.md` §3 |
+| 11 | Periodicitat de revisió | Sis mesos per als serveis amb més de cent milions de persones usuàries declarades, dotze per a la resta, i revisió immediata quan canvia la font, hi ha resolució d'un regulador, s'exerceix rèplica o algú assenyala un error. | `/metodologia` |
 
 ### Pendents que depenen de la infraestructura
 
@@ -347,7 +345,7 @@ d'obrir-lo es va escombrar l'historial sencer buscant secrets —`PAYLOAD_SECRET
 cadenes de connexió amb credencials, claus d'API i capçaleres de clau privada— i
 només hi ha `.env.example`.
 
-Les exclusions de llicència de l'apartat 3.2 no viuen només a `/legal/llicencia`:
+Les exclusions de llicència de l'apartat 3.2 viuen al lloc i al repositori:
 són al fitxer **`NOTICE`** de l'arrel, que enumera cada material exclòs amb la
 seva base jurídica i que **forma part de les condicions** tant de `LICENSE`
 (codi, MIT) com de `LICENSE-CONTENT` (contingut, CC BY-SA 4.0). Qui reutilitzi el
@@ -383,8 +381,7 @@ comprovació de contrasenyes als registres) consten als documents.
   `analisi-de-riscos.md`.
 - **La governança es revisa un cop l'any** i sempre que canviï el consell
   editorial, aparegui un conflicte d'interessos nou o canviï el model de
-  finançament. Si canvia, canvia també la declaració de l'apartat 1 de
-  `/legal/politica-editorial`.
+  finançament.
 - **L'accessibilitat es torna a comprovar amb `pnpm check-a11y`** a cada canvi
   substancial del lloc, i com a mínim un cop l'any. Un resultat nou obliga a
   revisar `/legal/accessibilitat`.

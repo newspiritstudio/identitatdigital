@@ -43,7 +43,7 @@ creure que només compta si algú s'ha endut alguna cosa.
   incidència de servei.
 - La indisponibilitat de l'API de Have I Been Pwned. No hi tenim cap dada.
 - La publicació d'una dada errònia en una fitxa. És una correcció editorial i es
-  gestiona per la [política editorial](../../src/app/\(frontend\)/legal/politica-editorial/page.tsx).
+  gestiona per la [metodologia](../../src/app/\(frontend\)/metodologia/page.tsx).
 
 ## 3. Qui decideix
 

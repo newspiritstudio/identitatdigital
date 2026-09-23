@@ -28,7 +28,7 @@ export default function TermsPage() {
         <p>
           <strong>En resum:</strong> l’accés és lliure i gratuït; el contingut és informació, no
           assessorament; pots reutilitzar el que publiquem sota la{' '}
-          <Link href="/legal/llicencia">llicència</Link>; les eines funcionen al teu dispositiu i no
+          <Link href="/dades">llicència oberta</Link>; les eines funcionen al teu dispositiu i no
           en garantim els resultats; i si trobes un error, volem que ens ho diguis.
         </p>
       </Resum>
@@ -81,7 +81,7 @@ export default function TermsPage() {
         El contingut és correcte fins on hem pogut verificar-lo en la data indicada a cada fitxa.
         Les empreses canvien les seves polítiques sovint i sense avisar. Una fitxa pot quedar
         desfasada entre dues revisions. Quan passa, la corregim tan aviat com ho sabem, segons el
-        que diu la <Link href="/legal/politica-editorial">política editorial</Link>.
+        que diu la <Link href="/metodologia">metodologia</Link>.
       </p>
 
       <h2>4. Les eines</h2>
@@ -208,7 +208,7 @@ export default function TermsPage() {
       <h2>5. Ús permès i ús prohibit</h2>
       <p>
         Pots llegir, copiar, citar, adaptar i republicar el contingut del lloc en les condicions que
-        fixa la <Link href="/legal/llicencia">llicència</Link>. Volem que la informació circuli;
+        fixa la llicència Creative Commons Reconeixement-CompartirIgual 4.0. Volem que la informació circuli;
         aquesta és la raó de ser del projecte.
       </p>
       <p>El que no pots fer:</p>
@@ -283,7 +283,7 @@ export default function TermsPage() {
       <p>
         Si trobes una dada equivocada, una font caiguda o una interpretació que et sembla injusta,
         escriu-nos. El procediment de correcció, els terminis i el dret de rèplica de les empreses
-        documentades són a la <Link href="/legal/politica-editorial">política editorial</Link>. Si
+        documentades són a la <Link href="/metodologia">metodologia</Link>. Si
         has trobat una barrera d’accessibilitat, el camí és a la{' '}
         <Link href="/legal/accessibilitat">declaració d’accessibilitat</Link>.
       </p>

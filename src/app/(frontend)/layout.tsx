@@ -44,19 +44,9 @@ export default function FrontendLayout({ children }: { children: React.ReactNode
           {children}
         </main>
         <footer className="site-footer">
-          <p>
-            Interfície de validació de la fase 1. El disseny arribarà més endavant; ara el que
-            importa és que les dades siguin correctes i traçables.
-          </p>
           <nav aria-label="Informació legal i dades obertes">
             <Link href="/legal">Informació legal</Link>
             <Link href="/legal/privadesa">Privadesa</Link>
-            <Link href="/legal/galetes">Galetes</Link>
-            <Link href="/legal/llicencia">Llicència</Link>
-            <Link href="/legal/accessibilitat">Accessibilitat</Link>
-            <Link href="/legal/condicions">Condicions d’ús</Link>
-            <Link href="/legal/avis-legal">Avís legal</Link>
-            <Link href="/legal/politica-editorial">Política editorial</Link>
             <Link href="/dades">Dades obertes</Link>
             <a
               href="https://github.com/newspiritstudio/identitatdigital"
@@ -68,10 +58,8 @@ export default function FrontendLayout({ children }: { children: React.ReactNode
             </a>
           </nav>
           <p className="site-owner">
-            Identitat.digital és un projecte de New Spirit Studio S.L., NIF B75352872, carrer del
-            Sol, 62, 08201 Sabadell. El codi es publica sota llicència MIT i el contingut sota
-            Creative Commons Reconeixement-CompartirIgual 4.0, amb les exclusions detallades a la
-            pàgina de llicència.
+            Identitat.digital és un projecte de New Spirit Studio S.L. El codi es publica sota
+            llicència MIT i el contingut sota Creative Commons Reconeixement-CompartirIgual 4.0.
           </p>
         </footer>
       </body>

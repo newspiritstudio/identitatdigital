@@ -70,8 +70,7 @@ export default async function OpenDataPage() {
         </li>
         <li>
           <strong>Compromís:</strong> aquestes exportacions no deixaran de publicar-se ni perdran
-          camps. Hi ha 90 dies d’avís abans de qualsevol canvi que trenqui el format. Ho diu la{' '}
-          <Link href="/legal/llicencia">pàgina de llicències</Link>.
+          camps. Hi ha 90 dies d’avís abans de qualsevol canvi que trenqui el format.
         </li>
       </ul>
 

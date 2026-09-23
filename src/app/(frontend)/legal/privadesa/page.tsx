@@ -318,7 +318,7 @@ export default function PrivacyPage() {
               <td>
                 Qualsevol persona que hi aparegui pot escriure’ns. Els procediments de rectificació
                 i de rèplica són a la{' '}
-                <Link href="/legal/politica-editorial">política editorial</Link>.
+                <Link href="/metodologia">metodologia</Link>.
               </td>
             </tr>
           </tbody>

@@ -2,7 +2,8 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 
 import { getClient } from '../lib'
-import type { App, Company, DataType, Incident } from '@/payload-types'
+import { at, factStatus, loadCorpus } from '@/lib/analysis'
+import type { App, Company, DataType } from '@/payload-types'
 
 export const dynamic = 'force-dynamic'
 
@@ -24,44 +25,21 @@ const AppLink = ({ app }: { app: App }) => <Link href={`/aplicacions/${app.slug}
 export default async function QueriesPage() {
   const payload = await getClient()
 
-  const [noSelfService, aiTraining, noE2ee, allApps, companies, dataTypes, incidents] =
-    await Promise.all([
-      payload.find({
-        collection: 'apps',
-        where: { 'accountDeletion.selfService.status': { in: ['no', 'partial'] } },
-        limit: 0,
-        pagination: false,
-        depth: 0,
-        sort: 'name',
-      }),
-      payload.find({
-        collection: 'apps',
-        where: { 'dataUses.aiTraining.status': { equals: 'yes' } },
-        limit: 0,
-        pagination: false,
-        depth: 0,
-        sort: 'name',
-      }),
-      payload.find({
-        collection: 'apps',
-        where: { 'security.e2ee.status': { in: ['no', 'partial'] } },
-        limit: 0,
-        pagination: false,
-        depth: 0,
-        sort: 'name',
-      }),
-      payload.find({ collection: 'apps', limit: 0, pagination: false, depth: 1, sort: 'name' }),
-      payload.find({ collection: 'companies', limit: 0, pagination: false, depth: 0 }),
-      payload.find({ collection: 'data-types', limit: 0, pagination: false, depth: 0 }),
-      payload.find({ collection: 'incidents', limit: 0, pagination: false, depth: 0 }),
-    ])
+  /*
+   * Tot surt del mateix corpus que les pàgines d'anàlisi, que es desa a la
+   * memòria del procés: fer-ho amb set consultes pròpies volia dir llegir les
+   * quatre-centes fitxes senceres a cada visita.
+   */
+  const corpus = await loadCorpus(payload)
+  const allApps = corpus.apps
+  const noSelfService = allApps.filter((app) =>
+    ['no', 'partial'].includes(factStatus(at(app, 'accountDeletion.selfService'))),
+  )
+  const aiTraining = allApps.filter((app) => factStatus(at(app, 'dataUses.aiTraining')) === 'yes')
+  const noE2ee = allApps.filter((app) => ['no', 'partial'].includes(factStatus(at(app, 'security.e2ee'))))
 
-  const dataTypeById = new Map(
-    (dataTypes.docs as DataType[]).map((type) => [String(type.id), type]),
-  )
-  const companyById = new Map(
-    (companies.docs as Company[]).map((company) => [String(company.id), company]),
-  )
+  const dataTypeById = corpus.dataTypeById
+  const companyById = corpus.companyById
 
   /** Puja per l'arbre fins al grup del cim: la pregunta interessant és a qui pertany, de veritat. */
   const rootCompany = (companyId: string | null): Company | undefined => {
@@ -77,7 +55,7 @@ export default async function QueriesPage() {
 
   // Quins tipus de dades es recullen més sovint a tot el directori.
   const collectionCount = new Map<string, number>()
-  for (const app of allApps.docs as App[]) {
+  for (const app of allApps) {
     for (const row of app.dataCollection ?? []) {
       if (row.status !== 'yes') continue
       const key = idOf(row.dataType)
@@ -87,7 +65,7 @@ export default async function QueriesPage() {
   const mostCollected = [...collectionCount.entries()].sort((a, b) => b[1] - a[1]).slice(0, 12)
 
   // Categories especials de l'article 9 presents al directori.
-  const specialByApp = (allApps.docs as App[])
+  const specialByApp = allApps
     .map((app) => ({
       app,
       types: (app.dataCollection ?? [])
@@ -100,7 +78,7 @@ export default async function QueriesPage() {
 
   // Sancions fermes acumulades per grup empresarial.
   const finesByGroup = new Map<string, number>()
-  for (const incident of incidents.docs as Incident[]) {
+  for (const incident of corpus.incidents) {
     const amount = incident.regulatory?.fineAmountEur
     if (!amount || incident.regulatory?.status === 'overturned') continue
     const root = rootCompany(idOf(incident.company))
@@ -122,7 +100,7 @@ export default async function QueriesPage() {
         Serveis on l’eliminació del compte no és completament autoservei, o on hi ha condicions.
       </p>
       <ul>
-        {(noSelfService.docs as App[]).map((app) => (
+        {noSelfService.map((app) => (
           <li key={app.id}>
             <AppLink app={app} />
           </li>
@@ -131,7 +109,7 @@ export default async function QueriesPage() {
 
       <h2>Qui fa servir el que hi publiques per entrenar models</h2>
       <ul>
-        {(aiTraining.docs as App[]).map((app) => (
+        {aiTraining.map((app) => (
           <li key={app.id}>
             <AppLink app={app} />
           </li>
@@ -144,7 +122,7 @@ export default async function QueriesPage() {
         està marcat com a no aplicable i no apareixen aquí.
       </p>
       <ul>
-        {(noE2ee.docs as App[]).map((app) => (
+        {noE2ee.map((app) => (
           <li key={app.id}>
             <AppLink app={app} /> <span className="badge">{app.security?.e2ee?.status}</span>
           </li>
@@ -176,7 +154,7 @@ export default async function QueriesPage() {
                 <td>{dataTypeById.get(key)?.name ?? key}</td>
                 <td>{dataTypeById.get(key)?.sensitivity ?? '—'}</td>
                 <td>
-                  {count} de {allApps.docs.length}
+                  {count} de {allApps.length}
                 </td>
               </tr>
             ))}

@@ -2,7 +2,8 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 
 import { getClient } from '../lib'
-import type { Breach, Company, DataType } from '@/payload-types'
+import { loadCorpus, relationId, relationIds } from '@/lib/analysis'
+import type { Breach, Company } from '@/payload-types'
 
 export const dynamic = 'force-dynamic'
 
@@ -35,36 +36,37 @@ const formatYear = (value?: string | null): string => {
   return Number.isNaN(parsed.getTime()) ? '—' : String(parsed.getUTCFullYear())
 }
 
-const companyOf = (breach: Breach): Company | null =>
-  typeof breach.company === 'object' && breach.company !== null ? (breach.company as Company) : null
-
-const dataTypeNames = (breach: Breach, limit: number): string[] =>
-  (breach.dataTypes ?? [])
-    .filter((entry): entry is DataType => typeof entry === 'object' && entry !== null)
-    .map((entry) => String(entry.name))
-    .slice(0, limit)
 
 export default async function BreachesPage() {
   const payload = await getClient()
 
-  const { docs, totalDocs } = await payload.find({
-    collection: 'breaches',
-    limit: 150,
-    depth: 1,
-    sort: '-pwnCount',
-  })
+  /*
+   * El catàleg sencer ja forma part del corpus que es desa a la memòria del
+   * procés, i les relacions es resolen contra els seus índexs. Demanar-lo amb
+   * profunditat 1 volia dir resoldre l'empresa i els tipus de dada filtració
+   * per filtració.
+   */
+  const corpus = await loadCorpus(payload)
+  const totalDocs = corpus.breaches.length
 
-  const breaches = docs as Breach[]
+  const companyOf = (breach: Breach): Company | null =>
+    corpus.companyById.get(relationId(breach.company) ?? '') ?? null
 
-  const { docs: linkedDocs, totalDocs: linkedTotal } = await payload.find({
-    collection: 'breaches',
-    limit: 50,
-    depth: 1,
-    sort: '-breachDate',
-    where: { company: { exists: true } },
-  })
+  const dataTypeNames = (breach: Breach, limit: number): string[] =>
+    relationIds(breach.dataTypes)
+      .map((id) => corpus.dataTypeById.get(id)?.name)
+      .filter((name): name is string => Boolean(name))
+      .slice(0, limit)
 
-  const linked = linkedDocs as Breach[]
+  const breaches = [...corpus.breaches]
+    .sort((a, b) => (b.pwnCount ?? 0) - (a.pwnCount ?? 0))
+    .slice(0, 150)
+
+  const linkedAll = corpus.breaches.filter((breach) => relationId(breach.company) !== null)
+  const linkedTotal = linkedAll.length
+  const linked = [...linkedAll]
+    .sort((a, b) => String(b.breachDate ?? '').localeCompare(String(a.breachDate ?? '')))
+    .slice(0, 50)
 
   const totalAccounts = breaches.reduce((sum, breach) => sum + (breach.pwnCount ?? 0), 0)
 

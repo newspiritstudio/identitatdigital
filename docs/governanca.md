@@ -4,8 +4,8 @@
 
 Aquest document diu qui decideix què a Identitat.digital, què passa quan qui
 decideix té un conflicte d'interessos i què passa si el projecte s'acaba. La
-[política editorial](https://identitat.digital/legal/politica-editorial) explica
-com es fa una fitxa; aquí hi ha qui pot fer-la.
+[metodologia](https://identitat.digital/metodologia) explica com es puntua una
+fitxa; aquí hi ha qui pot fer-la.
 
 El projecte publica notes sobre empreses identificades pel seu nom, i ho fa una
 empresa que ven serveis digitals. Per això les regles són públiques i són al

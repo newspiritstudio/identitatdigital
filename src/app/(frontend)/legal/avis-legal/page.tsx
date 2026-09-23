@@ -141,17 +141,17 @@ export default function LegalNoticePage() {
       <p>
         Aquest lloc no accepta publicitat, ni enllaços d’afiliació, ni contingut patrocinat, ni cap
         pagament per aparèixer al directori, per no aparèixer-hi o per modificar una puntuació. Les
-        empreses documentades no revisen les fitxes abans de publicar-les. La relació amb elles està
-        descrita a la <Link href="/legal/politica-editorial">política editorial</Link>, que també
-        explica com poden respondre si consideren que hem comès un error.
+        empreses documentades no revisen les fitxes abans de publicar-les. Si una empresa considera que
+        hem comès un error, pot escriure’ns i publiquem la seva versió al costat de la fitxa.
       </p>
 
       <h2>Propietat intel·lectual i marques</h2>
       <p>
-        El contingut editorial del lloc és obra de New Spirit Studio S.L. i està disponible sota una
-        llicència oberta: les condicions exactes, i la llista precisa dels materials de tercers que
-        en queden fora, són a la pàgina de{' '}
-        <Link href="/legal/llicencia">llicència del contingut</Link>.
+        El contingut editorial del lloc és obra de New Spirit Studio S.L. i es publica sota
+        Creative Commons Reconeixement-CompartirIgual 4.0. El codi és MIT. Els materials de tercers
+        que en queden fora —el catàleg de filtracions de Have I Been Pwned, els logotips i les
+        marques— es detallen al fitxer <code>NOTICE</code> del repositori i a la pàgina de{' '}
+        <Link href="/dades">dades obertes</Link>.
       </p>
       <p>
         Els noms comercials, les marques i els logotips de les aplicacions i de les empreses
@@ -194,8 +194,7 @@ export default function LegalNoticePage() {
         seves parts restringides, ni per interferir en el seu funcionament, ni per fer-ne un ús
         automatitzat que en degradi el servei per a la resta. Les condicions completes, i el que sí
         que pots fer amb el contingut, són a les{' '}
-        <Link href="/legal/condicions">condicions d’ús</Link> i a la{' '}
-        <Link href="/legal/llicencia">llicència</Link>.
+        <Link href="/legal/condicions">condicions d’ús</Link>.
       </p>
 
       <h2>Protecció de dades</h2>
