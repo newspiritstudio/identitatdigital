@@ -30,7 +30,9 @@ export const metadata: Metadata = {
  */
 export default function FrontendLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ca">
+    // Extensions com LanguageTool afegeixen atributs a <html> abans de la
+    // hidratació; sense això, React ho marca com a error a cada càrrega.
+    <html lang="ca" suppressHydrationWarning>
       <body>
         <ThemeToggle />
         <a className="skip-link" href="#contingut">
