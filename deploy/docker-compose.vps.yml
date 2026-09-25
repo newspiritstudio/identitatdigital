@@ -52,7 +52,9 @@ services:
       - internal
 
   mongo:
-    image: mongo:8.0
+    # 8.2 i no 8.0: el kernel del VPS és 7.0 i les 8.0 es neguen a arrencar
+    # en kernels ≥ 6.19 (SERVER-121912). Les 8.2 ja porten el TCMalloc corregit.
+    image: mongo:8.2
     container_name: identitatdigital-mongo
     restart: unless-stopped
     # Per defecte WiredTiger es queda la meitat de la RAM de la màquina. La base
