@@ -18,6 +18,15 @@ export const Media: CollectionConfig = {
       { name: 'thumbnail', width: 128, height: 128, position: 'centre' },
       { name: 'card', width: 512, height: 512, position: 'centre' },
     ],
+    /*
+     * Sense capçalera de memòria cau, cada visita a la graella tornava a
+     * demanar els quatre-cents logotips a Payload i saturava el servidor. Un
+     * dia de validesa i una setmana de marge: substituir un logotip és rar.
+     */
+    modifyResponseHeaders: ({ headers }) => {
+      headers.set('Cache-Control', 'public, max-age=86400, stale-while-revalidate=604800')
+      return headers
+    },
   },
   fields: [
     {

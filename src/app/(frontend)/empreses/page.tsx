@@ -6,6 +6,7 @@ import { analyseDataTypes, analyseGroups, buildSharingGraph, loadCorpus } from '
 import { Bar, SharingDiagram, num, pct } from '../analisi/parts'
 import { getClient } from '../lib'
 import { CompanyDirectoryExplorer } from './CompanyDirectoryExplorer'
+import { countryName } from '@/lib/countries'
 
 export const dynamic = 'force-dynamic'
 
@@ -158,7 +159,7 @@ export default async function CompaniesPage() {
                     <Bar value={group.dataTypeCount} total={data.totalRows} faint />
                   </td>
                   <td>{num(group.companies.length)}</td>
-                  <td>{group.headquartersCountry ?? '—'}</td>
+                  <td>{countryName(group.headquartersCountry) ?? '—'}</td>
                 </tr>
               ))}
             </tbody>
@@ -211,7 +212,20 @@ export default async function CompaniesPage() {
           <h2>Mapa de grups i empreses</h2>
           <span className="company-panel-kicker">Cerca</span>
         </div>
-        <CompanyDirectoryExplorer groups={groups.groups} />
+        <CompanyDirectoryExplorer
+          groups={groups.groups.map((group) => ({
+            rootId: group.rootId,
+            rootName: group.rootName,
+            rootSlug: group.rootSlug,
+            appCount: group.appCount,
+            dataTypeCount: group.dataTypeCount,
+            companies: group.companies.map((company) => ({
+              id: company.id,
+              name: company.name,
+              slug: company.slug,
+            })),
+          }))}
+        />
       </section>
     </div>
   )

@@ -4,8 +4,9 @@ import type { Metadata } from 'next'
 import '../company-page.css'
 
 import { Logo, getClient } from '../../lib'
-import { CompanyGraph } from './CompanyGraph'
-import type { App, Company } from '@/payload-types'
+import { CompanyGraph, type GraphCompany } from './CompanyGraph'
+import { loadCorpus, relationId } from '@/lib/analysis'
+import type { Company, Media } from '@/payload-types'
 
 export const dynamic = 'force-dynamic'
 
@@ -27,69 +28,80 @@ const maybeUrl = (value: string | null | undefined): string | null => {
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params
-  const payload = await getClient()
-  const { docs } = await payload.find({
-    collection: 'companies',
-    where: { slug: { equals: slug } },
-    limit: 1,
-    depth: 1,
-    overrideAccess: true,
-  })
-  const company = docs[0] as Company | undefined
+  const corpus = await loadCorpus(await getClient())
+  const company = corpus.companies.find((item) => item.slug === slug)
   return { title: company?.name ?? 'Empresa' }
 }
+
+/*
+ * Camps de l'empresa que el gràfic mostra. El gràfic és un component de client:
+ * tot el que rep viatja dins la pàgina, i passar-li les empreses i les fitxes
+ * senceres feia pàgines de desenes de megabytes.
+ */
+const graphCompany = (item: Company): GraphCompany => ({
+  id: item.id,
+  name: item.name,
+  slug: item.slug,
+  parent: relationId(item.parent),
+  parentGroup: item.parentGroup,
+  legalName: item.legalName,
+  website: item.website,
+  headquartersCountry: item.headquartersCountry,
+  euEstablishment: item.euEstablishment,
+  leadSupervisoryAuthority: item.leadSupervisoryAuthority,
+  supervisoryNote: item.supervisoryNote,
+  foundedYear: item.foundedYear,
+  ownership: item.ownership,
+  primaryRevenueModel: item.primaryRevenueModel,
+  privacyContact: item.privacyContact,
+})
 
 export default async function CompanyPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   const payload = await getClient()
 
-  const [{ docs: companyDocs }, { docs: companies }, { docs: apps }] = await Promise.all([
-    payload.find({
-      collection: 'companies',
-      where: { slug: { equals: slug } },
-      limit: 1,
-      depth: 1,
-      overrideAccess: true,
-    }),
-    payload.find({
-      collection: 'companies',
-      limit: 0,
-      pagination: false,
-      depth: 1,
-      sort: 'name',
-      overrideAccess: true,
-    }),
-    payload.find({
-      collection: 'apps',
-      limit: 0,
-      pagination: false,
-      depth: 1,
-      sort: 'name',
-      overrideAccess: true,
-      where: { _status: { equals: 'published' } },
-    }),
-  ])
-
-  const company = companyDocs[0] as Company | undefined
+  /*
+   * Empreses i fitxes surten del corpus, que viu a la memòria del procés amb
+   * profunditat 0. Abans es llegien totes dues col·leccions senceres amb
+   * profunditat 1 a cada visita.
+   */
+  const corpus = await loadCorpus(payload)
+  const companies = corpus.companies
+  const apps = corpus.apps
+  const company = companies.find((item) => item.slug === slug)
   if (!company) notFound()
 
-  const companyApps = (apps as App[]).filter((app) => idOf(app.company) === String(company.id))
+  const companyApps = apps.filter((app) => idOf(app.company) === String(company.id))
   const descendantIds = new Set<string>()
   const walkChildren = (currentId: string): void => {
     descendantIds.add(currentId)
-    for (const candidate of companies as Company[]) {
+    for (const candidate of companies) {
       if (idOf(candidate.parent) === currentId) walkChildren(String(candidate.id))
     }
   }
   walkChildren(String(company.id))
 
-  const groupApps = (apps as App[]).filter((app) => {
+  const groupApps = apps.filter((app) => {
     const companyId = idOf(app.company)
     if (!companyId) return false
     return descendantIds.has(companyId)
   })
 
-  const parentCompany = company.parent ? (companies as Company[]).find((item) => String(item.id) === idOf(company.parent)) : null
+  const logoIds = groupApps.map((app) => relationId(app.logo)).filter((id): id is string => Boolean(id))
+  const { docs: logos } = logoIds.length
+    ? await payload.find({
+        collection: 'media',
+        where: { id: { in: logoIds } },
+        limit: 0,
+        pagination: false,
+        depth: 0,
+        overrideAccess: true,
+        select: { alt: true, url: true, sizes: true },
+      })
+    : { docs: [] as Media[] }
+  const logoById = new Map(logos.map((file) => [String(file.id), file as Media]))
+
+  const parentCompany = company.parent ? companies.find((item) => String(item.id) === idOf(company.parent)) : null
 
   const lineage: Company[] = []
   const seen = new Set<string>()
@@ -104,7 +116,7 @@ export default async function CompanyPage({ params }: { params: Promise<{ slug: 
     if (parentValue && typeof parentValue === 'object' && 'id' in parentValue && parentValue.id) {
       cursor = parentValue as Company
     } else if (parentValue && typeof parentValue === 'string') {
-      cursor = (companies as Company[]).find((item) => String(item.id) === String(parentValue)) ?? null
+      cursor = companies.find((item) => String(item.id) === String(parentValue)) ?? null
     } else {
       cursor = null
     }
@@ -137,7 +149,11 @@ export default async function CompanyPage({ params }: { params: Promise<{ slug: 
         </div>
     <div className="content-wrapper">
       <div className="company-page-shell">
-        <CompanyGraph company={company} companies={companies as Company[]} apps={apps as App[]} />
+        <CompanyGraph
+          company={graphCompany(company)}
+          companies={companies.map(graphCompany)}
+          apps={apps.map((app) => ({ id: String(app.id), company: relationId(app.company) }))}
+        />
 
         <section style={{ gridColumn: '1 / -1' }}>
           <h2>Aplicacions del grup</h2>
@@ -148,15 +164,12 @@ export default async function CompanyPage({ params }: { params: Promise<{ slug: 
                 const scoreColor =
                   score >= 70 ? 'var(--good)' : score >= 40 ? 'var(--mid)' : 'var(--bad)'
 
-                const companyName =
-                  app.company && typeof app.company === 'object' && 'name' in app.company
-                    ? String((app.company as Company).name)
-                    : null
+                const companyName = corpus.companyById.get(relationId(app.company) ?? '')?.name ?? null
 
                 return (
                   <li key={app.id} className="card company-group-app-item">
                     <div className="company-group-app-header">
-                      <Logo logo={app.logo} name={app.name} size={120} />
+                      <Logo logo={logoById.get(relationId(app.logo) ?? '') ?? null} name={app.name} size={120} />
 
                       {app.scores?.overall != null ? (
                         <span

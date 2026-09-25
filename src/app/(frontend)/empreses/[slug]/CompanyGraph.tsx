@@ -3,16 +3,39 @@
 import { useMemo, useRef, useState } from 'react'
 import { useRouter } from 'next/navigation'
 
+import { ownershipLabel, revenueModelLabel } from '@/lib/companies'
+import { countryName } from '@/lib/countries'
+import { supervisoryAuthorityName } from '@/lib/supervisory-authorities'
 import type { Company } from '@/payload-types'
 
+/** L'establiment a la UE és un codi de país o una societat amb la ciutat. */
+const establishmentLabel = (value: string) => (/^[A-Z]{2}$/.test(value) ? countryName(value) : value)
+
+/** Només els camps que el gràfic mostra: tot el que rep viatja dins la pàgina. */
+export type GraphCompany = Pick<
+  Company,
+  | 'id'
+  | 'name'
+  | 'slug'
+  | 'parentGroup'
+  | 'legalName'
+  | 'website'
+  | 'headquartersCountry'
+  | 'euEstablishment'
+  | 'leadSupervisoryAuthority'
+  | 'supervisoryNote'
+  | 'foundedYear'
+  | 'ownership'
+  | 'primaryRevenueModel'
+  | 'privacyContact'
+> & { parent: string | null }
+
 type CompanyGraphProps = {
-  company: Company
-  companies: Company[]
+  company: GraphCompany
+  companies: GraphCompany[]
   apps: Array<{
     id: string
-    name: string
-    slug: string
-    company?: Company | string | null
+    company: string | null
   }>
 }
 
@@ -93,7 +116,7 @@ export function CompanyGraph({
    * Find the root/top-level company.
    */
   const rootId = useMemo(() => {
-    let current: Company | null = company
+    let current: GraphCompany | null = company
 
     const visited = new Set<string>()
 
@@ -133,7 +156,7 @@ export function CompanyGraph({
    * horizontally and parents are centered over their subtree.
    */
   const nodes = useMemo(() => {
-    const all = new Map<string, Company>()
+    const all = new Map<string, GraphCompany>()
 
     for (const item of companies) {
       all.set(String(item.id), item)
@@ -142,7 +165,7 @@ export function CompanyGraph({
     /*
      * Parent -> children.
      */
-    const direct = new Map<string, Company[]>()
+    const direct = new Map<string, GraphCompany[]>()
 
     for (const item of companies) {
       const parentId = idOf(item.parent)
@@ -414,9 +437,7 @@ export function CompanyGraph({
    */
   const selectedParentCompany =
     selectedCompany.parent
-      ? (
-          companies as Company[]
-        ).find(
+      ? companies.find(
           (item) =>
             String(item.id) ===
             idOf(
@@ -428,11 +449,11 @@ export function CompanyGraph({
   /*
    * Build selected company's lineage.
    */
-  const selectedLineage: Company[] = []
+  const selectedLineage: GraphCompany[] = []
 
   const seen = new Set<string>()
 
-  let cursor: Company | null =
+  let cursor: GraphCompany | null =
     selectedCompany
 
   while (cursor) {
@@ -453,36 +474,9 @@ export function CompanyGraph({
       cursor,
     )
 
-    const parentValue:
-      | Company['parent']
-      | undefined =
-      cursor.parent
-
-    if (
-      parentValue &&
-      typeof parentValue ===
-        'object' &&
-      'id' in parentValue &&
-      parentValue.id
-    ) {
-      cursor =
-        parentValue as Company
-    } else if (
-      parentValue &&
-      typeof parentValue ===
-        'string'
-    ) {
-      cursor =
-        (
-          companies as Company[]
-        ).find(
-          (item) =>
-            String(item.id) ===
-            String(parentValue),
-        ) ?? null
-    } else {
-      cursor = null
-    }
+    cursor = cursor.parent
+      ? companyById.get(cursor.parent) ?? null
+      : null
   }
 
   const selectedRootCompany =
@@ -1022,7 +1016,7 @@ export function CompanyGraph({
 
             <tr>
               <th scope="row">
-                Empresa matriu
+                {selectedCompany.ownership === 'state' ? 'Depèn de' : 'Empresa matriu'}
               </th>
 
               <td>
@@ -1034,6 +1028,8 @@ export function CompanyGraph({
                       selectedParentCompany.name
                     }
                   </a>
+                ) : selectedCompany.parentGroup ? (
+                  `${selectedCompany.parentGroup} (sense fitxa al directori)`
                 ) : (
                   'Cim del grup'
                 )}
@@ -1047,23 +1043,24 @@ export function CompanyGraph({
                 </th>
 
                 <td>
-                  {
-                    selectedCompany.headquartersCountry
-                  }
+                  {countryName(
+                    selectedCompany.headquartersCountry,
+                  )}
                 </td>
               </tr>
             ) : null}
 
-            {selectedCompany.euEstablishment ? (
+            {selectedCompany.euEstablishment &&
+            selectedCompany.ownership !== 'state' ? (
               <tr>
                 <th scope="row">
                   Establiment a la UE
                 </th>
 
                 <td>
-                  {
-                    selectedCompany.euEstablishment
-                  }
+                  {establishmentLabel(
+                    selectedCompany.euEstablishment,
+                  )}
                 </td>
               </tr>
             ) : null}
@@ -1075,9 +1072,14 @@ export function CompanyGraph({
                 </th>
 
                 <td>
-                  {
-                    selectedCompany.leadSupervisoryAuthority
-                  }
+                  {supervisoryAuthorityName(
+                    selectedCompany.leadSupervisoryAuthority,
+                  )}
+                  {selectedCompany.supervisoryNote ? (
+                    <p className="meta">
+                      {selectedCompany.supervisoryNote}
+                    </p>
+                  ) : null}
                 </td>
               </tr>
             ) : null}
@@ -1089,23 +1091,24 @@ export function CompanyGraph({
                 </th>
 
                 <td>
-                  {
-                    selectedCompany.ownership
-                  }
+                  {ownershipLabel(
+                    selectedCompany.ownership,
+                  )}
                 </td>
               </tr>
             ) : null}
 
-            {selectedCompany.primaryRevenueModel ? (
+            {selectedCompany.primaryRevenueModel &&
+            selectedCompany.ownership !== 'state' ? (
               <tr>
                 <th scope="row">
                   Model d’ingressos
                 </th>
 
                 <td>
-                  {
-                    selectedCompany.primaryRevenueModel
-                  }
+                  {revenueModelLabel(
+                    selectedCompany.primaryRevenueModel,
+                  )}
                 </td>
               </tr>
             ) : null}
