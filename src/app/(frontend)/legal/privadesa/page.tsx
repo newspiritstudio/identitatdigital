@@ -18,7 +18,7 @@ export default function PrivacyPage() {
   return (
     <>
       <h1>Política de privadesa</h1>
-      <DocMeta version="1.0" updated="12 de setembre de 2026" />
+      <DocMeta version="1.1" updated="25 de setembre de 2026" />
 
       <p className="lede">
         Aquest lloc existeix per explicar què fan les aplicacions amb les dades de les persones.
@@ -37,11 +37,14 @@ export default function PrivacyPage() {
           <li>No hi ha cap formulari de contacte on puguis deixar dades.</li>
           <li>
             No hi ha cap script de tercers. Quan visites una pàgina, el teu navegador no parla amb
-            cap servidor que no sigui el nostre.
+            cap servidor que no sigui el nostre. L’única excepció és una consulta que fas tu:
+            buscar la teva adreça a XposedOrNot des de l’eina de credencials, que va directament
+            del teu navegador a aquest servei i no passa per nosaltres.
           </li>
           <li>
             Les eines de la secció <Link href="/eines">Eines</Link> calculen dins del teu
-            dispositiu. Les teves contrasenyes no surten del navegador, mai.
+            dispositiu. Les teves contrasenyes i els fitxers que hi examinis no surten del
+            navegador, mai.
           </li>
           <li>
             L’única dada personal teva que podem arribar a tocar és la teva adreça IP als registres
@@ -109,7 +112,10 @@ export default function PrivacyPage() {
           La directiva <code>connect-src &apos;self&apos;</code> impedeix que qualsevol codi de la
           pàgina obri una connexió a un servidor que no sigui el nostre. Encara que algú hi colés un
           rastrejador, el navegador el bloquejaria. És una capçalera HTTP que pots inspeccionar amb
-          les eines de desenvolupament del teu navegador.
+          les eines de desenvolupament del teu navegador. Només la pàgina{' '}
+          <Link href="/eines/credencials">/eines/credencials</Link> hi afegeix un origen,{' '}
+          <code>https://api.xposedornot.com</code>, per a la consulta per adreça de l’apartat 4.3;
+          la resta del lloc no el té.
         </li>
         <li>
           <strong>La capçalera de permisos desactiva funcions sensibles.</strong> Càmera, micròfon i
@@ -327,11 +333,14 @@ export default function PrivacyPage() {
 
       <h2>4. Les eines: què passa exactament</h2>
       <p>
-        La secció <Link href="/eines">Eines</Link> conté un generador de contrasenyes i frases de
-        pas, una calculadora d’exposició personal i un comparador d’aplicacions. Totes tres
-        funcionen íntegrament dins del teu navegador. Ni el que tries, ni el que escrius, ni el que
-        et surt arriben al nostre servidor, i no es desa res al teu dispositiu si no t’ho diem
-        expressament en aquesta pàgina i a la de <Link href="/legal/galetes">galetes</Link>.
+        La secció <Link href="/eines">Eines</Link> conté el diagnòstic d’identitat digital,
+        l’eina de credencials (filtracions per adreça, auditoria de contrasenyes, generador i guia
+        de gestors), l’inspector de metadades i el comparador d’aplicacions. El càlcul es fa dins
+        del teu navegador. Ni el que tries, ni el que escrius, ni els fitxers que examinis, ni el
+        que et surt arriben al nostre servidor, i no es desa res al teu dispositiu si no t’ho diem
+        expressament en aquesta pàgina i a la de <Link href="/legal/galetes">galetes</Link>. Les
+        dues úniques peticions a fora que poden fer les eines, i sempre quan prems un botó, són les
+        dels apartats 4.2 i 4.3.
       </p>
 
       <h3>4.1. El generador de contrasenyes</h3>
@@ -341,7 +350,7 @@ export default function PrivacyPage() {
         pestanya, desapareixen.
       </p>
 
-      <h3>4.2. La comprovació de contrasenyes filtrades</h3>
+      <h3>4.2. L’auditoria de contrasenyes filtrades</h3>
       <p>
         Aquesta part mereix una explicació llarga, perquè és el tipus d’afirmació que aquest
         projecte exigeix que les empreses demostrin.
@@ -352,11 +361,13 @@ export default function PrivacyPage() {
       </p>
       <ol>
         <li>
-          Escrius una contrasenya al camp. <strong>No surt del camp.</strong>
+          Escrius una o més contrasenyes als camps. <strong>No surten dels camps.</strong> La
+          comparació entre elles, per saber si en repeteixes o en fas variants, també es fa al teu
+          dispositiu.
         </li>
         <li>
-          El teu navegador en calcula el resum criptogràfic SHA-1. Aquest càlcul passa dins del teu
-          dispositiu.
+          El teu navegador calcula el resum criptogràfic SHA-1 de cadascuna. Aquest càlcul passa
+          dins del teu dispositiu.
         </li>
         <li>
           El navegador n’agafa <strong>només els cinc primers caràcters hexadecimals</strong> i els
@@ -402,26 +413,75 @@ export default function PrivacyPage() {
         disseny, i de retruc t’hi afegeix privadesa, perquè la teva adreça IP no arriba al tercer.
       </p>
 
-      <h3>4.3. La calculadora d’exposició i el comparador</h3>
+      <h3>4.3. La consulta de filtracions per adreça electrònica</h3>
+      <p>
+        A l’eina de <Link href="/eines/credencials">credencials</Link> pots escriure la teva adreça
+        de correu i saber en quines filtracions conegudes surt. Aquesta és l’única funció del lloc
+        en què una dada personal teva surt del navegador, i per això l’expliquem sencera:
+      </p>
+      <ol>
+        <li>
+          Quan prems «Consulta les filtracions», el teu navegador envia l’adreça a{' '}
+          <a href="https://xposedornot.com" rel="noopener noreferrer" target="_blank">
+            XposedOrNot
+            <span className="visually-hidden"> (s’obre en una pestanya nova)</span>
+          </a>
+          , un servei obert de consulta de filtracions, <strong>directament</strong>. La petició no
+          passa pel nostre servidor, i per tant no la podem veure, ni desar, ni registrar.
+        </li>
+        <li>
+          La petició va sense galetes i sense capçalera de procedència: XposedOrNot rep l’adreça i
+          la IP de la teva connexió, però no sap des de quina pàgina es pregunta. No carreguem els
+          logotips que retorna, perquè cada imatge seria una petició més que diria en quines
+          filtracions surts.
+        </li>
+        <li>
+          El resultat es creua amb el directori dins del teu navegador i es queda a la memòria de
+          la pestanya. No es desa enlloc. El botó «Oblida l’adreça i el resultat» l’esborra a
+          l’instant, i tancar la pàgina també.
+        </li>
+      </ol>
+      <p>
+        No som encarregats del tractament de XposedOrNot ni ell ho és nostre: la consulta la fas tu,
+        amb el teu navegador, a un servei amb les seves pròpies{' '}
+        <a href="https://xposedornot.com/privacy" rel="noopener noreferrer" target="_blank">
+          condicions de privadesa
+          <span className="visually-hidden"> (s’obre en una pestanya nova)</span>
+        </a>
+        . Hi declara que no registra les adreces que es consulten. Funciona sobre infraestructura
+        de Google i Cloudflare, de manera que la consulta pot sortir de l’Espai Econòmic Europeu.
+        Si prefereixes no fer-la, la resta de l’eina funciona igual sense.
+      </p>
+
+      <h3>4.4. El diagnòstic i el comparador</h3>
       <p>
         Tries aplicacions d’una llista i l’eina calcula, amb les dades que ja tens carregades a la
-        pàgina, quines dades teves circulen i quines empreses hi accedeixen. La selecció no s’envia
-        enlloc i el resultat no es desa a cap servidor nostre. Cap de les dues eines no fa cap
-        petició mentre les fas servir: la llista sencera d’aplicacions viatja una sola vegada, en
-        carregar la pàgina, i tot el càlcul posterior passa al teu dispositiu.
+        pàgina, quines dades teves circulen, quines empreses hi accedeixen, quins d’aquests serveis
+        s’han filtrat i quin pla d’acció et convé. La selecció no s’envia enlloc i el resultat no es
+        desa a cap servidor nostre. La llista d’aplicacions viatja en carregar la pàgina i, la
+        primera vegada que tries un servei, el diagnòstic en baixa els textos explicatius de totes
+        les fitxes alhora, sense cap paràmetre: la petició és idèntica per a tothom i no diu res de
+        la teva tria.
       </p>
       <p>
-        Hi ha una diferència entre les dues que val la pena explicar, perquè afecta on acaba la teva
+        Hi ha diferències entre les eines que val la pena explicar, perquè afecten on acaba la teva
         tria:
       </p>
       <ul>
         <li>
-          <strong>La calculadora d’exposició recorda la teva selecció</strong> a l’emmagatzematge
-          local del navegador, amb la clau <code>identitat.exposicio.seleccio</code>. Només hi desa
-          la llista d’aplicacions que has marcat: ni el resultat, ni cap xifra, ni cap
-          identificador. No és una galeta, no s’envia en cap petició i no en sabem res. Té un botó
-          «Esborra la tria» que la treu del tot. La taula completa és a la pàgina de{' '}
-          <Link href="/legal/galetes">galetes</Link>.
+          <strong>El diagnòstic recorda la teva selecció i el progrés del pla</strong> a
+          l’emmagatzematge local del navegador, amb les claus{' '}
+          <code>identitat.exposicio.seleccio</code> (la llista d’aplicacions que has marcat) i{' '}
+          <code>identitat.diagnostic.pla</code> (les accions que has marcat com a fetes i els serveis
+          que vols deixar). Ni el resultat, ni cap xifra, ni cap identificador. No és una galeta, no
+          s’envia en cap petició i no en sabem res. El botó «Esborra-ho tot d’aquest dispositiu» ho
+          treu del tot. L’eina de credencials pot afegir-hi serveis, però només si prems el botó que
+          ho diu. La taula completa és a la pàgina de <Link href="/legal/galetes">galetes</Link>.
+        </li>
+        <li>
+          <strong>L’enllaç per compartir el diagnòstic</strong> posa la selecció després del signe{' '}
+          <code>#</code> de l’adreça, que els navegadors no envien mai al servidor. Qui el rebi en
+          veurà la selecció, i abans d’aplicar-la se li pregunta.
         </li>
         <li>
           <strong>El comparador no desa res al dispositiu</strong>: posa la selecció a l’adreça de
@@ -430,13 +490,26 @@ export default function PrivacyPage() {
           d’enviar-lo.
         </li>
       </ul>
+
+      <h3>4.5. L’inspector de metadades</h3>
+      <p>
+        L’<Link href="/eines/metadades">inspector de metadades</Link> llegeix les fotografies i els
+        documents que hi deixes anar dins del teu navegador, et diu què hi ha amagat (coordenades,
+        model de càmera, autor, programari…) i te’n fa una còpia neta. Els fitxers no es pugen
+        enlloc: no hi ha cap petició de xarxa mentre l’eina treballa, i la còpia neta es genera i
+        es descarrega sense sortir del dispositiu. No es desa res. Si un fitxer porta coordenades,
+        l’eina t’ofereix un enllaç a OpenStreetMap; només s’obre si hi fas clic, i llavors és
+        OpenStreetMap qui rep les coordenades, d’acord amb la seva pròpia política.
+      </p>
       <Avis>
         <p>
-          <strong>Revisat contra el codi publicat.</strong> A data d’aquesta versió, les tres eines
-          s’han repassat una per una: l’única escriptura al dispositiu és la de la calculadora
-          d’exposició descrita aquí, no n’hi ha cap altra en emmagatzematge local, ni de sessió, ni
-          en cap base de dades del navegador, i l’única petició que surt del navegador mentre les
-          fas servir és la del prefix de cinc caràcters de l’apartat 4.2.
+          <strong>Revisat contra el codi publicat.</strong> A data d’aquesta versió, les eines
+          s’han repassat una per una: les úniques escriptures al dispositiu són les dues claus del
+          diagnòstic descrites aquí, no n’hi ha cap altra en emmagatzematge local, ni de sessió, ni
+          en cap base de dades del navegador, i les úniques peticions que surten del navegador
+          mentre les fas servir són el prefix de cinc caràcters de l’apartat 4.2, la consulta a
+          XposedOrNot de l’apartat 4.3 (només si la demanes) i la dels textos explicatius del
+          diagnòstic, que és igual per a tothom.
         </p>
       </Avis>
 
@@ -485,6 +558,13 @@ export default function PrivacyPage() {
               <td>Mentre conservi interès públic i documental</td>
             </tr>
             <tr>
+              <td>Consulta de filtracions per adreça</td>
+              <td>Cap al nostre servidor. L’adreça va del teu navegador a XposedOrNot</td>
+              <td>Saber en quines filtracions surt la teva adreça</td>
+              <td>No hi ha tractament per part nostra: la consulta la fas tu, directament</td>
+              <td>No es desa res; el resultat viu a la pestanya</td>
+            </tr>
+            <tr>
               <td>Comprovació de contrasenyes</td>
               <td>Cap. Només un prefix de cinc caràcters, que no identifica ningú</td>
               <td>Saber si una contrasenya ha aparegut en filtracions</td>
@@ -522,6 +602,10 @@ export default function PrivacyPage() {
         del tractament: és una font externa que rep un prefix anònim.
       </p>
       <p>
+        La consulta per adreça a XposedOrNot (apartat 4.3) no passa per nosaltres: la fa el teu
+        navegador quan tu ho demanes, i per això XposedOrNot tampoc no és un encarregat nostre.
+      </p>
+      <p>
         També podem comunicar dades quan una llei ens hi obligui, o a una autoritat judicial,
         policial o de control que ho requereixi legítimament. Si això passa mai, i la llei no ens ho
         prohibeix, ho farem constar.
@@ -532,6 +616,8 @@ export default function PrivacyPage() {
         No fem transferències internacionals de dades personals derivades de la teva visita. La
         consulta a Have I Been Pwned surt de la Unió Europea, però no hi viatja cap dada personal:
         només el prefix de cinc caràcters, que no identifica ningú i que no és una dada personal.
+        La consulta per adreça de l’apartat 4.3 la fa directament el teu navegador, no nosaltres, i
+        pot sortir de l’Espai Econòmic Europeu; ho expliquem allà perquè ho decideixis abans de fer-la.
       </p>
       <p>
         <Pendent>

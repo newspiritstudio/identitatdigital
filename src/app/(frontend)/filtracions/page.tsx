@@ -226,10 +226,11 @@ export default async function BreachesPage() {
         conserven a part.
       </p>
       <p className="meta">
-        Aquesta pàgina no permet comprovar si una adreça concreta apareix en cap filtració. Aquesta
-        consulta exigeix enviar l’adreça a un tercer, i el projecte no vol ser l’intermediari que
-        recull adreces de correu de qui ve a informar-se sobre privadesa. Qui ho vulgui comprovar ho
-        pot fer directament al lloc de Have I Been Pwned.
+        Aquesta pàgina no rep cap adreça de correu. Per saber si la teva surt en alguna filtració,
+        l’eina de <Link href="/eines/credencials">credencials</Link> fa la consulta des del teu
+        navegador directament a XposedOrNot, un servei obert: el projecte no vol ser
+        l’intermediari que recull adreces de qui ve a informar-se sobre privadesa, i així no ho
+        és. També la pots fer al lloc de Have I Been Pwned.
       </p>
     </div>
   )

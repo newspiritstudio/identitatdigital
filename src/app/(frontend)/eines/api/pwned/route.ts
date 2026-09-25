@@ -25,7 +25,7 @@ export const revalidate = 0
 
 const UPSTREAM = 'https://api.pwnedpasswords.com/range/'
 const TIMEOUT_MS = 6000
-const USER_AGENT = 'identitat.digital-password-tool (+https://identitat.digital/eines/contrasenyes)'
+const USER_AGENT = 'identitat.digital-password-tool (+https://identitat.digital/eines/credencials)'
 
 /*
  * Capçaleres de resposta. `no-store` perquè cap intermediari, cap CDN i cap

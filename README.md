@@ -134,26 +134,40 @@ viu a `src/lib/analysis/` i es fa sobre el corpus complet, amb proves pròpies.
 
 ## Eines
 
-A `/eines` hi ha tres eines. Totes calculen al navegador i cap no desa res:
+A `/eines` hi ha quatre eines. Totes calculen al navegador, cap no crea comptes
+i l'única cosa que es desa (al `localStorage`, mai en galetes) és el diagnòstic:
 
-- **Contrasenyes** (`/eines/contrasenyes`): generador de contrasenyes i de frases
-  de pas en català amb entropia real, i comprovació contra les contrasenyes
-  filtrades. La comprovació fa servir el **k-anonimat**: el navegador calcula el
-  resum SHA-1 de la contrasenya i només n'envia els cinc primers caràcters
-  hexadecimals, mai la contrasenya.
-- **Exposició personal** (`/eines/exposicio`): quines dades teves circulen, quantes
-  empreses hi accedeixen i quins grups n'acumulen més, a partir de les aplicacions
-  que triïs.
+- **Diagnòstic** (`/eines/diagnostic`): tries les aplicacions que fas servir i
+  surt què saben de tu, quantes empreses hi accedeixen, en quines filtracions
+  han aparegut i un pla d'acció ordenat. Cada prioritat és la suma de factors
+  que es mostren; el desconegut no puntua mai en contra. El pla es pot marcar
+  com a fet, compartir amb un enllaç (la tria va al fragment `#`, que no arriba
+  al servidor) i descarregar en Markdown.
+- **Credencials** (`/eines/credencials`): filtracions d'una adreça de correu,
+  auditoria de contrasenyes i generadors.
+  - La consulta de l'adreça va del navegador a
+    [XposedOrNot](https://xposedornot.com) directament (API gratuïta per a ús no
+    comercial, sense clau, amb atribució) i el resultat es creua amb el directori
+    per donar accions concretes.
+  - L'auditoria comprova cada contrasenya contra Have I Been Pwned amb
+    **k-anonimat** (només surten els cinc primers caràcters hexadecimals del
+    resum SHA-1, a través d'una ruta pròpia que fa de pont) i les compara entre
+    elles, sense xarxa, per trobar repetides i variants.
+  - Inclou la guia de gestors de contrasenyes.
+- **Metadades** (`/eines/metadades`): llegeix fotos (JPEG, PNG, WebP, HEIC/AVIF),
+  PDF i documents d'Office i LibreOffice, mostra què porten amagat (ubicació,
+  autor, número de sèrie, autors de comentaris, instruccions d'IA) i en fa una
+  còpia neta sense tornar a codificar res. La còpia es torna a inspeccionar per
+  dir què hi queda. El codi és a `src/lib/metadata/`, pur i amb proves.
 - **Comparador** (`/eines/comparador`): dues o tres aplicacions de la mateixa
   categoria, indicador per indicador.
 
-A `/eines/gestors` hi ha els vuit criteris per triar un gestor de contrasenyes.
-No hi ha taula comparativa perquè encara no hem documentat cap gestor amb
-l'exigència que demanem a les fitxes d'aplicacions.
+Les adreces antigues (`/eines/exposicio`, `/eines/contrasenyes`,
+`/eines/gestors`) redirigeixen a les noves.
 
-La política de seguretat de contingut del lloc és `connect-src 'self'`, de manera
-que cap pàgina pot parlar amb cap tercer encara que ho volgués. Per això la
-consulta de contrasenyes filtrades passa per una ruta pròpia que actua de pont.
+La política de seguretat de contingut és `connect-src 'self'` a tot el lloc,
+amb una sola excepció: `/eines/credencials` pot parlar també amb
+`https://api.xposedornot.com`.
 
 ## Dades obertes
 

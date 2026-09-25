@@ -98,6 +98,115 @@ export type AlternativeLite = {
   tradeOffs: string | null
 }
 
+/** Estat d'una afirmació amb evidència, tal com el defineix `fields/evidence`. */
+export type FactStatus = 'yes' | 'partial' | 'no' | 'unknown' | 'na'
+
+/** Una afirmació retallada: l'estat i, si n'hi ha, l'adreça on s'actua. */
+export type FactLite = {
+  status: FactStatus
+  /** Adreça oficial on la persona pot fer l'acció (configuració, formulari…). */
+  url: string | null
+}
+
+export type MfaMethod = 'passkey' | 'hardware-key' | 'totp' | 'app-push' | 'email' | 'sms'
+
+export type E2eeScope =
+  | 'all-default'
+  | 'all-optin'
+  | 'partial-default'
+  | 'partial-optin'
+  | 'metadata-excluded'
+  | 'none'
+
+export type Difficulty = 'easy' | 'medium' | 'hard' | 'impossible' | 'unknown'
+
+/** Com s'esborra el compte, tal com ho documenta la fitxa. */
+export type DeletionLite = {
+  possible: FactStatus
+  selfService: FactStatus
+  /** Adreça directa per començar l'eliminació. */
+  url: string | null
+  difficulty: Difficulty
+  waitingPeriodDays: number | null
+  requiresSupportContact: boolean
+}
+
+/**
+ * Textos editorials de les fitxes que fa servir el pla d'acció.
+ *
+ * No van a la instantània inicial: són la meitat del pes i només calen quan hi
+ * ha resultats. Es baixen d'una vegada, sencers i iguals per a tothom, de
+ * manera que la petició no diu res de la tria.
+ */
+export type ControlKey =
+  | 'mfa'
+  | 'e2ee'
+  | 'targetedAdvertising'
+  | 'adOptOut'
+  | 'aiTraining'
+  | 'telemetryOptOut'
+  | 'dataExport'
+
+export type AppDetails = {
+  controls: Partial<Record<ControlKey, string>>
+  deletionSteps: string[]
+  deletionObstacles: string | null
+  deletionDataRetained: string | null
+}
+
+export type DetailsBundle = Record<string, AppDetails>
+
+/** Tot el que la persona pot fer dins del servei, amb l'adreça per fer-ho. */
+export type ControlsLite = {
+  mfa: FactLite & { methods: MfaMethod[] }
+  e2ee: FactLite & { scope: E2eeScope | null }
+  targetedAdvertising: FactLite
+  /** Es pot desactivar la publicitat personalitzada. */
+  adOptOut: FactLite
+  aiTraining: FactLite
+  telemetryOptOut: FactLite
+  dataExport: FactLite
+  rightsRequest: string | null
+  privacyCenter: string | null
+  /** Patrons foscos d'alta gravetat documentats. */
+  severeDarkPatterns: number
+  /** Configuració per defecte: `permissive` vol dir que cal anar a canviar-la. */
+  defaultPosture: 'protective' | 'balanced' | 'permissive' | 'unknown'
+}
+
+/**
+ * Filtració del catàleg de Have I Been Pwned lligada a una o més fitxes.
+ *
+ * `match` diu com s'ha fet el lligam: `editorial` quan la redacció l'ha assignat
+ * a la fitxa o a l'empresa, `domain` quan coincideix el domini del servei. La
+ * distinció s'ensenya, perquè no és el mateix grau de certesa.
+ */
+export type BreachLite = {
+  name: string
+  title: string
+  domain: string | null
+  /** AAAA-MM-DD. */
+  date: string | null
+  pwnCount: number | null
+  /** Índexs a `Snapshot.dataTypes`. */
+  dataTypes: number[]
+  /** Categories originals que el catàleg no pot traduir. */
+  otherClasses: string[]
+  passwords: boolean
+  verified: boolean
+  sensitive: boolean
+}
+
+export type IncidentLite = {
+  slug: string
+  title: string
+  type: string
+  severity: 'low' | 'medium' | 'high' | 'critical'
+  /** AAAA-MM-DD. */
+  date: string | null
+  fine: string | null
+}
+
 /** Una aplicació publicada, retallada al que l'eina calcula. */
 export type AppLite = {
   slug: string
@@ -122,6 +231,18 @@ export type AppLite = {
   /** Rastrejadors documentats sense empresa assignada. */
   unnamedTrackers: number
   alternatives: AlternativeLite[]
+  /** Slugs de les categories, per enllaçar el comparador. */
+  categorySlugs: string[]
+  /** Entre les de més persones usuàries del directori: surt a la tria ràpida. */
+  popular: boolean
+  controls: ControlsLite
+  deletion: DeletionLite
+  /** Índexs a `Snapshot.breaches`, amb com s'ha fet el lligam. */
+  breaches: { index: number; match: 'editorial' | 'domain' }[]
+  /** Índexs a `Snapshot.incidents`. */
+  incidents: number[]
+  /** Dada comprada o venuda a intermediaris, segons la fitxa. */
+  dataBrokerSales: FactStatus
 }
 
 /**
@@ -139,6 +260,10 @@ export type Snapshot = {
   publishedApps: number
   /** Alternatives descartades perquè la fitxa de destí encara no és pública. */
   unresolvedAlternatives: number
+  breaches: BreachLite[]
+  incidents: IncidentLite[]
+  /** Filtracions importades al catàleg, per dir de quantes s'ha buscat. */
+  breachCatalogSize: number
 }
 
 /* ──────────────────────────────── etiquetes ──────────────────────────────── */
@@ -161,4 +286,53 @@ export const DIMENSION_LABELS: Record<string, string> = {
   privacy: 'privadesa',
   security: 'seguretat',
   agency: 'control de la persona usuària',
+}
+
+export const MFA_METHOD_LABELS: Record<MfaMethod, string> = {
+  passkey: 'claus d’accés (passkeys)',
+  'hardware-key': 'clau de seguretat física',
+  totp: 'aplicació d’autenticació',
+  'app-push': 'notificació a l’aplicació',
+  email: 'codi per correu',
+  sms: 'SMS',
+}
+
+/**
+ * De més a menys resistent a la suplantació. Les claus d'accés i les físiques
+ * no es poden introduir en un lloc fals; un codi d'aplicació sí, però no depèn
+ * de la companyia telefònica; l'SMS es pot interceptar amb un duplicat de SIM.
+ */
+export const MFA_METHOD_RANK: readonly MfaMethod[] = [
+  'passkey',
+  'hardware-key',
+  'totp',
+  'app-push',
+  'email',
+  'sms',
+]
+
+export const DIFFICULTY_LABELS: Record<Difficulty, string> = {
+  easy: 'fàcil',
+  medium: 'dificultat mitjana',
+  hard: 'difícil',
+  impossible: 'no es pot fer',
+  unknown: 'dificultat no documentada',
+}
+
+export const INCIDENT_TYPE_LABELS: Record<string, string> = {
+  breach: 'bretxa de seguretat',
+  leak: 'exposició de dades',
+  scraping: 'recol·lecció massiva',
+  'regulatory-fine': 'sanció',
+  'regulatory-order': 'resolució d’un regulador',
+  misuse: 'ús indegut de dades',
+  vulnerability: 'vulnerabilitat greu',
+  other: 'altres',
+}
+
+export const SEVERITY_LABELS: Record<IncidentLite['severity'], string> = {
+  low: 'baixa',
+  medium: 'mitjana',
+  high: 'alta',
+  critical: 'crítica',
 }

@@ -16,16 +16,11 @@ import {
   generatePassphrase,
   type GeneratedPassphrase,
 } from '@/lib/passwords/passphrase'
-import { checkPassword, type PwnedOutcome } from '@/lib/passwords/pwned'
-import {
-  crackEstimates,
-  evaluateTypedPassword,
-  strengthLabel,
-  type TypedPasswordEvaluation,
-} from '@/lib/passwords/strength'
+import { crackEstimates, strengthLabel } from '@/lib/passwords/strength'
 import { WORDLIST_CA } from '@/lib/passwords/wordlist.ca'
 
 import styles from './contrasenyes.module.css'
+import PasswordAudit, { type PasswordAuditHandle } from './PasswordAudit'
 import { spellOut, spellPassphrase } from './spell'
 
 /**
@@ -33,9 +28,9 @@ import { spellOut, spellPassphrase } from './spell'
  *
  * Res del que es genera aquí no s'envia enlloc i res no es desa: ni a la memòria
  * del navegador, ni en una galeta, ni en un registre. Quan es tanca la pestanya
- * no en queda res. L'única petició de xarxa que fa aquesta pàgina és la de la
- * comprovació de filtracions, només quan algú prem el botó, i el que hi viatja
- * són cinc caràcters hexadecimals del resum: mai la contrasenya.
+ * no en queda res. L'única petició de xarxa que fa aquesta part és la de la
+ * comprovació de filtracions de l'auditoria, només quan algú prem el botó, i el
+ * que hi viatja són cinc caràcters hexadecimals del resum: mai la contrasenya.
  */
 
 /* ───────────────────────── generar només al navegador ───────────────────── */
@@ -233,7 +228,7 @@ function Secret({
           onClick={() => onSend(value)}
           disabled={!value}
         >
-          Comprova si ha aparegut en filtracions
+          Afegeix-la a l’auditoria
         </button>
         <span className={styles.copyState} role="status">
           {message}
@@ -262,7 +257,7 @@ function PassphrasePanel({ onSend }: { onSend: (value: string) => void }) {
 
   return (
     <section className={`card ${styles.tool}`} aria-labelledby="frases">
-      <h2 id="frases">Frase de pas</h2>
+      <h3 id="frases">Frase de pas</h3>
       <p>
         Sis paraules catalanes triades a l’atzar són 66 bits: resisteixen qualsevol atac de força
         bruta d’avui i, a diferència d’una ristra de símbols, es poden recordar i teclejar. És el
@@ -418,7 +413,7 @@ function PasswordPanel({ onSend }: { onSend: (value: string) => void }) {
 
   return (
     <section className={`card ${styles.tool}`} aria-labelledby="caracters">
-      <h2 id="caracters">Contrasenya de caràcters</h2>
+      <h3 id="caracters">Contrasenya de caràcters</h3>
       <p>
         Per a tot el que guardis en un gestor de contrasenyes i no hagis de teclejar mai: com més
         llarga, millor. Vint caràcters de l’alfabet sencer passen dels 120 bits.
@@ -517,211 +512,23 @@ function PasswordPanel({ onSend }: { onSend: (value: string) => void }) {
   )
 }
 
-/* ──────────────────────── comprovació de filtracions ─────────────────────── */
-
-interface CheckState {
-  /** La contrasenya que s'ha comprovat, per no ensenyar mai un resultat aliè. */
-  checked: string
-  phase: 'checking' | 'done'
-  outcome: PwnedOutcome | null
-  evaluation: TypedPasswordEvaluation | null
-}
-
-function CheckPanel({
-  value,
-  setValue,
-  inputRef,
-}: {
-  value: string
-  setValue: (value: string) => void
-  inputRef: React.RefObject<HTMLInputElement | null>
-}) {
-  const [reveal, setReveal] = useState(false)
-  const [state, setState] = useState<CheckState | null>(null)
-
-  /*
-   * El resultat només es mostra si correspon EXACTAMENT al que hi ha ara al
-   * camp. Així no cal cap efecte per esborrar-lo: si algú toca una lletra, o hi
-   * envia una contrasenya generada, el resultat anterior deixa de ser visible
-   * tot sol. Un «no apareix» al costat d'una contrasenya diferent de la
-   * comprovada seria el pitjor error que podria cometre aquesta pantalla.
-   */
-  const current = state && state.checked === value ? state : null
-
-  const submit = async (event: React.FormEvent) => {
-    event.preventDefault()
-    if (!value) return
-    setState({ checked: value, phase: 'checking', outcome: null, evaluation: null })
-    const outcome = await checkPassword(value)
-    setState({
-      checked: value,
-      phase: 'done',
-      outcome,
-      evaluation: evaluateTypedPassword(value),
-    })
-  }
-
-  return (
-    <section className={`card ${styles.tool}`} aria-labelledby="filtracions">
-      <h2 id="filtracions">Comprova una contrasenya</h2>
-      <p>
-        Mira si una contrasenya és a les més de vuit-cents milions que Have I Been Pwned ha recollit
-        de filtracions. La comprovació es fa només quan prems el botó, mai mentre escrius, i la
-        contrasenya no surt del teu dispositiu: només en viatgen cinc caràcters del resum.
-      </p>
-
-      <form onSubmit={submit}>
-        <div className={styles.controls}>
-          <label className={styles.field} htmlFor="check-value">
-            <span>Contrasenya que vols comprovar</span>
-            <input
-              id="check-value"
-              ref={inputRef}
-              type={reveal ? 'text' : 'password'}
-              value={value}
-              onChange={(event) => setValue(event.target.value)}
-              autoComplete="off"
-              autoCorrect="off"
-              autoCapitalize="off"
-              spellCheck={false}
-            />
-          </label>
-
-          <div className={styles.field}>
-            <span>Visibilitat</span>
-            <label className={styles.check}>
-              <input
-                type="checkbox"
-                checked={reveal}
-                onChange={(event) => setReveal(event.target.checked)}
-              />
-              Mostra el que escric
-            </label>
-          </div>
-        </div>
-
-        <div className={styles.actions}>
-          <button
-            type="submit"
-            className={styles.buttonPrimary}
-            disabled={!value || current?.phase === 'checking'}
-          >
-            {current?.phase === 'checking' ? 'Comprovant…' : 'Comprova-la'}
-          </button>
-          <button
-            type="button"
-            className={styles.button}
-            onClick={() => setValue('')}
-            disabled={!value}
-          >
-            Neteja
-          </button>
-        </div>
-      </form>
-
-      <div aria-live="polite">
-        {current?.phase === 'checking' && (
-          <p className={styles.note}>Consultant el calaix de resums…</p>
-        )}
-
-        {current?.outcome?.status === 'pwned' && (
-          <div className={`${styles.result} ${styles.resultAlert}`}>
-            <p>
-              <strong>Aquesta contrasenya ha aparegut en filtracions.</strong> Consta{' '}
-              <span className={styles.count}>{plain.format(current.outcome.count)}</span>{' '}
-              {current.outcome.count === 1 ? 'vegada' : 'vegades'} a l’índex de Have I Been Pwned.
-            </p>
-            <p>
-              Ja és a les llistes que fan servir els atacs automàtics, per llarga o complicada que
-              sembli. Canvia-la a tots els llocs on la facis servir.
-            </p>
-          </div>
-        )}
-
-        {current?.outcome?.status === 'absent' && (
-          <div className={`${styles.result} ${styles.resultOk}`}>
-            <p>
-              <strong>No apareix a l’índex de Have I Been Pwned.</strong>
-            </p>
-            <p className={styles.note}>
-              Vol dir que no és a les filtracions que aquest índex ha recollit. No que sigui
-              forta, ni que no sigui endevinable, ni que no surti en una filtració que encara no
-              s’ha fet pública.
-            </p>
-          </div>
-        )}
-
-        {current?.outcome?.status === 'unavailable' && (
-          <div className={`${styles.result} ${styles.resultUnknown}`}>
-            <p>
-              <strong>No s’ha pogut fer la comprovació.</strong> {current.outcome.reason}
-            </p>
-            <p className={styles.note}>
-              No sabem si aquesta contrasenya surt en cap filtració: no ho hem pogut mirar. No poder
-              comprovar i estar net són coses diferents, i no et direm que està bé quan no en sabem
-              res. Torna-ho a provar més tard.
-            </p>
-          </div>
-        )}
-
-        {current?.evaluation && (
-          <div className={styles.result}>
-            <p>
-              <strong>De la força d’aquesta contrasenya no en podem dir cap xifra.</strong> Té{' '}
-              {current.evaluation.length} caràcters i{' '}
-              {current.evaluation.classes.length === 0
-                ? 'cap classe de caràcters reconeguda'
-                : `${current.evaluation.classes.length} classes de caràcters`}
-              . Si l’hagués generada una màquina triant a l’atzar serien, com a molt,{' '}
-              {oneDecimal.format(current.evaluation.naiveUpperBoundBits)} bits; però aquesta xifra
-              no s’aplica a una contrasenya pensada per una persona, perquè l’entropia depèn de com
-              s’ha triat i no de quin aspecte té. Els atacs proven primer paraules de diccionari,
-              noms, dates i les substitucions de sempre (a per @, e per 3, una majúscula al davant,
-              un signe d’admiració al final). La força real és molt més baixa que aquest sostre, i
-              quant més baixa no es pot saber.
-            </p>
-            {current.evaluation.observations.length > 0 && (
-              <>
-                <p>Senyals que l’abaixen encara més:</p>
-                <ul className="plain">
-                  {current.evaluation.observations.map((observation) => (
-                    <li key={observation} className={styles.note}>
-                      — {observation}
-                    </li>
-                  ))}
-                </ul>
-              </>
-            )}
-            <p className={styles.note}>
-              Si vols una xifra de força que es pugui defensar, genera la contrasenya aquí dalt: de
-              les que generem sí que sabem exactament com s’han triat.
-            </p>
-          </div>
-        )}
-      </div>
-    </section>
-  )
-}
-
 /* ─────────────────────────────── l'eina ──────────────────────────────────── */
 
+/**
+ * Auditoria i generadors a la mateixa peça, perquè el botó «Comprova-la» de
+ * cada generador pugui afegir la contrasenya nova a l'auditoria. Afegir-la no
+ * la comprova: la consulta continua sent una acció explícita.
+ */
 export default function PasswordTool() {
-  const [candidate, setCandidate] = useState('')
-  const checkInput = useRef<HTMLInputElement | null>(null)
-
-  // Enviar una contrasenya generada al comprovador no la comprova: només omple
-  // el camp. La consulta segueix sent una acció explícita de qui fa servir l'eina.
-  const sendToChecker = useCallback((value: string) => {
-    setCandidate(value)
-    checkInput.current?.focus()
-    checkInput.current?.scrollIntoView({ block: 'center', behavior: 'smooth' })
-  }, [])
+  const audit = useRef<PasswordAuditHandle | null>(null)
+  const sendToAudit = useCallback((value: string) => audit.current?.add(value, 'Generada'), [])
 
   return (
     <>
-      <PassphrasePanel onSend={sendToChecker} />
-      <PasswordPanel onSend={sendToChecker} />
-      <CheckPanel value={candidate} setValue={setCandidate} inputRef={checkInput} />
+      <PasswordAudit ref={audit} />
+      <h2 id="generador">Genera’n de noves</h2>
+      <PassphrasePanel onSend={sendToAudit} />
+      <PasswordPanel onSend={sendToAudit} />
     </>
   )
 }

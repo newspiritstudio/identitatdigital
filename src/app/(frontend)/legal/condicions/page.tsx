@@ -16,7 +16,7 @@ export default function TermsPage() {
   return (
     <>
       <h1>Condicions d’ús</h1>
-      <DocMeta version="1.0" updated="12 de setembre de 2026" />
+      <DocMeta version="1.1" updated="25 de setembre de 2026" />
 
       <p className="lede">
         Les regles del joc d’aquest lloc. Són curtes perquè aquí no hi ha res a comprar, cap compte
@@ -86,9 +86,10 @@ export default function TermsPage() {
 
       <h2>4. Les eines</h2>
       <p>
-        A <Link href="/eines">/eines</Link> hi ha un generador de contrasenyes i frases de pas, una
-        comprovació de contrasenyes filtrades, una calculadora d’exposició personal i un comparador
-        d’aplicacions. Totes funcionen dins del teu navegador. Són gratuïtes i les oferim tal com
+        A <Link href="/eines">/eines</Link> hi ha el diagnòstic d’identitat digital, l’eina de
+        credencials (consulta de filtracions per adreça, auditoria de contrasenyes filtrades i
+        generador de contrasenyes i frases de pas), l’inspector de metadades i un comparador
+        d’aplicacions. Totes calculen dins del teu navegador. Són gratuïtes i les oferim tal com
         són.
       </p>
 
@@ -137,10 +138,11 @@ export default function TermsPage() {
         </ul>
       </Avis>
 
-      <h3>4.2. Comprovació de contrasenyes filtrades</h3>
+      <h3>4.2. Auditoria de contrasenyes filtrades</h3>
       <p>
-        Aquesta eina et diu si una contrasenya ha aparegut en filtracions de dades conegudes. Ho fa
-        per k-anonimat: el teu navegador calcula el resum SHA-1 de la contrasenya i n’envia només
+        Aquesta eina et diu si les contrasenyes que hi escrius han aparegut en filtracions de dades
+        conegudes i si en repeteixes o en fas variants. La comparació entre elles es fa al teu
+        dispositiu. La comprovació de filtracions es fa per k-anonimat: el teu navegador calcula el resum SHA-1 de la contrasenya i n’envia només
         els cinc primers caràcters hexadecimals a una ruta del nostre servidor, que els reenvia a
         l’API de Have I Been Pwned. La contrasenya i el resum sencer no surten mai del teu
         dispositiu. El procediment sencer, pas a pas, és a la{' '}
@@ -183,11 +185,56 @@ export default function TermsPage() {
         </ul>
       </Avis>
 
-      <h3>4.3. Calculadora d’exposició i comparador</h3>
+      <h3>4.3. Consulta de filtracions per adreça electrònica</h3>
+      <p>
+        Aquesta eina envia l’adreça que escrius, directament des del teu navegador i només quan
+        prems el botó, a XposedOrNot, un servei de tercers amb les seves pròpies condicions, i
+        creua el resultat amb el directori. Ni l’adreça ni el resultat passen pel nostre servidor.
+      </p>
+      <Avis>
+        <p>
+          <strong>Exempció de responsabilitat específica.</strong>
+        </p>
+        <ul>
+          <li>
+            <strong>Fes-la servir només amb adreces teves</strong> o amb el permís de qui en sigui
+            titular.
+          </li>
+          <li>
+            <strong>Que una adreça no surti no vol dir que no s’hagi filtrat mai.</strong> El
+            catàleg de XposedOrNot només recull filtracions conegudes i publicades.
+          </li>
+          <li>
+            <strong>Depenem d’un tercer.</strong> Les dades, els límits de consultes i la
+            disponibilitat són de XposedOrNot. No en garantim ni l’exactitud ni la continuïtat.
+          </li>
+          <li>
+            <strong>El lligam amb les fitxes és nostre</strong> i es fa pel nom de la filtració o pel
+            domini del servei. Quan és només pel domini, l’eina ho diu, perquè pot no ser el mateix
+            servei.
+          </li>
+          <li>
+            Les accions proposades són orientatives i no substitueixen l’assessorament jurídic o
+            tècnic. New Spirit Studio S.L. no respon de les decisions que prenguis a partir del
+            resultat.
+          </li>
+        </ul>
+      </Avis>
+
+      <h3>4.4. Inspector de metadades</h3>
+      <p>
+        Llegeix les metadades de fotografies i documents dins del teu navegador i en genera una
+        còpia neta. Els fitxers no es pugen enlloc. La neteja cobreix els formats i els camps que
+        l’eina declara: conserva sempre l’original, comprova la còpia abans de publicar-la i tingues
+        present que el contingut visible (una cara, un rètol, un reflex) també pot identificar
+        algú, i això cap eina de metadades no ho treu.
+      </p>
+
+      <h3>4.5. Diagnòstic i comparador</h3>
       <p>
         Tots dos treballen sobre les dades publicades al lloc en el moment de la consulta. El
-        resultat és una estimació orientativa basada en la nostra metodologia, no un diagnòstic
-        personalitzat ni una auditoria de la teva situació real, que depèn de coses que no coneixem:
+        resultat és una orientació basada en la nostra metodologia i en el que documenten les
+        fitxes, no una auditoria de la teva situació real, que depèn de coses que no coneixem:
         la teva configuració de privadesa, quant fas servir cada servei o quines dades hi has posat.
       </p>
       <p>
@@ -198,9 +245,9 @@ export default function TermsPage() {
       </p>
 
       <p>
-        La calculadora d’exposició <strong>recorda la teva tria en aquest navegador</strong>, amb
-        emmagatzematge local i sense enviar-la enlloc, perquè no l’hagis de refer cada vegada. Tens
-        un botó per esborrar-la quan vulguis. El comparador, en canvi, desa la selecció{' '}
+        El diagnòstic <strong>recorda la teva tria i el progrés del pla en aquest navegador</strong>,
+        amb emmagatzematge local i sense enviar-los enlloc, perquè no els hagis de refer cada
+        vegada. Tens un botó per esborrar-ho tot quan vulguis. El comparador, en canvi, desa la selecció{' '}
         <strong>a l’adreça de la pàgina</strong>, de manera que la pots copiar i compartir; això vol
         dir que qui rebi l’enllaç en veurà la selecció, que és precisament el que es vol.
       </p>

@@ -17,7 +17,7 @@ export default function CookiesPage() {
   return (
     <>
       <h1>Política de galetes</h1>
-      <DocMeta version="1.0" updated="12 de setembre de 2026" />
+      <DocMeta version="1.1" updated="25 de setembre de 2026" />
 
       <p className="lede">
         Aquest lloc no t’instal·la cap galeta. Per això no veus cap bàner demanant-te permís. A
@@ -30,8 +30,8 @@ export default function CookiesPage() {
           <strong>Galetes que et posa aquest lloc quan el visites: cap.</strong> Ni pròpies, ni de
           tercers, ni tècniques, ni de sessió. Tampoc no fem servir emmagatzematge de sessió, ni
           bases de dades al navegador, ni empremtes digitals del dispositiu. L’única cosa que es
-          desa al teu dispositiu és la tria de la calculadora d’exposició, si la fas servir, i
-          l’expliquem sencera a l’apartat d’emmagatzematge.
+          desa al teu dispositiu és la tria del diagnòstic i el progrés del seu pla d’acció, si
+          el fas servir, i ho expliquem sencer a l’apartat d’emmagatzematge.
         </p>
       </Resum>
 
@@ -160,9 +160,9 @@ export default function CookiesPage() {
 
       <h2>Emmagatzematge al dispositiu i eines</h2>
       <p>
-        Les eines de la secció <Link href="/eines">Eines</Link> calculen dins del navegador. Una
-        d’elles desa una cosa al teu dispositiu i les altres dues no en desen cap. Aquesta és la
-        llista completa, revisada contra el codi publicat:
+        Les eines de la secció <Link href="/eines">Eines</Link> calculen dins del navegador. El
+        diagnòstic desa dues coses al teu dispositiu i les altres eines no en desen cap. Aquesta és
+        la llista completa, revisada contra el codi publicat:
       </p>
       <TableWrap label="Què desa cada eina al dispositiu, on ho desa i durant quant de temps">
         <table>
@@ -179,25 +179,37 @@ export default function CookiesPage() {
           </thead>
           <tbody>
             <tr>
-              <th scope="row">Contrasenyes</th>
-              <td>Res. Ni les contrasenyes generades, ni les que hi escrius, ni els resultats.</td>
+              <th scope="row">Diagnòstic</th>
+              <td>
+                La llista d’aplicacions que has marcat, les accions del pla que has marcat com a
+                fetes i els serveis que vols deixar. Ni el resultat, ni cap xifra, ni cap
+                identificador.
+              </td>
+              <td>
+                Emmagatzematge local del navegador, claus <code>identitat.exposicio.seleccio</code>{' '}
+                i <code>identitat.diagnostic.pla</code>. No són galetes i no viatgen mai en cap
+                petició al servidor.
+              </td>
+              <td>
+                Fins que l’esborris. L’eina té un botó «Esborra-ho tot d’aquest dispositiu», i
+                esborrar les dades del lloc al navegador també ho treu.
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">Credencials</th>
+              <td>
+                Res. Ni l’adreça que consultes, ni les contrasenyes que audites o generes, ni els
+                resultats. Només si prems «Afegeix-los al diagnòstic» s’afegeixen serveis a la tria
+                del diagnòstic, a la clau de dalt.
+              </td>
               <td>—</td>
               <td>Res sobreviu a tancar la pestanya.</td>
             </tr>
             <tr>
-              <th scope="row">Exposició personal</th>
-              <td>
-                La llista d’aplicacions que has marcat, i res més. Ni el resultat, ni cap xifra, ni
-                cap identificador.
-              </td>
-              <td>
-                Emmagatzematge local del navegador, clau <code>identitat.exposicio.seleccio</code>.
-                No és una galeta i no viatja mai en cap petició al servidor.
-              </td>
-              <td>
-                Fins que l’esborris. L’eina té un botó «Esborra la tria», i esborrar les dades del
-                lloc al navegador també la treu.
-              </td>
+              <th scope="row">Metadades</th>
+              <td>Res. Els fitxers que examines i les còpies netes no es desen enlloc.</td>
+              <td>—</td>
+              <td>Res sobreviu a tancar la pestanya.</td>
             </tr>
             <tr>
               <th scope="row">Comparador</th>
@@ -212,7 +224,7 @@ export default function CookiesPage() {
         </table>
       </TableWrap>
       <p>
-        Per què l’emmagatzematge de la calculadora no necessita consentiment: l’article 22.2 de la
+        Per què l’emmagatzematge del diagnòstic no necessita consentiment: l’article 22.2 de la
         Llei 34/2002 exigeix consentiment per emmagatzemar informació al dispositiu, tret que sigui
         estrictament necessari per prestar un servei <strong>expressament sol·licitat</strong> per
         qui el fa servir. Aquí la informació la genera qui fa servir l’eina, s’hi desa perquè l’eina
@@ -222,10 +234,12 @@ export default function CookiesPage() {
         donar la manera de desfer-ho.
       </p>
       <p>
-        Cap eina no fa cap petició a cap servidor, amb una sola excepció que està explicada al
-        detall a la <Link href="/legal/privadesa">política de privadesa</Link>: la comprovació de
-        contrasenyes filtrades envia cinc caràcters hexadecimals del resum SHA-1 a una ruta d’aquest
-        mateix lloc. La contrasenya no hi és, i el resum sencer tampoc.
+        Les eines només fan peticions quan prems un botó que ho demana, i estan explicades al
+        detall a la <Link href="/legal/privadesa">política de privadesa</Link>: l’auditoria de
+        contrasenyes envia cinc caràcters hexadecimals del resum SHA-1 de cada contrasenya a una
+        ruta d’aquest mateix lloc (la contrasenya no hi és, i el resum sencer tampoc), i la
+        consulta de filtracions per adreça envia l’adreça directament del teu navegador a
+        XposedOrNot. Cap d’aquestes peticions no porta ni deixa cap galeta.
       </p>
 
       <h2>Com controlar les galetes en general</h2>
