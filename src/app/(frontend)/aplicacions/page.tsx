@@ -54,6 +54,9 @@ export default async function AppsPage() {
           servei, amb qui les comparteix i com te’n pots anar.
         </p>
       </header>
+      {/* La graella és la secció principal de la pàgina i ha de tenir el seu
+          títol a l'arbre d'encapçalaments, encara que visualment no calgui. */}
+      <h2 className="visually-hidden">Totes les aplicacions</h2>
       <AppsGrid apps={apps} />
     </>
   )

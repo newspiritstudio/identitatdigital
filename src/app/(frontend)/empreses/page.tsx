@@ -137,6 +137,9 @@ export default async function CompaniesPage() {
 
         <div className="company-group-table-wrap">
           <table className="company-group-table">
+            <caption className="visually-hidden">
+              Grups empresarials del corpus, amb les fitxes, els tipus de dada, les empreses i la seu
+            </caption>
             <thead>
               <tr>
                 <th scope="col">Grup</th>

@@ -272,6 +272,7 @@ export default async function AppPage({ params }: { params: Promise<{ slug: stri
                 <dd>
                   <a href={website} target="_blank" rel="noreferrer">
                     {domain}
+                    <span className="visually-hidden"> (s’obre en una pestanya nova)</span>
                   </a>
                 </dd>
               </>
