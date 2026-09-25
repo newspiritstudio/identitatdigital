@@ -59,7 +59,10 @@ export function ThemeToggle() {
       applyTheme(nextTheme)
       return
     }
-    document.startViewTransition(() => applyTheme(nextTheme))
+    const transition = document.startViewTransition(() => applyTheme(nextTheme))
+    // Si el navegador salta l'animació (pestanya oculta, una altra transició
+    // en curs), `ready` es rebutja però el tema ja s'ha aplicat igualment.
+    transition.ready.catch(() => undefined)
   }
 
   return (
