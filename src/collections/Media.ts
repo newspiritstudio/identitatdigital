@@ -25,6 +25,11 @@ export const Media: CollectionConfig = {
      */
     modifyResponseHeaders: ({ headers }) => {
       headers.set('Cache-Control', 'public, max-age=86400, stale-while-revalidate=604800')
+      // Un SVG és un document que pot portar scripts, i aquí se serveix des del
+      // mateix origen que el panell. Obert directament, el navegador el tracta
+      // com una pàgina aïllada i sense permís per executar res; dins d'un
+      // <img> no canvia res.
+      headers.set('Content-Security-Policy', "default-src 'none'; style-src 'unsafe-inline'; sandbox")
       return headers
     },
   },

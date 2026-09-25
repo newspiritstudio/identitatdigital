@@ -11,6 +11,9 @@ import { wave2 } from '@/seed/onada2'
 import { sources as wave1Sources } from '@/seed/sources'
 import { categories, dataTypes, purposes } from '@/seed/taxonomies'
 import type { AppSeed, DataRowSeed, FactSeed } from '@/seed/types'
+import { refuseOutsideLocal } from './guard'
+
+refuseOutsideLocal('pnpm seed')
 
 /**
  * Càrrega del dataset editorial.
@@ -291,6 +294,15 @@ async function seed() {
       overrideAccess: true,
     })
   }
+  // Només n'hi pot haver una de vigent: la pàgina /metodologia mostra aquesta.
+  await payload.update({
+    collection: 'scoring-methodologies',
+    where: {
+      and: [{ status: { equals: 'current' } }, { version: { not_equals: methodologyDoc.version } }],
+    },
+    data: { status: 'superseded' },
+    overrideAccess: true,
+  })
 
   console.log(`Aplicacions (${apps.length})…`)
   for (const app of apps) {

@@ -28,9 +28,9 @@ import type { AppSeed, FactSeed } from '../src/seed/types'
 const extraPath = process.argv[2]
 let extra: SeedLot | undefined
 if (extraPath) {
-  const module = (await import(pathToFileURL(resolve(extraPath)).href)) as { lot?: SeedLot }
-  if (!module.lot) throw new Error(`${extraPath} no exporta \`lot\``)
-  extra = module.lot
+  const imported = (await import(pathToFileURL(resolve(extraPath)).href)) as { lot?: SeedLot }
+  if (!imported.lot) throw new Error(`${extraPath} no exporta \`lot\``)
+  extra = imported.lot
 }
 
 const lots = extra ? [wave2, extra] : [wave2]

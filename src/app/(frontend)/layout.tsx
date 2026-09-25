@@ -4,15 +4,20 @@ import React from 'react'
 
 import './styles.css'
 import { MainNav } from './nav'
-import { ThemeToggle } from './theme-toggle'
+import { THEME_INIT_SCRIPT, ThemeToggle } from './theme-toggle'
 
 export const metadata: Metadata = {
+  // Les URL relatives de les metadades es resolen
+  // contra el domini públic, que Next incrusta en compilar.
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'),
   title: {
     default: 'identitat.digital',
     template: '%s · identitat.digital',
   },
   description:
     'Base de coneixement sobre privadesa, identitat digital i seguretat en línia. Cada afirmació, amb la seva font.',
+  openGraph: { type: 'website', siteName: 'identitat.digital', locale: 'ca_ES' },
+  twitter: { card: 'summary' },
 }
 
 /**
@@ -34,6 +39,7 @@ export default function FrontendLayout({ children }: { children: React.ReactNode
     // hidratació; sense això, React ho marca com a error a cada càrrega.
     <html lang="ca" suppressHydrationWarning>
       <body>
+        <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
         <ThemeToggle />
         <a className="skip-link" href="#contingut">
           Vés al contingut

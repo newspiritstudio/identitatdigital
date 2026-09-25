@@ -75,10 +75,43 @@ export const crc32 = (bytes: Uint8Array): number => {
   return (crc ^ 0xffffffff) >>> 0
 }
 
+/**
+ * Sostre de cada entrada descomprimida. Un document real no s'hi acosta; una
+ * bomba de compressió (uns quants MB que en fan uns quants GB) esgotaria la
+ * memòria de la pestanya. En passar-lo, es plega i el fitxer es dona per
+ * il·legible.
+ */
+export const MAX_INFLATED_BYTES = 64 * 1024 * 1024
+
 /** Descomprimeix amb l'API del navegador (també disponible a Node 18+). */
-export const inflate = async (bytes: Uint8Array, format: 'deflate' | 'deflate-raw'): Promise<Uint8Array> => {
-  const stream = new Blob([bytes as BlobPart]).stream().pipeThrough(new DecompressionStream(format))
-  return new Uint8Array(await new Response(stream).arrayBuffer())
+export const inflate = async (
+  bytes: Uint8Array,
+  format: 'deflate' | 'deflate-raw',
+  limit = MAX_INFLATED_BYTES,
+): Promise<Uint8Array> => {
+  const reader = new Blob([bytes as BlobPart])
+    .stream()
+    .pipeThrough(new DecompressionStream(format))
+    .getReader()
+  const chunks: Uint8Array[] = []
+  let total = 0
+  for (;;) {
+    const { done, value } = await reader.read()
+    if (done) break
+    total += value.byteLength
+    if (total > limit) {
+      await reader.cancel()
+      throw new Error('El contingut descomprimit supera el límit.')
+    }
+    chunks.push(value)
+  }
+  const out = new Uint8Array(total)
+  let offset = 0
+  for (const chunk of chunks) {
+    out.set(chunk, offset)
+    offset += chunk.byteLength
+  }
+  return out
 }
 
 /** Text curt per mostrar: sense caràcters de control i amb límit de llargada. */

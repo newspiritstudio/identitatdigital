@@ -1,4 +1,7 @@
+import { deepMergeWithSourceArrays } from 'payload'
 import type { CollectionAfterChangeHook, CollectionBeforeChangeHook } from 'payload'
+
+import type { ScoreSnapshot } from '@/payload-types'
 
 import { computeScores } from './score'
 import type { DataTypeMeta, IncidentLike } from './types'
@@ -31,7 +34,10 @@ export const recalculateScores: CollectionBeforeChangeHook = async ({
   req,
   operation,
 }) => {
-  const merged = { ...(originalDoc ?? {}), ...data }
+  // `data` només porta el que canvia: una actualització parcial per l'API
+  // (`{ security: { mfa } }`) no pot deixar la resta de `security` en blanc
+  // per al càlcul. Les llistes, en canvi, se substitueixen senceres.
+  const merged = deepMergeWithSourceArrays(originalDoc ?? {}, data ?? {}) as Record<string, unknown>
 
   const dataTypeIds = Array.isArray(merged.dataCollection)
     ? (merged.dataCollection as { dataType?: unknown }[])
@@ -110,7 +116,16 @@ export const recalculateScores: CollectionBeforeChangeHook = async ({
   }
 }
 
-const SNAPSHOT_KEYS = ['privacy', 'security', 'agency', 'overall', 'confidence'] as const
+const SNAPSHOT_KEYS = [
+  'privacy',
+  'security',
+  'agency',
+  'overall',
+  'confidence',
+  'methodologyVersion',
+] as const
+
+const TRIGGERS = ['data-update', 'methodology-change', 'bulk-recalculation'] as const
 
 /**
  * Desa una instantània quan una puntuació publicada canvia de valor.
@@ -122,20 +137,37 @@ const SNAPSHOT_KEYS = ['privacy', 'security', 'agency', 'overall', 'confidence']
  */
 export const recordScoreSnapshot: CollectionAfterChangeHook = async ({
   doc,
-  previousDoc,
   req,
-  operation,
+  context,
 }) => {
   if (doc._status === 'draft') return doc
 
   const current = (doc.scores ?? {}) as Record<string, unknown>
-  const previous = (previousDoc?.scores ?? {}) as Record<string, unknown>
-  const changed =
-    operation === 'create' || SNAPSHOT_KEYS.some((key) => current[key] !== previous[key])
-
-  if (!changed || current.overall === null || current.overall === undefined) return doc
+  if (current.overall === null || current.overall === undefined) return doc
 
   try {
+    /*
+     * Es compara amb la darrera instantània i no amb `previousDoc`. En publicar
+     * un esborrany, `previousDoc` és l'esborrany mateix, que ja portava les
+     * puntuacions noves, i el canvi no quedava mai registrat.
+     */
+    const { docs: last } = await req.payload.find({
+      collection: 'score-snapshots',
+      where: { app: { equals: doc.id } },
+      sort: '-capturedAt',
+      limit: 1,
+      depth: 0,
+      overrideAccess: true,
+      req,
+    })
+    const previous = last[0]
+    if (previous && SNAPSHOT_KEYS.every((key) => current[key] === previous[key])) return doc
+
+    const requested: unknown = context?.scoringTrigger
+    const trigger: ScoreSnapshot['trigger'] = !previous
+      ? 'created'
+      : TRIGGERS.find((value) => value === requested) ?? 'data-update'
+
     await req.payload.create({
       collection: 'score-snapshots',
       data: {
@@ -147,7 +179,7 @@ export const recordScoreSnapshot: CollectionAfterChangeHook = async ({
         overall: current.overall as number,
         confidence: current.confidence as number,
         methodologyVersion: current.methodologyVersion as string,
-        trigger: operation === 'create' ? 'created' : 'data-update',
+        trigger,
         breakdown: (current.breakdown ?? null) as Record<string, unknown> | null,
       },
       req,

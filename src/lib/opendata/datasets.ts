@@ -359,7 +359,7 @@ const companiesDataset: DatasetSpec = {
     {
       name: 'establiment_ue',
       type: 'text',
-      description: 'Estat de l’afirmació sobre establiment a la Unió Europea.',
+      description: 'Filial europea que actua com a responsable davant del RGPD, tal com consta a la fitxa.',
     },
     {
       name: 'autoritat_principal',
@@ -403,7 +403,7 @@ const companiesDataset: DatasetSpec = {
         matriu_slug: slugOf(corpus.companyById, relationId(company.parent)),
         grup_slug: slugOf(corpus.companyById, chain.rootId),
         pais_seu: str(company.headquartersCountry),
-        establiment_ue: factStatus(at(company, 'euEstablishment')),
+        establiment_ue: str(company.euEstablishment),
         autoritat_principal: str(company.leadSupervisoryAuthority),
         propietat: str(company.ownership),
         any_fundacio: num(company.foundedYear),
@@ -478,8 +478,8 @@ const incidentsDataset: DatasetSpec = {
     { name: 'divulgat_el', type: 'data', description: 'Data en què es va fer públic.' },
     {
       name: 'persones_afectades',
-      type: 'number',
-      description: 'Nombre de persones afectades, quan consta.',
+      type: 'text',
+      description: 'Persones afectades, quan consta: xifra documentada o estimació amb el seu origen.',
     },
     { name: 'autoritat', type: 'text', description: 'Autoritat que va resoldre.' },
     { name: 'multa_eur', type: 'number', description: 'Import en euros.' },
@@ -505,7 +505,7 @@ const incidentsDataset: DatasetSpec = {
         .filter((value): value is string => value !== undefined),
       ocorregut_el: day(incident.occurredAt),
       divulgat_el: day(incident.disclosedAt),
-      persones_afectades: num(incident.affectedPeople),
+      persones_afectades: str(incident.affectedPeople),
       autoritat: str(at(incident, 'regulatory.authority')),
       multa_eur: num(at(incident, 'regulatory.fineAmountEur')),
       estat_sancio: str(at(incident, 'regulatory.status')),
@@ -580,10 +580,10 @@ const breachesDataset: DatasetSpec = {
       comptes: num(breach.pwnCount),
       data_filtracio: day(breach.breachDate),
       data_publicacio: day(breach.addedDate),
-      verificada: bool(at(breach, 'flags.isVerified')) ?? false,
-      fabricada: bool(at(breach, 'flags.isFabricated')) ?? false,
-      sensible: bool(at(breach, 'flags.isSensitive')) ?? false,
-      retirada: bool(at(breach, 'flags.isRetired')) ?? false,
+      verificada: bool(breach.isVerified) ?? false,
+      fabricada: bool(breach.isFabricated) ?? false,
+      sensible: bool(breach.isSensitive) ?? false,
+      retirada: bool(breach.isRetired) ?? false,
       categories_origen: values(breach.dataClasses),
       tipus_dada: relationIds(breach.dataTypes)
         .map((id) => slugOf(corpus.dataTypeById, id))

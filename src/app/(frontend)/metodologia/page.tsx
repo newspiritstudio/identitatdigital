@@ -13,7 +13,10 @@ export default async function MethodologyPage() {
   const payload = await getClient()
   const { docs } = await payload.find({
     collection: 'scoring-methodologies',
-    where: { status: { equals: 'current' } },
+    where: { and: [{ status: { equals: 'current' } }, { _status: { equals: 'published' } }] },
+    draft: false,
+    // Si mai n'hi ha dues de vigents, mana la més recent.
+    sort: '-effectiveFrom',
     limit: 1,
     depth: 0,
   })

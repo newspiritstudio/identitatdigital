@@ -16,16 +16,6 @@ const idOf = (value: unknown): string | null => {
   return null
 }
 
-const maybeUrl = (value: string | null | undefined): string | null => {
-  if (!value) return null
-  try {
-    const parsed = new URL(value)
-    return parsed.href
-  } catch {
-    return null
-  }
-}
-
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params
   const corpus = await loadCorpus(await getClient())
@@ -101,8 +91,6 @@ export default async function CompanyPage({ params }: { params: Promise<{ slug: 
     : { docs: [] as Media[] }
   const logoById = new Map(logos.map((file) => [String(file.id), file as Media]))
 
-  const parentCompany = company.parent ? companies.find((item) => String(item.id) === idOf(company.parent)) : null
-
   const lineage: Company[] = []
   const seen = new Set<string>()
   let cursor: Company | null = company
@@ -123,7 +111,6 @@ export default async function CompanyPage({ params }: { params: Promise<{ slug: 
   }
 
   const rootCompany = lineage[0] ?? company
-  const viaLabel = lineage.length > 1 ? lineage.slice(1).map((entry) => entry.name).join(' → ') : '—'
 
   return (
 

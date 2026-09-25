@@ -90,6 +90,14 @@ export function countInRange(body: string, suffix: string): number {
   return 0
 }
 
+const RANGE_LINE = /^[0-9A-F]{35}:\d+$/i
+
+/** Cert si el cos té la forma d'una resposta de rang: com a mínim una línia i totes vàlides. */
+export function isRangeBody(body: string): boolean {
+  const lines = body.split('\n').map((line) => line.trim()).filter(Boolean)
+  return lines.length > 0 && lines.every((line) => RANGE_LINE.test(line))
+}
+
 /** Camí de la nostra ruta procuradora. La contrasenya no hi arriba mai. */
 export const PWNED_ENDPOINT = '/eines/api/pwned'
 
@@ -148,6 +156,11 @@ export async function checkPassword(
   }
 
   const body = await response.text()
+  // Un 200 que no és una llista de sufixos (un portal captiu, una pàgina
+  // d'error d'un intermediari, un cos buit) no demostra que no hi sigui.
+  if (!isRangeBody(body)) {
+    return { status: 'unavailable', reason: 'La resposta del servei de consulta no és vàlida.' }
+  }
   const count = countInRange(body, parts.suffix)
   return count > 0 ? { status: 'pwned', count } : { status: 'absent' }
 }

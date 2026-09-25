@@ -4,6 +4,9 @@ import type { Payload } from 'payload'
 
 import config from '@/payload.config'
 import { appStoreBundleIds } from '@/seed/store-ids'
+import { refuseOutsideLocal } from './guard'
+
+refuseOutsideLocal('pnpm import-catalan')
 
 /**
  * Comprovació de la disponibilitat en català des de l'App Store.

@@ -1,6 +1,6 @@
 import type { CollectionConfig } from 'payload'
 
-import { isEditor, publishedOrEditor } from '@/lib/access'
+import { editorsOnly, isEditor, publishedOrEditor } from '@/lib/access'
 import { evidencedFact, evidenceLevelOptions } from '@/fields/evidence'
 import { slugField } from '@/fields/slug'
 import { recalculateScores, recordScoreSnapshot } from '@/lib/scoring/hook'
@@ -1279,11 +1279,13 @@ export const Apps: CollectionConfig = {
                   label: 'Revisat per',
                   type: 'relationship',
                   relationTo: 'users',
+                  access: { read: editorsOnly },
                 },
                 {
                   name: 'editorialNotes',
                   label: 'Notes internes',
                   type: 'textarea',
+                  access: { read: editorsOnly },
                   admin: { description: 'No es publiquen.' },
                 },
                 {
@@ -1291,6 +1293,7 @@ export const Apps: CollectionConfig = {
                   label: 'Qüestions obertes',
                   labels: { singular: 'Qüestió', plural: 'Qüestions' },
                   type: 'array',
+                  access: { read: editorsOnly },
                   admin: { initCollapsed: true, description: 'Què falta per documentar d’aquesta fitxa.' },
                   fields: [{ name: 'question', label: 'Qüestió', type: 'text', required: true }],
                 },

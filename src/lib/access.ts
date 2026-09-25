@@ -18,6 +18,9 @@ export const isAdminOrSelf: Access = ({ req, id }) => {
 
 export const isAdminField: FieldAccess = ({ req }) => req.user?.role === 'admin'
 
+/** Camps de treball intern: l'API pública (REST i GraphQL) no els retorna. */
+export const editorsOnly: FieldAccess = ({ req }) => Boolean(req.user)
+
 /**
  * Lectura pública restringida al contingut publicat. Els esborranys només els
  * veu qui ha iniciat sessió, de manera que una fitxa a mig documentar mai no

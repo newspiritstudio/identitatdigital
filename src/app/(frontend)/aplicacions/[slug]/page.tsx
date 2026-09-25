@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import type { Where } from 'payload'
 import React from 'react'
 import './app-page.css'
 
@@ -7,7 +8,7 @@ import AccountDeletionModal from './AccountDeletionModal'
 import AppDetailsModal from './AppDetailsModal'
 import AnimatedGlobalScore from './AnimatedGlobalScore'
 
-import { Fact, Logo, STATUS_LABELS, Score, getClient } from '../../lib'
+import { Fact, Logo, STATUS_LABELS, getClient } from '../../lib'
 import { breachMatchesApp, relationId } from '@/lib/analysis'
 import type { App, Breach, Category, Company, DataType, Incident, ProcessingPurpose } from '@/payload-types'
 import { countryName } from '@/lib/countries'
@@ -16,13 +17,6 @@ import { darkPatternTypeLabel, regulatoryStatusLabel, researchStatusLabel, sever
 export const dynamic = 'force-dynamic'
 
 /** Etiquetes de l'atenció en català. */
-const CATALAN_SUPPORT: Record<string, string> = {
-  yes: 'sí, atenció i ajuda en català',
-  'help-only': 'només l’ajuda, no l’atenció',
-  no: 'no',
-  unknown: 'desconegut',
-}
-
 const label = (value: unknown, fallback = '—') =>
   typeof value === 'object' && value !== null && 'name' in value
     ? String((value as { name: unknown }).name)
@@ -53,14 +47,6 @@ const PUBLIC_SHARED_WITH: Record<string, string> = {
   group: 'Altres òrgans de la mateixa administració',
 }
 
-const DIFFICULTY: Record<string, string> = {
-  easy: 'Fàcil',
-  medium: 'Mitjana',
-  hard: 'Difícil',
-  impossible: 'No és possible',
-  unknown: 'No documentada',
-}
-
 const BUSINESS_MODEL: Record<string, string> = {
   advertising: 'Publicitat',
   subscription: 'Subscripció',
@@ -86,12 +72,21 @@ const COMPARABILITY: Record<string, string> = {
   complementary: 'És complementària',
 }
 
+/*
+ * L'API local de Payload ignora el control d'accés per defecte: sense aquest
+ * filtre, una fitxa que mai no s'ha publicat es podia obrir per l'adreça.
+ */
+const publishedSlug = (slug: string): Where => ({
+  and: [{ slug: { equals: slug } }, { _status: { equals: 'published' } }],
+})
+
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   const payload = await getClient()
   const { docs } = await payload.find({
     collection: 'apps',
-    where: { slug: { equals: slug } },
+    where: publishedSlug(slug),
+    draft: false,
     limit: 1,
     depth: 0,
   })
@@ -110,7 +105,8 @@ export default async function AppPage({ params }: { params: Promise<{ slug: stri
    */
   const { docs } = await payload.find({
     collection: 'apps',
-    where: { slug: { equals: slug } },
+    where: publishedSlug(slug),
+    draft: false,
     limit: 1,
     depth: 2,
   })
@@ -189,30 +185,6 @@ export default async function AppPage({ params }: { params: Promise<{ slug: stri
   const scores = app.scores
   const isPublic = app.publicService?.isPublicService === true
   const sharedWith = isPublic ? PUBLIC_SHARED_WITH : SHARED_WITH
-
-  /*
-   * Enllaços oficials. Es dibuixen només els que existeixen, i l'ordre és el de
-   * la utilitat per a qui llegeix: primer què fan amb les dades, després com
-   * te'n vas. L'adreça d'eliminació ja es documenta a la pestanya d'eliminació,
-   * així que el camp d'enllaços només cal omplir-lo si cal una altra adreça.
-   */
-  type LinkKind = 'action' | 'reference'
-  const links: [string, string | null | undefined, LinkKind][] = [
-    ['Descarregar les teves dades', app.links?.dataExport, 'action'],
-    ['Exercir els drets', app.links?.rightsRequest, 'action'],
-    ['Configuració de publicitat', app.links?.adSettings, 'action'],
-    ['Condicions', app.links?.terms, 'reference'],
-    ['Subencarregats', app.links?.subprocessors, 'reference'],
-    ['Seguretat', app.links?.security, 'reference'],
-    ['Informe de transparència', app.links?.transparencyReport, 'reference'],
-    ['Canvis de la política', app.links?.statusOrChangelog, 'reference'],
-    ['Lloc web', app.links?.website, 'reference'],
-    ['App Store', app.links?.appStore, 'reference'],
-    ['Google Play', app.links?.playStore, 'reference'],
-  ]
-  const visibleLinks = links.filter(
-    (entry): entry is [string, string, LinkKind] => Boolean(entry[1]),
-  )
 
   // El color de marca és decoratiu i opcional: viatja com a variable CSS als
   // elements que l'utilitzen, i si la fitxa no en té, tot es veu com la resta

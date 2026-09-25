@@ -1,8 +1,32 @@
-import type { CollectionConfig } from 'payload'
+import type { CollectionConfig, PayloadRequest } from 'payload'
 
 import { isEditor, isPublic } from '@/lib/access'
 import { slugField } from '@/fields/slug'
 import { incidentSeverityOptions, regulatoryStatusOptions } from '@/lib/labels'
+import { rescoreApp } from '@/lib/scoring/rescore'
+
+const relationIds = (value: unknown): string[] =>
+  Array.isArray(value)
+    ? value
+        .map((entry) =>
+          typeof entry === 'object' && entry !== null ? (entry as { id?: unknown }).id : entry,
+        )
+        .filter((id): id is string | number => typeof id === 'string' || typeof id === 'number')
+        .map(String)
+    : []
+
+const rescoreAffected = async (req: PayloadRequest, ids: string[]) => {
+  for (const id of new Set(ids)) {
+    try {
+      await rescoreApp(req.payload, id, { req })
+    } catch (error) {
+      req.payload.logger.error(
+        { err: error, app: id },
+        'No s’han pogut recalcular les puntuacions després d’un incident',
+      )
+    }
+  }
+}
 
 /**
  * Bretxes, sancions i usos indeguts documentats.
@@ -26,31 +50,20 @@ export const Incidents: CollectionConfig = {
     delete: isEditor,
   },
   hooks: {
+    /**
+     * Un incident canvia la puntuació de seguretat de les aplicacions que
+     * toca. Es recalculen les que hi són ara, les que se n'han tret i, si
+     * s'esborra, totes les que hi eren.
+     */
     afterChange: [
-      /**
-       * Un incident nou canvia la puntuació de seguretat de les aplicacions
-       * afectades. Es tornen a desar perquè el hook de càlcul s'executi amb el
-       * nou historial.
-       */
+      async ({ doc, previousDoc, req }) => {
+        await rescoreAffected(req, [...relationIds(doc.apps), ...relationIds(previousDoc?.apps)])
+        return doc
+      },
+    ],
+    afterDelete: [
       async ({ doc, req }) => {
-        const apps = Array.isArray(doc.apps) ? doc.apps : []
-        for (const app of apps) {
-          const id = typeof app === 'object' && app !== null ? (app as { id?: string }).id : app
-          if (!id) continue
-          try {
-            await req.payload.update({
-              collection: 'apps',
-              id: String(id),
-              data: {},
-              req,
-            })
-          } catch (error) {
-            req.payload.logger.error(
-              { err: error, app: id },
-              'No s’han pogut recalcular les puntuacions després d’un incident',
-            )
-          }
-        }
+        await rescoreAffected(req, relationIds(doc.apps))
         return doc
       },
     ],

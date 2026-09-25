@@ -24,7 +24,8 @@ export async function generateMetadata({
   const payload = await getClient()
   const found = await payload.find({
     collection: 'apps',
-    where: { slug: { equals: slug } },
+    where: { and: [{ slug: { equals: slug } }, { _status: { equals: 'published' } }] },
+    draft: false,
     limit: 1,
     depth: 0,
   })

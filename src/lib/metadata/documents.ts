@@ -36,34 +36,60 @@ interface PdfString {
   hex: boolean
 }
 
-/** Troba tots els valors de text de les claus de metadades, a tot el fitxer. */
-function pdfInfoStrings(text: string): PdfString[] {
-  const out: PdfString[] = []
-  const pattern = new RegExp(`/(${Object.keys(PDF_INFO_KEYS).join('|')})\\s*([(<])`, 'g')
-  for (const match of text.matchAll(pattern)) {
-    const open = (match.index ?? 0) + match[0].length - 1
-    if (match[2] === '<') {
-      if (text[open + 1] === '<') continue // és un diccionari, no una cadena
-      const close = text.indexOf('>', open)
-      if (close === -1 || close - open > 20000) continue
-      out.push({ key: match[1], from: open + 1, to: close, hex: true })
+/** Cadena de text PDF que comença a `open` (el `(` o el `<`), o null si no n'és una. */
+function pdfStringAt(text: string, key: string, open: number): PdfString | null {
+  if (text[open] === '<') {
+    if (text[open + 1] === '<') return null // és un diccionari, no una cadena
+    const close = text.indexOf('>', open)
+    if (close === -1 || close - open > 20000) return null
+    return { key, from: open + 1, to: close, hex: true }
+  }
+  if (text[open] !== '(') return null
+  let depth = 0
+  let at = open
+  for (; at < text.length && at - open < 20000; at += 1) {
+    const ch = text[at]
+    if (ch === '\\') {
+      at += 1
       continue
     }
-    let depth = 0
-    let at = open
-    for (; at < text.length && at - open < 20000; at += 1) {
-      const ch = text[at]
-      if (ch === '\\') {
-        at += 1
-        continue
-      }
-      if (ch === '(') depth += 1
-      else if (ch === ')') {
-        depth -= 1
-        if (depth === 0) break
-      }
+    if (ch === '(') depth += 1
+    else if (ch === ')') {
+      depth -= 1
+      if (depth === 0) break
     }
-    if (depth === 0) out.push({ key: match[1], from: open + 1, to: at, hex: false })
+  }
+  return depth === 0 ? { key, from: open + 1, to: at, hex: false } : null
+}
+
+/**
+ * Troba tots els valors de text de les claus de metadades, a tot el fitxer.
+ *
+ * El valor pot ser directe (`/Author (Nom)`) o una referència a un altre
+ * objecte (`/Author 4 0 R` … `4 0 obj (Nom) endobj`). Si només es llegissin els
+ * directes, un PDF amb referències semblaria net sense ser-ho.
+ */
+function pdfInfoStrings(text: string): PdfString[] {
+  const out: PdfString[] = []
+  const resolved = new Set<string>()
+  const keys = Object.keys(PDF_INFO_KEYS).join('|')
+  const pattern = new RegExp(`/(${keys})(?:\\s*([(<])|\\s+(\\d+)\\s+(\\d+)\\s+R\\b)`, 'g')
+  for (const match of text.matchAll(pattern)) {
+    if (match[2]) {
+      const found = pdfStringAt(text, match[1], (match.index ?? 0) + match[0].length - 1)
+      if (found) out.push(found)
+      continue
+    }
+    // Cada objecte es busca un sol cop, i amb un sostre: cada cerca recorre el
+    // fitxer sencer, i un PDF fet expressament en podria encadenar milers.
+    const reference = `${match[3]} ${match[4]}`
+    if (resolved.has(reference) || resolved.size >= 64) continue
+    resolved.add(reference)
+    const object = new RegExp(`(?:^|[^0-9])${match[3]}\\s+${match[4]}\\s+obj\\s*`, 'g')
+    for (const target of text.matchAll(object)) {
+      const found = pdfStringAt(text, match[1], (target.index ?? 0) + target[0].length)
+      if (found) out.push(found)
+    }
   }
   return out
 }

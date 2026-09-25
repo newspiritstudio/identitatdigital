@@ -25,6 +25,13 @@ import { ScoringMethodologies } from './collections/ScoringMethodologies'
 import { Sources } from './collections/Sources'
 import { Users } from './collections/Users'
 
+/*
+ * Una variable buida o mal escrita no pot acabar en `maxPoolSize: 0`, que per
+ * al controlador de MongoDB vol dir «sense límit».
+ */
+const configuredPool = Number.parseInt(process.env.MONGODB_MAX_POOL_SIZE ?? '', 10)
+const maxPoolSize = Number.isInteger(configuredPool) && configuredPool > 0 ? configuredPool : 25
+
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
@@ -93,8 +100,8 @@ export default buildConfig({
   db: mongooseAdapter({
     url: env.databaseUri || '',
     connectOptions: {
-      maxPoolSize: Number(process.env.MONGODB_MAX_POOL_SIZE ?? '25'),
-      minPoolSize: 5,
+      maxPoolSize,
+      minPoolSize: Math.min(5, maxPoolSize),
       maxIdleTimeMS: 30000,
       serverSelectionTimeoutMS: 5000,
     },

@@ -37,7 +37,11 @@ const notFound = (): Response =>
       disponibles: DATASETS.map((dataset) => dataset.key),
       manifest: '/dades/index.json',
     }),
-    { status: 404, headers: headers('application/json; charset=utf-8') },
+    {
+      status: 404,
+      // Un 404 no s'ha de quedar a la memòria cau: el conjunt pot aparèixer.
+      headers: { ...headers('application/json; charset=utf-8'), 'Cache-Control': 'no-store' },
+    },
   )
 
 export async function GET(

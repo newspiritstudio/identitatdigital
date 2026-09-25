@@ -19,17 +19,20 @@ type Props = {
   apps: App[]
 }
 
+// Sense accents ni majúscules: qui escriu «viquipedia» també ha de trobar la
+// Viquipèdia.
+const fold = (text: string) =>
+  text.normalize('NFD').replace(/\p{Diacritic}/gu, '').toLowerCase()
+
 export default function AppsGrid({ apps }: Props) {
   const [search, setSearch] = useState('')
 
   const filteredApps = useMemo(() => {
-    const query = search.trim().toLowerCase()
+    const query = fold(search.trim())
 
     if (!query) return apps
 
-    return apps.filter((app) =>
-      app.name.toLowerCase().includes(query),
-    )
+    return apps.filter((app) => fold(app.name).includes(query))
   }, [apps, search])
 
   return (
@@ -48,6 +51,15 @@ export default function AppsGrid({ apps }: Props) {
         />
       </div>
 
+      {/* Qui fa servir un lector de pantalla no veu com es filtra la graella. */}
+      <p className="visually-hidden" role="status">
+        {search.trim()
+          ? filteredApps.length === 1
+            ? '1 aplicació trobada'
+            : `${filteredApps.length} aplicacions trobades`
+          : ''}
+      </p>
+
       <div className="apps-grid">
         {filteredApps.map((app) => {
           const logo =
@@ -63,6 +75,9 @@ export default function AppsGrid({ apps }: Props) {
             >
               <div className="app-card-logo">
                 {logo?.url ? (
+                  // Miniatura de 128 px ja retallada per Payload i servida amb
+                  // memòria cau llarga: l'optimitzador de Next no hi afegiria res.
+                  // eslint-disable-next-line @next/next/no-img-element
                   <img
                     src={logo.url}
                     alt=""
@@ -83,7 +98,7 @@ export default function AppsGrid({ apps }: Props) {
 
       {filteredApps.length === 0 && (
         <p className="apps-empty">
-          No s'han trobat aplicacions.
+          No s’han trobat aplicacions.
         </p>
       )}
     </>

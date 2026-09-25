@@ -1,6 +1,6 @@
 import type { CollectionConfig } from 'payload'
 
-import { isAdmin, isEditor, isPublic } from '@/lib/access'
+import { isAdmin, isEditor, publishedOrEditor } from '@/lib/access'
 
 /**
  * Versions publicades de la metodologia de puntuació.
@@ -21,7 +21,8 @@ export const ScoringMethodologies: CollectionConfig = {
   },
   versions: { drafts: { autosave: false }, maxPerDoc: 20 },
   access: {
-    read: isPublic,
+    // Una versió en esborrany encara no és la metodologia de ningú.
+    read: publishedOrEditor,
     create: isAdmin,
     update: isEditor,
     delete: isAdmin,

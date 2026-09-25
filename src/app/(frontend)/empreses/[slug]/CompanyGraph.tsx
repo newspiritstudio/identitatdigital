@@ -350,10 +350,6 @@ export function CompanyGraph({
       }
     }
 
-    const totalWidth =
-      subtreeWidth.get(rootId) ??
-      NODE_WIDTH
-
     position(
       rootId,
       0,

@@ -115,6 +115,13 @@ const dataRows = (app: unknown): DataCollectionRow[] => {
 }
 
 /**
+ * Una fila «desconegut» no diu que el servei no reculli la dada: si totes les
+ * files ho són, l'indicador és desconegut i no un «no recull res» perfecte.
+ */
+const isKnownRow = (row: DataCollectionRow): boolean =>
+  row.status === 'yes' || row.status === 'optional' || row.status === 'no'
+
+/**
  * Minimització: la suma de sensibilitats de les dades recollides es normalitza
  * contra un sostre. Les dades marcades com a opcionals pesen la meitat, perquè
  * la persona pot decidir no aportar-les.
@@ -122,7 +129,7 @@ const dataRows = (app: unknown): DataCollectionRow[] => {
 const dataVolumeIndicator = (app: unknown, ctx: ScoringContext): IndicatorOutcome => {
   const rows = dataRows(app)
   const scored = rows.filter((row) => row.status === 'yes' || row.status === 'optional')
-  if (rows.length === 0) return custom('data-volume', null, true, 'unknown')
+  if (!rows.some(isKnownRow)) return custom('data-volume', null, true, 'unknown')
 
   let total = 0
   for (const row of scored) {
@@ -143,7 +150,7 @@ const dataVolumeIndicator = (app: unknown, ctx: ScoringContext): IndicatorOutcom
 
 const dataSensitivityIndicator = (app: unknown, ctx: ScoringContext): IndicatorOutcome => {
   const rows = dataRows(app).filter((row) => row.status === 'yes' || row.status === 'optional')
-  if (dataRows(app).length === 0) return custom('data-sensitivity', null, true, 'unknown')
+  if (!dataRows(app).some(isKnownRow)) return custom('data-sensitivity', null, true, 'unknown')
 
   let maxSensitivity = 0
   let specialCount = 0
@@ -253,8 +260,9 @@ const incidentIndicator = (app: unknown, ctx: ScoringContext): IndicatorOutcome 
   let penalty = 0
   for (const incident of ctx.incidents) {
     const severity = SEVERITY_PENALTY[incident.severity ?? 'medium'] ?? 0.12
-    const occurred = incident.occurredAt ? new Date(incident.occurredAt) : null
-    const years = occurred ? (now.getTime() - occurred.getTime()) / (365.25 * 24 * 3600 * 1000) : 0
+    // Una data il·legible compta com una data absent: pes sencer.
+    const occurred = incident.occurredAt ? new Date(incident.occurredAt).getTime() : Number.NaN
+    const years = Number.isNaN(occurred) ? 0 : (now.getTime() - occurred) / (365.25 * 24 * 3600 * 1000)
     const decay = years <= 2 ? 1 : years <= 5 ? 0.6 : 0.25
     penalty += severity * decay
   }
@@ -301,6 +309,7 @@ const EXPORT_FORMAT_VALUES: Record<string, number> = {
 const deletionUrlIndicator = (app: unknown): IndicatorOutcome => {
   const possible = get(app, 'accountDeletion.possible') as FactLike
   const status = typeof possible?.status === 'string' ? possible.status : 'unknown'
+  if (status === 'na') return custom('deletion-direct-url', null, false, level(possible))
   if (status === 'unknown') return custom('deletion-direct-url', null, true, level(possible))
   // L'adreça pot estar al bloc d'eliminació o al d'enllaços oficials: per a la
   // persona lectora és la mateixa cosa, i qui edita la fitxa no ha d'endevinar
@@ -309,7 +318,12 @@ const deletionUrlIndicator = (app: unknown): IndicatorOutcome => {
   return custom('deletion-direct-url', url ? 1 : 0.35, true, level(possible))
 }
 
+/** Si esborrar el compte no aplica (no hi ha compte), tampoc no n'aplica el com. */
+const deletionNotApplicable = (app: unknown): boolean =>
+  (get(app, 'accountDeletion.possible') as FactLike)?.status === 'na'
+
 const deletionDifficultyIndicator = (app: unknown): IndicatorOutcome => {
+  if (deletionNotApplicable(app)) return custom('deletion-difficulty', null, false, 'unknown')
   const difficulty = get(app, 'accountDeletion.difficulty')
   if (typeof difficulty !== 'string' || !(difficulty in DIFFICULTY_VALUES)) {
     return custom('deletion-difficulty', null, true, 'unknown')
@@ -323,6 +337,7 @@ const deletionDifficultyIndicator = (app: unknown): IndicatorOutcome => {
 }
 
 const deletionWaitingIndicator = (app: unknown): IndicatorOutcome => {
+  if (deletionNotApplicable(app)) return custom('deletion-waiting', null, false, 'unknown')
   const days = get(app, 'accountDeletion.waitingPeriodDays')
   if (typeof days !== 'number') return custom('deletion-waiting', null, true, 'unknown')
   const value = days <= 7 ? 1 : days <= 30 ? 0.75 : days <= 90 ? 0.45 : 0.2
@@ -355,6 +370,7 @@ const selectIndicator = (
 const darkPatternsIndicator = (app: unknown): IndicatorOutcome => {
   const fact = get(app, 'controls.darkPatterns') as FactLike
   const status = typeof fact?.status === 'string' ? fact.status : 'unknown'
+  if (status === 'na') return custom('dark-patterns', null, false, level(fact))
   if (status === 'unknown') return custom('dark-patterns', null, true, level(fact))
   if (status === 'no') return custom('dark-patterns', 1, true, level(fact))
   const documented = get(app, 'controls.darkPatternList')
@@ -369,6 +385,7 @@ const darkPatternsIndicator = (app: unknown): IndicatorOutcome => {
 const exportFormatIndicator = (app: unknown): IndicatorOutcome => {
   const exportFact = get(app, 'userRights.dataExport') as FactLike
   const status = typeof exportFact?.status === 'string' ? exportFact.status : 'unknown'
+  if (status === 'na') return custom('export-formats', null, false, level(exportFact))
   if (status === 'unknown') return custom('export-formats', null, true, level(exportFact))
   if (status === 'no') return custom('export-formats', 0, true, level(exportFact))
   const quality = get(app, 'userRights.exportFormatQuality')

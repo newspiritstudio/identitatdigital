@@ -8,6 +8,7 @@ import { getClient } from '../../lib'
 import '../eines.css'
 import { buildCredentialsIndex } from './catalog'
 import EmailCheck from './EmailCheck'
+import OwnPolicyReload from './OwnPolicyReload'
 import PasswordTool from './PasswordTool'
 
 export const dynamic = 'force-dynamic'
@@ -35,6 +36,7 @@ export default async function CredentialsPage() {
 
   return (
     <div className="content-wrapper">
+      <OwnPolicyReload />
       <div className="text-page tool-page">
         <p className="meta">
           <Link href="/eines">Eines</Link>

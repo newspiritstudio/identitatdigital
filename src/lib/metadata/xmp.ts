@@ -37,14 +37,18 @@ const PROPERTIES: Property[] = [
   { names: ['xmpMM:DocumentID', 'xmpMM:OriginalDocumentID'], label: 'Identificador del document original', group: 'other', risk: 'low', why: 'Permet lligar aquest fitxer amb altres versions del mateix original.' },
 ]
 
+// Una entitat fora de rang (`&#99999999;`) no pot fer caure tota la lectura:
+// es descarta aquell caràcter i prou.
+const codePoint = (code: number) => (code >= 0 && code <= 0x10ffff ? String.fromCodePoint(code) : '')
+
 const decodeEntities = (value: string) =>
   value
     .replace(/&lt;/g, '<')
     .replace(/&gt;/g, '>')
     .replace(/&quot;/g, '"')
     .replace(/&apos;/g, "'")
-    .replace(/&#(\d+);/g, (_, code: string) => String.fromCodePoint(Number(code)))
-    .replace(/&#x([0-9a-f]+);/gi, (_, code: string) => String.fromCodePoint(Number.parseInt(code, 16)))
+    .replace(/&#(\d+);/g, (_, code: string) => codePoint(Number(code)))
+    .replace(/&#x([0-9a-f]+);/gi, (_, code: string) => codePoint(Number.parseInt(code, 16)))
     .replace(/&amp;/g, '&')
 
 const escapeName = (name: string) => name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
