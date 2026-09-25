@@ -6,6 +6,7 @@ import { loadCorpus, localizedText } from '@/lib/analysis'
 import { FLAG_LABELS, buildProcurementSheet, type FlagLevel } from '@/lib/procurement'
 
 import { getClient } from '../../lib'
+import { comparabilityLabel } from '@/lib/labels'
 
 export const dynamic = 'force-dynamic'
 
@@ -144,7 +145,7 @@ export default async function ProcurementPage({
                 <Link href={`/institucions/${alternative.slug}`}>{alternative.name}</Link>
                 {alternative.comparability === null
                   ? null
-                  : ` — comparabilitat: ${alternative.comparability}`}
+                  : ` — ${comparabilityLabel(alternative.comparability)?.toLowerCase()}`}
               </li>
             ))}
           </ul>

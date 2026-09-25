@@ -17,6 +17,8 @@ import { apps as baseApps } from '../src/seed/apps'
 import { companies as baseCompanies } from '../src/seed/companies'
 import { incidents as baseIncidents } from '../src/seed/incidents'
 import { sources as baseSources } from '../src/seed/sources'
+import { countryCodes } from '../src/lib/countries'
+import { supervisoryAuthorities } from '../src/lib/supervisory-authorities'
 import { appStoreBundleIds } from '../src/seed/store-ids'
 import { categories, dataTypes, purposes } from '../src/seed/taxonomies'
 import { wave2 } from '../src/seed/onada2'
@@ -218,6 +220,11 @@ for (const company of companies) {
   ref(w, 'companies', company.parent)
   oneOf(`${w}.ownership`, company.ownership, ['public', 'private', 'subsidiary', 'nonprofit', 'community', 'state', 'unknown'])
   oneOf(`${w}.primaryRevenueModel`, company.primaryRevenueModel, ['advertising', 'subscription', 'freemium', 'mixed', 'commerce', 'cloud', 'hardware', 'donations', 'unknown'])
+  oneOf(`${w}.headquartersCountry`, company.headquartersCountry, countryCodes)
+  oneOf(`${w}.leadSupervisoryAuthority`, company.leadSupervisoryAuthority, supervisoryAuthorities.map(({ value }) => value))
+  if (company.ownership === 'subsidiary' && !company.parent && !company.parentGroup)
+    err(w, 'filial sense matriu ni parentGroup')
+  if (company.parent && company.parentGroup) err(w, 'parentGroup sobra quan hi ha matriu')
 }
 
 for (const source of sources) {

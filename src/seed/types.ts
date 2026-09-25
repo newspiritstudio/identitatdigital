@@ -50,10 +50,15 @@ export type CompanySeed = {
   name: string
   legalName?: string
   parent?: string
+  /** Nom del grup quan és filial d'un grup que encara no és al directori. */
+  parentGroup?: string
   description?: string
+  /** Codi ISO 3166-1 alfa-2. */
   headquartersCountry?: string
   euEstablishment?: string
+  /** Codi de `src/lib/supervisory-authorities.ts`. */
   leadSupervisoryAuthority?: string
+  supervisoryNote?: string
   ownership?: string
   foundedYear?: number
   primaryRevenueModel?: string

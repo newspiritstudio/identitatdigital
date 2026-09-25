@@ -444,7 +444,7 @@ const readCorpus = async (
       where: { _status: { equals: 'published' } },
       sort: 'name',
     }),
-    payload.find({ collection: 'companies', ...common, sort: 'name' }),
+    payload.find({ collection: 'companies', ...common, joins: false, sort: 'name' }),
     payload.find({ collection: 'data-types', ...common, sort: 'slug' }),
     payload.find({ collection: 'categories', ...common, sort: 'slug' }),
     payload.find({ collection: 'incidents', ...common, sort: 'occurredAt' }),

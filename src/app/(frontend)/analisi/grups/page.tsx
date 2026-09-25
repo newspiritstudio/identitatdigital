@@ -15,6 +15,7 @@ import {
   millions,
   num,
 } from '../parts'
+import { countryName } from '@/lib/countries'
 
 export const dynamic = 'force-dynamic'
 
@@ -123,7 +124,7 @@ export default async function GroupsPage() {
                   <Bar value={group.dataTypeCount} total={corpus.dataTypes.length} faint />
                 </td>
                 <td className="meta">{num(group.companies.length)}</td>
-                <td className="meta">{group.headquartersCountry ?? '—'}</td>
+                <td className="meta">{countryName(group.headquartersCountry) ?? '—'}</td>
                 <td className="meta">
                   {REVENUE_LABELS[group.primaryRevenueModel ?? 'unknown'] ?? '—'}
                 </td>

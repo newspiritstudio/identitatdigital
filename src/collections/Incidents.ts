@@ -2,6 +2,7 @@ import type { CollectionConfig } from 'payload'
 
 import { isEditor, isPublic } from '@/lib/access'
 import { slugField } from '@/fields/slug'
+import { incidentSeverityOptions, regulatoryStatusOptions } from '@/lib/labels'
 
 /**
  * Bretxes, sancions i usos indeguts documentats.
@@ -90,12 +91,7 @@ export const Incidents: CollectionConfig = {
             description:
               'Baixa: sense dades personals afectades. Mitjana: dades de contacte. Alta: dades sensibles o milions de persones. Crítica: dades sensibles a gran escala o incompliment sistèmic.',
           },
-          options: [
-            { label: 'Baixa', value: 'low' },
-            { label: 'Mitjana', value: 'medium' },
-            { label: 'Alta', value: 'high' },
-            { label: 'Crítica', value: 'critical' },
-          ],
+          options: incidentSeverityOptions,
         },
       ],
     },
@@ -168,12 +164,7 @@ export const Incidents: CollectionConfig = {
           name: 'status',
           label: 'Estat',
           type: 'select',
-          options: [
-            { label: 'Ferma', value: 'final' },
-            { label: 'Recorreguda', value: 'appealed' },
-            { label: 'Anul·lada o reduïda', value: 'overturned' },
-            { label: 'En tramitació', value: 'ongoing' },
-          ],
+          options: regulatoryStatusOptions,
         },
       ],
     },

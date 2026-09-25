@@ -57,7 +57,7 @@ export const lot: SeedLot = {
         'Societat xipriota amb domicili a Nicòsia, responsable del tractament de les dades de l’aplicació CoinIn. En ser establerta a la Unió Europea, li correspon l’autoritat de protecció de dades de Xipre.',
       headquartersCountry: 'CY',
       euEstablishment: 'CY',
-      leadSupervisoryAuthority: 'Office of the Commissioner for Personal Data Protection (Xipre)',
+      leadSupervisoryAuthority: 'cpdp-cy',
       ownership: 'private',
       primaryRevenueModel: 'freemium',
       website: 'https://coininapp.com/',

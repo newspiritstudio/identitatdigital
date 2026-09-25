@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
 
-import { getClient } from '../lib'
+import { STATUS_LABELS, getClient } from '../lib'
 import { at, factStatus, loadCorpus } from '@/lib/analysis'
 import type { App, Company, DataType } from '@/payload-types'
 
@@ -124,7 +124,7 @@ export default async function QueriesPage() {
       <ul>
         {noE2ee.map((app) => (
           <li key={app.id}>
-            <AppLink app={app} /> <span className="badge">{app.security?.e2ee?.status}</span>
+            <AppLink app={app} /> <span className="badge">{STATUS_LABELS[app.security?.e2ee?.status ?? 'unknown']}</span>
           </li>
         ))}
       </ul>

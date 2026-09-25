@@ -4,6 +4,7 @@ import { isEditor, publishedOrEditor } from '@/lib/access'
 import { evidencedFact, evidenceLevelOptions } from '@/fields/evidence'
 import { slugField } from '@/fields/slug'
 import { recalculateScores, recordScoreSnapshot } from '@/lib/scoring/hook'
+import { darkPatternSeverityOptions, darkPatternTypeOptions, researchStatusOptions } from '@/lib/labels'
 
 /**
  * Fitxa d'una aplicació, plataforma o servei digital.
@@ -1013,15 +1014,7 @@ export const Apps: CollectionConfig = {
                           label: 'Tipus',
                           type: 'select',
                           admin: { width: '60%' },
-                          options: [
-                            { label: 'Consentiment desequilibrat', value: 'unbalanced-consent' },
-                            { label: 'Camí de sortida amagat', value: 'hidden-exit' },
-                            { label: 'Insistència repetida', value: 'nagging' },
-                            { label: 'Llenguatge confús', value: 'confusing-language' },
-                            { label: 'Opcions preseleccionades', value: 'preselected' },
-                            { label: 'Culpabilització', value: 'confirmshaming' },
-                            { label: 'Altres', value: 'other' },
-                          ],
+                          options: darkPatternTypeOptions,
                         },
                         {
                           name: 'severity',
@@ -1029,11 +1022,7 @@ export const Apps: CollectionConfig = {
                           type: 'select',
                           defaultValue: 'medium',
                           admin: { width: '40%' },
-                          options: [
-                            { label: 'Baixa', value: 'low' },
-                            { label: 'Mitjana', value: 'medium' },
-                            { label: 'Alta', value: 'high' },
-                          ],
+                          options: darkPatternSeverityOptions,
                         },
                       ],
                     },
@@ -1264,11 +1253,7 @@ export const Apps: CollectionConfig = {
                       defaultValue: 'initial',
                       index: true,
                       admin: { width: '50%' },
-                      options: [
-                        { label: 'Inicial — falten apartats', value: 'initial' },
-                        { label: 'Documentada — apartats principals amb font', value: 'documented' },
-                        { label: 'En profunditat — revisada i contrastada', value: 'in-depth' },
-                      ],
+                      options: researchStatusOptions,
                     },
                     {
                       name: 'lastReviewedAt',

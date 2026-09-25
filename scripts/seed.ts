@@ -242,16 +242,30 @@ async function seed() {
 
   console.log(`Empreses (${companies.length})…`)
   for (const company of companies) {
-    const { slug, parent: _parent, productDomains, ...data } = company
+    const { slug, parent, ownership, productDomains, ...data } = company
     await upsert(payload, 'companies', slug, {
       ...data,
+      // Els camps normalitzats s'escriuen sempre, també buits, perquè un valor
+      // antic de text lliure que quedi a la base de dades no faci fallar la
+      // validació dels desplegables.
+      parentGroup: company.parentGroup ?? null,
+      headquartersCountry: company.headquartersCountry ?? null,
+      euEstablishment: company.euEstablishment ?? null,
+      leadSupervisoryAuthority: company.leadSupervisoryAuthority ?? null,
+      supervisoryNote: company.supervisoryNote ?? null,
+      // Una filial no es pot desar sense matriu, i la matriu s'assigna a la
+      // segona passada, quan ja existeixen totes les empreses.
+      ...(parent ? {} : { ownership }),
       // El camp és un array d'objectes a Payload, però al seed s'escriu com a
       // llista plana de dominis perquè llegir-ho i mantenir-ho sigui barat.
       ...(productDomains ? { productDomains: productDomains.map((domain) => ({ domain })) } : {}),
     })
   }
   for (const company of companies.filter((entry) => entry.parent)) {
-    await upsert(payload, 'companies', company.slug, { parent: id('companies', company.parent) })
+    await upsert(payload, 'companies', company.slug, {
+      parent: id('companies', company.parent),
+      ownership: company.ownership,
+    })
   }
 
   console.log('Metodologia de puntuació…')

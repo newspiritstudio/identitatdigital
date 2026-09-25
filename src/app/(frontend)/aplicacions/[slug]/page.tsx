@@ -10,6 +10,8 @@ import AnimatedGlobalScore from './AnimatedGlobalScore'
 import { Fact, Logo, STATUS_LABELS, Score, getClient } from '../../lib'
 import { breachMatchesApp, relationId } from '@/lib/analysis'
 import type { App, Breach, Category, Company, DataType, Incident, ProcessingPurpose } from '@/payload-types'
+import { countryName } from '@/lib/countries'
+import { darkPatternTypeLabel, regulatoryStatusLabel, researchStatusLabel, severityLabel } from '@/lib/labels'
 
 export const dynamic = 'force-dynamic'
 
@@ -168,6 +170,7 @@ export default async function AppPage({ params }: { params: Promise<{ slug: stri
       currentCompany = null
       const parentCompany = await payload.find({
         collection: 'companies',
+        joins: false,
         where: { id: { equals: parentRef } },
         limit: 1,
         depth: 1,
@@ -267,7 +270,7 @@ export default async function AppPage({ params }: { params: Promise<{ slug: stri
         {(app.company as Company).headquartersCountry ? (
           <>
             {/*<dt>Seu</dt>*/}
-            <dd>{(app.company as Company).headquartersCountry}</dd>
+            <dd>{countryName((app.company as Company).headquartersCountry)}</dd>
           </>
         ) : null}
 
@@ -466,7 +469,7 @@ export default async function AppPage({ params }: { params: Promise<{ slug: stri
                 <ul>
                   {(app.controls?.darkPatternList ?? []).map((pattern) => (
                     <li key={pattern.id}>
-                      <strong>{pattern.type}</strong> ({pattern.severity}): {pattern.description}
+                      <strong>{darkPatternTypeLabel(pattern.type)}</strong> (gravetat {severityLabel(pattern.severity)?.toLowerCase()}): {pattern.description}
                     </li>
                   ))}
                 </ul>
@@ -798,13 +801,13 @@ export default async function AppPage({ params }: { params: Promise<{ slug: stri
                 <tr key={incident.id}>
                   <td>{String(incident.occurredAt).slice(0, 4)}</td>
                   <td>{incident.title}</td>
-                  <td>{incident.severity}</td>
+                  <td>{severityLabel(incident.severity)}</td>
                   <td>
                     {incident.regulatory?.fineAmountEur
                       ? `${incident.regulatory.fineAmountEur.toLocaleString('ca-ES')} €`
                       : '—'}
                   </td>
-                  <td>{incident.regulatory?.status ?? '—'}</td>
+                  <td>{regulatoryStatusLabel(incident.regulatory?.status) ?? '—'}</td>
                 </tr>
               ))}
             </tbody>
@@ -873,7 +876,7 @@ export default async function AppPage({ params }: { params: Promise<{ slug: stri
 
       <h2>Revisió editorial</h2>
       <p className="meta">
-        Estat de la recerca: {app.review?.researchStatus ?? '—'}. Darrera revisió:{' '}
+        Estat de la recerca: {researchStatusLabel(app.review?.researchStatus)?.toLowerCase() ?? '—'}. Darrera revisió:{' '}
         {app.review?.lastReviewedAt ? String(app.review.lastReviewedAt).slice(0, 10) : '—'}.
       </p>
      {/* {app.review?.editorialNotes ? <p>{app.review.editorialNotes}</p> : null}

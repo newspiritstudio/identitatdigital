@@ -24,7 +24,7 @@ export const lot: SeedLot = {
         'Empresa sueca que desenvolupa SCRL, una aplicació de collages i carrusels per a xarxes socials.',
       headquartersCountry: 'SE',
       euEstablishment: 'Appostrophe AB, Estocolm (Suècia), número d’organització 559065-5048',
-      leadSupervisoryAuthority: 'Integritetsskyddsmyndigheten (IMY), Suècia',
+      leadSupervisoryAuthority: 'imy-se',
       ownership: 'private',
       primaryRevenueModel: 'subscription',
       website: 'https://scrl.com',
@@ -38,8 +38,7 @@ export const lot: SeedLot = {
       description:
         'Grup nord-americà de productes fotogràfics personalitzats. Opera FreePrints, FreePrints Photobooks, Personal Creations i CaféPress.',
       headquartersCountry: 'US',
-      euEstablishment:
-        'Sense establiment propi a la Unió Europea: ha designat representants a l’empara de l’article 27 del RGPD (ITG EU i GRCI Law) i allotja les dades europees a servidors d’AWS a Irlanda.',
+      euEstablishment: 'Sense establiment propi a la Unió Europea: ha designat representants a l’empara de l’article 27 del RGPD (ITG EU i GRCI Law) i allotja les dades europees a servidors d’AWS a Irlanda.',
       ownership: 'private',
       primaryRevenueModel: 'commerce',
       website: 'https://www.freeprintsapp.es',
@@ -79,7 +78,7 @@ export const lot: SeedLot = {
         'Societat xipriota responsable de FaceApp, l’editor de retrats amb filtres d’envelliment, canvi de gènere i somriure. El desenvolupament original prové de l’empresa russa Wireless Lab.',
       headquartersCountry: 'CY',
       euEstablishment: 'FaceApp Technology Limited, Limassol (Xipre)',
-      leadSupervisoryAuthority: 'Commissioner for Personal Data Protection, Xipre',
+      leadSupervisoryAuthority: 'cpdp-cy',
       ownership: 'private',
       primaryRevenueModel: 'freemium',
       website: 'https://www.faceapp.com',
@@ -132,7 +131,7 @@ export const lot: SeedLot = {
         'Filial europea del grup Epson, amb seu a Amsterdam. És la responsable del tractament de les dades de les persones usuàries europees.',
       headquartersCountry: 'NL',
       euEstablishment: 'Epson Europe B.V., Amsterdam (Països Baixos)',
-      leadSupervisoryAuthority: 'Autoriteit Persoonsgegevens, Països Baixos',
+      leadSupervisoryAuthority: 'ap-nl',
       ownership: 'subsidiary',
       primaryRevenueModel: 'hardware',
       website: 'https://www.epson.eu',
@@ -155,8 +154,7 @@ export const lot: SeedLot = {
       description:
         'Empresa canadenca que opera la plataforma de lectura i escriptura social Wattpad, dins de la família de marques Wattpad i WEBTOON.',
       headquartersCountry: 'CA',
-      euEstablishment:
-        'Sense establiment propi a la Unió Europea: ha designat un representant a l’article 27 (DataRep, Dublín).',
+      euEstablishment: 'Sense establiment propi a la Unió Europea: ha designat un representant a l’article 27 (DataRep, Dublín).',
       ownership: 'private',
       primaryRevenueModel: 'mixed',
       website: 'https://www.wattpad.com',

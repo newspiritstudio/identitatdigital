@@ -537,6 +537,7 @@ async function fetchBreaches(): Promise<HibpBreach[]> {
 async function loadCompanyIndex(payload: Payload): Promise<CompanyIndexEntry[]> {
   const companies = await payload.find({
     collection: 'companies',
+    joins: false,
     limit: 0,
     pagination: false,
     depth: 0,
