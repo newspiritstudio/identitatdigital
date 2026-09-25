@@ -342,6 +342,10 @@ body:has(.apps-search-page) {
   box-shadow: 0 1px 3px rgb(0 0 0 / 15%);
 }
 
+:root[data-theme='dark'] .alternative-score{
+  color: black;
+}
+
 /* ------------------------------------------------------------------------
    Resum
    ------------------------------------------------------------------------ */
@@ -533,7 +537,7 @@ body:has(.apps-search-page) {
   place-items: center;
   margin: -0.25rem -0.25rem 0 0;
   border: 1px solid rgb(255 255 255 / 55%);
-  border-radius: 999px;
+  border-radius: 8px;
   background: transparent;
   color: #fff;
   font: inherit;
@@ -544,6 +548,15 @@ body:has(.apps-search-page) {
     background-color 120ms ease,
     border-color 120ms ease,
     transform 120ms ease;
+    position:absolute;
+
+    top: 20px;
+right: 20px;
+position: absolute !important; 
+background: linear-gradient(135deg, var(--header-surface), #ffffff14);
+color: var(--text);
+box-shadow: 0 12px 30px #0000002e;
+-webkit-backdrop-filter: blur(30px) saturate(180%);
 }
 
 .dialog-close:hover {
@@ -564,9 +577,9 @@ body:has(.apps-search-page) {
    MODAL — ELIMINACIÓ DEL COMPTE
    ======================================================================== */
 
-.deletion-dialog {
-  width: min(48rem, calc(100% - 2rem));
-  max-height: min(86vh, 56rem);
+.deletion-dialog, .details-dialog {
+  width: min(48rem, calc(100% - 2rem)) !important;
+  max-height: min(86vh, 56rem) !important;
 }
 
 .deletion-dialog-inner {
@@ -872,6 +885,7 @@ body:has(.apps-search-page) {
 button.deletion-action {
   background-color: var(--bad);
   color: white !important;
+  font-size: .88rem;
 }
 
 button.deletion-action:hover {

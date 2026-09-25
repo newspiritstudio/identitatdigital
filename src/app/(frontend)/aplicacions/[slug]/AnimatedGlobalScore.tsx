@@ -41,10 +41,10 @@ export default function AnimatedGlobalScore({ value }: Props) {
   // 3 colors segons la puntuació
   const scoreColor =
     target >= 70
-      ? '#16a34a' // verd
+      ? 'var(--good)' // verd
       : target >= 40
-        ? '#f59e0b' // taronja
-        : '#dc2626' // vermell
+        ? 'var(--mid)' // taronja
+        : 'var(--bad)' // vermell
 
   return (
     <div

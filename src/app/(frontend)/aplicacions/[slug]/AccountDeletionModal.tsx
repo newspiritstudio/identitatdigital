@@ -72,6 +72,14 @@ export default function AccountDeletionModal({
         <div className="deletion-dialog-inner">
 
           {/* CAPÇALERA */}
+          <button
+              type="button"
+              className="dialog-close"
+              onClick={closeDialog}
+              aria-label="Tancar"
+            >
+              <span aria-hidden="true">×</span>
+            </button>
 
           <header className="deletion-dialog-header">
             <div>
@@ -85,14 +93,7 @@ export default function AccountDeletionModal({
               </p>
             </div>
 
-            <button
-              type="button"
-              className="dialog-close"
-              onClick={closeDialog}
-              aria-label="Tancar"
-            >
-              <span aria-hidden="true">×</span>
-            </button>
+            
           </header>
 
           {/* RESUM */}

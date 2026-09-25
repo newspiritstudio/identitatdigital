@@ -318,7 +318,7 @@ export default async function AppPage({ params }: { params: Promise<{ slug: stri
             Metodologia {scores?.methodologyVersion ?? '—'}. Cobertura documentada del{' '}
             {typeof scores?.coverage === 'number' ? Math.round(scores.coverage * 100) : '—'} % dels indicadors aplicables.
             {scores?.provisional ? ' Puntuació provisional: encara no en sabem prou.' : ''}{' '}
-            <Link href="/metodologia">Com es calcula</Link>
+            <Link href="/metodologia" style={{textDecoration: "underline"}}>Com es calcula</Link>
           </p>
         </section>
 
@@ -345,14 +345,14 @@ export default async function AppPage({ params }: { params: Promise<{ slug: stri
                 </a>
               </li>
             ) : null}
-            {app.links?.appStore ? (
+            {/*{app.links?.appStore ? (
               <li>
                 <a href={app.links.appStore} target="_blank" rel="noreferrer" className="applink action">
                   App Store 
                   <span className="visually-hidden"> (s’obre en una pestanya nova)</span>
                 </a>
               </li>
-            ) : null}
+            ) : null}*/}
             {app.links?.dataExport ? (
               <li>
                 <a href={app.links.dataExport} target="_blank" rel="noreferrer" className="applink action">
@@ -499,7 +499,7 @@ export default async function AppPage({ params }: { params: Promise<{ slug: stri
         </AppDetailsModal>
       </div>
 
-      <p>{app.summary}</p>
+      <p style={{marginTop:'0px'}}>{app.summary}</p>
       <div className="highlight-grid-list">
         <div className="highlight-item">
           <span className="highlight-label">Recull dades</span>
@@ -628,10 +628,10 @@ export default async function AppPage({ params }: { params: Promise<{ slug: stri
 
             const scoreColor =
               score >= 70
-                ? '#16a34a'
+                ? 'var(--good)'
                 : score >= 40
-                  ? '#f59e0b'
-                  : '#dc2626'
+                  ? 'var(--mid)'
+                  : 'var(--bad)'
 
             return (
             <li key={alternative.id} className="card" style={{ marginBottom: '0.5rem' }}>
@@ -763,10 +763,10 @@ export default async function AppPage({ params }: { params: Promise<{ slug: stri
         </table>
       </div>
 
-      <dl>
+     {/* <dl>
         <Fact label="Cal un compte" fact={app.accountRequired} />
         <Fact label="Codi obert" fact={app.openSource} />
-      </dl>
+      </dl>*/}
 
       <h2>Incidents registrats</h2>
       {incidents.length === 0 ? (
@@ -876,7 +876,7 @@ export default async function AppPage({ params }: { params: Promise<{ slug: stri
         Estat de la recerca: {app.review?.researchStatus ?? '—'}. Darrera revisió:{' '}
         {app.review?.lastReviewedAt ? String(app.review.lastReviewedAt).slice(0, 10) : '—'}.
       </p>
-      {app.review?.editorialNotes ? <p>{app.review.editorialNotes}</p> : null}
+     {/* {app.review?.editorialNotes ? <p>{app.review.editorialNotes}</p> : null}
       {(app.review?.openQuestions ?? []).length > 0 ? (
         <>
           <h3>Preguntes obertes</h3>
@@ -886,7 +886,7 @@ export default async function AppPage({ params }: { params: Promise<{ slug: stri
             ))}
           </ul>
         </>
-      ) : null}
+      ) : null}*/}
         </section>
         </div>
 

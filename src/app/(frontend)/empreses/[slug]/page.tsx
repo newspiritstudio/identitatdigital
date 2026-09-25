@@ -124,8 +124,8 @@ export default async function CompanyPage({ params }: { params: Promise<{ slug: 
           <div className="company-page-body">
             {rootCompany && rootCompany.id !== company.id ? (
               <p className="company-page-group-meta">
-                Pertany al grup <Link href={`/empreses/${rootCompany.slug}`}>{rootCompany.name}</Link> via{' '}
-                <Link href={`/empreses/${company.slug}`}>{company.name}</Link>
+                Pertany al grup <Link href={`/empreses/${rootCompany.slug}`}>{rootCompany.name}</Link> {/*via{' '}
+                <Link href={`/empreses/${company.slug}`}>{company.name}</Link>*/}
               </p>
             ) : null}
 
@@ -146,7 +146,7 @@ export default async function CompanyPage({ params }: { params: Promise<{ slug: 
               {groupApps.map((app) => {
                 const score = Math.max(0, Math.min(100, Math.round(app.scores?.overall ?? 0)))
                 const scoreColor =
-                  score >= 70 ? '#16a34a' : score >= 40 ? '#f59e0b' : '#dc2626'
+                  score >= 70 ? 'var(--good)' : score >= 40 ? 'var(--mid)' : 'var(--bad)'
 
                 const companyName =
                   app.company && typeof app.company === 'object' && 'name' in app.company

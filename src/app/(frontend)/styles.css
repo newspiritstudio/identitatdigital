@@ -18,8 +18,8 @@
   --focus: #0b3d6e;
   --bg: #f1f1f1;
   --accent: #14508c;
-  --good: #1d6f42;
-  --mid: #8a6d1b;
+  --good: #13b15a;
+  --mid: #f59e0b;
   --bad: #a32020;
   --site-header-height: 104px;
   --header-surface: rgba(255, 255, 255, 0.22);
@@ -37,8 +37,8 @@
   --focus: #8ec5ff;
   --bg: #02080d;
   --accent: #dfefff;
-  --good: #a8f0c0;
-  --mid: #f2d48b;
+  --good: rgb(24, 251, 108);
+  --mid: rgb(255, 171, 28);
   --bad: rgb(255, 48, 48) ;
   --header-surface: rgba(255, 255, 255, 0.08);
   --header-border: rgba(255, 255, 255, 0.18);
@@ -204,6 +204,17 @@ a {
   text-decoration: none;
   color: var(--text);
   text-shadow: 0px 0px 10px rgba(240, 248, 255, 0.40);
+  letter-spacing: 1.5px;
+
+}
+
+.site-header .site-title{
+  font-size: 20px;
+}
+
+.site-header .site-title strong{
+  font-size: 20px !important;
+  letter-spacing: 1px;
 }
 
 
@@ -920,6 +931,26 @@ main > .apps-page-hero::before {
   border-radius: 50px;
   font: inherit;
   border: 1px solid var(--line);
+  z-index: 2;
+
+  background: linear-gradient(135deg, var(--header-surface), #ffffff14);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
+  border: 1px solid var(--header-border);
+  border-radius: 50px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: 60rem;
+  /* padding: 20px 28px; */
+  display: flex;
+  position: relative;
+  box-shadow: 0 12px 40px #00000024, inset 0 1px 1px #ffffff80, inset 0 -1px 1px #ffffff1a;
+}
+.apps-search input::placeholder{
+  color: var(--text);
+  font-width: 125%;
 }
 
 .apps-grid {
