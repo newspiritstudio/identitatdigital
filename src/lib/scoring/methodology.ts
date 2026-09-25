@@ -1,9 +1,10 @@
 /**
  * Metodologia de puntuació d'Identitat.digital.
  *
- * Aquest fitxer és la font de veritat: el document de metodologia que es
- * publica al CMS i la documentació de `docs/metodologia-scoring.md` es generen
- * a partir d'aquí. Si canvia un pes, canvia la versió.
+ * Aquest fitxer i `score.ts` són la font de veritat. El document que es publica
+ * al CMS (`src/seed/methodology.ts`) en llegeix els pesos, però
+ * `docs/metodologia-scoring.md` s'escriu a mà: si canvia un pes o un valor,
+ * cal actualitzar-lo i canviar la versió.
  *
  * Regles del càlcul:
  *
@@ -258,7 +259,7 @@ export const INDICATORS: IndicatorSpec[] = [
     weight: 14,
     label: 'Historial d’incidents',
     description:
-      'Bretxes i incidents documentats dels darrers cinc anys, ponderats per gravetat i antiguitat.',
+      'Bretxes i incidents documentats, ponderats per gravetat i antiguitat: els de més de cinc anys hi pesen un quart.',
   },
 
   // ─── Control de la persona usuària ────────────────────────────────────────

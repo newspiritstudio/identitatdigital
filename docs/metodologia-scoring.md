@@ -181,29 +181,34 @@ les grans plataformes publicitàries s'hi acostin i un servei de missatgeria
 xifrada quedi molt per sota. El valor de l'indicador és `1 − suma / 34`, acotat
 entre 0 i 1.
 
-**Sensibilitat de les dades.** Proporció de dades recollides amb sensibilitat 4
-o 5 sobre el total. Com més alta, pitjor.
+**Sensibilitat de les dades.** Parteix de la dada més sensible que es recull:
+fins a sensibilitat 2 val 1, i cada punt per sobre en resta un terç (sensibilitat
+5, 0). Cada categoria especial de l'article 9 del RGPD resta 0,15 més. Si totes
+les files de recollida són desconegudes, l'indicador és desconegut.
 
 **Vinculació a la identitat.** Proporció de dades recollides que queden lligades
 a una identitat concreta.
 
 **Xifratge d'extrem a extrem.** No és un sí o un no: es puntua l'abast declarat.
-Tot el contingut per defecte val 1; tot el contingut però cal activar-ho, 0,7;
-contingut sí i metadades no, 0,85; part del contingut per defecte, 0,55; part
-del contingut i cal activar-ho, 0,35; cap, 0.
+Tot el contingut per defecte val 1; contingut sí i metadades no, 0,8; part del
+contingut per defecte, 0,65; tot el contingut però cal activar-ho, 0,5; part del
+contingut i cal activar-ho, 0,35; cap, 0.
 
 **Verificació en dos passos.** Es puntua el millor mètode disponible: claus
-d'accés o clau física, 1; aplicació d'autenticació, 0,85; notificació a
+d'accés o clau física, 1; aplicació d'autenticació, 0,8; notificació a
 l'aplicació, 0,7; correu electrònic, 0,5; només SMS, 0,4.
 
 **Historial d'incidents.** Es parteix d'1 i es resta una penalització per cada
 incident: 0,05 si és de gravetat baixa, 0,12 si és mitjana, 0,25 si és alta i
 0,4 si és crítica. Cada penalització es multiplica per un factor temporal: 1 si
 l'incident té menys de dos anys, 0,6 si en té menys de cinc, 0,25 si en té més.
-Les sancions anul·lades en apel·lació es registren però no penalitzen.
+L'estat de la sanció (ferma, recorreguda, anul·lada o reduïda) es registra però
+encara no modula la penalització: l'opció «anul·lada o reduïda» no distingeix
+els dos casos.
 
-**Temps d'espera per eliminar.** Cap espera val 1; fins a set dies, 0,85; fins a
-trenta, 0,6; més de trenta, 0,3.
+**Temps d'espera per eliminar.** Fins a set dies val 1; fins a trenta, 0,75;
+fins a noranta, 0,45; més de noranta, 0,2. Si eliminar el compte no aplica, ni
+aquest indicador ni el de dificultat compten.
 
 ## El grau de confiança
 
@@ -227,8 +232,9 @@ acabada.
 | Sense evidència | 0 |
 
 **Actualitat** decau amb l'antiguitat de les verificacions: íntegra fins als sis
-mesos i decreixent fins als dos anys, quan es considera que la informació ja no
-és fiable sense tornar-la a comprovar.
+mesos i decreixent fins als dos anys. A partir d'aquí, o si la fitxa no té cap
+data de verificació, el factor es queda en 0,4: la informació ja no es pot
+considerar al dia sense tornar-la a comprovar.
 
 Per sota de 50 punts de confiança la puntuació es marca com a **provisional**.
 No diem que el servei sigui bo o dolent: diem que encara no en sabem prou.

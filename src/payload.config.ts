@@ -96,6 +96,13 @@ export default buildConfig({
     disable: process.env.ENABLE_GRAPHQL !== 'true',
   },
   secret: env.payloadSecret || '',
+  /*
+   * Sense llista, Payload accepta la galeta de sessió vingui de l'origen que
+   * vingui. Amb el domini públic, una petició d'un altre lloc amb la galeta
+   * de qui té la sessió oberta al panell no s'autentica. No es fa amb
+   * `serverURL` perquè aquest també faria absolutes les URL dels fitxers.
+   */
+  csrf: env.appUrl ? [new URL(env.appUrl).origin] : [],
   typescript: { outputFile: path.resolve(dirname, 'payload-types.ts') },
   db: mongooseAdapter({
     url: env.databaseUri || '',

@@ -90,13 +90,30 @@ Docker Compose pròpia: l'app i un MongoDB que només ella veu. El TLS el fa el
 Caddy d'Àgora (bloc `identitat.digital` a `agora-app/deploy/Caddyfile`).
 
 ```bash
-scripts/deploy/vps.sh setup    # un sol cop: directoris, xarxa i .env amb secrets nous
-scripts/deploy/vps.sh deploy   # puja el commit actual, construeix i arrenca
-scripts/deploy/vps.sh data     # substitueix la base de dades i media/ del VPS per les locals
+# Primer cop
+scripts/deploy/vps.sh setup      # directoris, xarxa i .env amb secrets nous
+scripts/deploy/vps.sh upload     # puja el commit actual
+scripts/deploy/vps.sh data       # base de dades i media/ locals → VPS (demana el domini)
+scripts/deploy/vps.sh up         # construeix, arrenca i comprova
+
+# Cada desplegament
+scripts/deploy/vps.sh deploy     # upload + up
+scripts/deploy/vps.sh rollback   # torna al codi i a la imatge anteriors
+scripts/deploy/vps.sh backup     # còpia de la base de dades a /opt/identitatdigital/backups
 scripts/deploy/vps.sh logs
 ```
 
-Es desplega `HEAD`, no la carpeta: el que no tingui commit no hi arriba.
+Es desplega `HEAD`, no la carpeta: el que no tingui commit no hi arriba. `up`
+espera que el contenidor sigui sa i comprova que `/aplicacions` llegeix la base
+de dades; si falla, ho diu i la versió anterior es pot recuperar amb
+`rollback`. Tampoc no arrenca l'app amb la base de dades buida, perquè Payload
+hi obriria a tothom el formulari de primer usuari. `data` fa una còpia de les
+dades del VPS abans de substituir-les.
+
+Els scripts que sobreescriuen contingut editorial (`seed`, `import-catalan`,
+`import-logos`) es neguen a córrer si `APP_URL` no és local, llevat que s'hi
+afegeixi `--production`. Després d'un canvi al motor de puntuació cal
+`pnpm rescore` (amb `--methodology` si és un canvi de metodologia).
 
 ## Logotips
 
