@@ -31,16 +31,17 @@ export default async function ExposurePage() {
   const snapshot = buildSnapshot(corpus)
 
   return (
-    <>
-      <h1>Calculadora d’exposició personal</h1>
-      <p className="lede">
-        Tria les aplicacions que fas servir i mira què en surt del conjunt: quines dades teves
-        circulen, quantes empreses hi tenen accés, quins grups empresarials t’acumulen i on tens el
-        punt més feble. No hi ha cap nota ni cap veredicte sobre tu; hi ha recomptes, cadascun amb
-        el seu denominador i amb l’enllaç a la fitxa d’on surt.
-      </p>
+    <div className="content-wrapper">
+      <div className="text-page">
+        <h1>Calculadora d’exposició personal</h1>
+        <p className="lede">
+          Tria les aplicacions que fas servir i mira què en surt del conjunt: quines dades teves
+          circulen, quantes empreses hi tenen accés, quins grups empresarials t’acumulen i on tens el
+          punt més feble. No hi ha cap nota ni cap veredicte sobre tu; hi ha recomptes, cadascun amb
+          el seu denominador i amb l’enllaç a la fitxa d’on surt.
+        </p>
 
-      <h2>Com pots comprovar que no es desa res</h2>
+        <h2>Com pots comprovar que no es desa res</h2>
       <p>
         Tot el càlcul passa dins del teu navegador. Ni la selecció ni cap resultat s’envien a cap
         servidor, i mentre fas servir l’eina no es fa cap petició de xarxa. No cal creure’ns-ho:
@@ -62,15 +63,16 @@ export default async function ExposurePage() {
         l’elimina, i esborrar les dades del lloc des del navegador també. Si tens l’emmagatzematge
         desactivat, l’eina funciona igual: només que no recordarà res.
       </p>
-      <p className="meta">
-        Les dades de la pàgina surten de les {snapshot.publishedApps} fitxes publicades al
-        directori. El que no hi consta documentat surt marcat com a desconegut i no compta com a
-        negatiu: la diferència entre «hem comprovat que no» i «no ho hem mirat» és tot el projecte.
-        Els criteris de puntuació són els de la{' '}
-        <Link href="/metodologia">metodologia publicada</Link>.
-      </p>
+        <p className="meta">
+          Les dades de la pàgina surten de les {snapshot.publishedApps} fitxes publicades al
+          directori. El que no hi consta documentat surt marcat com a desconegut i no compta com a
+          negatiu: la diferència entre «hem comprovat que no» i «no ho hem mirat» és tot el projecte.
+          Els criteris de puntuació són els de la{' '}
+          <Link href="/metodologia">metodologia publicada</Link>.
+        </p>
 
-      <ExposureTool snapshot={snapshot} />
-    </>
+        <ExposureTool snapshot={snapshot} />
+      </div>
+    </div>
   )
 }

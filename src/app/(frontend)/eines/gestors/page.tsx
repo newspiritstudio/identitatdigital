@@ -19,18 +19,19 @@ export const metadata: Metadata = {
  */
 export default function PasswordManagersPage() {
   return (
-    <>
-      <p className="meta">
-        <Link href="/eines">Eines</Link>
-      </p>
-      <h1>Gestors de contrasenyes</h1>
-      <p className="lede">
-        Un gestor de contrasenyes és la millora de seguretat més gran que es pot fer en una tarda:
-        resol el problema de fons, que ningú no pot recordar cent contrasenyes diferents i acaba
-        repetint-les.
-      </p>
+    <div className="content-wrapper">
+      <div className="text-page">
+        <p className="meta">
+          <Link href="/eines">Eines</Link>
+        </p>
+        <h1>Gestors de contrasenyes</h1>
+        <p className="lede">
+          Un gestor de contrasenyes és la millora de seguretat més gran que es pot fer en una tarda:
+          resol el problema de fons, que ningú no pot recordar cent contrasenyes diferents i acaba
+          repetint-les.
+        </p>
 
-      <h2>Per què la repetició és el problema</h2>
+        <h2>Per què la repetició és el problema</h2>
       <p>
         Quan una empresa pateix una filtració, les credencials acaben en llistes que es proven
         automàticament contra altres serveis. Això té nom: <em>credential stuffing</em>. No cal que
@@ -161,19 +162,20 @@ export default function PasswordManagersPage() {
         </li>
       </ul>
 
-      <h2>Per què aquí no hi ha una taula comparativa</h2>
-      <p>
-        Perquè encara no hem documentat cap gestor amb el mateix rigor amb què hem documentat les
-        fitxes del <Link href="/aplicacions">directori</Link>: cada afirmació amb la seva font, el
-        seu nivell d’evidència i la seva data. Sense aquesta feina, una llista dels «millors» seria
-        la nostra opinió amb aparença de mètode.
-      </p>
-      <p>
-        Quan les fitxes hi siguin, sortiran al directori amb la mateixa puntuació desmuntable que la
-        resta i es podran descarregar a <Link href="/dades">dades obertes</Link>. Mentrestant, els
-        criteris de més amunt són el mateix que faríem servir nosaltres, i són públics justament
-        perquè no hagis d’esperar-nos.
-      </p>
-    </>
+        <h2>Per què aquí no hi ha una taula comparativa</h2>
+        <p>
+          Perquè encara no hem documentat cap gestor amb el mateix rigor amb què hem documentat les
+          fitxes del <Link href="/aplicacions">directori</Link>: cada afirmació amb la seva font, el
+          seu nivell d’evidència i la seva data. Sense aquesta feina, una llista dels «millors» seria
+          la nostra opinió amb aparença de mètode.
+        </p>
+        <p>
+          Quan les fitxes hi siguin, sortiran al directori amb la mateixa puntuació desmuntable que la
+          resta i es podran descarregar a <Link href="/dades">dades obertes</Link>. Mentrestant, els
+          criteris de més amunt són el mateix que faríem servir nosaltres, i són públics justament
+          perquè no hagis d’esperar-nos.
+        </p>
+      </div>
+    </div>
   )
 }

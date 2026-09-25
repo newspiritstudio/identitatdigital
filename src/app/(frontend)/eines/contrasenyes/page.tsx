@@ -21,17 +21,18 @@ export const metadata: Metadata = {
  */
 export default function PasswordsPage() {
   return (
-    <>
-      <h1>Contrasenyes</h1>
-      <p className="lede">
-        Genera una contrasenya o una frase de pas amb aleatorietat criptogràfica, mira quants bits
-        d’entropia té de debò i comprova si ja ha aparegut en alguna filtració coneguda. Tot passa
-        dins del teu navegador: la contrasenya no s’envia enlloc ni es desa en cap lloc.
-      </p>
+    <div className="content-wrapper">
+      <div className="text-page">
+        <h1>Contrasenyes</h1>
+        <p className="lede">
+          Genera una contrasenya o una frase de pas amb aleatorietat criptogràfica, mira quants bits
+          d’entropia té de debò i comprova si ja ha aparegut en alguna filtració coneguda. Tot passa
+          dins del teu navegador: la contrasenya no s’envia enlloc ni es desa en cap lloc.
+        </p>
 
-      <PasswordTool />
+        <PasswordTool />
 
-      <h2>Com és que es pot comprovar una contrasenya sense enviar-la</h2>
+        <h2>Com és que es pot comprovar una contrasenya sense enviar-la</h2>
       <p>
         La comprovació de filtracions consulta l’índex de{' '}
         <a href="https://haveibeenpwned.com/Passwords" rel="noopener noreferrer" target="_blank">
@@ -98,28 +99,29 @@ export default function PasswordsPage() {
         alta perquè hi has posat un signe d’admiració seria enganyar-te.
       </p>
 
-      <h2>Fonts</h2>
-      <ul className="plain">
-        <li>
-          <span className="badge">Filtracions</span>{' '}
-          <a href="https://haveibeenpwned.com/Passwords" rel="noopener noreferrer" target="_blank">
-            Have I Been Pwned — Pwned Passwords
-            <span className="visually-hidden"> (s’obre en una pestanya nova)</span>
-          </a>
-          , de Troy Hunt. L’API de consulta per rang és pública i gratuïta. Nosaltres només hi fem
-          de pont.
-        </li>
-        <li>
-          <span className="badge">Paraules</span> La llista de {WORDLIST_META.wordCount} paraules
-          catalanes de les frases de pas ({WORDLIST_META.bitsPerWord} bits per paraula) es va
-          generar el {WORDLIST_META.generatedAt} a partir de{' '}
-          <a href={WORDLIST_META.source} rel="noopener noreferrer" target="_blank">
-            aquesta font
-            <span className="visually-hidden"> (s’obre en una pestanya nova)</span>
-          </a>
-          . <span className="meta">{WORDLIST_META.licence}</span>
-        </li>
-      </ul>
-    </>
+        <h2>Fonts</h2>
+        <ul className="plain">
+          <li>
+            <span className="badge">Filtracions</span>{' '}
+            <a href="https://haveibeenpwned.com/Passwords" rel="noopener noreferrer" target="_blank">
+              Have I Been Pwned — Pwned Passwords
+              <span className="visually-hidden"> (s’obre en una pestanya nova)</span>
+            </a>
+            , de Troy Hunt. L’API de consulta per rang és pública i gratuïta. Nosaltres només hi fem
+            de pont.
+          </li>
+          <li>
+            <span className="badge">Paraules</span> La llista de {WORDLIST_META.wordCount} paraules
+            catalanes de les frases de pas ({WORDLIST_META.bitsPerWord} bits per paraula) es va
+            generar el {WORDLIST_META.generatedAt} a partir de{' '}
+            <a href={WORDLIST_META.source} rel="noopener noreferrer" target="_blank">
+              aquesta font
+              <span className="visually-hidden"> (s’obre en una pestanya nova)</span>
+            </a>
+            . <span className="meta">{WORDLIST_META.licence}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
   )
 }

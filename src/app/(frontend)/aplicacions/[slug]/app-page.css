@@ -451,7 +451,7 @@ body:has(.apps-search-page) {
 }
 
 .details-dialog {
-  --modal-header-bg: var(--accent);
+  --modal-header-bg: linear-gradient(135deg, rgba(32, 93, 170, 0.98) 0%, rgba(56, 116, 194, 0.96) 42%, rgba(117, 96, 214, 0.96) 100%);
 }
 
 /* ------------------------------------------------------------------------
@@ -501,9 +501,26 @@ body:has(.apps-search-page) {
   margin: 0.25rem 0 0;
   padding: 0;
   border: 0;
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  line-height: 1.15;
-  letter-spacing: -0.025em;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+  font-weight: 700;
+}
+
+.details-dialog-header .meta {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.92;
+}
+
+.details-dialog-header .details-dialog-intro {
+  margin: 0.9rem 0 0;
+  max-width: 36rem;
+  color: rgb(255 255 255 / 88%);
+  line-height: 1.55;
 }
 
 /* Botó de tancar */
@@ -806,7 +823,7 @@ body:has(.apps-search-page) {
 .details-dialog-header {
   padding: clamp(1.5rem, 4vw, 2.5rem);
   padding-bottom: 1.5rem;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid rgba(255 255 255 / 18%);
 }
 
 .details-dialog-content {

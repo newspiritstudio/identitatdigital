@@ -35,21 +35,23 @@ export default async function ComparadorPage({
   const initial = resolveSelection(snapshot, params)
 
   return (
-    <>
-      <h1>Comparador i alternatives</h1>
-      <p className="lede">
-        Posa dues o tres fitxes de la mateixa categoria una al costat de l’altra, indicador per
-        indicador, i mira què es guanya i què es perd canviant de servei.
-      </p>
+    <div className="content-wrapper">
+      <div className="text-page">
+        <h1>Comparador i alternatives</h1>
+        <p className="lede">
+          Posa dues o tres fitxes de la mateixa categoria una al costat de l’altra, indicador per
+          indicador, i mira què es guanya i què es perd canviant de servei.
+        </p>
 
-      <p className="meta">
-        La comparació es fa dins del teu navegador a partir de dades ja publicades: no s’envia ni es
-        desa res. L’adreça de la pàgina recull la selecció, de manera que pots copiar l’enllaç i
-        ensenyar la comparació a qui vulguis.{' '}
-        <Link href="/metodologia">Com es calculen els indicadors</Link>.
-      </p>
+        <p className="meta">
+          La comparació es fa dins del teu navegador a partir de dades ja publicades: no s’envia ni es
+          desa res. L’adreça de la pàgina recull la selecció, de manera que pots copiar l’enllaç i
+          ensenyar la comparació a qui vulguis.{' '}
+          <Link href="/metodologia">Com es calculen els indicadors</Link>.
+        </p>
 
-      <Comparador snapshot={snapshot} initial={initial} />
-    </>
+        <Comparador snapshot={snapshot} initial={initial} />
+      </div>
+    </div>
   )
 }
