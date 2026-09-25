@@ -88,7 +88,7 @@ export default async function QueriesPage() {
   const fines = [...finesByGroup.entries()].sort((a, b) => b[1] - a[1])
 
   return (
-    <>
+    <div className="content-wrapper">
       <h1>Consultes creuades</h1>
       <p className="lede">
         Preguntes que només es poden respondre si les fitxes estan estructurades. Cap d’aquestes
@@ -227,6 +227,6 @@ export default async function QueriesPage() {
           </tbody>
         </table>
       </div>
-    </>
+    </div>
   )
 }

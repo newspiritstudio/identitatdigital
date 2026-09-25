@@ -10,6 +10,7 @@ import {
   analyseIncidents,
   analyseJurisdictions,
   analyseSecurity,
+  breachMatchesApp,
   buildCorpus,
   buildSharingGraph,
   emptyCorpus,
@@ -222,6 +223,47 @@ const corpus: Corpus = buildCorpus({
 })
 
 /* ─────────────────────────────── proves ──────────────────────────────────── */
+
+describe('breachMatchesApp', () => {
+  it('accepts both direct app links and company links', () => {
+    expect(
+      breachMatchesApp(
+        {
+          id: 'app-instagram',
+          company: { id: 'meta-platforms-ireland', parent: 'meta-platforms', name: 'Meta Ireland', slug: 'meta-ireland' } as Company,
+        },
+        {
+          apps: ['app-facebook'],
+          company: { id: 'meta-platforms-ireland', parent: 'meta-platforms', name: 'Meta Ireland', slug: 'meta-ireland' } as Company,
+        },
+      ),
+    ).toBe(true)
+
+    expect(
+      breachMatchesApp(
+        { id: 'app-x', company: 'x-corp' },
+        { apps: [], company: 'x-corp' },
+      ),
+    ).toBe(true)
+
+    expect(
+      breachMatchesApp(
+        {
+          id: 'app-instagram',
+          company: { id: 'meta-platforms-ireland', parent: 'meta-platforms', name: 'Meta Ireland', slug: 'meta-ireland' } as Company,
+        },
+        { apps: [], company: { id: 'meta-platforms', parent: null, name: 'Meta', slug: 'meta' } as Company },
+      ),
+    ).toBe(true)
+
+    expect(
+      breachMatchesApp(
+        { id: 'app-beta', company: 'tercer' },
+        { apps: ['app-alfa'], company: 'filial' },
+      ),
+    ).toBe(false)
+  })
+})
 
 describe('resolució de la cadena de matrius', () => {
   it('puja fins a la matriu última', () => {

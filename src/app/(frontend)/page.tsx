@@ -15,7 +15,7 @@ export default async function HomePage() {
   ])
 
   return (
-    <>
+    <div className="content-wrapper">
       <h1>Identitat.digital</h1>
       <p className="lede">
         Què fan amb les teves dades les aplicacions que tens al telèfon. Quatre-centes fitxes
@@ -99,6 +99,6 @@ export default async function HomePage() {
           col·leccions alhora, com ara quines aplicacions de salut comparteixen dades amb tercers.
         </li>
       </ul>
-    </>
+    </div>
   )
 }

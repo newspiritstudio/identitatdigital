@@ -18,10 +18,10 @@ const LINKS = [
   { href: '/analisi', label: 'Anàlisi' },
   { href: '/filtracions', label: 'Filtracions' },
   { href: '/eines', label: 'Eines' },
-  { href: '/institucions', label: 'Institucions' },
+ /* { href: '/institucions', label: 'Institucions' },*/
   { href: '/dades', label: 'Dades' },
   { href: '/metodologia', label: 'Metodologia' },
-  { href: '/consultes', label: 'Consultes' },
+  /*{ href: '/consultes', label: 'Consultes' },*/
 ] as const
 
 export function MainNav() {

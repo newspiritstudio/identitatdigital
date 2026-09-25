@@ -1,0 +1,1199 @@
+/* ========================================================================
+   FITXA D'APLICACIÓ
+   ======================================================================== */
+body:has(.apps-search-page) {
+  background: linear-gradient(135deg, rgb(241, 230, 213) 0%, rgb(223, 234, 245) 48%, rgb(223, 230, 189) 100%) !important;
+}
+.app-page {
+  display: flex;
+  flex-direction: column;
+  /*gap: 40px;*/
+}
+
+.app-page .content-wrapper {
+  align-items: start;
+  gap: 40px;
+  width: 100%;
+  max-width: 72rem;
+  margin-inline: auto;
+  padding: 60px 60px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--content-glass);
+  border: 1px solid var(--content-glass-border);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08), inset 0 1px 1px rgba(255, 255, 255, 0.5), inset 0 -1px 1px rgba(255, 255, 255, 0.12);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
+  backdrop-filter: blur(30px) saturate(180%);
+  color: var(--text);
+}
+
+:root[data-theme='dark'] .app-page .content-wrapper {
+  background: var(--content-glass);
+  border: 1px solid var(--content-glass-border);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12), inset 0 1px 1px rgba(255, 255, 255, 0.12), inset 0 -1px 1px rgba(255, 255, 255, 0.08);
+  color: aliceblue;
+}
+
+.app-page .content-wrapper.two-columns {
+  display: grid;
+  grid-template-columns: minmax(15rem, 20%) minmax(0, 1fr);
+}
+
+/* ------------------------------------------------------------------------
+   Sidebar
+   ------------------------------------------------------------------------ */
+
+.app-sidebar {
+  position: sticky;
+  min-width: 0;
+}
+
+.app-identity {
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.app-identity .with-logo {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 0.7rem;
+  margin: 0;
+  font-size: clamp(2.2rem, 2.2vw, 2rem);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+}
+
+.app-identity .logo {
+  flex: 0 0 auto;
+  box-shadow: 0 0 16px -10px #000;
+}
+
+.app-identity .lede {
+  margin: 0.75rem 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.app-sidebar section {
+  padding: 1.15rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.app-sidebar section:last-child {
+  border-bottom: 0;
+}
+
+.app-sidebar h2 {
+  margin: 0 0 0.8rem;
+  padding: 0;
+  border: 0;
+  font-size: 0.78rem;
+  line-height: 1.2;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+.app-sidebar a {
+  color: var(--text);
+  text-decoration: none;
+}
+.app-company-title-block{
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+}
+
+.app-company-title-block h2{
+  margin: 0;
+  font-size: 16px;
+}
+
+.identity-details {
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.identity-details .app-company-title-block p{
+  margin: 0;
+  margin-bottom: 1.15rem ;
+}
+
+.app-company-title-block:not(:has(p)) #identificacio-title{
+  margin-bottom: 5px !important;
+}
+
+.sidebar-identity-details-list{
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 0px;
+  font-size: 0.78rem; 
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
+
+.sidebar-identity-details-list dd:not(:first-of-type):before{
+  content: "|";
+  margin: 0 0.4rem 0 0;
+}
+
+.identity-details p strong {
+  display: block;
+  margin-bottom: 0.1rem;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
+.identity-details > dl {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.4rem;
+  margin: 1rem 0 0;
+}
+
+.identity-details dt {
+  margin: 0 0 0.1rem;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.identity-details dd {
+  margin: 0;
+}
+
+.identity-details + dl {
+  display: grid;
+  gap: 0.45rem;
+  margin: 1rem 0 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.identity-details + dl > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.identity-details + dl dt,
+.identity-details + dl dd {
+  margin: 0;
+}
+
+.identity-details + dl dd {
+  text-align: right;
+}
+
+.global-score {
+  text-align: left;
+}
+
+.global-score-value {
+  margin: 0.15rem 0 0.55rem;
+  font-size: 2.7rem;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.global-score-value .score {
+  font-size: inherit;
+}
+
+.global-score .meta {
+  margin: 0;
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+/* ------------------------------------------------------------------------
+   Contingut
+   ------------------------------------------------------------------------ */
+
+.app-content {
+  min-width: 0;
+}
+
+.app-primary-links ul,
+.applinks ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.applink {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.25rem;
+  padding: 0.45rem 0.8rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.88rem;
+  line-height: 1.1;
+  transition:
+    border-color 120ms ease,
+    background-color 120ms ease,
+    color 120ms ease;
+}
+
+.applink:hover {
+  border-color: var(--text);
+  background: var(--bg);
+}
+
+.applink.action {
+  border-color: var(--brand, var(--text));
+  color: var(--text);
+  border-radius: 6px;
+}
+
+.applink.action:hover {
+  background: color-mix(
+    in srgb,
+    var(--brand, var(--accent)) 8%,
+    transparent
+  );
+}
+
+.applink-button {
+  appearance: none;
+  margin: 0;
+  font: inherit;
+  cursor: pointer;
+}
+
+/* ------------------------------------------------------------------------
+   Alternatives
+   ------------------------------------------------------------------------ */
+
+.alternative-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+}
+
+.alternative-header a{
+  font-weight: 600;
+  font-width: 125%;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.alternative-header .badge {
+  flex: 0 0 auto;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  background: var(--line);
+  color: var(--text);
+  font-size: 0.75rem;
+  line-height: 1.2;
+}
+
+.alternative-header .logo {
+  flex: 0 0 auto;
+  width: 5rem;
+  height: 5rem;
+  box-shadow: 0 0 16px -10px #000;
+}
+
+.alternatives-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+
+.alternative-score {
+  position: absolute;
+  top: -1rem;
+  left: 4rem;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 2rem;
+  height: 2rem;
+  padding: 0 0.45rem;
+
+  border-radius: 999px;
+
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+
+  box-shadow: 0 1px 3px rgb(0 0 0 / 15%);
+}
+
+/* ------------------------------------------------------------------------
+   Resum
+   ------------------------------------------------------------------------ */
+
+.app-content > p:first-of-type {
+  max-width: 52rem;
+  margin-top: 0;
+  margin-bottom: 2rem;
+  font-size: 1.08rem;
+  line-height: 1.65;
+}
+
+.app-content > .applinks {
+  margin: -0.5rem 0 2.5rem;
+}
+
+.app-content > .applinks .applink {
+  border-color: transparent;
+  padding-inline: 0;
+  border-radius: 0;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+/* ------------------------------------------------------------------------
+   Seccions
+   ------------------------------------------------------------------------ */
+
+.app-content > h2 {
+  padding-top: 1rem;
+  font-size: clamp(1.6rem, 2vw, 1.55rem);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+}
+
+.app-content > h3 {
+  margin-top: 1.75rem;
+}
+
+.app-content > h2:first-of-type {
+  margin-top: 0;
+}
+
+/* ------------------------------------------------------------------------
+   Dades
+   ------------------------------------------------------------------------ */
+
+.app-content > dl {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  margin: 1rem 0 1.5rem;
+}
+
+.app-content > dl > div {
+  padding: 0.85rem 1rem 0.85rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.app-content > dl > div:nth-child(even) {
+  padding-left: 1rem;
+}
+
+.app-content > dl > div:nth-child(odd) {
+  border-right: 1px solid var(--line);
+}
+
+.app-content > dl dt {
+  margin-bottom: 0.2rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.35;
+  text-transform: uppercase;
+  letter-spacing: 0.045em;
+}
+
+.app-content > dl dd {
+  margin: 0;
+}
+
+/* ------------------------------------------------------------------------
+   Taules
+   ------------------------------------------------------------------------ */
+
+.app-content table {
+  font-size: 0.92rem;
+}
+
+.app-content table th {
+  white-space: nowrap;
+}
+
+.app-content table td,
+.app-content table th {
+  vertical-align: top;
+}
+
+/* ========================================================================
+   MODALS — estructura compartida
+   ======================================================================== */
+
+/* Cada modal pot definir el seu propi color de capçalera. */
+
+.deletion-dialog {
+  --modal-header-bg: var(--bad);
+}
+
+.details-dialog {
+  --modal-header-bg: var(--accent);
+}
+
+/* ------------------------------------------------------------------------
+   Estructura comuna
+   ------------------------------------------------------------------------ */
+
+.deletion-dialog,
+.details-dialog {
+  margin: auto;
+  padding: 0;
+  border: 1px solid var(--line-strong);
+  border-radius: 1rem;
+  color: var(--text);
+  background: var(--bg);
+  box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 20%);
+  overflow: hidden;
+}
+
+.deletion-dialog::backdrop,
+.details-dialog::backdrop {
+  background: rgb(0 0 0 / 52%);
+}
+
+.deletion-dialog-header,
+.details-dialog-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  background: var(--modal-header-bg);
+  color: #fff;
+}
+
+/* Text de la capçalera */
+
+.deletion-dialog-header .meta,
+.details-dialog-header .meta,
+.deletion-dialog-header .eyebrow,
+.details-dialog-header .eyebrow,
+.deletion-dialog-header h2,
+.details-dialog-header h2 {
+  color: #fff;
+}
+
+.deletion-dialog-header h2,
+.details-dialog-header h2 {
+  margin: 0.25rem 0 0;
+  padding: 0;
+  border: 0;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+}
+
+/* Botó de tancar */
+
+.dialog-close {
+  flex: 0 0 auto;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: grid;
+  place-items: center;
+  margin: -0.25rem -0.25rem 0 0;
+  border: 1px solid rgb(255 255 255 / 55%);
+  border-radius: 999px;
+  background: transparent;
+  color: #fff;
+  font: inherit;
+  font-size: 1.35rem;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    background-color 120ms ease,
+    border-color 120ms ease,
+    transform 120ms ease;
+}
+
+.dialog-close:hover {
+  border-color: #fff;
+  background: rgb(255 255 255 / 12%);
+}
+
+.dialog-close:active {
+  transform: scale(0.96);
+}
+
+.dialog-close:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+/* ========================================================================
+   MODAL — ELIMINACIÓ DEL COMPTE
+   ======================================================================== */
+
+.deletion-dialog {
+  width: min(48rem, calc(100% - 2rem));
+  max-height: min(86vh, 56rem);
+}
+
+.deletion-dialog-inner {
+  max-height: min(86vh, 56rem);
+  overflow-y: auto;
+}
+
+.deletion-dialog-header {
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.deletion-dialog-intro {
+  max-width: 38rem;
+  margin: 0.8rem 0 0;
+  color: rgb(255 255 255 / 88%);
+  line-height: 1.55;
+}
+
+/* ------------------------------------------------------------------------
+   Resum de l'eliminació
+   ------------------------------------------------------------------------ */
+
+.deletion-summary,
+.deletion-steps-section,
+.deletion-additional {
+  padding: 1.75rem clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.deletion-summary {
+  background: color-mix(in srgb, var(--line) 25%, transparent);
+}
+
+.deletion-section-heading {
+  margin-bottom: 1.25rem;
+}
+
+.deletion-section-heading .meta {
+  margin-bottom: 0.25rem;
+}
+
+.deletion-section-heading h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.25;
+}
+
+/* ------------------------------------------------------------------------
+   Facts
+   ------------------------------------------------------------------------ */
+
+.deletion-facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 0;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+.deletion-fact {
+  min-width: 0;
+  padding: 1rem;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.deletion-fact dt {
+  margin: 0 0 0.35rem;
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.3;
+  text-transform: uppercase;
+  letter-spacing: 0.055em;
+}
+
+.deletion-fact dd {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 650;
+  line-height: 1.35;
+}
+
+/* ------------------------------------------------------------------------
+   Estat
+   ------------------------------------------------------------------------ */
+
+.deletion-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.deletion-status::before {
+  content: "";
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.deletion-status.is-positive {
+  color: var(--good);
+}
+
+.deletion-status.is-negative {
+  color: var(--bad);
+}
+
+/* ------------------------------------------------------------------------
+   Passos
+   ------------------------------------------------------------------------ */
+
+.deletion-steps {
+  position: relative;
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: deletion-step;
+}
+
+.deletion-step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr);
+  column-gap: 1rem;
+  min-height: 4rem;
+  padding-bottom: 1.25rem;
+}
+
+.deletion-step:last-child {
+  padding-bottom: 0;
+}
+
+.deletion-step:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  top: 2.5rem;
+  bottom: 0;
+  left: 1.2rem;
+  width: 1px;
+  background: var(--line-strong);
+}
+
+.deletion-step-number {
+  position: relative;
+  z-index: 1;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--brand, var(--accent));
+  border-radius: 50%;
+  background: var(--bg);
+  color: var(--brand, var(--accent));
+  font-size: 0.8rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.deletion-step-content {
+  padding-top: 0.35rem;
+}
+
+.deletion-step-content p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+/* ------------------------------------------------------------------------
+   Informació addicional
+   ------------------------------------------------------------------------ */
+
+.deletion-additional {
+  border-top: 1px solid var(--line);
+}
+
+.deletion-notes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.deletion-note {
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: 0.7rem;
+}
+
+.deletion-note h4 {
+  margin: 0 0 0.45rem;
+  font-size: 0.95rem;
+  line-height: 1.3;
+}
+
+.deletion-note p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+/* ------------------------------------------------------------------------
+   Footer del modal d'eliminació
+   ------------------------------------------------------------------------ */
+
+.deletion-dialog-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.5rem clamp(1.5rem, 4vw, 2.5rem);
+  border-top: 1px solid var(--line);
+  background: color-mix(in srgb, var(--line) 20%, transparent);
+}
+
+.deletion-dialog-footer h3 {
+  margin: 0.2rem 0 0;
+  font-size: 1.1rem;
+}
+
+.deletion-dialog-footer p:not(.meta) {
+  max-width: 32rem;
+  margin: 0.4rem 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.deletion-primary-action {
+  flex: 0 0 auto;
+  min-height: 2.75rem;
+  padding-inline: 1rem;
+  font-weight: 650;
+}
+
+/* ========================================================================
+   MODAL — FITXA COMPLETA
+   ======================================================================== */
+
+.details-dialog {
+  width: min(70rem, calc(100% - 2rem));
+  max-height: calc(100vh - 2rem);
+}
+
+.details-dialog-inner {
+  max-height: calc(100vh - 2rem);
+  overflow-y: auto;
+}
+
+.details-dialog-header {
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.details-dialog-content {
+  padding: 0 clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.details-dialog section {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.details-dialog section:last-child {
+  border-bottom: 0;
+}
+
+.details-dialog h3 {
+  margin-top: 0;
+}
+
+/* ------------------------------------------------------------------------
+   Botó "Veure fitxa completa"
+   ------------------------------------------------------------------------ */
+
+.section-heading-with-action {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.section-link {
+  appearance: none;
+  border: 0;
+  padding: 0;
+  background: none;
+  color: var(--accent);
+  font: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* ========================================================================
+   ACCIÓ D'ELIMINACIÓ
+   ======================================================================== */
+
+button.deletion-action {
+  background-color: var(--bad);
+  color: white !important;
+}
+
+button.deletion-action:hover {
+  background-color: var(--bad);
+  color: var(--bad) !important;
+}
+.account-deletion-action {
+  list-style: none;
+}
+
+/* ========================================================================
+   Highlight grid
+   ======================================================================== */
+
+.highlight-grid {
+  margin: 2rem 0 0;
+}
+
+.highlight-grid-list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.highlight-item {
+  min-height: 7rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.highlight-label {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.35;
+}
+
+.highlight-item strong {
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
+/* ========================================================================
+   Animated global score
+   ======================================================================== */
+
+.animated-global-score {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.4rem;
+  margin: 1rem auto;
+}
+
+.animated-global-score-circle {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  flex: 0 0 100px;
+}
+
+.animated-global-score-ring {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+  overflow: visible;
+}
+
+.animated-global-score-track,
+.animated-global-score-progress {
+  fill: none;
+  stroke-width: 9;
+}
+
+.animated-global-score-track {
+  stroke: #e8e8e8;
+}
+
+.animated-global-score-progress {
+  stroke: var(--brand, currentColor);
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.08s linear;
+}
+
+.animated-global-score-number {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 2.2rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+.animated-global-score-max {
+  align-self: center;
+  font-size: 1rem;
+  font-weight: 600;
+  opacity: 0.6;
+  white-space: nowrap;
+}
+
+/* ========================================================================
+   RESPONSIVE
+   ======================================================================== */
+
+@media (max-width: 52rem) {
+  .app-page {
+    grid-template-columns: minmax(12rem, 26%) minmax(0, 1fr);
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 48rem) {
+  .highlight-grid-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .section-heading-with-action {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .details-dialog-inner {
+    padding: 0;
+  }
+
+  .details-dialog-content {
+    padding-inline: 1.25rem;
+  }
+}
+
+@media (max-width: 44rem) {
+  .app-page {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .app-sidebar {
+    position: static;
+  }
+
+  .app-identity {
+    padding-bottom: 1rem;
+  }
+
+  .app-sidebar section {
+    padding: 1rem 0;
+  }
+
+  .global-score-value {
+    font-size: 2.25rem;
+  }
+
+  .app-content > dl {
+    grid-template-columns: 1fr;
+  }
+
+  .app-content > dl > div,
+  .app-content > dl > div:nth-child(even) {
+    padding-inline: 0;
+  }
+
+  .app-content > dl > div:nth-child(odd) {
+    border-right: 0;
+  }
+}
+
+@media (max-width: 40rem) {
+  .deletion-dialog {
+    width: calc(100% - 1rem);
+    border-radius: 0.75rem;
+  }
+
+  .deletion-dialog-header,
+  .details-dialog-header {
+    gap: 1rem;
+  }
+
+  .deletion-facts,
+  .deletion-notes {
+    grid-template-columns: 1fr;
+  }
+
+  .deletion-dialog-footer {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .deletion-primary-action {
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+@media (max-width: 30rem) {
+  .app-primary-links ul,
+  .applinks ul {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .app-primary-links .applink,
+  .app-primary-links .applink-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .highlight-grid-list {
+    grid-template-columns: 1fr;
+  }
+
+  .deletion-dialog-header,
+  .deletion-summary,
+  .deletion-steps-section,
+  .deletion-additional,
+  .deletion-dialog-footer {
+    padding-inline: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dialog-close,
+  .applink,
+  .animated-global-score-progress {
+    transition: none;
+  }
+}
+
+.company-details:has(
+.company-details-root-header){
+  padding: 0px !important;
+}
+
+.company-details-root-header{
+  background-color: #000;
+  padding: 10px 60px;
+}
+.company-details-root-header h2 a{
+  color: white;
+  text-decoration: none;
+}
+.company-details-root-header h2 {
+   margin:0px !important;
+  border-bottom: 0px !important;
+  padding: 0px;
+  text-tranform: uppercase;
+  font-width: 120%;
+}
+
+
+.company-details section{
+   align-items: start;
+  gap: 40px;
+  width: 100%;
+  max-width: 72rem;
+  margin-inline: auto;
+  background: var(--content-glass);
+  border: 1px solid var(--content-glass-border);
+  padding: 60px 60px;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08), inset 0 1px 1px rgba(255, 255, 255, 0.5), inset 0 -1px 1px rgba(255, 255, 255, 0.12);
+}
+
+.alternative-info {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background: var(--line);
+  color: var(--text);
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: help;
+}
+
+.alternative-tooltip {
+  position: absolute;
+  z-index: 20;
+  top: calc(100% + 0.6rem);
+  left: 50%;
+  width: min(24rem, 80vw);
+  padding: 0.85rem 1rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+
+  border: 1px solid var(--line-strong);
+  border-radius: 0.65rem;
+  background: var(--bg);
+  color: var(--text);
+  box-shadow: 0 0.75rem 2rem rgb(0 0 0 / 15%);
+
+  font-size: 0.85rem;
+  font-weight: 400;
+  line-height: 1.45;
+  text-align: left;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translate(-50%, -0.25rem);
+
+  transition:
+    opacity 120ms ease,
+    transform 120ms ease,
+    visibility 120ms ease;
+}
+
+.alternatives-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+}
+
+.alternatives-list a{
+  text-shadow: none;
+}
+
+.alternative-tooltip strong {
+  font-weight: 700;
+}
+
+.alternative-info:hover .alternative-tooltip,
+.alternative-info:focus-visible .alternative-tooltip {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translate(-50%, 0);
+}
+
+.alternative-info:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}

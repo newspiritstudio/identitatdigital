@@ -4,11 +4,12 @@ import React from 'react'
 
 import './styles.css'
 import { MainNav } from './nav'
+import { ThemeToggle } from './theme-toggle'
 
 export const metadata: Metadata = {
   title: {
-    default: 'Identitat.digital',
-    template: '%s · Identitat.digital',
+    default: 'identitat.digital',
+    template: '%s · identitat.digital',
   },
   description:
     'Base de coneixement sobre privadesa, identitat digital i seguretat en línia. Cada afirmació, amb la seva font.',
@@ -31,14 +32,17 @@ export default function FrontendLayout({ children }: { children: React.ReactNode
   return (
     <html lang="ca">
       <body>
+        <ThemeToggle />
         <a className="skip-link" href="#contingut">
           Vés al contingut
         </a>
         <header className="site-header">
           <Link href="/" className="site-title">
-            Identitat.digital
+            <strong>identitat</strong>.digital
           </Link>
-          <MainNav />
+          <div className="site-header-tools">
+            <MainNav />
+          </div>
         </header>
         <main id="contingut" tabIndex={-1}>
           {children}

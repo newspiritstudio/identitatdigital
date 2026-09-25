@@ -15,6 +15,7 @@ export {
   addStatus,
   appRef,
   at,
+  breachMatchesApp,
   buildCorpus,
   companyRef,
   compareText,

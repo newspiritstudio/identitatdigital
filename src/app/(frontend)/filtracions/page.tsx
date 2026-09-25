@@ -71,7 +71,7 @@ export default async function BreachesPage() {
   const totalAccounts = breaches.reduce((sum, breach) => sum + (breach.pwnCount ?? 0), 0)
 
   return (
-    <>
+    <div className="content-wrapper">
       <h1>Filtracions de dades</h1>
       <p className="lede">
         {totalDocs.toLocaleString('ca-ES')} filtracions documentades per Have I Been Pwned. No són
@@ -231,6 +231,6 @@ export default async function BreachesPage() {
         recull adreces de correu de qui ve a informar-se sobre privadesa. Qui ho vulgui comprovar ho
         pot fer directament al lloc de Have I Been Pwned.
       </p>
-    </>
+    </div>
   )
 }

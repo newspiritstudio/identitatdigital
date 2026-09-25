@@ -31,7 +31,7 @@ export default async function InstitutionsPage() {
   const withStops = sheets.filter((sheet) => sheet.stops > 0).length
 
   return (
-    <>
+    <div className="content-wrapper">
       <h1>Escoles i ajuntaments</h1>
       <p className="lede">
         Quan una escola obre un grup de missatgeria amb les famílies o un ajuntament trasllada un
@@ -149,6 +149,6 @@ export default async function InstitutionsPage() {
         <Link href="/dades">dades obertes</Link> i es pot refer amb el{' '}
         <Link href="/metodologia">mètode publicat</Link>.
       </p>
-    </>
+    </div>
   )
 }

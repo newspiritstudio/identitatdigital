@@ -11,7 +11,8 @@ export const metadata: Metadata = { title: 'Eines' }
  */
 export default function ToolsPage() {
   return (
-    <>
+    <div className="content-wrapper">
+      <div className="text-page">
       <h1>Eines</h1>
       <p className="lede">
         Eines per passar de saber què fan amb les teves dades a fer-hi alguna cosa. Les que calculen
@@ -60,6 +61,7 @@ export default function ToolsPage() {
           </p>
         </article>
       </div>
-    </>
+    </div>
+    </div>
   )
 }

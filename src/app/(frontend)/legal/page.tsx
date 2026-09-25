@@ -15,7 +15,7 @@ export const metadata: Metadata = { title: 'Informació legal' }
  */
 export default function LegalIndexPage() {
   return (
-    <>
+    <div className="content-wrapper">
       <h1>Informació legal</h1>
       <DocMeta version="1.0" updated="12 de setembre de 2026" />
 
@@ -118,6 +118,6 @@ export default function LegalIndexPage() {
         protecció de dades, escriu a{' '}
         <a href="mailto:admin@newspirit.studio">admin@newspirit.studio</a>.
       </p>
-    </>
+    </div>
   )
 }

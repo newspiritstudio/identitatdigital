@@ -28,7 +28,8 @@ export default async function OpenDataPage() {
   const total = counts.reduce((sum, entry) => sum + entry.rows, 0)
 
   return (
-    <>
+    <div className="content-wrapper ">
+      <div className="text-page">
       <h1>Dades obertes</h1>
       <p className="lede">
         Tot el que hi ha en aquest lloc es pot descarregar sencer, en JSON i en CSV, sense registre,
@@ -163,6 +164,7 @@ export default async function OpenDataPage() {
         </a>{' '}
         també és públic.
       </p>
-    </>
+    </div>
+    </div>
   )
 }

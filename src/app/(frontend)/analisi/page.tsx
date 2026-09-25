@@ -36,7 +36,6 @@ export default async function AnalysisIndexPage() {
   const evidence = analyseEvidence(corpus)
   const incidents = analyseIncidents(corpus)
 
-  /* Xifres derivades del corpus que la biblioteca no precalcula. */
   const mostCollected = data.rows[0]
   const topGroups = groups.groups.slice(0, 2)
   const twoGroupApps = topGroups.reduce((sum, group) => sum + group.appCount, 0)
@@ -49,20 +48,19 @@ export default async function AnalysisIndexPage() {
   const transport = security.measures.find((measure) => measure.key === 'transport-encryption')
   const e2eeApplicable = security.e2ee.total - security.e2ee.na
 
-  /* Sense fitxes publicades no hi ha res a analitzar. */
   if (apps === 0 || mostCollected === undefined || worstIndicator === undefined) {
     return (
-      <>
+      <div className="content-wrapper">
         <h1>Anàlisi</h1>
         <p className="unknown">
           Encara no hi ha prou fitxes publicades per analitzar res de manera transversal.
         </p>
-      </>
+      </div>
     )
   }
 
   return (
-    <>
+    <div className="content-wrapper">
       <h1>Anàlisi</h1>
       <p className="lede">
         Què surt de mirar les {num(apps)} fitxes alhora: quines dades recull tothom, on van a
@@ -232,10 +230,11 @@ export default async function AnalysisIndexPage() {
 
       <h2>El que funciona</h2>
       <p>
-        {num(transport?.tally.yes ?? 0)} fitxes de {num(apps)} xifren el trànsit, {num(security.mfa.yes + security.mfa.partial)} de{' '}
-        {num(security.mfa.total - security.mfa.na)} ofereixen verificació en dos passos i cap no té
-        l’SMS com a únic segon factor. La matriu de dades està documentada fins al detall:{' '}
-        {num(evidence.dataRows)} files i {num(evidence.dataRowsWithoutSources)} sense font.
+        {num(transport?.tally.yes ?? 0)} fitxes de {num(apps)} xifren el trànsit,{' '}
+        {num(security.mfa.yes + security.mfa.partial)} de {num(security.mfa.total - security.mfa.na)}
+        ofereixen verificació en dos passos i cap no té l’SMS com a únic segon factor. La matriu de
+        dades està documentada fins al detall: {num(evidence.dataRows)} files i{' '}
+        {num(evidence.dataRowsWithoutSources)} sense font.
       </p>
       <p>
         El xifratge d’extrem a extrem és una altra història:{' '}
@@ -333,6 +332,6 @@ export default async function AnalysisIndexPage() {
         registre d’incidents és una selecció editorial dels casos rellevants, no un cens: serveix
         per veure on es concentren, no per calcular-ne una taxa.
       </p>
-    </>
+    </div>
   )
 }

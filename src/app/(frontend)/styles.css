@@ -1,10 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
 /*
  * Full d'estil deliberadament mínim. La fase 1 no és una fase de disseny: això
  * només ha de fer llegible la informació per poder-la validar.
  */
 :root {
-  --text: #1a1a1a;
+  --text: #002730;
   --muted: #5c5c5c;
+  --surface: #ffffff;
   --line: #d8d8d8;
   /*
    * Vora amb contrast suficient per a elements d'interfície i objectes
@@ -18,6 +21,29 @@
   --good: #1d6f42;
   --mid: #8a6d1b;
   --bad: #a32020;
+  --site-header-height: 104px;
+  --header-surface: rgba(255, 255, 255, 0.22);
+  --header-border: rgba(255, 255, 255, 0.32);
+  --content-glass: rgba(255, 255, 255, 0.75);
+  --content-glass-border: rgba(26, 26, 26, 0.08);
+}
+
+:root[data-theme='dark'] {
+  --text: #f0f8ff;
+  --muted: #dfeeff;
+  --surface: #09131a;
+  --line: rgba(255, 255, 255, 0.18);
+  --line-strong: rgba(255, 255, 255, 0.42);
+  --focus: #8ec5ff;
+  --bg: #02080d;
+  --accent: #dfefff;
+  --good: #a8f0c0;
+  --mid: #f2d48b;
+  --bad: rgb(255, 48, 48) ;
+  --header-surface: rgba(255, 255, 255, 0.08);
+  --header-border: rgba(255, 255, 255, 0.18);
+  --content-glass: rgba(14, 22, 30, 0.52);
+  --content-glass-border: rgba(255, 255, 255, 0.22);
 }
 
 * {
@@ -25,8 +51,11 @@
 }
 
 body {
+  display: flex;
+  flex-direction: column;
   margin: 0;
   font-family:
+    'Noto Sans',
     system-ui,
     -apple-system,
     'Segoe UI',
@@ -40,12 +69,79 @@ body {
   line-height: 1.55;
   color: var(--text);
   background: var(--bg);
+  min-height: 100vh;
+  background: linear-gradient(135deg, rgb(241, 230, 213) 0%, rgb(223, 234, 245) 48%, rgb(223, 230, 189) 100%);
+  overflow-x: hidden;
+}
+
+:root[data-theme='dark'] body {
+  background: linear-gradient(to right bottom, rgb(0, 0, 0), rgb(94, 122, 150) 48%, rgb(77, 53, 109)) !important;
+  color: aliceblue;
+}
+
+body:has(.apps-search-page) {
+  background: linear-gradient(135deg, rgb(241, 230, 213) 0%, rgb(223, 234, 245) 48%, rgb(223, 230, 189) 100%) !important;
+}
+
+body:has(.app-page) {
+  background-color: #4267b2;
+}
+
+:root[data-theme='dark'] body:has(.app-page) {
+  background: linear-gradient(to right bottom, rgb(0, 0, 0), rgb(94, 122, 150) 48%, rgb(77, 53, 109)) !important;
+}
+
+:root[data-theme='dark'] body:has(.app-page) .site-header * {
+  color: aliceblue
+}
+
+body:has(.app-page) .site-header * {
+  color: black;
+  font-size: 16px;
 }
 
 main {
+  flex: 1 0 auto;
   max-width: 60rem;
   margin: 0 auto;
-  padding: 1.5rem 1rem 4rem;
+  width: 100%;
+  /*padding: 1.5rem 1rem 4rem;*/
+}
+
+.content-wrapper {
+  width: 100%;
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 2.25rem 2.5rem 2.75rem;
+  background: linear-gradient(135deg, var(--header-surface), rgba(255, 255, 255, 0.08));
+  border: 1px solid var(--header-border);
+  border-radius: 1.2rem;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08), inset 0 1px 1px rgba(255, 255, 255, 0.5), inset 0 -1px 1px rgba(255, 255, 255, 0.12);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
+  backdrop-filter: blur(30px) saturate(180%);
+}
+
+.content-wrapper + .content-wrapper {
+  margin-top: 2rem;
+}
+
+.content-wrapper > :first-child {
+  margin-top: 0;
+}
+
+.content-wrapper > :last-child {
+  margin-bottom: 0;
+}
+
+.content-wrapper h1,
+.content-wrapper h2,
+.content-wrapper h3 {
+  max-width: 52rem;
+  font-width: 120%;
+}
+
+.content-wrapper .lede {
+  max-width: 52rem;
 }
 
 a {
@@ -53,21 +149,122 @@ a {
 }
 
 .site-header {
+  z-index: 2;
+  width: 100%;
+  max-width: 60rem;
+  margin: 40px auto 40px auto !important;
+  padding: 20px 28px;
+
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
-  align-items: baseline;
   justify-content: space-between;
-  max-width: 60rem;
-  margin: 0 auto;
-  padding: 1rem;
-  border-bottom: 1px solid var(--line);
+  align-items: center;
+  gap: 1rem;
+
+  position: relative;
+
+  background: linear-gradient(135deg, var(--header-surface), rgba(255, 255, 255, 0.08));
+
+  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
+
+  border: 1px solid var(--header-border);
+  border-radius: 50px;
+
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.14),
+    inset 0 1px 1px rgba(255, 255, 255, 0.5),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.1);
+}
+
+.site-header-tools {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+
+.site-header a {
+  text-decoration: none;
+  color: black;
+}
+
+:root[data-theme='dark'] .site-header a,
+:root[data-theme='dark'] .site-header a:visited,
+:root[data-theme='dark'] .site-header a:hover,
+:root[data-theme='dark'] .site-header a:focus {
+  color: aliceblue;
 }
 
 .site-title {
-  font-weight: 700;
+  font-family: 'Roboto Mono', 'SFMono-Regular', Consolas, monospace;
+  font-weight: 500;
   text-decoration: none;
   color: var(--text);
+  text-shadow: 0px 0px 10px rgba(240, 248, 255, 0.40);
+}
+
+
+.theme-toggle {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 1000;
+  appearance: none;
+  border: 1px solid var(--header-border);
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--header-surface), rgba(255, 255, 255, 0.08));
+  color: var(--text);
+  font: inherit;
+  font-size: 0.85rem;
+  padding: 0.6rem 0.9rem;
+  cursor: pointer;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-1px);
+}
+
+.theme-wipe-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  background: linear-gradient(135deg, rgb(241, 230, 213) 0%, rgb(223, 234, 245) 48%, rgb(223, 230, 189) 100%);
+  clip-path: circle(0 at var(--theme-origin-x) var(--theme-origin-y));
+  opacity: 1;
+  transition:
+    clip-path 720ms cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 160ms ease 560ms;
+}
+
+.theme-wipe-overlay[data-theme='dark'] {
+  background: linear-gradient(to right bottom, rgb(0, 0, 0), rgb(94, 122, 150) 48%, rgb(77, 53, 109));
+}
+
+.theme-wipe-overlay.is-animating {
+  clip-path: circle(160vmax at var(--theme-origin-x) var(--theme-origin-y));
+}
+
+.theme-wipe-overlay.is-finished {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-wipe-overlay {
+    transition: none;
+  }
+}
+
+.site-title strong {
+  font-family: 'Roboto Mono', 'SFMono-Regular', Consolas, monospace;
+  font-weight: 700;
 }
 
 .site-header nav {
@@ -76,13 +273,22 @@ a {
   flex-wrap: wrap;
 }
 
+.site-header nav a{
+  font-width: 120%;
+}
+
 .site-footer {
   max-width: 60rem;
-  margin: 0 auto;
-  padding: 1rem;
-  border-top: 1px solid var(--line);
-  color: var(--muted);
+  width: 100%;
+  margin: 40px auto 0 auto;
+  padding: 20px 60px;
+  background: black;
   font-size: 0.85rem;
+  border-radius: 18px 18px 0px 0px;
+}
+
+.site-footer *{
+  color: white
 }
 
 .site-footer nav {
@@ -94,6 +300,27 @@ a {
 
 .site-owner {
   margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a,
+button,
+input,
+textarea,
+select,
+li,
+label,
+small,
+strong,
+code {
+  font-family: 'Noto Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
 }
 
 h1 {
@@ -193,7 +420,7 @@ th {
 }
 
 .card {
-  border: 1px solid var(--line);
+  
   padding: 0.75rem;
 }
 
@@ -442,6 +669,156 @@ h1.branded {
   font-weight: 600;
 }
 
+
+main > .apps-page-hero {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  left: 50%;
+  width: 100vw;
+  min-height: clamp(30rem, 40vh, 42rem);
+  margin: calc(-1 * var(--site-header-height)) 0 1.5rem -50vw;
+  padding: clamp(4rem, 7vh, 6rem) 1rem clamp(2rem, 4vh, 3rem);
+  overflow: hidden;
+}
+
+main > .apps-page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  /*background: linear-gradient(135deg, rgba(255,255,255,0.18), rgba(255,255,255,0));*/
+  pointer-events: none;
+}
+
+.apps-page-hero > * {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 80vw);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(1rem, 2vw, 2rem);
+  padding-right: clamp(1rem, 2vw, 2rem);
+  text-align: center;
+}
+
+.data-flow-animation {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: 0.9;
+}
+
+.data-flow-animation svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+}
+
+.data-flow-link {
+  fill: none;
+  stroke: rgba(20, 80, 140, 0.18);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.9;
+}
+
+.data-flow-node {
+  fill: rgba(20, 80, 140, 0.28);
+}
+
+.data-flow-node-glow {
+  fill: rgba(20, 80, 140, 0.12);
+  animation: dataFlowPulse 6s ease-in-out infinite alternate;
+}
+
+.data-flow-packet {
+  fill: rgba(255, 255, 255, 0.96);
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
+  animation: dataFlowPacketPulse 2.4s ease-in-out infinite alternate;
+}
+
+.data-flow-packet-path {
+  fill: none;
+  stroke: transparent;
+}
+
+@keyframes dataFlowPulse {
+  0% {
+    opacity: 0.35;
+    transform: scale(0.92);
+    transform-origin: center;
+  }
+  100% {
+    opacity: 0.8;
+    transform: scale(1.08);
+    transform-origin: center;
+  }
+}
+
+@keyframes dataFlowPacketPulse {
+  0% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 48rem) {
+  .data-flow-animation {
+    opacity: 0.7;
+  }
+
+  .data-flow-link {
+    stroke: rgba(20, 80, 140, 0.09);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .data-flow-animation {
+    opacity: 0.45;
+  }
+
+  .data-flow-packet,
+  .data-flow-node,
+  .data-flow-link,
+  .data-flow-node-glow {
+    animation: none !important;
+  }
+}
+
+.apps-page-hero .meta {
+  margin: 0 0 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+.apps-page-hero h1 {
+  margin: 0;
+  font-size: clamp(2.6rem, 5vw, 5rem);
+  line-height: 0.94;
+  letter-spacing: -0.05em;
+}
+
+.apps-page-hero .lede {
+  max-width: 48rem;
+  margin: 1rem auto 0;
+  color: rgba(26, 26, 26, 0.8);
+  font-size: 1.04rem;
+  line-height: 1.55;
+}
+:root[data-theme='dark'] .apps-page-hero .lede{
+  color: aliceblue;
+}
+
+
 /* ── Directori d'aplicacions en graella ── */
 .apps-search {
   margin: 2rem 0;
@@ -449,10 +826,10 @@ h1.branded {
 
 .apps-search input {
   width: 100%;
-  max-width: 500px;
   padding: 0.75rem 1rem;
-  border-radius: 0.5rem;
+  border-radius: 50px;
   font: inherit;
+  border: 1px solid var(--line);
 }
 
 .apps-grid {
@@ -482,6 +859,7 @@ h1.branded {
 
 .app-card span {
   font-weight: 600;
+  font-width: 125%;
 }
 
 .apps-empty {
@@ -489,9 +867,344 @@ h1.branded {
   color: var(--muted);
 }
 
-#contingut:has(.apps-search) {
-  background-color: #fff;
-  padding: 20px 40px;
-  border-radius: 26px;
+/* TEXT PAGE */
+/* ==========================================================================
+   PÀGINES DE TEXT / DOCUMENTACIÓ
+   ========================================================================== */
+
+/*
+ * Pàgines com:
+ * - Metodologia
+ * - Sobre el projecte
+ * - Criteris
+ * - Transparència
+ * - Política editorial
+ *
+ * Són pàgines de lectura, no fitxes d'aplicacions.
+ */
+
+.text-page {
+  width: 100%;
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 2.5rem 3.75rem 5rem;
 }
 
+/* --------------------------------------------------------------------------
+   Capçalera
+   -------------------------------------------------------------------------- */
+
+.text-page > h1 {
+  max-width: 48rem;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+}
+
+.text-page > .lede {
+  max-width: 48rem;
+  margin: 0.75rem 0 2.5rem;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+/*
+ * Primer paràgraf després de la capçalera.
+ * Serveix per introduccions i resums.
+ */
+.text-page > h1 + p:not(.lede) {
+  max-width: 48rem;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  font-size: 1.15rem;
+  line-height: 1.7;
+}
+
+/* --------------------------------------------------------------------------
+   Text de lectura
+   -------------------------------------------------------------------------- */
+
+.text-page > p,
+.text-page > div > p {
+  max-width: 48rem;
+  line-height: 1.7;
+}
+
+.text-page > p {
+  margin-top: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.text-page p {
+  overflow-wrap: break-word;
+}
+
+/* --------------------------------------------------------------------------
+   Títols de secció
+   -------------------------------------------------------------------------- */
+
+.text-page > h2 {
+  max-width: 52rem;
+  margin: 4rem 0 1.5rem;
+  padding: 0 0 0.65rem;
+  border-bottom: 1px solid var(--line);
+  font-size: clamp(1.35rem, 2vw, 1.65rem);
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+
+  font-width: 125%;
+}
+
+.text-page > h2:first-of-type {
+  margin-top: 3rem;
+}
+
+.text-page > h3 {
+  max-width: 48rem;
+  margin: 2.25rem 0 0.5rem;
+  font-size: 1.05rem;
+  line-height: 1.35;
+}
+
+.text-page > h3 + p {
+  margin-top: 0;
+}
+
+/*
+ * Quan el h3 i el contingut estan dins d'un div, com passa amb els
+ * principis i les dimensions de la metodologia.
+ */
+.text-page > div > h3 {
+  max-width: 48rem;
+  margin: 2rem 0 0.5rem;
+  font-size: 1.05rem;
+  line-height: 1.35;
+}
+
+.text-page > div > h3 + p {
+  margin-top: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Blocs de principis / contingut agrupat
+   -------------------------------------------------------------------------- */
+
+.text-page > div > h3 + p {
+  max-width: 48rem;
+  color: var(--text);
+  line-height: 1.7;
+}
+
+/*
+ * Dona una mica de separació entre blocs consecutius sense convertir-los
+ * en targetes.
+ */
+.text-page > div:has(> h3) {
+  margin-bottom: 1.75rem;
+}
+
+/* --------------------------------------------------------------------------
+   Llistes
+   -------------------------------------------------------------------------- */
+
+.text-page ul,
+.text-page ol {
+  max-width: 48rem;
+  padding-left: 1.5rem;
+  line-height: 1.7;
+}
+
+.text-page li {
+  margin-bottom: 0.5rem;
+}
+
+.text-page li:last-child {
+  margin-bottom: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Taules
+   -------------------------------------------------------------------------- */
+
+.text-page .scroller {
+  max-width: 64rem;
+  margin: 1.25rem 0 2.5rem;
+  border: 1px solid var(--line);
+  background: var(--bg);
+}
+
+.text-page table {
+  width: 100%;
+  min-width: 36rem;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.text-page th,
+.text-page td {
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.text-page th {
+  background: color-mix(in srgb, var(--line) 35%, transparent);
+  color: var(--text);
+  font-weight: 700;
+}
+
+.text-page tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.text-page tbody tr:hover {
+  background: color-mix(in srgb, var(--line) 18%, transparent);
+}
+
+/*
+ * Columnes numèriques.
+ * La metodologia té pesos i percentatges, que visualment funcionen millor
+ * alineats a la dreta.
+ */
+.text-page th:nth-child(2),
+.text-page td:nth-child(2) {
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.text-page td.meta {
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+/* --------------------------------------------------------------------------
+   Separació entre blocs de dimensions
+   -------------------------------------------------------------------------- */
+
+.text-page > h2 + div {
+  margin-top: 0;
+}
+
+.text-page > div > .scroller {
+  margin-top: 1rem;
+}
+
+/*
+ * Quan hi ha una successió:
+ *
+ * h3
+ * taula
+ * h3
+ * taula
+ *
+ * mantenim una separació clara però compacta.
+ */
+.text-page > div > h3 + .scroller {
+  margin-bottom: 2.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   Informació desconeguda / confiança
+   -------------------------------------------------------------------------- */
+
+.text-page > h2 + p + p {
+  margin-top: 1rem;
+}
+
+/* --------------------------------------------------------------------------
+   Elements destacats
+   -------------------------------------------------------------------------- */
+
+.text-page strong {
+  font-weight: 700;
+}
+
+.text-page em {
+  color: var(--muted);
+}
+
+/* --------------------------------------------------------------------------
+   Enllaços
+   -------------------------------------------------------------------------- */
+
+.text-page a {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+.text-page a:hover {
+  text-decoration-thickness: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   Estat buit
+   -------------------------------------------------------------------------- */
+
+.text-page .unknown {
+  max-width: 48rem;
+  margin-top: 1.5rem;
+  padding: 1rem 1.25rem;
+  border-left: 3px solid var(--line-strong);
+  background: color-mix(in srgb, var(--line) 25%, transparent);
+}
+
+/* --------------------------------------------------------------------------
+   Responsive
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 48rem) {
+  .text-page {
+    padding: 2rem 1.5rem 4rem;
+  }
+
+  .text-page > h1 {
+    font-size: 2.2rem;
+  }
+
+  .text-page > h2 {
+    margin-top: 3rem;
+  }
+
+  .text-page .scroller {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 30rem) {
+  .text-page {
+    padding: 1.5rem 0.75rem 3rem;
+  }
+
+  .text-page > h1 {
+    font-size: 1.9rem;
+  }
+
+  .text-page > .lede {
+    margin-bottom: 2rem;
+  }
+
+  .text-page > h2 {
+    margin-top: 2.5rem;
+    font-size: 1.3rem;
+  }
+
+  .text-page > h3,
+  .text-page > div > h3 {
+    font-size: 1rem;
+  }
+
+  .text-page .scroller {
+    width: 100%;
+  }
+
+  .text-page th,
+  .text-page td {
+    padding: 0.7rem 0.75rem;
+  }
+}

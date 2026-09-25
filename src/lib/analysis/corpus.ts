@@ -69,6 +69,51 @@ export const relationIds = (value: unknown): string[] => {
 }
 
 /**
+ * Una filtració es vincula a una aplicació tant si ho fa directament (apps) com
+ * si el seu domini o empresa es troba a la mateixa cadena de propietat.
+ *
+ * Les filtracions de HIBP normalment es lliguen a la matriu o a la filial
+ * principal del grup, mentre que una app concreta pot viure sota una filial
+ * més específica (per exemple Meta Ireland vs Meta Platforms). Per això el
+ * criteri ha de detectar tant l'igualtat directa com la relació per parent.
+ */
+const companyChain = (value: unknown): string[] => {
+  const ids = new Set<string>()
+
+  const walk = (node: unknown): void => {
+    const id = relationId(node)
+    if (id !== null) ids.add(id)
+
+    if (node !== null && typeof node === 'object') {
+      const parent = (node as { parent?: unknown }).parent
+      if (parent !== undefined && parent !== null) {
+        const parentId = relationId(parent)
+        if (parentId !== null) {
+          ids.add(parentId)
+          walk(parent)
+        }
+      }
+    }
+  }
+
+  walk(value)
+  return [...ids]
+}
+
+export const breachMatchesApp = (
+  app: Pick<App, 'id' | 'company'>,
+  breach: Pick<Breach, 'apps' | 'company'>,
+): boolean => {
+  const appId = relationId(app.id)
+  const breachAppIds = relationIds(breach.apps)
+  if (appId !== null && breachAppIds.includes(appId)) return true
+
+  const appCompanyIds = companyChain(app.company)
+  const breachCompanyIds = companyChain(breach.company)
+  return appCompanyIds.some((id) => breachCompanyIds.includes(id)) && appCompanyIds.length > 0
+}
+
+/**
  * Lectura per camí. Els documents reals tenen grups sencers absents (una fitxa
  * antiga sense la pestanya de seguretat, per exemple), i `app.security.e2ee`
  * petaria. Aquí un camí que no existeix val `undefined`, igual que «no ho hem

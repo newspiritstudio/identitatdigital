@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 
 import { getClient } from '../lib'
 import AppsGrid from './AppsGrid'
+import DataFlowAnimation from './DataFlowAnimation'
 import { loadCorpus, relationId } from '@/lib/analysis'
 
 export const dynamic = 'force-dynamic'
@@ -44,11 +45,15 @@ export default async function AppsPage() {
 
   return (
     <>
-      <h1>Aplicacions</h1>
-      <p className="lede">
-        {apps.length} fitxes documentades, ordenades per nom. Cada fitxa diu quines dades recull el
-        servei, amb qui les comparteix i com te’n pots anar.
-      </p>
+      <header className="apps-page-hero apps-search-page">
+        <DataFlowAnimation />
+        {/*<p className="meta">Directori</p>*/}
+        <h1 className="site-title"><strong>identitat</strong>.digital</h1>
+        <p className="lede">
+          {apps.length} fitxes documentades, ordenades per nom. Cada fitxa diu quines dades recull el
+          servei, amb qui les comparteix i com te’n pots anar.
+        </p>
+      </header>
       <AppsGrid apps={apps} />
     </>
   )
