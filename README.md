@@ -83,6 +83,21 @@ El lloc queda a `http://localhost:3000` i el panell d'administració a
 `pnpm seed` es pot executar tantes vegades com calgui: identifica cada document
 pel seu `slug` i l'actualitza en lloc de duplicar-lo.
 
+## Producció
+
+`identitat.digital` viu al VPS d'Àgora (`/opt/identitatdigital`), en una pila de
+Docker Compose pròpia: l'app i un MongoDB que només ella veu. El TLS el fa el
+Caddy d'Àgora (bloc `identitat.digital` a `agora-app/deploy/Caddyfile`).
+
+```bash
+scripts/deploy/vps.sh setup    # un sol cop: directoris, xarxa i .env amb secrets nous
+scripts/deploy/vps.sh deploy   # puja el commit actual, construeix i arrenca
+scripts/deploy/vps.sh data     # substitueix la base de dades i media/ del VPS per les locals
+scripts/deploy/vps.sh logs
+```
+
+Es desplega `HEAD`, no la carpeta: el que no tingui commit no hi arriba.
+
 ## Logotips
 
 Les icones no viuen al repositori: es baixen de l'API de consulta pública de

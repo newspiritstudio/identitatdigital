@@ -1,0 +1,12 @@
+node_modules
+.next
+.git
+.env
+.env*.local
+media
+coverage
+test-results
+docs
+tests
+*.tsbuildinfo
+src/payload-types.ts

@@ -1,0 +1,92 @@
+# identitat.digital al VPS agora-newspiritstudio — pila de compose independent,
+# amb el mateix patró que Pharos, CeleApp i Canigó:
+#
+#   · Cap port publicat. S'hi arriba només pel Caddy d'Àgora, que té el 80 i el
+#     443 i hi fa el TLS (bloc `identitat.digital` a agora-app/deploy/Caddyfile).
+#   · `identitatdigital-net`, compartida només entre l'app i Caddy. La crea
+#     scripts/deploy/vps.sh i totes dues piles la declaren externa, perquè cap
+#     `up` no la recreï i deixi l'altra penjada.
+#   · El mongo viu a `identitatdigital-internal`, marcada `internal`: ni Caddy
+#     ni Internet hi arriben, i ell tampoc no en pot sortir.
+#   · MTU 1400, com totes les xarxes d'aquest amfitrió (el path MTU de Hetzner
+#     cap enfora és ~1450 i amb 1500 els handshakes TLS grossos es pengen).
+#
+# Ús:  scripts/deploy/vps.sh up   (des del Mac)
+
+name: identitatdigital
+
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_APP_URL: https://identitat.digital
+    image: identitatdigital:local
+    container_name: identitatdigital
+    restart: unless-stopped
+    depends_on:
+      mongo:
+        condition: service_healthy
+    env_file:
+      - /opt/identitatdigital/.env
+    environment:
+      - NODE_ENV=production
+    volumes:
+      # Fora del directori del codi, que cada desplegament substitueix sencer.
+      - /opt/identitatdigital/media:/app/media
+    security_opt:
+      - no-new-privileges:true
+    # Comparteix màquina amb Àgora: si aquesta app s'embala, que caigui ella.
+    pids_limit: 512
+    mem_limit: 1g
+    memswap_limit: 1g
+    read_only: true
+    tmpfs:
+      - /tmp
+      - /app/.next/cache:uid=1001,gid=1001,size=256m
+    cap_drop:
+      - ALL
+    networks:
+      - identitatdigital-net
+      - internal
+
+  mongo:
+    image: mongo:8.0
+    container_name: identitatdigital-mongo
+    restart: unless-stopped
+    # Per defecte WiredTiger es queda la meitat de la RAM de la màquina. La base
+    # de dades fa uns 70 MB: 256 MB de memòria cau n'hi ha de sobres.
+    command: ['--wiredTigerCacheSizeGB', '0.25']
+    env_file:
+      - /opt/identitatdigital/.env
+    volumes:
+      - identitatdigital-mongo:/data/db
+    healthcheck:
+      test: ['CMD', 'mongosh', '--quiet', '--eval', "db.adminCommand('ping').ok"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 20s
+    security_opt:
+      - no-new-privileges:true
+    mem_limit: 768m
+    memswap_limit: 768m
+    networks:
+      - internal
+
+networks:
+  identitatdigital-net:
+    external: true
+  internal:
+    name: identitatdigital-internal
+    internal: true
+    driver: bridge
+    driver_opts:
+      com.docker.network.driver.mtu: '1400'
+
+volumes:
+  # `name:` fix perquè el volum no depengui del nom del projecte. Un volum amb un
+  # nom nou és un volum buit, i l'app arrencaria sense dades i sense error.
+  identitatdigital-mongo:
+    name: identitatdigital-mongo
