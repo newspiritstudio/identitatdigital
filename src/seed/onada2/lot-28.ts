@@ -74,6 +74,7 @@ export const lot: SeedLot = {
     {
       slug: 'barcelona-serveis-municipals',
       name: 'Barcelona de Serveis Municipals',
+      parent: 'ajuntament-de-barcelona',
       legalName: 'Barcelona de Serveis Municipals, S.A.',
       description:
         'Empresa pública participada íntegrament per l’Ajuntament de Barcelona que gestiona el Bicing, l’estacionament regulat, els aparcaments i la grua municipal, i que és titular de l’aplicació SMOU.',

@@ -1359,6 +1359,7 @@ export const lot: SeedLot = {
     {
       slug: 'departament-de-salut',
       name: 'Departament de Salut',
+      parent: 'generalitat-de-catalunya',
       legalName: 'Departament de Salut de la Generalitat de Catalunya',
       description:
         'Departament del Govern de la Generalitat de Catalunya responsable del sistema sanitari públic català i, segons la política del servei, del tractament de dades de La Meva Salut. El servei el gestiona el Servei Català de la Salut (CatSalut).',

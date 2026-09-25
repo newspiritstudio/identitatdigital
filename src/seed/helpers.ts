@@ -7,6 +7,9 @@ export const REVIEW_DATE = '2026-09-09'
 /** Data de treball de la segona onada: les 400 aplicacions més descarregades. */
 export const WAVE2_DATE = '2026-09-22'
 
+/** Data de treball del bloc d'aplicacions catalanes (lots 40 a 45). */
+export const CATALAN_DATE = '2026-09-25'
+
 /**
  * Constructor curt d'afirmacions amb evidència. El dataset en fa servir
  * centenars; escriure-les enteres el faria il·legible.

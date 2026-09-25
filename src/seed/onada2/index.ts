@@ -37,6 +37,12 @@ import { lot as lot36 } from './lot-36'
 import { lot as lot37 } from './lot-37'
 import { lot as lot38 } from './lot-38'
 import { lot as lot39 } from './lot-39'
+import { lot as lot40 } from './lot-40'
+import { lot as lot41 } from './lot-41'
+import { lot as lot42 } from './lot-42'
+import { lot as lot43 } from './lot-43'
+import { lot as lot44 } from './lot-44'
+import { lot as lot45 } from './lot-45'
 import type { SeedLot } from './types'
 
 /**
@@ -48,8 +54,12 @@ import type { SeedLot } from './types'
  * categoria intercalats per posició, sense jocs, fins a sumar 400 serveis
  * amb les 25 fitxes de la primera onada. Cada lot agrupa les aplicacions
  * d'un mateix grup empresarial perquè comparteixin empresa i fonts.
+ *
+ * Els lots 40 a 45 (25 de setembre de 2026) afegeixen serveis catalans que no
+ * eren al rànquing: mitjans públics i privats, Generalitat, Ajuntament de
+ * Barcelona, transport metropolità i altres serveis d'ús habitual.
  */
-const lots: SeedLot[] = [lot01, lot02, lot03, lot04, lot05, lot06, lot07, lot08, lot09, lot10, lot11, lot12, lot13, lot14, lot15, lot16, lot17, lot18, lot19, lot20, lot21, lot22, lot23, lot24, lot25, lot26, lot27, lot28, lot29, lot30, lot31, lot32, lot33, lot34, lot35, lot36, lot37, lot38, lot39]
+const lots: SeedLot[] = [lot01, lot02, lot03, lot04, lot05, lot06, lot07, lot08, lot09, lot10, lot11, lot12, lot13, lot14, lot15, lot16, lot17, lot18, lot19, lot20, lot21, lot22, lot23, lot24, lot25, lot26, lot27, lot28, lot29, lot30, lot31, lot32, lot33, lot34, lot35, lot36, lot37, lot38, lot39, lot40, lot41, lot42, lot43, lot44, lot45]
 
 export const wave2: SeedLot = {
   companies: lots.flatMap((lot) => lot.companies),
