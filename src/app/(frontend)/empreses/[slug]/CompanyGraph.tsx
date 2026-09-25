@@ -1140,6 +1140,7 @@ export function CompanyGraph({
                     {
                       selectedCompany.website
                     }
+                    <span className="visually-hidden"> (s’obre en una pestanya nova)</span>
                   </a>
                 </td>
               </tr>
@@ -1168,6 +1169,7 @@ export function CompanyGraph({
                         selectedCompany
                           .privacyContact
                       }
+                      <span className="visually-hidden"> (s’obre en una pestanya nova)</span>
                     </a>
                   ) : (
                     selectedCompany.privacyContact
