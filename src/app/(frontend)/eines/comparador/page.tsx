@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 import { getClient } from '../../lib'
+import '../eines.css'
 import Comparador from './Comparador'
 import { buildComparatorSnapshot, resolveSelection } from './snapshot'
 
@@ -36,7 +37,7 @@ export default async function ComparadorPage({
 
   return (
     <div className="content-wrapper">
-      <div className="text-page">
+      <div className="text-page tool-page">
         <h1>Comparador i alternatives</h1>
         <p className="lede">
           Posa dues o tres fitxes de la mateixa categoria una al costat de l’altra, indicador per
@@ -44,9 +45,9 @@ export default async function ComparadorPage({
         </p>
 
         <p className="meta">
-          La comparació es fa dins del teu navegador a partir de dades ja publicades: no s’envia ni es
-          desa res. L’adreça de la pàgina recull la selecció, de manera que pots copiar l’enllaç i
-          ensenyar la comparació a qui vulguis.{' '}
+          La comparació es fa dins del teu navegador a partir de dades ja publicades: no s’envia ni
+          es desa res. L’adreça de la pàgina recull la selecció, de manera que pots copiar l’enllaç
+          i ensenyar la comparació a qui vulguis.{' '}
           <Link href="/metodologia">Com es calculen els indicadors</Link>.
         </p>
 

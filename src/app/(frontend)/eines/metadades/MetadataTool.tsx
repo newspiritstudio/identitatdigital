@@ -31,11 +31,23 @@ import styles from '../credencials/contrasenyes.module.css'
 
 const MAX_FILES = 20
 const PREVIEWABLE = new Set(['jpeg', 'png', 'webp'])
-const GROUP_ORDER: MetaGroup[] = ['location', 'identity', 'device', 'time', 'content', 'software', 'other']
+const GROUP_ORDER: MetaGroup[] = [
+  'location',
+  'identity',
+  'device',
+  'time',
+  'content',
+  'software',
+  'other',
+]
 
 const size = new Intl.NumberFormat('ca-ES', { maximumFractionDigits: 1 })
 const formatBytes = (bytes: number) =>
-  bytes < 1024 ? `${bytes} B` : bytes < 1024 * 1024 ? `${size.format(bytes / 1024)} kB` : `${size.format(bytes / 1024 / 1024)} MB`
+  bytes < 1024
+    ? `${bytes} B`
+    : bytes < 1024 * 1024
+      ? `${size.format(bytes / 1024)} kB`
+      : `${size.format(bytes / 1024 / 1024)} MB`
 
 type CleanState =
   | { kind: 'idle' }
@@ -46,7 +58,14 @@ type CleanState =
 type Item =
   | { id: string; name: string; bytes: number; kind: 'reading' }
   | { id: string; name: string; bytes: number; kind: 'rejected'; message: string }
-  | { id: string; name: string; bytes: number; kind: 'ready'; inspection: Inspection; clean: CleanState }
+  | {
+      id: string
+      name: string
+      bytes: number
+      kind: 'ready'
+      inspection: Inspection
+      clean: CleanState
+    }
 
 let counter = 0
 
@@ -63,9 +82,10 @@ function ExternalLink({ href, children }: { href: string; children: React.ReactN
 }
 
 function Fields({ fields }: { fields: MetaField[] }) {
-  const groups = GROUP_ORDER.map((group) => ({ group, fields: fields.filter((field) => field.group === group) })).filter(
-    (entry) => entry.fields.length > 0,
-  )
+  const groups = GROUP_ORDER.map((group) => ({
+    group,
+    fields: fields.filter((field) => field.group === group),
+  })).filter((entry) => entry.fields.length > 0)
   return (
     <>
       {groups.map(({ group, fields: list }) => (
@@ -75,7 +95,10 @@ function Fields({ fields }: { fields: MetaField[] }) {
             {list.map((field) => (
               <div key={`${field.key}:${field.label}`} data-risk={field.risk}>
                 <dt>
-                  {field.label} <span className="badge" data-risk={field.risk}>{RISK_LABELS[field.risk]}</span>
+                  {field.label}{' '}
+                  <span className="badge" data-risk={field.risk}>
+                    {RISK_LABELS[field.risk]}
+                  </span>
                 </dt>
                 <dd>
                   <span className="metadata-value">{field.value}</span>
@@ -95,7 +118,9 @@ function Verification({ result }: { result: Cleaning }) {
   const high = left.filter((field) => field.risk === 'high')
   return (
     <div className="metadata-verification">
-      <p className={`${styles.result} ${high.length === 0 && !result.verification.gps ? styles.resultOk : styles.resultAlert}`}>
+      <p
+        className={`${styles.result} ${high.length === 0 && !result.verification.gps ? styles.resultOk : styles.resultAlert}`}
+      >
         {left.length === 0
           ? 'Còpia revisada: no hi queda cap metadada que sapiguem llegir.'
           : high.length === 0 && !result.verification.gps
@@ -105,11 +130,14 @@ function Verification({ result }: { result: Cleaning }) {
       {result.done.length > 0 ? (
         <>
           <h4>Què s’ha tret</h4>
-          <ul>
-            {result.done.map((line) => (
-              <li key={line}>{line}</li>
-            ))}
-          </ul>
+          <p className="metadata-done">
+            {result.done
+              .map((line, index) =>
+                index === 0 ? line.charAt(0).toUpperCase() + line.slice(1) : line,
+              )
+              .join(', ')}
+            .
+          </p>
         </>
       ) : null}
       {result.remaining.length > 0 ? (
@@ -164,9 +192,16 @@ export default function MetadataTool() {
       counter += 1
       const id = `f${counter}`
       if (file.size > MAX_FILE_BYTES) {
-        return { id, name: file.name, bytes: file.size, kind: 'rejected', message: `És massa gran: el límit és ${formatBytes(MAX_FILE_BYTES)} per fitxer.` }
+        return {
+          id,
+          name: file.name,
+          bytes: file.size,
+          kind: 'rejected',
+          message: `És massa gran: el límit és ${formatBytes(MAX_FILE_BYTES)} per fitxer.`,
+        }
       }
-      if (file.size === 0) return { id, name: file.name, bytes: 0, kind: 'rejected', message: 'El fitxer és buit.' }
+      if (file.size === 0)
+        return { id, name: file.name, bytes: 0, kind: 'rejected', message: 'El fitxer és buit.' }
       files.current.set(id, file)
       return { id, name: file.name, bytes: file.size, kind: 'reading' }
     })
@@ -177,9 +212,20 @@ export default function MetadataTool() {
       file
         .arrayBuffer()
         .then((buffer) => inspect(new Uint8Array(buffer)))
-        .then((inspection) => update(item.id, (current) => ({ ...current, kind: 'ready', inspection, clean: { kind: 'idle' } })))
+        .then((inspection) =>
+          update(item.id, (current) => ({
+            ...current,
+            kind: 'ready',
+            inspection,
+            clean: { kind: 'idle' },
+          })),
+        )
         .catch(() =>
-          update(item.id, (current) => ({ ...current, kind: 'rejected', message: 'No s’ha pogut llegir el fitxer. Potser l’has mogut o esborrat.' })),
+          update(item.id, (current) => ({
+            ...current,
+            kind: 'rejected',
+            message: 'No s’ha pogut llegir el fitxer. Potser l’has mogut o esborrat.',
+          })),
         )
     }
   }
@@ -213,14 +259,25 @@ export default function MetadataTool() {
       const result = await clean(new Uint8Array(await file.arrayBuffer()))
       let preview: string | null = null
       if (PREVIEWABLE.has(result.verification.format)) {
-        preview = URL.createObjectURL(new Blob([result.bytes as BlobPart], { type: MIME_TYPES[result.verification.format] }))
+        preview = URL.createObjectURL(
+          new Blob([result.bytes as BlobPart], { type: MIME_TYPES[result.verification.format] }),
+        )
         previews.current.add(preview)
       }
-      update(id, (item) => (item.kind === 'ready' ? { ...item, clean: { kind: 'done', result, preview } } : item))
+      update(id, (item) =>
+        item.kind === 'ready' ? { ...item, clean: { kind: 'done', result, preview } } : item,
+      )
     } catch (error) {
       update(id, (item) =>
         item.kind === 'ready'
-          ? { ...item, clean: { kind: 'error', message: error instanceof Error ? error.message : 'No s’ha pogut fer la còpia neta.' } }
+          ? {
+              ...item,
+              clean: {
+                kind: 'error',
+                message:
+                  error instanceof Error ? error.message : 'No s’ha pogut fer la còpia neta.',
+              },
+            }
           : item,
       )
     }
@@ -229,13 +286,25 @@ export default function MetadataTool() {
   const download = (item: Item) => {
     if (item.kind !== 'ready' || item.clean.kind !== 'done') return
     const { result } = item.clean
-    downloadBlob(cleanFileName(item.name), new Blob([result.bytes as BlobPart], { type: MIME_TYPES[result.verification.format] }))
+    downloadBlob(
+      cleanFileName(item.name),
+      new Blob([result.bytes as BlobPart], { type: MIME_TYPES[result.verification.format] }),
+    )
   }
 
-  const ready = items.filter((item): item is Extract<Item, { kind: 'ready' }> => item.kind === 'ready')
-  const withLocation = ready.filter((item) => item.inspection.gps || item.inspection.fields.some((field) => field.group === 'location')).length
-  const withIdentity = ready.filter((item) => item.inspection.fields.some((field) => field.group === 'identity')).length
-  const withDevice = ready.filter((item) => item.inspection.fields.some((field) => field.group === 'device' && field.risk !== 'low')).length
+  const ready = items.filter(
+    (item): item is Extract<Item, { kind: 'ready' }> => item.kind === 'ready',
+  )
+  const withLocation = ready.filter(
+    (item) =>
+      item.inspection.gps || item.inspection.fields.some((field) => field.group === 'location'),
+  ).length
+  const withIdentity = ready.filter((item) =>
+    item.inspection.fields.some((field) => field.group === 'identity'),
+  ).length
+  const withDevice = ready.filter((item) =>
+    item.inspection.fields.some((field) => field.group === 'device' && field.risk !== 'low'),
+  ).length
 
   return (
     <section className={`card ${styles.tool} metadata-tool`} aria-labelledby="inspector">
@@ -273,9 +342,10 @@ export default function MetadataTool() {
           </label>
         </div>
         <p id="metadades-avis" className="meta">
-          Fotos JPEG, PNG, WebP i HEIC; PDF; Word, Excel, PowerPoint i LibreOffice. Fins a {MAX_FILES} fitxers de{' '}
-          {formatBytes(MAX_FILE_BYTES)} com a màxim. Els fitxers no surten del teu dispositiu: es llegeixen i es netegen
-          en aquesta pestanya, sense connexió a cap servidor.
+          Fotos JPEG, PNG, WebP i HEIC; PDF; Word, Excel, PowerPoint i LibreOffice. Fins a{' '}
+          {MAX_FILES} fitxers de {formatBytes(MAX_FILE_BYTES)} com a màxim. Els fitxers no surten
+          del teu dispositiu: es llegeixen i es netegen en aquesta pestanya, sense connexió a cap
+          servidor.
         </p>
       </div>
       {notice ? (
@@ -309,7 +379,12 @@ export default function MetadataTool() {
         <>
           <ol className="plain metadata-files">
             {items.map((item) => (
-              <li key={item.id} className="card metadata-file" data-state={item.kind} aria-busy={item.kind === 'reading'}>
+              <li
+                key={item.id}
+                className="card metadata-file"
+                data-state={item.kind}
+                aria-busy={item.kind === 'reading'}
+              >
                 <h3>
                   <span className="metadata-name">{item.name}</span>{' '}
                   <span className="meta">
@@ -319,7 +394,9 @@ export default function MetadataTool() {
                 </h3>
 
                 {item.kind === 'reading' ? <p className={styles.note}>Llegint…</p> : null}
-                {item.kind === 'rejected' ? <p className={`${styles.result} ${styles.resultUnknown}`}>{item.message}</p> : null}
+                {item.kind === 'rejected' ? (
+                  <p className={`${styles.result} ${styles.resultUnknown}`}>{item.message}</p>
+                ) : null}
 
                 {item.kind === 'ready' ? (
                   <>
@@ -343,13 +420,35 @@ export default function MetadataTool() {
 
                     {item.inspection.gps ? (
                       <p className="metadata-gps">
-                        <strong>Ubicació exacta:</strong> {item.inspection.gps.lat.toFixed(5)}, {item.inspection.gps.lon.toFixed(5)}.{' '}
-                        <ExternalLink href={osmUrl(item.inspection.gps.lat, item.inspection.gps.lon)}>Mira-ho al mapa</ExternalLink>
+                        <strong>Ubicació exacta:</strong> {item.inspection.gps.lat.toFixed(5)},{' '}
+                        {item.inspection.gps.lon.toFixed(5)}.{' '}
+                        <ExternalLink
+                          href={osmUrl(item.inspection.gps.lat, item.inspection.gps.lon)}
+                        >
+                          Mira-ho al mapa
+                        </ExternalLink>
                         <span className="meta"> (OpenStreetMap; només s’obre si hi fas clic)</span>
                       </p>
                     ) : null}
 
-                    <Fields fields={item.inspection.fields} />
+                    <Fields
+                      fields={item.inspection.fields.filter((field) => field.risk !== 'low')}
+                    />
+                    {item.inspection.fields.some((field) => field.risk === 'low') ? (
+                      <details className="tool-more">
+                        <summary>
+                          {(() => {
+                            const low = item.inspection.fields.filter(
+                              (field) => field.risk === 'low',
+                            ).length
+                            return `${low} ${low === 1 ? 'camp més' : 'camps més'} de risc baix`
+                          })()}
+                        </summary>
+                        <Fields
+                          fields={item.inspection.fields.filter((field) => field.risk === 'low')}
+                        />
+                      </details>
+                    ) : null}
 
                     {item.inspection.notes.length > 0 ? (
                       <ul className="metadata-notes">
@@ -371,11 +470,19 @@ export default function MetadataTool() {
                         </button>
                       ) : null}
                       {item.clean.kind === 'done' ? (
-                        <button type="button" className={styles.buttonPrimary} onClick={() => download(item)}>
+                        <button
+                          type="button"
+                          className={styles.buttonPrimary}
+                          onClick={() => download(item)}
+                        >
                           Descarrega {cleanFileName(item.name)}
                         </button>
                       ) : null}
-                      <button type="button" className={styles.button} onClick={() => remove(item.id)}>
+                      <button
+                        type="button"
+                        className={styles.button}
+                        onClick={() => remove(item.id)}
+                      >
                         Treu-lo de la llista
                       </button>
                     </div>
@@ -393,11 +500,12 @@ export default function MetadataTool() {
                             <details className="metadata-preview">
                               <summary>Mostra la còpia neta</summary>
                               <figure>
-                              {/* eslint-disable-next-line @next/next/no-img-element -- és un blob local, no hi ha res a optimitzar */}
-                              <img src={item.clean.preview} alt={`Còpia neta de ${item.name}`} />
-                              <figcaption className="meta">
-                                La còpia neta: els píxels són exactament els mateixos, no s’ha tornat a comprimir.
-                              </figcaption>
+                                {/* eslint-disable-next-line @next/next/no-img-element -- és un blob local, no hi ha res a optimitzar */}
+                                <img src={item.clean.preview} alt={`Còpia neta de ${item.name}`} />
+                                <figcaption className="meta">
+                                  La còpia neta: els píxels són exactament els mateixos, no s’ha
+                                  tornat a comprimir.
+                                </figcaption>
                               </figure>
                             </details>
                           ) : null}

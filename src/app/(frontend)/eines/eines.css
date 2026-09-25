@@ -1,0 +1,638 @@
+/*
+ * Aspecte comú de les eines (`/eines` i les seves pàgines).
+ *
+ * Fa servir els mateixos recursos que la resta del lloc: panells de vidre amb
+ * les variables de `styles.css`, botons i enllaços en forma de càpsula com els
+ * de les fitxes, xifres destacades com les d'Anàlisi i etiquetes en versaletes.
+ * Tot va dins de `.tool-page` perquè no afecti cap altra pàgina.
+ */
+
+/* ───────────────────────────── capçalera ─────────────────────────────────── */
+
+.tool-page > p.meta:first-child {
+  margin: 0 0 0.75rem;
+}
+
+.tool-page > p.meta:first-child a {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--muted);
+}
+
+.tool-page > p.meta:first-child a::before {
+  content: '← ';
+}
+
+.tool-page > p.meta:first-child a:hover {
+  color: var(--text);
+}
+
+.tool-page > .lede {
+  margin-bottom: 1.5rem;
+}
+
+/* Navegació interna: càpsules com els enllaços de les fitxes. */
+.tool-nav,
+.diagnostic-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0 0 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+.tool-nav a,
+.diagnostic-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.25rem;
+  padding: 0.4rem 0.95rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  color: var(--text);
+  font-size: 0.88rem;
+  line-height: 1.1;
+  text-decoration: none;
+  transition:
+    border-color 120ms ease,
+    background-color 120ms ease;
+}
+
+.tool-nav a:hover,
+.diagnostic-nav a:hover {
+  border-color: var(--text);
+  background: color-mix(in srgb, var(--text) 6%, transparent);
+}
+
+.diagnostic-nav {
+  margin: 1.25rem 0 0.5rem;
+}
+
+/* ─────────────────────────────── panells ─────────────────────────────────── */
+
+.tool-page .card > h2:first-child,
+.tool-page .card > h3:first-child,
+.tool-page [class*='picker'] > h2:first-child,
+.tool-page [class*='empty'] > h2:first-child {
+  margin-top: 0;
+  padding: 0;
+  border: 0;
+  font-size: 1.3rem;
+  letter-spacing: -0.01em;
+}
+
+/* Els elements dins d'un resultat: targetes més lleugeres que el panell. */
+.tool-page li.card {
+  padding: 0.9rem 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: 0.85rem;
+  background: color-mix(in srgb, var(--surface) 55%, transparent);
+}
+
+.tool-page li.card + li.card {
+  margin-top: 0.6rem;
+}
+
+.tool-page li.card h3,
+.tool-page li.card h4 {
+  margin-top: 0;
+}
+
+.tool-columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr));
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.tool-columns > .card {
+  margin: 0;
+}
+
+.tool-page section > h2,
+.diagnostic-results > h2 {
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  letter-spacing: -0.015em;
+}
+
+/* ─────────────────────────── xifres destacades ───────────────────────────── */
+
+.credentials-email-headline,
+.metadata-headline,
+.diagnostic-figures {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: 0.75rem;
+  margin: 1.25rem 0;
+}
+
+.credentials-email-headline > div,
+.metadata-headline > div,
+.diagnostic-figures > div {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  gap: 0.2rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 0.85rem;
+  background: color-mix(in srgb, var(--surface) 55%, transparent);
+}
+
+.credentials-email-headline dt,
+.metadata-headline dt,
+.diagnostic-figures dt {
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.35;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.credentials-email-headline dd,
+.metadata-headline dd,
+.diagnostic-figures dd {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.15;
+  font-variant-numeric: tabular-nums;
+}
+
+.diagnostic-figures dd .meta {
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+/* ──────────────────── explicacions plegades («Més informació») ───────────── */
+
+.tool-more {
+  max-width: 52rem;
+  margin: 0;
+  border-top: 1px solid var(--line);
+}
+
+.tool-more + :not(.tool-more) {
+  border-top: 0;
+}
+
+.tool-more:last-of-type,
+.tool-more:has(+ :not(.tool-more)) {
+  border-bottom: 1px solid var(--line);
+}
+
+.tool-more > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.95rem 0.25rem;
+  cursor: pointer;
+  font-weight: 600;
+  list-style: none;
+}
+
+.tool-more > summary::-webkit-details-marker {
+  display: none;
+}
+
+.tool-more > summary::after {
+  content: '+';
+  flex-shrink: 0;
+  display: inline-grid;
+  place-items: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.tool-more[open] > summary::after {
+  content: '−';
+}
+
+.tool-more > summary:hover {
+  color: var(--accent);
+}
+
+.tool-more > :not(summary) {
+  max-width: 48rem;
+}
+
+.tool-more[open] {
+  padding-bottom: 1rem;
+}
+
+/* Dins d'un panell (la força de les contrasenyes), sense línia inferior pròpia. */
+.card .tool-more {
+  margin-top: 0.75rem;
+  border-bottom: 0;
+}
+
+.card .tool-more > summary {
+  padding: 0.6rem 0;
+  font-size: 0.9rem;
+}
+
+.tool-page > h2 + .tool-more {
+  border-top: 0;
+}
+
+/* ─────────────────────── el que obtindràs (diagnòstic) ───────────────────── */
+
+.tool-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.tool-features li {
+  display: grid;
+  gap: 0.25rem;
+  padding-top: 0.75rem;
+  border-top: 2px solid var(--text);
+}
+
+.tool-features span {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* ───────────────────────────── diagnòstic ────────────────────────────────── */
+
+.diagnostic-groups {
+  columns: 2 20rem;
+  column-gap: 2rem;
+}
+
+.diagnostic-groups > details {
+  break-inside: avoid;
+}
+
+.diagnostic-chip {
+  font: inherit;
+  font-size: 0.85rem;
+  min-height: 2rem;
+  padding: 0.3rem 0.8rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  transition:
+    background-color 120ms ease,
+    border-color 120ms ease;
+}
+
+.diagnostic-chip:hover {
+  border-color: var(--text);
+}
+
+.diagnostic-chip[data-active='true'] {
+  border-color: var(--text);
+  background: var(--text);
+  color: var(--surface);
+}
+
+.diagnostic-chip:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.plan-action-why > summary,
+.plan-tier > summary {
+  cursor: pointer;
+}
+
+/* ─────────────────────────────── metadades ───────────────────────────────── */
+
+.metadata-drop {
+  padding: 1.25rem;
+  border: 1.5px dashed var(--line-strong);
+  border-radius: 0.9rem;
+  transition:
+    border-color 120ms ease,
+    background-color 120ms ease;
+}
+
+.metadata-drop[data-dragging] {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+}
+
+.metadata-drop > p:last-child {
+  margin-bottom: 0;
+}
+
+.metadata-files {
+  margin: 1rem 0 0;
+}
+
+.metadata-file h3 {
+  font-size: 1.05rem;
+  overflow-wrap: anywhere;
+}
+
+.metadata-group h4 {
+  margin: 1rem 0 0.35rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.metadata-fields {
+  margin: 0;
+}
+
+.metadata-fields > div {
+  padding: 0.45rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.metadata-fields dt {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.metadata-fields dd {
+  margin: 0.1rem 0 0;
+  font-size: 0.9rem;
+}
+
+.metadata-value {
+  overflow-wrap: anywhere;
+}
+
+.tool-page .badge {
+  border-radius: 999px;
+  padding: 0.05rem 0.55rem;
+}
+
+.tool-page .badge[data-risk='high'] {
+  border-color: var(--bad);
+  color: var(--bad);
+}
+
+.tool-page .badge[data-risk='medium'] {
+  border-color: var(--mid);
+}
+
+.metadata-preview img {
+  display: block;
+  max-height: 24rem;
+  width: auto;
+  margin-top: 0.75rem;
+  border-radius: 0.7rem;
+}
+
+/* ─────────────────────────────── l'índex ─────────────────────────────────── */
+
+.tools-status {
+  max-width: 48rem;
+  padding: 0.8rem 1.1rem;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--accent);
+  border-radius: 0.8rem;
+  background: color-mix(in srgb, var(--surface) 55%, transparent);
+}
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  gap: 1.25rem;
+  margin: 2rem 0 0;
+}
+
+.tool-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 1.6rem 1.35rem;
+  border: 1px solid var(--content-glass-border);
+  border-radius: 1.1rem;
+  background: color-mix(in srgb, var(--surface) 62%, transparent);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    border-color 160ms ease;
+}
+
+.tool-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--line-strong);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.09);
+}
+
+.tool-card:focus-within {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.tool-card[data-tool='diagnostic'] {
+  grid-column: 1 / -1;
+  background: color-mix(in srgb, var(--surface) 80%, transparent);
+}
+
+.tool-card-eyebrow {
+  margin: 0 0 0.5rem;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.tool-card h2 {
+  margin: 0 0 0.5rem;
+  padding: 0;
+  border: 0;
+  font-size: 1.35rem;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+}
+
+.tool-card[data-tool='diagnostic'] h2 {
+  font-size: clamp(1.5rem, 2.5vw, 1.9rem);
+}
+
+.tool-card h2 a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.tool-card h2 a:focus-visible {
+  outline: none;
+}
+
+/* Tota la targeta és clicable. */
+.tool-card h2 a::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+
+.tool-card > p {
+  margin: 0;
+  max-width: 40rem;
+}
+
+.tool-card > p.tool-card-foot {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem 1rem;
+  margin-top: auto;
+  padding-top: 1.25rem;
+  max-width: none;
+}
+
+.tool-card-cta {
+  font-weight: 600;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tool-card,
+  .tool-card:hover {
+    transition: none;
+    transform: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .tool-page .card > h2:first-child {
+    font-size: 1.15rem;
+  }
+}
+
+/* Les llistes que fan de graella no porten el sagnat ni l'amplada de lectura. */
+.tool-page ul.tools-grid,
+.tool-page ul.tool-features,
+.tool-page ol.metadata-files {
+  max-width: none;
+  padding-left: 0;
+}
+
+.tool-page ol.metadata-files {
+  list-style: none;
+}
+
+.metadata-verification h4 {
+  margin: 1rem 0 0.35rem;
+  font-size: 0.95rem;
+}
+
+.metadata-done {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.metadata-drop input[type='file'] {
+  font: inherit;
+  font-size: 0.9rem;
+  color: var(--muted);
+  max-width: 100%;
+}
+
+.metadata-drop input[type='file']::file-selector-button {
+  font: inherit;
+  font-weight: 500;
+  margin-right: 0.75rem;
+  min-height: 2.4rem;
+  padding: 0.5rem 1.1rem;
+  border: 1px solid var(--text);
+  border-radius: 999px;
+  background: var(--text);
+  color: var(--surface);
+  cursor: pointer;
+}
+
+.metadata-drop label > span {
+  font-weight: 600;
+  color: var(--text);
+}
+
+@media (max-width: 760px) {
+  .content-wrapper:has(> .tool-page) {
+    padding: 1.25rem 1rem 2rem;
+  }
+
+  .text-page.tool-page {
+    padding: 0.5rem 0 2rem;
+  }
+
+  .tool-card {
+    padding: 1.2rem 1.25rem 1.1rem;
+  }
+}
+
+/* ───────────────────── pestanyes del resultat del diagnòstic ─────────────── */
+
+.diagnostic-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 1.5rem 0 0.5rem;
+  padding: 0.35rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface) 55%, transparent);
+  width: fit-content;
+  max-width: 100%;
+}
+
+.diagnostic-tabs [role='tab'] {
+  font: inherit;
+  font-size: 0.9rem;
+  min-height: 2.3rem;
+  padding: 0.4rem 1rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.diagnostic-tabs [role='tab']:hover {
+  background: color-mix(in srgb, var(--text) 6%, transparent);
+}
+
+.diagnostic-tabs [role='tab'][aria-selected='true'] {
+  background: var(--text);
+  color: var(--surface);
+}
+
+.diagnostic-tabs [role='tab']:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+@media (max-width: 760px) {
+  .diagnostic-tabs {
+    border-radius: 1rem;
+  }
+}
+
+@media print {
+  .diagnostic-tabs {
+    display: none;
+  }
+
+  .diagnostic-results [role='tabpanel'][hidden] {
+    display: block;
+  }
+}

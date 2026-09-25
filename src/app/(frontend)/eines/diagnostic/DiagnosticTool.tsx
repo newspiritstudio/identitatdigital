@@ -53,14 +53,27 @@ const clearHash = () => {
   }
 }
 
+const TABS = [
+  { id: 'pla', label: 'Pla d’acció' },
+  { id: 'mapa', label: 'Mapa de risc' },
+  { id: 'filtracions', label: 'Filtracions' },
+  { id: 'dades', label: 'Dades i empreses' },
+  { id: 'informe', label: 'Informe' },
+] as const
+
+type TabId = (typeof TABS)[number]['id']
+
 export default function DiagnosticTool({ snapshot }: { snapshot: Snapshot }) {
+  const [tab, setTab] = useState<TabId>('pla')
   const hydrated = useHydrated()
   const [storedSelection, setSelection] = useLocalStore(selectionStore)
   const [planState, setPlanState] = useLocalStore(planStore)
   const [query, setQuery] = useState('')
   const validSlugs = useMemo(() => new Set(snapshot.apps.map((app) => app.slug)), [snapshot])
   const [shared, setShared] = useState<string[]>(() => readSharedSelection(validSlugs))
-  const { message: copyMessage, copy } = useCopy('Enllaç copiat. La tria va al fragment de l’adreça, que no arriba mai al servidor.')
+  const { message: copyMessage, copy } = useCopy(
+    'Enllaç copiat. La tria va al fragment de l’adreça, que no arriba mai al servidor.',
+  )
 
   const selection = useMemo(
     () => (hydrated ? storedSelection.filter((slug) => validSlugs.has(slug)) : NO_SELECTION),
@@ -117,7 +130,10 @@ export default function DiagnosticTool({ snapshot }: { snapshot: Snapshot }) {
       else buckets.set(first, [app])
     }
     const ordered = [...buckets.entries()]
-      .map(([index, apps]) => ({ name: snapshot.categories[index]?.name ?? '(sense categoria)', apps }))
+      .map(([index, apps]) => ({
+        name: snapshot.categories[index]?.name ?? '(sense categoria)',
+        apps,
+      }))
       .sort((a, b) => a.name.localeCompare(b.name, 'ca'))
     if (loose.length > 0) ordered.push({ name: 'Sense categoria', apps: loose })
     return ordered
@@ -177,15 +193,18 @@ export default function DiagnosticTool({ snapshot }: { snapshot: Snapshot }) {
     shared.length === selection.length && shared.every((slug) => selection.includes(slug))
 
   return (
-    <div className="diagnostic" data-selected={selection.length} data-hydrated={hydrated ? 'true' : 'false'}>
+    <div
+      className="diagnostic"
+      data-selected={selection.length}
+      data-hydrated={hydrated ? 'true' : 'false'}
+    >
       {pendingShared && !sharedIsSame ? (
         <aside className={`card ${styles.warning}`} aria-labelledby="compartit">
           <h2 id="compartit" style={{ marginTop: 0 }}>
             T’han compartit un diagnòstic
           </h2>
           <p>
-            L’enllaç porta una tria de {shared.length}{' '}
-            {shared.length === 1 ? 'servei' : 'serveis'}:{' '}
+            L’enllaç porta una tria de {shared.length} {shared.length === 1 ? 'servei' : 'serveis'}:{' '}
             {shared
               .map((slug) => snapshot.apps.find((app) => app.slug === slug)?.name ?? slug)
               .join(', ')}
@@ -279,41 +298,46 @@ export default function DiagnosticTool({ snapshot }: { snapshot: Snapshot }) {
           </p>
         </div>
 
-        {groups.map((group) => {
-          const selectedHere = group.apps.filter((app) => selection.includes(app.slug)).length
-          return (
-            <details
-              key={group.name}
-              className={styles.group}
-              open={searching || undefined}
-              data-selected={selectedHere}
-            >
-              <summary>
-                {group.name}{' '}
-                <span className="meta">
-                  ({group.apps.length}
-                  {selectedHere > 0 ? `, ${selectedHere} triades` : ''})
-                </span>
-              </summary>
-              <div className={styles.options}>
-                {group.apps.map((app) => (
-                  <label key={app.slug} className={styles.option} htmlFor={`app-${app.slug}`}>
-                    <input
-                      type="checkbox"
-                      id={`app-${app.slug}`}
-                      checked={selection.includes(app.slug)}
-                      onChange={() => toggle(app.slug)}
-                    />
-                    <span>
-                      <span className={styles.optionName}>{app.name}</span>{' '}
-                      <span className={styles.optionMeta}>{app.company.name}</span>
+        <details className="tool-more diagnostic-all" open={searching || undefined}>
+          <summary>Totes les categories ({snapshot.apps.length} fitxes)</summary>
+          <div className="diagnostic-groups">
+            {groups.map((group) => {
+              const selectedHere = group.apps.filter((app) => selection.includes(app.slug)).length
+              return (
+                <details
+                  key={group.name}
+                  className={styles.group}
+                  open={searching || undefined}
+                  data-selected={selectedHere}
+                >
+                  <summary>
+                    {group.name}{' '}
+                    <span className="meta">
+                      ({group.apps.length}
+                      {selectedHere > 0 ? `, ${selectedHere} triades` : ''})
                     </span>
-                  </label>
-                ))}
-              </div>
-            </details>
-          )
-        })}
+                  </summary>
+                  <div className={styles.options}>
+                    {group.apps.map((app) => (
+                      <label key={app.slug} className={styles.option} htmlFor={`app-${app.slug}`}>
+                        <input
+                          type="checkbox"
+                          id={`app-${app.slug}`}
+                          checked={selection.includes(app.slug)}
+                          onChange={() => toggle(app.slug)}
+                        />
+                        <span>
+                          <span className={styles.optionName}>{app.name}</span>{' '}
+                          <span className={styles.optionMeta}>{app.company.name}</span>
+                        </span>
+                      </label>
+                    ))}
+                  </div>
+                </details>
+              )
+            })}
+          </div>
+        </details>
 
         <div className={styles.actions}>
           <span className={styles.count} role="status">
@@ -321,7 +345,11 @@ export default function DiagnosticTool({ snapshot }: { snapshot: Snapshot }) {
               ? 'Cap servei triat.'
               : `${selection.length} ${selection.length === 1 ? 'servei triat' : 'serveis triats'} de ${snapshot.publishedApps}.`}
           </span>
-          <button type="button" onClick={clearAll} disabled={selection.length === 0 && planState.done.length === 0}>
+          <button
+            type="button"
+            onClick={clearAll}
+            disabled={selection.length === 0 && planState.done.length === 0}
+          >
             Esborra-ho tot d’aquest dispositiu
           </button>
         </div>
@@ -358,68 +386,116 @@ export default function DiagnosticTool({ snapshot }: { snapshot: Snapshot }) {
               topRisk={risks[0] ?? null}
             />
 
-            <nav aria-label="Seccions del diagnòstic" className="diagnostic-nav">
-              <ul className="plain">
-                <li><a href="#pla">Pla d’acció</a></li>
-                <li><a href="#mapa">Mapa de risc</a></li>
-                <li><a href="#filtracions">Filtracions</a></li>
-                <li><a href="#dades">Dades</a></li>
-                <li><a href="#empreses">Empreses</a></li>
-                <li><a href="#grups">Grups</a></li>
-                <li><a href="#alternatives">Alternatives</a></li>
-                <li><a href="#informe">Informe</a></li>
-              </ul>
-            </nav>
+            <div role="tablist" aria-label="Seccions del diagnòstic" className="diagnostic-tabs">
+              {TABS.map((item, position) => (
+                <button
+                  key={item.id}
+                  type="button"
+                  role="tab"
+                  id={`pestanya-${item.id}`}
+                  aria-controls={`panell-${item.id}`}
+                  aria-selected={tab === item.id}
+                  tabIndex={tab === item.id ? 0 : -1}
+                  onClick={() => setTab(item.id)}
+                  onKeyDown={(event) => {
+                    const step = event.key === 'ArrowRight' ? 1 : event.key === 'ArrowLeft' ? -1 : 0
+                    if (step === 0) return
+                    event.preventDefault()
+                    const next = TABS[(position + step + TABS.length) % TABS.length]
+                    setTab(next.id)
+                    document.getElementById(`pestanya-${next.id}`)?.focus()
+                  }}
+                >
+                  {item.label}
+                </button>
+              ))}
+            </div>
 
             {details.status === 'error' ? (
               <p className={styles.warning} role="alert">
-                No s’han pogut carregar les explicacions i els passos detallats de les fitxes. El pla
-                funciona igual, amb els enllaços oficials, però sense aquests textos.{' '}
+                No s’han pogut carregar les explicacions i els passos detallats de les fitxes. El
+                pla funciona igual, amb els enllaços oficials, però sense aquests textos.{' '}
                 <button type="button" onClick={details.retry}>
                   Torna-ho a provar
                 </button>
               </p>
             ) : null}
 
-            <PlanSection
-              plan={plan}
-              detailsLoading={details.status === 'loading'}
-              apps={exposure.apps}
-              done={planState.done}
-              leaving={planState.leaving}
-              onToggleDone={toggleDone}
-              onToggleLeaving={toggleLeaving}
-              onResetPlan={resetPlan}
-            />
+            <div
+              role="tabpanel"
+              id="panell-pla"
+              aria-labelledby="pestanya-pla"
+              hidden={tab !== 'pla'}
+            >
+              <PlanSection
+                plan={plan}
+                detailsLoading={details.status === 'loading'}
+                apps={exposure.apps}
+                done={planState.done}
+                leaving={planState.leaving}
+                onToggleDone={toggleDone}
+                onToggleLeaving={toggleLeaving}
+                onResetPlan={resetPlan}
+              />
+            </div>
 
-            <RiskMap risks={risks} />
+            <div
+              role="tabpanel"
+              id="panell-mapa"
+              aria-labelledby="pestanya-mapa"
+              hidden={tab !== 'mapa'}
+            >
+              <RiskMap risks={risks} />
+            </div>
 
-            <BreachesSection summary={breaches} apps={exposure.apps} snapshot={snapshot} />
+            <div
+              role="tabpanel"
+              id="panell-filtracions"
+              aria-labelledby="pestanya-filtracions"
+              hidden={tab !== 'filtracions'}
+            >
+              <BreachesSection summary={breaches} apps={exposure.apps} snapshot={snapshot} />
+            </div>
 
-            <ExposureSections exposure={exposure} />
+            <div
+              role="tabpanel"
+              id="panell-dades"
+              aria-labelledby="pestanya-dades"
+              hidden={tab !== 'dades'}
+            >
+              <ExposureSections exposure={exposure} />
+            </div>
 
-            <section aria-labelledby="informe" className="diagnostic-report">
-              <h2 id="informe">Endú-te’l</h2>
-              <p>
-                L’informe és un fitxer de text (Markdown) amb el pla, el mapa de risc, les filtracions
-                i les dades. Es genera dins del navegador: no passa per cap servidor. L’enllaç per
-                compartir porta només la llista de serveis, sense el pla ni res del que has marcat.
-              </p>
-              <div className={styles.actions}>
-                <button type="button" onClick={download}>
-                  Descarrega l’informe
-                </button>
-                <button type="button" onClick={() => window.print()}>
-                  Imprimeix
-                </button>
-                <button type="button" onClick={shareLink}>
-                  Copia l’enllaç per compartir la tria
-                </button>
-                <span role="status" className="meta">
-                  {copyMessage}
-                </span>
-              </div>
-            </section>
+            <div
+              role="tabpanel"
+              id="panell-informe"
+              aria-labelledby="pestanya-informe"
+              hidden={tab !== 'informe'}
+            >
+              <section aria-labelledby="informe" className="diagnostic-report">
+                <h2 id="informe">Endú-te’l</h2>
+                <p>
+                  L’informe és un fitxer de text (Markdown) amb el pla, el mapa de risc, les
+                  filtracions i les dades. Es genera dins del navegador: no passa per cap servidor.
+                  L’enllaç per compartir porta només la llista de serveis, sense el pla ni res del
+                  que has marcat.
+                </p>
+                <div className={styles.actions}>
+                  <button type="button" onClick={download}>
+                    Descarrega l’informe
+                  </button>
+                  <button type="button" onClick={() => window.print()}>
+                    Imprimeix
+                  </button>
+                  <button type="button" onClick={shareLink}>
+                    Copia l’enllaç per compartir la tria
+                  </button>
+                  <span role="status" className="meta">
+                    {copyMessage}
+                  </span>
+                </div>
+              </section>
+            </div>
           </>
         )}
       </section>
@@ -491,7 +567,8 @@ function Headline({
         {topGroup && topGroup.apps.length > 1 ? (
           <>
             <strong>{topGroup.company.name}</strong> concentra {topGroup.apps.length} dels {total}{' '}
-            serveis que has triat i hi arriben {topGroup.dataTypes} tipus de dada teus sumant-los.{' '}
+            serveis que has triat i hi arriben {topGroup.dataTypes} tipus de dada teus
+            sumant-los.{' '}
           </>
         ) : null}
         {topRisk && topRisk.count > 0 ? (
@@ -512,39 +589,25 @@ function EmptyState() {
   return (
     <div className={styles.empty}>
       <h2 style={{ marginTop: 0 }}>Què obtindràs</h2>
-      <p>
-        Cada fitxa del directori explica un servei. El diagnòstic les creua amb el catàleg de
-        filtracions i els incidents documentats i en treu el que cap fitxa no pot dir tota sola:
-      </p>
-      <ul>
+      <ul className="plain tool-features">
         <li>
-          <strong>Un pla d’acció personal</strong>, ordenat per prioritat, amb l’enllaç oficial on es
-          fa cada cosa: activar el doble factor amb el millor mètode disponible, desactivar la
-          publicitat personalitzada, oposar-te a l’entrenament d’IA, esborrar els comptes que ja no
-          fas servir… i marcar el que ja has fet.
+          <strong>Un pla d’acció</strong>
+          <span>Ordenat per prioritat, amb l’enllaç oficial on es fa cada pas.</span>
         </li>
         <li>
-          <strong>Un mapa de risc</strong> amb vuit senyals documentats per servei.
+          <strong>Un mapa de risc</strong>
+          <span>Filtracions, sancions i punts febles de cada servei.</span>
         </li>
         <li>
-          <strong>Les filtracions i sancions</strong> dels serveis que fas servir, i quines dades hi
-          van quedar exposades.
+          <strong>Qui té les teves dades</strong>
+          <span>Quines circulen i quins grups empresarials les acumulen.</span>
         </li>
         <li>
-          <strong>Quines dades teves circulen</strong>, quantes empreses hi tenen accés i quins
-          grups empresarials t’acumulen sense que se’n vegi la relació.
-        </li>
-        <li>
-          <strong>Alternatives</strong> amb la diferència de puntuació i el que s’hi perd.
-        </li>
-        <li>
-          <strong>Un informe</strong> per descarregar i un enllaç per compartir la tria.
+          <strong>Alternatives i informe</strong>
+          <span>Què guanyaries canviant, i un fitxer per endur-te’l.</span>
         </li>
       </ul>
-      <p className="meta">
-        La tria es desa en aquest dispositiu perquè hi puguis tornar i perquè la revisió de
-        credencials sàpiga quins serveis fas servir. No surt del navegador.
-      </p>
+      <p className="meta">La tria es desa només en aquest navegador perquè hi puguis tornar.</p>
     </div>
   )
 }

@@ -142,35 +142,38 @@ function Strength({ bits, exact }: { bits: number; exact: boolean }) {
       <div className={styles.meter} aria-hidden="true">
         <span className={fillClass} style={{ width: `${fill}%` }} />
       </div>
-      <p className="meta">
-        {exact
-          ? 'Xifra exacta: sabem exactament com s’ha generat, de manera que els bits es compten, no s’estimen.'
-          : 'Cota inferior: forçar classes de caràcters trenca la uniformitat, i el càlcul es queda curt a posta.'}
-      </p>
+      <details className="tool-more">
+        <summary>Quant es trigaria a trobar-la</summary>
+        <p className="meta">
+          {exact
+            ? 'Xifra exacta: sabem exactament com s’ha generat, de manera que els bits es compten, no s’estimen.'
+            : 'Cota inferior: forçar classes de caràcters trenca la uniformitat, i el càlcul es queda curt a posta.'}
+        </p>
 
-      <table className={styles.scenarios}>
-        <caption className="meta">
-          Temps mitjà per trobar-la provant combinacions. Cada xifra val només amb la hipòtesi del
-          costat: un temps de trencament sense dir quin atac se suposa no vol dir res.
-        </caption>
-        <thead>
-          <tr>
-            <th scope="col">Escenari</th>
-            <th scope="col">Temps</th>
-          </tr>
-        </thead>
-        <tbody>
-          {estimates.map((estimate) => (
-            <tr key={estimate.id}>
-              <th scope="row">
-                {estimate.label}
-                <span className={styles.assumption}>{estimate.assumption}</span>
-              </th>
-              <td>{estimate.text}</td>
+        <table className={styles.scenarios}>
+          <caption className="meta">
+            Temps mitjà per trobar-la provant combinacions. Cada xifra val només amb la hipòtesi del
+            costat: un temps de trencament sense dir quin atac se suposa no vol dir res.
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Escenari</th>
+              <th scope="col">Temps</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {estimates.map((estimate) => (
+              <tr key={estimate.id}>
+                <th scope="row">
+                  {estimate.label}
+                  <span className={styles.assumption}>{estimate.assumption}</span>
+                </th>
+                <td>{estimate.text}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </details>
     </div>
   )
 }
@@ -527,8 +530,10 @@ export default function PasswordTool() {
     <>
       <PasswordAudit ref={audit} />
       <h2 id="generador">Genera’n de noves</h2>
-      <PassphrasePanel onSend={sendToAudit} />
-      <PasswordPanel onSend={sendToAudit} />
+      <div className="tool-columns">
+        <PassphrasePanel onSend={sendToAudit} />
+        <PasswordPanel onSend={sendToAudit} />
+      </div>
     </>
   )
 }
