@@ -17,6 +17,7 @@
     "generate:importmap": "cross-env NODE_OPTIONS=\"--no-deprecation --no-experimental-strip-types\" payload generate:importmap",
     "create-admin": "cross-env NODE_OPTIONS=\"--no-deprecation --no-experimental-strip-types\" payload run ./scripts/create-admin.ts",
     "seed": "cross-env NODE_OPTIONS=\"--no-deprecation --no-experimental-strip-types\" payload run ./scripts/seed.ts",
+    "export-data": "cross-env NODE_OPTIONS=--no-deprecation tsx ./scripts/export-data.ts",
     "check-seed": "cross-env NODE_OPTIONS=--no-deprecation tsx ./scripts/check-seed.ts",
     "import-logos": "cross-env NODE_OPTIONS=\"--no-deprecation --no-experimental-strip-types\" payload run ./scripts/import-logos.ts",
     "import-breaches": "cross-env NODE_OPTIONS=\"--no-deprecation --no-experimental-strip-types\" payload run ./scripts/import-breaches.ts",
