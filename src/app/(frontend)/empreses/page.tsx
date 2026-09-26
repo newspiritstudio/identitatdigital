@@ -2,7 +2,13 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 import './company-page.css'
 
-import { analyseDataTypes, analyseGroups, buildSharingGraph, loadCorpus } from '@/lib/analysis'
+import {
+  analyseDataTypes,
+  analyseGroups,
+  buildSharingGraph,
+  compareText,
+  loadCorpus,
+} from '@/lib/analysis'
 import { Bar, SharingDiagram, num, pct } from '../analisi/parts'
 import { getClient } from '../lib'
 import { CompanyDirectoryExplorer } from './CompanyDirectoryExplorer'
@@ -17,6 +23,7 @@ export default async function CompaniesPage() {
   const corpus = await loadCorpus(payload)
   const groups = analyseGroups(corpus)
   const data = analyseDataTypes(corpus)
+  const incidents = await import('@/lib/analysis').then((mod) => mod.analyseIncidents(corpus))
   const graph = buildSharingGraph(corpus)
 
   const topGroups = groups.groups.slice(0, 5)
@@ -25,6 +32,40 @@ export default async function CompaniesPage() {
   const totalApps = corpus.apps.length
   const topGroupShare = biggestGroup ? Math.round((biggestGroup.appCount / totalApps) * 100) : 0
   const biggestGroupDataTypes = biggestGroup?.dataTypes.slice(0, 6) ?? []
+
+  const servicePowerGroups = [...groups.groups]
+    .sort((a, b) => b.appCount - a.appCount || compareText(a.rootName, b.rootName))
+    .slice(0, 8)
+
+  const dataTypeGroups = [...groups.groups]
+    .sort((a, b) => b.dataTypeCount - a.dataTypeCount || compareText(a.rootName, b.rootName))
+    .slice(0, 8)
+
+  const topDataTypes = [...data.rows]
+    .sort((a, b) => b.reach - a.reach || compareText(a.name, b.name))
+    .slice(0, 8)
+
+  const sensitiveDataTypes = [...data.rows]
+    .filter((row) => row.sensitivity >= 3 || row.specialCategory)
+    .sort((a, b) => b.reach - a.reach || b.sensitivity - a.sensitivity)
+    .slice(0, 8)
+
+  const incidentGroups = [...incidents.byGroup]
+    .sort((a, b) => b.incidents - a.incidents || b.finesEur - a.finesEur)
+    .slice(0, 8)
+
+  const fineGroups = [...incidents.byGroup]
+    .sort((a, b) => b.finesEur - a.finesEur || b.incidents - a.incidents)
+    .slice(0, 8)
+
+  const controlledGroups = [...groups.groups]
+    .sort(
+      (a, b) =>
+        b.companies.length - a.companies.length ||
+        b.appCount - a.appCount ||
+        compareText(a.rootName, b.rootName),
+    )
+    .slice(0, 8)
 
   const stats = [
     { title: 'Grups', value: num(groups.groups.length), description: 'matrius i holdings documentats' },
@@ -59,6 +100,196 @@ export default async function CompaniesPage() {
           </article>
         ))}
       </div>
+
+      <section className="company-summary-section" aria-label="Taules resum del panell general d’empreses">
+        <div className="company-summary-grid">
+          <article className="company-panel company-summary-card">
+            <div className="company-panel-header">
+              <h2>Grups empresarials amb més serveis digitals</h2>
+            </div>
+            <div className="company-group-table-wrap">
+              <table className="company-group-table compact-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Grup</th>
+                    <th scope="col">Nombre de serveis</th>
+                    <th scope="col">Principals serveis</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {servicePowerGroups.map((group) => (
+                    <tr key={group.rootId}>
+                      <td><Link href={`/empreses/${group.rootSlug}`}>{group.rootName}</Link></td>
+                      <td>{num(group.appCount)}</td>
+                      <td>{group.apps.slice(0, 3).map((app) => app.name).join(', ') || '—'}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </article>
+
+          <article className="company-panel company-summary-card">
+            <div className="company-panel-header">
+              <h2>Grups que recullen més tipus de dades</h2>
+            </div>
+            <div className="company-group-table-wrap">
+              <table className="company-group-table compact-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Grup</th>
+                    <th scope="col">Nombre de categories</th>
+                    <th scope="col">Principals categories</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {dataTypeGroups.map((group) => (
+                    <tr key={group.rootId}>
+                      <td><Link href={`/empreses/${group.rootSlug}`}>{group.rootName}</Link></td>
+                      <td>{num(group.dataTypeCount)}</td>
+                      <td>{group.dataTypes.slice(0, 3).map((row) => row.name).join(', ') || '—'}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </article>
+
+          <article className="company-panel company-summary-card">
+            <div className="company-panel-header">
+              <h2>Tipus de dades més recollides</h2>
+            </div>
+            <div className="company-group-table-wrap">
+              <table className="company-group-table compact-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Categoria de dada</th>
+                    <th scope="col">Nombre de serveis</th>
+                    <th scope="col">Percentatge</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {topDataTypes.map((row) => (
+                    <tr key={row.dataTypeId}>
+                      <td>{row.name}</td>
+                      <td>{num(row.reach)}</td>
+                      <td>{pct(Math.round((row.reach / totalApps) * 100))}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </article>
+
+          <article className="company-panel company-summary-card">
+            <div className="company-panel-header">
+              <h2>Dades més sensibles recollides</h2>
+            </div>
+            <div className="company-group-table-wrap">
+              <table className="company-group-table compact-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Categoria</th>
+                    <th scope="col">Nombre de serveis</th>
+                    <th scope="col">Exemples</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {sensitiveDataTypes.map((row) => (
+                    <tr key={row.dataTypeId}>
+                      <td>{row.name}</td>
+                      <td>{num(row.reach)}</td>
+                      <td>{row.collectedBy.slice(0, 3).map((app) => app.name).join(', ') || '—'}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </article>
+
+          <article className="company-panel company-summary-card">
+            <div className="company-panel-header">
+              <h2>Grups amb més incidències de seguretat</h2>
+            </div>
+            <div className="company-group-table-wrap">
+              <table className="company-group-table compact-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Grup</th>
+                    <th scope="col">Bretxes/incidents</th>
+                    <th scope="col">Usuaris afectats</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {incidentGroups.map((group) => (
+                    <tr key={group.groupId}>
+                      <td>{group.groupName}</td>
+                      <td>{num(group.incidents)}</td>
+                      <td>—</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </article>
+
+          <article className="company-panel company-summary-card">
+            <div className="company-panel-header">
+              <h2>Grups amb més sancions en matèria de protecció de dades</h2>
+            </div>
+            <div className="company-group-table-wrap">
+              <table className="company-group-table compact-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Grup</th>
+                    <th scope="col">Nombre de sancions</th>
+                    <th scope="col">Import acumulat</th>
+                    <th scope="col">Principals motius</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {fineGroups.map((group) => (
+                    <tr key={group.groupId}>
+                      <td>{group.groupName}</td>
+                      <td>{num(group.incidents)}</td>
+                      <td>{group.finesEur > 0 ? `${num(group.finesEur)} €` : '—'}</td>
+                      <td>—</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </article>
+
+          <article className="company-panel company-summary-card company-summary-card--wide">
+            <div className="company-panel-header">
+              <h2>Grups amb més empreses o serveis sota el seu control</h2>
+            </div>
+            <div className="company-group-table-wrap">
+              <table className="company-group-table compact-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Grup</th>
+                    <th scope="col">Empreses</th>
+                    <th scope="col">Serveis</th>
+                    <th scope="col">Observació</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {controlledGroups.map((group) => (
+                    <tr key={group.rootId}>
+                      <td><Link href={`/empreses/${group.rootSlug}`}>{group.rootName}</Link></td>
+                      <td>{num(group.companies.length)}</td>
+                      <td>{num(group.appCount)}</td>
+                      <td>{group.appCount > 0 ? `${num(group.dataTypeCount)} categories documentades` : '—'}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </article>
+        </div>
+      </section>
 
       <section className="company-dashboard" aria-label="Panell general d’empreses">
         <div className="company-panel company-panel--wide">

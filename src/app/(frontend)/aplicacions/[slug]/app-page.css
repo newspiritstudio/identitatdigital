@@ -1022,6 +1022,11 @@ button.deletion-action:hover {
 }
 
 @media (max-width: 44rem) {
+  .app-page .content-wrapper.two-columns {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
   .app-page {
     grid-template-columns: 1fr;
     gap: 1.5rem;
