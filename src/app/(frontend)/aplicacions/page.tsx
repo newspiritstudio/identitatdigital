@@ -50,8 +50,10 @@ export default async function AppsPage() {
         {/*<p className="meta">Directori</p>*/}
         <h1 className="site-title"><strong>identitat</strong>.digital</h1>
         <p className="lede">
-          {apps.length} fitxes documentades, ordenades per nom. Cada fitxa diu quines dades recull el
+        {/*}  {apps.length} fitxes documentades, ordenades per nom. Cada fitxa diu quines dades recull el
           servei, amb qui les comparteix i com te’n pots anar.
+        </p> */}
+        Explora què saben de tu les aplicacions i serveis digitals que utilitzes. Compara quines dades recullen, qui les gestiona, com les tracten i quines opcions tens per controlar-les i exercir els teus drets digitals.
         </p>
       </header>
       {/* La graella és la secció principal de la pàgina i ha de tenir el seu

@@ -99,6 +99,10 @@ body:has(.app-page) .site-header * {
   color: black;
   font-size: 16px;
 }
+body:has(.app-page) .site-header .site-title{
+  font-size: 20px !important;
+}
+
 
 main {
   flex: 1 0 auto;
