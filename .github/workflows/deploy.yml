@@ -1,0 +1,64 @@
+# Cada push a main passa les comprovacions i, si van bé, es desplega al VPS.
+#
+# La clau SSH (secret VPS_DEPLOY_KEY) només pot executar deploy/autodeploy.sh al
+# servidor: rep el `git archive` del commit, construeix i, si l'app no arrenca,
+# torna sola a la versió anterior. Vegeu `scripts/deploy/vps.sh autodeploy-install`.
+name: Desplegament
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Només un desplegament alhora; si n'arriba un de nou, el pendent es descarta.
+concurrency:
+  group: deploy-vps
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      # payload-types.ts no es versiona; es genera com al Dockerfile, sense base de dades.
+      - run: pnpm generate:types
+        env:
+          DATABASE_URI: mongodb://build.invalid/identitatdigital
+          PAYLOAD_SECRET: ci-only-placeholder-never-used-at-runtime
+      - run: pnpm lint
+      - run: pnpm typecheck
+      - run: pnpm test
+
+  deploy:
+    needs: checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Clau i servidor coneguts
+        env:
+          DEPLOY_KEY: ${{ secrets.VPS_DEPLOY_KEY }}
+          KNOWN_HOSTS: ${{ secrets.VPS_KNOWN_HOSTS }}
+        run: |
+          install -d -m 700 ~/.ssh
+          printf '%s\n' "$DEPLOY_KEY" > ~/.ssh/deploy && chmod 600 ~/.ssh/deploy
+          printf '%s\n' "$KNOWN_HOSTS" > ~/.ssh/known_hosts
+      - name: Desplega
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+        run: |
+          git archive --format=tar HEAD \
+            | ssh -i ~/.ssh/deploy -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes \
+                "root@$VPS_HOST" "$(git rev-parse --short HEAD)"
+      - name: Comprova la web
+        run: |
+          sleep 5
+          curl -fsS -o /dev/null -w '%{http_code}\n' https://identitat.digital/aplicacions

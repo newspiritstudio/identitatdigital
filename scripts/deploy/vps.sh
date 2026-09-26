@@ -9,6 +9,9 @@
 #   scripts/deploy/vps.sh backup     còpia de la base de dades del VPS a /opt/identitatdigital/backups
 #   scripts/deploy/vps.sh data       bolca la base de dades local i media/ al VPS (SUBSTITUEIX les del VPS)
 #   scripts/deploy/vps.sh status | logs
+#   scripts/deploy/vps.sh autodeploy-install [clau.pub]
+#                                    instal·la deploy/autodeploy.sh al VPS i, si li
+#                                    passes una clau pública, l'autoritza només per a això
 #
 # Primer desplegament:  setup → upload → data → up. `up` es nega a arrencar
 # l'app amb la base de dades buida: Payload hi obriria el formulari de «primer
@@ -166,6 +169,19 @@ cmd_data() {
   echo "Dades i media/ restaurades."
 }
 
+cmd_autodeploy_install() {
+  local pub="${1:-}"
+  ssh_vps "install -d -m 700 $REMOTE/bin && cat > $REMOTE/bin/autodeploy && chmod 700 $REMOTE/bin/autodeploy" \
+    < "$ROOT/deploy/autodeploy.sh"
+  echo "Instal·lat $REMOTE/bin/autodeploy."
+  [ -n "$pub" ] || return 0
+  # `restrict` treu shell, túnels i agents; `command` força l'script, digui el que digui el client.
+  local line
+  line="restrict,command=\"$REMOTE/bin/autodeploy\" $(cut -d' ' -f1,2 "$pub") identitatdigital-autodeploy"
+  ssh_vps "grep -qF '$(cut -d' ' -f2 "$pub")' ~/.ssh/authorized_keys || echo '$line' >> ~/.ssh/authorized_keys"
+  echo "Clau autoritzada només per a l'autodesplegament."
+}
+
 case "${1:-}" in
   setup) cmd_setup ;;
   upload) cmd_upload ;;
@@ -176,5 +192,6 @@ case "${1:-}" in
   data) cmd_data ;;
   status) compose ps ;;
   logs) compose logs --tail=100 -f app ;;
-  *) sed -n '2,19p' "$0"; exit 1 ;;
+  autodeploy-install) cmd_autodeploy_install "${2:-}" ;;
+  *) sed -n '2,21p' "$0"; exit 1 ;;
 esac
