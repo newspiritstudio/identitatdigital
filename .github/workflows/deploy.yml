@@ -34,6 +34,8 @@ jobs:
         env:
           DATABASE_URI: mongodb://build.invalid/identitatdigital
           PAYLOAD_SECRET: ci-only-placeholder-never-used-at-runtime
+          APP_URL: https://identitat.digital
+          NEXT_PUBLIC_APP_URL: https://identitat.digital
       - run: pnpm lint
       - run: pnpm typecheck
       - run: pnpm test
