@@ -261,10 +261,8 @@ export default function PrivacyPage() {
             <tr>
               <th scope="row">Destinataris</th>
               <td>
-                El proveïdor de correu electrònic, com a encarregat.{' '}
-                <Pendent>
-                  proveïdor de correu de l’adreça hola@identitat.digital i ubicació del servei
-                </Pendent>
+                Proton AG (Proton Mail), amb seu a Ginebra (Suïssa), com a encarregat del correu
+                electrònic.
               </td>
             </tr>
           </tbody>
@@ -578,7 +576,7 @@ export default function PrivacyPage() {
       <p>
         Els únics tercers que hi intervenen són els proveïdors tècnics imprescindibles perquè el
         lloc funcioni, que actuen com a encarregats del tractament amb el contracte de l’article 28
-        del Reglament: el proveïdor d’allotjament i el de correu electrònic.{' '}
+        del Reglament: el proveïdor d’allotjament i el de correu electrònic, Proton AG.{' '}
         <Pendent>
           llista definitiva d’encarregats del tractament, amb la seva identitat, el servei que
           presten i la referència del contracte
@@ -609,11 +607,12 @@ export default function PrivacyPage() {
         decidir abans de fer-la.
       </p>
       <p>
-        <Pendent>
-          confirmar la ubicació física dels servidors del proveïdor d’allotjament i, si algun servei
-          es presta des de fora de l’Espai Econòmic Europeu, documentar-ne la garantia de l’article
-          46 o la decisió d’adequació aplicable
-        </Pendent>
+        Si ens escrius, el correu el gestiona Proton AG, una empresa suïssa. La Comissió Europea
+        reconeix que Suïssa ofereix un nivell de protecció adequat (Decisió 2000/518/CE), i
+        aquesta decisió d’adequació empara la transferència.
+      </p>
+      <p>
+        <Pendent>confirmar la ubicació física dels servidors del proveïdor d’allotjament</Pendent>
       </p>
 
       <h2>8. Els teus drets</h2>
