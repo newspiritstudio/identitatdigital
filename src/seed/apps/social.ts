@@ -141,7 +141,7 @@ export const socialApps: AppSeed[] = [
     },
     review: {
       researchStatus: 'in-depth',
-      lastReviewedAt: '2026-09-09',
+      lastReviewedAt: '2026-09-22',
       incidentsReviewed: true,
       editorialNotes:
         'TikTok va declarar incorrectament davant d’una autoritat de control que no emmagatzemava dades europees a la Xina, cosa que afecta la fiabilitat de la resta de les seves declaracions.',
@@ -306,7 +306,7 @@ export const socialApps: AppSeed[] = [
     ],
     review: {
       researchStatus: 'in-depth',
-      lastReviewedAt: '2026-09-09',
+      lastReviewedAt: '2026-09-22',
       incidentsReviewed: true,
       editorialNotes:
         'Les polítiques d’X canvien sovint, i el que és cert avui pot no ser-ho d’aquí a sis mesos. Per això aquesta fitxa necessita una revisió més freqüent que la resta.',
@@ -449,7 +449,7 @@ export const socialApps: AppSeed[] = [
     },
     review: {
       researchStatus: 'documented',
-      lastReviewedAt: '2026-09-09',
+      lastReviewedAt: '2026-09-22',
       incidentsReviewed: true,
       editorialNotes:
         'El mecanisme d’exportació existeix, però no cobreix les dades més rellevants. Per això l’indicador es marca com a parcial i no com a complet.',
@@ -600,7 +600,7 @@ export const socialApps: AppSeed[] = [
     ],
     review: {
       researchStatus: 'documented',
-      lastReviewedAt: '2026-09-09',
+      lastReviewedAt: '2026-09-22',
       incidentsReviewed: true,
       editorialNotes:
         'La documentació de privadesa per producte de Snap és molt més clara i concreta que la de la majoria de plataformes. Això puja la claredat de la política i la confiança de l’anàlisi sense millorar-ne la puntuació de privadesa, que depèn de les pràctiques.',
@@ -739,7 +739,7 @@ export const socialApps: AppSeed[] = [
     },
     review: {
       researchStatus: 'documented',
-      lastReviewedAt: '2026-09-09',
+      lastReviewedAt: '2026-09-22',
       incidentsReviewed: true,
       editorialNotes:
         'Reddit obté una puntuació de privadesa relativament alta pel pseudonimat i la mínima recollida d’identificadors, però una de control més baixa per la impossibilitat d’eliminar el contingut.',
@@ -866,7 +866,7 @@ export const socialApps: AppSeed[] = [
     },
     review: {
       researchStatus: 'documented',
-      lastReviewedAt: '2026-09-09',
+      lastReviewedAt: '2026-09-22',
       incidentsReviewed: true,
       editorialNotes:
         'No hi ha cap incident regulador registrat, cosa que només vol dir que no n’hi ha de documentats. La casella de revisió d’incidents està marcada, de manera que l’indicador puntua com a favorable amb aquesta base.',

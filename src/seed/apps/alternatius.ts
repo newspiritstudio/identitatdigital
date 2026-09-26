@@ -149,7 +149,7 @@ export const alternativeApps: AppSeed[] = [
     ],
     review: {
       researchStatus: 'in-depth',
-      lastReviewedAt: '2026-09-09',
+      lastReviewedAt: '2026-09-22',
       incidentsReviewed: true,
       editorialNotes:
         'La reputació de privadesa de Telegram no es correspon amb el seu comportament per defecte, i un resum superficial no ho detecta. La puntuació de privadesa és moderada perquè recull poques dades, però la de seguretat baixa pel xifratge parcial.',
@@ -284,7 +284,7 @@ export const alternativeApps: AppSeed[] = [
     },
     review: {
       researchStatus: 'in-depth',
-      lastReviewedAt: '2026-09-09',
+      lastReviewedAt: '2026-09-22',
       incidentsReviewed: true,
       editorialNotes:
         'L’incident de Twilio de 2022 puntua com a incident real, però la seva gravetat és baixa i el disseny del servei en va limitar l’abast. Queda registrat perquè mostra que un servei ben dissenyat no evita els atacs, però en redueix les conseqüències.',
@@ -409,7 +409,7 @@ export const alternativeApps: AppSeed[] = [
     },
     review: {
       researchStatus: 'in-depth',
-      lastReviewedAt: '2026-09-09',
+      lastReviewedAt: '2026-09-22',
       incidentsReviewed: true,
       editorialNotes:
         'Proton no protegeix les metadades ni els correus intercanviats amb proveïdors no xifrats, i la fitxa ho recull.',
@@ -524,7 +524,7 @@ export const alternativeApps: AppSeed[] = [
     ],
     review: {
       researchStatus: 'documented',
-      lastReviewedAt: '2026-09-09',
+      lastReviewedAt: '2026-09-22',
       incidentsReviewed: true,
       editorialNotes:
         'L’episodi de Microsoft de 2022 mostra que una promesa de privadesa pot tenir excepcions contractuals que no es veuen. L’empresa ho va reconèixer i corregir, i per això l’incident té una gravetat baixa.',
@@ -658,7 +658,7 @@ export const alternativeApps: AppSeed[] = [
     ],
     review: {
       researchStatus: 'documented',
-      lastReviewedAt: '2026-09-09',
+      lastReviewedAt: '2026-09-22',
       incidentsReviewed: true,
       editorialNotes:
         'La dependència econòmica de Google és un risc estructural, però no és una pràctica de tractament de dades i, per tant, no penalitza cap indicador. S’explica a la descripció i no compta a la puntuació.',
@@ -788,7 +788,7 @@ export const alternativeApps: AppSeed[] = [
     ],
     review: {
       researchStatus: 'documented',
-      lastReviewedAt: '2026-09-09',
+      lastReviewedAt: '2026-09-22',
       incidentsReviewed: true,
       editorialNotes:
         'Brave ha tingut episodis passats de reputació discutida, com la substitució d’enllaços d’afiliació el 2020, però queden fora de la finestra temporal de la primera onada i no s’han inclòs com a incidents registrats. Convé revisar-ho en la propera actualització.',

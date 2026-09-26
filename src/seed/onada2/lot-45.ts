@@ -202,7 +202,7 @@ export const lot: SeedLot = {
     s('clickedu-app-store', 'Clickedu — App Store', appStore('691984809'), 'Apple', 'app-store', 'primary', {
       language: 'es',
       summary:
-        'Etiqueta de privadesa: ubicació precisa, identificador del dispositiu i interacció amb el producte vinculats a la identitat per a «altres finalitats»; dades d’errors no vinculades; cap dada per rastrejar. L’enllaç de política de privadesa que declara (clickartedu.com/note.php?accio=politica) retornava un error 404 el 25 de setembre de 2026.',
+        'Etiqueta de privadesa: ubicació precisa, identificador del dispositiu i interacció amb el producte vinculats a la identitat per a «altres finalitats»; dades d’errors no vinculades; cap dada per rastrejar. L’enllaç de política de privadesa que declara (clickartedu.com/note.php?accio=politica) retornava un error 404 el 22 de setembre de 2026.',
     }),
     s('clickedu-faqs', 'Preguntas frecuentes — Clickedu', 'https://clickedu.net/plataforma/faqs/', 'Clickart, Taller de Comunicació, S.L.', 'support-doc', 'primary', {
       language: 'es',

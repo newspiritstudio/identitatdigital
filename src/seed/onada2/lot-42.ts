@@ -173,7 +173,7 @@ const meteocat: AppSeed = {
     lastReviewedAt: CATALAN_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'La política és una plantilla de la Generalitat que no s’ha adaptat a l’aplicació: parla de preferències «sobre tràmits i ajudes» en una app del temps. L’enllaç de privadesa que declara la fitxa de l’App Store (meteo.cat/wpweb/politica-de-privacidad-de-la-app/) respon amb una redirecció a ajp://127.0.0.1:8009, una adreça interna del servidor, i no s’obre: ho hem comprovat el 25 de setembre del 2026. No hem trobat cap incident ni cap resolució de l’APDCAT sobre l’aplicació.',
+      'La política és una plantilla de la Generalitat que no s’ha adaptat a l’aplicació: parla de preferències «sobre tràmits i ajudes» en una app del temps. L’enllaç de privadesa que declara la fitxa de l’App Store (meteo.cat/wpweb/politica-de-privacidad-de-la-app/) respon amb una redirecció a ajp://127.0.0.1:8009, una adreça interna del servidor, i no s’obre: ho hem comprovat el 22 de setembre del 2026. No hem trobat cap incident ni cap resolució de l’APDCAT sobre l’aplicació.',
     openQuestions: [
       'L’app demana el permís de rastreig d’iOS per llegir l’IDFA, tal com dona a entendre la política? Si no, la frase és incorrecta; si sí, l’etiqueta ho hauria de declarar.',
       'Quina és l’adreça vigent del delegat de protecció de dades: dpd.meteocat@gencat.cat o protecciodades.meteocat@gencat.cat?',

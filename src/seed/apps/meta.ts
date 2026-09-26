@@ -153,7 +153,7 @@ export const metaApps: AppSeed[] = [
     ],
     review: {
       researchStatus: 'in-depth',
-      lastReviewedAt: '2026-09-09',
+      lastReviewedAt: '2026-09-22',
       incidentsReviewed: true,
       editorialNotes:
         'La puntuació separa contingut i metadades. Si només es mirés el xifratge, WhatsApp sortiria com un dels serveis més protectors del directori; el que penalitza la seva puntuació de privadesa és la compartició dins del grup, l’agenda i la impossibilitat de fer servir el servei sense número de telèfon.',
@@ -324,7 +324,7 @@ export const metaApps: AppSeed[] = [
     ],
     review: {
       researchStatus: 'in-depth',
-      lastReviewedAt: '2026-09-09',
+      lastReviewedAt: '2026-09-22',
       incidentsReviewed: true,
       editorialNotes:
         'Instagram i Facebook comparteixen política, infraestructura i sancions. Es mantenen com a fitxes separades perquè el perfil de dades no és idèntic: Instagram recull més senyals visuals i de temps d’atenció, i Facebook més dades de xarxa social i d’esdeveniments.',
@@ -479,7 +479,7 @@ export const metaApps: AppSeed[] = [
     },
     review: {
       researchStatus: 'in-depth',
-      lastReviewedAt: '2026-09-09',
+      lastReviewedAt: '2026-09-22',
       incidentsReviewed: true,
       editorialNotes:
         'Cinc incidents registrats, quatre dels quals amb sanció ferma. Per casos com aquest l’historial d’incidents té pes propi dins de la dimensió de seguretat: el que diuen les polítiques no coincideix amb el que mostren les actuacions dels reguladors.',

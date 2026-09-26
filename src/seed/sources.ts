@@ -1,6 +1,6 @@
 import type { SourceSeed } from './types'
 
-const CONSULTED = '2026-09-09'
+const CONSULTED = '2026-09-22'
 
 const s = (
   slug: string,

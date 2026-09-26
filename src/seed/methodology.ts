@@ -18,7 +18,7 @@ import {
  */
 export const methodologyDoc = {
   version: METHODOLOGY_VERSION,
-  effectiveFrom: '2026-09-23',
+  effectiveFrom: '2026-09-22',
   status: 'current' as const,
   summary: `Identitat.digital puntua cada servei en tres dimensions (privadesa, seguretat i control de la persona usuària) i n'obté una puntuació global ponderada (${Math.round(
     DIMENSION_WEIGHTS.privacy * 100,

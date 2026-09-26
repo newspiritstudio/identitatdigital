@@ -173,7 +173,7 @@ export const googleApps: AppSeed[] = [
     ],
     review: {
       researchStatus: 'in-depth',
-      lastReviewedAt: '2026-09-09',
+      lastReviewedAt: '2026-09-22',
       incidentsReviewed: true,
       editorialNotes:
         'Google té controls i exportació excel·lents i una seguretat de primer nivell, però el nucli del servei és la publicitat basada en el perfilat. Per això la dimensió de control puntua alt i la de privadesa, baix.',
@@ -293,7 +293,7 @@ export const googleApps: AppSeed[] = [
     ],
     review: {
       researchStatus: 'documented',
-      lastReviewedAt: '2026-09-09',
+      lastReviewedAt: '2026-09-22',
       incidentsReviewed: true,
       editorialNotes:
         'La privadesa d’un navegador depèn del que recull i també del que deixa fer als altres. Chrome recull relativament poc per si mateix i és el navegador que menys protegeix contra el rastreig de tercers.',
@@ -404,7 +404,7 @@ export const googleApps: AppSeed[] = [
     ],
     review: {
       researchStatus: 'documented',
-      lastReviewedAt: '2026-09-09',
+      lastReviewedAt: '2026-09-22',
       incidentsReviewed: true,
       editorialNotes:
         'El tòpic que «Google llegeix els teus correus per posar-te anuncis» no és cert des del 2017, quan va deixar de fer-ho. Sense xifratge d’extrem a extrem, però, la confidencialitat depèn de la bona voluntat i de la resistència legal del proveïdor.',
@@ -509,7 +509,7 @@ export const googleApps: AppSeed[] = [
     },
     review: {
       researchStatus: 'documented',
-      lastReviewedAt: '2026-09-09',
+      lastReviewedAt: '2026-09-22',
       incidentsReviewed: true,
       editorialNotes:
         'L’historial de visualització és la dada més sensible d’aquesta fitxa i no encaixa en cap categoria de l’article 9 del RGPD, tot i que permet inferir-ne diverses. La sensibilitat que atribuïm a un tipus de dada no sempre coincideix amb la seva qualificació jurídica.',
@@ -614,7 +614,7 @@ export const googleApps: AppSeed[] = [
     },
     review: {
       researchStatus: 'documented',
-      lastReviewedAt: '2026-09-09',
+      lastReviewedAt: '2026-09-22',
       incidentsReviewed: true,
       editorialNotes:
         'El trasllat de la cronologia al dispositiu, iniciat el 2024, és una millora substantiva. Convé revisar aquesta fitxa quan el desplegament s’hagi completat a totes les plataformes per comprovar què queda als servidors.',

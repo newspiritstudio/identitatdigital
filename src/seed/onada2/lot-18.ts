@@ -652,7 +652,7 @@ const ticketmaster: AppSeed = {
     }),
     independentAudits: unknown('No consten certificacions vigents publicades. L’ICO va concloure el 2020 que l’empresa no complia part dels requisits PCI DSS.'),
     bugBounty: unknown('No hem trobat cap programa públic de recompenses de Live Nation ni de Ticketmaster.'),
-    vulnerabilityDisclosure: f('no', 'editorial', [], 'Comprovació pròpia del 23 de setembre de 2026: ticketmaster.com/.well-known/security.txt retorna un error 404 i les rutes equivalents de ticketmaster.es i livenationentertainment.com no serveixen cap fitxer vàlid.'),
+    vulnerabilityDisclosure: f('no', 'editorial', [], 'Comprovació pròpia del 22 de setembre de 2026: ticketmaster.com/.well-known/security.txt retorna un error 404 i les rutes equivalents de ticketmaster.es i livenationentertainment.com no serveixen cap fitxer vàlid.'),
   },
   review: {
     researchStatus: 'documented',
@@ -763,7 +763,7 @@ const splash: AppSeed = {
     mfa: na('El joc no té comptes d’usuari, de manera que no hi ha cap autenticació a reforçar.'),
     independentAudits: unknown('No consten auditories ni certificacions.'),
     bugBounty: unknown('No consta cap programa de recompenses.'),
-    vulnerabilityDisclosure: f('no', 'editorial', [], 'Comprovació pròpia del 23 de setembre de 2026: https://cranberry.app/.well-known/security.txt retorna un error 404.'),
+    vulnerabilityDisclosure: f('no', 'editorial', [], 'Comprovació pròpia del 22 de setembre de 2026: https://cranberry.app/.well-known/security.txt retorna un error 404.'),
   },
   review: {
     researchStatus: 'documented',

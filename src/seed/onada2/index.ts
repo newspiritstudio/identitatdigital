@@ -55,7 +55,7 @@ import type { SeedLot } from './types'
  * amb les 25 fitxes de la primera onada. Cada lot agrupa les aplicacions
  * d'un mateix grup empresarial perquè comparteixin empresa i fonts.
  *
- * Els lots 40 a 45 (25 de setembre de 2026) afegeixen serveis catalans que no
+ * Els lots 40 a 45 (22 de setembre de 2026) afegeixen serveis catalans que no
  * eren al rànquing: mitjans públics i privats, Generalitat, Ajuntament de
  * Barcelona, transport metropolità i altres serveis d'ús habitual.
  */

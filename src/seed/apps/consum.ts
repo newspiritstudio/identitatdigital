@@ -139,7 +139,7 @@ export const consumApps: AppSeed[] = [
     },
     review: {
       researchStatus: 'documented',
-      lastReviewedAt: '2026-09-09',
+      lastReviewedAt: '2026-09-22',
       incidentsReviewed: true,
       editorialNotes:
         'La sanció de 746 milions es va anul·lar en apel·lació i, per tant, no compta com a sanció ferma. L’anul·lació es va fer per motius processals i no valida les pràctiques sancionades.',
@@ -272,7 +272,7 @@ export const consumApps: AppSeed[] = [
     },
     review: {
       researchStatus: 'documented',
-      lastReviewedAt: '2026-09-09',
+      lastReviewedAt: '2026-09-22',
       incidentsReviewed: true,
       editorialNotes:
         'L’absència de baixa autoservei s’ha verificat revisant la configuració de l’aplicació i la documentació pública. No l’hem trobada resumida en cap altra font.',
@@ -407,7 +407,7 @@ export const consumApps: AppSeed[] = [
     },
     review: {
       researchStatus: 'documented',
-      lastReviewedAt: '2026-09-09',
+      lastReviewedAt: '2026-09-22',
       incidentsReviewed: true,
       editorialNotes:
         'És la fitxa on l’absència de xifratge d’extrem a extrem té més conseqüències potencials, perquè les converses contenen dades de l’article 9. La moderació justifica aquest tractament, però no elimina el risc.',
@@ -537,7 +537,7 @@ export const consumApps: AppSeed[] = [
     },
     review: {
       researchStatus: 'documented',
-      lastReviewedAt: '2026-09-09',
+      lastReviewedAt: '2026-09-22',
       incidentsReviewed: true,
       editorialNotes:
         'L’absència de verificació en dos passos és una mancança rellevant per a un servei amb dades de pagament, tot i que la resta de la fitxa és relativament favorable.',
@@ -667,7 +667,7 @@ export const consumApps: AppSeed[] = [
     },
     review: {
       researchStatus: 'documented',
-      lastReviewedAt: '2026-09-09',
+      lastReviewedAt: '2026-09-22',
       incidentsReviewed: true,
       editorialNotes:
         'L’import de la sanció sueca es va reduir substancialment en via judicial, de manera que l’incident queda registrat amb estat «anul·lada o reduïda». Per això no es compta per l’import original.',

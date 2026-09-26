@@ -172,7 +172,7 @@ const security = (mfaDetail: string) => ({
   mfa: unknown(mfaDetail),
   independentAudits: f('no', 'regulator', ['ccma-sindicatura-informe-2-2025'], 'La Sindicatura de Comptes va constatar que la CCMA no tenia l’auditoria de l’Esquema Nacional de Seguretat ni l’auditoria biennal de seguretat del tractament de dades. L’únic document aportat era un esborrany sense signar de juny del 2022 limitat a recursos humans.'),
   bugBounty: unknown('No hem trobat cap programa de recompenses.'),
-  vulnerabilityDisclosure: f('no', 'editorial', [], 'No hi ha fitxer security.txt a 3cat.cat ni a ccma.cat, que hi redirigeix, ni cap canal publicat per notificar vulnerabilitats. Comprovat el 25 de setembre de 2026.'),
+  vulnerabilityDisclosure: f('no', 'editorial', [], 'No hi ha fitxer security.txt a 3cat.cat ni a ccma.cat, que hi redirigeix, ni cap canal publicat per notificar vulnerabilitats. Comprovat el 22 de setembre de 2026.'),
 })
 
 const trackingShared = {
