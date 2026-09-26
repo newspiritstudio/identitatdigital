@@ -90,9 +90,17 @@ export default function FrontendLayout({ children }: { children: React.ReactNode
 
             <div className="site-footer-column">
               <h3>Legal</h3>
-              <nav aria-label="Informació legal">
+              <nav aria-label="Informació legal i codi font">
                 <Link href="/legal">Informació legal</Link>
                 <Link href="/legal/privadesa">Privadesa</Link>
+                <a
+                  href="https://github.com/newspiritstudio/identitatdigital-data"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  Codi font
+                  <span className="visually-hidden"> (s’obre en una pestanya nova)</span>
+                </a>
               </nav>
             </div>
           </div>

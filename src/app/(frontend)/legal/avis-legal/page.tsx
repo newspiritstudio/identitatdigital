@@ -48,7 +48,7 @@ export default function LegalNoticePage() {
             <tr>
               <th scope="row">Correu electrònic</th>
               <td>
-                <a href="mailto:admin@newspirit.studio">admin@newspirit.studio</a>
+                <a href="mailto:hola@identitat.digital">hola@identitat.digital</a>
               </td>
             </tr>
             <tr>
@@ -169,7 +169,7 @@ export default function LegalNoticePage() {
         D’acord amb l’article 17 de la Llei 34/2002, no responem del contingut aliè que enllacem
         llevat que en coneguem efectivament la il·licitud i no actuem amb diligència per retirar
         l’enllaç. Si detectes un enllaç a un contingut il·lícit o perjudicial, escriu-nos a{' '}
-        <a href="mailto:admin@newspirit.studio">admin@newspirit.studio</a> i el revisarem.
+        <a href="mailto:hola@identitat.digital">hola@identitat.digital</a> i el revisarem.
       </p>
       <p>
         Pots enllaçar aquest lloc lliurement. L’única cosa que et demanem és que l’enllaç no doni a
@@ -219,7 +219,7 @@ export default function LegalNoticePage() {
         consum que pugui donar lloc a una reclamació de consum derivada d’aquest lloc. La plataforma
         europea de resolució de litigis en línia va deixar d’estar operativa el juliol de 2025 i,
         per tant, no n’enllacem cap adreça. Si tens una queixa, el camí directe és escriure’ns a{' '}
-        <a href="mailto:admin@newspirit.studio">admin@newspirit.studio</a>.
+        <a href="mailto:hola@identitat.digital">hola@identitat.digital</a>.
       </p>
 
       <h2>Modificacions</h2>

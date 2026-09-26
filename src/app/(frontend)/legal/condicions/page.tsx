@@ -296,7 +296,7 @@ export default function TermsPage() {
       </p>
       <p>
         Si veus un enllaç trencat, desviat o a un contingut il·lícit, digues-nos-ho a{' '}
-        <a href="mailto:admin@newspirit.studio">admin@newspirit.studio</a>.
+        <a href="mailto:hola@identitat.digital">hola@identitat.digital</a>.
       </p>
 
       <h2>7. Responsabilitat</h2>
@@ -335,7 +335,7 @@ export default function TermsPage() {
       </p>
       <p>
         Si has descobert una vulnerabilitat de seguretat en aquest lloc, escriu a{' '}
-        <a href="mailto:admin@newspirit.studio">admin@newspirit.studio</a> descrivint-la i dona’ns
+        <a href="mailto:hola@identitat.digital">hola@identitat.digital</a> descrivint-la i dona’ns
         un temps raonable per corregir-la abans de fer-la pública. No emprendrem accions contra qui
         investigui de bona fe, sense degradar el servei, sense accedir a dades de tercers i sense
         divulgar res abans d’hora.

@@ -43,7 +43,7 @@ export default function CookiesPage() {
       </p>
       <p>
         Si algun dia hi trobes alguna cosa que aquest document no expliqui, és un error: escriu-nos
-        a <a href="mailto:admin@newspirit.studio">admin@newspirit.studio</a>.
+        a <a href="mailto:hola@identitat.digital">hola@identitat.digital</a>.
       </p>
 
       <h2>Què diu la llei i per què no cal bàner</h2>

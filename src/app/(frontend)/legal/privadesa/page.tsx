@@ -75,7 +75,7 @@ export default function PrivacyPage() {
             <tr>
               <th scope="row">Correu de contacte</th>
               <td>
-                <a href="mailto:admin@newspirit.studio">admin@newspirit.studio</a>
+                <a href="mailto:hola@identitat.digital">hola@identitat.digital</a>
               </td>
             </tr>
             <tr>
@@ -233,7 +233,7 @@ export default function PrivacyPage() {
       <h3>3.3. Correus que ens escrius</h3>
       <p>
         No hi ha cap formulari de contacte en aquest lloc. Si ens escrius, ho fas des del teu propi
-        correu a l’adreça <a href="mailto:admin@newspirit.studio">admin@newspirit.studio</a>, i
+        correu a l’adreça <a href="mailto:hola@identitat.digital">hola@identitat.digital</a>, i
         aleshores tractem el que hi posis: la teva adreça, el teu nom si el dius i el contingut del
         missatge.
       </p>
@@ -263,7 +263,7 @@ export default function PrivacyPage() {
               <td>
                 El proveïdor de correu electrònic, com a encarregat.{' '}
                 <Pendent>
-                  proveïdor de correu de admin@newspirit.studio i ubicació del servei
+                  proveïdor de correu de l’adreça hola@identitat.digital i ubicació del servei
                 </Pendent>
               </td>
             </tr>
@@ -672,7 +672,7 @@ export default function PrivacyPage() {
         </table>
       </TableWrap>
       <p>
-        Per exercir-los, escriu a <a href="mailto:admin@newspirit.studio">admin@newspirit.studio</a>{' '}
+        Per exercir-los, escriu a <a href="mailto:hola@identitat.digital">hola@identitat.digital</a>{' '}
         dient què vols. Et respondrem com a molt tard al cap d’un mes; si la sol·licitud és complexa
         podem allargar-ho dos mesos més, però t’ho direm dins del primer mes i explicant per què.
       </p>

@@ -104,7 +104,7 @@ export default function LegalIndexPage() {
       <p>
         Per a qualsevol qüestió d’aquestes pàgines, incloent-hi l’exercici dels teus drets de
         protecció de dades, escriu a{' '}
-        <a href="mailto:admin@newspirit.studio">admin@newspirit.studio</a>.
+        <a href="mailto:hola@identitat.digital">hola@identitat.digital</a>.
       </p>
     </div>
   )

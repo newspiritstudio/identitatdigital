@@ -154,7 +154,7 @@ export default async function OpenDataPage() {
         Amb el conjunt d’<a href="#indicadors">indicadors</a> i la metodologia publicada es pot
         refer qualsevol nota des de zero: cada fila porta l’indicador, el seu pes, el seu valor i si
         era aplicable. Si algun càlcul no et surt, és un error nostre: escriu-nos a{' '}
-        <a href="mailto:admin@newspirit.studio">admin@newspirit.studio</a>.
+        <a href="mailto:hola@identitat.digital">hola@identitat.digital</a>.
       </p>
     </div>
     </div>

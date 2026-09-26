@@ -348,7 +348,7 @@ export default function AccessibilityPage() {
       <h2>5. Com informar-nos d’una barrera</h2>
       <p>
         Si no pots accedir a algun contingut d’aquest lloc, o si hi trobes una barrera, escriu a{' '}
-        <a href="mailto:admin@newspirit.studio">admin@newspirit.studio</a>. Ens arriba directament a
+        <a href="mailto:hola@identitat.digital">hola@identitat.digital</a>. Ens arriba directament a
         les persones que administren la societat.
       </p>
       <p>Digue’ns, si pots:</p>
