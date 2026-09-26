@@ -85,7 +85,7 @@ export const lot: SeedLot = {
       name: 'Yousician',
       legalName: 'Yousician Ltd',
       description:
-        'Empresa finlandesa de Hèlsinki dedicada a l’aprenentatge musical assistit per ordinador. A més de l’aplicació Yousician explota GuitarTuna, l’afinador de guitarra que va néixer a la companyia Ovelin —d’aquí el paquet «com.ovelin.guitartuna»— i que avui és un dels seus productes de captació.',
+        'Empresa finlandesa de Hèlsinki dedicada a l’aprenentatge musical assistit per ordinador. A més de l’aplicació Yousician explota GuitarTuna, l’afinador de guitarra que va néixer a la companyia Ovelin (d’aquí el paquet «com.ovelin.guitartuna») i que avui és un dels seus productes de captació.',
       headquartersCountry: 'FI',
       euEstablishment: 'FI',
       leadSupervisoryAuthority: 'tietosuoja-fi',
@@ -345,9 +345,9 @@ export const lot: SeedLot = {
       name: 'SoundCloud',
       company: 'soundcloud-global',
       categories: ['musica-i-audio', 'xarxes-socials'],
-      tagline: 'La millor documentació de privadesa del lot i, alhora, la filtració de trenta milions de comptes',
+      tagline: 'Una documentació de privadesa completa i una filtració de prop de trenta milions de comptes',
       summary:
-        'SoundCloud és l’únic servei d’aquest lot que ho té tot: política de privadesa amb els articles del RGPD citats un per un, informes de transparència del Reglament de Serveis Digitals, verificació en dos passos amb aplicació d’autenticació, security.txt, eliminació del compte autoservei i un compromís escrit a les condicions d’ús de no entrenar models generatius amb la veu o la música d’una persona sense consentiment afirmatiu. També és l’únic amb una filtració confirmada: el desembre del 2025 es van exposar les dades de prop de trenta milions de comptes.',
+        'SoundCloud ofereix alhora política de privadesa amb els articles del RGPD citats un per un, informes de transparència del Reglament de Serveis Digitals, verificació en dos passos amb aplicació d’autenticació, security.txt, eliminació del compte autoservei i un compromís escrit a les condicions d’ús de no entrenar models generatius amb la veu o la música d’una persona sense consentiment afirmatiu. El desembre del 2025 una filtració confirmada va exposar les dades de prop de trenta milions de comptes.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'freemium',
       jurisdiction: 'Alemanya',
@@ -361,7 +361,7 @@ export const lot: SeedLot = {
       accountRequired: f('partial', 'official', ['soundcloud-privacy-policy'], 'La política diu expressament que no cal compte per escoltar; el registre és necessari per pujar pistes, desar favorits i subscriure’s.'),
       openSource: f('no', 'official', ['soundcloud-privacy-policy'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'Una plataforma que és alhora reproductor i xarxa social sap què escoltes, què publiques i amb qui parles. El detall més poc conegut és que les estadístiques d’escolta es comparteixen amb els titulars dels drets: els artistes veuen qui els escolta més i si els segueixes.',
+        'Una plataforma que és alhora reproductor i xarxa social registra què escoltes, què publiques i amb qui parles. A més, les estadístiques d’escolta es comparteixen amb els titulars dels drets: els artistes veuen qui els escolta més i si els segueixes.',
       dataCollection: [
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'seguretat-i-prevencio-del-frau'], sources: ['soundcloud-privacy-policy', 'soundcloud-app-store'], note: 'També s’utilitza per enviar contrasenyes d’un sol ús de la verificació en dos passos.' }),
         row('nom-i-cognoms', 'optional', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['soundcloud-privacy-policy'], note: 'El nom real és opcional al perfil públic; el nom d’usuari pot ser un pseudònim.' }),
@@ -400,7 +400,7 @@ export const lot: SeedLot = {
         aiTraining: f('partial', 'official', ['soundcloud-terms', 'soundcloud-privacy-policy'], 'Les condicions d’ús prometen no entrenar models generatius que repliquin la veu, la música o la imatge d’una persona sense consentiment afirmatiu previ. La política, en canvi, reconeix l’ús de models de llenguatge de tercers a l’atenció al client.'),
       },
       sharing: {
-        thirdPartySharing: f('yes', 'official', ['soundcloud-privacy-policy'], 'Proveïdors de serveis, socis publicitaris i, de manera singular, els titulars dels drets de cada pista, que reben estadístiques sobre qui els escolta.'),
+        thirdPartySharing: f('yes', 'official', ['soundcloud-privacy-policy'], 'Proveïdors de serveis, socis publicitaris i els titulars dels drets de cada pista, que reben estadístiques sobre qui els escolta.'),
         intraGroupSharing: f('yes', 'official', ['soundcloud-privacy-policy'], 'Corresponsabilitat a l’empara de l’article 26 del RGPD entre la societat alemanya, SoundCloud, Inc. i Repost Network Inc.'),
         dataBrokerSales: unknown('La política no esmenta la venda de dades a intermediaris.'),
         internationalTransfers: f('yes', 'official', ['soundcloud-privacy-policy'], 'Clàusules contractuals tipus aprovades per la Comissió Europea, consultables a petició.', { mechanism: 'sccs' }),
@@ -472,10 +472,10 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'És la fitxa amb més documentació verificable del lot. Val la pena destacar dues coses poc conegudes: que les estadístiques d’escolta arriben als titulars dels drets amb el detall de qui els escolta més, i que el compromís de no entrenar models generatius amb la veu d’una persona és a les condicions d’ús, no a la política de privadesa.',
+          'Hi ha dos detalls poc coneguts: les estadístiques d’escolta arriben als titulars dels drets amb el detall de qui els escolta més, i el compromís de no entrenar models generatius amb la veu d’una persona és a les condicions d’ús, no a la política de privadesa.',
         openQuestions: [
           'Quina autoritat de control actua com a principal? La política no ho diu, tot i que l’establiment principal és a Berlín.',
-          'Quant triga realment la cua d’eliminació de comptes? Cap font en publica el termini.',
+          'Quant triga la cua d’eliminació de comptes? Cap font en publica el termini.',
           'Les dades en repòs estan xifrades? La secció de seguretat no ho concreta.',
         ],
       },
@@ -487,9 +487,9 @@ export const lot: SeedLot = {
       name: 'DICE',
       company: 'dice-fm-holdings',
       categories: ['musica-i-audio', 'comerc-electronic'],
-      tagline: 'Política específica per a Espanya, però la teva ubicació exacta i el teu DNI viatgen als promotors',
+      tagline: 'Política específica per a Espanya, però la ubicació exacta i el DNI es comparteixen amb els promotors',
       summary:
-        'DICE ven entrades de concerts com a agent dels promotors i recintes, i és de les poques aplicacions del lot amb una política de privadesa escrita expressament per a Espanya, en castellà, referida al RGPD i a la LOPDGDD i amb un delegat de protecció de dades extern identificat. L’etiqueta de l’App Store no declara cap dada de rastreig, però sí ubicació exacta, informació de pagament, adreça física i telèfon vinculats a la identitat. El document també reconeix la recollida del DNI, la sincronització opcional amb Spotify o Apple Music i que si et bloquegen el compte per frau poden negar-se a esborrar les dades identificatives.',
+        'DICE ven entrades de concerts com a agent dels promotors i recintes, i té una política de privadesa escrita expressament per a Espanya, en castellà, referida al RGPD i a la LOPDGDD i amb un delegat de protecció de dades extern identificat. L’etiqueta de l’App Store no declara cap dada de rastreig, però sí ubicació exacta, informació de pagament, adreça física i telèfon vinculats a la identitat. El document també reconeix la recollida del DNI, la sincronització opcional amb Spotify o Apple Music i que si et bloquegen el compte per frau poden negar-se a esborrar les dades identificatives.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'commerce',
       jurisdiction: 'Regne Unit, amb filial espanyola i dades allotjades a Irlanda',
@@ -502,7 +502,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['dice-privacy-policy-spain'], 'El compte es crea amb la primera compra a partir del telèfon i el correu; no hi ha contrasenya, s’entra amb un codi de quatre xifres.'),
       openSource: f('no', 'editorial', [], 'No hi ha cap repositori públic del servei.', { licence: 'Privativa' }),
       dataSummary:
-        'L’historial d’entrades d’una persona és un mapa de gustos, d’afinitats i de moviments: on va, amb qui, a quina hora i quant s’hi gasta. DICE hi afegeix la ubicació exacta per recomanar, la biblioteca musical si l’hi connectes i, quan demanes una entrada d’accessibilitat, documentació mèdica que és categoria especial de dades.',
+        'L’historial d’entrades d’una persona mostra gustos, afinitats i moviments: on va, amb qui, a quina hora i quant s’hi gasta. DICE hi afegeix la ubicació exacta per recomanar, la biblioteca musical si l’hi connectes i, quan demanes una entrada d’accessibilitat, documentació mèdica que és categoria especial de dades.',
       dataCollection: [
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'cessio-a-tercers'], sources: ['dice-privacy-policy-spain', 'dice-app-store'], note: 'Es comparteix amb el promotor de cada esdeveniment.' }),
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['dice-privacy-policy-spain', 'dice-app-store'], note: 'La política admet la compartició del correu, el país i l’edat amb xarxes socials i cercadors per mostrar anuncis més rellevants.' }),
@@ -538,7 +538,7 @@ export const lot: SeedLot = {
         aiTraining: f('no', 'official', ['dice-privacy-policy-spain'], 'La política no preveu l’entrenament de models amb dades personals; només l’ús de funcions d’intel·ligència artificial per analitzar i agilitar l’atenció al client, sota interès legítim.'),
       },
       sharing: {
-        thirdPartySharing: f('yes', 'official', ['dice-privacy-policy-spain'], 'Socis dels esdeveniments —que són responsables autònoms i, segons la política, «posseeixen les teves dades»—, Stripe, proveïdors de núvol, analítica i missatgeria, i Google, Meta i TikTok per a les galetes.'),
+        thirdPartySharing: f('yes', 'official', ['dice-privacy-policy-spain'], 'Socis dels esdeveniments (que són responsables autònoms i, segons la política, «posseeixen les teves dades»), Stripe, proveïdors de núvol, analítica i missatgeria, i Google, Meta i TikTok per a les galetes.'),
         intraGroupSharing: f('yes', 'official', ['dice-privacy-policy-spain', 'dice-fever-group-entities'], 'Les dades circulen dins del Grup DICE, que des del 2025 forma part del grup Fever.'),
         dataBrokerSales: f('no', 'official', ['dice-privacy-policy-spain'], 'La política afirma expressament que no lloguen ni venen dades personals sense consentiment explícit.'),
         internationalTransfers: f('yes', 'official', ['dice-privacy-policy-spain'], 'Les dades s’allotgen actualment a centres de dades a Irlanda; per a les transferències fora de l’Espai Econòmic Europeu s’apliquen decisions d’adequació o clàusules contractuals tipus.', { mechanism: 'sccs' }),
@@ -619,11 +619,11 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'Publicar una política específica per a Espanya, en castellà i actualitzada el febrer del 2026, és una bona pràctica poc freqüent. El contrapunt és el contingut: recollida del DNI, cessió d’adreces postals als promotors per interès legítim, absència d’eina de portabilitat i possibilitat de denegar la supressió a qui hagin bloquejat per frau. El document legal es publica en un centre d’ajuda de Zendesk, que bloqueja els lectors automatitzats.',
+          'Publicar una política específica per a Espanya, en castellà i actualitzada el febrer del 2026, és una bona pràctica poc freqüent. El contingut, però, inclou la recollida del DNI, cessió d’adreces postals als promotors per interès legítim, absència d’eina de portabilitat i possibilitat de denegar la supressió a qui hagin bloquejat per frau. El document legal es publica en un centre d’ajuda de Zendesk, que bloqueja els lectors automatitzats.',
         openQuestions: [
           'El canvi de matriu cap al grup Fever modifica els fluxos de dades entre DICE i Kzemos Technologies a Madrid?',
           'Per què el DNI figura entre les dades de contacte de recollida ordinària i no només a la verificació a la porta del recinte?',
-          'El programa de recompenses que declara el security.txt existeix realment i està obert?',
+          'El programa de recompenses que declara el security.txt existeix i està obert?',
         ],
       },
     },
@@ -634,9 +634,9 @@ export const lot: SeedLot = {
       name: 'myTuner Radio',
       company: 'appgeneration-software',
       categories: ['musica-i-audio'],
-      tagline: 'Una ràdio gratuïta que va documentar l’enviament de la teva ubicació precisa a un corredor de dades',
+      tagline: 'Una ràdio gratuïta que documenta en una pàgina pròpia l’enviament de la ubicació precisa a un corredor de dades',
       summary:
-        'myTuner Radio agrega emissores de ràdio de tot el món i no demana cap compte per escoltar-les. El que la fa singular no és el catàleg sinó una pàgina pròpia, «Third Party Data Recipients», on la companyia portuguesa detalla que comparteix ubicació precisa, senyals de wifi i Bluetooth i identificadors publicitaris amb X-Mode Social, també quan l’aplicació està en segon pla. L’FTC va prohibir a aquesta empresa, el gener del 2024, vendre dades sensibles d’ubicació. La política enumera a més Outlogic, UXCam, Firebase i diversos proveïdors d’anàlisi de xarxa.',
+        'myTuner Radio agrega emissores de ràdio de tot el món i no demana cap compte per escoltar-les. Té una pàgina pròpia, «Third Party Data Recipients», on la companyia portuguesa detalla que comparteix ubicació precisa, senyals de wifi i Bluetooth i identificadors publicitaris amb X-Mode Social, també quan l’aplicació està en segon pla. L’FTC va prohibir a aquesta empresa, el gener del 2024, vendre dades sensibles d’ubicació. La política enumera a més Outlogic, UXCam, Firebase i diversos proveïdors d’anàlisi de xarxa.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'freemium',
       jurisdiction: 'Portugal',
@@ -649,7 +649,7 @@ export const lot: SeedLot = {
       accountRequired: f('no', 'official', ['mytuner-privacy-policy'], 'Es pot escoltar la ràdio sense compte; el registre amb Google, Apple o Facebook només serveix per sincronitzar favorits.'),
       openSource: f('no', 'editorial', [], 'No hi ha cap repositori públic del client ni del servei.', { licence: 'Privativa' }),
       dataSummary:
-        'La combinació d’ubicació precisa recollida en segon pla i identificador publicitari és la matèria primera del mercat de dades de localització: no descriu què escoltes, sinó on ets a cada hora del dia. Les emissores que segueixes hi afegeixen una capa de llengua, territori i, sovint, orientació política o religiosa.',
+        'La combinació d’ubicació precisa recollida en segon pla i identificador publicitari és el tipus de dada que es compra i es ven al mercat de dades de localització, i indica on és una persona a cada hora del dia. Les emissores que segueixes hi afegeixen informació sobre llengua, territori i, sovint, orientació política o religiosa.',
       dataCollection: [
         row('adreca-electronica', 'optional', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['mytuner-privacy-policy', 'mytuner-app-store'], note: 'Només si es crea un compte amb Google, Apple o Facebook.' }),
         row('nom-i-cognoms', 'optional', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['mytuner-privacy-policy'] }),
@@ -720,7 +720,7 @@ export const lot: SeedLot = {
         telemetryOptOut: unknown('No hem trobat cap manera de desactivar l’analítica sense pagar la subscripció.'),
         granularControls: f('no', 'official', ['mytuner-privacy-policy'], 'No hi ha cap panell de privadesa amb controls per finalitat.'),
         defaultPosture: 'permissive',
-        darkPatterns: f('yes', 'editorial', ['mytuner-third-party-recipients'], 'La informació més rellevant —la cessió d’ubicació precisa a un corredor de dades— no és a la política sinó a una pàgina separada que cal buscar, i que consta actualitzada el juny del 2020.'),
+        darkPatterns: f('yes', 'editorial', ['mytuner-third-party-recipients'], 'La cessió d’ubicació precisa a un corredor de dades no s’explica a la política, sinó en una pàgina separada que cal buscar i que consta actualitzada el juny del 2020.'),
         darkPatternList: [
           {
             type: 'confusing-language',
@@ -753,7 +753,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'La pàgina «Third Party Data Recipients» és una font primària poc habitual: molt poques aplicacions documenten per escrit la cessió d’ubicació precisa a un corredor. Que consti actualitzada el 2020 i que la política actual citi Outlogic —el nom posterior d’X-Mode— indica que la pràctica no s’ha aturat.',
+          'La pàgina «Third Party Data Recipients» és una font primària poc habitual: molt poques aplicacions documenten per escrit la cessió d’ubicació precisa a un corredor. Que consti actualitzada el 2020 i que la política actual citi Outlogic (el nom posterior d’X-Mode) indica que la pràctica no s’ha aturat.',
         openQuestions: [
           'La cessió a Outlogic continua vigent per a les persones usuàries de la Unió Europea o s’ha limitat als Estats Units?',
           'Quin mecanisme empara les transferències internacionals? La política no en cita cap.',
@@ -769,7 +769,7 @@ export const lot: SeedLot = {
       categories: ['musica-i-audio', 'educacio'],
       tagline: 'Un afinador de guitarra que declara la ubicació com a dada de rastreig',
       summary:
-        'GuitarTuna afina l’instrument escoltant-lo pel micròfon: una funció que no necessita saber on ets. L’etiqueta de l’App Store, però, declara la ubicació, els identificadors, les dades d’ús i els diagnòstics com a dades utilitzades per rastrejar-te en aplicacions i webs d’altres empreses, i vincula la ubicació aproximada a la identitat per a publicitat de tercers. L’avís de privadesa és el comú de Yousician, una empresa finlandesa que sí que designa un canal de drets i fixa un termini de conservació.',
+        'GuitarTuna afina l’instrument escoltant-lo pel micròfon, una funció que no requereix la ubicació. L’etiqueta de l’App Store, però, declara la ubicació, els identificadors, les dades d’ús i els diagnòstics com a dades utilitzades per rastrejar-te en aplicacions i webs d’altres empreses, i vincula la ubicació aproximada a la identitat per a publicitat de tercers. L’avís de privadesa és el comú de Yousician, una empresa finlandesa que sí que designa un canal de drets i fixa un termini de conservació.',
       platforms: ['ios', 'android'],
       businessModel: 'freemium',
       jurisdiction: 'Finlàndia',
@@ -782,7 +782,7 @@ export const lot: SeedLot = {
       accountRequired: f('partial', 'official', ['yousician-privacy-notice'], 'L’afinador bàsic funciona sense registre, però els cursos i la sincronització del progrés demanen compte.'),
       openSource: f('no', 'editorial', [], 'No hi ha cap repositori públic.', { licence: 'Privativa' }),
       dataSummary:
-        'El que revela GuitarTuna no és musical: és la combinació d’ubicació aproximada, identificador de dispositiu i historial de compres cedida a xarxes de publicitat. L’instrument que afines i les hores que hi dediques hi afegeixen un senyal d’afició i de nivell adquisitiu que encaixa bé amb la venda de subscripcions.',
+        'Les dades de GuitarTuna que arriben a xarxes de publicitat són la combinació d’ubicació aproximada, identificador de dispositiu i historial de compres. L’instrument que afines i les hores que hi dediques indiquen una afició i un nivell adquisitiu, informació útil per vendre subscripcions.',
       dataCollection: [
         row('adreca-electronica', 'optional', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['yousician-privacy-notice'] }),
         row('nom-i-cognoms', 'optional', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['yousician-privacy-notice'] }),
@@ -869,7 +869,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'L’avís de privadesa és comú a tot Yousician i no distingeix GuitarTuna de la plataforma d’aprenentatge, cosa que obliga a llegir l’etiqueta de l’App Store per saber què fa realment l’afinador.',
+          'L’avís de privadesa és comú a tot Yousician i no distingeix GuitarTuna de la plataforma d’aprenentatge, cosa que obliga a llegir l’etiqueta de l’App Store per saber què fa l’afinador.',
         openQuestions: [
           'Per a què serveix la ubicació en una aplicació d’afinació? L’avís no ho explica.',
           'L’opció de suprimir el compte dins de l’aplicació és present a totes les versions?',
@@ -883,9 +883,9 @@ export const lot: SeedLot = {
       name: 'Audiomack',
       company: 'audiomack',
       categories: ['musica-i-audio', 'xarxes-socials'],
-      tagline: '«No venem les teves dades», i alhora l’etiqueta declara vuit categories utilitzades per rastrejar-te',
+      tagline: 'Diu «no venem les teves dades», però l’etiqueta declara vuit categories utilitzades per rastrejar-te',
       summary:
-        'Audiomack distribueix música d’artistes emergents sense cost i viu de la publicitat. La política afirma amb èmfasi que la companyia no ven dades personals, però reconeix la compartició amb LiveRamp —una plataforma d’identitat publicitària— de correu xifrat, adreça IP i dades del navegador, i l’etiqueta de l’App Store declara compres, ubicació, dades de contacte, contingut de la persona usuària, historial de cerca, identificadors, dades d’ús i diagnòstics com a dades utilitzades per rastrejar. Com a contrapartida, l’eliminació del compte és un botó al tauler.',
+        'Audiomack distribueix música d’artistes emergents sense cost i viu de la publicitat. La política afirma que la companyia no ven dades personals, però reconeix la compartició amb LiveRamp (una plataforma d’identitat publicitària) de correu xifrat, adreça IP i dades del navegador, i l’etiqueta de l’App Store declara compres, ubicació, dades de contacte, contingut de la persona usuària, historial de cerca, identificadors, dades d’ús i diagnòstics com a dades utilitzades per rastrejar. En canvi, el compte s’elimina amb un botó del tauler.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'freemium',
       jurisdiction: 'Estats Units',
@@ -898,7 +898,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['audiomack-privacy-policy'], 'El registre demana correu, nom, edat i gènere.'),
       openSource: f('no', 'editorial', [], 'No hi ha cap repositori públic del servei.', { licence: 'Privativa' }),
       dataSummary:
-        'L’historial d’escolta d’una plataforma dominada per un gènere musical concret és un senyal demogràfic i cultural fort. Afegir-hi l’edat i el gènere declarats al registre, la geolocalització i un identificador publicitari resolt per LiveRamp permet reconèixer la mateixa persona en altres webs.',
+        'L’historial d’escolta d’una plataforma dominada per un gènere musical concret dona molta informació demogràfica i cultural. Afegir-hi l’edat i el gènere declarats al registre, la geolocalització i un identificador publicitari resolt per LiveRamp permet reconèixer la mateixa persona en altres webs.',
       dataCollection: [
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['audiomack-privacy-policy', 'audiomack-app-store'], note: 'La política descriu la compartició d’un correu xifrat amb LiveRamp.' }),
         row('nom-i-cognoms', 'yes', { linked: 'no', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'mesura-i-analisi-dus'], sources: ['audiomack-privacy-policy', 'audiomack-app-store'] }),
@@ -998,10 +998,10 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'L’interès de la fitxa és la distància entre una afirmació de màrqueting —«no venem les teves dades, punt»— i el que descriu la mateixa política dues seccions més avall.',
+          'La fitxa mostra la distància entre una afirmació de màrqueting («no venem les teves dades, punt») i el que descriu la mateixa política dues seccions més avall.',
         openQuestions: [
           'Qui és el representant d’Audiomack a la Unió Europea, si n’hi ha cap?',
-          'Quin és el termini real de conservació després d’eliminar el compte?',
+          'Quin és el termini de conservació després d’eliminar el compte?',
         ],
       },
     },
@@ -1014,7 +1014,7 @@ export const lot: SeedLot = {
       categories: ['musica-i-audio', 'xarxes-socials'],
       tagline: 'Un estudi de gravació al núvol on la baixa passa obligatòriament pel delegat de protecció de dades',
       summary:
-        'BandLab combina un estudi multipista al navegador i al mòbil amb una xarxa social de músics. Tot el que graves puja als seus servidors: l’etiqueta de l’App Store confirma que el contingut de la persona usuària —fotos, vídeos i àudio— queda vinculat a la identitat. La política designa un delegat de protecció de dades amb nom i cognoms, però no ofereix cap camí d’autoservei per tancar el compte: cal escriure-li. Les dades viatgen a Singapur i als Estats Units i la política no cita cap mecanisme concret de transferència.',
+        'BandLab combina un estudi multipista al navegador i al mòbil amb una xarxa social de músics. Tot el que graves puja als seus servidors: l’etiqueta de l’App Store confirma que el contingut de la persona usuària (fotos, vídeos i àudio) queda vinculat a la identitat. La política designa un delegat de protecció de dades amb nom i cognoms, però no ofereix cap camí d’autoservei per tancar el compte: cal escriure-li. Les dades es transfereixen a Singapur i als Estats Units i la política no cita cap mecanisme concret de transferència.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'freemium',
       jurisdiction: 'Singapur',
@@ -1027,7 +1027,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['bandlab-privacy-policy'], 'Cal registrar-se amb nom, correu i contrasenya o amb una identitat de xarxa social.'),
       openSource: f('no', 'editorial', [], 'No hi ha cap repositori públic del servei.', { licence: 'Privativa' }),
       dataSummary:
-        'Un projecte musical inacabat és material molt personal: la veu, l’assaig, la lletra a mig fer. BandLab en guarda l’àudio vinculat a la identitat, i hi suma data de naixement, gènere, ubicació de perfil i la xarxa de qui col·labora amb qui, que dibuixa un mapa social del món amateur de la música.',
+        'Un projecte musical inacabat conté material personal: la veu, els assajos, lletres a mig fer. BandLab en guarda l’àudio vinculat a la identitat, i hi suma data de naixement, gènere, ubicació de perfil i la xarxa de col·laboracions entre músics aficionats.',
       dataCollection: [
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['bandlab-privacy-policy', 'bandlab-app-store'] }),
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'atencio-a-lusuari'], sources: ['bandlab-privacy-policy', 'bandlab-app-store'] }),
@@ -1084,7 +1084,7 @@ export const lot: SeedLot = {
           'Guarda la confirmació; el contingut ja republicat o desat en memòria cau pot continuar accessible.',
         ],
         obstacles:
-          'Que una plataforma amb milions de comptes gratuïts derivi cada baixa a una bústia de correu converteix un tràmit ordinari en l’exercici formal d’un dret.',
+          'En una plataforma amb milions de comptes gratuïts, cada baixa s’ha de demanar per correu com a exercici formal del dret de supressió.',
         dataRetained: 'Contingut a la memòria cau o arxivat per tercers, segons reconeix la mateixa política.',
         sources: ['bandlab-privacy-policy'],
       },
@@ -1100,7 +1100,7 @@ export const lot: SeedLot = {
         telemetryOptOut: unknown('No hem trobat cap control d’analítica.'),
         granularControls: f('partial', 'official', ['bandlab-privacy-policy'], 'Es pot triar si un projecte és públic o privat, però no hi ha controls per finalitat de tractament.'),
         defaultPosture: 'mixed',
-        darkPatterns: f('yes', 'editorial', ['bandlab-privacy-policy'], 'L’absència de baixa autoservei en un servei de consum massiu és, en si mateixa, una barrera de sortida.'),
+        darkPatterns: f('yes', 'editorial', ['bandlab-privacy-policy'], 'L’absència de baixa autoservei en un servei de consum massiu és una barrera de sortida.'),
         darkPatternList: [
           {
             type: 'hidden-exit',
@@ -1139,9 +1139,9 @@ export const lot: SeedLot = {
       name: 'JBL Headphones',
       company: 'harman-international',
       categories: ['utilitats', 'musica-i-audio'],
-      tagline: 'Una etiqueta de privadesa sorprenentment buida per a una aplicació d’un grup de Samsung',
+      tagline: 'Una etiqueta de privadesa sense cap dada vinculada a la identitat, en una aplicació del grup Samsung',
       summary:
-        'JBL Headphones configura els auriculars de la marca: equalització, cancel·lació de soroll i actualitzacions de microprogramari. L’etiqueta de l’App Store no declara cap dada utilitzada per rastrejar ni cap dada vinculada a la identitat; només dades d’ús, interacció amb el producte i diagnòstics sense vincular. És una posició poc habitual en una aplicació de fabricant. El contrapès és documental: la política de privadesa aplicable és la corporativa de Harman —filial de Samsung Electronics des del 2017— i no una política específica del producte, de manera que costa saber què hi diu exactament sobre aquesta aplicació.',
+        'JBL Headphones configura els auriculars de la marca: equalització, cancel·lació de soroll i actualitzacions de microprogramari. L’etiqueta de l’App Store no declara cap dada utilitzada per rastrejar ni cap dada vinculada a la identitat; només dades d’ús, interacció amb el producte i diagnòstics sense vincular. És poc habitual en una aplicació de fabricant. En canvi, la política de privadesa aplicable és la corporativa de Harman (filial de Samsung Electronics des del 2017), no una d’específica del producte, i costa saber què diu sobre aquesta aplicació.',
       platforms: ['ios', 'android'],
       businessModel: 'unknown',
       jurisdiction: 'Estats Units, dins del grup Samsung',
@@ -1154,7 +1154,7 @@ export const lot: SeedLot = {
       accountRequired: unknown('No hem pogut verificar amb una font oficial si cal compte per a les funcions bàsiques de configuració dels auriculars.'),
       openSource: f('no', 'editorial', [], 'No hi ha cap repositori públic.', { licence: 'Privativa' }),
       dataSummary:
-        'Tal com està declarada, l’aplicació revela sobretot quin model d’auriculars tens i com el fas servir. El risc no és el perfil publicitari sinó l’encaix dins d’un grup, Samsung, que ja té molta informació del mateix dispositiu per altres vies.',
+        'Tal com està declarada, l’aplicació revela sobretot quin model d’auriculars tens i com el fas servir. El risc principal és que l’aplicació forma part del grup Samsung, que ja té molta informació del mateix dispositiu per altres vies.',
       dataCollection: [
         row('interaccions-i-us', 'yes', { linked: 'no', tracking: 'no', shared: 'group', purposes: ['mesura-i-analisi-dus'], sources: ['jbl-headphones-app-store'] }),
         row('dades-de-diagnostic', 'yes', { linked: 'no', tracking: 'no', shared: 'group', purposes: ['millora-del-producte'], sources: ['jbl-headphones-app-store'] }),
@@ -1237,9 +1237,9 @@ export const lot: SeedLot = {
       name: 'Clear wave | Water Eject',
       company: 'appchi',
       categories: ['utilitats', 'musica-i-audio'],
-      tagline: 'Expulsar aigua de l’altaveu per 69,99 euros l’any, amb rastreig declarat i una política que ignora el RGPD',
+      tagline: 'Expulsar aigua de l’altaveu per 69,99 euros l’any, amb rastreig declarat i una política que no esmenta el RGPD',
       summary:
-        'Clear wave emet tons per expulsar l’aigua de l’altaveu i mesura decibels. És una funció que un telèfon pot fer sense connexió i sense compte, però l’etiqueta de l’App Store declara identificadors i diagnòstics com a dades utilitzades per rastrejar-te en aplicacions i webs d’altres empreses. La política de privadesa d’Appchi és una plantilla de mig full que no indica el domicili del responsable, no esmenta ni el RGPD ni la Unió Europea, no fixa terminis de conservació i no descriu cap dret de l’interessat. Al damunt, les subscripcions arriben als 69,99 euros.',
+        'Clear wave emet tons per expulsar l’aigua de l’altaveu i mesura decibels. És una funció que un telèfon pot fer sense connexió i sense compte, però l’etiqueta de l’App Store declara identificadors i diagnòstics com a dades utilitzades per rastrejar-te en aplicacions i webs d’altres empreses. La política de privadesa d’Appchi és una plantilla molt breu que no indica el domicili del responsable, no esmenta ni el RGPD ni la Unió Europea, no fixa terminis de conservació i no descriu cap dret de l’interessat. Les subscripcions arriben als 69,99 euros.',
       platforms: ['ios'],
       businessModel: 'subscription',
       jurisdiction: 'No declarada a la política',
@@ -1253,7 +1253,7 @@ export const lot: SeedLot = {
       accountRequired: f('no', 'editorial', [], 'Ni la política ni la fitxa de l’App Store descriuen cap registre: la funció és local i es monetitza amb subscripcions de l’App Store.'),
       openSource: f('no', 'editorial', [], 'No hi ha cap repositori públic.', { licence: 'Privativa' }),
       dataSummary:
-        'La utilitat en si no revela gaire, però l’identificador que se’n treu sí: serveix per reconèixer el mateix telèfon en altres aplicacions i webs. És el patró clàssic d’una utilitat trivial que val més com a punt de recollida d’identificadors i com a canal de subscripcions que com a eina.',
+        'La funció de l’aplicació revela poca cosa, però l’identificador que declara com a dada de rastreig serveix per reconèixer el mateix telèfon en altres aplicacions i webs. És un patró habitual en utilitats senzilles: l’aplicació serveix sobretot per recollir identificadors i vendre subscripcions.',
       dataCollection: [
         row('identificador-de-dispositiu', 'yes', { linked: 'no', tracking: 'yes', shared: 'third-parties', purposes: ['publicitat-personalitzada', 'mesura-publicitaria'], sources: ['clear-wave-app-store'], note: 'L’etiqueta el declara utilitzat per rastrejar i per al màrqueting del desenvolupador.' }),
         row('dades-de-diagnostic', 'yes', { linked: 'no', tracking: 'yes', shared: 'third-parties', purposes: ['millora-del-producte'], sources: ['clear-wave-app-store'] }),
@@ -1335,7 +1335,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'La fitxa és breu perquè el servei és breu, però el que s’hi documenta és rellevant: una política de plantilla que ignora el RGPD en una aplicació que ocupa posicions altes del top gratuït espanyol.',
+          'La fitxa documenta una política de plantilla que no esmenta el RGPD en una aplicació que ocupa posicions altes del top gratuït espanyol.',
         openQuestions: [
           'On està establert Appchi LLC i qui hi figura com a responsable del tractament?',
           'Quins proveïdors de tercers recullen les dades de registre? La política no en cita cap.',
@@ -1364,7 +1364,7 @@ export const lot: SeedLot = {
       accountRequired: unknown('La descripció esmenta sincronització entre dispositius, cosa que suggereix un compte, però no ho hem pogut verificar amb cap font oficial.'),
       openSource: f('no', 'editorial', [], 'No hi ha cap repositori públic.', { licence: 'Privativa' }),
       dataSummary:
-        'Un reproductor sap què escoltes, quan i quantes vegades. Declarat com està, el senyal que surt de Demus és sobretot publicitari: un identificador vinculat a la identitat i cedit a xarxes de tercers, sense cap document que expliqui a qui ni per quant temps.',
+        'Un reproductor registra què escoltes, quan i quantes vegades. Segons l’etiqueta, el que surt de Demus és sobretot publicitari: un identificador vinculat a la identitat i cedit a xarxes de tercers, sense cap document que expliqui a qui ni per quant temps.',
       dataCollection: [
         row('identificador-de-compte', 'yes', { linked: 'yes', tracking: 'unknown', shared: 'third-parties', purposes: ['publicitat-personalitzada', 'mesura-i-analisi-dus'], sources: ['demus-app-store'] }),
         row('identificador-de-dispositiu', 'yes', { linked: 'yes', tracking: 'unknown', shared: 'third-parties', purposes: ['publicitat-personalitzada', 'mesura-publicitaria'], sources: ['demus-app-store'] }),
@@ -1429,7 +1429,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'L’única font sòlida és l’etiqueta de l’App Store. La política del producte no es deixa llegir amb claredat i no aporta informació verificable sobre responsable, destinataris ni terminis, de manera que la majoria d’apartats queden com a desconeguts.',
+          'L’única font sòlida és l’etiqueta de l’App Store. La política del producte és confusa i no aporta informació verificable sobre responsable, destinataris ni terminis, de manera que la majoria d’apartats queden com a desconeguts.',
         openQuestions: [
           'Qui és el responsable del tractament i en quin país està establert?',
           'D’on surt la música que reprodueix l’aplicació i quines dades s’envien a aquesta font?',
@@ -1446,7 +1446,7 @@ export const lot: SeedLot = {
       categories: ['musica-i-audio'],
       tagline: 'Reprodueix des de YouTube, desa l’historial a Supabase i l’envia a dues xarxes publicitàries',
       summary:
-        'Meulify és un reproductor de desenvolupador individual que combina reproducció en línia, ràdio, podcasts i importació de fitxers locals. La seva política, tot i ser breu, és insòlitament concreta: cita Supabase com a rerefons, YouTube com a origen de la reproducció i ironSource i Unity Ads com a xarxes publicitàries, i reconeix que l’historial d’escolta s’utilitza per entrenar el sistema de recomanacions. També diu que el compte s’elimina des de la mateixa aplicació. El que hi falta és qualsevol referència al RGPD, al responsable del tractament o als terminis.',
+        'Meulify és un reproductor de desenvolupador individual que combina reproducció en línia, ràdio, podcasts i importació de fitxers locals. La seva política és breu però concreta: cita Supabase com a rerefons, YouTube com a origen de la reproducció i ironSource i Unity Ads com a xarxes publicitàries, i reconeix que l’historial d’escolta s’utilitza per entrenar el sistema de recomanacions. També diu que el compte s’elimina des de la mateixa aplicació. En canvi, no fa cap referència al RGPD, al responsable del tractament ni als terminis.',
       platforms: ['ios'],
       businessModel: 'advertising',
       jurisdiction: 'No declarada',
@@ -1459,7 +1459,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['meulify-privacy-policy'], 'La política descriu l’autenticació de persones usuàries i un identificador d’usuari propi.'),
       openSource: f('no', 'editorial', [], 'No hi ha cap repositori públic.', { licence: 'Privativa' }),
       dataSummary:
-        'L’historial d’escolta i de cerca amb marca de temps, desat a un rerefons de tercers i lligat a un identificador d’usuari, és un diari d’hàbits: hores de son, rutines de desplaçament i estat d’ànim. Que la reproducció passi per YouTube hi afegeix un segon destinatari amb els seus propis identificadors.',
+        'L’historial d’escolta i de cerca amb marca de temps, desat a un rerefons de tercers i lligat a un identificador d’usuari, permet deduir hàbits com les hores de son, les rutines de desplaçament o l’estat d’ànim. Que la reproducció passi per YouTube hi afegeix un segon destinatari amb els seus propis identificadors.',
       dataCollection: [
         row('identificador-de-compte', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['prestacio-del-servei', 'personalitzacio-de-continguts'], sources: ['meulify-privacy-policy', 'meulify-app-store'], note: 'Identificador UUID desat a Supabase.' }),
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'personalitzacio-de-continguts'], sources: ['meulify-app-store'], note: 'Nom d’usuari, segons la política.' }),
@@ -1543,7 +1543,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'És una política curiosa: tècnicament més transparent que moltes de grans empreses —cita els proveïdors pel nom— i alhora jurídicament buida, perquè no identifica el responsable ni esmenta cap dret. Que la reproducció passi per YouTube planteja també dubtes sobre les condicions d’ús d’aquell servei.',
+          'La política és tècnicament més transparent que la de moltes grans empreses, perquè cita els proveïdors pel nom, però no identifica el responsable ni esmenta cap dret. Que la reproducció passi per YouTube planteja també dubtes sobre les condicions d’ús d’aquell servei.',
         openQuestions: [
           'Qui és el responsable del tractament i en quin país està establert?',
           'Amb quina base jurídica reprodueix contingut de YouTube i quines dades hi envia?',
@@ -1562,7 +1562,7 @@ export const lot: SeedLot = {
       occurredAt: '2025-12-15',
       disclosedAt: '2026-01-27',
       description:
-        'El 15 de desembre del 2025 SoundCloud va detectar activitat no autoritzada en un tauler de control d’un servei auxiliar i, tot seguit, va patir atacs de denegació de servei que van tombar temporalment la disponibilitat del web. La companyia va comunicar que les dades afectades eren adreces de correu i informació ja visible als perfils públics, d’aproximadament un 20 % dels comptes, i que no s’havien compromès dades financeres ni contrasenyes. El gener del 2026 el grup atacant va passar a l’extorsió i va publicar les dades. Have I Been Pwned va registrar la filtració el 27 de gener del 2026 amb 29.815.722 comptes, amb correu, nom, nom d’usuari, avatar i estadístiques de perfil. SoundCloud va tancar la investigació el febrer del 2026 confirmant que no s’havien sostret dades sensibles.',
+        'El 15 de desembre del 2025 SoundCloud va detectar activitat no autoritzada en un tauler de control d’un servei auxiliar i, tot seguit, va patir atacs de denegació de servei que van deixar el web temporalment inaccessible. La companyia va comunicar que les dades afectades eren adreces de correu i informació ja visible als perfils públics, d’aproximadament un 20 % dels comptes, i que no s’havien compromès dades financeres ni contrasenyes. El gener del 2026 el grup atacant va passar a l’extorsió i va publicar les dades. Have I Been Pwned va registrar la filtració el 27 de gener del 2026 amb 29.815.722 comptes, amb correu, nom, nom d’usuari, avatar i estadístiques de perfil. SoundCloud va tancar la investigació el febrer del 2026 confirmant que no s’havien sostret dades sensibles.',
       affectedPeople: '29.815.722 comptes, aproximadament un 20 % del total segons la companyia',
       sources: ['soundcloud-breach-statement', 'soundcloud-hibp'],
     },

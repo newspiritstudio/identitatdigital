@@ -150,10 +150,9 @@ export function PlanSection({
     >
       <h2 id="pla">El teu pla d’acció</h2>
       <p>
-        Accions concretes sobre els serveis que has triat, amb l’enllaç oficial on es fa cadascuna.
-        Estan ordenades per prioritat, i la prioritat es pot desmuntar: obre «Prioritat» a qualsevol
-        acció i hi veuràs els punts de cada factor. És una manera d’ordenar la feina, no una nota
-        sobre tu ni sobre el servei.
+        Accions sobre els serveis que has triat, amb l’enllaç oficial on es fa cadascuna, ordenades
+        per prioritat. Si obres «Prioritat» a qualsevol acció, hi veuràs els punts de cada factor.
+        La prioritat serveix per ordenar la feina; no puntua ni el servei ni tu.
       </p>
 
       {detailsLoading ? (

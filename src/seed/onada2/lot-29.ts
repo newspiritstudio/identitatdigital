@@ -370,9 +370,9 @@ export const lot: SeedLot = {
       name: 'Substack',
       company: 'substack-inc',
       categories: ['noticies-i-mitjans', 'comunitats-i-forums'],
-      tagline: 'Sense publicitat ni rastreig declarat, però el teu nom i el teu correu van a mans de cada autor a qui et subscrius',
+      tagline: 'Sense publicitat ni rastreig declarat; el nom i el correu passen a cada autor a qui et subscrius',
       summary:
-        'Substack viu d’una comissió sobre les subscripcions, no de la publicitat, i l’etiqueta de l’App Store no declara cap dada de rastreig. El preu és un altre: quan et subscrius a un butlletí, el nom i l’adreça electrònica passen a l’autor, que els tracta pel seu compte i sovint els exporta a la seva pròpia llista de correu. La política reconeix, a més, que els sistemes no atenen el senyal Do Not Track.',
+        'Substack es finança amb una comissió sobre les subscripcions, sense publicitat, i l’etiqueta de l’App Store no declara cap dada de rastreig. Quan et subscrius a un butlletí, el nom i l’adreça electrònica passen a l’autor, que els tracta pel seu compte i sovint els exporta a la seva pròpia llista de correu. La política reconeix també que els sistemes no atenen el senyal Do Not Track.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'commerce',
       jurisdiction: 'Estats Units',
@@ -384,7 +384,7 @@ export const lot: SeedLot = {
       accountRequired: f('partial', 'official', ['substack-privacy-policy'], 'Es poden llegir publicacions obertes sense compte; per subscriure-s’hi, comentar o publicar, cal registre.'),
       openSource: f('no', 'official', ['substack-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'La llista de butlletins a què et subscrius és un retrat bastant fidel de les teves idees polítiques, religioses i professionals, i cada autor en rep la seva part amb el teu nom i el teu correu.',
+        'La llista de butlletins a què et subscrius revela bona part de les teves idees polítiques, religioses i professionals, i cada autor rep el teu nom i el teu correu.',
       dataCollection: [
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['substack-app-store', 'substack-privacy-policy'], note: 'Es comparteix amb l’autor de cada publicació a què et subscrius.' }),
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['substack-app-store', 'substack-privacy-policy'] }),
@@ -467,7 +467,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: false,
         editorialNotes:
-          'La troballa és el contrast entre una etiqueta neta de rastreig i una arquitectura on cada autor esdevé responsable de dades pel seu compte. No hem pogut consultar el centre d’ajuda, que bloqueja les peticions automatitzades.',
+          'L’etiqueta no declara rastreig, però cada autor esdevé responsable de les dades dels seus subscriptors pel seu compte. No hem pogut consultar el centre d’ajuda, que bloqueja les peticions automatitzades.',
         openQuestions: [
           'Substack ofereix verificació en dos passos i, si és així, amb quins mètodes?',
           'Quant temps es conserven les dades després de la supressió del compte?',
@@ -484,7 +484,7 @@ export const lot: SeedLot = {
       categories: ['noticies-i-mitjans', 'musica-i-audio'],
       tagline: 'L’historial d’escolta de pòdcasts alimenta la publicitat d’àudio, amb el correu declarat per a màrqueting',
       summary:
-        'iVoox és l’agregador de pòdcasts més usat a Espanya i es finança inserint publicitat dins de l’àudio. L’etiqueta de l’App Store declara el correu electrònic i l’identificador d’usuari entre les dades vinculades a la identitat per a «publicitat o màrqueting del desenvolupador», i identificadors i dades d’ús com a dades de rastreig. La política és de les poques que posa xifres: 26 mesos per a l’analítica i 24 per a la plataforma publicitària d’àudio.',
+        'iVoox és l’agregador de pòdcasts més usat a Espanya i es finança inserint publicitat dins de l’àudio. L’etiqueta de l’App Store declara el correu electrònic i l’identificador d’usuari entre les dades vinculades a la identitat per a «publicitat o màrqueting del desenvolupador», i identificadors i dades d’ús com a dades de rastreig. La política és de les poques que fixen terminis concrets: 26 mesos per a l’analítica i 24 per a la plataforma publicitària d’àudio.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'freemium',
       jurisdiction: 'Espanya',
@@ -496,7 +496,7 @@ export const lot: SeedLot = {
       accountRequired: f('partial', 'official', ['ivoox-privacy-policy'], 'Es pot escoltar sense compte; per subscriure’s a programes, desar i sincronitzar cal registrar-s’hi.'),
       openSource: f('no', 'official', ['ivoox-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'Què escoltes i durant quanta estona dibuixa amb molta precisió les teves idees, la teva salut i les teves aficions; iVoox ho creua amb el correu per segmentar la publicitat inserida en l’àudio.',
+        'Què escoltes i durant quanta estona pot revelar les teves idees, la teva salut i les teves aficions; iVoox ho creua amb el correu per segmentar la publicitat inserida en l’àudio.',
       dataCollection: [
         row('nom-i-cognoms', 'optional', { linked: 'yes', tracking: 'no', shared: 'unknown', purposes: ['prestacio-del-servei', 'personalitzacio-de-continguts'], sources: ['ivoox-app-store'] }),
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['ivoox-app-store', 'ivoox-privacy-policy'], note: 'L’etiqueta el declara per a publicitat i màrqueting del desenvolupador.' }),
@@ -581,7 +581,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: false,
         editorialNotes:
-          'La troballa és que l’etiqueta declara el correu i l’identificador d’usuari per a màrqueting del desenvolupador, cosa que lliga la identitat amb l’historial d’escolta. La política no té apartat de transferències internacionals tot i citar proveïdors nord-americans.',
+          'L’etiqueta declara el correu i l’identificador d’usuari per a màrqueting del desenvolupador, cosa que lliga la identitat amb l’historial d’escolta. La política no té apartat de transferències internacionals tot i citar proveïdors nord-americans.',
         openQuestions: [
           'Hi ha una opció d’eliminació del compte dins de l’aplicació, com exigeix Apple?',
           'Quin mecanisme empara les transferències cap a Google, Comscore i AdsWizz?',
@@ -596,9 +596,9 @@ export const lot: SeedLot = {
       name: 'RADIO COPE',
       company: 'radio-popular-cope',
       categories: ['noticies-i-mitjans', 'musica-i-audio'],
-      tagline: 'L’única ràdio del lot que declara la ubicació entre les dades que serveixen per rastrejar-te',
+      tagline: 'Una ràdio que declara la ubicació entre les dades que serveixen per rastrejar-te',
       summary:
-        'L’aplicació de la COPE declara a l’App Store que la ubicació, els identificadors, les dades d’ús i els diagnòstics poden servir per rastrejar en apps i webs d’altres empreses: és l’única de les quatre emissores del lot que hi inclou la ubicació. La política de privadesa, en canvi, és breu, basa tot el tractament en el consentiment i promet que els drets s’exerceixen des del perfil d’usuari. L’enllaç que l’App Store dona com a política de privadesa apunta en realitat a l’avís legal.',
+        'L’aplicació de la COPE declara a l’App Store que la ubicació, els identificadors, les dades d’ús i els diagnòstics poden servir per rastrejar en apps i webs d’altres empreses. La política de privadesa, en canvi, és breu, basa tot el tractament en el consentiment i diu que els drets s’exerceixen des del perfil d’usuari. L’enllaç que l’App Store dona com a política de privadesa apunta a l’avís legal.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'advertising',
       jurisdiction: 'Espanya',
@@ -610,7 +610,7 @@ export const lot: SeedLot = {
       accountRequired: f('partial', 'official', ['radio-cope-privacy-policy'], 'Escoltar la ràdio no demana compte; registrar-se serveix per comentar i rebre butlletins de totes les emissores del grup.'),
       openSource: f('no', 'official', ['radio-cope-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'Escoltar una emissora d’ideari catòlic no és una dada neutra, i la COPE la lliga a la ubicació i als identificadors publicitaris que declara com a dades de rastreig.',
+        'Escoltar una emissora d’ideari catòlic és una dada que pot revelar conviccions religioses, i la COPE la lliga a la ubicació i als identificadors publicitaris que declara com a dades de rastreig.',
       dataCollection: [
         row('nom-i-cognoms', 'optional', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['radio-cope-privacy-policy'], note: 'Camp necessari del registre, compartit amb la resta de marques del grup COPE.' }),
         row('adreca-electronica', 'optional', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['radio-cope-privacy-policy'] }),
@@ -707,9 +707,9 @@ export const lot: SeedLot = {
       name: 'Cadena SER Radio',
       company: 'sociedad-espanola-de-radiodifusion',
       categories: ['noticies-i-mitjans', 'musica-i-audio'],
-      tagline: 'El perfil es dedueix de la navegació per totes les webs de PRISA Media, no només de la SER',
+      tagline: 'El perfil es dedueix també de la navegació per les altres webs de PRISA Media',
       summary:
-        'La política de la Cadena SER diu obertament que el perfil de la persona usuària es pot inferir a partir de la navegació per altres webs de PRISA Media, és a dir, d’EL PAÍS, AS o Los40. Dues societats hi consten com a responsables: la SER i PRISA Media, que comercialitza la publicitat. A l’App Store, l’aplicació declara identificadors i dades d’ús com a dades de rastreig i la ubicació precisa com a dada no vinculada a la identitat.',
+        'La política de la Cadena SER diu que el perfil de la persona usuària es pot inferir a partir de la navegació per altres webs de PRISA Media, és a dir, d’EL PAÍS, AS o Los40. Dues societats hi consten com a responsables: la SER i PRISA Media, que comercialitza la publicitat. A l’App Store, l’aplicació declara identificadors i dades d’ús com a dades de rastreig i la ubicació precisa com a dada no vinculada a la identitat.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'advertising',
       jurisdiction: 'Espanya',
@@ -721,7 +721,7 @@ export const lot: SeedLot = {
       accountRequired: f('no', 'official', ['cadena-ser-privacy-policy'], 'La política s’aplica a qui navega sense registre; els serveis que demanen compte tenen condicions pròpies.'),
       openSource: f('no', 'official', ['cadena-ser-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'El codi d’usuari que la SER assigna a cada dispositiu permet unir el que escoltes amb el que llegeixes a la resta de mitjans del grup, i d’aquí en surt el perfil que es ven als anunciants.',
+        'El codi d’usuari que la SER assigna a cada dispositiu permet unir el que escoltes amb el que llegeixes a la resta de mitjans del grup, i amb això es construeix el perfil publicitari.',
       dataCollection: [
         row('identificador-de-compte', 'yes', { linked: 'yes', tracking: 'yes', shared: 'group', purposes: ['prestacio-del-servei', 'elaboracio-de-perfils'], sources: ['cadena-ser-app-store', 'cadena-ser-privacy-policy'], note: 'La política diu que s’assigna un codi d’usuari per dispositiu o navegador, encara que no t’hi registris.' }),
         row('adreca-ip', 'yes', { linked: 'yes', tracking: 'unknown', shared: 'group', purposes: ['prestacio-del-servei', 'mesura-i-analisi-dus'], sources: ['cadena-ser-privacy-policy'] }),
@@ -824,7 +824,7 @@ export const lot: SeedLot = {
       categories: ['comunitats-i-forums', 'xarxes-socials', 'noticies-i-mitjans'],
       tagline: 'Una xarxa social on el compte va lligat a una adreça postal verificada amb registres públics',
       summary:
-        'Nextdoor només et deixa entrar si demostres que vius on dius: verifica l’adreça contra registres públics, dades de tercers, codis postals o geolocalització. Aquesta adreça és, alhora, la matèria primera del negoci publicitari, que segmenta per barri i per llar amb dades comprades a socis. La política admet també que es recullen dades de persones que no tenen compte, a partir de les agendes de contactes que hi sincronitzen els veïns.',
+        'Per fer servir Nextdoor cal verificar l’adreça, que l’empresa contrasta amb registres públics, dades de tercers, codis postals o geolocalització. La mateixa adreça serveix per al negoci publicitari, que segmenta per barri i per llar amb dades comprades a socis. La política admet també que es recullen dades de persones que no tenen compte, a partir de les agendes de contactes que hi sincronitzen els veïns.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'advertising',
       jurisdiction: 'Irlanda (per a l’Espai Econòmic Europeu)',
@@ -930,7 +930,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: false,
         editorialNotes:
-          'La política del 2026 i l’avís per a la UE i el Regne Unit són dels més detallats del lot. La troballa és la combinació d’adreça verificada, agendes sincronitzades i dades comprades a anunciants: el perfil resultant és de llar, no només de persona.',
+          'La política del 2026 i l’avís per a la UE i el Regne Unit són detallats. La combinació d’adreça verificada, agendes sincronitzades i dades comprades a anunciants dona un perfil de tota la llar, a més del de la persona.',
         openQuestions: [
           'Quants dies es conserven les dades després d’eliminar el compte?',
           'Quin és el procediment exacte d’eliminació dins de l’aplicació mòbil?',
@@ -945,9 +945,9 @@ export const lot: SeedLot = {
       name: 'Onda Cero',
       company: 'uniprex',
       categories: ['noticies-i-mitjans', 'musica-i-audio'],
-      tagline: 'Tres corresponsables publicitaris —LiveRamp, ID5 i Utiq— que converteixen el correu i l’IP en identificadors persistents',
+      tagline: 'Tres corresponsables publicitaris (LiveRamp, ID5 i Utiq) que converteixen el correu i l’IP en identificadors persistents',
       summary:
-        'La política d’Uniprex és de les poques que noms els seus socis publicitaris i n’assumeix la corresponsabilitat: LiveRamp i ID5 creen codis d’identificació a partir del correu xifrat, l’identificador publicitari i l’adreça IP, i el servei Utiq afegeix senyals que venen directament de l’operadora de telefonia. Tot es basa en el consentiment i es pot rebutjar al panell de configuració, però el disseny per defecte de l’ecosistema publicitari és clarament més permissiu que protector.',
+        'La política d’Uniprex és de les poques que anomenen els socis publicitaris i n’assumeixen la corresponsabilitat: LiveRamp i ID5 creen codis d’identificació a partir del correu xifrat, l’identificador publicitari i l’adreça IP, i el servei Utiq afegeix senyals que venen de l’operadora de telefonia. Tot es basa en el consentiment i es pot rebutjar al panell de configuració, però per defecte l’ecosistema publicitari és més permissiu que protector.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'advertising',
       jurisdiction: 'Espanya',
@@ -959,7 +959,7 @@ export const lot: SeedLot = {
       accountRequired: f('no', 'official', ['onda-cero-privacy-policy'], 'Escoltar la ràdio no demana compte; el registre serveix per a concursos, promocions i votacions.'),
       openSource: f('no', 'official', ['onda-cero-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'El correu electrònic que dones per participar en un concurs pot acabar convertit, xifrat, en un identificador publicitari que et segueix per tot l’ecosistema de LiveRamp i ID5.',
+        'El correu electrònic que dones per participar en un concurs pot acabar convertit, xifrat, en un identificador publicitari que et pot reconèixer a tots els serveis que fan servir LiveRamp i ID5.',
       dataCollection: [
         row('nom-i-cognoms', 'optional', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['onda-cero-privacy-policy'], note: 'Dades de registre de formularis, concursos i promocions.' }),
         row('adreca-electronica', 'optional', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['onda-cero-privacy-policy'], note: 'Es comparteix xifrat amb LiveRamp i ID5 per crear codis d’identificació publicitària.' }),
@@ -1042,7 +1042,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: false,
         editorialNotes:
-          'La política és molt explícita sobre la infraestructura publicitària, cosa que juga a favor seu en claredat i en contra en intrusivitat. Té data de març del 2024 i cobreix tot el grup Atresmedia, no només Onda Cero.',
+          'La política descriu amb detall la infraestructura publicitària: és clara, però el tractament que descriu és intrusiu. Té data de març del 2024 i cobreix tot el grup Atresmedia, no només Onda Cero.',
         openQuestions: [
           'Quin mecanisme concret empara les transferències fora de la UE?',
           'Els identificadors de LiveRamp i ID5 també s’apliquen dins de l’aplicació mòbil o només al web?',
@@ -1059,7 +1059,7 @@ export const lot: SeedLot = {
       categories: ['noticies-i-mitjans'],
       tagline: 'Perfil inferit amb la navegació per tot PRISA Media i cinc anys de conservació després de marxar',
       summary:
-        'La política d’EL PAÍS declara dues responsables, l’editora i PRISA Media, i admet que el perfil de la persona lectora es pot inferir a partir de la navegació per altres webs del grup i de la geolocalització del terminal. Fixa un termini poc habitual de cinc anys de conservació després de deixar de ser usuari, i cinc anys més de bloqueig si exerceixes la supressió. A canvi, és dels pocs diaris que té una pàgina de baixa dins de l’àrea privada.',
+        'La política d’EL PAÍS declara dues responsables, l’editora i PRISA Media, i admet que el perfil de la persona lectora es pot inferir a partir de la navegació per altres webs del grup i de la geolocalització del terminal. Fixa un termini poc habitual de cinc anys de conservació després de deixar de ser usuari, i cinc anys més de bloqueig si exerceixes la supressió. D’altra banda, és dels pocs diaris que té una pàgina de baixa dins de l’àrea privada.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'subscription',
       jurisdiction: 'Espanya',
@@ -1071,7 +1071,7 @@ export const lot: SeedLot = {
       accountRequired: f('partial', 'official', ['el-pais-privacy-policy'], 'Es pot llegir sense registre; la subscripció i els serveis personalitzats tenen condicions pròpies.'),
       openSource: f('no', 'official', ['el-pais-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'El que llegeixes en un diari generalista revela posició política, salut, economia i creences, i aquí queda cosit a un codi d’usuari que es manté cinc anys després que deixis de llegir-lo.',
+        'El que llegeixes en un diari generalista revela posició política, salut, economia i creences, i aquí queda associat a un codi d’usuari que es conserva cinc anys després que deixis de ser-ne usuari.',
       dataCollection: [
         row('nom-i-cognoms', 'optional', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['el-pais-app-store'] }),
         row('adreca-electronica', 'optional', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['el-pais-app-store'], note: 'L’etiqueta el declara per a publicitat i màrqueting del desenvolupador.' }),
@@ -1179,7 +1179,7 @@ export const lot: SeedLot = {
       categories: ['noticies-i-mitjans'],
       tagline: 'Portal serbi amb una política de privadesa genèrica que no esmenta el RGPD ni el dret de supressió',
       summary:
-        'Objektiv és un portal informatiu de Belgrad que ha arribat al top de «Notícies» de l’App Store espanyol. L’etiqueta declara les dades d’ús com a dades de rastreig i no vincula res a la identitat, cosa coherent amb una app sense compte. La política de privadesa del portal, però, és un text breu i genèric: no esmenta el RGPD, ni terminis de conservació, ni el dret de supressió, ni identifica cap responsable del tractament amb NIF ni adreça.',
+        'Objektiv és un portal informatiu de Belgrad que figura entre les aplicacions més populars de «Notícies» de l’App Store espanyol. L’etiqueta declara les dades d’ús com a dades de rastreig i no vincula res a la identitat, cosa coherent amb una app sense compte. La política de privadesa del portal, però, és un text breu i genèric: no esmenta el RGPD, ni terminis de conservació, ni el dret de supressió, ni identifica cap responsable del tractament amb NIF ni adreça.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'advertising',
       jurisdiction: 'Sèrbia',
@@ -1191,7 +1191,7 @@ export const lot: SeedLot = {
       accountRequired: f('no', 'official', ['objektiv-app-store'], 'L’etiqueta no declara cap dada de contacte ni identificador d’usuari: l’aplicació es fa servir sense compte.'),
       openSource: f('no', 'official', ['objektiv-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'Sense compte, el que queda és l’activitat de lectura i l’identificador publicitari, prou per situar-te en un segment d’anunciants tot i que el portal digui que no t’identifica.',
+        'Sense compte, l’aplicació recull l’activitat de lectura i l’identificador publicitari, que basten per situar-te en un segment d’anunciants encara que el portal digui que no t’identifica.',
       dataCollection: [
         row('interaccions-i-us', 'yes', { linked: 'no', tracking: 'yes', shared: 'third-parties', purposes: ['mesura-i-analisi-dus', 'publicitat-personalitzada'], sources: ['objektiv-app-store'] }),
         row('identificador-publicitari', 'yes', { linked: 'no', tracking: 'yes', shared: 'third-parties', purposes: ['publicitat-personalitzada', 'mesura-publicitaria'], sources: ['objektiv-app-store'], note: 'L’etiqueta declara «datos publicitarios» no vinculats a la identitat per a publicitat de tercers.' }),
@@ -1276,7 +1276,7 @@ export const lot: SeedLot = {
       categories: ['administracio-publica', 'noticies-i-mitjans', 'comunitats-i-forums'],
       tagline: 'L’app de bans municipals que declara totes les dades com a no vinculades a la identitat, la ubicació exacta inclosa',
       summary:
-        'eAgora connecta la ciutadania amb el seu ajuntament, les associacions i els centres educatius: avisos, notícies i agenda de més de cinc-centes «àgores». L’etiqueta de l’App Store no declara cap dada de rastreig ni cap dada vinculada a la identitat, tot i recollir la ubicació exacta, el correu i fotografies. La política de privadesa és curta i orientada al web corporatiu, però concreta una cosa poc habitual: les dades es xifren i es guarden en servidors de la Unió Europea, sobretot a Irlanda.',
+        'eAgora connecta la ciutadania amb el seu ajuntament, les associacions i els centres educatius: avisos, notícies i agenda de més de cinc-centes «àgores». L’etiqueta de l’App Store no declara cap dada de rastreig ni cap dada vinculada a la identitat, tot i recollir la ubicació exacta, el correu i fotografies. La política de privadesa és curta i orientada al web corporatiu, però especifica que les dades es xifren i es guarden en servidors de la Unió Europea, sobretot a Irlanda, cosa poc habitual.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'subscription',
       jurisdiction: 'Espanya',
@@ -1288,7 +1288,7 @@ export const lot: SeedLot = {
       accountRequired: f('partial', 'official', ['eagora-privacy-policy'], 'Es pot consultar la informació del municipi; per registrar-se a una àgora i rebre avisos cal donar nom i correu.'),
       openSource: f('no', 'official', ['eagora-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'Saber a quina àgora estàs subscrit és saber a quin poble vius, a quina escola van els teus fills i a quines associacions pertanys, encara que l’etiqueta digui que res no es vincula amb tu.',
+        'Les àgores a què estàs subscrit indiquen a quin poble vius, a quina escola van els teus fills i a quines associacions pertanys, encara que l’etiqueta declari que cap dada no es vincula a la teva identitat.',
       dataCollection: [
         row('nom-i-cognoms', 'optional', { linked: 'unknown', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['eagora-privacy-policy'], note: 'La política diu que als formularis de registre cal donar nom i correu.' }),
         row('adreca-electronica', 'optional', { linked: 'no', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei', 'atencio-a-lusuari'], sources: ['eagora-app-store', 'eagora-privacy-policy'], note: 'L’etiqueta el declara com a dada no vinculada a la identitat, per al funcionament de l’app.' }),
@@ -1378,7 +1378,7 @@ export const lot: SeedLot = {
       categories: ['administracio-publica', 'noticies-i-mitjans'],
       tagline: 'El ban municipal al mòbil: nom, telèfon i ubicació exacta vinculats a la identitat, sense rastreig',
       summary:
-        'Bandomóvil substitueix el ban del poble: ordenances, avisos i actes dels ajuntaments petits que el contracten. L’etiqueta de l’App Store no declara cap dada de rastreig, però sí que vincula a la identitat el nom, el correu, el telèfon, l’identificador del dispositiu i la ubicació exacta, tot per al funcionament de l’aplicació. La política de privadesa és breu i no diu quines dades recull exactament ni durant quant temps.',
+        'Bandomóvil porta al mòbil el ban municipal: ordenances, avisos i actes dels ajuntaments petits que el contracten. L’etiqueta de l’App Store no declara cap dada de rastreig, però sí que vincula a la identitat el nom, el correu, el telèfon, l’identificador del dispositiu i la ubicació exacta, tot per al funcionament de l’aplicació. La política de privadesa és breu i no diu quines dades recull exactament ni durant quant temps.',
       platforms: ['ios', 'android'],
       businessModel: 'subscription',
       jurisdiction: 'Espanya',
@@ -1390,7 +1390,7 @@ export const lot: SeedLot = {
       accountRequired: f('partial', 'official', ['bandomovil-app-store'], 'Cal donar dades de contacte per subscriure’s als municipis i rebre’n els avisos.'),
       openSource: f('no', 'official', ['bandomovil-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'La llista de municipis als quals et subscrius, amb el telèfon i la ubicació exacta al costat, diu on vius, on tens la segona residència i on van els teus pares.',
+        'La llista de municipis als quals et subscrius, amb el telèfon i la ubicació exacta al costat, pot revelar on vius, on tens la segona residència i on viuen els teus pares.',
       dataCollection: [
         row('nom-i-cognoms', 'optional', { linked: 'yes', tracking: 'no', shared: 'unknown', purposes: ['prestacio-del-servei'], sources: ['bandomovil-app-store'] }),
         row('adreca-electronica', 'optional', { linked: 'yes', tracking: 'no', shared: 'unknown', purposes: ['prestacio-del-servei', 'atencio-a-lusuari'], sources: ['bandomovil-app-store'] }),

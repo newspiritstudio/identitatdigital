@@ -294,7 +294,7 @@ export default async function AppPage({ params }: { params: Promise<{ slug: stri
           <p className="meta">
             Metodologia {scores?.methodologyVersion ?? '—'}. Cobertura documentada del{' '}
             {typeof scores?.coverage === 'number' ? Math.round(scores.coverage * 100) : '—'} % dels indicadors aplicables.
-            {scores?.provisional ? ' Puntuació provisional: encara no en sabem prou.' : ''}{' '}
+            {scores?.provisional ? ' Puntuació provisional: encara no hi ha prou informació documentada.' : ''}{' '}
             <Link href="/metodologia" style={{textDecoration: "underline"}}>Com es calcula</Link>
           </p>
         </section>
@@ -796,10 +796,10 @@ export default async function AppPage({ params }: { params: Promise<{ slug: stri
           <p className="meta">
             {ADMINISTRATION_LEVEL[app.publicService.administrationLevel ?? 'other'] ??
               'Administració pública'}
-            . Aquest servei no es mesura amb la vara del sector privat: no té model de negoci ni
-            programa de recompenses, però ha de declarar la base jurídica, publicar el registre
-            d’activitats de tractament i conformar-se a l’Esquema Nacional de Seguretat. Aquests
-            indicadors substitueixen els comercials dins del càlcul.{' '}
+            . Un servei públic no té model de negoci ni programa de recompenses, però ha de
+            declarar la base jurídica, publicar el registre d’activitats de tractament i complir
+            l’Esquema Nacional de Seguretat. Per això aquests indicadors substitueixen els
+            comercials dins del càlcul.{' '}
             <Link href="/metodologia">Com es calcula</Link>
           </p>
           <dl>

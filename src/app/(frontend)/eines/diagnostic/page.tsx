@@ -40,8 +40,8 @@ export default async function DiagnosticPage() {
         </p>
         <h1>Diagnòstic d’identitat digital</h1>
         <p className="lede">
-          Marca els serveis que fas servir i obtén un pla d’acció concret: què has de canviar, on i
-          per què, amb les filtracions dels teus serveis i qui acumula les teves dades.
+          Marca els serveis que fas servir i obtén un pla d’acció: què has de canviar, on i per què,
+          amb les filtracions dels teus serveis i qui acumula les teves dades.
         </p>
 
         <DiagnosticTool snapshot={snapshot} />
@@ -56,9 +56,9 @@ export default async function DiagnosticPage() {
             les eines de desenvolupament del navegador.
           </p>
           <p>
-            La tria i les accions fetes es desen a l’emmagatzematge local del navegador, no en una
-            galeta: una galeta viatjaria amb cada petició i aquesta informació no ha d’arribar mai
-            al servidor. El botó «Esborra-ho tot d’aquest dispositiu» ho elimina. L’enllaç per
+            La tria i les accions fetes es desen a l’emmagatzematge local del navegador. No es fan
+            servir galetes perquè viatgen amb cada petició, i aquesta informació no ha d’arribar
+            mai al servidor. El botó «Esborra-ho tot d’aquest dispositiu» ho elimina. L’enllaç per
             compartir posa la tria després del signe <code>#</code> de l’adreça, que els navegadors
             no envien mai al servidor.
           </p>

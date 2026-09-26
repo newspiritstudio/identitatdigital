@@ -30,8 +30,8 @@ export function RiskMap({ risks }: { risks: AppRisk[] }) {
       <p>
         Vuit senyals documentats per a cada servei que has triat. Un punt ple vol dir que la fitxa
         documenta el senyal; un de buit, que documenta que no hi és; un interrogant, que no ho sabem.
-        Els serveis amb més senyals encesos van primer. No hi ha cap nota global: els senyals no són
-        comparables entre ells i sumar-los en una xifra amagaria quin pesa més per a tu.
+        Els serveis amb més senyals encesos van primer. No hi ha cap nota global, perquè els senyals no
+        són comparables entre ells i sumar-los en una xifra amagaria quin pesa més per a tu.
       </p>
       <div className={styles.wide}>
         <table className="risk-map">

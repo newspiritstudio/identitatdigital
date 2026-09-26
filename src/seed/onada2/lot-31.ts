@@ -186,7 +186,7 @@ export const lot: SeedLot = {
     }),
     s('life360-delete-account', 'Delete My Account — Life360 Help Center', 'https://support.life360.com/hc/en-us/articles/23053748967319-Delete-My-Account', 'Life360, Inc.', 'support-doc', 'primary', {
       summary:
-        'Passos reals per eliminar el compte des de l’aplicació, amb confirmació per correu i captcha. Avisa que s’esborren l’historial i els esdeveniments de conducció i que la baixa no cancel·la la subscripció.',
+        'Passos per eliminar el compte des de l’aplicació, amb confirmació per correu i captcha. Avisa que s’esborren l’historial i els esdeveniments de conducció i que la baixa no cancel·la la subscripció.',
     }),
     s('life360-security-txt', 'life360.com security.txt', 'https://www.life360.com/.well-known/security.txt', 'Life360, Inc.', 'technical-doc', 'primary', {
       summary:
@@ -201,7 +201,7 @@ export const lot: SeedLot = {
     }),
     s('wechat-privacy-policy', 'WeChat Privacy Policy', 'https://www.wechat.com/en/privacy_policy.html', 'Tencent International Service Europe B.V.', 'privacy-policy', 'primary', {
       summary:
-        'Política actualitzada el 6 d’agost del 2026, aplicable només als comptes que no són de la Xina continental. Identifica el responsable a l’EEE, situa els servidors a Singapur i Hong Kong, es basa en clàusules contractuals tipus per a les transferències —també cap a la Xina continental per la interoperabilitat amb Weixin— i diu que les converses no es conserven permanentment als servidors.',
+        'Política actualitzada el 6 d’agost del 2026, aplicable només als comptes que no són de la Xina continental. Identifica el responsable a l’EEE, situa els servidors a Singapur i Hong Kong, es basa en clàusules contractuals tipus per a les transferències (també cap a la Xina continental, per la interoperabilitat amb Weixin) i diu que les converses no es conserven permanentment als servidors.',
     }),
     s('wechat-delete-account', 'How do I control my personal data? — WeChat Help Center', 'https://help.wechat.com/cgi-bin/micromsg-bin/oshelpcenter?opcode=2&lang=en&plat=ios&id=180323e2Ermm180323yqauAZ&Channel=helpcenter', 'Tencent', 'support-doc', 'primary', {
       summary:
@@ -250,7 +250,7 @@ export const lot: SeedLot = {
     s('corner-app-store', 'corner: curate & share places — App Store (Privacidad de la app)', 'https://apps.apple.com/es/app/id1668282277', 'Apple', 'app-store', 'primary', {
       language: 'es',
       summary:
-        'Etiqueta de privadesa. No declara dades de rastreig. Vincula a la identitat les dades d’ús i de diagnòstic, els contactes —per a personalització del producte— i la informació de contacte, les fotos i l’identificador d’usuari.',
+        'Etiqueta de privadesa. No declara dades de rastreig. Vincula a la identitat les dades d’ús i de diagnòstic, els contactes (per a personalització del producte) i la informació de contacte, les fotos i l’identificador d’usuari.',
     }),
     s('corner-privacy-policy', 'Corner — Privacy Policy', 'https://cornerapp.notion.site/terms-privacy-f81535636843413aadf49e8b56275355', 'Corner International, Inc.', 'privacy-policy', 'primary', {
       summary:
@@ -265,7 +265,7 @@ export const lot: SeedLot = {
     }),
     s('plato-privacy-policy', 'Plato Privacy Policy', 'https://www.platoapp.com/privacy', 'Plato Team Inc.', 'privacy-policy', 'primary', {
       summary:
-        'Política de Plato Team Inc. Declara el correu com a dada voluntària, cita Google Analytics i una pàgina pública de proveïdors, dona terminis concrets —missatges privats fins a trenta dies, dades de client sis anys— i fixa la supressió del compte per correu a hello@platoteam.com.',
+        'Política de Plato Team Inc. Declara el correu com a dada voluntària, cita Google Analytics i una pàgina pública de proveïdors, dona terminis concrets (missatges privats fins a trenta dies, dades de client sis anys) i fixa la supressió del compte per correu a hello@platoteam.com.',
     }),
 
     /* ── Letterboxd ── */
@@ -281,7 +281,7 @@ export const lot: SeedLot = {
     }),
     s('letterboxd-faq', 'Frequent questions — Letterboxd', 'https://letterboxd.com/about/faq/', 'Letterboxd Limited', 'support-doc', 'primary', {
       summary:
-        'Preguntes freqüents. Confirmen la verificació en dos passos amb codis TOTP —sense SMS, sense correu i sense codis de recuperació—, l’exportació completa del compte en un fitxer zip de CSV i que els comptes gratuïts veuen publicitat de tercers.',
+        'Preguntes freqüents. Confirmen la verificació en dos passos amb codis TOTP (sense SMS, sense correu i sense codis de recuperació), l’exportació completa del compte en un fitxer zip de CSV i que els comptes gratuïts veuen publicitat de tercers.',
     }),
     s('letterboxd-account-deactivation', 'Account deactivation — Letterboxd', 'https://letterboxd.com/about/account-deactivation/', 'Letterboxd Limited', 'support-doc', 'primary', {
       summary:
@@ -352,7 +352,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['life360-privacy-policy']),
       openSource: f('no', 'official', ['life360-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'On dorm cada membre de la família, a quina hora surt de casa, com condueix i a quines botigues entra. És el mapa complet de la vida quotidiana d’una llar, i una part surt de l’empresa cap a tercers que en fan negoci.',
+        'On dorm cada membre de la família, a quina hora surt de casa, com condueix i a quines botigues entra. Una part d’aquestes dades es cedeix a tercers que les fan servir per al seu propi negoci.',
       dataCollection: [
         row('ubicacio-precisa', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada', 'cessio-a-tercers'], sources: ['life360-app-store', 'life360-privacy-policy'], note: 'La política admet la cessió a socis comercials per a les seves pròpies finalitats de monetització, amb opció de desactivar-la.' }),
         row('ubicacio-aproximada', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['prestacio-del-servei', 'mesura-publicitaria'], sources: ['life360-app-store'] }),
@@ -476,7 +476,7 @@ export const lot: SeedLot = {
       accountRequired: unknown('La política parla d’«usuaris registrats», però no diu si cal compte per fer servir els ginys.'),
       openSource: f('no', 'official', ['widgetable-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'La distància amb una altra persona, les hores que dorm i la ubicació al llarg del dia. Són dades de parella i de son en mans d’una empresa que no diu ni qui és el responsable del tractament.',
+        'La distància amb una altra persona, les hores que dorm i la ubicació al llarg del dia. La política no identifica el responsable del tractament d’aquestes dades de parella i de son.',
       dataCollection: [
         row('ubicacio-precisa', 'optional', { linked: 'yes', tracking: 'unknown', shared: 'unknown', purposes: ['prestacio-del-servei'], sources: ['widgetable-app-store', 'widgetable-privacy-policy'], note: 'Per al giny del temps i per calcular la distància amb una altra persona.' }),
         row('ubicacio-aproximada', 'optional', { linked: 'yes', tracking: 'unknown', shared: 'unknown', purposes: ['prestacio-del-servei'], sources: ['widgetable-app-store'] }),
@@ -566,7 +566,7 @@ export const lot: SeedLot = {
       categories: ['edicio-de-foto-i-video', 'xarxes-socials'],
       tagline: 'Extreu trets facials per a les funcions d’IA i enumera les dades que ha venut o cedit l’últim any',
       summary:
-        'Sticker.ly fa paquets d’adhesius per a WhatsApp i Telegram a partir de fotos pròpies. La política reconeix que processa marques i trets facials —que en algunes jurisdiccions són dades biomètriques— per a les funcions d’IA, encara que els esborra un cop generat el resultat. També recull GPS precís amb l’aplicació en segon pla per a publicitat i atribució, i té un apartat que enumera les categories de dades venudes o cedides els dotze mesos anteriors. No esmenta el RGPD ni cap representant a la Unió Europea.',
+        'Sticker.ly fa paquets d’adhesius per a WhatsApp i Telegram a partir de fotos pròpies. La política reconeix que processa marques i trets facials (que en algunes jurisdiccions són dades biomètriques) per a les funcions d’IA, encara que els esborra un cop generat el resultat. També recull GPS precís amb l’aplicació en segon pla per a publicitat i atribució, i té un apartat que enumera les categories de dades venudes o cedides els dotze mesos anteriors. No esmenta el RGPD ni cap representant a la Unió Europea.',
       platforms: ['ios', 'android'],
       businessModel: 'freemium',
       jurisdiction: 'Corea del Sud, amb servidors als Estats Units',
@@ -677,7 +677,7 @@ export const lot: SeedLot = {
       categories: ['mapes-i-navegacio', 'xarxes-socials'],
       tagline: 'Ubicació en directe entre amics, amb historial que només s’esborra quan es tanca el compte',
       summary:
-        'Bump és el mapa d’amics de l’empresa francesa amo: mostra en temps real on és cadascú a les persones que has triat. La política és de les poques del lot escrites de debò per al RGPD, amb bases jurídiques, clàusules contractuals tipus i un delegat de protecció de dades. El punt feble és l’historial d’ubicació, que es conserva mentre facis servir el servei i només desapareix quan elimines el compte, i que la baixa s’ha de demanar per correu.',
+        'Bump és el mapa d’amics de l’empresa francesa amo: mostra en temps real on és cadascú a les persones que has triat. La política està redactada tenint en compte el RGPD, amb bases jurídiques, clàusules contractuals tipus i un delegat de protecció de dades. L’historial d’ubicació, però, es conserva mentre facis servir el servei i només desapareix quan elimines el compte, i la baixa s’ha de demanar per correu.',
       platforms: ['ios', 'android'],
       businessModel: 'freemium',
       jurisdiction: 'França (Unió Europea)',
@@ -788,7 +788,7 @@ export const lot: SeedLot = {
       categories: ['mapes-i-navegacio', 'xarxes-socials'],
       tagline: 'Mapa de llocs guardats amb una política de privadesa de fa tres anys que no parla del RGPD',
       summary:
-        'corner serveix per guardar restaurants, bars i botigues en un mapa i compartir-los amb amics. La política diu una cosa interessant —que la ubicació actual no s’emmagatzema ni es vincula a la identitat— però és un document breu de desembre del 2022, sense bases jurídiques, sense terminis, sense transferències internacionals i sense cap via d’exercir drets que no sigui un correu electrònic. L’etiqueta de l’App Store indica que els contactes es fan servir per personalitzar el producte.',
+        'corner serveix per guardar restaurants, bars i botigues en un mapa i compartir-los amb amics. Segons la política, la ubicació actual no s’emmagatzema ni es vincula a la identitat, però és un document breu de desembre del 2022, sense bases jurídiques, sense terminis, sense transferències internacionals i sense cap via d’exercir drets que no sigui un correu electrònic. L’etiqueta de l’App Store indica que els contactes es fan servir per personalitzar el producte.',
       platforms: ['ios'],
       businessModel: 'freemium',
       jurisdiction: 'Estats Units, sense establiment declarat a la Unió Europea',
@@ -800,7 +800,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['corner-privacy-policy']),
       openSource: f('no', 'official', ['corner-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'La llista de llocs que t’agraden, les notes que hi poses i l’agenda de contactes. Un mapa de gustos i de rutines que, si es creua amb el de les amistats, dibuixa una vida social sencera.',
+        'La llista de llocs que t’agraden, les notes que hi poses i l’agenda de contactes. Creuades amb les de les amistats, aquestes dades mostren gustos, rutines i vida social.',
       dataCollection: [
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'unknown', purposes: ['prestacio-del-servei'], sources: ['corner-app-store', 'corner-privacy-policy'] }),
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'unknown', purposes: ['prestacio-del-servei', 'atencio-a-lusuari'], sources: ['corner-app-store', 'corner-privacy-policy'] }),
@@ -906,7 +906,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['wechat-privacy-policy'], 'Cal un número de telèfon i un àlies.'),
       openSource: f('no', 'official', ['wechat-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'Qui ets, amb qui parles, què publiques i què pagues, amb els fitxers que envies passant per un sistema d’anàlisi de continguts. És la porta d’entrada digital a la Xina i, alhora, una infraestructura de vigilància documentada.',
+        'Qui ets, amb qui parles, què publiques i què pagues, amb els fitxers que envies passant per un sistema d’anàlisi de continguts. És l’aplicació principal per comunicar-se amb la Xina, i el Citizen Lab n’ha documentat l’ús per a la vigilància.',
       dataCollection: [
         row('numero-de-telefon', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'seguretat-i-prevencio-del-frau'], sources: ['wechat-privacy-policy'] }),
         row('identificador-de-compte', 'yes', { linked: 'yes', tracking: 'yes', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['wechat-app-store', 'wechat-privacy-policy'] }),
@@ -1019,7 +1019,7 @@ export const lot: SeedLot = {
       categories: ['comunitats-i-forums', 'missatgeria'],
       tagline: 'L’etiqueta no vincula cap dada a la identitat, però la baixa s’ha de demanar per correu',
       summary:
-        'Plato combina una trentena de jocs de taula amb xats de grup. És de les poques fitxes del lot on l’etiqueta de l’App Store no declara cap dada de rastreig ni cap dada vinculada a la identitat, i on el correu electrònic és explícitament voluntari. La política dona terminis concrets —els missatges privats s’esborren quan arriben, com a molt trenta dies—, però per tancar el compte cal escriure a l’empresa i el text admet que potser no podran esborrar-ho tot.',
+        'Plato combina una trentena de jocs de taula amb xats de grup. L’etiqueta de l’App Store no declara cap dada de rastreig ni cap dada vinculada a la identitat, i el correu electrònic és explícitament voluntari. La política dona terminis concrets (els missatges privats s’esborren quan arriben, com a molt en trenta dies), però per tancar el compte cal escriure a l’empresa i el text admet que potser no podran esborrar-ho tot.',
       platforms: ['ios', 'android'],
       businessModel: 'freemium',
       jurisdiction: 'Estats Units, sense establiment declarat a la Unió Europea',
@@ -1031,7 +1031,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['plato-privacy-policy'], 'Cal registrar-se amb el dispositiu; el correu és voluntari.'),
       openSource: f('no', 'official', ['plato-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'Amb qui jugues, de què parles als grups i des de quin dispositiu. La ubicació és només la que es dedueix de l’adreça IP, i l’empresa presumeix de no demanar dades que no li calen.',
+        'Amb qui jugues, de què parles als grups i des de quin dispositiu. La ubicació és només la que es dedueix de l’adreça IP, i l’empresa diu que no demana dades que no necessita.',
       dataCollection: [
         row('identificador-de-dispositiu', 'yes', { linked: 'no', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'seguretat-i-prevencio-del-frau'], sources: ['plato-app-store', 'plato-privacy-policy'], note: 'El registre es fa amb el dispositiu.' }),
         row('adreca-electronica', 'optional', { linked: 'no', tracking: 'no', shared: 'unknown', purposes: ['prestacio-del-servei', 'atencio-a-lusuari'], sources: ['plato-app-store', 'plato-privacy-policy'], note: '«Entirely voluntary»: no cal per jugar.' }),
@@ -1123,7 +1123,7 @@ export const lot: SeedLot = {
       categories: ['xarxes-socials', 'comunitats-i-forums'],
       tagline: 'Exportació completa en CSV i 2FA, a canvi de publicitat amb un identificador comú si no pagues',
       summary:
-        'Letterboxd és el diari de pel·lícules i la xarxa social de cinema. És la fitxa més equilibrada del lot: exportació sencera del compte en un zip de CSV —amb el contingut esborrat inclòs—, verificació en dos passos amb codis TOTP, representants a la UE i al Regne Unit i clàusules contractuals tipus. A canvi, els comptes gratuïts veuen publicitat servida amb Playwire i una galeta «Common ID» que desa un identificador únic accessible als socis publicitaris.',
+        'Letterboxd és el diari de pel·lícules i la xarxa social de cinema. Hi ha exportació sencera del compte en un zip de CSV (amb el contingut esborrat inclòs), verificació en dos passos amb codis TOTP, representants a la UE i al Regne Unit i clàusules contractuals tipus. En canvi, els comptes gratuïts veuen publicitat servida amb Playwire i una galeta «Common ID» que desa un identificador únic accessible als socis publicitaris.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'freemium',
       jurisdiction: 'Nova Zelanda, amb representants a Irlanda i al Regne Unit',
@@ -1135,7 +1135,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['letterboxd-privacy-policy'], 'Cal compte per portar el diari; el catàleg de pel·lícules es pot consultar sense registrar-s’hi.'),
       openSource: f('no', 'official', ['letterboxd-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'Què has vist, quan, com ho has puntuat i què n’has escrit. El diari de pel·lícules és un retrat afinat de gustos, hàbits i estats d’ànim, i per defecte és públic.',
+        'Què has vist, quan, com ho has puntuat i què n’has escrit. El diari de pel·lícules mostra gustos, hàbits i estats d’ànim, i per defecte és públic.',
       dataCollection: [
         row('nom-i-cognoms', 'optional', { linked: 'yes', tracking: 'no', shared: 'unknown', purposes: ['prestacio-del-servei'], sources: ['letterboxd-privacy-policy'] }),
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'unknown', purposes: ['prestacio-del-servei', 'atencio-a-lusuari'], sources: ['letterboxd-privacy-policy'] }),
@@ -1173,7 +1173,7 @@ export const lot: SeedLot = {
       },
       retention: {
         definedPeriods: f('no', 'official', ['letterboxd-privacy-policy'], 'La conservació es descriu per finalitat, sense terminis concrets.'),
-        dataAfterDeletion: f('partial', 'official', ['letterboxd-privacy-policy', 'letterboxd-account-deactivation'], 'La supressió permanent es programa a noranta dies —trenta com a mínim— i la política preveu conservar dades per motius legals després de la baixa.'),
+        dataAfterDeletion: f('partial', 'official', ['letterboxd-privacy-policy', 'letterboxd-account-deactivation'], 'La supressió permanent es programa a noranta dies (trenta com a mínim) i la política preveu conservar dades per motius legals després de la baixa.'),
       },
       accountDeletion: {
         possible: f('yes', 'official', ['letterboxd-account-deactivation']),
@@ -1236,7 +1236,7 @@ export const lot: SeedLot = {
       categories: ['cites'],
       tagline: 'Comparteix els perfils amb l’aplicació germana per a homes gais, activat per defecte',
       summary:
-        'Bumpy és una aplicació de cites internacionals amb una política de privadesa inusualment detallada: corresponsabilitat de l’article 26 entre una societat de Delaware i una de Xipre, taula completa de bases jurídiques i de terminis i xifratge AES-256 en repòs. El problema és una altra cosa: si dius que busques una parella del mateix sexe, el teu perfil també es mostra a Wonder, l’aplicació germana per a homes gais. Ve activat per defecte i només es desactiva enviant un correu.',
+        'Bumpy és una aplicació de cites internacionals amb una política de privadesa inusualment detallada: corresponsabilitat de l’article 26 entre una societat de Delaware i una de Xipre, taula completa de bases jurídiques i de terminis i xifratge AES-256 en repòs. Però si dius que busques una parella del mateix sexe, el teu perfil també es mostra a Wonder, l’aplicació germana per a homes gais. Ve activat per defecte i només es desactiva enviant un correu.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'freemium',
       jurisdiction: 'Xipre (Unió Europea) i Estats Units',
@@ -1365,7 +1365,7 @@ export const lot: SeedLot = {
       categories: ['xarxes-socials', 'cites'],
       tagline: 'Videoxat amb desconeguts dins de Match Group, amb terminis de conservació molt detallats',
       summary:
-        'Azar posa en contacte gent d’arreu del món en un videoxat aleatori. El va crear la coreana Hyperconnect, que Match Group va comprar el 2021, i per això a l’Espai Econòmic Europeu el responsable del tractament és la mateixa societat irlandesa que hi ha darrere de Tinder. Això vol dir compartició de dades amb la resta del grup per a seguretat, recomanacions i publicitat. La política dona terminis de conservació molt concrets i la geometria facial dels efectes es processa només al dispositiu.',
+        'Azar posa en contacte gent d’arreu del món en un videoxat aleatori. El va crear la coreana Hyperconnect, que Match Group va comprar el 2021, i per això a l’Espai Econòmic Europeu el responsable del tractament és la mateixa societat irlandesa que hi ha darrere de Tinder. Per això comparteix dades amb la resta del grup per a seguretat, recomanacions i publicitat. La política dona terminis de conservació molt concrets i la geometria facial dels efectes es processa només al dispositiu.',
       platforms: ['ios', 'android'],
       businessModel: 'freemium',
       jurisdiction: 'Irlanda (Unió Europea) per a l’EEE; Corea del Sud per a la resta',
@@ -1377,7 +1377,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['azar-privacy-policy'], 'Cal compte i tenir divuit anys o més.'),
       openSource: f('no', 'official', ['azar-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'Cara, veu i conversa amb desconeguts, més la ubicació i les inferències que el servei en treu. Tot va a parar a una infraestructura compartida amb la resta d’aplicacions de Match Group.',
+        'Cara, veu i conversa amb desconeguts, més la ubicació i les inferències que el servei en treu. Tot es tracta en una infraestructura compartida amb la resta d’aplicacions de Match Group.',
       dataCollection: [
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['azar-app-store', 'azar-privacy-policy'], note: 'Àlies, gènere i data de naixement al crear el compte.' }),
         row('data-de-naixement', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'compliment-legal'], sources: ['azar-privacy-policy'] }),

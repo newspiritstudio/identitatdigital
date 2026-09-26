@@ -44,7 +44,7 @@ const praktika: AppSeed = {
   accountRequired: f('yes', 'official', ['praktika-privacy-policy'], 'Cal crear un perfil amb correu electrònic, llengua materna, nivell i objectius d’aprenentatge.'),
   openSource: f('no', 'official', ['praktika-privacy-policy'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'Una classe de conversa és una gravació de la teva veu parlant de la teva feina, la teva família o els teus plans. Aquí aquestes gravacions i les seves transcripcions no només es desen: es fan servir per entrenar el model que després parla amb tothom.',
+    'En una classe de conversa es grava la teva veu parlant de la feina, la família o els plans. Aquestes gravacions i les seves transcripcions es desen i es fan servir per entrenar el model que després parla amb totes les persones usuàries.',
   dataCollection: [
     row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['praktika-privacy-policy', 'praktika-app-store'] }),
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'unknown', purposes: ['personalitzacio-de-continguts'], sources: ['praktika-privacy-policy', 'praktika-app-store'] }),
@@ -157,7 +157,7 @@ const wuolah: AppSeed = {
   tagline:
     'Apunts gratuïts finançats amb publicitat inserida als PDF, amb una política de privadesa de set mil caràcters que cita malament el RGPD i deixa el delegat de protecció de dades sense enllaç',
   summary:
-    'Wuolah és una plataforma sevillana on l’estudiantat puja i baixa apunts universitaris; el model es basa a incrustar publicitat dins dels PDF i cobrar per descarregar-los nets. La política de privadesa vigent és molt breu, es refereix al «Reglamento UE 2016/671» —el RGPD és el 2016/679—, conserva un marcador d’edició sense netejar i remet a les dades del delegat de protecció de dades amb un «aquí» que no enllaça enlloc. No hi consta cap termini de conservació, cap transferència internacional ni el dret a reclamar davant l’Agència Espanyola de Protecció de Dades.',
+    'Wuolah és una plataforma sevillana on l’estudiantat puja i baixa apunts universitaris; el model es basa a incrustar publicitat dins dels PDF i cobrar per descarregar-los nets. La política de privadesa vigent és molt breu, es refereix al «Reglamento UE 2016/671» (el RGPD és el 2016/679), conserva un marcador d’edició sense netejar i remet a les dades del delegat de protecció de dades amb un «aquí» que no enllaça enlloc. No hi consta cap termini de conservació, cap transferència internacional ni el dret a reclamar davant l’Agència Espanyola de Protecció de Dades.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'freemium',
   jurisdiction: 'Espanya',
@@ -262,7 +262,7 @@ const wuolah: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'No hem localitzat cap resolució sancionadora de l’AEPD contra Wuolads, S.L. El conflicte públic documentat amb universitats —la Universitat de Saragossa va exigir retirar material docent— és de propietat intel·lectual, no de protecció de dades, i per això no s’ha registrat com a incident de privadesa.',
+      'No hem localitzat cap resolució sancionadora de l’AEPD contra Wuolads, S.L. El conflicte públic documentat amb universitats (la Universitat de Saragossa va exigir retirar material docent) és de propietat intel·lectual, no de protecció de dades, i per això no s’ha registrat com a incident de privadesa.',
     openQuestions: [
       'Qui és el delegat de protecció de dades i com s’hi contacta?',
       'Quines xarxes publicitàries hi ha darrere dels anuncis inserits als PDF i de les galetes de socis?',
@@ -281,7 +281,7 @@ const kahoot: AppSeed = {
   tagline:
     'Declara per escrit que no hi ha publicitat de tercers ni entrenament de models amb les dades de la plataforma, i publica subencarregats, certificacions i informe de transparència',
   summary:
-    'Kahoot! és l’excepció d’aquest lot: la política diu explícitament que el servei no inclou cap publicitat de tercers ni publicitat dirigida, i que no fa servir les dades personals recollides a la plataforma per entrenar ni afinar grans models de llenguatge. L’etiqueta de l’App Store ho confirma indirectament, perquè no declara cap dada utilitzada per rastrejar. A canvi, sí que declara l’historial de cerca i de navegació vinculats a la persona amb finalitats d’analítica, que és el punt més discutible d’una fitxa altrament molt ben documentada.',
+    'La política de Kahoot! diu que el servei no inclou cap publicitat de tercers ni publicitat dirigida, i que no fa servir les dades personals recollides a la plataforma per entrenar ni afinar grans models de llenguatge. L’etiqueta de l’App Store ho confirma indirectament, perquè no declara cap dada utilitzada per rastrejar. Sí que declara l’historial de cerca i de navegació vinculats a la persona amb finalitats d’analítica, el punt més discutible d’una fitxa ben documentada.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'freemium',
   jurisdiction: 'Noruega',
@@ -332,7 +332,7 @@ const kahoot: AppSeed = {
     }),
   },
   retention: {
-    definedPeriods: f('partial', 'official', ['kahoot-privacy-policy'], 'S’expliquen els criteris —durada de la relació i terminis legals— però no hi ha terminis numèrics per categoria.'),
+    definedPeriods: f('partial', 'official', ['kahoot-privacy-policy'], 'S’expliquen els criteris (durada de la relació i terminis legals), però no hi ha terminis numèrics per categoria.'),
     dataAfterDeletion: f('partial', 'official', ['kahoot-delete-account'], 'Es conserven els kahoots públics que s’han jugat més de cinc-centes vegades i el contingut públic dels perfils verificats, tret que s’esborrin manualment abans de donar-se de baixa.'),
   },
   accountDeletion: {
@@ -364,7 +364,7 @@ const kahoot: AppSeed = {
     }),
   },
   controls: {
-    adPersonalizationOptOut: na('No hi ha publicitat personalitzada al servei, de manera que no hi ha res per desactivar.'),
+    adPersonalizationOptOut: na('No hi ha publicitat personalitzada al servei.'),
     telemetryOptOut: unknown('No consta cap control per desactivar l’analítica d’ús.'),
     granularControls: f('partial', 'official', ['kahoot-privacy-policy'], 'El centre educatiu decideix si activa l’identificador de jugador, que és el que lliga el rendiment amb una persona concreta; la persona participant no té aquest control.'),
     defaultPosture: 'protective',
@@ -426,7 +426,7 @@ const blinkdrama: AppSeed = {
   accountRequired: f('partial', 'official', ['blinkdrama-privacy-policy'], 'Es pot mirar contingut sense compte, però cal registrar-se per conservar les monedes comprades i el progrés.'),
   openSource: f('no', 'official', ['blinkdrama-privacy-policy'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'El catàleg de microdrames és molt segmentat —infidelitats, embarassos, venjances, milionaris—, de manera que l’historial de visualització i les cerques diuen força coses sobre la situació personal de qui mira.',
+    'El catàleg de microdrames és molt segmentat (infidelitats, embarassos, venjances, milionaris), de manera que l’historial de visualització i les cerques revelen força coses sobre la situació personal de qui mira.',
   dataCollection: [
     row('adreca-electronica', 'optional', { linked: 'yes', tracking: 'no', shared: 'unknown', purposes: ['prestacio-del-servei'], sources: ['blinkdrama-privacy-policy'] }),
     row('numero-de-telefon', 'optional', { linked: 'yes', tracking: 'no', shared: 'unknown', purposes: ['prestacio-del-servei'], sources: ['blinkdrama-privacy-policy'] }),
@@ -538,7 +538,7 @@ const ticketmaster: AppSeed = {
   tagline:
     'L’etiqueta de l’App Store declara «dades sensibles» compartides amb anunciants de tercers, i la baixa del compte no és autoservei: cal escriure al canal de privadesa i esperar fins a 90 dies',
   summary:
-    'Ticketmaster concentra la venda d’entrades d’una part molt gran dels concerts a Espanya, de manera que el seu historial de compres és un mapa de gustos musicals, esportius i polítics. L’etiqueta de l’App Store declara, a més de l’adreça postal i el telèfon, una categoria de «dades sensibles» utilitzada per a publicitat de tercers i per a màrqueting propi. El compte no es pot eliminar des de l’aplicació: cal escriure al canal de privadesa i el termini compromès és de fins a 90 dies. La filtració de 2024 i la multa de l’ICO del 2020 fan que sigui una de les fitxes amb més precedents d’aquesta onada.',
+    'Ticketmaster concentra la venda d’entrades d’una part molt gran dels concerts a Espanya, i el seu historial de compres revela gustos musicals, esportius i polítics. L’etiqueta de l’App Store declara, a més de l’adreça postal i el telèfon, una categoria de «dades sensibles» utilitzada per a publicitat de tercers i per a màrqueting propi. El compte no es pot eliminar des de l’aplicació: cal escriure al canal de privadesa i el termini compromès és de fins a 90 dies. La filtració de 2024 i la multa de l’ICO del 2020 fan que sigui una de les fitxes amb més precedents d’aquesta onada.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'commerce',
   jurisdiction: 'Espanya, amb Live Nation Entertainment com a matriu als Estats Units',
@@ -552,7 +552,7 @@ const ticketmaster: AppSeed = {
   accountRequired: f('yes', 'official', ['ticketmaster-privacy-policy'], 'Cal compte per comprar i per accedir a les entrades digitals.'),
   openSource: f('no', 'official', ['ticketmaster-privacy-policy'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'A qui vas a veure, amb qui hi vas, quant t’hi gastes i en quina ciutat. Un historial d’entrades permet inferir gustos, afinitats i, quan hi ha esdeveniments religiosos, sindicals o polítics, categories especials de dades: la mateixa etiqueta de l’App Store reconeix el tractament de «dades sensibles».',
+    'Un historial d’entrades mostra a qui vas a veure, amb qui hi vas, quant t’hi gastes i en quina ciutat. Permet inferir gustos, afinitats i, quan hi ha esdeveniments religiosos, sindicals o polítics, categories especials de dades. La mateixa etiqueta de l’App Store reconeix el tractament de «dades sensibles».',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['ticketmaster-privacy-policy', 'ticketmaster-app-store'] }),
     row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['ticketmaster-app-store'], note: 'L’etiqueta de l’App Store la declara com a dada utilitzada per rastrejar.' }),
@@ -592,7 +592,7 @@ const ticketmaster: AppSeed = {
     transparencyReport: unknown('No hem trobat cap informe de transparència sobre peticions d’autoritats.'),
   },
   retention: {
-    definedPeriods: f('partial', 'official', ['ticketmaster-privacy-policy'], 'Hi ha dos terminis concrets —fins a 90 dies per completar l’eliminació i esborrat dels comptes inactius durant 7 anys—, però la resta de categories es remeten a obligacions legals genèriques.'),
+    definedPeriods: f('partial', 'official', ['ticketmaster-privacy-policy'], 'Hi ha dos terminis concrets (fins a 90 dies per completar l’eliminació i esborrat dels comptes inactius durant 7 anys), però la resta de categories es remeten a obligacions legals genèriques.'),
     dataAfterDeletion: f('partial', 'official', ['ticketmaster-privacy-policy'], 'Es conserva el que exigeixen les obligacions fiscals i comptables i el que cal per a la prevenció del frau, sense una llista tancada.'),
     periods: [
       { period: 'Eliminació del compte: fins a 90 dies des de la sol·licitud', sources: ['ticketmaster-privacy-policy'] },
@@ -611,12 +611,12 @@ const ticketmaster: AppSeed = {
       'Guarda la confirmació: el termini compromès per completar l’eliminació és de fins a 90 dies.',
     ],
     obstacles:
-      'La impossibilitat d’eliminar el compte amb comandes actives converteix cada entrada futura en una pròrroga de la relació, i el termini de 90 dies és llarg per a una operació que hauria de ser immediata.',
+      'Mentre hi hagi comandes actives, com ara entrades per a esdeveniments futurs, no es pot eliminar el compte, i el termini de 90 dies és llarg per a una operació que hauria de ser immediata.',
     dataRetained: 'Dades exigides per obligacions legals i per a la prevenció del frau; no se’n publica una llista tancada.',
     sources: ['ticketmaster-privacy-policy', 'ticketmaster-suport-baixa'],
   },
   userRights: {
-    dataExport: f('yes', 'official', ['ticketmaster-rights-portal'], 'Formulari web de drets —accés, supressió, rectificació i portabilitat— gestionat amb OneTrust.', {
+    dataExport: f('yes', 'official', ['ticketmaster-rights-portal'], 'Formulari web de drets (accés, supressió, rectificació i portabilitat) gestionat amb OneTrust.', {
       url: 'https://privacyportal.onetrust.com/webform/ba6f9c5b-dda5-43bd-bac4-4e06afccd928/a912475c-660e-40a7-b320-844ea439062a',
     }),
     exportFormatQuality: 'unknown',
@@ -659,7 +659,7 @@ const ticketmaster: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'La política identifica Ticketmaster Spain, S.A.U. com a responsable a Espanya amb una adreça del Passeig de Sant Joan, mentre que les condicions d’ús de ticketmaster.es donen el carrer Pallars 193 i el CIF A60905486. La discrepància no és menor: l’adreça del responsable és el punt de contacte per exercir drets.',
+      'La política identifica Ticketmaster Spain, S.A.U. com a responsable a Espanya amb una adreça del Passeig de Sant Joan, mentre que les condicions d’ús de ticketmaster.es donen el carrer Pallars 193 i el CIF A60905486. La discrepància és rellevant perquè l’adreça del responsable és el punt de contacte per exercir drets.',
     openQuestions: [
       'Quines són, exactament, les «dades sensibles» que l’etiqueta de l’App Store declara compartides amb anunciants de tercers?',
       'Quin va ser el resultat final del recurs de Ticketmaster contra la multa de l’ICO?',
@@ -678,7 +678,7 @@ const splash: AppSeed = {
   tagline:
     'Un joc de festa que no vincula cap dada amb la persona, però que declara compres, ús i diagnòstics com a dades utilitzades per rastrejar',
   summary:
-    'Splash és un joc d’impostor per jugar en grup amb un sol telèfon, d’un estudi berlinès de dues persones. L’etiqueta de l’App Store no declara cap dada vinculada amb la identitat —ni correu, ni identificadors d’usuari— però sí tres categories utilitzades per rastrejar: historial de compres, interacció amb el producte i dades d’errors. La política de privadesa documenta amb detall el lloc web i els seus proveïdors, però no diu quins SDK d’analítica o d’atribució incorpora l’aplicació.',
+    'Splash és un joc d’impostor per jugar en grup amb un sol telèfon, d’un estudi berlinès de dues persones. L’etiqueta de l’App Store no declara cap dada vinculada amb la identitat (ni correu, ni identificadors d’usuari), però sí tres categories utilitzades per rastrejar: historial de compres, interacció amb el producte i dades d’errors. La política de privadesa documenta amb detall el lloc web i els seus proveïdors, però no diu quins SDK d’analítica o d’atribució incorpora l’aplicació.',
   platforms: ['ios', 'android'],
   businessModel: 'freemium',
   jurisdiction: 'Alemanya',
@@ -692,7 +692,7 @@ const splash: AppSeed = {
   accountRequired: f('no', 'official', ['splash-app-store'], 'L’etiqueta de l’App Store no declara cap dada de contacte ni cap identificador d’usuari, coherent amb un joc que es juga en local amb un sol dispositiu. La política només descriu comptes en el context dels concursos del web.'),
   openSource: f('no', 'official', ['splash-privacy-policy'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'El que queda del joc no són els noms dels jugadors, que no surten enlloc de l’etiqueta de privadesa, sinó el patró de compres i d’ús: quantes partides, quan i si has pagat.',
+    'Els noms dels jugadors no surten a l’etiqueta de privadesa. El que sí que es recull és el patró de compres i d’ús: quantes partides, quan i si has pagat.',
   dataCollection: [
     row('historial-de-compres', 'yes', { linked: 'no', tracking: 'yes', shared: 'third-parties', purposes: ['mesura-i-analisi-dus', 'mesura-publicitaria'], sources: ['splash-app-store'], note: 'És una de les tres categories que l’etiqueta declara com a utilitzades per rastrejar.' }),
     row('interaccions-i-us', 'yes', { linked: 'no', tracking: 'yes', shared: 'third-parties', purposes: ['mesura-i-analisi-dus'], sources: ['splash-app-store'] }),
@@ -712,7 +712,7 @@ const splash: AppSeed = {
     aiTraining: unknown('La política no esmenta l’entrenament de models.'),
   },
   sharing: {
-    thirdPartySharing: f('partial', 'official', ['splash-privacy-policy'], 'La política enumera proveïdors del lloc web —Google Analytics, Framer, Cloudflare, Brevo—, però no els de l’aplicació.'),
+    thirdPartySharing: f('partial', 'official', ['splash-privacy-policy'], 'La política enumera proveïdors del lloc web (Google Analytics, Framer, Cloudflare, Brevo), però no els de l’aplicació.'),
     intraGroupSharing: unknown('No consta cap estructura de grup.'),
     dataBrokerSales: unknown('La política no esmenta la venda de dades.'),
     internationalTransfers: f('yes', 'official', ['splash-privacy-policy'], 'Clàusules contractuals tipus o decisions d’adequació per als proveïdors amb seu als Estats Units.', { mechanism: 'sccs' }),
@@ -722,7 +722,7 @@ const splash: AppSeed = {
     transparencyReport: unknown('No consta cap informe de transparència.'),
   },
   retention: {
-    definedPeriods: f('partial', 'official', ['splash-privacy-policy'], 'Hi ha terminis concrets per al web —registres 14 dies, dades de concursos 90 dies, identitat dels guanyadors 10 anys per dret mercantil alemany— però cap per a l’aplicació.'),
+    definedPeriods: f('partial', 'official', ['splash-privacy-policy'], 'Hi ha terminis concrets per al web (registres 14 dies, dades de concursos 90 dies, identitat dels guanyadors 10 anys per dret mercantil alemany), però cap per a l’aplicació.'),
     dataAfterDeletion: unknown('No consta.'),
   },
   accountDeletion: {
@@ -770,7 +770,7 @@ const splash: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'La taxonomia d’aquesta base de coneixement no té categoria per als jocs; s’ha classificat com a utilitat perquè el context de privadesa —desenvolupador petit amb SDK de tercers i permisos que la funció no justifica— és el que millor descriu el cas. El contrast interessant és que l’estudi té una estructura de compliment alemanya sòlida, amb delegat de protecció de dades extern, i tanmateix la política no cobreix l’aplicació que li dona tot el trànsit.',
+      'La taxonomia d’aquesta base de coneixement no té categoria per als jocs; s’ha classificat com a utilitat perquè el context de privadesa (desenvolupador petit amb SDK de tercers i permisos que la funció no justifica) és el que millor descriu el cas. L’estudi té una estructura de compliment alemanya sòlida, amb delegat de protecció de dades extern, però la política no cobreix l’aplicació que li dona tot el trànsit.',
     openQuestions: [
       'Quins SDK d’analítica o d’atribució incorpora l’aplicació i justifiquen el rastreig declarat?',
       'Els noms dels jugadors surten del dispositiu?',
@@ -803,7 +803,7 @@ const reelshort: AppSeed = {
   accountRequired: f('partial', 'official', ['reelshort-privacy-policy'], 'Es pot començar a mirar sense compte, però cal registrar-se per conservar les monedes i el progrés entre dispositius.'),
   openSource: f('no', 'official', ['reelshort-privacy-policy'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'Els microdrames s’organitzen per obsessions molt concretes. L’historial de visualització i de compres dins d’aquest catàleg, combinat amb identificadors persistents del maquinari, permet construir un perfil comercial difícil de restablir canviant l’identificador publicitari.',
+    'El catàleg de microdrames s’organitza per temes molt concrets. L’historial de visualització i de compres dins d’aquest catàleg, combinat amb identificadors persistents del maquinari, permet construir un perfil comercial difícil de restablir canviant l’identificador publicitari.',
   dataCollection: [
     row('nom-i-cognoms', 'optional', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['reelshort-privacy-policy'] }),
     row('adreca-electronica', 'optional', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['reelshort-privacy-policy'] }),
@@ -876,7 +876,7 @@ const reelshort: AppSeed = {
     telemetryOptOut: unknown('No consta cap control per desactivar l’analítica.'),
     granularControls: unknown('No consta cap panell de privadesa dins de l’aplicació.'),
     defaultPosture: 'permissive',
-    darkPatterns: f('partial', 'editorial', [], 'Interpretació pròpia: el tall de l’episodi en el moment culminant, les monedes que caduquen i les ofertes amb compte enrere són el motor comercial del format; la sortida, en canvi, passa per un correu electrònic.'),
+    darkPatterns: f('partial', 'editorial', [], 'Interpretació pròpia: el tall de l’episodi en el moment culminant, les monedes que caduquen i les ofertes amb compte enrere són el motor comercial del format, i per donar-se de baixa cal escriure un correu electrònic.'),
     darkPatternList: [
       {
         type: 'hidden-exit',
@@ -901,7 +901,7 @@ const reelshort: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'La llista de socis publicitaris de la política té aspecte de plantilla de videojoc —hi apareixen xarxes com MoPub o AdColony, algunes ja desaparegudes—, cosa que indica que el document no s’ha adaptat del tot al producte. La contradicció amb l’etiqueta de l’App Store, molt més sòbria, val la pena de vigilar. No hem pogut confirmar amb fonts fiables cap demanda ni cap actuació reguladora contra el servei.',
+      'La llista de socis publicitaris de la política té aspecte de plantilla de videojoc (hi apareixen xarxes com MoPub o AdColony, algunes ja desaparegudes), cosa que indica que el document no s’ha adaptat del tot al producte. Cal seguir la discrepància amb l’etiqueta de l’App Store, molt més sòbria. No hem pogut confirmar amb fonts fiables cap demanda ni cap actuació reguladora contra el servei.',
     openQuestions: [
       'Per què l’etiqueta de l’App Store no declara les dades de contacte ni l’historial de visualització que descriu la política?',
       'Qui és el representant a la Unió Europea previst a l’article 27 del RGPD?',
@@ -920,7 +920,7 @@ const netshort: AppSeed = {
   tagline:
     'L’etiqueta de l’App Store declara com a dades de rastreig fins i tot els diagnòstics i una categoria «altres dades», i la baixa és només per correu',
   summary:
-    'NetShort és l’aplicació de microdrames de NETSTORY PTE. LTD., una societat de Singapur constituïda el juny de 2024. L’etiqueta de l’App Store és de les més àmplies del lot en l’apartat de rastreig: identificadors, dades d’ús, diagnòstics i una categoria «altres dades» declarades com a utilitzables per rastrejar en aplicacions i llocs web d’altres empreses. La política, de setembre de 2024, enumera les bases legals per a l’Espai Econòmic Europeu però no identifica cap representant a la Unió Europea.',
+    'NetShort és l’aplicació de microdrames de NETSTORY PTE. LTD., una societat de Singapur constituïda el juny de 2024. L’etiqueta de l’App Store és àmplia en l’apartat de rastreig: identificadors, dades d’ús, diagnòstics i una categoria «altres dades» declarades com a utilitzables per rastrejar en aplicacions i llocs web d’altres empreses. La política, de setembre de 2024, enumera les bases legals per a l’Espai Econòmic Europeu però no identifica cap representant a la Unió Europea.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'freemium',
   jurisdiction: 'Singapur',
@@ -930,10 +930,10 @@ const netshort: AppSeed = {
     privacyPolicy: 'https://netshort.com/agreement/2',
     appStore: appStore('6504849169'),
   },
-  accountRequired: f('partial', 'official', ['netshort-privacy-policy'], 'Es pot mirar contingut sense compte, però cal registrar-se —o entrar amb Facebook, Apple o Google— per conservar les monedes i el progrés.'),
+  accountRequired: f('partial', 'official', ['netshort-privacy-policy'], 'Es pot mirar contingut sense compte, però cal registrar-se (o entrar amb Facebook, Apple o Google) per conservar les monedes i el progrés.'),
   openSource: f('no', 'official', ['netshort-privacy-policy'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'L’historial de reproducció d’un catàleg tan segmentat i els registres de consum de monedes dibuixen un perfil de gustos i de disposició a pagar que la política reconeix explícitament com a inferències.',
+    'L’historial de reproducció d’un catàleg tan segmentat i els registres de consum de monedes permeten deduir gustos i disposició a pagar. La política reconeix que en fa inferències per crear un perfil.',
   dataCollection: [
     row('adreca-electronica', 'optional', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['netshort-privacy-policy'] }),
     row('identificador-de-compte', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['netshort-app-store', 'netshort-privacy-policy'], note: 'L’etiqueta declara l’identificador d’usuari com a dada utilitzada per rastrejar.' }),
@@ -979,7 +979,7 @@ const netshort: AppSeed = {
     difficulty: 'hard',
     requiresSupportContact: true,
     steps: [
-      'Fes servir el canal de contacte que indica la política —el servei d’atenció dins de l’aplicació o l’adreça de correu de suport— per demanar la desactivació del compte.',
+      'Fes servir el canal de contacte que indica la política (el servei d’atenció dins de l’aplicació o l’adreça de correu de suport) per demanar la desactivació del compte.',
       'Invoca l’article 17 del RGPD i demana confirmació escrita de l’esborrat.',
       'Cancel·la a banda qualsevol subscripció activa des de l’App Store.',
     ],
@@ -1056,7 +1056,7 @@ const disneyPlus: AppSeed = {
   accountRequired: f('yes', 'official', ['disney-privacy-policy'], 'Cal un compte MyDisney per contractar la subscripció i per mirar contingut.'),
   openSource: f('no', 'official', ['disney-privacy-policy'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'Un catàleg familiar també diu qui hi ha a casa: els perfils infantils, les hores de reproducció i les sèries que es repeteixen dibuixen l’estructura d’una llar. Amb el pla amb anuncis, aquesta informació passa a tenir valor publicitari, també per als perfils de menors, que reben publicitat adequada a la seva edat però publicitat al capdavall.',
+    'Els perfils infantils, les hores de reproducció i les sèries que es repeteixen mostren qui viu a la llar. Amb el pla amb anuncis, aquesta informació té valor publicitari, també en els perfils de menors, que reben publicitat adequada a la seva edat.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['disney-privacy-policy'] }),
     row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['disney-plus-app-store', 'disney-privacy-policy'], note: 'La política admet compartir amb tercers «ciertos identificadores o direcciones de correo electrónico con hash» per servir i mesurar publicitat.' }),
@@ -1098,7 +1098,7 @@ const disneyPlus: AppSeed = {
   },
   retention: {
     definedPeriods: f('no', 'official', ['disney-privacy-policy'], 'La política només diu que conserva la informació «durante el período de tiempo necesario». No hi ha cap termini concret per categoria.'),
-    dataAfterDeletion: f('partial', 'official', ['disney-plus-delete'], 'L’eliminació afecta només Disney+ —perfils, llistes, configuració de privadesa i preferències de màrqueting—; el compte MyDisney i els serveis associats es mantenen.'),
+    dataAfterDeletion: f('partial', 'official', ['disney-plus-delete'], 'L’eliminació afecta només Disney+ (perfils, llistes, configuració de privadesa i preferències de màrqueting); el compte MyDisney i els serveis associats es mantenen.'),
   },
   accountDeletion: {
     possible: f('yes', 'official', ['disney-plus-delete']),
@@ -1189,7 +1189,7 @@ const hboMax: AppSeed = {
   tagline:
     'La política admet tractar, en casos limitats, salut, origen ètnic, creences, vida sexual o afiliació política, i registra clics, tecles premudes i desplaçament de pantalla',
   summary:
-    'A Espanya, HBO Max el controlen conjuntament HBO Nordic AB, amb domicili a Estocolm, i WarnerMedia Direct LLC, a Nova York; per saber-ho cal anar a una llista d’afiliades separada de la política. El document del grup inclou entre les dades tractades, en casos limitats, categories especials de l’article 9 del RGPD —salut física o mental, origen racial o ètnic, creences religioses o filosòfiques, vida o orientació sexual i afiliació política— i, dins de la informació d’ús, els clics, els moviments del ratolí, les tecles premudes i el desplaçament de pantalla. L’eliminació del compte, en canvi, és autoservei i està ben documentada.',
+    'A Espanya, HBO Max el controlen conjuntament HBO Nordic AB, amb domicili a Estocolm, i WarnerMedia Direct LLC, a Nova York; per saber-ho cal anar a una llista d’afiliades separada de la política. El document del grup inclou entre les dades tractades, en casos limitats, categories especials de l’article 9 del RGPD (salut física o mental, origen racial o ètnic, creences religioses o filosòfiques, vida o orientació sexual i afiliació política) i, dins de la informació d’ús, els clics, els moviments del ratolí, les tecles premudes i el desplaçament de pantalla. L’eliminació del compte, en canvi, és autoservei i està ben documentada.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'subscription',
   jurisdiction: 'Suècia i Estats Units, en responsabilitat conjunta, per a les persones subscriptores d’Espanya',
@@ -1203,7 +1203,7 @@ const hboMax: AppSeed = {
   accountRequired: f('yes', 'official', ['hbo-max-privacy-policy'], 'Cal un compte per contractar la subscripció i per mirar contingut.'),
   openSource: f('no', 'official', ['hbo-max-privacy-policy'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'El que es mira i el que es busca en un catàleg de ficció adulta és una dada de comportament delicada, i aquí s’hi suma el detall de la interacció: títols, gèneres, llistes, cerques, clics, tecles i desplaçament. La política reconeix, a més, que en casos limitats tracta categories especials de dades.',
+    'El que es mira i el que es busca en un catàleg de ficció adulta és una dada de comportament delicada. S’hi afegeix el detall de la interacció: títols, gèneres, llistes, cerques, clics, tecles i desplaçament. La política reconeix, a més, que en casos limitats tracta categories especials de dades.',
   dataCollection: [
     row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['hbo-max-app-store', 'hbo-max-privacy-policy'] }),
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['hbo-max-app-store'] }),
@@ -1232,7 +1232,7 @@ const hboMax: AppSeed = {
     thirdPartyTrackersPresent: f('yes', 'official', ['hbo-max-privacy-policy', 'hbo-max-app-store']),
   },
   dataUses: {
-    targetedAdvertising: f('yes', 'official', ['hbo-max-legal-bases', 'hbo-max-privacy-policy'], 'La taula de bases de legitimació situa la publicitat dirigida dins dels serveis en el consentiment, però la publicitat dirigida en productes i serveis de tercers —incloent-hi la cerca d’audiències similars— en l’interès legítim.', {
+    targetedAdvertising: f('yes', 'official', ['hbo-max-legal-bases', 'hbo-max-privacy-policy'], 'La taula de bases de legitimació situa la publicitat dirigida dins dels serveis en el consentiment, però la publicitat dirigida en productes i serveis de tercers (incloent-hi la cerca d’audiències similars) en l’interès legítim.', {
       optOutUrl: 'https://www.wbdprivacy.com/opt-out/',
     }),
     profiling: f('yes', 'official', ['hbo-max-privacy-policy'], 'Recomanacions, personalització i publicitat segmentada a partir de dades pròpies i de dades inferides rebudes de tercers.'),
@@ -1249,7 +1249,7 @@ const hboMax: AppSeed = {
     transparencyReport: unknown('No hem trobat cap informe de transparència sobre peticions d’autoritats.'),
   },
   retention: {
-    definedPeriods: f('no', 'official', ['hbo-max-privacy-policy'], 'La conservació es despatxa amb una sola frase: es conserva la informació «durante el tiempo estrictamente necesario». No hi ha cap termini per categoria.'),
+    definedPeriods: f('no', 'official', ['hbo-max-privacy-policy'], 'La política dedica una sola frase a la conservació: es conserva la informació «durante el tiempo estrictamente necesario». No hi ha cap termini per categoria.'),
     dataAfterDeletion: f('partial', 'official', ['hbo-max-privacy-policy'], 'La política adverteix que no podrà esborrar la informació quan hi hagi una obligació legal de conservar-la o quan calgui per continuar prestant un servei que la persona vulgui mantenir.'),
   },
   accountDeletion: {
@@ -1539,7 +1539,7 @@ export const lot: SeedLot = {
     }),
     s('wuolah-app-store', 'Wuolah: Apuntes & Educación a l’App Store', appStore('1240782595'), 'Apple', 'app-store', 'primary', {
       language: 'es',
-      summary: 'Etiqueta de privadesa: identificadors i dades d’ús utilitzats per rastrejar, i contingut de la persona usuària —fotos i vídeos— vinculat amb la seva identitat.',
+      summary: 'Etiqueta de privadesa: identificadors i dades d’ús utilitzats per rastrejar, i contingut de la persona usuària (fotos i vídeos) vinculat amb la seva identitat.',
     }),
     s('wuolah-play-data-safety', 'Seguretat de les dades de Wuolah a Google Play', 'https://play.google.com/store/apps/datasafety?id=com.wuolah.wuolahapp', 'Google', 'app-store', 'primary', {
       summary: 'Declaració de seguretat de dades de Google Play: xifratge en trànsit, mecanisme de sol·licitud d’esborrat i compartició d’identificadors i interaccions amb tercers per a analítica.',
@@ -1564,7 +1564,7 @@ export const lot: SeedLot = {
       summary: 'Llista pública d’encarregats del tractament i de la seva ubicació.',
     }),
     s('kahoot-delete-account', 'How to delete my account', 'https://support.kahoot.com/hc/en-us/articles/115001597287-How-to-delete-my-account', 'Kahoot! AS', 'support-doc', 'primary', {
-      summary: 'Passos reals de la baixa, període de gràcia d’uns cinc dies per revertir-la i contingut públic que es conserva si no s’esborra abans.',
+      summary: 'Passos de la baixa, període de gràcia d’uns cinc dies per revertir-la i contingut públic que es conserva si no s’esborra abans.',
     }),
     s('kahoot-transparency', 'Transparency', 'https://trust.kahoot.com/transparency/', 'Kahoot! AS', 'transparency-report', 'primary', {
       summary: 'Informe de transparència general i informes anuals del Reglament de Serveis Digitals.',
@@ -1594,7 +1594,7 @@ export const lot: SeedLot = {
     s('ticketmaster-privacy-policy', 'Política de Privacidad', 'https://privacy.ticketmaster.es/es/privacy-policy', 'Ticketmaster Spain, S.A.U.', 'privacy-policy', 'primary', {
       language: 'es',
       summary:
-        'Política vigent per a Espanya. Identifica el responsable, Live Nation com a matriu i el representant irlandès, i fixa els terminis d’eliminació del compte —fins a 90 dies— i d’esborrat dels comptes inactius als 7 anys.',
+        'Política vigent per a Espanya. Identifica el responsable, Live Nation com a matriu i el representant irlandès, i fixa els terminis d’eliminació del compte (fins a 90 dies) i d’esborrat dels comptes inactius als 7 anys.',
     }),
     s('ticketmaster-app-store', 'Ticketmaster a l’App Store', appStore('500003565'), 'Apple', 'app-store', 'primary', {
       language: 'es',
@@ -1660,7 +1660,7 @@ export const lot: SeedLot = {
     }),
     s('disney-uk-eu-rights', 'UK & EU Privacy Rights', 'https://privacy.thewaltdisneycompany.com/en/current-privacy-policy/privacy-notice/', 'The Walt Disney Company', 'privacy-policy', 'primary', {
       summary:
-        'Apartat específic per al Regne Unit i la Unió Europea: bases legals, interessos legítims declarats —incloent-hi els segments i models agregats i la cerca d’audiències similars— i mecanismes de transferència internacional.',
+        'Apartat específic per al Regne Unit i la Unió Europea: bases legals, interessos legítims declarats (incloent-hi els segments i models agregats i la cerca d’audiències similars) i mecanismes de transferència internacional.',
     }),
     s('disney-rights-portal', 'Portal de derechos de los sujetos de datos', 'https://privacy.thewaltdisneycompany.com/es/politica-de-privacidad/portal-de-derechos-de-los-sujetos-de-datos/', 'The Walt Disney Company', 'privacy-center', 'primary', {
       language: 'es',
@@ -1674,7 +1674,7 @@ export const lot: SeedLot = {
     s('disney-plus-delete', 'Cómo eliminar mi cuenta de Disney+', 'https://help.disneyplus.com/es/article/disneyplus-delete-account', 'Disney+', 'support-doc', 'primary', {
       language: 'es',
       publishedAt: '2026-02-25',
-      summary: 'Passos reals de la baixa autoservei, amb el codi de verificació de sis dígits i l’advertiment que l’eliminació no afecta el compte MyDisney.',
+      summary: 'Passos de la baixa autoservei, amb el codi de verificació de sis dígits i l’advertiment que l’eliminació no afecta el compte MyDisney.',
     }),
     s('disney-plus-account-security', 'Disney+ account security', 'https://help.disneyplus.com/article/disneyplus-account-security', 'Disney+', 'support-doc', 'primary', {
       publishedAt: '2026-05-06',
@@ -1707,7 +1707,7 @@ export const lot: SeedLot = {
       language: 'es',
       publishedAt: '2025-07-09',
       summary:
-        'Política vigent per a Espanya. Enumera les dades recollides —incloent-hi categories especials en casos limitats i el registre de clics, tecles i desplaçament—, la compartició amb socis comercials per a les seves pròpies finalitats i les transferències als Estats Units.',
+        'Política vigent per a Espanya. Enumera les dades recollides (incloent-hi categories especials en casos limitats i el registre de clics, tecles i desplaçament), la compartició amb socis comercials per a les seves pròpies finalitats i les transferències als Estats Units.',
     }),
     s('hbo-max-legal-bases', 'Tabla de bases de legitimación de HBO Max (EMEA)', 'https://www.hbomax.com/privacy/legal-bases/es-emea', 'Warner Bros. Discovery', 'privacy-policy', 'primary', {
       language: 'es',
@@ -1724,7 +1724,7 @@ export const lot: SeedLot = {
     }),
     s('hbo-max-delete-account', 'Cómo eliminar mi cuenta de HBO Max', 'https://help.hbomax.com/es-es/Answer/Detail/000002542', 'Warner Bros. Discovery', 'support-doc', 'primary', {
       language: 'es',
-      summary: 'Passos reals de la baixa des de l’aplicació i des del web, amb la confirmació per correu en set dies i un esborrat que triga entre quatre i cinc setmanes.',
+      summary: 'Passos de la baixa des de l’aplicació i des del web, amb la confirmació per correu en set dies i un esborrat que triga entre quatre i cinc setmanes.',
     }),
     s('hbo-max-account-security', 'Seguridad de la cuenta de HBO Max', 'https://help.hbomax.com/es-es/Answer/Detail/000002509', 'Warner Bros. Discovery', 'support-doc', 'primary', {
       language: 'es',
@@ -1761,7 +1761,7 @@ export const lot: SeedLot = {
       occurredAt: '2024-05-20',
       disclosedAt: '2024-05-31',
       description:
-        'Live Nation va comunicar a la Comissió de Valors dels Estats Units que el 20 de maig de 2024 havia detectat activitat no autoritzada en una base de dades allotjada en un entorn al núvol de tercers que contenia sobretot dades de Ticketmaster, i que el 27 de maig un actor criminal va posar les dades a la venda a la web fosca. L’accés es va fer amb credencials robades d’un compte de Snowflake sense verificació en dos passos. L’atacant, que es fa dir ShinyHunters, va oferir 1,3 TB amb dades de 560 milions de clients —noms, adreces, correus, telèfons, detalls de comandes i part de la informació de les targetes— per mig milió de dòlars; la xifra és l’al·legació de qui va posar les dades a la venda i l’empresa no l’ha confirmada.',
+        'Live Nation va comunicar a la Comissió de Valors dels Estats Units que el 20 de maig de 2024 havia detectat activitat no autoritzada en una base de dades allotjada en un entorn al núvol de tercers que contenia sobretot dades de Ticketmaster, i que el 27 de maig un actor criminal va posar les dades a la venda a la web fosca. L’accés es va fer amb credencials robades d’un compte de Snowflake sense verificació en dos passos. L’atacant, que es fa dir ShinyHunters, va oferir 1,3 TB amb dades de 560 milions de clients (noms, adreces, correus, telèfons, detalls de comandes i part de la informació de les targetes) per mig milió de dòlars; la xifra és l’al·legació de qui va posar les dades a la venda i l’empresa no l’ha confirmada.',
       affectedPeople: 'Fins a centenars de milions de clients de Ticketmaster arreu del món, segons l’al·legació de l’atacant.',
       sources: ['ticketmaster-8k-2024', 'ticketmaster-breach-premsa'],
     },
@@ -1814,7 +1814,7 @@ export const lot: SeedLot = {
       occurredAt: '2025-09-02',
       disclosedAt: '2025-09-02',
       description:
-        'La Comissió Federal de Comerç dels Estats Units va demandar Disney Worldwide Services i Disney Entertainment Operations per etiquetar a YouTube com a «no fets per a criatures», a escala de canal, vídeos que sí que ho eren —Els Increïbles, Coco, Toy Story, Frozen o Mickey Mouse—, cosa que va permetre recollir dades de menors sense avís ni consentiment parental. La pràctica va continuar després que el mateix YouTube reclassifiqués més de tres-cents vídeos a mitjan 2020. L’acord fixa una sanció civil de deu milions de dòlars i obliga a implantar un programa de revisió dels vídeos, tret que YouTube desplegui tecnologies de verificació d’edat. El tribunal el va aprovar el desembre de 2025. No afecta l’aplicació Disney+, però tracta del mateix problema de fons: com es classifica el contingut infantil i què se’n deriva per a la publicitat.',
+        'La Comissió Federal de Comerç dels Estats Units va demandar Disney Worldwide Services i Disney Entertainment Operations per etiquetar a YouTube com a «no fets per a criatures», a escala de canal, vídeos que sí que ho eren (Els Increïbles, Coco, Toy Story, Frozen o Mickey Mouse), cosa que va permetre recollir dades de menors sense avís ni consentiment parental. La pràctica va continuar després que el mateix YouTube reclassifiqués més de tres-cents vídeos a mitjan 2020. L’acord fixa una sanció civil de deu milions de dòlars i obliga a implantar un programa de revisió dels vídeos, tret que YouTube desplegui tecnologies de verificació d’edat. El tribunal el va aprovar el desembre de 2025. No afecta l’aplicació Disney+, però tracta del mateix problema de fons: com es classifica el contingut infantil i què se’n deriva per a la publicitat.',
       affectedPeople: 'Menors que van veure vídeos de canals de Disney a YouTube als Estats Units.',
       regulatory: {
         authority: 'Federal Trade Commission',
@@ -1884,7 +1884,7 @@ export const lot: SeedLot = {
       occurredAt: '2017-05-01',
       disclosedAt: '2017-11-21',
       description:
-        'La fiscalia federal de Manhattan va acusar Behzad Mesri, ciutadà iranià, d’accedir sense autorització als sistemes de Home Box Office, robar-ne dades propietàries —guions i episodis inèdits, inclosos de Joc de Trons— i extorsionar la companyia demanant sis milions de dòlars en bitcoin. És un cas de propietat intel·lectual i de seguretat corporativa: no consta que s’hi veiessin afectades dades de persones subscriptores.',
+        'La fiscalia federal de Manhattan va acusar Behzad Mesri, ciutadà iranià, d’accedir sense autorització als sistemes de Home Box Office, robar-ne dades propietàries (guions i episodis inèdits, inclosos de Joc de Trons) i extorsionar la companyia demanant sis milions de dòlars en bitcoin. És un cas de propietat intel·lectual i de seguretat corporativa: no consta que s’hi veiessin afectades dades de persones subscriptores.',
       affectedPeople: 'Dades corporatives i de producció de HBO; no consten dades de persones subscriptores.',
       regulatory: {
         authority: 'United States Department of Justice',

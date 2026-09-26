@@ -90,25 +90,17 @@ export default function FrontendLayout({ children }: { children: React.ReactNode
 
             <div className="site-footer-column">
               <h3>Legal</h3>
-              <nav aria-label="Informació legal i repositori">
+              <nav aria-label="Informació legal">
                 <Link href="/legal">Informació legal</Link>
                 <Link href="/legal/privadesa">Privadesa</Link>
-                <a
-                  href="https://github.com/newspiritstudio/identitatdigital"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  Codi font
-                  <span className="visually-hidden"> (s’obre en una pestanya nova)</span>
-                </a>
               </nav>
             </div>
           </div>
 
           <div className="site-footer-meta">
             <p className="site-owner">
-              Identitat.digital és un projecte de New Spirit Studio S.L. El codi es publica sota
-              llicència MIT i el contingut sota Creative Commons Reconeixement-CompartirIgual 4.0.
+              Identitat.digital és un projecte de New Spirit Studio S.L. El contingut es publica sota
+              llicència Creative Commons Reconeixement-CompartirIgual 4.0.
             </p>
           </div>
         </footer>

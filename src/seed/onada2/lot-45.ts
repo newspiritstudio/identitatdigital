@@ -89,7 +89,7 @@ export const lot: SeedLot = {
     s('bonpreu-online-app-store', 'BonpreuEsclat — App Store', appStore('1337694968'), 'Apple', 'app-store', 'primary', {
       language: 'es',
       summary:
-        'Etiqueta de privadesa declarada per Bon Preu, SAU: cap dada per rastrejar, el correu vinculat a la identitat (també per a màrqueting) i la resta —historial de compres i de cerca, identificadors, adreça, nom, telèfon i dades d’ús— declarada com a no vinculada. Comerciant a l’App Store: Bonpreu Holding S.L.',
+        'Etiqueta de privadesa declarada per Bon Preu, SAU: cap dada per rastrejar, el correu vinculat a la identitat (també per a màrqueting) i la resta (historial de compres i de cerca, identificadors, adreça, nom, telèfon i dades d’ús) com a no vinculada. Comerciant a l’App Store: Bonpreu Holding S.L.',
     }),
     s('bonpreu-online-faq', 'Preguntes freqüents — BonpreuEsclat online', 'https://www.compraonline.bonpreuesclat.cat/content/preguntes-frequents', 'Bon Preu, S.A.U.', 'support-doc', 'primary', {
       language: 'ca',
@@ -242,7 +242,7 @@ export const lot: SeedLot = {
       categories: ['alimentacio-i-restauracio', 'comerc-electronic'],
       tagline: 'Sense rastreig declarat, però l’etiqueta diu que el nom i l’adreça de lliurament no es vinculen a la identitat, i per esborrar el compte cal escriure amb el DNI',
       summary:
-        'És l’app de la botiga en línia del grup Bon Preu, diferent de l’app de fidelització «Bonpreu i Esclat» que ja té fitxa pròpia, tot i que totes dues comparteixen el mateix compte client. No declara cap dada per rastrejar, però l’etiqueta de l’App Store és poc creïble: presenta el nom, el telèfon, l’adreça de lliurament i l’historial de compres com a dades no vinculades a la identitat en un servei que et porta la compra a casa. La política, en català, reconeix que l’historial de compres serveix per personalitzar ofertes. No hi ha cap botó per eliminar el compte: les preguntes freqüents remeten a una petició per correu electrònic, carta o telèfon, amb una còpia del DNI.',
+        'És l’app de la botiga en línia del grup Bon Preu, diferent de l’app de fidelització «Bonpreu i Esclat» que ja té fitxa pròpia, tot i que totes dues comparteixen el mateix compte client. L’etiqueta de l’App Store no declara cap dada per rastrejar i presenta el nom, el telèfon, l’adreça de lliurament i l’historial de compres com a dades no vinculades a la identitat, tot i que el servei porta la compra a casa del client. La política, en català, reconeix que l’historial de compres serveix per personalitzar ofertes. No hi ha cap botó per eliminar el compte: les preguntes freqüents remeten a una petició per correu electrònic, carta o telèfon, amb una còpia del DNI.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'commerce',
       jurisdiction: 'Espanya',
@@ -258,10 +258,10 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['bonpreu-online-terms'], 'Les condicions diuen que per fer la compra en línia cal ser major d’edat i estar registrat.'),
       openSource: f('no', 'official', ['bonpreu-online-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'La cistella setmanal diu què menja una llar, quanta gent hi viu, si hi ha infants o persones grans i quin pressupost té. A més, l’adreça de lliurament i les franges horàries indiquen quan hi ha algú a casa. Bon Preu fa servir l’historial de compres per personalitzar les ofertes i les comunicacions comercials de productes similars li arriben per interès legítim, sense haver-hi consentit, per correu, SMS, carta o notificació.',
+        'L’historial de compres pot indicar els hàbits alimentaris d’una llar, quantes persones hi viuen, si hi ha infants o persones grans i quin pressupost té, i l’adreça i la franja de lliurament indiquen quan hi ha algú a casa. Bon Preu fa servir l’historial de compres per personalitzar les ofertes, i envia comunicacions comercials de productes similars per interès legítim, sense demanar consentiment, per correu, SMS, carta o notificació.',
       dataCollection: [
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['bonpreu-online-app-store', 'bonpreu-online-privacy-policy'], note: 'És l’única dada que l’etiqueta declara vinculada a la identitat, per a la funcionalitat i per a «publicitat o màrqueting del desenvolupador».' }),
-        row('nom-i-cognoms', 'yes', { linked: 'no', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['bonpreu-online-app-store', 'bonpreu-online-privacy-policy'], note: 'L’etiqueta el declara no vinculat a la identitat, cosa difícil d’entendre en un compte client amb comandes a nom propi.' }),
+        row('nom-i-cognoms', 'yes', { linked: 'no', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['bonpreu-online-app-store', 'bonpreu-online-privacy-policy'], note: 'L’etiqueta el declara no vinculat a la identitat, tot i que les comandes es fan a nom del titular del compte.' }),
         row('numero-de-telefon', 'yes', { linked: 'no', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['bonpreu-online-app-store', 'bonpreu-online-privacy-policy'] }),
         row('adreca-postal', 'yes', { linked: 'no', tracking: 'no', shared: 'unknown', purposes: ['prestacio-del-servei'], sources: ['bonpreu-online-app-store', 'bonpreu-online-privacy-policy'], note: 'L’adreça de lliurament. La política esmenta que alguns aspectes de la compra fan servir l’API de Google Maps.' }),
         row('historial-de-compres', 'yes', { linked: 'no', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei', 'mesura-i-analisi-dus', 'personalitzacio-de-continguts', 'publicitat-personalitzada'], sources: ['bonpreu-online-app-store', 'bonpreu-online-privacy-policy'], note: 'La política diu que l’historial de compres serveix per personalitzar les ofertes i promocions; l’etiqueta, en canvi, el declara no vinculat a la identitat.' }),
@@ -275,7 +275,7 @@ export const lot: SeedLot = {
         row('data-de-naixement', 'unknown', { linked: 'unknown', tracking: 'no', shared: 'unknown', purposes: ['atencio-a-lusuari'], sources: ['bonpreu-online-privacy-policy'], note: 'La política enumera el DNI, la data de naixement i el gènere entre les dades identificadores que tracta per interès legítim, però no diu si l’app els demana.' }),
       ],
       tracking: {
-        crossAppTracking: f('no', 'official', ['bonpreu-online-app-store'], 'L’etiqueta no declara cap dada utilitzada per rastrejar-te en apps i webs d’altres empreses.'),
+        crossAppTracking: f('no', 'official', ['bonpreu-online-app-store'], 'L’etiqueta no declara cap dada utilitzada per rastrejar en apps i webs d’altres empreses.'),
         advertisingIdentifiers: unknown('L’etiqueta declara l’identificador del dispositiu per a analítica i personalització, però no concreta si inclou l’identificador publicitari.'),
         thirdPartyTrackersPresent: unknown('La política de galetes del web preveu galetes publicitàries i de xarxes socials de tercers, però ni aquesta ni la de privadesa enumeren els SDK integrats a l’app.'),
       },
@@ -344,7 +344,7 @@ export const lot: SeedLot = {
         lastReviewedAt: CATALAN_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'El grup té dues apps a l’App Store: «Bonpreu i Esclat» (fidelització, ja documentada al lot 12) i «BonpreuEsclat» (compra en línia, aquesta fitxa), amb més valoracions. Les dues les publica com a comerciant Bonpreu Holding S.L., mentre que la política identifica com a responsable Bon Preu, S.A.U.; l’etiqueta de privadesa la signa «Bon Preu SAU». L’etiqueta declara com a no vinculades a la identitat dades que no poden ser anònimes en un servei de lliurament a domicili (nom, adreça, historial de compres) i no declara cap dada de pagament. No hem trobat sancions de l’AEPD ni de l’APDCAT contra Bon Preu.',
+          'El grup té dues apps a l’App Store: «Bonpreu i Esclat» (fidelització, amb fitxa pròpia) i «BonpreuEsclat» (compra en línia, aquesta fitxa), amb més valoracions. Les dues les publica com a comerciant Bonpreu Holding S.L., mentre que la política identifica com a responsable Bon Preu, S.A.U.; l’etiqueta de privadesa la signa «Bon Preu SAU». L’etiqueta declara com a no vinculades a la identitat dades que no poden ser anònimes en un servei de lliurament a domicili (nom, adreça, historial de compres) i no declara cap dada de pagament. No hem trobat sancions de l’AEPD ni de l’APDCAT contra Bon Preu.',
         openQuestions: [
           'Com pot ser que el nom, l’adreça de lliurament i l’historial de compres no es vinculin a la identitat del client?',
           'Quin és el proveïdor extern de la botiga en línia i quines dades hi tracta?',
@@ -359,9 +359,9 @@ export const lot: SeedLot = {
       name: 'FC Barcelona Oficial',
       company: 'futbol-club-barcelona',
       categories: ['esports-i-resultats'],
-      tagline: 'Dades d’ús amb què et rastregen, totes les comunicacions segmentades i una política única per a trenta tractaments diferents',
+      tagline: 'Declara dades d’ús per rastrejar, segmenta totes les comunicacions i té una política única per a trenta tractaments diferents',
       summary:
-        'L’app oficial del Barça declara a l’App Store que fa servir les dades d’ús i els diagnòstics per rastrejar-te en apps i webs d’altres empreses, i que vincula a la teva identitat la ubicació precisa, el nom, el correu i l’activitat. L’enllaç de privadesa que declara és l’avís legal del web; la política real, del 2023, cobreix d’una tirada socis, penyes, entrades, botiga i subscripcions, i diu que el Club no envia mai comunicacions sense segmentar: qui no vulgui ser perfilat ha de renunciar a rebre-les. Per esborrar el compte Culer cal escriure a la Comissió de Protecció de Dades. El 2026 l’AEPD va multar el Club amb 500.000 euros per la biometria del cens de socis.',
+        'L’app oficial del Barça declara a l’App Store que fa servir les dades d’ús i els diagnòstics per rastrejar en apps i webs d’altres empreses, i que vincula a la identitat la ubicació precisa, el nom, el correu i l’activitat. L’enllaç de privadesa que declara és l’avís legal del web; la política vigent, del 2023, cobreix en un sol document socis, penyes, entrades, botiga i subscripcions, i diu que el Club no envia mai comunicacions sense segmentar, de manera que qui no vulgui ser perfilat ha de renunciar a rebre-les. Per esborrar el compte Culer cal escriure a la Comissió de Protecció de Dades. El 2026 l’AEPD va multar el Club amb 500.000 euros per la biometria del cens de socis.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'freemium',
       jurisdiction: 'Espanya',
@@ -376,7 +376,7 @@ export const lot: SeedLot = {
       accountRequired: f('partial', 'official', ['fcb-app-store', 'fcb-privacy-policy'], 'Les notícies i els resultats són oberts; el compte Culer, gratuït, o la subscripció Culers Premium desbloquegen continguts i avantatges. L’avís legal fixa l’edat mínima de 14 anys per donar dades personals.'),
       openSource: f('no', 'official', ['fcb-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'Què mires, quan obres l’app i on ets el dia de partit dibuixen el perfil d’un aficionat valuós per al Club i per als seus patrocinadors. La política diu que el Barça segmenta totes les comunicacions segons el comportament a la web, les galetes i fins i tot els moviments del cursor, que busca els perfils dels seus usuaris a les xarxes socials per enviar-los publicitat del Club i dels patrocinadors, i que si t’hi registres amb Google o Facebook en pot obtenir la data de naixement, la ubicació i els «m’agrada».',
+        'La política diu que el Barça segmenta totes les comunicacions segons el comportament a la web, les galetes i els moviments del cursor, que busca els perfils dels seus usuaris a les xarxes socials per enviar-los publicitat del Club i dels patrocinadors, i que, si el registre es fa amb Google o Facebook, en pot obtenir la data de naixement, la ubicació i els «m’agrada».',
       dataCollection: [
         row('interaccions-i-us', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['mesura-i-analisi-dus', 'elaboracio-de-perfils', 'publicitat-personalitzada'], sources: ['fcb-app-store', 'fcb-privacy-policy'], note: 'L’etiqueta les declara vinculades a la identitat per a l’analítica i, alhora, utilitzades per rastrejar en apps i webs d’altres empreses.' }),
         row('dades-de-diagnostic', 'yes', { linked: 'no', tracking: 'yes', shared: 'third-parties', purposes: ['millora-del-producte'], sources: ['fcb-app-store'], note: 'Declarades com a no vinculades a la identitat però utilitzades per rastrejar.' }),
@@ -388,7 +388,7 @@ export const lot: SeedLot = {
         row('interessos-inferits', 'optional', { linked: 'yes', tracking: 'no', shared: 'unknown', purposes: ['personalitzacio-de-continguts', 'elaboracio-de-perfils'], sources: ['fcb-privacy-policy'], note: 'Amb el registre social i el consentiment, el Club tracta els «m’agrada» de les xarxes socials per personalitzar l’experiència.' }),
       ],
       tracking: {
-        crossAppTracking: f('yes', 'official', ['fcb-app-store'], 'L’etiqueta declara les dades d’ús i els diagnòstics com a dades que es poden fer servir per rastrejar-te en apps i webs d’altres empreses.'),
+        crossAppTracking: f('yes', 'official', ['fcb-app-store'], 'L’etiqueta declara les dades d’ús i els diagnòstics com a dades que es poden fer servir per rastrejar en apps i webs d’altres empreses.'),
         advertisingIdentifiers: unknown('L’etiqueta no inclou identificadors entre les dades de rastreig i la política no esmenta l’identificador publicitari del dispositiu.'),
         thirdPartyTrackersPresent: f('yes', 'official', ['fcb-app-store', 'fcb-privacy-policy', 'fcb-cookies'], 'Declarar dades per rastrejar implica compartir-les amb tercers. La política esmenta les Conversions millorades de Google i la de galetes, tercers corresponsables d’analítica i publicitat comportamental; cap de les dues no enumera els SDK de l’app.'),
       },
@@ -455,10 +455,10 @@ export const lot: SeedLot = {
         lastReviewedAt: CATALAN_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'L’App Store enllaça l’avís legal com a política de privadesa. La política real és un document únic per a tots els tractaments del Club, sense cap apartat per a l’app, i data del 2023. L’afirmació que el Club no envia comunicacions sense segmentar converteix el perfilat en condició per rebre informació. La sanció de l’AEPD del 2026 no afecta aquesta app sinó la campanya del cens de socis, feta pel web i per l’App Socis, però és el mateix responsable del tractament.',
+          'L’App Store enllaça l’avís legal com a política de privadesa. La política vigent és un document únic per a tots els tractaments del Club, sense cap apartat per a l’app, i data del 2023. L’afirmació que el Club no envia comunicacions sense segmentar converteix el perfilat en condició per rebre informació. La sanció de l’AEPD del 2026 és per la campanya del cens de socis, feta pel web i per l’App Socis, i no per aquesta app, però el responsable del tractament és el mateix.',
         openQuestions: [
           'Per a què fa servir l’app la ubicació precisa vinculada a la identitat?',
-          'Quins proveïdors reben les dades d’ús amb què l’app declara que et rastreja?',
+          'Quins proveïdors reben les dades d’ús que l’app declara per rastrejar?',
           'Quines garanties empara la transferència de dades a Riskified i als proveïdors de fora de la UE?',
         ],
       },
@@ -470,7 +470,7 @@ export const lot: SeedLot = {
       name: 'Aigües de Barcelona',
       company: 'aigues-de-barcelona',
       categories: ['utilitats'],
-      tagline: 'Una política detallada i sense rastreig, però l’etiqueta amaga el DNI, el compte bancari i el consum, i l’APDCAT ha sancionat dues vegades l’empresa per errors de facturació',
+      tagline: 'Una política detallada i sense rastreig, però l’etiqueta no declara el DNI, el compte bancari ni el consum, i l’APDCAT ha sancionat dues vegades l’empresa per errors de facturació',
       summary:
         'L’app de l’àrea de clients d’Aigües de Barcelona serveix per consultar consums i factures, pagar, canviar el compte bancari i configurar avisos de fuites. L’etiqueta de l’App Store només declara identificadors i diagnòstics, però el servei tracta el DNI, les dades bancàries i el consum d’aigua de la llar. La política és de les més detallades del bloc: explica cada finalitat amb la seva base jurídica, demana consentiment per perfilar el consum amb la telelectura i reconeix una segmentació per detectar clients vulnerables. L’APDCAT ha sancionat l’empresa el 2022 i el 2025 per haver associat dades bancàries a la persona equivocada.',
       platforms: ['ios', 'android', 'web'],
@@ -486,7 +486,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['aigues-bcn-privacy-policy', 'aigues-bcn-area-clients-terms'], 'L’Àrea de Clients només està disponible per a persones amb un contracte vigent i exigeix donar-s’hi d’alta i acceptar-ne les condicions.'),
       openSource: f('no', 'official', ['aigues-bcn-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'El consum d’aigua hora a hora, que la telelectura permet conèixer en temps real, revela quanta gent viu en un pis, quan s’hi dutxa i quan està buit. Aigües de Barcelona el fa servir per detectar fuites i fraus, i per fer-ne un perfil comercial només si hi consents. A més, creua el comportament de pagament amb dades socioeconòmiques del districte censal per identificar clients en risc de vulnerabilitat.',
+        'La telelectura permet conèixer el consum d’aigua hora a hora, que pot indicar quantes persones viuen en un habitatge i quan està buit. Aigües de Barcelona el fa servir per detectar fuites i fraus, i per fer-ne un perfil comercial només amb consentiment. A més, creua el comportament de pagament amb dades socioeconòmiques del districte censal per identificar clients en risc de vulnerabilitat.',
       dataCollection: [
         row('identificador-de-compte', 'yes', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['aigues-bcn-app-store'] }),
         row('identificador-de-dispositiu', 'yes', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['aigues-bcn-app-store'] }),
@@ -502,7 +502,7 @@ export const lot: SeedLot = {
         row('fitxers-i-documents', 'optional', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['aigues-bcn-app-store'], note: 'La cèdula d’habitabilitat i altres documents que es poden pujar des de l’app.' }),
       ],
       tracking: {
-        crossAppTracking: f('no', 'official', ['aigues-bcn-app-store'], 'L’etiqueta no declara cap dada utilitzada per rastrejar-te.'),
+        crossAppTracking: f('no', 'official', ['aigues-bcn-app-store'], 'L’etiqueta no declara cap dada utilitzada per rastrejar.'),
         advertisingIdentifiers: unknown('L’etiqueta declara l’identificador del dispositiu per a la funcionalitat, sense concretar si inclou l’identificador publicitari.'),
         thirdPartyTrackersPresent: unknown('L’Àrea de Clients web només declara galetes de seguretat d’Incapsula; no hem trobat la llista d’SDK de l’app.'),
       },
@@ -565,7 +565,7 @@ export const lot: SeedLot = {
         lastReviewedAt: CATALAN_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'Aigües de Barcelona és una empresa mixta de majoria privada (Agbar, del grup Veolia, 70 %; AMB, 15 %; Criteria Caixa, 15 %, segons les dades del 2019) que gestiona un servei públic. Per això no hem activat el bloc de servei públic, pensat per a administracions, tot i que la política remet a l’APDCAT i que l’AMB rep dades dels clients com a titular del servei. L’etiqueta de l’App Store és molt incompleta respecte del que el servei tracta. Els dos expedients sancionadors de l’APDCAT (PS 49/2021 i PS-0071/2025) i un del 2016 amb la LOPD anterior repeteixen el mateix problema: dades bancàries associades a la persona equivocada.',
+          'Aigües de Barcelona és una empresa mixta de majoria privada (Agbar, del grup Veolia, 70 %; AMB, 15 %; Criteria Caixa, 15 %, segons les dades del 2019) que gestiona un servei públic. Per això no hem activat el bloc de servei públic, pensat per a administracions, tot i que la política remet a l’APDCAT i que l’AMB rep dades dels clients com a titular del servei. L’etiqueta de l’App Store no declara bona part de les dades que tracta el servei, com el DNI, el compte bancari i el consum. Els dos expedients sancionadors de l’APDCAT (PS 49/2021 i PS-0071/2025) i un del 2016 amb la LOPD anterior repeteixen el mateix problema: dades bancàries associades a la persona equivocada.',
         openQuestions: [
           'Quins proveïdors de fora de la UE actuen com a subencarregats i amb quina garantia?',
           'Per què l’etiqueta de l’App Store no declara el DNI, el compte bancari ni el consum?',
@@ -580,9 +580,9 @@ export const lot: SeedLot = {
       name: 'Clickedu',
       company: 'clickart',
       categories: ['educacio'],
-      tagline: 'El responsable és l’escola; l’app declara ubicació precisa vinculada als alumnes i l’enllaç de privadesa de l’App Store porta a una pàgina que no existeix',
+      tagline: 'El responsable és l’escola; l’app declara ubicació precisa vinculada a la identitat i l’enllaç de privadesa de l’App Store porta a una pàgina que no existeix',
       summary:
-        'Clickedu és la plataforma de gestió escolar de Clickart, del grup Sanoma Learning: notes, faltes, missatges, fotos i pagaments d’alumnat i famílies. El responsable del tratamiento és cada centre educatiu i Clickart n’és l’encarregada, de manera que els drets s’exerceixen davant de l’escola. L’etiqueta de l’App Store declara la ubicació precisa, l’identificador del dispositiu i la interacció amb l’app vinculats a la identitat per a «altres finalitats» no especificades. L’enllaç de privadesa que declara retorna un error 404, i la política del web és del 2018 i s’adreça als centres clients, no a les famílies. A favor: servidors a Europa, ISO 27001 i un canal públic per notificar vulnerabilitats.',
+        'Clickedu és la plataforma de gestió escolar de Clickart, del grup Sanoma Learning: notes, faltes, missatges, fotos i pagaments d’alumnat i famílies. El responsable del tractament és cada centre educatiu i Clickart n’és l’encarregada, de manera que els drets s’exerceixen davant de l’escola. L’etiqueta de l’App Store declara la ubicació precisa, l’identificador del dispositiu i la interacció amb l’app vinculats a la identitat per a «altres finalitats» no especificades. L’enllaç de privadesa que declara retorna un error 404, i la política del web és del 2018 i s’adreça als centres clients, no a les famílies. L’empresa declara servidors a Europa i la certificació ISO 27001, i té un canal públic per notificar vulnerabilitats.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'unknown',
       jurisdiction: 'Espanya; el responsable és cada centre educatiu i Clickart, Taller de Comunicació, S.L. hi actua com a encarregada del tractament',
@@ -596,7 +596,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['clickedu-faqs', 'clickedu-app-store'], 'Les credencials les dona el centre educatiu; l’app només serveix per a clients de Clickedu (direcció, professorat, alumnat i famílies).'),
       openSource: f('no', 'official', ['clickedu-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'És l’expedient escolar d’un infant a la butxaca de la família: notes, faltes i retards, comportament, menjador, missatges amb el professorat, àlbums de fotos i rebuts. Són dades de menors que decideix i custodia l’escola. El que afegeix l’app, segons l’etiqueta, és la ubicació precisa i l’activitat dins de l’app vinculades a la persona usuària, per a una finalitat que ni l’etiqueta ni cap política expliquen.',
+        'L’app dona accés a l’expedient escolar de l’alumne: notes, faltes i retards, comportament, menjador, missatges amb el professorat, àlbums de fotos i rebuts. Són dades de menors que decideix i custodia l’escola. Segons l’etiqueta, l’app hi afegeix la ubicació precisa i l’activitat dins de l’app vinculades a la persona usuària, per a una finalitat que ni l’etiqueta ni cap política expliquen.',
       dataCollection: [
         row('ubicacio-precisa', 'yes', { linked: 'yes', tracking: 'no', shared: 'unknown', sources: ['clickedu-app-store'], note: 'L’etiqueta la declara vinculada a la identitat per a «altres finalitats», sense concretar-les; cap document públic explica per a què la fa servir l’app.' }),
         row('identificador-de-dispositiu', 'yes', { linked: 'yes', tracking: 'no', shared: 'unknown', sources: ['clickedu-app-store'], note: 'Declarat per a «altres finalitats».' }),
@@ -676,7 +676,7 @@ export const lot: SeedLot = {
         lastReviewedAt: CATALAN_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'Com a Educamos, el responsable és el centre i l’empresa és l’encarregada: les famílies no trien l’app ni poden negociar-ne les condicions. El problema principal és la transparència: l’App Store enllaça una política inexistent (clickartedu.com retorna 404) i la del web, del 2018, és per als centres que contracten la llicència. Hi ha una discrepància d’adreces: l’App Store situa Clickart al carrer de la Llacuna de Barcelona i la política, a l’Hospitalet de Llobregat. No hem trobat sancions ni incidents públics relacionats amb Clickedu.',
+          'Com a Educamos, el responsable és el centre i l’empresa és l’encarregada: les famílies no trien l’app ni poden negociar-ne les condicions. La mancança principal és de transparència: l’App Store enllaça una política inexistent (clickartedu.com retorna 404) i la del web, del 2018, és per als centres que contracten la llicència. Hi ha una discrepància d’adreces: l’App Store situa Clickart al carrer de la Llacuna de Barcelona i la política, a l’Hospitalet de Llobregat. No hem trobat sancions ni incidents públics relacionats amb Clickedu.',
         openQuestions: [
           'Per a què fa servir l’app la ubicació precisa vinculada a la identitat?',
           'Què vol dir «altres finalitats» a l’etiqueta de l’App Store?',

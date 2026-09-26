@@ -19,9 +19,9 @@ export default function TermsPage() {
       <DocMeta version="1.1" updated="25 de setembre de 2026" />
 
       <p className="lede">
-        Les regles del joc d’aquest lloc. Són curtes perquè aquí no hi ha res a comprar, cap compte
-        a obrir i cap dada teva a gestionar. El que sí que hi ha són tres eines que toquen coses
-        delicades, i d’aquestes en parlem amb detall.
+        Les normes d’ús d’aquest lloc. Són curtes perquè aquí no hi ha res a comprar, cap compte a
+        obrir i cap dada teva a gestionar. Sí que hi ha tres eines que treballen amb dades
+        delicades, i en parlem amb detall.
       </p>
 
       <Resum>
@@ -41,7 +41,7 @@ export default function TermsPage() {
       </p>
       <p>
         Aquestes condicions regulen l’accés i l’ús del lloc i de les eines que hi ha. Navegar-hi
-        implica acceptar-les. Si no hi estàs d’acord, la solució és senzilla: no el facis servir.
+        implica acceptar-les. Si no hi estàs d’acord, no el facis servir.
       </p>
 
       <h2>2. Accés</h2>
@@ -72,8 +72,8 @@ export default function TermsPage() {
         </p>
         <p>
           Les puntuacions són una <strong>valoració editorial</strong> construïda sobre fets
-          documentats en una data concreta i amb uns criteris explícits. Són opinió fonamentada, no
-          una mesura objectiva de la qualitat d’un producte, i no substitueixen la lectura de les
+          documentats en una data concreta i amb uns criteris explícits. Són una opinió fonamentada
+          i no una mesura objectiva de la qualitat d’un producte, i no substitueixen la lectura de les
           condicions de cap servei ni el criteri d’un professional.
         </p>
       </Avis>
@@ -114,8 +114,8 @@ export default function TermsPage() {
             modificat o compromès.
           </li>
           <li>
-            <strong>No desem res.</strong> Si perds una contrasenya generada aquí, no te la podem
-            tornar. Ningú no pot. Desa-la en un gestor de contrasenyes abans de tancar la pestanya.
+            <strong>No desem res.</strong> Si perds una contrasenya generada aquí, ni nosaltres ni
+            ningú no te la pot tornar. Desa-la en un gestor de contrasenyes abans de tancar la pestanya.
           </li>
           <li>
             <strong>
@@ -142,8 +142,8 @@ export default function TermsPage() {
       <p>
         Aquesta eina et diu si les contrasenyes que hi escrius han aparegut en filtracions de dades
         conegudes i si en repeteixes o en fas variants. La comparació entre elles es fa al teu
-        dispositiu. La comprovació de filtracions es fa per k-anonimat: el teu navegador calcula el resum SHA-1 de la contrasenya i n’envia només
-        els cinc primers caràcters hexadecimals a una ruta del nostre servidor, que els reenvia a
+        dispositiu. La comprovació de filtracions es fa per k-anonimat: el teu navegador calcula el
+        resum SHA-1 de la contrasenya i n’envia només els cinc primers caràcters hexadecimals a una ruta del nostre servidor, que els reenvia a
         l’API de Have I Been Pwned. La contrasenya i el resum sencer no surten mai del teu
         dispositiu. El procediment sencer, pas a pas, és a la{' '}
         <Link href="/legal/privadesa">política de privadesa</Link>.
@@ -234,29 +234,29 @@ export default function TermsPage() {
       <p>
         Tots dos treballen sobre les dades publicades al lloc en el moment de la consulta. El
         resultat és una orientació basada en la nostra metodologia i en el que documenten les
-        fitxes, no una auditoria de la teva situació real, que depèn de coses que no coneixem:
+        fitxes. No és una auditoria de la teva situació, que depèn de coses que no coneixem:
         la teva configuració de privadesa, quant fas servir cada servei o quines dades hi has posat.
       </p>
       <p>
         El comparador només compara serveis que cobreixen una mateixa necessitat funcional, amb
-        indicadors objectius, verificables i idèntics per a tots. La comparació és una eina per
-        decidir, no una recomanació de compra ni una afirmació sobre la qualitat comercial de cap
-        producte.
+        indicadors objectius, verificables i idèntics per a tots. La comparació serveix per ajudar
+        a decidir; no és una recomanació de compra ni una afirmació sobre la qualitat comercial de
+        cap producte.
       </p>
 
       <p>
         El diagnòstic <strong>recorda la teva tria i el progrés del pla en aquest navegador</strong>,
         amb emmagatzematge local i sense enviar-los enlloc, perquè no els hagis de refer cada
-        vegada. Tens un botó per esborrar-ho tot quan vulguis. El comparador, en canvi, desa la selecció{' '}
-        <strong>a l’adreça de la pàgina</strong>, de manera que la pots copiar i compartir; això vol
-        dir que qui rebi l’enllaç en veurà la selecció, que és precisament el que es vol.
+        vegada. Tens un botó per esborrar-ho tot quan vulguis. El comparador, en canvi, desa la
+        selecció <strong>a l’adreça de la pàgina</strong>, de manera que la pots copiar i
+        compartir; qui rebi l’enllaç en veurà la selecció.
       </p>
 
       <h2>5. Ús permès i ús prohibit</h2>
       <p>
         Pots llegir, copiar, citar, adaptar i republicar el contingut del lloc en les condicions que
-        fixa la llicència Creative Commons Reconeixement-CompartirIgual 4.0. Volem que la informació circuli;
-        aquesta és la raó de ser del projecte.
+        fixa la llicència Creative Commons Reconeixement-CompartirIgual 4.0. El projecte existeix
+        perquè aquesta informació circuli.
       </p>
       <p>El que no pots fer:</p>
       <ul>
@@ -271,7 +271,7 @@ export default function TermsPage() {
         </li>
         <li>
           Fer extraccions automatitzades massives amb una intensitat que perjudiqui el servei per a
-          la resta de persones. No et cal: el conjunt sencer es publica en obert a{' '}
+          la resta de persones. El conjunt sencer es publica en obert a{' '}
           <Link href="/dades">/dades</Link>, en nou fitxers JSON i CSV, sense registre, sense clau i
           amb <code>Access-Control-Allow-Origin: *</code>. Baixar-te’l d’allà és més ràpid per a tu
           i més barat per a nosaltres que recórrer el lloc pàgina per pàgina.
@@ -301,8 +301,8 @@ export default function TermsPage() {
 
       <h2>7. Responsabilitat</h2>
       <p>
-        Posem tota la diligència que podem en el contingut i en les eines, i ho fem amb un mètode
-        documentat i comprovable. Dit això, i dins dels límits que permet la llei:
+        Treballem el contingut i les eines amb diligència i amb un mètode documentat i comprovable.
+        Tot i això, i dins dels límits que permet la llei:
       </p>
       <ul>
         <li>
@@ -330,8 +330,7 @@ export default function TermsPage() {
       <p>
         Si trobes una dada equivocada, una font caiguda o una interpretació que et sembla injusta,
         escriu-nos. El procediment de correcció, els terminis i el dret de rèplica de les empreses
-        documentades són a la <Link href="/metodologia">metodologia</Link>. Si
-        has trobat una barrera d’accessibilitat, el camí és a la{' '}
+        documentades són a la <Link href="/metodologia">metodologia</Link>. Si has trobat una barrera d’accessibilitat, el camí és a la{' '}
         <Link href="/legal/accessibilitat">declaració d’accessibilitat</Link>.
       </p>
       <p>

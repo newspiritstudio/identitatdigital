@@ -63,9 +63,9 @@ export default async function AnalysisIndexPage() {
     <div className="content-wrapper">
       <h1>Anàlisi</h1>
       <p className="lede">
-        Què surt de mirar les {num(apps)} fitxes alhora: quines dades recull tothom, on van a
-        parar, què costa marxar i quina part encara no hem pogut documentar. Totes les xifres porten
-        el denominador i els desconeguts al costat.
+        Què surt de mirar les {num(apps)} fitxes alhora: quines dades recull tothom, on van a parar,
+        què costa marxar i quina part encara no hem pogut documentar. Totes les xifres porten el
+        denominador i els desconeguts al costat.
       </p>
 
       <KeyNumbers>
@@ -119,9 +119,9 @@ export default async function AnalysisIndexPage() {
       </table>
       <p>
         Una adreça de xarxa sola és un número que canvia sovint. Associada a un compte, esdevé un
-        historial de navegació amb nom i data. I si a més serveix per reconèixer la mateixa persona
-        en altres aplicacions, el resultat és l’historial d’una persona repartit entre serveis que
-        ella no ha relacionat mai.
+        historial de navegació amb nom i data. Si a més serveix per reconèixer la mateixa persona en
+        altres aplicacions, permet unir l’historial d’aquesta persona en serveis que ella no ha
+        relacionat mai.
       </p>
       <p>
         <Link href="/analisi/dades">Quines dades recull tothom</Link>, tipus per tipus.
@@ -130,16 +130,16 @@ export default async function AnalysisIndexPage() {
       <h2>Qui hi ha al darrere</h2>
       <p>
         Les {num(apps)} fitxes pengen de {num(groups.groups.length)} grups empresarials diferents,
-        però el repartiment no és pla: {topGroups[0]?.rootName} n’aplega{' '}
+        amb un repartiment desigual: {topGroups[0]?.rootName} n’aplega{' '}
         {num(topGroups[0]?.appCount ?? 0)} i {topGroups[1]?.rootName},{' '}
         {num(topGroups[1]?.appCount ?? 0)}. Entre tots dos sumen {num(twoGroupApps)} de les{' '}
         {num(apps)}, i els tres primers grups en tenen {num(groups.appsInTopThreeGroups)}.
       </p>
       <p>
-        Compta més el perfil acumulat que el nombre d’aplicacions. {topGroups[0]?.rootName} recull{' '}
-        {num(topGroups[0]?.dataTypeCount ?? 0)} tipus de dada diferents repartits entre les seves
-        fitxes i {topGroups[1]?.rootName}, {num(topGroups[1]?.dataTypeCount ?? 0)}. Cap aplicació
-        sola no arriba a tant.
+        Si es compten els tipus de dada, {topGroups[0]?.rootName} en recull{' '}
+        {num(topGroups[0]?.dataTypeCount ?? 0)} de diferents entre totes les seves fitxes i{' '}
+        {topGroups[1]?.rootName}, {num(topGroups[1]?.dataTypeCount ?? 0)}. Cap aplicació sola no
+        n’arriba a recollir tants.
       </p>
       <p>
         El graf de cessions amb destinatari identificat té {num(graph.edges.length)} arestes
@@ -148,21 +148,21 @@ export default async function AnalysisIndexPage() {
           : '.'}
       </p>
       <Note>
-        Això no vol dir que no hi hagi cessions cap enfora. Vol dir que no les podem dibuixar:{' '}
+        Les cessions sense destinatari identificat no surten al graf, i n’hi ha:{' '}
         {num(graph.rowsToThirdParties)} files de la matriu declaren que la dada es comparteix amb
         tercers sense que la política digui amb qui, i el corpus té {num(graph.documentedTrackers)}{' '}
-        rastrejadors de tercers documentats amb nom d’empresa. És el buit més gran del model, i
+        rastrejadors de tercers documentats amb nom d’empresa. És el buit més gran del model i
         condiciona qualsevol lectura del graf.
       </Note>
       <p>
         <Link href="/analisi/grups">La concentració i el graf de cessions</Link>.
       </p>
 
-      <h2>La interfície també decideix</h2>
+      <h2>Patrons enganyosos a la interfície</h2>
       <p>
         De les {num(apps)} fitxes publicades, {num(patterns.appsWithPatterns)} documenten almenys un
-        patró enganyós —una manera de presentar les opcions que empeny cap a la que convé a
-        l’empresa— i en {num(patterns.appsWithoutPatterns)} hem revisat la interfície sense
+        patró enganyós (una manera de presentar les opcions que empeny cap a la que convé a
+        l’empresa) i en {num(patterns.appsWithoutPatterns)} hem revisat la interfície sense
         trobar-ne cap. En total n’hi ha {num(patterns.totalPatterns)} de documentats, dels quals{' '}
         {num(patterns.bySeverity.high)} de gravetat alta.
       </p>
@@ -173,9 +173,9 @@ export default async function AnalysisIndexPage() {
           .slice(0, 2)
           .map((type) => type.label.toLowerCase())
           .join(' i ')}
-        . Tots dos encareixen arribar a l’opció protectora: una casella ja marcada o un enllaç de
-        baixa enterrat tres pantalles endins no impedeixen res, però fan que la configuració per
-        defecte acabi sent la de gairebé tothom.
+        . Tots dos fan més difícil arribar a l’opció que protegeix la persona. Una casella ja
+        marcada o un enllaç de baixa tres pantalles endins no impedeixen canviar la configuració,
+        però fan que gairebé tothom es quedi amb la que ve per defecte.
       </p>
       <p>
         <Link href="/analisi/patrons">Els patrons enganyosos, per tipus i per gravetat</Link>.
@@ -189,9 +189,9 @@ export default async function AnalysisIndexPage() {
         dies i la més llarga és de {num(deletion.maxWaitingDays ?? 0)}.
       </p>
       <p>
-        El rastre, en canvi, no queda net. {num(retainSomething)} de les {num(retentionApplicable)}{' '}
-        fitxes on l’indicador aplica declaren que conserven alguna cosa després d’eliminar el compte
-        —registres de facturació, dades agregades, còpies de seguretat— i{' '}
+        Eliminar el compte no ho esborra tot. {num(retainSomething)} de les{' '}
+        {num(retentionApplicable)} fitxes on l’indicador aplica declaren que conserven alguna cosa
+        després de l’eliminació (registres de facturació, dades agregades, còpies de seguretat) i{' '}
         {num(jurisdictions.appsWithTransfers)} de {num(apps)} documenten transferències de dades
         fora de la Unió Europea.
       </p>
@@ -219,33 +219,33 @@ export default async function AnalysisIndexPage() {
         concloure res sobre el directori.
       </p>
       <Note>
-        Hi ha una limitació estructural més: {num(officialLevel?.claims ?? 0)} de les{' '}
+        Una altra limitació: {num(officialLevel?.claims ?? 0)} de les{' '}
         {num(evidence.claims.documented)} afirmacions documentades se sostenen en documentació
         publicada per la mateixa empresa. És la font més verificable que hi ha, però bona part del
         que afirmem continua sent el que les empreses diuen de si mateixes.
       </Note>
       <p>
-        <Link href="/analisi/evidencia">La mètrica d’honestedat del projecte</Link>.
+        <Link href="/analisi/evidencia">Quina part del que afirmem està documentada</Link>.
       </p>
 
       <h2>El que funciona</h2>
       <p>
         {num(transport?.tally.yes ?? 0)} fitxes de {num(apps)} xifren el trànsit,{' '}
-        {num(security.mfa.yes + security.mfa.partial)} de {num(security.mfa.total - security.mfa.na)}
+        {num(security.mfa.yes + security.mfa.partial)} de{' '}
+        {num(security.mfa.total - security.mfa.na)}
         ofereixen verificació en dos passos i cap no té l’SMS com a únic segon factor. La matriu de
         dades està documentada fins al detall: {num(evidence.dataRows)} files i{' '}
         {num(evidence.dataRowsWithoutSources)} sense font.
       </p>
       <p>
-        El xifratge d’extrem a extrem és una altra història:{' '}
-        {num(security.e2eeEverythingByDefault.length)} fitxes de les {num(e2eeApplicable)} on la
-        pregunta té sentit xifren tot el contingut per defecte
+        Pel que fa al xifratge d’extrem a extrem, {num(security.e2eeEverythingByDefault.length)}{' '}
+        fitxes de les {num(e2eeApplicable)} on la pregunta té sentit xifren tot el contingut per
+        defecte
         {security.e2eeEverythingByDefault.length > 0
           ? ` (${security.e2eeEverythingByDefault.map((app) => app.name).join(', ')})`
           : ''}
-        . La resta el xifren en part, només si s’activa, o no el xifren. «Per defecte» és la
-        condició decisiva: un xifratge que s’ha d’anar a activar a la configuració només protegeix
-        qui ja sabia que hi era.
+        . La resta el xifren en part, només si s’activa, o no el xifren. Comptem el xifratge per
+        defecte perquè el que s’ha d’activar a la configuració només protegeix qui sap que existeix.
       </p>
 
       <h2>Com llegir aquestes pàgines</h2>
@@ -310,7 +310,7 @@ export default async function AnalysisIndexPage() {
           </h3>
           <p className="meta">
             Quantes fitxes es poden fer servir en català i quantes en tradueixen trenta sense
-            incloure’l. Dimensió informativa: no entra a cap puntuació.
+            incloure’l. És una dimensió informativa i no entra a cap puntuació.
           </p>
         </li>
         <li className="card">
@@ -329,8 +329,8 @@ export default async function AnalysisIndexPage() {
         {millions(incidents.totalFinesEur)} milions d’euros anunciats, dels quals{' '}
         {millions(incidents.finalFinesEur)} milions corresponen a resolucions fermes i{' '}
         {millions(incidents.overturnedFinesEur)} milions a sancions anul·lades o reduïdes. El
-        registre d’incidents és una selecció editorial dels casos rellevants, no un cens: serveix
-        per veure on es concentren, no per calcular-ne una taxa.
+        registre d’incidents és una selecció editorial dels casos rellevants i no un cens complet.
+        Permet veure on es concentren els casos, però no calcular-ne una taxa.
       </p>
     </div>
   )

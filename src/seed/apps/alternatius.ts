@@ -18,7 +18,7 @@ export const alternativeApps: AppSeed[] = [
     categories: ['missatgeria', 'comunitats-i-forums'],
     tagline: 'Missatgeria al núvol sense xifratge d’extrem a extrem per defecte',
     summary:
-      'Telegram té fama de servei privat i és, en bona part, una fama immerescuda. Els xats normals, els grups i els canals no estan xifrats d’extrem a extrem: es desen als servidors de Telegram, que hi té accés tècnic. El xifratge complet només existeix als xats secrets, que cal iniciar expressament, no funcionen en grup i no se sincronitzen entre dispositius.',
+      'Telegram té fama de servei privat, però els xats normals, els grups i els canals no estan xifrats d’extrem a extrem. Es desen als servidors de Telegram, que hi té accés tècnic. El xifratge complet només existeix als xats secrets, que cal iniciar expressament, no funcionen en grup i no se sincronitzen entre dispositius.',
     platforms: ['ios', 'android', 'web', 'windows', 'macos', 'linux'],
     businessModel: 'freemium',
     jurisdiction: 'Illes Verges Britàniques, amb operació als Emirats Àrabs Units',
@@ -29,12 +29,12 @@ export const alternativeApps: AppSeed[] = [
       terms: 'https://telegram.org/tos',
     },
     accountRequired: f('yes', 'official', ['telegram-privacy-policy'], 'Cal un número de telèfon. Existeixen números anònims de pagament comprats amb criptomoneda, però no és el camí habitual.'),
-    openSource: f('partial', 'official', ['telegram-faq'], 'Els clients són de codi obert i publicats amb llicència GPL, però el codi del servidor és privatiu. Com que els xats no secrets es desxifren al servidor, això és una limitació de fons: no es pot verificar què passa amb els missatges.', {
+    openSource: f('partial', 'official', ['telegram-faq'], 'Els clients són de codi obert i publicats amb llicència GPL, però el codi del servidor és privatiu. Com que els xats no secrets es desxifren al servidor, no es pot verificar què passa amb els missatges.', {
       repositoryUrl: 'https://github.com/telegramdesktop/tdesktop',
       licence: 'GPL-3.0 per als clients; servidor privatiu',
     }),
     dataSummary:
-      'Telegram recull poques dades declarades —número, contactes, nom— però conserva al núvol tot el contingut dels xats no secrets. Aquesta combinació és inusual: minimització formal amb accés real al contingut.',
+      'Telegram declara poques dades (número, contactes, nom), però conserva al núvol tot el contingut dels xats no secrets i hi té accés.',
     dataCollection: [
       row('numero-de-telefon', 'yes', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['telegram-privacy-policy'] }),
       row('identificador-de-compte', 'yes', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['telegram-privacy-policy'] }),
@@ -129,7 +129,7 @@ export const alternativeApps: AppSeed[] = [
         protocol: 'MTProto 2.0',
       }),
       transportEncryption: f('yes', 'official', ['telegram-faq']),
-      atRestEncryption: f('yes', 'official', ['telegram-faq'], 'Telegram afirma que les claus i les dades es reparteixen entre jurisdiccions perquè cap sol·licitud d’un sol estat hi doni accés complet. És una garantia organitzativa, no criptogràfica.'),
+      atRestEncryption: f('yes', 'official', ['telegram-faq'], 'Telegram afirma que les claus i les dades es reparteixen entre jurisdiccions perquè cap sol·licitud d’un sol estat hi doni accés complet. Es tracta d’una garantia organitzativa, sense base criptogràfica.'),
       mfa: f('yes', 'official', ['telegram-faq'], 'Verificació en dos passos amb contrasenya addicional.', {
         methods: ['app-push'],
       }),
@@ -142,7 +142,7 @@ export const alternativeApps: AppSeed[] = [
         app: 'signal',
         comparability: 'partial',
         rationale:
-          'Cobreix la missatgeria individual i de grup amb xifratge d’extrem a extrem sempre actiu, que és precisament el que Telegram no ofereix per defecte.',
+          'Cobreix la missatgeria individual i de grup amb xifratge d’extrem a extrem sempre actiu, que Telegram no ofereix per defecte.',
         tradeOffs:
           'No té canals massius, ni bots, ni emmagatzematge al núvol il·limitat, que són els motius pels quals molta gent fa servir Telegram.',
       },
@@ -152,9 +152,9 @@ export const alternativeApps: AppSeed[] = [
       lastReviewedAt: '2026-09-09',
       incidentsReviewed: true,
       editorialNotes:
-        'Aquesta fitxa és el contraexemple que justifica tot el projecte: la reputació de privadesa de Telegram no es correspon amb el seu comportament per defecte, i cap resum superficial ho detecta. La puntuació de privadesa és moderada perquè recull poques dades, però la de seguretat baixa pel xifratge parcial.',
+        'La reputació de privadesa de Telegram no es correspon amb el seu comportament per defecte, i un resum superficial no ho detecta. La puntuació de privadesa és moderada perquè recull poques dades, però la de seguretat baixa pel xifratge parcial.',
       openQuestions: [
-        'Quantes peticions d’autoritats ha atès Telegram realment des del canvi de política de 2024?',
+        'Quantes peticions d’autoritats ha atès Telegram des del canvi de política de 2024?',
       ],
     },
   },
@@ -167,7 +167,7 @@ export const alternativeApps: AppSeed[] = [
     categories: ['missatgeria'],
     tagline: 'Missatgeria xifrada amb minimització de metadades',
     summary:
-      'Signal està construït per no saber res de qui l’utilitza. No té model publicitari, no desa l’agenda al servidor, protegeix fins i tot qui envia cada missatge i publica tot el codi, client i servidor. L’episodi de Twilio de 2022 ho va demostrar en la pràctica: quan van accedir al seu proveïdor d’SMS, no hi havia gairebé res a robar.',
+      'Signal està dissenyat per conservar el mínim de dades de qui l’utilitza. No té model publicitari, no desa l’agenda al servidor, amaga fins i tot qui envia cada missatge i publica tot el codi, del client i del servidor. Quan el 2022 van accedir a Twilio, el seu proveïdor d’SMS, gairebé no hi havia dades per robar.',
     platforms: ['ios', 'android', 'windows', 'macos', 'linux'],
     businessModel: 'donations',
     jurisdiction: 'Estats Units',
@@ -183,7 +183,7 @@ export const alternativeApps: AppSeed[] = [
       licence: 'AGPL-3.0 i GPL-3.0',
     }),
     dataSummary:
-      'Signal declara conservar només el número de telèfon, la data de creació del compte i la data de darrera connexió. Aquesta llista és tan curta que la seva veracitat s’ha pogut comprovar públicament diverses vegades a través de les respostes judicials que la fundació publica.',
+      'Signal declara conservar només el número de telèfon, la data de creació del compte i la data de darrera connexió. Aquesta llista s’ha pogut comprovar públicament diverses vegades a través de les respostes judicials que la fundació publica.',
     dataCollection: [
       row('numero-de-telefon', 'yes', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['signal-privacy-policy'], note: 'És l’única dada identificativa que Signal desa. Des de 2024 es pot ocultar a la resta de persones usuàries amb un nom d’usuari.' }),
       row('contingut-de-missatges', 'no', { linked: 'no', tracking: 'no', shared: 'none', sources: ['signal-docs'], note: 'Xifrat d’extrem a extrem. Signal no hi té accés en cap moment.' }),
@@ -287,7 +287,7 @@ export const alternativeApps: AppSeed[] = [
       lastReviewedAt: '2026-09-09',
       incidentsReviewed: true,
       editorialNotes:
-        'L’incident de Twilio de 2022 puntua com a incident real, però la seva gravetat és baixa i el disseny del servei en va limitar l’abast. Val la pena que quedi registrat: mostra que un servei ben dissenyat no evita els atacs, però sí que en redueix les conseqüències.',
+        'L’incident de Twilio de 2022 puntua com a incident real, però la seva gravetat és baixa i el disseny del servei en va limitar l’abast. Queda registrat perquè mostra que un servei ben dissenyat no evita els atacs, però en redueix les conseqüències.',
     },
   },
 
@@ -299,7 +299,7 @@ export const alternativeApps: AppSeed[] = [
     categories: ['correu-electronic'],
     tagline: 'Correu xifrat de coneixement zero amb seu a Suïssa',
     summary:
-      'Proton Mail xifra els missatges de manera que la mateixa empresa no els pot llegir. Això és tècnicament comprovable perquè el codi dels clients és obert i hi ha auditories publicades. Les limitacions són igual d’importants: els correus intercanviats amb proveïdors no xifrats no queden protegits d’extrem a extrem, i les metadades de qui escriu a qui són visibles per necessitat del protocol.',
+      'Proton Mail xifra els missatges de manera que la mateixa empresa no els pot llegir. Es pot comprovar perquè el codi dels clients és obert i hi ha auditories publicades. Té dues limitacions: els correus intercanviats amb proveïdors no xifrats no queden protegits d’extrem a extrem, i les metadades de qui escriu a qui són visibles per necessitat del protocol.',
     platforms: ['web', 'ios', 'android', 'windows', 'macos', 'linux'],
     businessModel: 'freemium',
     jurisdiction: 'Suïssa',
@@ -394,7 +394,7 @@ export const alternativeApps: AppSeed[] = [
       darkPatterns: f('no', 'editorial', ['proton-delete-account'], 'El camí de sortida és accessible i està documentat, sense pantalles d’intercepció.'),
     },
     security: {
-      e2ee: f('yes', 'official', ['proton-mail-privacy'], 'Xifratge de coneixement zero per als correus emmagatzemats i xifratge d’extrem a extrem real entre comptes de Proton o amb persones que facin servir OpenPGP. Amb altres proveïdors, la protecció es limita al transport.', {
+      e2ee: f('yes', 'official', ['proton-mail-privacy'], 'Xifratge de coneixement zero per als correus emmagatzemats i xifratge d’extrem a extrem entre comptes de Proton o amb persones que facin servir OpenPGP. Amb altres proveïdors, la protecció es limita al transport.', {
         scope: 'metadata-excluded',
         protocol: 'OpenPGP',
       }),
@@ -412,7 +412,7 @@ export const alternativeApps: AppSeed[] = [
       lastReviewedAt: '2026-09-09',
       incidentsReviewed: true,
       editorialNotes:
-        'Cal ser precisos amb el que Proton no protegeix: les metadades i els correus intercanviats amb proveïdors no xifrats. Presentar-lo com a inexpugnable seria tan poc rigorós com presentar Telegram com a privat.',
+        'Proton no protegeix les metadades ni els correus intercanviats amb proveïdors no xifrats, i la fitxa ho recull.',
     },
   },
 
@@ -424,7 +424,7 @@ export const alternativeApps: AppSeed[] = [
     categories: ['cercadors', 'navegadors'],
     tagline: 'Cerca sense perfil, finançada amb publicitat contextual',
     summary:
-      'DuckDuckGo demostra que es pot viure de la publicitat sense perfilar: els anuncis es basen únicament en la paraula cercada, no en qui la cerca. L’episodi de 2022, quan es va descobrir que el seu navegador permetia rastrejadors de Microsoft per un acord contractual, és el que impedeix donar-li una confiança cega, i per això queda registrat a la fitxa.',
+      'DuckDuckGo es finança amb publicitat sense perfilar: els anuncis es basen només en la paraula cercada, sense dades de qui la cerca. El 2022 es va descobrir que el seu navegador permetia rastrejadors de Microsoft per un acord contractual; l’incident consta a la fitxa.',
     platforms: ['web', 'ios', 'android', 'windows', 'macos'],
     businessModel: 'advertising',
     jurisdiction: 'Estats Units',
@@ -527,7 +527,7 @@ export const alternativeApps: AppSeed[] = [
       lastReviewedAt: '2026-09-09',
       incidentsReviewed: true,
       editorialNotes:
-        'L’episodi de Microsoft de 2022 no invalida la proposta de DuckDuckGo, però sí que és un recordatori que les promeses de privadesa poden tenir excepcions contractuals invisibles. Que l’empresa ho reconegués i ho corregís és rellevant i queda reflectit en la gravetat baixa de l’incident.',
+        'L’episodi de Microsoft de 2022 mostra que una promesa de privadesa pot tenir excepcions contractuals que no es veuen. L’empresa ho va reconèixer i corregir, i per això l’incident té una gravetat baixa.',
     },
   },
 
@@ -539,7 +539,7 @@ export const alternativeApps: AppSeed[] = [
     categories: ['navegadors'],
     tagline: 'Navegador independent amb sincronització xifrada d’extrem a extrem',
     summary:
-      'Firefox és l’únic navegador majoritari que no pertany a una empresa que també ven publicitat o dispositius. La protecció contra el rastreig ve activada per defecte i la sincronització està xifrada d’extrem a extrem. La contrapartida a tenir present és econòmica: la major part dels ingressos de Mozilla prové de l’acord perquè Google sigui el cercador predeterminat.',
+      'Firefox és l’únic navegador majoritari que no pertany a una empresa que també ven publicitat o dispositius. La protecció contra el rastreig ve activada per defecte i la sincronització està xifrada d’extrem a extrem. Pel que fa al finançament, la major part dels ingressos de Mozilla prové de l’acord perquè Google sigui el cercador predeterminat.',
     platforms: ['windows', 'macos', 'linux', 'android', 'ios'],
     businessModel: 'donations',
     jurisdiction: 'Estats Units, amb filial europea a Alemanya',
@@ -653,7 +653,7 @@ export const alternativeApps: AppSeed[] = [
         rationale:
           'Navegador complet amb bloqueig de rastrejadors per defecte i sincronització xifrada, basat en Chromium, de manera que la compatibilitat amb aplicacions web és màxima.',
         tradeOffs:
-          'Fer servir Chromium reforça el domini del motor de Google al web, cosa que Firefox precisament contraresta.',
+          'Fer servir Chromium reforça el domini del motor de Google al web, cosa que Firefox contraresta.',
       },
     ],
     review: {
@@ -661,7 +661,7 @@ export const alternativeApps: AppSeed[] = [
       lastReviewedAt: '2026-09-09',
       incidentsReviewed: true,
       editorialNotes:
-        'La dependència econòmica de Google és un risc estructural real i s’ha d’explicar, però no és una pràctica de tractament de dades i, per tant, no penalitza cap indicador. Va a la descripció, no a la puntuació.',
+        'La dependència econòmica de Google és un risc estructural, però no és una pràctica de tractament de dades i, per tant, no penalitza cap indicador. S’explica a la descripció i no compta a la puntuació.',
     },
   },
 
@@ -673,7 +673,7 @@ export const alternativeApps: AppSeed[] = [
     categories: ['navegadors', 'cercadors'],
     tagline: 'Navegador basat en Chromium amb bloqueig de rastrejadors per defecte',
     summary:
-      'Brave ofereix la compatibilitat de Chromium amb el bloqueig de rastrejadors i anuncis activat de sèrie, i incorpora un cercador amb índex propi. La complicació és que hi conviu un sistema publicitari propi i funcions de criptomoneda que cal saber desactivar, cosa que fa la configuració inicial menys evident del que sembla.',
+      'Brave ofereix la compatibilitat de Chromium amb el bloqueig de rastrejadors i anuncis activat de sèrie, i incorpora un cercador amb índex propi. També inclou un sistema publicitari propi i funcions de criptomoneda que cal desactivar, cosa que complica la configuració inicial.',
     platforms: ['windows', 'macos', 'linux', 'android', 'ios'],
     businessModel: 'freemium',
     jurisdiction: 'Estats Units',
@@ -754,7 +754,7 @@ export const alternativeApps: AppSeed[] = [
       telemetryOptOut: f('yes', 'official', ['brave-browser-privacy']),
       granularControls: f('yes', 'official', ['brave-browser-privacy'], 'Escuts configurables per lloc, finestres privades amb Tor, bloqueig d’empremtes digitals i esborrat en tancar.'),
       defaultPosture: 'protective',
-      darkPatterns: f('partial', 'editorial', ['brave-browser-privacy'], 'Les funcions de criptomoneda i el moneder apareixen a la interfície sense haver-los demanat, cosa que afegeix soroll a un producte que altrament és molt clar.'),
+      darkPatterns: f('partial', 'editorial', ['brave-browser-privacy'], 'Les funcions de criptomoneda i el moneder apareixen a la interfície sense haver-los demanat.'),
       darkPatternList: [
         {
           type: 'other',
@@ -772,7 +772,7 @@ export const alternativeApps: AppSeed[] = [
       transportEncryption: f('yes', 'official', ['brave-browser-privacy'], 'Força les connexions xifrades sempre que és possible.'),
       atRestEncryption: f('yes', 'official', ['brave-browser-privacy']),
       mfa: na('No hi ha comptes de persona usuària que calgui protegir amb un segon factor.'),
-      independentAudits: f('partial', 'independent', ['brave-github'], 'El codi és auditable públicament i hi ha revisions externes de components concrets, però no una auditoria integral publicada.'),
+      independentAudits: f('partial', 'independent', ['brave-github'], 'El codi és auditable públicament i hi ha revisions externes de components concrets, però no cap auditoria completa publicada.'),
       bugBounty: f('yes', 'official', ['brave-github'], undefined, { url: 'https://hackerone.com/brave' }),
       vulnerabilityDisclosure: f('yes', 'official', ['brave-github']),
     },

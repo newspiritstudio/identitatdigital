@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import type { App } from '@/payload-types'
+import { de } from '@/lib/apostrof'
 
 type Deletion = App['accountDeletion']
 
@@ -84,7 +85,7 @@ export default function AccountDeletionModal({
           <header className="deletion-dialog-header">
             <div>
               <h2 id="deletion-dialog-title">
-                Esborrar el compte de {appName}
+                Esborrar el compte {de(appName)}
               </h2>
 
               <p className="deletion-dialog-intro">

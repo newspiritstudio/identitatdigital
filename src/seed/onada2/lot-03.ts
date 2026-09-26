@@ -115,7 +115,7 @@ const apps: AppSeed[] = [
     accountRequired: f('yes', 'official', ['amazon-close-account', 'amazon-kindle-app-store'], 'Les compres i la biblioteca van associades al compte d’Amazon.'),
     openSource: f('no', 'official', ['amazon-privacy-notice'], undefined, { licence: 'Privativa' }),
     dataSummary:
-      'L’historial de lectura és molt revelador: temes polítics, religiosos, de salut o de sexualitat, i també el ritme i les hores en què es llegeix. Els subratllats i les notes afegeixen el que la persona ha trobat important de cada llibre.',
+      'L’historial de lectura pot revelar interessos polítics, religiosos, de salut o de sexualitat, i també el ritme i les hores en què es llegeix. Els subratllats i les notes afegeixen el que la persona ha trobat important de cada llibre.',
     dataCollection: [
       row('historial-de-compres', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'recomanacions-algoritmiques'], sources: ['amazon-kindle-app-store', 'amazon-privacy-notice'] }),
       row('historial-de-visualitzacio', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'recomanacions-algoritmiques'], sources: ['amazon-privacy-notice', 'audible-privacy-policy'], note: 'Hàbits de lectura: pàgines, durada i sincronització entre dispositius. Audible reconeix que rep el comportament de lectura a Kindle per a WhisperSync for Voice.' }),
@@ -170,7 +170,7 @@ const apps: AppSeed[] = [
     ],
     review: amazonReview(
       ['Quines dades de lectura concretes (pàgines, temps, subratllats) es conserven i durant quant de temps?'],
-      'La retirada de «Descargar y transferir vía USB» el 26 de febrer de 2025 (font de premsa especialitzada) reforça la dependència del compte: ja no hi ha manera oficial de guardar una còpia pròpia dels llibres comprats.',
+      'La retirada de «Descargar y transferir vía USB» el 26 de febrer de 2025 (font de premsa especialitzada) reforça la dependència del compte, perquè ja no hi ha manera oficial de guardar una còpia pròpia dels llibres comprats.',
     ),
   },
 
@@ -308,7 +308,7 @@ const apps: AppSeed[] = [
     accountRequired: f('yes', 'official', ['goodreads-privacy-policy'], 'Es pot consultar el web sense compte, però prestatges, ressenyes i amistats el requereixen.'),
     openSource: f('no', 'official', ['goodreads-privacy-policy'], undefined, { licence: 'Privativa' }),
     dataSummary:
-      'Els llibres que algú llegeix, valora i vol llegir revelen ideologia, religió, salut o orientació sexual, i aquí són públics per defecte. L’etiqueta de l’App Store declara fins i tot dades sensibles i la llista de contactes.',
+      'Els llibres que algú llegeix, valora i vol llegir revelen ideologia, religió, salut o orientació sexual, i aquí són públics per defecte. L’etiqueta de l’App Store declara també dades sensibles i la llista de contactes.',
     dataCollection: [
       row('publicacions-i-comentaris', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['goodreads-privacy-policy', 'goodreads-app-store'], note: 'Les ressenyes i els comentaris són públics i en poden quedar còpies en memòries cau.' }),
       row('interessos-inferits', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['recomanacions-algoritmiques', 'publicitat-personalitzada'], sources: ['goodreads-privacy-policy'], note: 'Prestatges, valoracions i gèneres preferits.' }),
@@ -542,7 +542,7 @@ const apps: AppSeed[] = [
     categories: ['video-i-streaming', 'comunitats-i-forums'],
     tagline: 'Directes amb rastreig publicitari, responsable als Estats Units i una filtració el 2021',
     summary:
-      'Twitch és l’única aplicació del lot que declara a l’App Store dades utilitzades per rastrejar. El responsable del tractament és Twitch Interactive, Inc., a San Francisco, amb un representant a Alemanya; la política permet combinar les dades amb les de la clientela d’Amazon i fer-les servir per desenvolupar IA generativa. El 2021 una filtració de 125 GB va exposar el codi font i els pagaments a creadors, i Turquia la va sancionar el 2024.',
+      'Twitch declara a l’App Store dades utilitzades per rastrejar. El responsable del tractament és Twitch Interactive, Inc., a San Francisco, amb un representant a Alemanya; la política permet combinar les dades amb les de la clientela d’Amazon i fer-les servir per desenvolupar IA generativa. El 2021 una filtració de 125 GB va exposar el codi font i els pagaments a creadors, i Turquia la va sancionar el 2024.',
     platforms: ['ios', 'android', 'web', 'other'],
     businessModel: 'advertising',
     jurisdiction: 'Estats Units (Twitch Interactive, Inc.), amb representant a la UE a Múnic',
@@ -555,7 +555,7 @@ const apps: AppSeed[] = [
     accountRequired: f('partial', 'official', ['twitch-privacy-notice'], 'Es poden veure emissions sense compte; xatejar, seguir canals o emetre el requereix.'),
     openSource: f('no', 'official', ['twitch-privacy-notice'], undefined, { licence: 'Privativa' }),
     dataSummary:
-      'Els canals que se segueixen, els xats i les subscripcions dibuixen interessos i relacions; per a qui emet, s’hi afegeixen la veu, la imatge i les dades de pagament. Els xats són públics per naturalesa i els poden recollir tercers.',
+      'Els canals que se segueixen, els xats i les subscripcions revelen interessos i relacions; per a qui emet, s’hi afegeixen la veu, la imatge i les dades de pagament. Els xats són públics i els poden recollir tercers.',
     dataCollection: [
       row('historial-de-visualitzacio', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['recomanacions-algoritmiques', 'publicitat-personalitzada'], sources: ['twitch-privacy-notice'] }),
       row('contingut-de-missatges', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'moderacio-de-continguts'], sources: ['twitch-privacy-notice'], note: 'Xats públics i xiuxiuejos privats.' }),
@@ -676,7 +676,7 @@ const apps: AppSeed[] = [
     accountRequired: f('yes', 'official', ['amazon-alexa-privacy-faq'], 'Les gravacions i la configuració s’associen al compte d’Amazon.'),
     openSource: f('no', 'official', ['amazon-privacy-notice'], undefined, { licence: 'Privativa' }),
     dataSummary:
-      'Les peticions de veu, els dispositius de la llar, els contactes importats i les rutines descriuen la vida domèstica amb molt detall: horaris, qui hi viu, què es compra i com sona cada veu. L’etiqueta declara fins i tot dades de salut i dades sensibles.',
+      'Les peticions de veu, els dispositius de la llar, els contactes importats i les rutines descriuen la vida domèstica amb molt detall: horaris, qui hi viu, què es compra i com sona cada veu. L’etiqueta declara també dades de salut i dades sensibles.',
     dataCollection: [
       row('veu-i-audio', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'millora-del-producte', 'entrenament-de-models-dia'], sources: ['amazon-alexa-privacy-faq'], note: 'Inclou una fracció de segon anterior a la paraula d’activació i les activacions falses.' }),
       row('dades-biometriques', 'optional', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['personalitzacio-de-continguts'], sources: ['amazon-alexa-privacy-faq'], note: 'ID de veu (model acústic al núvol) i ID visual (a l’Echo Show, desat al dispositiu), amb consentiment.' }),

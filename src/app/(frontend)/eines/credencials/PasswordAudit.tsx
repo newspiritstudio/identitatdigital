@@ -218,7 +218,7 @@ export default function PasswordAudit({ ref }: { ref?: React.Ref<PasswordAuditHa
         Escriu les contrasenyes dels serveis que més t’importen (el correu, el banc, les xarxes) i,
         si vols, a quin servei és cadascuna. L’eina mira si ja són a les filtracions, si en repeteixes
         alguna o en fas variants (canviar-ne el número del final no compta com una de nova) i si
-        segueixen patrons que els atacs proven primer. Cap contrasenya surt del dispositiu ni es desa.
+        segueixen patrons que els atacs proven primer. Cap contrasenya no surt del dispositiu ni es desa.
       </p>
 
       <form onSubmit={audit}>
@@ -334,9 +334,9 @@ export default function PasswordAudit({ ref }: { ref?: React.Ref<PasswordAuditHa
             {counts.pwned === 0 && counts.reused === 0 && counts.weak === 0 && counts.unchecked === 0 ? (
               <p className={`${styles.result} ${styles.resultOk}`}>
                 <strong>Cap de les {results.length} té problemes detectables.</strong> No surten a
-                l’índex de filtracions, no se’n repeteix cap i no segueixen els patrons típics. No
-                vol dir que siguin inexpugnables, sinó que no tenen cap dels defectes que es poden
-                veure des de fora.
+                l’índex de filtracions, no se’n repeteix cap i no segueixen els patrons típics. Això
+                no garanteix que no es puguin endevinar; vol dir que no tenen cap dels defectes que es
+                poden veure des de fora.
               </p>
             ) : null}
 
@@ -378,8 +378,8 @@ export default function PasswordAudit({ ref }: { ref?: React.Ref<PasswordAuditHa
                     <p className="meta">No apareix a l’índex de filtracions de Have I Been Pwned.</p>
                   ) : (
                     <p className="unknown">
-                      No s’ha pogut mirar si està filtrada: {result.outcome.reason} No saber-ho no és
-                      el mateix que estar neta.
+                      No s’ha pogut mirar si està filtrada: {result.outcome.reason} Això no vol dir
+                      que no ho estigui.
                     </p>
                   )}
                   {result.similar.length > 0 ? (
@@ -405,10 +405,10 @@ export default function PasswordAudit({ ref }: { ref?: React.Ref<PasswordAuditHa
             </ol>
 
             <p className="meta">
-              Per canviar-les amb criteri: primer les filtrades, després les repetides, i començant
-              pel correu, que és on arriben tots els enllaços de «he oblidat la contrasenya». De la
-              força d’una contrasenya pensada per una persona no en donem cap xifra: l’entropia
-              depèn de com s’ha triat, no de quin aspecte té.
+              Ordre per canviar-les: primer les filtrades, després les repetides, i començant pel
+              correu, que és on arriben tots els enllaços de «he oblidat la contrasenya». De la força
+              d’una contrasenya pensada per una persona no en donem cap xifra, perquè l’entropia
+              depèn de com s’ha triat i no de quin aspecte té.
             </p>
           </>
         ) : null}

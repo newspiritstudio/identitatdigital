@@ -39,9 +39,9 @@ export default async function LeavingPage() {
     <>
       <h1>Què costa marxar</h1>
       <p className="lede">
-        Entrar sempre és una pantalla. Sortir és una altra cosa, i no es mesura només amb un botó
-        d’eliminar el compte: compta quantes passes calen, quants dies s’ha d’esperar, què es queda
-        l’empresa després i a quin país acaben les dades que no s’esborren.
+        Donar-se d’alta sol ocupar una pantalla. Per mesurar què costa marxar comptem si es pot
+        eliminar el compte, quantes passes calen, quants dies s’ha d’esperar, què es queda l’empresa
+        després i a quin país acaben les dades que no s’esborren.
       </p>
 
       <KeyNumbers>
@@ -78,9 +78,8 @@ export default async function LeavingPage() {
       </p>
       <StatusStack tally={deletion.selfService} />
       <p>
-        La segona pregunta és la que separa un tràmit d’una negociació. Un procés autoservei s’acaba
-        quan tu decideixes; un procés que passa per un formulari de suport s’acaba quan algú
-        contesta, i mentrestant el compte segueix obert.{' '}
+        Un procés autoservei s’acaba quan tu decideixes; un procés que passa per un formulari de
+        suport s’acaba quan algú contesta, i mentrestant el compte segueix obert.{' '}
         {deletion.requiresSupportContact > 0
           ? `${num(deletion.requiresSupportContact)} de les ${num(apps)} fitxes declaren que cal contactar amb suport.`
           : 'Cap fitxa no declara que calgui contactar amb suport.'}
@@ -119,8 +118,8 @@ export default async function LeavingPage() {
       <p>
         {num(deletion.withDocumentedSteps)} de les {num(apps)} fitxes tenen les passes documentades,
         amb una mediana de {num(deletion.medianSteps ?? 0)} passes, i {num(deletion.withDirectUrl)}{' '}
-        porten enllaç directe al formulari d’eliminació. Tenir l’enllaç no és un detall: la
-        diferència entre marxar i deixar-ho córrer sovint és no trobar la pàgina.
+        porten enllaç directe al formulari d’eliminació. L’enllaç és important perquè sovint la gent
+        no marxa per no trobar la pàgina.
       </p>
 
       <h2>Quant s’espera</h2>
@@ -211,9 +210,9 @@ export default async function LeavingPage() {
         què es queden exactament.
       </p>
       <p>
-        Val la pena no llegir-ho com una trampa: eliminar el compte és eliminar el compte, no
-        esborrar-se de la història del món. El que importa és saber-ho abans, perquè «he eliminat el
-        compte» i «ja no tenen res meu» no són la mateixa frase.
+        No és necessàriament una trampa: eliminar el compte no esborra tots els registres que en
+        queden. Convé saber-ho abans, perquè «he eliminat el compte» i «ja no tenen res meu» no
+        volen dir el mateix.
       </p>
 
       <h2>On acaben les dades</h2>
@@ -254,17 +253,17 @@ export default async function LeavingPage() {
         {jurisdictions.byJurisdiction[0]
           ? `${num(jurisdictions.byJurisdiction[0].apps)} de les ${num(apps)} fitxes situen la seva jurisdicció a ${jurisdictions.byJurisdiction[0].jurisdiction}. `
           : ''}
-        Això explica per què tants procediments europeus acaben sempre davant de la mateixa
-        autoritat de control: la finestreta única del Reglament fa que qui té la seu principal en un
-        país en sigui el supervisor per a tota la Unió.
+        Per això tants procediments europeus acaben davant de la mateixa autoritat de control: la
+        finestreta única del Reglament fa que qui té la seu principal en un país en sigui el
+        supervisor per a tota la Unió.
       </p>
 
       <h2>Transferències fora de la Unió Europea</h2>
       <StatusStack tally={jurisdictions.transfers} />
       <p>
         {num(jurisdictions.appsWithTransfers)} de les {num(apps)} fitxes documenten que les dades
-        surten de la Unió Europea. Sortir-ne no és il·legal ni excepcional: el Reglament ho preveu i
-        demana un mecanisme que mantingui la protecció. El que declaren les fitxes és això:
+        surten de la Unió Europea. El Reglament ho permet i
+        demana un mecanisme que mantingui la protecció. Aquests són els mecanismes que declaren les fitxes:
       </p>
       <table>
         <caption className="visually-hidden">

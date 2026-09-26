@@ -11,7 +11,7 @@ export const consumApps: AppSeed[] = [
     categories: ['comerc-electronic'],
     tagline: 'Comerç electrònic amb una xarxa publicitària pròpia molt gran',
     summary:
-      'L’historial de compres d’una persona és un dels conjunts de dades més reveladors que existeixen: què menja, què llegeix, quina medicació compra, quins regals fa i a qui. Amazon el conserva indefinidament i, des de fa anys, l’aprofita per a una xarxa publicitària que ja és la tercera del món.',
+      'L’historial de compres mostra què menja una persona, què llegeix, quina medicació compra, quins regals fa i a qui. Amazon el conserva indefinidament i des de fa anys el fa servir per a la seva xarxa publicitària, que és la tercera del món.',
     platforms: ['web', 'ios', 'android', 'other'],
     businessModel: 'commerce',
     jurisdiction: 'Luxemburg, per a persones usuàries de la Unió Europea',
@@ -25,7 +25,7 @@ export const consumApps: AppSeed[] = [
     accountRequired: f('yes', 'official', ['amazon-privacy-notice'], 'Es pot navegar pel catàleg sense compte, però qualsevol compra el requereix.'),
     openSource: f('no', 'official', ['amazon-privacy-notice'], undefined, { licence: 'Privativa' }),
     dataSummary:
-      'Amazon combina el que compres, el que mires sense comprar, el que cerques, el que hi llegeixes amb Kindle, el que hi mires amb Prime Video i el que hi dius amb Alexa. La integració d’aquests senyals dins d’un sol compte és el que fa que el perfil sigui tan detallat.',
+      'Amazon vincula en un sol compte el que compres, el que mires sense comprar, el que cerques, el que llegeixes amb Kindle, el que mires amb Prime Video i el que dius a Alexa. Per això el perfil és tan detallat.',
     dataCollection: [
       row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['amazon-privacy-notice'] }),
       row('adreca-postal', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['amazon-privacy-notice'], note: 'Es comparteix amb les empreses de transport i, en el cas del marketplace, amb els venedors.' }),
@@ -88,7 +88,7 @@ export const consumApps: AppSeed[] = [
         'Respon dins de cinc dies el missatge de verificació que rebràs per correu o SMS.',
       ],
       obstacles:
-        'Tancar el compte fa perdre l’accés a tots els llibres, pel·lícules i continguts digitals comprats, que estan lligats al compte i no al dispositiu. Aquesta pèrdua és, a la pràctica, el gran fre a l’exercici del dret de supressió.',
+        'Tancar el compte fa perdre l’accés a tots els llibres, pel·lícules i continguts digitals comprats, que estan lligats al compte i no al dispositiu. Aquesta pèrdua desincentiva l’exercici del dret de supressió.',
       dataRetained:
         'Registres de comandes exigits per la normativa fiscal. Les ressenyes i les llistes públiques poden persistir si no s’esborren abans.',
       sources: ['amazon-close-account'],
@@ -142,9 +142,9 @@ export const consumApps: AppSeed[] = [
       lastReviewedAt: '2026-09-09',
       incidentsReviewed: true,
       editorialNotes:
-        'Cas important per a la metodologia: la sanció de 746 milions es va anul·lar en apel·lació i, per tant, no pot pesar com una sanció ferma. El motiu de l’anul·lació és processal i no valida les pràctiques, i això ha de quedar escrit a la fitxa perquè no s’interpreti com una absolució.',
+        'La sanció de 746 milions es va anul·lar en apel·lació i, per tant, no compta com a sanció ferma. L’anul·lació es va fer per motius processals i no valida les pràctiques sancionades.',
       openQuestions: [
-        'Quin és el termini real de conservació de l’historial de compres després de tancar el compte?',
+        'Quin és el termini de conservació de l’historial de compres després de tancar el compte?',
       ],
     },
   },
@@ -157,7 +157,7 @@ export const consumApps: AppSeed[] = [
     categories: ['repartiment-a-domicili'],
     tagline: 'Repartiment a domicili amb dades d’ubicació i sense baixa autoservei',
     summary:
-      'Glovo és l’únic servei d’aquesta primera onada on no hem trobat cap manera d’eliminar el compte sense passar per atenció al client. La combinació d’adreça de domicili, comandes d’alimentació i farmàcia, i horaris habituals és molt reveladora, i la companyia arrossega una sanció de l’autoritat espanyola pel tractament de dades de les persones repartidores.',
+      'Glovo és l’únic servei d’aquesta primera onada en què no hem trobat cap manera d’eliminar el compte sense passar per atenció al client. Recull l’adreça de domicili, les comandes d’alimentació i farmàcia i els horaris habituals. L’autoritat espanyola l’ha sancionat pel tractament de dades de les persones repartidores.',
     platforms: ['ios', 'android', 'web'],
     businessModel: 'commerce',
     jurisdiction: 'Espanya',
@@ -170,7 +170,7 @@ export const consumApps: AppSeed[] = [
     accountRequired: f('yes', 'official', ['glovo-privacy-policy'], 'Cal registrar-se amb adreça electrònica o telèfon per fer qualsevol comanda.'),
     openSource: f('no', 'official', ['glovo-privacy-policy'], undefined, { licence: 'Privativa' }),
     dataSummary:
-      'Les comandes de menjar i de farmàcia revelen hàbits alimentaris, restriccions religioses, situacions de salut i rutines domèstiques. L’adreça exacta i les hores de lliurament completen un mapa molt precís de la vida quotidiana.',
+      'Les comandes de menjar i de farmàcia revelen hàbits alimentaris, restriccions religioses, situacions de salut i rutines domèstiques. L’adreça exacta i les hores de lliurament indiquen on viu la persona i quins horaris fa.',
     dataCollection: [
       row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['glovo-privacy-policy'] }),
       row('adreca-postal', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['glovo-privacy-policy'], note: 'Es comparteix amb la persona repartidora i amb l’establiment.' }),
@@ -225,7 +225,7 @@ export const consumApps: AppSeed[] = [
         'Espera la confirmació per correu electrònic i guarda-la com a prova.',
       ],
       obstacles:
-        'L’absència d’un botó d’eliminació obliga a exercir formalment un dret que hauria de poder-se satisfer amb un clic. Sense resposta dins de termini, cal reclamar davant de l’Agència Espanyola de Protecció de Dades.',
+        'Com que no hi ha cap botó d’eliminació, cal exercir formalment el dret de supressió. Sense resposta dins de termini, cal reclamar davant de l’Agència Espanyola de Protecció de Dades.',
       dataRetained: 'Dades de facturació i comandes durant els terminis de prescripció fiscal i mercantil.',
       sources: ['glovo-privacy-policy', 'glovo-delete-guide'],
     },
@@ -246,7 +246,7 @@ export const consumApps: AppSeed[] = [
       telemetryOptOut: f('no', 'official', ['glovo-privacy-policy']),
       granularControls: f('no', 'official', ['glovo-privacy-policy'], 'L’aplicació no ofereix un panell de privadesa amb controls per finalitat.'),
       defaultPosture: 'permissive',
-      darkPatterns: f('yes', 'editorial', ['glovo-delete-guide'], 'L’absència d’eliminació autoservei és, en si mateixa, un patró de retenció: el camí de sortida existeix però està amagat darrere d’atenció al client.'),
+      darkPatterns: f('yes', 'editorial', ['glovo-delete-guide'], 'L’absència d’eliminació autoservei funciona com a patró de retenció, perquè la baixa només es pot demanar a través d’atenció al client.'),
       darkPatternList: [
         {
           type: 'hidden-exit',
@@ -275,9 +275,9 @@ export const consumApps: AppSeed[] = [
       lastReviewedAt: '2026-09-09',
       incidentsReviewed: true,
       editorialNotes:
-        'La troballa més útil d’aquesta fitxa és l’absència de baixa autoservei, verificada revisant la configuració de l’aplicació i la documentació pública. No consta resumida enlloc.',
+        'L’absència de baixa autoservei s’ha verificat revisant la configuració de l’aplicació i la documentació pública. No l’hem trobada resumida en cap altra font.',
       openQuestions: [
-        'Quin és el temps mitjà real de resposta a una sol·licitud de supressió per correu electrònic?',
+        'Quin és el temps mitjà de resposta a una sol·licitud de supressió per correu electrònic?',
       ],
     },
   },
@@ -290,7 +290,7 @@ export const consumApps: AppSeed[] = [
     categories: ['cites'],
     tagline: 'Cites en línia amb dades sensibles i compartició dins del grup Match',
     summary:
-      'Tinder tracta categories especials de dades de l’article 9 del RGPD —orientació sexual i, en alguns perfils, salut o creences— i les combina amb ubicació precisa i fotografies. La pertinença al grup Match, que concentra bona part del mercat, significa que aquesta informació pot circular entre diverses aplicacions de cites de la mateixa empresa.',
+      'Tinder tracta categories especials de dades de l’article 9 del RGPD (orientació sexual i, en alguns perfils, salut o creences) i les combina amb ubicació precisa i fotografies. La pertinença al grup Match, que concentra bona part del mercat, significa que aquesta informació pot circular entre diverses aplicacions de cites de la mateixa empresa.',
     platforms: ['ios', 'android', 'web'],
     businessModel: 'freemium',
     jurisdiction: 'Irlanda, per a persones usuàries de l’Espai Econòmic Europeu',
@@ -410,7 +410,7 @@ export const consumApps: AppSeed[] = [
       lastReviewedAt: '2026-09-09',
       incidentsReviewed: true,
       editorialNotes:
-        'És la fitxa on l’absència de xifratge d’extrem a extrem té més conseqüències potencials, perquè les converses contenen dades de l’article 9. La justificació de la moderació és real, però no elimina el risc.',
+        'És la fitxa on l’absència de xifratge d’extrem a extrem té més conseqüències potencials, perquè les converses contenen dades de l’article 9. La moderació justifica aquest tractament, però no elimina el risc.',
       openQuestions: [
         'Quina informació concreta es comparteix entre Tinder i la resta d’aplicacions del grup Match?',
       ],
@@ -425,7 +425,7 @@ export const consumApps: AppSeed[] = [
     categories: ['video-i-streaming'],
     tagline: 'Vídeo per subscripció amb un pla amb publicitat des de 2022',
     summary:
-      'Netflix va ser durant anys l’exemple del model sense publicitat: pagues i no ets el producte. La introducció del pla amb anuncis el 2022 va trencar aquesta simplicitat i va portar rastrejadors de tercers a un servei que no en tenia. La sanció neerlandesa de 2024 mostra que la informació sobre tot plegat no era prou clara.',
+      'Durant anys Netflix es va finançar només amb subscripcions, sense publicitat. El 2022 va introduir un pla amb anuncis, que va portar rastrejadors de tercers a un servei que no en tenia. La sanció neerlandesa de 2024 va constatar que la informació que donava sobre el tractament de dades no era prou clara.',
     platforms: ['web', 'ios', 'android', 'other'],
     businessModel: 'subscription',
     jurisdiction: 'Països Baixos, per a persones usuàries de l’Espai Econòmic Europeu',
@@ -540,7 +540,7 @@ export const consumApps: AppSeed[] = [
       lastReviewedAt: '2026-09-09',
       incidentsReviewed: true,
       editorialNotes:
-        'L’absència de verificació en dos passos és una mancança rellevant per a un servei amb dades de pagament, i cal dir-ho encara que la resta de la fitxa sigui relativament favorable.',
+        'L’absència de verificació en dos passos és una mancança rellevant per a un servei amb dades de pagament, tot i que la resta de la fitxa és relativament favorable.',
     },
   },
 
@@ -552,7 +552,7 @@ export const consumApps: AppSeed[] = [
     categories: ['musica-i-audio'],
     tagline: 'Música per subscripció amb inferència d’estat d’ànim',
     summary:
-      'L’historial d’escolta de Spotify permet inferir estat d’ànim, rutines, moments del dia i fins i tot episodis vitals. La companyia ho ha explotat obertament amb campanyes basades en dades agregades. La sanció sueca de 2023, reduïda després en via judicial, no va ser per recollir massa dades sinó per no explicar prou bé què en feia.',
+      'L’historial d’escolta de Spotify permet inferir estat d’ànim, rutines, moments del dia i episodis vitals. La companyia ho ha fet servir públicament en campanyes basades en dades agregades. La sanció sueca de 2023, reduïda després en via judicial, va ser per no explicar prou bé què feia amb les dades.',
     platforms: ['ios', 'android', 'web', 'windows', 'macos', 'linux'],
     businessModel: 'freemium',
     jurisdiction: 'Suècia',
@@ -566,7 +566,7 @@ export const consumApps: AppSeed[] = [
     accountRequired: f('yes', 'official', ['spotify-privacy-policy'], 'Cal compte fins i tot per al pla gratuït.'),
     openSource: f('no', 'official', ['spotify-privacy-policy'], undefined, { licence: 'Privativa' }),
     dataSummary:
-      'Spotify recull cada reproducció amb marca de temps, dispositiu i context. Aquesta granularitat és el que permet les recomanacions, i també el que fa que l’historial d’escolta sigui una dada més personal del que sembla.',
+      'Spotify recull cada reproducció amb marca de temps, dispositiu i context. Aquest nivell de detall fa possibles les recomanacions i converteix l’historial d’escolta en una dada molt personal.',
     dataCollection: [
       row('identificador-de-compte', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['spotify-privacy-policy'] }),
       row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['spotify-privacy-policy'] }),
@@ -670,7 +670,7 @@ export const consumApps: AppSeed[] = [
       lastReviewedAt: '2026-09-09',
       incidentsReviewed: true,
       editorialNotes:
-        'L’import de la sanció sueca es va reduir substancialment en via judicial, de manera que l’incident queda registrat amb estat «anul·lada o reduïda». Comptar-la per l’import original inflaria la penalització.',
+        'L’import de la sanció sueca es va reduir substancialment en via judicial, de manera que l’incident queda registrat amb estat «anul·lada o reduïda». Per això no es compta per l’import original.',
     },
   },
 ]

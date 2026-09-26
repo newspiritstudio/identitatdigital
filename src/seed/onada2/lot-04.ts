@@ -20,7 +20,7 @@ const s = sourceAt(WAVE2_DATE)
 const appStore = (id: string) => `https://apps.apple.com/es/app/id${id}`
 
 const noLabelNote =
-  'L’etiqueta de l’App Store declara que el desenvolupador no recull cap dada. Com que el servei necessàriament envia dades identificatives als servidors de l’administració, l’etiqueta s’ha de llegir com una declaració incompleta, no com una garantia.'
+  'L’etiqueta de l’App Store declara que el desenvolupador no recull cap dada. Com que el servei envia necessàriament dades identificatives als servidors de l’administració, aquesta declaració és incompleta.'
 
 const metaLabelNote =
   'L’etiqueta de l’App Store no declara cap dada «utilitzada per rastrejar-te», però sí dades vinculades a la identitat que es fan servir per a publicitat de tercers.'
@@ -228,12 +228,12 @@ const tarjetaSanitaria: AppSeed = {
     accessibilityStatement: f('no', 'official', ['comunidad-madrid-accessibilitat'], 'La declaració del portal de la Comunitat es declara «no conforme» amb el Reial decret 1112/2018 i no cobreix les aplicacions mòbils; ni l’aplicació ni la carpeta virtual en tenen una de pròpia.', {
       url: 'https://www.comunidad.madrid/atencion-ciudadano/declaracion-accesibilidad',
     }),
-    mandatoryRetention: f('yes', 'official', ['tarjeta-sanitaria-carpeta-proteccion-datos', 'boe-llei-41-2002'], 'La clàusula diu que les dades es conserven «durante los años necesarios para cumplir con la normativa vigente». La documentació clínica que mostra la carpeta de salut està sotmesa a l’article 17 de la Llei 41/2002, que obliga els centres a conservar-la com a mínim cinc anys des de l’alta de cada procés assistencial: no és una decisió del servei.', {
+    mandatoryRetention: f('yes', 'official', ['tarjeta-sanitaria-carpeta-proteccion-datos', 'boe-llei-41-2002'], 'La clàusula diu que les dades es conserven «durante los años necesarios para cumplir con la normativa vigente». La documentació clínica que mostra la carpeta de salut està sotmesa a l’article 17 de la Llei 41/2002, que obliga els centres a conservar-la com a mínim cinc anys des de l’alta de cada procés assistencial, de manera que el termini no el decideix el servei.', {
       norm: 'Llei 41/2002, article 17',
     }),
   },
   dataSummary:
-    'És la història clínica de la persona al mòbil: diagnòstics en informes, resultats d’analítiques, medicació, cites i baixes laborals. Qualsevol accés indegut al dispositiu o al compte exposa categories especials de dades de l’article 9 del RGPD.',
+    'L’aplicació porta al mòbil la història clínica de la persona: diagnòstics en informes, resultats d’analítiques, medicació, cites i baixes laborals. Qualsevol accés indegut al dispositiu o al compte exposa categories especials de dades de l’article 9 del RGPD.',
   dataCollection: [
     row('dades-de-salut', 'yes', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei', 'compliment-legal'], sources: ['tarjeta-sanitaria-carpeta-proteccion-datos'], note: 'Informes clínics, analítiques, medicació i baixes laborals extrets dels sistemes del Servei Madrileny de Salut.' }),
     row('document-identificatiu-oficial', 'yes', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['tarjeta-sanitaria-servei'], note: 'Per a l’activació amb Cl@ve, IDentifica o certificat digital.' }),
@@ -312,7 +312,7 @@ const tarjetaTransporte: AppSeed = {
   categories: ['mobilitat-i-transport'],
   tagline: 'Recàrrega de l’abonament de Madrid per NFC, del mateix consorci que va patir una filtració el 2023',
   summary:
-    'L’aplicació del Consorci Regional de Transports de Madrid serveix per consultar el saldo i carregar títols a la Tarjeta Transporte Público acostant-la a l’iPhone. Segons el consorci, només recull el model del telèfon i la versió del sistema. El risc principal és fora de l’aplicació: el novembre de 2023 un atac va extreure noms, adreces, correus i telèfons dels titulars de la targeta i informació de vendes de títols.',
+    'L’aplicació del Consorci Regional de Transports de Madrid serveix per consultar el saldo i carregar títols a la Tarjeta Transporte Público acostant-la a l’iPhone. Segons el consorci, només recull el model del telèfon i la versió del sistema. El principal incident documentat afecta els sistemes del consorci: el novembre de 2023 un atac va extreure noms, adreces, correus i telèfons dels titulars de la targeta i informació de vendes de títols.',
   platforms: ['ios'],
   businessModel: 'public-service',
   jurisdiction: 'Espanya (Comunitat de Madrid)',
@@ -447,7 +447,7 @@ const emtMadrid: AppSeed = {
     mandatoryRetention: f('no', 'official', ['emt-madrid-privacy-policy'], 'La política només preveu conservar les dades mentre duri la condició de persona usuària més un màxim de sis anys per a possibles responsabilitats; no invoca cap obligació legal de conservació que impedeixi esborrar el compte.'),
   },
   dataSummary:
-    'Les parades i línies preferides i els avisos d’arribada dibuixen els desplaçaments habituals: on viu i on treballa la persona i a quina hora es mou.',
+    'Les parades i línies preferides i els avisos d’arribada mostren els desplaçaments habituals: on viu i on treballa la persona i a quina hora es mou.',
   dataCollection: [
     row('nom-i-cognoms', 'optional', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei', 'atencio-a-lusuari'], sources: ['emt-madrid-privacy-policy', 'emt-madrid-app-store'] }),
     row('adreca-electronica', 'optional', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['emt-madrid-privacy-policy', 'emt-madrid-app-store'] }),
@@ -517,7 +517,7 @@ const emtMadrid: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'La política d’EMT és de les més concretes del lot. L’atac de 2019 a les estacions de BiciMAD es registra a la fitxa de BiciMAD, que és el servei afectat.',
+      'L’atac de 2019 a les estacions de BiciMAD es registra a la fitxa de BiciMAD, que és el servei afectat.',
     openQuestions: ['Es pot donar de baixa el compte mPass des de l’aplicació d’EMT?'],
   },
 }
@@ -530,7 +530,7 @@ const bicimad: AppSeed = {
   categories: ['mobilitat-i-transport'],
   tagline: 'Bicicleta pública de Madrid amb GPS que no es pot desconnectar i mapatge de cada trajecte',
   summary:
-    'BiciMAD és un servei de l’Ajuntament de Madrid que gestiona EMT com a encarregada del tractament. El registre demana DNI, data de naixement, adreça i dades bancàries a través del compte mPass. La política ho diu clar: el GPS de la bicicleta no es pot desconnectar i serveix per fer un mapatge dels trajectes de cada persona. El 2019 un atac a diverses estacions va exposar noms i saldos de persones usuàries.',
+    'BiciMAD és un servei de l’Ajuntament de Madrid que gestiona EMT com a encarregada del tractament. El registre demana DNI, data de naixement, adreça i dades bancàries a través del compte mPass. La política diu que el GPS de la bicicleta no es pot desconnectar i que serveix per fer un mapatge dels trajectes de cada persona. El 2019 un atac a diverses estacions va exposar noms i saldos de persones usuàries.',
   platforms: ['ios', 'android'],
   businessModel: 'public-service',
   jurisdiction: 'Espanya (Ajuntament de Madrid)',
@@ -664,7 +664,7 @@ const metaAi: AppSeed = {
     licence: 'Privativa (models Llama amb llicència comunitària de Meta)',
   }),
   dataSummary:
-    'Les preguntes a un assistent revelen preocupacions de salut, relacions, feina o finances amb una franquesa que no es té a les xarxes. Meta hi afegeix la memòria de l’assistent, el perfil i els interessos dels altres productes del grup i la ubicació.',
+    'Les preguntes a un assistent sovint revelen preocupacions de salut, relacions, feina o finances. Meta hi afegeix la memòria de l’assistent, el perfil i els interessos dels altres productes del grup i la ubicació.',
   dataCollection: [
     row('contingut-de-missatges', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'entrenament-de-models-dia', 'moderacio-de-continguts'], sources: ['meta-ai-eu-terms', 'meta-ai-app-store'], note: 'Les indicacions i respostes; es poden revisar per persones i compartir amb cercadors associats.' }),
     row('veu-i-audio', 'optional', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['meta-ai-eu-terms', 'meta-ai-app-store'] }),
@@ -731,7 +731,7 @@ const metaAi: AppSeed = {
         type: 'confusing-language',
         severity: 'high',
         description:
-          'El 2025 moltes persones van publicar converses privades amb l’assistent —amb dades de salut o legals— perquè l’aplicació no indicava clarament que el botó de compartir les feia públiques.',
+          'El 2025 moltes persones van publicar converses privades amb l’assistent, amb dades de salut o legals, perquè l’aplicació no indicava clarament que el botó de compartir les feia públiques.',
         sources: ['meta-ai-discover-techcrunch-2025'],
       },
     ],
@@ -754,7 +754,7 @@ const metaAi: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'L’etiqueta de l’App Store és la mateixa, gairebé idèntica, que la de Messenger i Threads: Meta declara el mateix catàleg de dades per a totes les aplicacions, cosa que en redueix el valor informatiu. Les condicions europees són la font més útil perquè reconeixen la revisió humana i la conservació de còpies.',
+      'L’etiqueta de l’App Store és gairebé idèntica a la de Messenger i Threads: Meta declara el mateix catàleg de dades per a totes les aplicacions, cosa que en redueix el valor informatiu. Les condicions europees són la font més útil perquè reconeixen la revisió humana i la conservació de còpies.',
     openQuestions: [
       'S’aplica a l’Espai Econòmic Europeu l’ús de les converses amb la IA per personalitzar anuncis anunciat per al desembre de 2025?',
       'Durant quant de temps conserva Meta les converses i la memòria de l’assistent?',
@@ -783,7 +783,7 @@ const threads: AppSeed = {
   accountRequired: f('yes', 'official', ['threads-supplemental-privacy', 'threads-delete-account'], 'Cal un perfil de Threads, que es crea a partir del compte d’Instagram.'),
   openSource: f('no', 'official', ['meta-privacy-policy'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'Threads recull el que es publica, què es mira i durant quant de temps, a qui se segueix i quins hashtags es fan servir, i ho pot unir amb l’activitat d’Instagram i Facebook al Centre de comptes. Les publicacions són opinió explícita: política, religió o salut apareixen de manera natural en una xarxa de conversa.',
+    'Threads recull el que es publica, què es mira i durant quant de temps, a qui se segueix i quins hashtags es fan servir, i ho pot unir amb l’activitat d’Instagram i Facebook al Centre de comptes. En una xarxa de conversa, les publicacions sovint expressen opinions sobre política, religió o salut.',
   dataCollection: [
     row('identificador-de-compte', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['threads-supplemental-privacy'] }),
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['threads-supplemental-privacy'], note: 'El nom i el nom d’usuari són públics fins i tot amb el perfil privat.' }),
@@ -885,7 +885,7 @@ const edits: AppSeed = {
   categories: ['edicio-de-foto-i-video'],
   tagline: 'Editor de vídeo d’Instagram: per esborrar-ne les dades d’ús cal eliminar el compte d’Instagram',
   summary:
-    'Edits és l’editor de vídeo d’Instagram per crear reels. S’hi entra amb el compte d’Instagram i fa servir el perfil, els seguidors i el contingut amb què s’interactua. La troballa principal és a l’ajuda de Meta: els vídeos es poden esborrar, però la resta d’informació sobre l’ús de l’eina només s’elimina eliminant el compte d’Instagram sencer. L’etiqueta de l’App Store declara dades per a publicitat de tercers.',
+    'Edits és l’editor de vídeo d’Instagram per crear reels. S’hi entra amb el compte d’Instagram i fa servir el perfil, els seguidors i el contingut amb què s’interactua. Segons l’ajuda de Meta, els vídeos es poden esborrar, però la resta d’informació sobre l’ús de l’eina només s’elimina eliminant el compte d’Instagram sencer. L’etiqueta de l’App Store declara dades per a publicitat de tercers.',
   platforms: ['ios', 'android'],
   businessModel: 'advertising',
   jurisdiction: 'Irlanda, per a persones usuàries de l’Espai Econòmic Europeu',
@@ -1094,7 +1094,7 @@ const messenger: AppSeed = {
   categories: ['missatgeria'],
   tagline: 'Missatgeria de Meta xifrada per defecte des del 2023, però amb l’etiqueta de dades de tot el grup',
   summary:
-    'Des de desembre de 2023 els xats personals i les trucades de Messenger van xifrats d’extrem a extrem per defecte, amb el protocol Labyrinth de Meta. Però l’aplicació continua lligada a la infraestructura de Meta: l’etiqueta de l’App Store declara pràcticament tots els tipus de dades per a publicitat de tercers. A l’Espai Econòmic Europeu, per la Llei de mercats digitals, es pot fer servir amb un compte de Messenger separat de Facebook.',
+    'Des de desembre de 2023 els xats personals i les trucades de Messenger van xifrats d’extrem a extrem per defecte, amb el protocol Labyrinth de Meta. L’aplicació continua lligada a la infraestructura de Meta, i l’etiqueta de l’App Store declara pràcticament tots els tipus de dades per a publicitat de tercers. A l’Espai Econòmic Europeu, per la Llei de mercats digitals, es pot fer servir amb un compte de Messenger separat de Facebook.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'advertising',
   jurisdiction: 'Irlanda, per a persones usuàries de l’Espai Econòmic Europeu',
@@ -1510,7 +1510,7 @@ export const lot: SeedLot = {
       occurredAt: '2025-06-12',
       disclosedAt: '2025-06-12',
       description:
-        'Poc després del llançament de l’aplicació es va documentar que moltes persones publicaven converses amb l’assistent —amb dades de salut, legals o personals, textos, àudios i imatges— al feed públic «Discover» sense ser-ne conscients, perquè l’aplicació no deixava clar on es publicaven ni amb quina visibilitat.',
+        'Poc després del llançament de l’aplicació es va documentar que moltes persones publicaven converses amb l’assistent (amb dades de salut, legals o personals, textos, àudios i imatges) al feed públic «Discover» sense ser-ne conscients, perquè l’aplicació no deixava clar on es publicaven ni amb quina visibilitat.',
       affectedPeople: 'Persones usuàries de l’aplicació Meta AI que van fer servir el botó de compartir.',
       sources: ['meta-ai-discover-techcrunch-2025'],
     },

@@ -15,7 +15,7 @@ const GOOGLE_LINKS = {
 }
 
 const googleRights = {
-  dataExport: f('yes', 'official', ['google-takeout-help'], 'Google Takeout permet exportar cada servei per separat en formats oberts i estàndard. És, tècnicament, una de les millors exportacions del directori.', {
+  dataExport: f('yes', 'official', ['google-takeout-help'], 'Google Takeout permet exportar cada servei per separat en formats oberts i estàndard. És una de les exportacions més completes del directori.', {
     url: 'https://takeout.google.com/',
   }),
   exportFormatQuality: 'open' as const,
@@ -57,7 +57,7 @@ export const googleApps: AppSeed[] = [
     categories: ['cercadors'],
     tagline: 'El cercador dominant, finançat amb publicitat basada en la intenció',
     summary:
-      'El cercador de Google converteix cada consulta en un senyal comercial. Si s’hi navega amb sessió iniciada, les cerques queden associades al compte i alimenten la personalització i la publicitat; si no, s’associen a identificadors de navegador i de dispositiu. Es pot fer servir sense compte, cosa que el diferencia de la majoria de serveis del directori.',
+      'El cercador de Google aprofita cada consulta amb finalitats comercials. Si s’hi navega amb sessió iniciada, les cerques queden associades al compte i alimenten la personalització i la publicitat; si no, s’associen a identificadors de navegador i de dispositiu. Es pot fer servir sense compte, cosa que el diferencia de la majoria de serveis del directori.',
     platforms: ['web', 'ios', 'android'],
     businessModel: 'advertising',
     jurisdiction: 'Irlanda, per a persones usuàries de l’Espai Econòmic Europeu',
@@ -66,7 +66,7 @@ export const googleApps: AppSeed[] = [
     accountRequired: f('no', 'official', ['google-privacy-policy'], 'Es pot cercar sense compte. Sense sessió iniciada, l’activitat es vincula igualment a galetes i identificadors de dispositiu.'),
     openSource: f('no', 'official', ['google-privacy-policy'], undefined, { licence: 'Privativa' }),
     dataSummary:
-      'Les consultes de cerca són una de les dades més reveladores que genera una persona: malalties, deutes, relacions, orientació, intencions de compra. Google les conserva vinculades al compte per defecte, tot i que ofereix esborrat automàtic configurable.',
+      'Les consultes de cerca poden revelar malalties, deutes, relacions, orientació sexual i intencions de compra. Google les conserva vinculades al compte per defecte, tot i que ofereix esborrat automàtic configurable.',
     dataCollection: [
       row('historial-de-cerca', 'yes', { linked: 'yes', tracking: 'yes', shared: 'group', purposes: ['prestacio-del-servei', 'publicitat-personalitzada', 'elaboracio-de-perfils'], sources: ['google-privacy-policy', 'google-my-activity'], note: 'Amb sessió iniciada queda a l’historial d’activitat, amb esborrat automàtic als 18 mesos per als comptes nous.' }),
       row('adreca-ip', 'yes', { linked: 'yes', tracking: 'yes', shared: 'group', purposes: ['prestacio-del-servei', 'seguretat-i-prevencio-del-frau'], sources: ['google-privacy-policy'] }),
@@ -81,7 +81,7 @@ export const googleApps: AppSeed[] = [
       row('contingut-de-missatges', 'no', { linked: 'no', tracking: 'no', shared: 'none', sources: ['google-privacy-policy'] }),
     ],
     tracking: {
-      crossAppTracking: f('yes', 'official', ['google-privacy-policy'], 'Google Analytics i la xarxa publicitària de Google són presents a una part enorme del web i permeten seguir l’activitat entre llocs.'),
+      crossAppTracking: f('yes', 'official', ['google-privacy-policy'], 'Google Analytics i la xarxa publicitària de Google són presents a una gran part del web i permeten seguir l’activitat entre llocs.'),
       advertisingIdentifiers: f('yes', 'official', ['google-privacy-policy']),
       thirdPartyTrackersPresent: f('partial', 'official', ['google-privacy-policy'], 'Els rastrejadors són majoritàriament del mateix grup, cosa que no els fa menys efectius.'),
     },
@@ -95,7 +95,7 @@ export const googleApps: AppSeed[] = [
     sharing: {
       thirdPartySharing: f('partial', 'official', ['google-privacy-policy'], 'Anunciants reben mètriques agregades; els socis de mesura, dades pseudonimitzades.'),
       intraGroupSharing: f('yes', 'official', ['google-privacy-policy'], 'Política única per a tots els serveis de Google i un sol compte que els uneix.'),
-      dataBrokerSales: f('no', 'official', ['google-privacy-policy'], 'Google no ven dades personals a tercers; el seu negoci és vendre accés a l’audiència, no les dades.'),
+      dataBrokerSales: f('no', 'official', ['google-privacy-policy'], 'Google no ven dades personals a tercers. El que ven als anunciants és accés a l’audiència.'),
       internationalTransfers: f('yes', 'official', ['google-privacy-policy'], undefined, { mechanism: 'adequacy' }),
     },
     transparency: {
@@ -119,7 +119,7 @@ export const googleApps: AppSeed[] = [
       requiresSupportContact: false,
       steps: googleDeletionSteps,
       obstacles:
-        'Eliminar el compte de Google implica perdre Gmail, Drive, YouTube, Fotos, Android i les compres digitals alhora. Aquest acoblament és, en si mateix, un obstacle: no és fàcil marxar d’un servei sense marxar de tots.',
+        'Eliminar el compte de Google implica perdre alhora Gmail, Drive, YouTube, Fotos, Android i les compres digitals, cosa que dificulta la baixa.',
       dataRetained:
         'Registres de seguretat i informació requerida per obligacions legals o fiscals. El contingut compartit amb altres persones pot romandre visible.',
       sources: ['google-delete-account'],
@@ -176,9 +176,9 @@ export const googleApps: AppSeed[] = [
       lastReviewedAt: '2026-09-09',
       incidentsReviewed: true,
       editorialNotes:
-        'Exemple útil de puntuació matisada: Google té controls i exportació excel·lents i seguretat de primer nivell, però el nucli del servei és la publicitat basada en el perfilat. La dimensió de control puja i la de privadesa baixa, com ha de ser.',
+        'Google té controls i exportació excel·lents i una seguretat de primer nivell, però el nucli del servei és la publicitat basada en el perfilat. Per això la dimensió de control puntua alt i la de privadesa, baix.',
       openQuestions: [
-        'Quina proporció de persones usuàries modifica realment el termini d’esborrat automàtic?',
+        'Quina proporció de persones usuàries modifica el termini d’esborrat automàtic?',
       ],
     },
   },
@@ -191,7 +191,7 @@ export const googleApps: AppSeed[] = [
     categories: ['navegadors'],
     tagline: 'El navegador majoritari, desenvolupat per una empresa publicitària',
     summary:
-      'Chrome és el navegador més utilitzat del món i el desenvolupa l’empresa que més ingressos obté de la publicitat digital. Aquest conflicte estructural explica per què el bloqueig de rastrejadors de tercers hi ha arribat molt més tard i de manera molt més tímida que en navegadors independents. La sincronització és opcional però, si s’activa, l’historial de navegació complet arriba als servidors de Google.',
+      'Chrome és el navegador més utilitzat del món i el desenvolupa l’empresa que més ingressos obté de la publicitat digital. Aquest conflicte d’interessos explica que el bloqueig de rastrejadors de tercers hi hagi arribat molt més tard i de manera molt més limitada que en navegadors independents. La sincronització és opcional però, si s’activa, l’historial de navegació complet arriba als servidors de Google.',
     platforms: ['windows', 'macos', 'linux', 'android', 'ios'],
     businessModel: 'advertising',
     jurisdiction: 'Irlanda, per a persones usuàries de l’Espai Econòmic Europeu',
@@ -296,9 +296,9 @@ export const googleApps: AppSeed[] = [
       lastReviewedAt: '2026-09-09',
       incidentsReviewed: true,
       editorialNotes:
-        'La fitxa serveix per il·lustrar que la privadesa d’un navegador no depèn només del que recull, sinó del que deixa fer als altres. Chrome recull relativament poc per si mateix i, alhora, és el navegador que menys protegeix contra el rastreig de tercers.',
+        'La privadesa d’un navegador depèn del que recull i també del que deixa fer als altres. Chrome recull relativament poc per si mateix i és el navegador que menys protegeix contra el rastreig de tercers.',
       openQuestions: [
-        'Quin efecte real ha tingut Privacy Sandbox sobre el volum de rastreig entre llocs?',
+        'Quin efecte ha tingut Privacy Sandbox sobre el volum de rastreig entre llocs?',
       ],
     },
   },
@@ -311,7 +311,7 @@ export const googleApps: AppSeed[] = [
     categories: ['correu-electronic'],
     tagline: 'Correu electrònic gratuït sense xifratge d’extrem a extrem',
     summary:
-      'Google va deixar d’escanejar el contingut dels correus amb finalitats publicitàries el 2017, i això és un canvi real que cal reconèixer. El que no ha canviat és que el contingut és accessible per a Google: no hi ha xifratge d’extrem a extrem per als comptes de consum, de manera que el proveïdor pot llegir els missatges i lliurar-los davant d’un requeriment legal.',
+      'Google va deixar d’escanejar el contingut dels correus amb finalitats publicitàries el 2017. El contingut continua sent accessible per a Google: no hi ha xifratge d’extrem a extrem per als comptes de consum, de manera que el proveïdor pot llegir els missatges i lliurar-los davant d’un requeriment legal.',
     platforms: ['web', 'ios', 'android'],
     businessModel: 'freemium',
     jurisdiction: 'Irlanda, per a persones usuàries de l’Espai Econòmic Europeu',
@@ -323,7 +323,7 @@ export const googleApps: AppSeed[] = [
     accountRequired: f('yes', 'official', ['google-privacy-policy'], 'Cal un compte de Google, que sovint demana un número de telèfon per verificar-lo.'),
     openSource: f('no', 'official', ['google-privacy-policy'], undefined, { licence: 'Privativa' }),
     dataSummary:
-      'El contingut dels correus es processa per a funcions com el filtre de brossa, la cerca i les respostes suggerides, i és accessible per a Google. Les metadades de correu —qui escriu a qui i quan— són tan reveladores com el contingut i no estan protegides.',
+      'El contingut dels correus es processa per a funcions com el filtre de brossa, la cerca i les respostes suggerides, i és accessible per a Google. Les metadades (qui escriu a qui i quan) són tan reveladores com el contingut i no estan protegides.',
     dataCollection: [
       row('contingut-de-missatges', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'seguretat-i-prevencio-del-frau', 'millora-del-producte'], sources: ['google-privacy-policy'], note: 'Google no l’escaneja amb finalitats publicitàries des de 2017, però hi té accés tècnic.' }),
       row('metadades-de-comunicacio', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'seguretat-i-prevencio-del-frau'], sources: ['google-privacy-policy'] }),
@@ -374,7 +374,7 @@ export const googleApps: AppSeed[] = [
       requiresSupportContact: false,
       steps: googleDeletionSteps,
       obstacles:
-        'Cal indicar una adreça electrònica alternativa i verificar-la. L’adreça de Gmail eliminada no es pot tornar a fer servir mai més, ni per tu ni per ningú.',
+        'Cal indicar una adreça electrònica alternativa i verificar-la. L’adreça de Gmail eliminada no la podrà tornar a fer servir ningú, tampoc tu.',
       dataRetained: 'Els correus que has enviat continuen a les bústies de les persones destinatàries.',
       sources: ['google-delete-account'],
     },
@@ -407,7 +407,7 @@ export const googleApps: AppSeed[] = [
       lastReviewedAt: '2026-09-09',
       incidentsReviewed: true,
       editorialNotes:
-        'Important no repetir el tòpic que «Google llegeix els teus correus per posar-te anuncis». Va deixar de fer-ho el 2017 i cal dir-ho. El problema real és estructural i persisteix: sense xifratge d’extrem a extrem, la confidencialitat depèn de la bona voluntat i de la resistència legal del proveïdor.',
+        'El tòpic que «Google llegeix els teus correus per posar-te anuncis» no és cert des del 2017, quan va deixar de fer-ho. Sense xifratge d’extrem a extrem, però, la confidencialitat depèn de la bona voluntat i de la resistència legal del proveïdor.',
     },
   },
 
@@ -419,7 +419,7 @@ export const googleApps: AppSeed[] = [
     categories: ['video-i-streaming'],
     tagline: 'Vídeo finançat amb publicitat i recomanació algorítmica intensiva',
     summary:
-      'YouTube funciona amb el compte de Google i el seu sistema de recomanació és un dels més estudiats del món. L’historial de visualització i de cerca dins de la plataforma és una radiografia molt precisa d’interessos, creences i estat d’ànim, i alimenta directament la publicitat. Es pot mirar sense compte, però la personalització i part de les funcions requereixen iniciar sessió.',
+      'YouTube funciona amb el compte de Google i el seu sistema de recomanació és un dels més estudiats del món. L’historial de visualització i de cerca dins de la plataforma mostra amb molta precisió els interessos, les creences i l’estat d’ànim, i alimenta directament la publicitat. Es pot mirar sense compte, però la personalització i part de les funcions requereixen iniciar sessió.',
     platforms: ['web', 'ios', 'android', 'other'],
     businessModel: 'freemium',
     jurisdiction: 'Irlanda, per a persones usuàries de l’Espai Econòmic Europeu',
@@ -455,7 +455,7 @@ export const googleApps: AppSeed[] = [
       targetedAdvertising: f('yes', 'official', ['google-ad-center'], 'Es pot desactivar la personalització; la subscripció Premium elimina la publicitat però no la recollida de dades.', {
         optOutUrl: 'https://myadcenter.google.com/',
       }),
-      profiling: f('yes', 'official', ['google-privacy-policy'], 'El sistema de recomanació és, en si mateix, un sistema de perfilat de comportament.'),
+      profiling: f('yes', 'official', ['google-privacy-policy'], 'El sistema de recomanació funciona perfilant el comportament.'),
       aiTraining: f('partial', 'official', ['google-privacy-policy'], 'Google ha reconegut públicament l’ús de contingut de YouTube per entrenar models generatius, sense un mecanisme d’oposició per a les persones usuàries.'),
     },
     sharing: {
@@ -512,7 +512,7 @@ export const googleApps: AppSeed[] = [
       lastReviewedAt: '2026-09-09',
       incidentsReviewed: true,
       editorialNotes:
-        'L’historial de visualització és la dada més sensible d’aquesta fitxa i no encaixa en cap categoria de l’article 9 del RGPD, tot i que permet inferir-ne diverses. És un bon exemple de per què la sensibilitat editorial d’un tipus de dada no coincideix sempre amb la seva qualificació jurídica.',
+        'L’historial de visualització és la dada més sensible d’aquesta fitxa i no encaixa en cap categoria de l’article 9 del RGPD, tot i que permet inferir-ne diverses. La sensibilitat que atribuïm a un tipus de dada no sempre coincideix amb la seva qualificació jurídica.',
     },
   },
 
@@ -524,7 +524,7 @@ export const googleApps: AppSeed[] = [
     categories: ['mapes-i-navegacio'],
     tagline: 'Mapes i navegació amb historial d’ubicació',
     summary:
-      'Google Maps necessita la ubicació per funcionar, i això és legítim. La qüestió és què se’n fa després. La cronologia d’ubicacions, desactivada per defecte als comptes nous i emmagatzemada al dispositiu des de 2024, conserva un registre històric de per on has passat que constitueix una de les dades més sensibles que pot generar una persona.',
+      'Google Maps necessita la ubicació per funcionar. La cronologia d’ubicacions, desactivada per defecte als comptes nous i emmagatzemada al dispositiu des de 2024, conserva un registre històric de per on has passat, una de les dades més sensibles que pot generar una persona.',
     platforms: ['web', 'ios', 'android'],
     businessModel: 'advertising',
     jurisdiction: 'Irlanda, per a persones usuàries de l’Espai Econòmic Europeu',
@@ -617,7 +617,7 @@ export const googleApps: AppSeed[] = [
       lastReviewedAt: '2026-09-09',
       incidentsReviewed: true,
       editorialNotes:
-        'El trasllat de la cronologia al dispositiu, iniciat el 2024, és una millora substantiva i cal reconèixer-la. Convé revisar aquesta fitxa quan el desplegament s’hagi completat a totes les plataformes per comprovar què queda realment als servidors.',
+        'El trasllat de la cronologia al dispositiu, iniciat el 2024, és una millora substantiva. Convé revisar aquesta fitxa quan el desplegament s’hagi completat a totes les plataformes per comprovar què queda als servidors.',
       openQuestions: [
         'Un cop completat el trasllat de la cronologia al dispositiu, quina informació d’ubicació continua arribant als servidors de Google?',
       ],

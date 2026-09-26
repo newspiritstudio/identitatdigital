@@ -47,7 +47,7 @@ const meteocat: AppSeed = {
       'partial',
       'official',
       ['meteocat-privacidad-app-es'],
-      'Només la versió castellana de la política dona una base jurídica, i només per a les notificacions: el consentiment exprés de qui les activa. No en dona cap per a l’analítica amb Firebase ni per a l’emmagatzematge de la darrera ubicació. La versió catalana ni tan sols en cita cap.',
+      'Només la versió castellana de la política dona una base jurídica, i només per a les notificacions: el consentiment exprés de qui les activa. No en dona cap per a l’analítica amb Firebase ni per a l’emmagatzematge de la darrera ubicació. La versió catalana no en cita cap.',
       { norm: 'Reglament (UE) 2016/679 i Llei orgànica 3/2018, citats de manera genèrica; consentiment per a les notificacions' },
     ),
     processingRegistry: f(
@@ -70,7 +70,7 @@ const meteocat: AppSeed = {
       'yes',
       'official',
       ['meteocat-app-pagina', 'meteocat-avis-legal-app'],
-      'Tota la informació de l’aplicació —predicció, radar i avisos de perill— es publica al web meteo.cat, i l’avís legal mateix recomana informar-se també pels altres canals perquè les notificacions poden fallar.',
+      'Tota la informació de l’aplicació (predicció, radar i avisos de perill) es publica al web meteo.cat, i l’avís legal mateix recomana informar-se també pels altres canals perquè les notificacions poden fallar.',
     ),
     accessibilityStatement: f(
       'partial',
@@ -87,7 +87,7 @@ const meteocat: AppSeed = {
     ),
   },
   dataSummary:
-    'Una app del temps no necessita saber qui ets, i aquesta no ho demana. El que sí recull és on ets —fins i tot en segon pla, per enviar els avisos de la zona— i un identificador del dispositiu. La política diu que la ubicació és aproximada i que l’analítica passa per Firebase amb l’identificador de publicitat, dues afirmacions que l’etiqueta de l’App Store no reflecteix.',
+    'L’aplicació no demana cap dada d’identitat. Recull la ubicació, també en segon pla per enviar els avisos de la zona, i un identificador del dispositiu. La política diu que la ubicació és aproximada i que l’analítica passa per Firebase amb l’identificador de publicitat, dues afirmacions que l’etiqueta de l’App Store no reflecteix.',
   dataCollection: [
     row('ubicacio-aproximada', 'optional', { linked: 'no', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei', 'personalitzacio-de-continguts'], sources: ['meteocat-app-store', 'meteocat-privacitat-app'], note: 'Només amb permís. L’app funciona en segon pla per recollir els canvis d’ubicació i l’SMC en desa la darrera.' }),
     row('ubicacio-precisa', 'optional', { linked: 'no', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['meteocat-app-store', 'meteocat-privacitat-app'], note: 'L’etiqueta de l’App Store declara la ubicació exacta; la política diu que la ubicació «sempre serà aproximada, no precisa».' }),
@@ -173,7 +173,7 @@ const meteocat: AppSeed = {
     lastReviewedAt: CATALAN_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'La política és una plantilla de la Generalitat mal adaptada: parla de preferències «sobre tràmits i ajudes» en una app del temps. L’enllaç de privadesa que declara la fitxa de l’App Store (meteo.cat/wpweb/politica-de-privacidad-de-la-app/) respon amb una redirecció a ajp://127.0.0.1:8009, una adreça interna del servidor, i no s’obre: ho hem comprovat el 25 de setembre del 2026. No hem trobat cap incident ni cap resolució de l’APDCAT sobre l’aplicació.',
+      'La política és una plantilla de la Generalitat que no s’ha adaptat a l’aplicació: parla de preferències «sobre tràmits i ajudes» en una app del temps. L’enllaç de privadesa que declara la fitxa de l’App Store (meteo.cat/wpweb/politica-de-privacidad-de-la-app/) respon amb una redirecció a ajp://127.0.0.1:8009, una adreça interna del servidor, i no s’obre: ho hem comprovat el 25 de setembre del 2026. No hem trobat cap incident ni cap resolució de l’APDCAT sobre l’aplicació.',
     openQuestions: [
       'L’app demana el permís de rastreig d’iOS per llegir l’IDFA, tal com dona a entendre la política? Si no, la frase és incorrecta; si sí, l’etiqueta ho hauria de declarar.',
       'Quina és l’adreça vigent del delegat de protecció de dades: dpd.meteocat@gencat.cat o protecciodades.meteocat@gencat.cat?',
@@ -190,7 +190,7 @@ const agenciaTributaria: AppSeed = {
   categories: ['administracio-publica'],
   tagline: 'La política diu que l’app «no recull cap dada» i dues línies després enumera nom, adreça, telèfon, ubicació i targeta bancària',
   summary:
-    'L’app de l’ATC permet pagar tributs i deutes amb targeta o Bizum, demanar cita i, amb idCAT Mòbil, consultar els deutes en via executiva, el padró de l’impost sobre les emissions de CO₂ dels vehicles o l’adreça de notificacions. La part jurídica és sòlida perquè es recolza en el registre d’activitats de l’ATC, que esmenta l’app expressament i cita la Llei general tributària i el Codi tributari de Catalunya. La política de l’app, en canvi, es contradiu: diu que no recull cap dada i alhora que emmagatzema nom, correu, adreça, telèfon, ubicació i dades bancàries, mentre l’etiqueta de l’App Store declara totes aquestes dades vinculades a la identitat.',
+    'L’app de l’ATC permet pagar tributs i deutes amb targeta o Bizum, demanar cita i, amb idCAT Mòbil, consultar els deutes en via executiva, el padró de l’impost sobre les emissions de CO₂ dels vehicles o l’adreça de notificacions. La base jurídica està documentada al registre d’activitats de l’ATC, que esmenta l’app expressament i cita la Llei general tributària i el Codi tributari de Catalunya. La política de l’app, en canvi, es contradiu: diu que no recull cap dada i alhora que emmagatzema nom, correu, adreça, telèfon, ubicació i dades bancàries, mentre l’etiqueta de l’App Store declara totes aquestes dades vinculades a la identitat.',
   platforms: ['ios', 'android'],
   businessModel: 'public-service',
   jurisdiction: 'Catalunya; servei públic de l’Agència Tributària de Catalunya',
@@ -245,7 +245,7 @@ const agenciaTributaria: AppSeed = {
     ),
   },
   dataSummary:
-    'Les dades que passen per l’app són les de la teva relació amb Hisenda: deutes, impostos de vehicles, adreça de notificacions i mitjans de pagament. No les genera l’app sinó l’Administració, i no es poden esborrar: la llei obliga a conservar-les i a cedir-les a altres administracions tributàries i als tribunals quan ho demanin.',
+    'Per l’app passen les dades de la relació amb Hisenda: deutes, impostos de vehicles, adreça de notificacions i mitjans de pagament. Són dades de l’Administració, que la llei obliga a conservar i a cedir a altres administracions tributàries i als tribunals quan ho demanin; per això no es poden esborrar.',
   dataCollection: [
     row('nom-i-cognoms', 'optional', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'compliment-legal'], sources: ['atc-app-store', 'atc-app-privacitat', 'atc-rat-finalitats-tributaries'], note: 'Només quan hi ha identificació digital. Les cessions a altres administracions tributàries, jutjats i tribunals són les previstes per llei.' }),
     row('document-identificatiu-oficial', 'optional', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'compliment-legal', 'seguretat-i-prevencio-del-frau'], sources: ['atc-rat-finalitats-tributaries', 'atc-app-privacitat'], note: 'El NIF que identifica l’idCAT Mòbil i la clau de totes les dades tributàries.' }),
@@ -298,7 +298,7 @@ const agenciaTributaria: AppSeed = {
       'Si havies activat les notificacions per canal electrònic, dona-te’n de baixa a la seu electrònica de l’ATC.',
       'Per a l’accés o la rectificació de dades tributàries, fes servir el formulari de l’ATC o escriu al delegat de protecció de dades, dpd@atc.cat.',
     ],
-    obstacles: 'La supressió de les dades tributàries no és possible perquè la Llei general tributària n’imposa la conservació: és una obligació legal, no una decisió de l’app.',
+    obstacles: 'La supressió de les dades tributàries no és possible perquè la Llei general tributària n’imposa la conservació.',
     dataRetained: 'Totes les dades tributàries, amb terminis que van dels cinc anys a la conservació indefinida.',
     sources: ['atc-app-privacitat', 'atc-proteccio-dades', 'atc-rat-finalitats-tributaries'],
   },
@@ -330,7 +330,7 @@ const agenciaTributaria: AppSeed = {
     lastReviewedAt: CATALAN_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'El contrast entre documents és el que defineix la fitxa. El registre d’activitats de l’ATC és dels més complets del bloc català: esmenta l’app, enumera encarregats, fonts, cessions i actuacions automatitzades amb la seva lògica. La política de l’app, en canvi, afirma que «no recull cap dada de l’usuari» i dues frases després que n’emmagatzema una llista llarga; i copia de la plantilla de la Generalitat la frase sobre «alertes sobre el territori», que no correspon a cap funció de l’ATC. La fitxa de l’App Store enllaça la política per http i en castellà. No hem trobat cap incident ni resolució de l’APDCAT sobre l’app; les notícies sobre una suposada filtració de dades fiscals del 2026 es referien a l’Agència Tributària estatal, que ho va desmentir.',
+      'El registre d’activitats de l’ATC és dels més complets del bloc català: esmenta l’app, enumera encarregats, fonts, cessions i actuacions automatitzades amb la seva lògica. La política de l’app, en canvi, afirma que «no recull cap dada de l’usuari» i dues frases després que n’emmagatzema una llista llarga; i copia de la plantilla de la Generalitat la frase sobre «alertes sobre el territori», que no correspon a cap funció de l’ATC. La fitxa de l’App Store enllaça la política per http i en castellà. No hem trobat cap incident ni resolució de l’APDCAT sobre l’app; les notícies sobre una suposada filtració de dades fiscals del 2026 es referien a l’Agència Tributària estatal, que ho va desmentir.',
     openQuestions: [
       'Per a què fa servir exactament l’app la ubicació, si la política parla d’alertes que no existeixen?',
       'Quina eina d’analítica fa servir l’app, i per què l’etiqueta declara les dades d’ús vinculades a la identitat si la política diu que són anònimes?',
@@ -382,7 +382,7 @@ const appTransit: AppSeed = {
       'yes',
       'official',
       ['app-transit-pagament-sancions'],
-      'Les multes es poden pagar al web amb o sense certificat digital, a les oficines de CaixaBank, a les oficines de l’SCT amb cita prèvia o per telèfon al 012. L’app és un canal més, no l’únic.',
+      'Les multes es poden pagar al web amb o sense certificat digital, a les oficines de CaixaBank, a les oficines de l’SCT amb cita prèvia o per telèfon al 012.',
     ),
     accessibilityStatement: f(
       'partial',
@@ -399,7 +399,7 @@ const appTransit: AppSeed = {
     ),
   },
   dataSummary:
-    'Consultar el trànsit no hauria de dir res de tu, i les condicions ho prometen. Però l’etiqueta declara la ubicació exacta per a analítica. On sí que hi ha dades delicades és a la part sancionadora: infraccions, matrícula, document d’identitat i targeta bancària, que es comuniquen als òrgans que executen la sanció.',
+    'Les condicions diuen que el mapa no recull cap dada, però l’etiqueta declara la ubicació exacta per a analítica. Les dades més delicades són les de la part sancionadora: infraccions, matrícula, document d’identitat i targeta bancària, que es comuniquen als òrgans que executen la sanció.',
   dataCollection: [
     row('ubicacio-precisa', 'optional', { linked: 'no', tracking: 'no', shared: 'unknown', purposes: ['prestacio-del-servei', 'mesura-i-analisi-dus'], sources: ['app-transit-app-store', 'app-transit-condicions-us'], note: 'L’etiqueta la declara per a analítica i per a la funcionalitat de l’app. Les condicions diuen que el mapa no recull cap dada personal ni cap dada sobre el dispositiu.' }),
     row('interaccions-i-us', 'yes', { linked: 'no', tracking: 'no', shared: 'unknown', purposes: ['mesura-i-analisi-dus'], sources: ['app-transit-app-store'], note: 'Declarades a l’etiqueta; les condicions no en parlen.' }),
@@ -482,7 +482,7 @@ const appTransit: AppSeed = {
     lastReviewedAt: CATALAN_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'És la fitxa amb el text legal més antic del bloc: unes condicions del 2017 que no s’han adaptat al RGPD i que la fitxa de l’App Store ni tan sols enllaça, perquè no declara cap política de privadesa. El model d’accés per codi QR és còmode però fràgil: la notificació en paper fa de credencial, i qualsevol persona que la tingui pot actuar en nom de la interessada. L’APDCAT va amonestar l’SCT el 2020 (PS 41/2020) per no haver comunicat a l’ATC l’adreça actualitzada d’una persona sancionada, cosa que va acabar en una notificació per edicte al BOE; afecta el tractament d’expedients sancionadors que l’app fa servir, no l’app en si.',
+      'És la fitxa amb el text legal més antic del bloc: unes condicions del 2017 que no s’han adaptat al RGPD i que la fitxa de l’App Store no enllaça, perquè no declara cap política de privadesa. Amb l’accés per codi QR, la notificació en paper fa de credencial: qualsevol persona que la tingui pot actuar en nom de la interessada. L’APDCAT va amonestar l’SCT el 2020 (PS 41/2020) per no haver comunicat a l’ATC l’adreça actualitzada d’una persona sancionada, cosa que va acabar en una notificació per edicte al BOE; afecta el tractament d’expedients sancionadors que l’app fa servir, no l’app en si.',
     openQuestions: [
       'Hi ha una política de privadesa de l’app adaptada al RGPD que no hem trobat?',
       'Amb quina eina es fa l’analítica que declara l’etiqueta, i per què es recull la ubicació exacta per a analítica si les condicions diuen que el mapa no recull cap dada?',
@@ -556,7 +556,7 @@ const barcelonaButxaca: AppSeed = {
     ),
   },
   dataSummary:
-    'Una incidència a la via pública porta nom, correu, telèfon, una foto i la ubicació exacta d’un carrer: sovint el de casa. L’Ajuntament ho guarda cinc anys i ho passa a l’òrgan que ha de resoldre-la. La resta de l’app funciona sense identificar-te, tot i que declara analítica de navegació i un identificador de dispositiu.',
+    'Per notificar una incidència a la via pública cal donar nom, correu i telèfon, i s’hi poden afegir una foto i la ubicació exacta. L’Ajuntament ho guarda cinc anys i ho passa a l’òrgan que l’ha de resoldre. La resta de l’app funciona sense identificar-se, tot i que declara analítica de navegació i un identificador de dispositiu.',
   dataCollection: [
     row('ubicacio-precisa', 'optional', { linked: 'no', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['butxaca-app-store', 'butxaca-privacitat'], note: 'Per mostrar els equipaments a prop i situar les incidències al mapa.' }),
     row('nom-i-cognoms', 'optional', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'personalitzacio-de-continguts'], sources: ['butxaca-privacitat', 'butxaca-app-store'], note: 'Per notificar incidències. L’etiqueta el declara també per a la personalització del producte.' }),
@@ -641,7 +641,7 @@ const barcelonaButxaca: AppSeed = {
     lastReviewedAt: CATALAN_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'De les quatre fitxes del lot, és la política més ben lligada al registre d’activitats: dona el codi del tractament i s’hi pot comprovar la base legal, el termini i les mesures de seguretat. El que no quadra és l’etiqueta de l’App Store, que declara un identificador d’usuari i el nom vinculats per «personalitzar el producte», i la consulta d’aplicacions instal·lades, que la política reconeix però l’etiqueta no. No hem trobat cap incident ni resolució de l’APDCAT sobre l’app.',
+      'La política està ben lligada al registre d’activitats: dona el codi del tractament i s’hi pot comprovar la base legal, el termini i les mesures de seguretat. Les discrepàncies són a l’etiqueta de l’App Store: declara un identificador d’usuari i el nom vinculats per «personalitzar el producte», i no declara la consulta d’aplicacions instal·lades que la política reconeix. No hem trobat cap incident ni resolució de l’APDCAT sobre l’app.',
     openQuestions: [
       'Què és l’identificador d’usuari que declara l’etiqueta, i hi ha algun inici de sessió dins de l’app?',
       'Quina llibreria de Google recull les mètriques i on es tracten?',

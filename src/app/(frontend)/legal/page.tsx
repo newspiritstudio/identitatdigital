@@ -20,17 +20,15 @@ export default function LegalIndexPage() {
       <DocMeta version="1.0" updated="12 de setembre de 2026" />
 
       <p className="lede">
-        Cinc documents. Cap d’ells està escrit per protegir-nos a nosaltres de tu: estan escrits
-        perquè puguis comprovar què fa aquest lloc amb les teves dades, què pots fer amb el que hi
-        publiquem i a qui has de reclamar si alguna cosa no va bé.
+        Cinc documents escrits perquè puguis comprovar què fa aquest lloc amb les teves dades, què
+        pots fer amb el que hi publiquem i a qui has de reclamar si alguna cosa no va bé.
       </p>
 
       <h2>En una línia</h2>
       <p>
         Aquest lloc no et demana cap compte, no t’instal·la cap galeta, no té analítica ni
         rastrejadors, no envia res a cap tercer quan el visites i no té cap formulari on puguis
-        deixar dades. Tot el que segueix és el desenvolupament d’aquesta frase i la prova que és
-        certa.
+        deixar dades. Els documents següents ho desenvolupen i expliquen com comprovar-ho.
       </p>
 
       <h2>Documents</h2>
@@ -60,8 +58,8 @@ export default function LegalIndexPage() {
             <Link href="/legal/galetes">Política de galetes</Link>
           </strong>
           <p>
-            Per què no hi ha bàner de consentiment: perquè no hi ha galetes per a qui visita. Amb el
-            fonament legal de per què això és correcte i no una omissió.
+            Per què no hi ha bàner de consentiment: no hi ha galetes per a qui visita. Inclou el
+            fonament legal que ho justifica.
           </p>
         </li>
         <li>
@@ -69,8 +67,8 @@ export default function LegalIndexPage() {
             <Link href="/legal/condicions">Condicions d’ús</Link>
           </strong>
           <p>
-            Com es pot fer servir el lloc i, sobretot, què garantim i què no garantim del generador
-            de contrasenyes i de la comprovació de contrasenyes filtrades.
+            Com es pot fer servir el lloc i què garantim i què no garantim del generador de
+            contrasenyes i de la comprovació de contrasenyes filtrades.
           </p>
         </li>
         <li>
@@ -89,27 +87,17 @@ export default function LegalIndexPage() {
       <p>
         Qui pot canviar la metodologia, què passa quan qui edita una fitxa té un vincle comercial
         amb l’empresa que hi surt i què passa amb les dades si el projecte s’atura són decisions que
-        no caben en cap dels documents anteriors, i que igualment has de poder comprovar. Són
-        al{' '}
-        <a
-          href="https://github.com/newspiritstudio/identitatdigital/blob/main/docs/governanca.md"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          document de governança
-          <span className="visually-hidden"> (s’obre en una pestanya nova)</span>
-        </a>
-        , públic al repositori.
+        no formen part de cap dels documents anteriors. Si en vols saber els detalls, escriu a
+        l’adreça de contacte del final d’aquesta pàgina.
       </p>
 
       <h2>Documentació interna</h2>
       <p>
-        Quatre documents més no es publiquen aquí perquè no van adreçats a qui visita el lloc, sinó
-        a qui l’ha de mantenir i, si algun dia cal, a l’autoritat de control: el registre
+        Quatre documents més no es publiquen aquí perquè van adreçats a qui ha de mantenir el lloc
+        i, si algun dia cal, a l’autoritat de control: el registre
         d’activitats de tractament de l’article 30 del Reglament general de protecció de dades,
         l’anàlisi de si cal una avaluació d’impacte de l’article 35, el procediment de violacions de
-        seguretat dels articles 33 i 34 i la política de còpies de seguretat. Viuen al repositori
-        del projecte, a <code>docs/legal/</code>.
+        seguretat dels articles 33 i 34 i la política de còpies de seguretat.
       </p>
 
       <h2>Contacte</h2>

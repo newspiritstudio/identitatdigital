@@ -45,17 +45,17 @@ export default async function CatalanPage() {
       <h1>Es pot viure en català?</h1>
       <p className="lede">
         De les {num(analysis.checked)} fitxes comprovades, {num(analysis.withCatalan)} es poden fer
-        servir amb la interfície en català i {num(analysis.withoutCatalan)} no. La font és la mateixa
-        per a totes: la llista d’idiomes d’interfície que cada empresa declara a la seva fitxa de
-        l’App Store.
+        servir amb la interfície en català i {num(analysis.withoutCatalan)} no. La font és la
+        mateixa per a totes: la llista d’idiomes d’interfície que cada empresa declara a la seva
+        fitxa de l’App Store.
       </p>
 
       <Note>
         Aquesta dimensió <strong>no entra a cap puntuació</strong> i no mou cap nota. Tenir
-        interfície en català no fa una empresa més respectuosa amb les dades. Si això sumés, premiaria
-        les plataformes més grans, que tradueixen a seixanta idiomes perquè tenen equips per fer-ho, i
-        castigaria eines petites i molt bones fetes per cinc persones. És una dimensió d’accés, no de
-        qualitat, i es publica al costat de la nota per respondre una pregunta que la nota no respon.
+        interfície en català no fa una empresa més respectuosa amb les dades. Si sumés, afavoriria
+        les plataformes més grans, que tradueixen a seixanta idiomes perquè tenen equips per fer-ho,
+        i perjudicaria eines petites i ben fetes per equips de cinc persones. Mesura l’accés i no la
+        qualitat, i es publica al costat de la nota com a informació complementària.
       </Note>
 
       <KeyNumbers>
@@ -71,12 +71,12 @@ export default async function CatalanPage() {
         />
       </KeyNumbers>
 
-      <h2>L’excusa de la capacitat no s’aguanta</h2>
+      <h2>Capacitat de traducció</h2>
       <p>
         Les fitxes que <strong>no</strong> tenen català tradueixen la interfície a{' '}
         {num(analysis.averageLanguagesWithout ?? 0)} idiomes de mitjana. Les que sí que el tenen, a{' '}
-        {num(analysis.averageLanguagesWith ?? 0)}. La diferència no és de mitjans: qui tradueix a
-        trenta idiomes i no inclou el català ha pres una decisió, no ha topat amb un límit.
+        {num(analysis.averageLanguagesWith ?? 0)}. La falta de mitjans no ho explica: qui tradueix a
+        trenta idiomes i no inclou el català ha decidit no incloure’l.
       </p>
       {despite.length > 0 ? (
         <>
@@ -110,22 +110,21 @@ export default async function CatalanPage() {
         </>
       ) : null}
 
-      <h2>Llengua i qualitat no van juntes</h2>
+      <h2>Llengua i puntuació</h2>
       <p>
         La puntuació global mitjana de les fitxes amb català és{' '}
         {analysis.averageOverallWith === null ? '—' : num(analysis.averageOverallWith)} i la de les
         que no en tenen és{' '}
-        {analysis.averageOverallWithout === null ? '—' : num(analysis.averageOverallWithout)}. Sigui
-        quina sigui la diferència, no vol dir res: són mostres de deu i quinze fitxes triades per
-        difusió, no per llengua. Ho publiquem perquè és el que surt, no perquè demostri res, i
-        justament per això la llengua no entra al càlcul.
+        {analysis.averageOverallWithout === null ? '—' : num(analysis.averageOverallWithout)}. La
+        diferència no permet treure conclusions: són mostres de deu i quinze fitxes triades per
+        difusió, no per llengua. Ho publiquem com a dada, i per aquest motiu la llengua no entra al
+        càlcul.
       </p>
 
       <h2>Per grup empresarial</h2>
       <p>
-        La decisió d’incloure el català sovint no la pren una aplicació sinó el grup que la publica.
-        Quan un grup té diverses fitxes al directori, la coherència entre elles diu més que cada cas
-        per separat.
+        La decisió d’incloure el català sovint la pren el grup que publica l’aplicació. Quan un grup
+        té diverses fitxes al directori, cal mirar-les juntes.
       </p>
       <Scroller label="Fitxes amb català per empresa o grup del directori">
         <table>
@@ -185,17 +184,16 @@ export default async function CatalanPage() {
       <h2>Com es comprova</h2>
       <p>
         L’script <code>pnpm import-catalan</code> consulta l’API pública de l’App Store per a cada
-        aplicació del directori i en llegeix la llista d’idiomes d’interfície de la versió publicada.
-        Desa l’estat, el nombre d’idiomes, la data de comprovació i una font documental per fitxa,
-        que és la mateixa pàgina de la botiga. Qualsevol persona pot tornar-hi i comprovar-ho, i les
-        dades es poden descarregar a la pàgina de{' '}
-        <Link href="/dades">dades obertes</Link>.
+        aplicació del directori i en llegeix la llista d’idiomes d’interfície de la versió
+        publicada. Desa l’estat, el nombre d’idiomes, la data de comprovació i una font documental
+        per fitxa, que és la mateixa pàgina de la botiga. Qualsevol persona ho pot comprovar, i les
+        dades es poden descarregar a la pàgina de <Link href="/dades">dades obertes</Link>.
       </p>
       <p>
-        El que això <strong>no</strong> diu: ni la qualitat de la traducció, ni si el web té el
-        mateix tracte que l’aplicació, ni si es pot reclamar en català a l’atenció al client. Són
-        preguntes diferents i cadascuna necessita la seva font. El que no s’hagi comprovat es queda
-        com a desconegut.
+        Aquesta comprovació <strong>no</strong> diu res de la qualitat de la traducció, de si el web
+        també és en català ni de si es pot reclamar en català a l’atenció al client. Cadascuna
+        d’aquestes preguntes necessita la seva font, i el que no s’hagi comprovat queda com a
+        desconegut.
       </p>
 
       <BackToIndex />

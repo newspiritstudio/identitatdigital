@@ -276,7 +276,7 @@ const actionsForApp = (
           cautions:
             best === 'sms'
               ? [
-                  'L’únic mètode documentat és l’SMS: és millor que res, però es pot interceptar amb un duplicat de la targeta SIM.',
+                  'L’únic mètode documentat és l’SMS. És millor que no tenir segon factor, però es pot interceptar amb un duplicat de la targeta SIM.',
                 ]
               : !partial && methods.includes('sms') && best !== null
                 ? [`Si pots triar, evita l’SMS i fes servir ${MFA_METHOD_LABELS[best]}.`]
@@ -339,7 +339,7 @@ const actionsForApp = (
           app,
           title: `Limita la publicitat personalitzada a ${app.name}`,
           benefit:
-            'Menys perfilat: el servei deixa de fer servir (o fa servir menys) el que sap de tu per decidir què et mostra.',
+            'El servei deixa de fer servir, o fa servir menys, el que sap de tu per decidir què et mostra.',
           detail: details?.controls.adOptOut ?? details?.controls.targetedAdvertising ?? null,
           cautions:
             controls.adOptOut.status === 'partial'
@@ -429,7 +429,7 @@ const actionsForApp = (
           app,
           title: `Revisa la configuració de privadesa ${de(app.name)}`,
           benefit:
-            'La fitxa documenta que el servei ve configurat per compartir tant com pot: el que no canviïs tu queda així.',
+            'La fitxa documenta que el servei ve configurat per compartir tant com pot, i el que no canviïs tu es queda així.',
           url: app.controls.privacyCenter,
           urlLabel: 'Centre de privadesa',
           internalHref: ficha,
@@ -527,7 +527,7 @@ const deletionAction = (
   if (deletion.possible === 'no') {
     cautions.push('La fitxa documenta que el compte no es pot esborrar. Pots demanar la supressió per l’article 17 del RGPD.')
   }
-  if (deletion.requiresSupportContact) cautions.push('Cal contactar amb el servei d’atenció: no es pot fer sol.')
+  if (deletion.requiresSupportContact) cautions.push('Només es pot fer contactant amb el servei d’atenció.')
   if (deletion.waitingPeriodDays !== null && deletion.waitingPeriodDays > 0) {
     cautions.push(
       `Durant ${deletion.waitingPeriodDays} dies el compte es pot recuperar. Si hi tornes a entrar en aquest període, l’eliminació pot quedar anul·lada.`,
@@ -554,7 +554,7 @@ const deletionAction = (
       app,
       title: `Esborra el compte ${de(app.name)}`,
       benefit:
-        'Un compte que no fas servir continua acumulant dades i continua sent a les properes filtracions.',
+        'Un compte que no fas servir continua acumulant dades i queda exposat a futures filtracions.',
       detail: `Dificultat documentada: ${DIFFICULTY_LABELS[deletion.difficulty]}.`,
       steps,
       cautions,

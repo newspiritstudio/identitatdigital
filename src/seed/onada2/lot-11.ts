@@ -23,7 +23,7 @@ const dia: AppSeed = {
   name: 'Dia Supermercado online y Club',
   company: 'dia-retail-espana',
   categories: ['alimentacio-i-restauracio', 'comerc-electronic'],
-  tagline: 'Cupons a canvi del tiquet: perfil comercial per contracte i, amb consentiment, cessió de l’historial de compres a empreses d’altres sectors',
+  tagline: 'Perfil comercial amb les compres del club, basat en el contracte, i, amb consentiment, cessió de l’historial de compres a empreses d’altres sectors',
   summary:
     'L’aplicació del CLUB Dia demana el document d’identitat per registrar-se i converteix cada compra en dades per a un perfil comercial per segments, que DIA basa en l’execució del contracte i no en el consentiment. Amb un consentiment separat, DIA pot cedir el nom, el correu, el telèfon i l’historial de compres a empreses col·laboradores de sectors com el financer, l’assegurador o les telecomunicacions perquè en facin ús propi. L’etiqueta de l’App Store declara identificadors i dades d’ús utilitzats per rastrejar.',
   platforms: ['ios', 'android', 'web'],
@@ -39,7 +39,7 @@ const dia: AppSeed = {
   accountRequired: f('yes', 'official', ['dia-privacy-policy', 'dia-club-rules'], 'Per fer servir el CLUB Dia, els cupons i la compra en línia cal registrar-se amb nom, document d’identitat i un correu o un telèfon.'),
   openSource: f('no', 'official', ['dia-privacy-policy'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'El tiquet d’un supermercat retrata la dieta, la mida i la composició de la llar, la presència d’infants o de mascotes i, indirectament, la salut i el nivell d’ingressos. DIA hi afegeix el document d’identitat, la data de naixement, el sexe, el nombre de membres de la llar i, amb permís, la ubicació, i en dedueix segments per edat, zona i consum.',
+    'El tiquet d’un supermercat revela la dieta, la mida i la composició de la llar, la presència d’infants o de mascotes i, indirectament, la salut i el nivell d’ingressos. DIA hi afegeix el document d’identitat, la data de naixement, el sexe, el nombre de membres de la llar i, amb permís, la ubicació, i en dedueix segments per edat, zona i consum.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'cessio-a-tercers'], sources: ['dia-privacy-policy', 'dia-app-store'], note: 'Es cedeix a empreses col·laboradores només amb consentiment.' }),
     row('document-identificatiu-oficial', 'yes', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['dia-privacy-policy'], note: 'La política el demana per registrar-se com a client; no és habitual en un programa de fidelització.' }),
@@ -157,7 +157,7 @@ const justEat: AppSeed = {
   accountRequired: f('partial', 'official', ['just-eat-privacy-policy'], 'La política preveu comptes de client i esmenta comptes de convidat creats en el passat; no queda clar si encara es pot demanar sense registrar-se.'),
   openSource: f('no', 'official', ['just-eat-privacy-policy'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'Les comandes de menjar revelen horaris, hàbits alimentaris, al·lèrgies i restriccions religioses; les de farmàcia, tractaments i condicions de salut, com reconeix la mateixa política. L’adreça de lliurament i la ubicació completen un mapa de la vida quotidiana, i l’etiqueta declara que bona part d’aquestes dades serveixen per rastrejar.',
+    'Les comandes de menjar revelen horaris, hàbits alimentaris, al·lèrgies i restriccions religioses; les de farmàcia, tractaments i condicions de salut, com reconeix la mateixa política. L’adreça de lliurament i la ubicació hi afegeixen on viu i on es mou la persona, i l’etiqueta declara que bona part d’aquestes dades serveixen per rastrejar.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'personalitzacio-de-continguts'], sources: ['just-eat-privacy-policy', 'just-eat-app-store'], note: 'Es comparteix amb el restaurant o establiment i amb la persona repartidora.' }),
     row('adreca-postal', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['just-eat-privacy-policy', 'just-eat-app-store'] }),
@@ -253,7 +253,7 @@ const justEat: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: false,
     editorialNotes:
-      'La política diu que la publicitat personalitzada fora de la plataforma requereix consentiment, però l’etiqueta de l’App Store declara compres, informació financera i ubicació utilitzades per rastrejar. Són declaracions compatibles si el rastreig només s’activa amb el consentiment de l’App Tracking Transparency, però el contrast mereix ser a la fitxa. Només hem trobat a l’AEPD una tutela de drets del 2018 contra Just Eat Spain per una cancel·lació no atesa, que no hem registrat com a incident.',
+      'La política diu que la publicitat personalitzada fora de la plataforma requereix consentiment, però l’etiqueta de l’App Store declara compres, informació financera i ubicació utilitzades per rastrejar. Són declaracions compatibles si el rastreig només s’activa amb el consentiment de l’App Tracking Transparency, i per això en deixem constància. Només hem trobat a l’AEPD una tutela de drets del 2018 contra Just Eat Spain per una cancel·lació no atesa, que no hem registrat com a incident.',
     openQuestions: [
       'Encara es pot fer una comanda com a convidat, sense crear compte?',
       'Just Eat ofereix verificació en dos passos als comptes de clientela?',
@@ -268,7 +268,7 @@ const mcdonalds: AppSeed = {
   name: 'McDonald’s',
   company: 'restaurantes-mcdonalds-espana',
   categories: ['alimentacio-i-restauracio'],
-  tagline: 'El programa de punts converteix cada comanda en un perfil que també s’usa per fer anuncis a Google, Meta i Netflix',
+  tagline: 'El programa de punts elabora un perfil a partir de les comandes, que també serveix per fer anuncis a Google, Meta i Netflix',
   summary:
     'L’aplicació MyMcDonald’s combina comandes, pagament i un programa de fidelització que, segons la política, elabora perfils amb decisions automatitzades a partir dels hàbits de consum. Amb el consentiment de la persona, el correu xifrat i el comportament a l’aplicació serveixen per crear audiències a Google, Meta i Netflix. L’etiqueta de l’App Store declara que les compres, la ubicació i els identificadors s’usen per rastrejar, mentre que la política parla només de galetes analítiques anonimitzades a l’aplicació. Es pot eliminar el compte des del perfil, però les dades es conserven bloquejades dos anys més.',
   platforms: ['ios', 'android', 'web'],
@@ -284,7 +284,7 @@ const mcdonalds: AppSeed = {
   accountRequired: f('partial', 'official', ['mcdonalds-privacy-policy'], 'La instal·lació ja tracta l’identificador del dispositiu; per a les ofertes, el programa de punts i «Pide y Paga» cal registrar-se amb correu, nom i cognom.'),
   openSource: f('no', 'official', ['mcdonalds-privacy-policy'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'L’historial de transaccions del programa de punts recull restaurant, servei, data, hora, mitjà de pagament i import de cada consum. Amb la ubicació i la freqüència d’ús, dibuixa rutines diàries i hàbits alimentaris, i la mateixa informació alimenta els perfils per a publicitat en altres plataformes.',
+    'L’historial de transaccions del programa de punts recull restaurant, servei, data, hora, mitjà de pagament i import de cada consum. Amb la ubicació i la freqüència d’ús, mostra rutines diàries i hàbits alimentaris, i la mateixa informació alimenta els perfils per a publicitat en altres plataformes.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['mcdonalds-privacy-policy', 'mcdonalds-app-store'], note: 'Obligatori per registrar-se.' }),
     row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['mcdonalds-privacy-policy', 'mcdonalds-app-store'], note: 'Xifrada amb hash, s’usa per crear audiències a Google, Meta i Netflix si s’hi consent.' }),
@@ -520,7 +520,7 @@ const clubBy: AppSeed = {
   accountRequired: f('yes', 'official', ['club-by-terms', 'club-by-app-store'], 'Cal registrar-se com a soci del programa per acumular punts, demanar i fer servir les promocions.'),
   openSource: f('no', 'official', ['club-by-app-store'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'L’historial de consum de quatre cadenes de restauració, amb data de naixement, codi postal i geolocalització, mostra on i quan menja una persona, amb qui celebra i com gasta. El grup en dedueix gustos i preferències per segmentar-la.',
+    'L’historial de consum de quatre cadenes de restauració, amb data de naixement, codi postal i geolocalització, mostra on i quan menja una persona i quant gasta. El grup en dedueix gustos i preferències per segmentar-la.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'unknown', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['club-by-members-privacy'] }),
     row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'unknown', shared: 'group', purposes: ['prestacio-del-servei', 'mesura-i-analisi-dus'], sources: ['club-by-members-privacy', 'club-by-app-store'], note: 'L’etiqueta declara «datos de contacto» utilitzats per rastrejar sense concretar quins.' }),
@@ -614,7 +614,7 @@ const clubBy: AppSeed = {
       'La política de privadesa enllaçada des de l’App Store (clubby.es/politica-privacidad) només cobreix el web; la política dels socis és la del programa, publicada al web de Foster’s Hollywood i citada per les condicions. El desenvolupador a l’App Store és SIGLA, S.A., però la responsable del programa és Food Service Project, S.A.',
     openQuestions: [
       'Quines societats concretes d’Alsea actuen com a corresponsables i qui rep les dades de contacte que l’etiqueta declara per rastrejar?',
-      'Es pot eliminar realment el compte des de «Mi Cuenta» o només donar-se de baixa del programa?',
+      'Es pot eliminar el compte des de «Mi Cuenta» o només donar-se de baixa del programa?',
     ],
   },
 }
@@ -742,7 +742,7 @@ const dominos: AppSeed = {
   name: 'Domino’s Pizza España',
   company: 'grupo-zena-pizza',
   categories: ['repartiment-a-domicili', 'alimentacio-i-restauracio'],
-  tagline: 'Es pot demanar sense compte, però la clientela s’envia xifrada a Meta i Google per fer-li publicitat',
+  tagline: 'Es pot demanar sense compte, però les dades de la clientela s’envien xifrades a Meta i Google per fer-li publicitat',
   summary:
     'Domino’s Pizza a Espanya l’explota Grupo Zena Pizza, del grup Alsea. Es pot demanar com a convidat i el compte s’esborra des de «Mi Domino’s». La política preveu perfilar la clientela i pujar-ne les dades xifrades a Meta i Google per crear audiències publicitàries per interès legítim, sense demanar consentiment; per a les audiències similars sí que en demana.',
   platforms: ['ios', 'android', 'web'],
@@ -866,7 +866,7 @@ const thefork: AppSeed = {
   accountRequired: unknown('La política parla de crear un compte i de fer reserves com a activitats diferents, però no hem verificat si es pot reservar sense compte des de l’aplicació.'),
   openSource: f('no', 'official', ['thefork-legal'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'Les reserves diuen on i amb qui es menja, amb quina freqüència i en quin barri. Si s’hi afegeixen al·lèrgies o necessitats d’accessibilitat, el perfil inclou dades de salut. L’historial de cancel·lacions i «no-shows» es converteix en una mena de puntuació de fiabilitat que arriba als restaurants.',
+    'Les reserves diuen on i amb qui es menja, amb quina freqüència i en quin barri. Si s’hi afegeixen al·lèrgies o necessitats d’accessibilitat, el perfil inclou dades de salut. L’historial de cancel·lacions i «no-shows» serveix per elaborar paràmetres de risc que es comparteixen amb els restaurants.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada', 'personalitzacio-de-continguts'], sources: ['thefork-app-store', 'thefork-legal'], note: 'El restaurant rep les dades de la reserva. El nom i la foto també es mostren al perfil públic.' }),
     row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['thefork-app-store', 'thefork-legal'], note: 'La política preveu compartir dades de contacte codificades amb socis publicitaris.' }),
@@ -989,7 +989,7 @@ const kfc: AppSeed = {
   categories: ['alimentacio-i-restauracio'],
   tagline: 'L’etiqueta de l’App Store no declara cap dada vinculada, però la política de Yum! combina dades entre marques i les fa servir per entrenar IA',
   summary:
-    'L’etiqueta de l’App Store només declara dades d’ús i diagnòstic no vinculades, mentre que la política recull nom, adreça, data de naixement, pagaments i ubicació GPS. La política és la global de Yum! Brands: preveu compartir i fins i tot «vendre» dades entre les marques del grup, cedir-les a franquiciats i socis publicitaris i entrenar sistemes d’IA amb xats i comandes de veu. L’AEPD va sancionar KFC España el 2022 per no tenir delegat de protecció de dades i per una política incompleta.',
+    'L’etiqueta de l’App Store només declara dades d’ús i diagnòstic no vinculades, mentre que la política recull nom, adreça, data de naixement, pagaments i ubicació GPS. La política és la global de Yum! Brands: preveu compartir i «vendre» dades entre les marques del grup, cedir-les a franquiciats i socis publicitaris i entrenar sistemes d’IA amb xats i comandes de veu. L’AEPD va sancionar KFC España el 2022 per no tenir delegat de protecció de dades i per una política incompleta.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'commerce',
   jurisdiction: 'Espanya (KFC Restaurants Spain, S.L., grup Yum! Brands)',
@@ -1119,7 +1119,7 @@ const honestGreens: AppSeed = {
   accountRequired: f('yes', 'official', ['honest-greens-privacy-policy'], 'Per demanar cal registrar-se amb nom, telèfon i correu, o amb un compte de Google o Apple.'),
   openSource: f('no', 'official', ['honest-greens-privacy-policy'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'L’historial de comandes, els restaurants més visitats i la freqüència dibuixen la dieta, els horaris i la rutina laboral de la persona, sobretot amb el programa d’empresa Honest Base, que vincula el compte a l’empresa on treballa.',
+    'L’historial de comandes, els restaurants més visitats i la freqüència revelen la dieta, els horaris i la rutina laboral de la persona, sobretot amb el programa d’empresa Honest Base, que vincula el compte a l’empresa on treballa.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'personalitzacio-de-continguts'], sources: ['honest-greens-app-store', 'honest-greens-privacy-policy'] }),
     row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['honest-greens-app-store', 'honest-greens-privacy-policy'], note: 'Sendgrid i CleverTap, als Estats Units, envien els codis d’accés i el màrqueting.' }),

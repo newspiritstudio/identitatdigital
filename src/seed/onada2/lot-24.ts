@@ -384,7 +384,7 @@ export const lot: SeedLot = {
       categories: ['salut-i-assistencia-sanitaria'],
       tagline: 'La història clínica de tot el grup en una aplicació que també demana la ubicació en segon pla',
       summary:
-        'L’aplicació és la porta del Portal del Paciente: ensenya en un sol lloc la història clínica repartida per tots els hospitals i centres del grup Quirónsalud. La política específica del portal reconeix dues coses que rarament es veuen escrites: que es fa perfilat dels usuaris per mostrar bàners de promoció de la salut i que, si s’hi consent, la ubicació es recull en segon pla «incluso cuando no se utilice el servicio». A canvi, els terminis de conservació estan detallats fins al minut i el dret d’accés a la història clínica queda cobert pel mateix portal.',
+        'L’aplicació dona accés al Portal del Paciente, que mostra en un sol lloc la història clínica repartida per tots els hospitals i centres del grup Quirónsalud. La política específica del portal reconeix dues coses: que es fa perfilat dels usuaris per mostrar bàners de promoció de la salut i que, si s’hi consent, la ubicació es recull en segon pla «incluso cuando no se utilice el servicio». En canvi, detalla els terminis de conservació fins al minut, i el dret d’accés a la història clínica queda cobert pel mateix portal.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'freemium',
       jurisdiction: 'Espanya',
@@ -400,7 +400,7 @@ export const lot: SeedLot = {
         licence: 'Privativa',
       }),
       dataSummary:
-        'Una història clínica completa és el conjunt de dades més revelador que una persona pot tenir en un telèfon: diagnòstics, proves d’imatge, medicació i el calendari de visites. L’aplicació hi suma la ubicació dins de l’hospital i, si se sincronitza, l’activitat física i el son del rellotge o del telèfon.',
+        'Una història clínica completa inclou diagnòstics, proves d’imatge, medicació i el calendari de visites. L’aplicació hi suma la ubicació dins de l’hospital i, si se sincronitza, l’activitat física i el son del rellotge o del telèfon.',
       dataCollection: [
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['quironsalud-portal-paciente'] }),
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'atencio-a-lusuari'], sources: ['quironsalud-portal-paciente'] }),
@@ -411,7 +411,7 @@ export const lot: SeedLot = {
         row('contrasenya', 'yes', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['seguretat-i-prevencio-del-frau'], sources: ['quironsalud-portal-paciente'] }),
         row('fitxers-i-documents', 'optional', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['quironsalud-portal-paciente'], note: 'El portal té un espai on la persona pot pujar informació per compartir-la amb els centres.' }),
         row('interaccions-i-us', 'yes', { linked: 'no', tracking: 'no', shared: 'none', purposes: ['mesura-i-analisi-dus'], sources: ['quironsalud-app-store'] }),
-        row('interessos-inferits', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['elaboracio-de-perfils', 'personalitzacio-de-continguts'], sources: ['quironsalud-portal-paciente'], note: 'La política parla literalment de «perfilado de los usuarios» per mostrar bàners i notificacions de promoció de la salut.' }),
+        row('interessos-inferits', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['elaboracio-de-perfils', 'personalitzacio-de-continguts'], sources: ['quironsalud-portal-paciente'], note: 'La política parla de «perfilado de los usuarios» per mostrar bàners i notificacions de promoció de la salut.' }),
         row('dades-de-diagnostic', 'yes', { linked: 'no', tracking: 'no', shared: 'none', purposes: ['millora-del-producte'], sources: ['quironsalud-app-store'] }),
         row('dades-de-pagament', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'compliment-legal'], sources: ['quironsalud-privacy-policy'], note: 'Les dades transaccionals es comuniquen a l’asseguradora o mútua que ha de pagar l’assistència.' }),
       ],
@@ -438,7 +438,7 @@ export const lot: SeedLot = {
         transparencyReport: unknown('No hem trobat cap informe de transparència sobre peticions d’autoritats.'),
       },
       retention: {
-        definedPeriods: f('yes', 'official', ['quironsalud-privacy-policy', 'quironsalud-portal-paciente'], 'És una de les polítiques més detallades del lot: terminis concrets per a cada finalitat.'),
+        definedPeriods: f('yes', 'official', ['quironsalud-privacy-policy', 'quironsalud-portal-paciente'], 'Dona terminis concrets per a cada finalitat.'),
         dataAfterDeletion: f('yes', 'official', ['quironsalud-portal-paciente', 'quironsalud-privacy-policy'], 'Donar-se de baixa del portal fa perdre l’accés, però la història clínica es conserva als centres pel termini legal.'),
         periods: [
           { dataType: 'dades-de-salut', period: 'Mínim 5 anys des de l’alta de cada procés assistencial, i fins als 15 anys de prescripció legal', sources: ['quironsalud-privacy-policy'] },
@@ -461,7 +461,7 @@ export const lot: SeedLot = {
           'Si vols exercir drets sobre la història clínica, adreça’t al Servicio de Atención al Paciente del centre o escriu a DPO@quironsalud.es.',
         ],
         obstacles:
-          'Cal distingir dues coses que la política sí que separa però que no són evidents per a qui fa servir l’aplicació: donar-se de baixa del portal no esborra la història clínica, que té un termini de conservació legal propi.',
+          'Donar-se de baixa del portal no esborra la història clínica, que té un termini de conservació legal propi. La política ho separa, però l’aplicació no ho explica.',
         dataRetained: 'La història clínica als centres sanitaris i els registres d’accés al portal, durant els terminis legals.',
         sources: ['quironsalud-portal-paciente', 'quironsalud-privacy-policy'],
       },
@@ -512,7 +512,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: false,
         editorialNotes:
-          'La troballa d’aquesta fitxa és la distància entre l’etiqueta de l’App Store i la política: l’etiqueta classifica les dades de salut com a «no vinculades amb la teva identitat», cosa difícil de sostenir en una aplicació que mostra la història clínica nominativa. La política del Portal del Paciente, en canvi, és molt més precisa que la mitjana del sector.',
+          'L’etiqueta de l’App Store no coincideix amb la política: classifica les dades de salut com a «no vinculades amb la teva identitat», tot i que l’aplicació mostra la història clínica amb el nom del pacient. La política del Portal del Paciente és més precisa que la majoria de les del sector.',
         openQuestions: [
           'Per què l’etiqueta de l’App Store declara les dades de salut com a no vinculades amb la identitat?',
           'Ofereix el Portal del Paciente un segon factor d’autenticació?',
@@ -542,7 +542,7 @@ export const lot: SeedLot = {
       accountRequired: f('partial', 'official', ['doctoralia-privacy-policy'], 'Es pot consultar el directori sense compte, però per reservar visita o publicar una opinió cal identificar-se.'),
       openSource: f('no', 'editorial', [], 'No consta cap publicació del codi font; és programari privatiu.', { licence: 'Privativa' }),
       dataSummary:
-        'Qui consultes i quan hi vas diu quina malaltia tens sense que calgui escriure-la. Doctoralia acumula aquesta seqüència durant anys i hi afegeix les opinions signades, que són públiques i poden tornar a aparèixer si el professional es torna a donar d’alta.',
+        'Els especialistes consultats i les dates de visita poden revelar una malaltia sense que s’hagi escrit enlloc. Doctoralia acumula aquesta seqüència durant anys i hi afegeix les opinions signades, que són públiques i poden tornar a aparèixer si el professional es torna a donar d’alta.',
       dataCollection: [
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['doctoralia-privacy-policy'], note: 'Es comunica al professional o al centre per gestionar la cita.' }),
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'atencio-a-lusuari'], sources: ['doctoralia-privacy-policy'] }),
@@ -613,7 +613,7 @@ export const lot: SeedLot = {
         }),
       },
       controls: {
-        adPersonalizationOptOut: f('partial', 'official', ['doctoralia-privacy-policy'], 'Com que la publicitat es declara no personalitzada, l’única palanca és oposar-se al màrqueting basat en interès legítim o retirar el consentiment.'),
+        adPersonalizationOptOut: f('partial', 'official', ['doctoralia-privacy-policy'], 'Com que la publicitat es declara no personalitzada, l’única opció és oposar-se al màrqueting basat en interès legítim o retirar el consentiment.'),
         telemetryOptOut: unknown('No consta cap control per desactivar l’analítica dins de l’aplicació.'),
         granularControls: f('partial', 'official', ['doctoralia-privacy-policy'], 'Hi ha consentiments separats per a màrqueting i galetes, però no un panell de privadesa per finalitat.'),
         defaultPosture: 'mixed',
@@ -643,7 +643,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: false,
         editorialNotes:
-          'La política del grup és clara i detallada, però parla sobretot dels professionals subscriptors. El que interessa més a qui fa servir l’aplicació —que la seqüència d’especialistes consultats és de fet informació de salut— no s’hi tracta de manera explícita.',
+          'La política del grup és clara i detallada, però parla sobretot dels professionals subscriptors. No diu de manera explícita que la seqüència d’especialistes consultats per un pacient és informació de salut.',
         openQuestions: [
           'Es pot eliminar el compte de pacient des de dins de l’aplicació?',
           'Quin és exactament l’abast de la retenció interna del perfil després de demanar-ne l’eliminació?',
@@ -660,7 +660,7 @@ export const lot: SeedLot = {
       categories: ['salut-i-assistencia-sanitaria', 'benestar-i-activitat-fisica'],
       tagline: 'Els resultats del reconeixement mèdic laboral, amb una política que només parla del web',
       summary:
-        'MiSalud OHS és l’aplicació amb què Quirónprevención ensenya a les persones treballadores el resultat del seu reconeixement mèdic laboral i el seu històric de paràmetres de salut, i que llegeix i escriu a l’Apple Health. La política enllaçada des de la fitxa de l’App Store, però, descriu només els formularis del lloc web corporatiu: no hi ha cap document públic que expliqui què passa amb les dades de salut que hi ha dins de l’aplicació. Això fa que la fitxa quedi amb molts apartats desconeguts.',
+        'MiSalud OHS és l’aplicació amb què Quirónprevención ensenya a les persones treballadores el resultat del seu reconeixement mèdic laboral i el seu històric de paràmetres de salut, i que llegeix i escriu a l’Apple Health. La política enllaçada des de la fitxa de l’App Store, però, descriu només els formularis del lloc web corporatiu: no hi ha cap document públic que expliqui què passa amb les dades de salut que hi ha dins de l’aplicació.',
       platforms: ['ios', 'android'],
       businessModel: 'freemium',
       jurisdiction: 'Espanya',
@@ -673,7 +673,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['misalud-ohs-app-store'], 'L’aplicació mostra el resultat dels reconeixements d’una persona concreta, de manera que cal identificar-s’hi.'),
       openSource: f('no', 'editorial', [], 'No consta cap publicació del codi font; és programari privatiu.', { licence: 'Privativa' }),
       dataSummary:
-        'La vigilància de la salut laboral és un dels pocs contextos on un tercer —l’empresa— és qui encarrega l’examen mèdic. Que el resultat, l’històric de paràmetres i les dades d’Apple Health acabin en una aplicació de l’empresa proveïdora fa especialment important saber qui hi té accés, i això no consta enlloc.',
+        'En la vigilància de la salut laboral, l’examen mèdic l’encarrega un tercer: l’empresa ocupadora. El resultat, l’històric de paràmetres i les dades d’Apple Health acaben en una aplicació de l’empresa proveïdora, i no consta enlloc qui hi té accés.',
       dataCollection: [
         row('dades-de-salut', 'yes', { linked: 'yes', tracking: 'no', shared: 'unknown', level: 'official', purposes: ['prestacio-del-servei'], sources: ['misalud-ohs-app-store'], note: 'La descripció oficial parla de visualitzar els resultats dels reconeixements mèdics i l’històric de paràmetres de salut, i de sincronitzar activitat cardíaca i entrenaments amb l’Apple Health.' }),
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'unknown', level: 'official', purposes: ['prestacio-del-servei'], sources: ['misalud-ohs-app-store'] }),
@@ -684,7 +684,7 @@ export const lot: SeedLot = {
         row('dades-biometriques', 'optional', { linked: 'yes', tracking: 'no', shared: 'none', level: 'official', purposes: ['seguretat-i-prevencio-del-frau'], sources: ['misalud-ohs-app-store'], note: 'Face ID i Touch ID s’integren per desbloquejar l’aplicació; la comprovació la fa el sistema operatiu, no l’aplicació.' }),
       ],
       tracking: {
-        crossAppTracking: f('yes', 'official', ['misalud-ohs-app-store'], 'L’etiqueta declara les dades d’ús com a utilitzades per rastrejar entre aplicacions i llocs web d’altres empreses, cosa inesperada en un servei de vigilància de la salut.'),
+        crossAppTracking: f('yes', 'official', ['misalud-ohs-app-store'], 'L’etiqueta declara les dades d’ús com a utilitzades per rastrejar entre aplicacions i llocs web d’altres empreses.'),
         advertisingIdentifiers: unknown('L’etiqueta no declara cap identificador publicitari, però tampoc explica amb quina tècnica es fa el seguiment.'),
         thirdPartyTrackersPresent: unknown('No consta cap llista de components de tercers.'),
       },
@@ -694,7 +694,7 @@ export const lot: SeedLot = {
         aiTraining: unknown('No consta.'),
       },
       sharing: {
-        thirdPartySharing: unknown('La política publicada no enumera els destinataris de les dades de l’aplicació. La qüestió clau —què veu l’empresa ocupadora— queda sense resposta pública.'),
+        thirdPartySharing: unknown('La política publicada no enumera els destinataris de les dades de l’aplicació. Tampoc no hi ha resposta pública sobre què en pot veure l’empresa ocupadora.'),
         intraGroupSharing: unknown('No consta si les dades es comparteixen amb la resta del grup Quirónsalud.'),
         dataBrokerSales: unknown('No consta.'),
         internationalTransfers: unknown('La política publicada no tracta les transferències internacionals.'),
@@ -746,7 +746,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: false,
         editorialNotes:
-          'La fitxa queda deliberadament plena de desconeguts. El problema documentat és precisament aquest: una aplicació que ensenya resultats de reconeixements mèdics i llegeix l’Apple Health enllaça com a política de privadesa un document que només parla dels formularis del web corporatiu.',
+          'Molts camps d’aquesta fitxa consten com a desconeguts perquè una aplicació que ensenya resultats de reconeixements mèdics i llegeix l’Apple Health enllaça com a política de privadesa un document que només parla dels formularis del web corporatiu.',
         openQuestions: [
           'Quin document regeix el tractament de les dades de salut dins de l’aplicació MiSalud OHS?',
           'Què pot veure l’empresa ocupadora del contingut que hi ha a l’aplicació?',
@@ -777,7 +777,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['mi-sanitas-app-store'], 'L’aplicació és per a clients amb pòlissa; cal identificar-se per veure’n les gestions.'),
       openSource: f('no', 'editorial', [], 'No consta cap publicació del codi font; és programari privatiu.', { licence: 'Privativa' }),
       dataSummary:
-        'És la combinació més àmplia del lot: dades clíniques, dades econòmiques de la pòlissa i dades de sensors del telèfon. Els informes mèdics, els copagaments i les constants vitals junts descriuen tant l’estat de salut com el cost que té per a l’asseguradora.',
+        'Reuneix dades clíniques, dades econòmiques de la pòlissa i dades de sensors del telèfon. Els informes mèdics, els copagaments i les constants vitals junts descriuen tant l’estat de salut com el cost que té per a l’asseguradora.',
       dataCollection: [
         row('dades-de-salut', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['mi-sanitas-app-store'], note: 'L’etiqueta declara «Salud y forma física» vinculada amb la identitat; la descripció confirma l’ús d’HealthKit i de l’avaluador de símptomes.' }),
         row('dades-de-pagament', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'compliment-legal'], sources: ['mi-sanitas-app-store'], note: 'Reemborsaments, rebuts i copagaments.' }),
@@ -872,7 +872,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: false,
         editorialNotes:
-          'La troballa més rellevant és el desajust documental: l’etiqueta de l’App Store declara dades de salut, financeres i sensibles vinculades amb la identitat i identificadors usats per rastrejar, mentre que el document que la fitxa enllaça com a política de privadesa és el del web de contractació i no esmenta ni l’aplicació ni cap d’aquestes dades.',
+          'L’etiqueta de l’App Store declara dades de salut, financeres i sensibles vinculades amb la identitat i identificadors usats per rastrejar, però el document que la fitxa enllaça com a política de privadesa és el del web de contractació i no esmenta ni l’aplicació ni cap d’aquestes dades.',
         openQuestions: [
           'Quin document regula el tractament de les dades clíniques dins de Mi Sanitas?',
           'Què són les «dades sensibles» que declara l’etiqueta de l’App Store?',
@@ -888,9 +888,9 @@ export const lot: SeedLot = {
       name: 'Vithas',
       company: 'vithas-sanidad',
       categories: ['salut-i-assistencia-sanitaria'],
-      tagline: 'L’etiqueta més sòbria del lot, amb una política escrita per al web i no per a l’aplicació',
+      tagline: 'Una etiqueta de privadesa breu i una política escrita per al web i no per a l’aplicació',
       summary:
-        'L’aplicació del grup hospitalari Vithas serveix per demanar cita, consultar l’historial i comunicar-se amb els centres. L’etiqueta de l’App Store és de les més contingudes que hem vist en aquest lot: dades de contacte i identificadors vinculats amb la identitat, dades d’ús i diagnòstics sense vincular, i cap seguiment. La política pública, en canvi, està pensada per als formularis del lloc web i no descriu el tractament de la informació clínica que mostra l’aplicació.',
+        'L’aplicació del grup hospitalari Vithas serveix per demanar cita, consultar l’historial i comunicar-se amb els centres. L’etiqueta de l’App Store declara poques dades: dades de contacte i identificadors vinculats amb la identitat, dades d’ús i diagnòstics sense vincular, i cap seguiment. La política pública, en canvi, està pensada per als formularis del lloc web i no descriu el tractament de la informació clínica que mostra l’aplicació.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'freemium',
       jurisdiction: 'Espanya',
@@ -979,7 +979,7 @@ export const lot: SeedLot = {
         {
           app: 'quironsalud',
           comparability: 'partial',
-          rationale: 'Un altre grup hospitalari privat amb una política del portal del pacient molt més detallada, útil com a punt de comparació.',
+          rationale: 'Un altre grup hospitalari privat amb una política del portal del pacient més detallada, útil com a punt de comparació.',
           tradeOffs: 'Només serveix si t’atens en centres del grup Quirónsalud, i hi ha perfilat per a bàners.',
         },
       ],
@@ -988,7 +988,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: false,
         editorialNotes:
-          'L’etiqueta de privadesa és sòbria i creïble per a una aplicació de cites, però la manca d’un document que cobreixi l’aplicació deixa sense resposta les preguntes centrals: terminis, accessos dins del grup i seguretat.',
+          'L’etiqueta de privadesa és breu i coherent amb una aplicació de cites, però no hi ha cap document que cobreixi l’aplicació. Per això no se’n coneixen els terminis de conservació, els accessos dins del grup ni les mesures de seguretat.',
         openQuestions: [
           'Hi ha una política de privadesa específica de l’aplicació o del portal del pacient de Vithas?',
           'Quin tractament rep la informació clínica que es consulta des de l’aplicació?',
@@ -1005,7 +1005,7 @@ export const lot: SeedLot = {
       categories: ['salut-i-assistencia-sanitaria'],
       tagline: 'La recepta privada electrònica, amb una política que parla de registres i no de medicaments',
       summary:
-        'REMPe és el sistema de recepta mèdica privada electrònica que connecta la prescripció del metge amb la dispensació a la farmàcia, i aquesta és l’aplicació per a pacients. La medicació prescrita és de les dades més sensibles que existeixen. La política pública és breu: identifica bé el responsable —Digital Prescription Services, S.A.— i el canal de drets, afirma que no se cedeixen dades a tercers com a regla general, però descriu el tractament en termes de registre d’usuari i no detalla què passa amb les prescripcions.',
+        'REMPe és el sistema de recepta mèdica privada electrònica que connecta la prescripció del metge amb la dispensació a la farmàcia, i aquesta és l’aplicació per a pacients. La medicació prescrita és una dada de salut. La política pública és breu: identifica el responsable (Digital Prescription Services, S.A.) i el canal de drets i afirma que, com a regla general, no se cedeixen dades a tercers, però descriu el tractament en termes de registre d’usuari i no detalla què passa amb les prescripcions.',
       platforms: ['ios', 'android'],
       businessModel: 'freemium',
       jurisdiction: 'Espanya',
@@ -1018,13 +1018,13 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['rempe-web-privacy-policy'], 'El tractament descrit es basa en el consentiment explícit atorgat en registrar-se com a usuari.'),
       openSource: f('no', 'editorial', [], 'No consta cap publicació del codi font; és programari privatiu.', { licence: 'Privativa' }),
       dataSummary:
-        'La llista de medicaments prescrits a una persona permet deduir-ne els diagnòstics amb molta precisió: tractaments crònics, salut mental, fertilitat o VIH. Per això importa tant que la política no digui durant quant de temps es conserva la prescripció ni qui hi té accés a banda de la farmàcia que dispensa.',
+        'La llista de medicaments prescrits a una persona permet deduir-ne els diagnòstics amb molta precisió: tractaments crònics, salut mental, fertilitat o VIH. La política no diu durant quant de temps es conserva la prescripció ni qui hi té accés a banda de la farmàcia que dispensa.',
       dataCollection: [
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['rempe-app-store', 'rempe-privacy-policy'], note: 'L’etiqueta declara dades de contacte vinculades amb la identitat.' }),
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['rempe-app-store', 'rempe-web-privacy-policy'] }),
         row('dades-de-salut', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'compliment-legal'], sources: ['rempe-web-privacy-policy'], note: 'El sistema gestiona «prescripciones y dispensaciones de los medicamentos»; la medicació és una dada de salut de l’article 9 del RGPD.' }),
         row('document-identificatiu-oficial', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], level: 'editorial', note: 'La dispensació a la farmàcia exigeix identificar el pacient; la política no ho detalla, ho anotem com a lectura editorial.' }),
-        row('dades-de-diagnostic', 'yes', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['millora-del-producte'], sources: ['rempe-app-store'], note: 'L’etiqueta declara diagnòstics tècnics vinculats amb la identitat, cosa poc habitual.' }),
+        row('dades-de-diagnostic', 'yes', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['millora-del-producte'], sources: ['rempe-app-store'], note: 'L’etiqueta declara diagnòstics tècnics vinculats amb la identitat.' }),
       ],
       tracking: {
         crossAppTracking: f('no', 'official', ['rempe-app-store'], 'L’etiqueta no declara cap dada utilitzada per rastrejar.'),
@@ -1092,10 +1092,10 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: false,
         editorialNotes:
-          'La base jurídica declarada és el consentiment del registre, quan un sistema de recepta electrònica reconegut pels col·legis professionals sembla més aviat un tractament necessari per a l’assistència sanitària. El desajust mereix una revisió amb documentació addicional.',
+          'La base jurídica declarada és el consentiment del registre, quan un sistema de recepta electrònica reconegut pels col·legis professionals sembla més aviat un tractament necessari per a l’assistència sanitària. Caldria contrastar-ho amb documentació addicional.',
         openQuestions: [
           'Quant de temps es conserven les prescripcions i les dispensacions?',
-          'Quina base jurídica empara realment el tractament de la medicació, més enllà del consentiment del registre?',
+          'Quina base jurídica empara el tractament de la medicació, a banda del consentiment del registre?',
           'Quines mesures de seguretat protegeixen un repositori nacional de receptes privades?',
           'Queda pendent la cerca sistemàtica d’incidents i sancions: les eines de cerca no eren disponibles durant aquesta revisió.',
         ],
@@ -1108,9 +1108,9 @@ export const lot: SeedLot = {
       name: 'Embarazo +',
       company: 'philips-consumer-lifestyle',
       categories: ['salut-i-assistencia-sanitaria', 'benestar-i-activitat-fisica'],
-      tagline: 'Un diari d’embaràs que alimenta Google Ad Manager',
+      tagline: 'Un diari d’embaràs amb publicitat de Google Ad Manager',
       summary:
-        'Embarazo+ (Pregnancy+) acompanya l’embaràs setmana a setmana i en guarda la data prevista de part, el pes, les visites mèdiques, les contraccions i els moviments del bebè; també contempla registrar la pèrdua de l’embaràs. És l’única aplicació del lot que reconeix explícitament que fa servir Google Ad Manager i Ad Exchange per mostrar publicitat, i l’etiqueta de l’App Store declara identificadors utilitzats per rastrejar. La responsable és neerlandesa, Philips Consumer Lifestyle B.V., tot i que a la botiga hi consta l’editora britànica.',
+        'Embarazo+ (Pregnancy+) acompanya l’embaràs setmana a setmana i en guarda la data prevista de part, el pes, les visites mèdiques, les contraccions i els moviments del bebè; també contempla registrar la pèrdua de l’embaràs. Reconeix que fa servir Google Ad Manager i Ad Exchange per mostrar publicitat, i l’etiqueta de l’App Store declara identificadors utilitzats per rastrejar. La responsable és neerlandesa, Philips Consumer Lifestyle B.V., tot i que a la botiga hi consta l’editora britànica.',
       platforms: ['ios', 'android'],
       businessModel: 'freemium',
       jurisdiction: 'Països Baixos',
@@ -1123,7 +1123,7 @@ export const lot: SeedLot = {
       accountRequired: f('partial', 'official', ['embarazo-plus-privacy-policy'], 'Es pot fer servir sense compte, però la sincronització al núvol i la recuperació de les dades exigeixen registrar-s’hi, també amb Facebook, Google o Apple.'),
       openSource: f('no', 'editorial', [], 'No consta cap publicació del codi font; és programari privatiu.', { licence: 'Privativa' }),
       dataSummary:
-        'L’embaràs és una de les etapes que més interessen al mercat publicitari, perquè marca un canvi complet de patró de consum. Aquí les dades que el delaten —setmana de gestació, pes, sexe del bebè, visites— conviuen en la mateixa aplicació amb un sistema d’anuncis de Google.',
+        'L’embaràs interessa al mercat publicitari perquè canvia els hàbits de consum. En aquesta aplicació, la setmana de gestació, el pes, el sexe del bebè i les visites conviuen amb un sistema d’anuncis de Google.',
       dataCollection: [
         row('dades-de-salut', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'personalitzacio-de-continguts'], sources: ['embarazo-plus-privacy-policy', 'embarazo-plus-app-store'], note: 'Data prevista de part, setmana d’embaràs, pes, contraccions, moviments del bebè i, si escau, la pèrdua de l’embaràs.' }),
         row('data-de-naixement', 'optional', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['embarazo-plus-privacy-policy'] }),
@@ -1210,7 +1210,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: false,
         editorialNotes:
-          'És l’única fitxa del lot on el model de negoci publicitari està escrit en clar a la política. La combinació de dades de gestació amb l’ecosistema d’anuncis de Google és el que fa que aquesta aplicació mereixi una lectura atenta abans d’introduir-hi res.',
+          'La política descriu el model de negoci publicitari: les dades de gestació es tracten en una aplicació que fa servir la plataforma d’anuncis de Google.',
         openQuestions: [
           'Quins terminis de conservació s’apliquen a les dades d’embaràs?',
           'Amb quin mecanisme s’emparen les transferències fora de l’Espai Econòmic Europeu?',
@@ -1225,9 +1225,9 @@ export const lot: SeedLot = {
       name: 'ASISA',
       company: 'asisa',
       categories: ['salut-i-assistencia-sanitaria', 'banca-i-finances'],
-      tagline: 'L’única aplicació de salut del lot que declara la ubicació com a dada per rastrejar-te',
+      tagline: 'Una aplicació de salut que declara la ubicació com a dada per rastrejar-te',
       summary:
-        'L’aplicació de l’asseguradora ASISA dona accés a l’àrea privada de la pòlissa, al quadre mèdic i a les autoritzacions. El que la distingeix és l’etiqueta de l’App Store: declara la ubicació com a dada utilitzada per rastrejar entre aplicacions i llocs web d’altres empreses, i hi afegeix historial de navegació sense vincular. La política de l’asseguradora és completa pel que fa a destinataris —hi enumera reasseguradores, xarxes assistencials, Europ Assistance i Teladoc Health— però no explica aquest rastreig.',
+        'L’aplicació de l’asseguradora ASISA dona accés a l’àrea privada de la pòlissa, al quadre mèdic i a les autoritzacions. L’etiqueta de l’App Store declara la ubicació com a dada utilitzada per rastrejar entre aplicacions i llocs web d’altres empreses, i hi afegeix historial de navegació sense vincular. La política de l’asseguradora enumera els destinataris (reasseguradores, xarxes assistencials, Europ Assistance i Teladoc Health), però no explica aquest rastreig.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'subscription',
       jurisdiction: 'Espanya',
@@ -1240,7 +1240,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['asisa-privacy-policy'], 'La política descriu l’accés a l’àrea privada com un dels tractaments; l’aplicació és per a persones assegurades.'),
       openSource: f('no', 'editorial', [], 'No consta cap publicació del codi font; és programari privatiu.', { licence: 'Privativa' }),
       dataSummary:
-        'Una asseguradora de salut acumula alhora l’historial d’ús assistencial i la informació econòmica de la pòlissa. Que a sobre l’aplicació declari la ubicació com a dada de rastreig converteix un tràmit administratiu en una font de senyals comercials.',
+        'Una asseguradora de salut acumula alhora l’historial d’ús assistencial i la informació econòmica de la pòlissa. A més, l’aplicació declara la ubicació com a dada utilitzada per rastrejar.',
       dataCollection: [
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['asisa-privacy-policy', 'asisa-app-store'] }),
         row('document-identificatiu-oficial', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'compliment-legal'], sources: ['asisa-privacy-policy'] }),
@@ -1303,7 +1303,7 @@ export const lot: SeedLot = {
       controls: {
         adPersonalizationOptOut: unknown('No hem trobat cap control documentat per desactivar el rastreig de la ubicació que declara l’etiqueta.'),
         telemetryOptOut: unknown('No consta cap control per desactivar l’analítica.'),
-        granularControls: f('partial', 'editorial', [], 'El permís de ubicació es pot denegar des del sistema operatiu, que és l’única palanca efectiva documentada.'),
+        granularControls: f('partial', 'editorial', [], 'L’única opció efectiva documentada és denegar el permís d’ubicació des del sistema operatiu.'),
         defaultPosture: 'permissive',
         darkPatterns: unknown('No hem pogut revisar els fluxos de consentiment dins de l’aplicació.'),
       },
@@ -1329,7 +1329,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: false,
         editorialNotes:
-          'La troballa és la declaració de la ubicació com a dada de rastreig en una aplicació d’assegurança de salut. La política, que és força completa pel que fa a destinataris, no diu res d’aquest tractament: és exactament el tipus de contradicció que l’etiqueta de l’App Store permet detectar.',
+          'L’aplicació d’una assegurança de salut declara la ubicació com a dada de rastreig. La política enumera amb detall els destinataris, però no diu res d’aquest tractament.',
         openQuestions: [
           'Quin component fa el rastreig de la ubicació declarat a l’App Store i amb quina finalitat?',
           'Hi ha alguna manera de desactivar-lo des de dins de l’aplicació?',
@@ -1346,7 +1346,7 @@ export const lot: SeedLot = {
       categories: ['llibres-i-lectura'],
       tagline: 'Novel·les per capítols d’una editora que no publica ni domicili ni identificació fiscal',
       summary:
-        'NovelBite ofereix novel·les per capítols amb un model de micropagaments. La política de privadesa és raonablement detallada —reconeix la recollida d’identificadors publicitaris IDFA i GAID, la geolocalització, les clàusules contractuals tipus per a les transferències i un termini de 30 dies per esborrar el compte— però no identifica el responsable del tractament: no hi ha ni raó social completa, ni domicili, ni identificació fiscal, i l’únic contacte és una adreça d’Outlook. Per a un servei adreçat a la Unió Europea, això és un problema de compliment abans que de privadesa.',
+        'NovelBite ofereix novel·les per capítols amb un model de micropagaments. La política de privadesa és força detallada: reconeix la recollida d’identificadors publicitaris IDFA i GAID i de la geolocalització, les clàusules contractuals tipus per a les transferències i un termini de 30 dies per esborrar el compte. En canvi, no identifica el responsable del tractament: no hi ha ni raó social completa, ni domicili, ni identificació fiscal, i l’únic contacte és una adreça d’Outlook. Per a un servei adreçat a la Unió Europea, això és un problema de compliment normatiu.',
       platforms: ['ios', 'android'],
       businessModel: 'freemium',
       jurisdiction: 'Desconeguda',
@@ -1359,11 +1359,11 @@ export const lot: SeedLot = {
       accountRequired: f('partial', 'official', ['novelbite-privacy-policy'], 'La política descriu informació de compte i de perfil i dades de pagament; la lectura inicial pot no exigir registre.'),
       openSource: f('no', 'editorial', [], 'No consta cap publicació del codi font; és programari privatiu.', { licence: 'Privativa' }),
       dataSummary:
-        'Què llegeixes i fins on arribes en cada capítol és un indicador d’interessos molt fi, i aquí s’acompanya d’identificadors publicitaris i de geolocalització. Sense saber qui és el responsable ni on és establert, exercir-hi qualsevol dret és difícil.',
+        'Què llegeix una persona i fins on arriba en cada capítol revela els seus interessos, i aquí s’hi afegeixen identificadors publicitaris i geolocalització. Sense saber qui és el responsable ni on és establert, exercir-hi qualsevol dret és difícil.',
       dataCollection: [
         row('identificador-de-compte', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['novelbite-privacy-policy', 'novelbite-app-store'] }),
         row('adreca-electronica', 'optional', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'atencio-a-lusuari'], sources: ['novelbite-privacy-policy'] }),
-        row('identificador-publicitari', 'yes', { linked: 'no', tracking: 'yes', shared: 'third-parties', purposes: ['publicitat-personalitzada', 'mesura-publicitaria'], sources: ['novelbite-privacy-policy', 'novelbite-app-store'], note: 'La política esmenta explícitament l’IDFA d’iOS i el GAID d’Android.' }),
+        row('identificador-publicitari', 'yes', { linked: 'no', tracking: 'yes', shared: 'third-parties', purposes: ['publicitat-personalitzada', 'mesura-publicitaria'], sources: ['novelbite-privacy-policy', 'novelbite-app-store'], note: 'La política esmenta l’IDFA d’iOS i el GAID d’Android.' }),
         row('ubicacio-aproximada', 'yes', { linked: 'unknown', tracking: 'yes', shared: 'third-parties', purposes: ['publicitat-personalitzada'], sources: ['novelbite-privacy-policy'], note: 'La política inclou la geolocalització entre les dades recollides automàticament.' }),
         row('historial-de-visualitzacio', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['recomanacions-algoritmiques', 'personalitzacio-de-continguts'], sources: ['novelbite-privacy-policy'], note: 'Dades d’ús i de navegació dins de l’aplicació: quines novel·les es llegeixen i fins on.' }),
         row('dades-de-pagament', 'optional', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['novelbite-privacy-policy'], note: 'Es processen amb Stripe, Apple Pay i Google Pay.' }),
@@ -1423,7 +1423,7 @@ export const lot: SeedLot = {
         }),
       },
       controls: {
-        adPersonalizationOptOut: f('partial', 'official', ['novelbite-privacy-policy'], 'La política reconeix la retirada del consentiment, però l’única palanca efectiva documentada és denegar el permís de seguiment del sistema operatiu.'),
+        adPersonalizationOptOut: f('partial', 'official', ['novelbite-privacy-policy'], 'La política reconeix la retirada del consentiment, però l’única opció efectiva documentada és denegar el permís de seguiment del sistema operatiu.'),
         telemetryOptOut: unknown('No consta cap control per desactivar l’analítica.'),
         granularControls: unknown('No consta cap panell de privadesa dins de l’aplicació.'),
         defaultPosture: 'permissive',
@@ -1457,7 +1457,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: false,
         editorialNotes:
-          'La política és més completa que la mitjana d’aquest tipus d’aplicacions, però l’absència d’un responsable identificat la buida de bona part del seu valor: sense raó social, domicili ni representant a la UE, els drets que s’hi reconeixen són difícils d’exercir.',
+          'La política és més completa que la de la majoria d’aplicacions d’aquest tipus, però no identifica el responsable. Sense raó social, domicili ni representant a la UE, els drets que s’hi reconeixen són difícils d’exercir.',
         openQuestions: [
           'Qui és exactament Nexten Labs Limited i on està establerta?',
           'Té un representant a la Unió Europea segons l’article 27 del RGPD?',
@@ -1473,9 +1473,9 @@ export const lot: SeedLot = {
       name: 'SlowRead',
       company: 'adria-matz',
       categories: ['llibres-i-lectura'],
-      tagline: 'Un registre de lectures que guarda al dispositiu el que no cal enviar enlloc',
+      tagline: 'Un registre de lectures que, si no es crea compte, guarda les dades només al dispositiu',
       summary:
-        'SlowRead és una estanteria digital feta per un desenvolupador independent: hi anotes els llibres que llegeixes, l’estat de lectura, les etiquetes i les notes. La política explica amb detall què es queda al dispositiu i què puja al núvol, i afirma que no es venen ni es comparteixen dades personals amb anunciants. Hi ha un desajust que convé conèixer: l’etiqueta de l’App Store sí que declara identificadors utilitzats per rastrejar, i la política no ho explica.',
+        'SlowRead és una estanteria digital feta per un desenvolupador independent: hi anotes els llibres que llegeixes, l’estat de lectura, les etiquetes i les notes. La política explica amb detall què es queda al dispositiu i què puja al núvol, i afirma que no es venen ni es comparteixen dades personals amb anunciants. Però l’etiqueta de l’App Store declara identificadors utilitzats per rastrejar, i la política no ho explica.',
       platforms: ['ios'],
       businessModel: 'freemium',
       jurisdiction: 'Espanya',
@@ -1500,7 +1500,7 @@ export const lot: SeedLot = {
         row('identificador-de-compte', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['slowread-app-store'], note: 'L’etiqueta de l’App Store declara identificadors utilitzats per rastrejar, cosa que la política no explica.' }),
       ],
       tracking: {
-        crossAppTracking: f('partial', 'official', ['slowread-app-store', 'slowread-privacy-policy'], 'L’etiqueta declara identificadors utilitzats per rastrejar, mentre que la política afirma que no es comparteixen dades personals amb anunciants. Les dues afirmacions no encaixen.'),
+        crossAppTracking: f('partial', 'official', ['slowread-app-store', 'slowread-privacy-policy'], 'L’etiqueta declara identificadors utilitzats per rastrejar, mentre que la política afirma que no es comparteixen dades personals amb anunciants. Les dues declaracions es contradiuen.'),
         advertisingIdentifiers: unknown('La política no esmenta cap identificador publicitari.'),
         thirdPartyTrackersPresent: f('yes', 'official', ['slowread-privacy-policy'], 'PostHog per a l’analítica, Firebase per a l’autenticació i RevenueCat per a les subscripcions.'),
       },
@@ -1546,7 +1546,7 @@ export const lot: SeedLot = {
       controls: {
         adPersonalizationOptOut: na('El servei declara que no fa publicitat.'),
         telemetryOptOut: unknown('No consta cap control per desactivar l’analítica de PostHog.'),
-        granularControls: f('partial', 'official', ['slowread-privacy-policy'], 'La palanca principal és estructural: no crear compte manté la biblioteca al dispositiu.'),
+        granularControls: f('partial', 'official', ['slowread-privacy-policy'], 'El control principal és no crear compte, i així la biblioteca es queda al dispositiu.'),
         defaultPosture: 'protective',
         darkPatterns: unknown('No hem pogut revisar els fluxos de consentiment dins de l’aplicació.'),
       },
@@ -1556,7 +1556,7 @@ export const lot: SeedLot = {
         atRestEncryption: unknown('La política no ho detalla més enllà de dir que Firebase ho fa de manera segura.'),
         mfa: unknown('L’autenticació delega en Apple i Google; no consta si s’hereten els seus factors.'),
         independentAudits: unknown('No consten auditories independents.'),
-        bugBounty: unknown('No hi ha cap programa de recompenses, cosa esperable en una aplicació independent.'),
+        bugBounty: unknown('No hi ha cap programa de recompenses.'),
         vulnerabilityDisclosure: f('partial', 'official', ['slowread-privacy-policy'], 'L’únic canal és l’adreça de contacte del desenvolupador.'),
       },
       alternatives: [
@@ -1572,7 +1572,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: false,
         editorialNotes:
-          'És l’aplicació amb la postura per defecte més protectora del lot: sense compte, la biblioteca no surt del telèfon. La contradicció entre l’etiqueta de l’App Store, que declara rastreig, i la política, que el descarta, és l’única cosa que impedeix donar-la per resolta.',
+          'La configuració per defecte és protectora: sense compte, la biblioteca no surt del telèfon. L’única contradicció és entre l’etiqueta de l’App Store, que declara rastreig, i la política, que el descarta.',
         openQuestions: [
           'Per què l’etiqueta de l’App Store declara identificadors utilitzats per rastrejar si la política diu que no es comparteixen dades amb anunciants?',
           'Quins terminis de conservació s’apliquen a les dades sincronitzades a Firebase?',

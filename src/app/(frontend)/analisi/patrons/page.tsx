@@ -30,7 +30,7 @@ const TYPE_EXPLANATIONS: Record<string, string> = {
   'unbalanced-consent':
     'Acceptar-ho tot és un botó; rebutjar-ho tot són diverses pantalles o no hi és.',
   'hidden-exit':
-    'L’opció que et protegeix existeix, però és lluny: uns quants menús per sota del que et trobes.',
+    'L’opció que et protegeix existeix, però és uns quants menús per sota de la pantalla on ets.',
   nagging: 'La pregunta torna cada cert temps fins que canvies de resposta.',
   'confusing-language':
     'El text no és fals, però costa saber què passa si dius que sí i què passa si dius que no.',
@@ -65,8 +65,8 @@ export default async function DarkPatternsPage() {
       <h1>Els patrons enganyosos</h1>
       <p className="lede">
         Un patró enganyós és una manera de presentar les opcions perquè la que convé a l’empresa
-        surti gairebé sola i la que et protegeix costi una mica més. No impedeix res, i per això
-        funciona: la configuració per defecte acaba sent la de gairebé tothom.
+        surti gairebé sola i la que et protegeix costi una mica més. No impedeix triar, però fa que
+        gairebé tothom es quedi amb la configuració per defecte.
       </p>
 
       <KeyNumbers>
@@ -81,17 +81,15 @@ export default async function DarkPatternsPage() {
 
       <h2>On hem mirat</h2>
       <p>
-        Aquesta és la xifra que s’ha de llegir primer, perquè una llista buida de patrons pot voler
-        dir dues coses molt diferents: que no n’hi ha o que ningú no s’ho ha mirat. Aquest és el
-        repartiment de l’afirmació «aquesta fitxa té patrons enganyosos» a les {num(apps)} fitxes
-        publicades:
+        Aquesta xifra s’ha de llegir primer, perquè una llista buida de patrons pot voler dir que no
+        n’hi ha o que ningú no s’ho ha mirat. Aquest és el repartiment de l’afirmació «aquesta fitxa
+        té patrons enganyosos» a les {num(apps)} fitxes publicades:
       </p>
       <StatusStack tally={analysis.claims} />
       {analysis.appsUnknown > 0 ? (
         <Note>
           Hi ha {num(analysis.appsUnknown)} fitxes on no ho hem revisat. Tot el que ve a continuació
-          es llegeix sobre les {num(apps - analysis.appsUnknown)} restants, no sobre el directori
-          sencer.
+          es refereix a les {num(apps - analysis.appsUnknown)} restants, no al directori sencer.
         </Note>
       ) : null}
 
@@ -183,8 +181,8 @@ export default async function DarkPatternsPage() {
 
       <h2>Quines fitxes en concentren més</h2>
       <p>
-        L’ordre no és el nombre de patrons sinó la seva gravetat sumada: un patró greu pesa més que
-        dos de lleus. La columna de gravetat desglossa què hi ha darrere de cada posició.
+        La taula s’ordena per la gravetat sumada dels patrons, de manera que un patró greu pesa més
+        que dos de lleus. La columna de gravetat desglossa què hi ha darrere de cada posició.
       </p>
       <Scroller label="Fitxes amb més patrons enganyosos documentats, desglossats per gravetat">
         <table>
@@ -217,38 +215,38 @@ export default async function DarkPatternsPage() {
       </Scroller>
 
       <Note>
-        Aquesta taula no és un rànquing de mala fe, i s’ha de llegir amb dues precaucions. La
+        Aquesta taula no mesura la mala fe de cada empresa i s’ha de llegir amb dues precaucions. La
         primera: hi ha {num(analysis.totalPatterns)} patrons repartits entre {num(listed)} fitxes,
         una mitjana de {num(patternsPerApp)} per fitxa, que és molt poc per a interfícies d’aquesta
-        mida. Documentem l’exemple més visible de cada servei, no una auditoria exhaustiva de la
-        interfície, de manera que un 1 vol dir «n’hem documentat un», no «només n’hi ha un».
+        mida. Documentem l’exemple més visible de cada servei i no fem una auditoria exhaustiva de
+        la interfície, de manera que un 1 vol dir «n’hem documentat un», no «només n’hi ha un».
         {analysis.appsClaimingWithoutList > 0 ? (
           <>
             {' '}
             La segona: {num(analysis.appsClaimingWithoutList)} fitxes afirmen tenir patrons
-            enganyosos però no en documenten cap a la llista, i per això no surten aquí. És deute de
-            documentació nostre.
+            enganyosos però no en documenten cap a la llista, i per això no surten aquí. És
+            documentació que tenim pendent.
           </>
         ) : null}
       </Note>
 
-      <h2>I això a mi què em fa</h2>
+      <h2>Què vol dir per a qui fa servir el servei</h2>
       <p>
-        Els dos tipus més freqüents del directori —
+        Els dos tipus més freqüents del directori (
         {analysis.byType
           .slice(0, 2)
           .map((type) => type.label.toLowerCase())
           .join(' i ')}
-        — actuen tots dos sobre el mateix: el cost d’arribar a l’opció que et protegeix. El resultat
-        pràctic és que el consentiment que dones no mesura què vols, sinó quanta paciència tenies
-        aquell dia. I com que aquest consentiment és la base legal amb què després es recullen i es
-        cedeixen les dades, el disseny de la pantalla acaba valent tant com el text de la política.
+        ) fan més costós arribar a l’opció que et protegeix. Per això el consentiment que dones
+        depèn tant del que vols com de la paciència que tens en aquell moment. Aquest consentiment
+        és la base legal amb què després es recullen i es cedeixen les dades, de manera que el
+        disseny de la pantalla hi pesa tant com el text de la política.
       </p>
       <p>
         Les {num(analysis.appsWithoutPatterns)} fitxes de {num(apps)} on hem revisat la interfície
-        sense trobar-hi cap patró ({pct(percentage(analysis.appsWithoutPatterns, apps))}) demostren
-        que es pot fer d’una altra manera. Cada patró concret, amb la pantalla on apareix i la font
-        que el documenta, és a la fitxa del servei corresponent.
+        sense trobar-hi cap patró ({pct(percentage(analysis.appsWithoutPatterns, apps))}) mostren
+        que es pot fer una interfície sense aquests patrons. Cada patró concret, amb la pantalla on
+        apareix i la font que el documenta, és a la fitxa del servei corresponent.
       </p>
 
       <BackToIndex />

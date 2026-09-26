@@ -75,8 +75,8 @@ export default async function BreachesPage() {
       <h1>Filtracions de dades</h1>
       <p className="lede">
         {totalDocs.toLocaleString('ca-ES')} filtracions documentades per Have I Been Pwned. No són
-        anàlisis nostres i no mouen cap puntuació. Les incorporem perquè mostren què va passar quan
-        les dades que una empresa havia recollit se li van escapar.
+        anàlisis nostres i no afecten cap puntuació. Les incorporem perquè mostren què va passar quan
+        es van filtrar dades que una empresa havia recollit.
       </p>
 
       <div
@@ -115,8 +115,7 @@ export default async function BreachesPage() {
 
       {linked.length === 0 ? (
         <p className="unknown">
-          Cap filtració lligada encara. Executeu <code>pnpm import-breaches</code> per omplir el
-          catàleg.
+          Encara no hi ha cap filtració lligada a una empresa del directori.
         </p>
       ) : (
         <div
@@ -168,8 +167,8 @@ export default async function BreachesPage() {
 
       <h2>Les cent cinquanta més grans</h2>
       <p>
-        Ordenades per nombre de comptes afectats. Compte amb llegir-ho com un rànquing de mala
-        praxi: les primeres posicions les ocupen sovint agregadors, és a dir, plataformes que van
+        Ordenades per nombre de comptes afectats. No s’ha de llegir com un rànquing de mala
+        praxi, perquè les primeres posicions les ocupen sovint agregadors, és a dir, plataformes que van
         acumular dades robades a altres, i no empreses que patissin una filtració pròpia.
       </p>
 
@@ -228,9 +227,8 @@ export default async function BreachesPage() {
       <p className="meta">
         Aquesta pàgina no rep cap adreça de correu. Per saber si la teva surt en alguna filtració,
         l’eina de <Link href="/eines/credencials">credencials</Link> fa la consulta des del teu
-        navegador directament a XposedOrNot, un servei obert: el projecte no vol ser
-        l’intermediari que recull adreces de qui ve a informar-se sobre privadesa, i així no ho
-        és. També la pots fer al lloc de Have I Been Pwned.
+        navegador directament a XposedOrNot, un servei obert, de manera que el projecte no recull
+        les adreces de qui ve a informar-se sobre privadesa. També la pots fer al lloc de Have I Been Pwned.
       </p>
     </div>
   )

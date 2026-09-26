@@ -141,7 +141,7 @@ function BreachItem({ entry, index, selected }: { entry: MatchedBreach; index: C
             </span>
           ))}
           {entry.apps.some((app) => app.match === 'domain') ? (
-            <span className="meta"> — reconegut pel domini</span>
+            <span className="meta"> (reconegut pel domini)</span>
           ) : null}
         </p>
       ) : null}
@@ -292,9 +292,9 @@ export default function EmailCheck({ index }: { index: CredIndex }) {
         <p id="correu-avis" className="meta">
           En prémer el botó, el teu navegador envia l’adreça a{' '}
           <ExternalLink href="https://xposedornot.com">XposedOrNot</ExternalLink>, un servei obert
-          de consulta de filtracions, i a ningú més: la petició no passa pel nostre servidor.
-          XposedOrNot declara que no desa les adreces consultades. Nosaltres tampoc: el resultat
-          desapareix quan tanques la pàgina.
+          de consulta de filtracions, i a ningú més; la petició no passa pel nostre servidor.
+          XposedOrNot declara que no desa les adreces consultades. Nosaltres tampoc les desem, i el
+          resultat desapareix quan tanques la pàgina.
         </p>
         <div className={styles.actions}>
           <button
@@ -347,8 +347,8 @@ export default function EmailCheck({ index }: { index: CredIndex }) {
               <strong>No s’ha pogut fer la consulta.</strong> {result.outcome.reason}
             </p>
             <p className={styles.note}>
-              No sabem si l’adreça surt en cap filtració: no ho hem pogut mirar. Pots tornar-ho a
-              provar, o consultar-la directament a{' '}
+              Com que no s’ha pogut consultar, no sabem si l’adreça surt en alguna filtració. Pots
+              tornar-ho a provar o consultar-la directament a{' '}
               <ExternalLink href="https://haveibeenpwned.com/">Have I Been Pwned</ExternalLink>.
             </p>
           </div>
@@ -360,9 +360,8 @@ export default function EmailCheck({ index }: { index: CredIndex }) {
               <strong>Aquesta adreça no surt a cap filtració del catàleg de XposedOrNot.</strong>
             </p>
             <p className={styles.note}>
-              Vol dir que no és a les filtracions que aquest catàleg ha recollit, no que no s’hagi
-              filtrat mai: moltes no es fan públiques. Les contrasenyes, comprova-les igualment a
-              l’auditoria d’aquí sota.
+              Això no vol dir que no s’hagi filtrat mai, perquè moltes filtracions no es fan
+              públiques. Comprova igualment les contrasenyes a l’auditoria d’aquí sota.
             </p>
           </div>
         ) : null}

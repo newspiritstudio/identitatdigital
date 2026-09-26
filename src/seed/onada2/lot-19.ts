@@ -269,7 +269,7 @@ export const lot: SeedLot = {
     /* ── TP-Link Tapo ── */
     s('tp-link-tapo-app-store', 'TP-Link Tapo — App Store (Privacidad de la app)', 'https://apps.apple.com/es/app/id1472718009', 'Apple', 'app-store', 'primary', {
       language: 'es',
-      summary: 'Etiqueta de privadesa: no declara cap dada per rastrejar ni cap dada vinculada a la identitat. Tot el que recull —compres, dades de contacte, contingut de la persona usuària, identificadors, dades d’ús, diagnòstics i «altres dades»— hi consta com a no vinculat.',
+      summary: 'Etiqueta de privadesa: no declara cap dada per rastrejar ni cap dada vinculada a la identitat. Tot el que recull (compres, dades de contacte, contingut de la persona usuària, identificadors, dades d’ús, diagnòstics i «altres dades») hi consta com a no vinculat.',
     }),
     s('tp-link-tapo-privacy-policy', 'Tapo App Privacy Policy', 'https://privacy.tp-link.com/app/tapo/privacy', 'TP-Link Systems Inc.', 'privacy-policy', 'primary', {
       language: 'en',
@@ -325,7 +325,7 @@ export const lot: SeedLot = {
     }),
     s('hinge-delete-account', 'How do I delete my account? — Hinge Help Center', 'https://help.hinge.co/hc/en-us/articles/115004020968-How-do-I-delete-my-account', 'Match Group', 'support-doc', 'primary', {
       language: 'en',
-      summary: 'Passos reals per tancar el compte des de l’aplicació i avís que desinstal·lar-la no l’elimina. També explica que cal cancel·lar per separat la subscripció de l’App Store i que, si es va contractar per Stripe, esborrar el compte la cancel·la immediatament i es perden els dies pagats.',
+      summary: 'Passos per tancar el compte des de l’aplicació i avís que desinstal·lar-la no l’elimina. També explica que cal cancel·lar per separat la subscripció de l’App Store i que, si es va contractar per Stripe, esborrar el compte la cancel·la immediatament i es perden els dies pagats.',
     }),
     s('hinge-privacy-requests', 'How can I make a Privacy Request? — Hinge Help Center', 'https://help.hinge.co/hc/en-us/articles/360004792234-How-can-I-make-a-Privacy-Request', 'Match Group', 'support-doc', 'primary', {
       language: 'en',
@@ -627,7 +627,7 @@ export const lot: SeedLot = {
       accountRequired: f('partial', 'official', ['dramabox-privacy-policy'], 'Es pot mirar contingut sense registre, però cal un compte amb correu, telèfon o xarxa social per conservar les monedes, la subscripció i l’historial.'),
       openSource: f('no', 'official', ['dramabox-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'L’historial de visualització d’un catàleg organitzat per temes molt marcats —infidelitats, embarassos, venjances, milionaris— és una radiografia d’interessos íntims. DramaBox el creua amb l’identificador publicitari i amb la llista d’aplicacions instal·lades per alimentar recomanacions i campanyes.',
+        'L’historial de visualització d’un catàleg organitzat per temes molt marcats (infidelitats, embarassos, venjances, milionaris) revela interessos íntims. DramaBox el creua amb l’identificador publicitari i amb la llista d’aplicacions instal·lades per alimentar recomanacions i campanyes.',
       dataCollection: [
         row('adreca-electronica', 'optional', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'atencio-a-lusuari'], sources: ['dramabox-privacy-policy'] }),
         row('numero-de-telefon', 'optional', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['dramabox-privacy-policy'], note: 'Amb el codi de verificació per SMS, que envia un proveïdor extern.' }),
@@ -701,7 +701,7 @@ export const lot: SeedLot = {
             type: 'confusing-language',
             severity: 'medium',
             description:
-              'Falten el manifest de privadesa d’iOS, la declaració d’API accedides, la de dades recollides i la de rastreig, que són justament els avisos que el sistema ensenya abans d’instal·lar.',
+              'Falten el manifest de privadesa d’iOS, la declaració d’API accedides, la de dades recollides i la de rastreig, que són els avisos que el sistema ensenya abans d’instal·lar.',
             sources: ['dramabox-nowsecure'],
           },
         ],
@@ -735,7 +735,7 @@ export const lot: SeedLot = {
       categories: ['llar-connectada'],
       tagline: 'Càmeres i endolls connectats que guarden el vídeo a la càmera per defecte i una etiqueta d’App Store sense cap dada vinculada a la identitat',
       summary:
-        'Tapo controla càmeres, endolls, bombetes i sensors de TP-Link. L’etiqueta de l’App Store és de les poques del lot que no declara ni rastreig ni cap dada vinculada a la identitat. La política pròpia de l’aplicació explica que els vídeos es guarden a la targeta de la càmera i que només pugen al núvol d’Amazon si es contracta TapoCare, i que el reconeixement de cares es fa dins del HomeBase, sense sortir de casa. A canvi, fixa una conservació general de set anys i la responsabilitat es reparteix entre societats dels Estats Units i de Singapur.',
+        'Tapo controla càmeres, endolls, bombetes i sensors de TP-Link. L’etiqueta de l’App Store no declara ni rastreig ni cap dada vinculada a la identitat. La política pròpia de l’aplicació explica que els vídeos es guarden a la targeta de la càmera i que només pugen al núvol d’Amazon si es contracta TapoCare, i que el reconeixement de cares es fa dins del HomeBase, sense sortir de casa. La mateixa política fixa una conservació general de set anys, i la responsabilitat es reparteix entre societats dels Estats Units i de Singapur.',
       platforms: ['ios', 'android'],
       businessModel: 'freemium',
       jurisdiction: 'Singapur per a les persones usuàries de fora dels Estats Units, amb representant a Alemanya',
@@ -748,7 +748,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['tp-link-tapo-privacy-policy'], 'Cal un TP-Link ID amb correu i contrasenya per vincular els dispositius.'),
       openSource: f('no', 'official', ['tp-link-tapo-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'Una càmera i uns quants endolls connectats expliquen quan hi ha algú a casa, a quina hora es lleva, quan marxa i qui hi entra. Tapo hi afegeix la configuració de la xarxa wifi, l’IMEI del telèfon i, si s’activa la geolocalització per a les accions automàtiques, la posició exacta del mòbil.',
+        'Una càmera i uns quants endolls connectats mostren quan hi ha algú a casa, a quina hora es lleva, quan marxa i qui hi entra. Tapo hi afegeix la configuració de la xarxa wifi, l’IMEI del telèfon i, si s’activa la geolocalització per a les accions automàtiques, la posició exacta del mòbil.',
       dataCollection: [
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'unknown', purposes: ['prestacio-del-servei'], sources: ['tp-link-tapo-privacy-policy'], note: 'És el TP-Link ID. L’etiqueta de l’App Store declara les dades de contacte com a no vinculades a la identitat, cosa difícil de conciliar amb un compte.' }),
         row('numero-de-telefon', 'optional', { linked: 'unknown', tracking: 'no', shared: 'unknown', purposes: ['prestacio-del-servei'], sources: ['tp-link-tapo-privacy-policy'] }),
@@ -765,7 +765,7 @@ export const lot: SeedLot = {
       tracking: {
         crossAppTracking: f('no', 'official', ['tp-link-tapo-app-store'], 'L’etiqueta de l’App Store no declara cap dada utilitzada per rastrejar-te.'),
         advertisingIdentifiers: f('no', 'official', ['tp-link-tapo-app-store'], 'No consta cap identificador publicitari a l’etiqueta.'),
-        thirdPartyTrackersPresent: f('partial', 'official', ['tp-link-tapo-privacy-policy'], 'Hi ha serveis de tercers integrats —Amazon Web Services, Google Firebase, Google Assistant, Alexa, Stripe i PayPal—, però amb finalitats de servei i no publicitàries.'),
+        thirdPartyTrackersPresent: f('partial', 'official', ['tp-link-tapo-privacy-policy'], 'Hi ha serveis de tercers integrats (Amazon Web Services, Google Firebase, Google Assistant, Alexa, Stripe i PayPal), però amb finalitats de servei i no publicitàries.'),
       },
       dataUses: {
         targetedAdvertising: f('partial', 'official', ['tp-link-tapo-privacy-policy'], 'El màrqueting hi consta com a finalitat sotmesa a consentiment, però la política no descriu publicitat comportamental dins de l’aplicació.'),
@@ -783,7 +783,7 @@ export const lot: SeedLot = {
         transparencyReport: unknown('No hem trobat cap informe de transparència sobre peticions d’autoritats.'),
       },
       retention: {
-        definedPeriods: f('partial', 'official', ['tp-link-tapo-privacy-policy'], 'Hi ha dos terminis concrets —set anys des del final de la relació amb caràcter general i 90 dies per a les cares desconegudes del reconeixement facial—, però no per a la resta de categories.'),
+        definedPeriods: f('partial', 'official', ['tp-link-tapo-privacy-policy'], 'Hi ha dos terminis concrets (set anys des del final de la relació amb caràcter general i 90 dies per a les cares desconegudes del reconeixement facial), però no per a la resta de categories.'),
         dataAfterDeletion: f('partial', 'official', ['tp-link-privacy-policy-es'], 'La política avisa que eliminar el compte no afecta les dades que hagin recollit els socis per activar els productes.'),
         periods: [
           { dataType: 'dades-biometriques', period: '90 dies per a les cares no reconegudes, al dispositiu HomeBase', sources: ['tp-link-tapo-privacy-policy'] },
@@ -834,7 +834,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: false,
         editorialNotes:
-          'És un cas de bones decisions de disseny mal explicades: guardar el vídeo a la càmera i fer el reconeixement de cares al HomeBase són opcions que deixen les imatges a casa, però la política no ho presenta com una garantia ni diu res del xifratge de les gravacions que sí que pugen al núvol. El contrast més cridaner és que l’etiqueta de l’App Store declara el correu i les dades de contacte com a no vinculades a la identitat quan el servei funciona amb un compte. La política general del web adverteix expressament que no cobreix els productes Tapo, de manera que cal llegir dos documents diferents. No hem pogut completar la cerca d’incidents.',
+          'Guardar el vídeo a la càmera i fer el reconeixement de cares al HomeBase són opcions que deixen les imatges a casa, però la política no ho presenta com una garantia ni diu res del xifratge de les gravacions que sí que pugen al núvol. A més, l’etiqueta de l’App Store declara el correu i les dades de contacte com a no vinculades a la identitat quan el servei funciona amb un compte. La política general del web adverteix expressament que no cobreix els productes Tapo, de manera que cal llegir dos documents diferents. No hem pogut completar la cerca d’incidents.',
         openQuestions: [
           'Les gravacions desades a TapoCare estan xifrades en repòs i qui en té les claus?',
           'En quant de temps s’executa l’eliminació del compte des del portal?',
@@ -847,7 +847,7 @@ export const lot: SeedLot = {
       name: 'SmartThings',
       company: 'samsung-electronics',
       categories: ['llar-connectada'],
-      tagline: 'El plànol de casa teva a Corea del Sud, amb una etiqueta d’App Store que no vincula res a la identitat',
+      tagline: 'La configuració de la llar en mans de la matriu coreana, amb una etiqueta d’App Store que no vincula res a la identitat',
       summary:
         'SmartThings connecta electrodomèstics, sensors, llums i càmeres, també de marques que no són Samsung. L’avís de privadesa reconeix que recull la configuració de la llar, la ubicació per GPS, Bluetooth i wifi, les dades dels sensors, les rutines, les ordres de veu i, amb la funció Family Care, dades de son i de medicació. L’etiqueta de l’App Store, en canvi, no declara cap dada vinculada a la identitat. El responsable és la matriu coreana i l’avís que enllaça la fitxa espanyola és la versió dels Estats Units.',
       platforms: ['ios', 'android'],
@@ -862,7 +862,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['smartthings-privacy-notice'], 'Cal un compte Samsung per vincular els dispositius i les rutines.'),
       openSource: f('no', 'official', ['smartthings-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'La configuració d’una llar connectada és un plànol de l’habitatge amb horaris: quines estances hi ha, quan s’hi encén el llum, quan s’obre la porta, quan s’engega el forn i quan no hi ha ningú. Amb les rutines i els sensors de presència, SmartThings sap quan la casa és buida.',
+        'La configuració d’una llar connectada mostra quines estances hi ha, quan s’hi encén el llum, quan s’obre la porta i quan s’engega el forn. Amb les rutines i els sensors de presència, SmartThings sap quan la casa és buida.',
       dataCollection: [
         row('nom-i-cognoms', 'yes', { linked: 'no', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['samsung-privacy-policy-es', 'smartthings-app-store'], note: 'Ve del compte Samsung. L’etiqueta declara les dades de contacte com a no vinculades a la identitat.' }),
         row('adreca-electronica', 'yes', { linked: 'no', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['samsung-privacy-policy-es'] }),
@@ -945,7 +945,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: false,
         editorialNotes:
-          'La troballa documentada és que la fitxa espanyola de l’App Store enllaça la versió dels Estats Units de l’avís de privadesa de SmartThings, i no una d’europea: qui el llegeix des d’Espanya no troba ni les bases jurídiques ni els terminis del RGPD. La fitxa queda en estat inicial per això i perquè no hem pogut verificar ni el procediment real de tancament del compte Samsung ni els controls de privadesa de l’aplicació. Cal notar el contrast entre una etiqueta que no vincula res a la identitat i un avís que reconeix dades de son i de medicació de la funció Family Care.',
+          'La troballa documentada és que la fitxa espanyola de l’App Store enllaça la versió dels Estats Units de l’avís de privadesa de SmartThings, i no una d’europea: qui el llegeix des d’Espanya no troba ni les bases jurídiques ni els terminis del RGPD. La fitxa queda en estat inicial per això i perquè no hem pogut verificar ni el procediment de tancament del compte Samsung ni els controls de privadesa de l’aplicació. L’etiqueta no vincula res a la identitat, mentre que l’avís reconeix dades de son i de medicació de la funció Family Care.',
         openQuestions: [
           'Hi ha una versió europea de l’avís de privadesa de SmartThings i per què no és la que enllaça l’App Store espanyol?',
           'Es pot tancar el compte Samsung sense passar pel portal de sol·licituds i quins terminis hi ha?',
@@ -958,9 +958,9 @@ export const lot: SeedLot = {
       name: 'LG ThinQ',
       company: 'lg-electronics-espana',
       categories: ['llar-connectada'],
-      tagline: 'L’única aplicació de llar connectada del lot que declara rastreig, amb una política espanyola detallada i un enllaç de l’App Store a la versió dels Estats Units',
+      tagline: 'Declara rastreig, amb una política espanyola detallada i un enllaç de l’App Store a la versió dels Estats Units',
       summary:
-        'ThinQ connecta els electrodomèstics de LG: rentadora, forn, aire condicionat, televisor i aspiradora. És l’única de les tres aplicacions de llar connectada d’aquest lot que declara identificadors utilitzats per rastrejar, i vincula a la identitat la ubicació, el contingut i les dades d’ús. La política espanyola és detallada i situa la responsabilitat a LG Electronics España, amb la filial alemanya com a corresponsable per al perfilat, però l’enllaç que dona l’App Store porta a la versió nord-americana.',
+        'ThinQ connecta els electrodomèstics de LG: rentadora, forn, aire condicionat, televisor i aspiradora. Declara identificadors utilitzats per rastrejar i vincula a la identitat la ubicació, el contingut i les dades d’ús. La política espanyola és detallada i situa la responsabilitat a LG Electronics España, amb la filial alemanya com a corresponsable per al perfilat, però l’enllaç que dona l’App Store porta a la versió nord-americana.',
       platforms: ['ios', 'android'],
       businessModel: 'freemium',
       jurisdiction: 'Espanya (UE), amb transferències a Corea del Sud',
@@ -973,7 +973,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['lg-privacy-policy-es'], 'Cal un compte LG per registrar els aparells i controlar-los des del mòbil.'),
       openSource: f('no', 'official', ['lg-thinq-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'Els electrodomèstics expliquen la vida domèstica amb molta precisió: a quina hora es posa la rentadora, quantes vegades s’obre la nevera, quan s’engega l’aire condicionat i quan la casa és buida. LG ho combina amb la configuració de les estances declarada a l’aplicació i amb la informació de veu.',
+        'Les dades dels electrodomèstics mostren amb precisió la vida domèstica: a quina hora es posa la rentadora, quantes vegades s’obre la nevera, quan s’engega l’aire condicionat i quan la casa és buida. LG ho combina amb la configuració de les estances declarada a l’aplicació i amb la informació de veu.',
       dataCollection: [
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['lg-privacy-policy-es', 'lg-thinq-app-store'] }),
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['lg-privacy-policy-es'] }),
@@ -1009,7 +1009,7 @@ export const lot: SeedLot = {
         transparencyReport: unknown('No hem trobat cap informe de transparència de LG sobre peticions d’autoritats.'),
       },
       retention: {
-        definedPeriods: f('partial', 'official', ['lg-privacy-policy-es'], 'Hi ha un termini concret per a l’eliminació del compte —tres mesos—, però la resta es fixa com «el temps necessari» o el que exigeixi la llei.'),
+        definedPeriods: f('partial', 'official', ['lg-privacy-policy-es'], 'Hi ha un termini concret per a l’eliminació del compte (tres mesos), però la resta es fixa com «el temps necessari» o el que exigeixi la llei.'),
         dataAfterDeletion: f('yes', 'official', ['lg-privacy-policy-es'], 'En eliminar completament el compte LG, la informació es conserva tres mesos i després es destrueix, llevat del que exigeixi la llei.'),
         periods: [
           { dataType: 'identificador-de-compte', period: '3 mesos després d’eliminar el compte LG, i després es destrueix', sources: ['lg-privacy-policy-es'] },
@@ -1067,7 +1067,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: false,
         editorialNotes:
-          'Val la pena comparar les tres aplicacions de llar connectada d’aquest lot: Tapo i SmartThings no declaren cap dada per rastrejar i ThinQ sí, tot i que la política espanyola de LG és la més detallada de les tres i és l’única que dona un termini concret de destrucció després de tancar el compte. L’enllaç de política de privadesa que el desenvolupador dona a la fitxa espanyola de l’App Store porta a la versió dels Estats Units en anglès, cosa que hem verificat al codi de la pàgina. No hem pogut completar la cerca d’incidents.',
+          'A diferència de Tapo i SmartThings, ThinQ declara dades per rastrejar, tot i que la política espanyola de LG és més detallada que les d’aquestes dues aplicacions i és l’única de les tres que dona un termini concret de destrucció després de tancar el compte. L’enllaç de política de privadesa que el desenvolupador dona a la fitxa espanyola de l’App Store porta a la versió dels Estats Units en anglès, cosa que hem verificat al codi de la pàgina. No hem pogut completar la cerca d’incidents.',
         openQuestions: [
           'Es pot eliminar el compte LG des de l’aplicació ThinQ o cal passar pel portal de privadesa?',
           'Per què l’App Store espanyol enllaça la política dels Estats Units si LG Electronics España és la responsable?',
@@ -1080,9 +1080,9 @@ export const lot: SeedLot = {
       name: 'Booksy',
       company: 'booksy-iberia',
       categories: ['benestar-i-activitat-fisica', 'comerc-electronic'],
-      tagline: 'Reserves de perruqueria amb una política espanyola exemplar en el paper i una etiqueta d’App Store que declara rastreig i accés als contactes',
+      tagline: 'Reserves de perruqueria amb una política espanyola molt detallada i una etiqueta d’App Store que declara rastreig i accés als contactes',
       summary:
-        'Booksy serveix per reservar hora a perruqueries, barberies i centres d’estètica. La política espanyola és de les més ben fetes del lot: identifica Booksy Iberia com a responsable, publica una taula amb la finalitat, la base jurídica i el termini de conservació de cada tractament, i afirma que les dades no se cedeixen fora de l’Espai Econòmic Europeu. L’etiqueta de l’App Store, en canvi, declara identificadors utilitzats per rastrejar i l’accés a la llista de contactes, cosa que la política no explica. La baixa és autoservei des de l’aplicació.',
+        'Booksy serveix per reservar hora a perruqueries, barberies i centres d’estètica. La política espanyola està ben feta: identifica Booksy Iberia com a responsable, publica una taula amb la finalitat, la base jurídica i el termini de conservació de cada tractament, i afirma que les dades no se cedeixen fora de l’Espai Econòmic Europeu. L’etiqueta de l’App Store, en canvi, declara identificadors utilitzats per rastrejar i l’accés a la llista de contactes, cosa que la política no explica. La baixa és autoservei des de l’aplicació.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'commerce',
       jurisdiction: 'Espanya (UE)',
@@ -1096,7 +1096,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['booksy-privacy-policy'], 'Cal donar nom, cognom, correu i telèfon per reservar.'),
       openSource: f('no', 'official', ['booksy-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'L’historial de reserves diu quan vas a la perruqueria, a quin barri, amb qui i quant hi gastes. Sumat al sexe, a la data de naixement i a la geolocalització —que la política reconeix que fa servir per agrupar perfils—, dibuixa una rutina personal molt regular i fàcil de predir.',
+        'L’historial de reserves diu quan vas a la perruqueria, a quin barri, amb qui i quant hi gastes. Sumat al sexe, a la data de naixement i a la geolocalització (que la política reconeix que fa servir per agrupar perfils), mostra una rutina personal regular i fàcil de predir.',
       dataCollection: [
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['booksy-privacy-policy', 'booksy-app-store'], note: 'El negoci reservat rep les dades de la persona que hi va.' }),
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['booksy-privacy-policy'] }),
@@ -1121,7 +1121,7 @@ export const lot: SeedLot = {
         thirdPartyTrackersPresent: f('yes', 'official', ['booksy-privacy-policy'], 'La política de galetes esmenta Google Analytics i Facebook.'),
       },
       dataUses: {
-        targetedAdvertising: f('partial', 'official', ['booksy-privacy-policy'], 'Hi ha màrqueting directe i indirecte basat en l’interès legítim, però la política afirma que Booksy «no utilitza pràctiques invasives de creació de perfils i seguiment» amb finalitats publicitàries. L’etiqueta de l’App Store declara rastreig, i això no encaixa.'),
+        targetedAdvertising: f('partial', 'official', ['booksy-privacy-policy'], 'Hi ha màrqueting directe i indirecte basat en l’interès legítim, però la política afirma que Booksy «no utilitza pràctiques invasives de creació de perfils i seguiment» amb finalitats publicitàries. L’etiqueta de l’App Store, en canvi, declara rastreig.'),
         profiling: f('yes', 'official', ['booksy-privacy-policy'], 'Perfilat i agrupació a partir de l’activitat al web i a l’aplicació, la geolocalització, el sexe, les hores d’ús, l’última activitat i l’anàlisi de les fotos consultades, sota interès legítim.'),
         aiTraining: unknown('La política no parla d’entrenament de models.'),
       },
@@ -1191,7 +1191,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: false,
         editorialNotes:
-          'No hi ha cap categoria de bellesa o de reserva de cites: la classifiquem com a benestar (el servei que es reserva) i comerç electrònic (el pagament i la comissió). La fitxa és útil precisament pel contrast entre una política espanyola detallada, amb taula de bases jurídiques i terminis, i una etiqueta de l’App Store que declara rastreig publicitari i accés als contactes sense que la política ho expliqui. No hem pogut completar la cerca d’incidents.',
+          'No hi ha cap categoria de bellesa o de reserva de cites: la classifiquem com a benestar (el servei que es reserva) i comerç electrònic (el pagament i la comissió). La fitxa mostra la distància entre una política espanyola detallada, amb taula de bases jurídiques i terminis, i una etiqueta de l’App Store que declara rastreig publicitari i accés als contactes sense que la política ho expliqui. No hem pogut completar la cerca d’incidents.',
         openQuestions: [
           'Per què l’aplicació demana la llista de contactes i amb qui es comparteix?',
           'Com es concilia l’afirmació que no fa seguiment invasiu amb els identificadors declarats per rastrejar a l’App Store?',
@@ -1206,7 +1206,7 @@ export const lot: SeedLot = {
       categories: ['cites'],
       tagline: 'Cites amb dades sensibles declarades a l’App Store, geometria facial i una taula de conservació que arriba als deu anys',
       summary:
-        'Hinge és l’aplicació de cites de Match Group pensada per «esborrar-se»: el perfil demana respostes obertes i l’algoritme decideix a qui et mostra. La política europea reconeix que el perfil pot contenir orientació sexual, salut, origen ètnic i creences, i que la verificació amb selfie tracta geometria facial. A canvi, és de les poques del lot que publica una taula de terminis concrets de conservació després de tancar el compte, i l’eliminació és autoservei des de l’aplicació.',
+        'Hinge és l’aplicació de cites de Match Group pensada per «esborrar-se»: el perfil demana respostes obertes i l’algoritme decideix a qui et mostra. La política europea reconeix que el perfil pot contenir orientació sexual, salut, origen ètnic i creences, i que la verificació amb selfie tracta geometria facial. D’altra banda, publica una taula de terminis concrets de conservació després de tancar el compte, i l’eliminació és autoservei des de l’aplicació.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'freemium',
       jurisdiction: 'Irlanda (UE)',
@@ -1219,7 +1219,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['hinge-privacy-policy'], 'Cal registrar-se amb telèfon o correu i crear un perfil per veure res.'),
       openSource: f('no', 'official', ['hinge-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'Un perfil de Hinge és una declaració voluntària de qui t’atrau, què creus i com vius, i l’aplicació hi suma la ubicació, les converses i el rastre de qui t’agrada i qui descartes. És l’expedient més sensible que es pot entregar a una empresa privada, i l’etiqueta de l’App Store ho reconeix amb la categoria «dades sensibles».',
+        'En un perfil de Hinge declares qui t’atrau, què creus i com vius, i l’aplicació hi suma la ubicació, les converses i el registre de qui t’agrada i qui descartes. Són dades molt sensibles, i l’etiqueta de l’App Store ho reconeix amb la categoria «dades sensibles».',
       dataCollection: [
         row('numero-de-telefon', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'seguretat-i-prevencio-del-frau'], sources: ['hinge-privacy-policy', 'hinge-app-store'] }),
         row('adreca-electronica', 'optional', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['hinge-privacy-policy'] }),
@@ -1325,7 +1325,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: false,
         editorialNotes:
-          'Hinge mereix dues anotacions oposades. En positiu, la taula de terminis de conservació i el document públic sobre perfilat i decisions automatitzades són de les millors pràctiques de tot el lot. En negatiu, l’etiqueta de l’App Store és l’única del lot que declara «dades sensibles» vinculades a la identitat, i el perfil convida a aportar-ne de l’article 9 del RGPD sense que es pugui fer servir el servei sense perfilat. No hem pogut completar la cerca d’incidents; les actuacions conegudes contra Match Group s’han documentat a la fitxa de Tinder de la primera onada.',
+          'La taula de terminis de conservació i el document públic sobre perfilat i decisions automatitzades són bones pràctiques. En canvi, l’etiqueta de l’App Store declara «dades sensibles» vinculades a la identitat, i el perfil convida a aportar-ne de l’article 9 del RGPD sense que es pugui fer servir el servei sense perfilat. No hem pogut completar la cerca d’incidents; les actuacions conegudes contra Match Group s’han documentat a la fitxa de Tinder de la primera onada.',
         openQuestions: [
           'Quina base jurídica concreta empara el tractament de les dades d’orientació sexual del perfil, més enllà del consentiment implícit en publicar-les?',
           'Quin proveïdor fa la verificació amb selfie i on es tracta la geometria facial?',
@@ -1338,9 +1338,9 @@ export const lot: SeedLot = {
       name: 'PlayStation App',
       company: 'sony-interactive-entertainment-europe',
       categories: ['comunitats-i-forums', 'comerc-electronic'],
-      tagline: 'El comandament a distància del compte de PlayStation: sense rastreig declarat, però amb missatges, veu i pagaments lligats a la identitat',
+      tagline: 'L’aplicació del compte de PlayStation, sense rastreig declarat però amb missatges, veu i pagaments lligats a la identitat',
       summary:
-        'L’aplicació de PlayStation gestiona el compte de PlayStation Network des del mòbil: xat amb amics, missatges de veu, compres a la botiga i control remot de la consola. L’etiqueta de l’App Store no declara cap dada per rastrejar, cosa poc habitual en aquest lot, però sí que vincula a la identitat els missatges, l’àudio, les fotos i les dades financeres. La baixa és autoservei des de la mateixa aplicació, amb trenta dies per fer-se enrere, i el compte admet claus d’accés. El grup arrossega una de les filtracions més grans de la història de la xarxa.',
+        'L’aplicació de PlayStation gestiona el compte de PlayStation Network des del mòbil: xat amb amics, missatges de veu, compres a la botiga i control remot de la consola. L’etiqueta de l’App Store no declara cap dada per rastrejar, però sí que vincula a la identitat els missatges, l’àudio, les fotos i les dades financeres. La baixa és autoservei des de la mateixa aplicació, amb trenta dies per fer-se enrere, i el compte admet claus d’accés. PlayStation Network va patir el 2011 una de les filtracions més grans de la història de la xarxa.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'freemium',
       jurisdiction: 'Regne Unit, per a les persones usuàries europees',
@@ -1453,7 +1453,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'No hi ha cap categoria de videojocs a la taxonomia: classifiquem l’aplicació com a comunitat (el xat, els amics i els trofeus) i comerç electrònic (la botiga de PlayStation). El contrast més interessant és que l’etiqueta de l’App Store no declara cap dada per rastrejar mentre la política sí que preveu anuncis personalitzats en plataformes de tercers. Cal recordar que el responsable és una societat britànica: després del Brexit, les dades de les persones usuàries espanyoles surten de la Unió a l’empara de la decisió d’adequació del Regne Unit, i la mateixa política remet les queixes al regulador local o a l’autoritat britànica.',
+          'No hi ha cap categoria de videojocs a la taxonomia: classifiquem l’aplicació com a comunitat (el xat, els amics i els trofeus) i comerç electrònic (la botiga de PlayStation). L’etiqueta de l’App Store no declara cap dada per rastrejar, però la política preveu anuncis personalitzats en plataformes de tercers. El responsable és una societat britànica: després del Brexit, les dades de les persones usuàries espanyoles surten de la Unió a l’empara de la decisió d’adequació del Regne Unit, i la mateixa política remet les queixes al regulador local o a l’autoritat britànica.',
         openQuestions: [
           'Quin abast té el programa de recompenses de PlayStation a HackerOne i cobreix l’aplicació mòbil?',
           'Publica Sony Interactive Entertainment algun informe de peticions d’autoritats?',
@@ -1481,7 +1481,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['hacoo-privacy-policy'], 'Per comprar cal registrar-se amb nom, correu, telèfon i data de naixement, o bé amb una xarxa social.'),
       openSource: f('no', 'official', ['hacoo-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'L’historial de compres i de navegació d’una botiga generalista descriu la talla, la llar, les aficions i la capacitat de despesa de qui hi compra. Hacoo hi suma identificadors persistents del dispositiu —IP, adreça MAC, Android ID— i la ubicació aproximada, i els declara com a dades per rastrejar.',
+        'L’historial de compres i de navegació d’una botiga generalista pot revelar la talla, la llar, les aficions i la capacitat de despesa de qui hi compra. Hacoo hi suma identificadors persistents del dispositiu (IP, adreça MAC, Android ID) i la ubicació aproximada, i els declara com a dades per rastrejar.',
       dataCollection: [
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'unknown', purposes: ['prestacio-del-servei'], sources: ['hacoo-privacy-policy'] }),
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'unknown', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['hacoo-privacy-policy'] }),
@@ -1572,7 +1572,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: false,
         editorialNotes:
-          'La fitxa queda incompleta per manca de documentació, no per manca de recerca: la política de privadesa és de les més primes del lot i no identifica el responsable del tractament amb el detall que exigeix l’article 13 del RGPD. L’avís de l’App Store que Hacoo Tech Limited no s’ha identificat com a comerciant és una dada verificable i poc habitual. El domini de l’aplicació (hacoo.app) i el de la botiga web de la marca (hacoo.com) conviuen amb webs de tercers que en reprodueixen el nom, i això complica la comprovació. No hem pogut completar la cerca d’incidents.',
+          'La fitxa queda incompleta perquè hi ha poca documentació pública: la política de privadesa és breu i no identifica el responsable del tractament amb el detall que exigeix l’article 13 del RGPD. L’avís de l’App Store que Hacoo Tech Limited no s’ha identificat com a comerciant és una dada verificable i poc habitual. El domini de l’aplicació (hacoo.app) i el de la botiga web de la marca (hacoo.com) conviuen amb webs de tercers que en reprodueixen el nom, i això complica la comprovació. No hem pogut completar la cerca d’incidents.',
         openQuestions: [
           'Quina és l’entitat responsable del tractament, en quin país està constituïda i té representant a la Unió Europea?',
           'Es pot eliminar el compte des de l’aplicació?',

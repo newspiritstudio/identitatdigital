@@ -44,7 +44,7 @@ const druni: AppSeed = {
   accountRequired: f('no', 'official', ['druni-privacy-policy'], 'Es pot navegar pel catàleg sense compte; per comprar i per fer el seguiment de comandes cal registrar-s’hi.'),
   openSource: f('no', 'editorial', [], 'Aplicació comercial tancada; no consta cap codi publicat.', { licence: 'Privativa' }),
   dataSummary:
-    'Les compres de perfumeria i parafarmàcia revelen més del que sembla: tractaments dermatològics, productes d’higiene íntima, tests d’embaràs o complements alimentaris dibuixen estats de salut i moments vitals. L’historial de cerca hi afegeix el que s’ha mirat sense comprar, i l’adreça de lliurament ho lliga tot a un domicili.',
+    'Les compres de perfumeria i parafarmàcia poden revelar l’estat de salut i moments vitals: tractaments dermatològics, productes d’higiene íntima, tests d’embaràs o complements alimentaris. L’historial de cerca hi afegeix el que s’ha mirat sense comprar, i l’adreça de lliurament vincula aquestes dades a un domicili.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'unknown', purposes: ['prestacio-del-servei'], sources: ['druni-app-store', 'druni-privacy-policy'] }),
     row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'unknown', purposes: ['prestacio-del-servei', 'atencio-a-lusuari'], sources: ['druni-app-store', 'druni-privacy-policy'] }),
@@ -110,7 +110,7 @@ const druni: AppSeed = {
     telemetryOptOut: unknown('No consta cap manera de desactivar l’analítica dins de l’aplicació.'),
     granularControls: f('no', 'official', ['druni-privacy-policy'], 'No hi ha cap panell de privadesa per finalitat; només la baixa del butlletí i la configuració de galetes del web.'),
     defaultPosture: 'mixed',
-    darkPatterns: f('partial', 'editorial', [], 'L’avís de galetes ofereix «Acceptar totes» i «Rebutjar» al mateix nivell, cosa correcta; el patró problemàtic és un altre: exigir una fotocòpia del DNI i una carta postal per exercir drets que la mateixa aplicació ja resol amb un botó per a la baixa.'),
+    darkPatterns: f('partial', 'editorial', [], 'L’avís de galetes ofereix «Acceptar totes» i «Rebutjar» al mateix nivell. El problema és que per exercir drets cal una fotocòpia del DNI i una carta postal, mentre que la baixa del compte es resol amb un botó a l’aplicació.'),
     darkPatternList: [
       {
         type: 'confusing-language',
@@ -135,7 +135,7 @@ const druni: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'La fitxa il·lustra un desajust habitual al comerç espanyol: una aplicació ben resolta en el camí de sortida i una política de privadesa que sembla escrita per a un web corporatiu de fa deu anys. El contrast amb l’etiqueta de l’App Store és la troballa útil.',
+      'DRUNI mostra un desajust habitual al comerç espanyol: l’aplicació permet donar-se de baixa fàcilment, però la política de privadesa és breu i antiquada. La política no explica el rastreig que declara l’etiqueta de l’App Store.',
     openQuestions: [
       'Quins proveïdors publicitaris hi ha darrere dels identificadors declarats per rastrejar? La política de galetes no en publica la llista.',
       'Va afectar l’atac d’Akira del juliol del 2025 dades de clients de la botiga en línia? DRUNI no ha publicat cap comunicació al respecte.',
@@ -152,7 +152,7 @@ const laligaFantasy: AppSeed = {
   tagline:
     'Un identificador únic de LALIGA Ecosistema que segueix la persona per totes les aplicacions de la lliga i dels clubs',
   summary:
-    'Per jugar a LALIGA Fantasy cal registrar-se a LALIGA Ecosistema, un inici de sessió únic compartit per les webs i aplicacions de la lliga i dels clubs afiliats. La política és de les més detallades del lot: enumera els identificadors (IDFA, IDFV, ID d’usuari), descriu «perfils exhaustius» amb consentiment i explica que, si et registres amb Facebook, la lliga infereix valors d’«engagement», «social», «promotion» i «fan value» a partir de les teves publicacions i els teus «m’agrada». La baixa és autoservei i esborra el compte de tot l’ecosistema alhora.',
+    'Per jugar a LALIGA Fantasy cal registrar-se a LALIGA Ecosistema, un inici de sessió únic compartit per les webs i aplicacions de la lliga i dels clubs afiliats. La política és detallada: enumera els identificadors (IDFA, IDFV, ID d’usuari), descriu «perfils exhaustius» amb consentiment i explica que, si et registres amb Facebook, la lliga infereix valors d’«engagement», «social», «promotion» i «fan value» a partir de les teves publicacions i els teus «m’agrada». La baixa és autoservei i esborra el compte de tot l’ecosistema alhora.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'freemium',
   jurisdiction: 'Espanya',
@@ -165,7 +165,7 @@ const laligaFantasy: AppSeed = {
   accountRequired: f('yes', 'official', ['laliga-fantasy-privacy-policy'], 'Cal registrar-se a LALIGA Ecosistema amb correu electrònic, àlies, regió i país, o bé amb Facebook, Google o Apple.'),
   openSource: f('no', 'editorial', [], 'Producte comercial tancat.', { licence: 'Privativa' }),
   dataSummary:
-    'L’equip favorit, la regió i les lligues privades en què participes diuen d’on ets, amb qui et relaciones i què et mou. Afegint-hi el registre social de Facebook —publicacions del mur, «m’agrada» i les puntuacions inferides que en surten— el resultat és un perfil d’afició i d’influència que circula per totes les aplicacions de la lliga i dels clubs.',
+    'L’equip favorit, la regió i les lligues privades en què participes indiquen d’on ets i amb qui et relaciones. Si et registres amb Facebook, s’hi afegeixen les publicacions del mur, els «m’agrada» i les puntuacions que LALIGA en dedueix. El resultat és un perfil d’afició i d’influència compartit per totes les aplicacions de la lliga i dels clubs.',
   dataCollection: [
     row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada', 'elaboracio-de-perfils'], sources: ['laliga-fantasy-privacy-policy', 'laliga-fantasy-app-store'], note: 'Amb consentiment es comunica a l’equip favorit i a tercers amb acord amb LALIGA, i als patrocinadors de les lligues patrocinades.' }),
     row('identificador-de-compte', 'yes', { linked: 'yes', tracking: 'yes', shared: 'group', purposes: ['prestacio-del-servei', 'elaboracio-de-perfils', 'publicitat-personalitzada'], sources: ['laliga-fantasy-privacy-policy'], note: 'L’ID únic de LALIGA Ecosistema segueix la persona per totes les aplicacions i webs de la lliga i dels clubs.' }),
@@ -237,16 +237,16 @@ const laligaFantasy: AppSeed = {
   },
   controls: {
     adPersonalizationOptOut: f('yes', 'official', ['laliga-fantasy-privacy-policy'], 'Centre de Preferències de Publicitat Programàtica dins del perfil del joc i Centre de Subscripcions al menú, tots dos amb revocació immediata.'),
-    telemetryOptOut: f('partial', 'official', ['laliga-fantasy-privacy-policy'], 'Els reportes interns i la seguretat es basen en interès legítim: no hi ha un interruptor, sinó un dret d’oposició que cal exercir per correu electrònic. Denegar el permís de rastreig d’iOS només fa que LALIGA canviï l’IDFA per l’IDFV.'),
+    telemetryOptOut: f('partial', 'official', ['laliga-fantasy-privacy-policy'], 'Els reportes interns i la seguretat es basen en interès legítim: no hi ha cap interruptor i cal exercir el dret d’oposició per correu electrònic. Denegar el permís de rastreig d’iOS només fa que LALIGA canviï l’IDFA per l’IDFV.'),
     granularControls: f('yes', 'official', ['laliga-fantasy-privacy-policy'], 'Centre de notificacions, centre de subscripcions, centre de preferències de publicitat programàtica i MyAccount per a les dades declarades.'),
     defaultPosture: 'mixed',
-    darkPatterns: f('partial', 'editorial', [], 'Els consentiments són granulars i revocables, però el tractament més invasiu de tots —substituir l’IDFA per l’IDFV quan la persona denega el permís de rastreig d’Apple— s’empara en l’interès legítim i deixa la decisió del sistema operatiu sense efecte pràctic dins de l’ecosistema.'),
+    darkPatterns: f('partial', 'editorial', [], 'Els consentiments són granulars i revocables, però quan la persona denega el permís de rastreig d’Apple, LALIGA substitueix l’IDFA per l’IDFV emparant-se en l’interès legítim, i la decisió presa al sistema operatiu queda sense efecte pràctic dins de l’ecosistema.'),
     darkPatternList: [
       {
         type: 'confusing-language',
         severity: 'medium',
         description:
-          'La política diu que, si no es dona permís per a l’IDFA, LALIGA «podrà dur a terme aquesta finalitat utilitzant l’IDFV del dispositiu»: la negativa al rastreig no atura el seguiment dins de l’ecosistema.',
+          'La política diu que, si no es dona permís per a l’IDFA, LALIGA «podrà dur a terme aquesta finalitat utilitzant l’IDFV del dispositiu». Per tant, la negativa al rastreig no atura el seguiment dins de l’ecosistema.',
         sources: ['laliga-fantasy-privacy-policy'],
       },
     ],
@@ -268,8 +268,8 @@ const laligaFantasy: AppSeed = {
     {
       app: 'flashscore',
       comparability: 'complementary',
-      rationale: 'Si el que es busca és seguir els partits i els resultats sense entrar a l’ecosistema d’identificació única de LALIGA, un marcador en directe fa la feina sense compte.',
-      tradeOffs: 'No hi ha joc de fantasia ni lligues amb amics, que és precisament el que fa servir LALIGA per construir el perfil.',
+      rationale: 'Si el que es busca és seguir els partits i els resultats sense entrar a l’ecosistema d’identificació única de LALIGA, un marcador en directe funciona sense compte.',
+      tradeOffs: 'No hi ha joc de fantasia ni lligues amb amics, que és el que LALIGA fa servir per construir el perfil.',
     },
   ],
   review: {
@@ -277,7 +277,7 @@ const laligaFantasy: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'La política de LALIGA Fantasy és tècnicament bona: diu els noms dels identificadors, dels proveïdors i dels països. La troballa no és cap ocultació, sinó l’abast: un sol identificador que cus l’activitat de la lliga, dels clubs i dels patrocinadors, i el registre social que converteix el mur de Facebook en puntuacions de valor d’aficionat.',
+      'La política de LALIGA Fantasy és tècnicament bona: diu els noms dels identificadors, dels proveïdors i dels països. El que destaca és l’abast del tractament: un sol identificador reuneix l’activitat a la lliga, als clubs i als patrocinadors, i el registre social converteix el mur de Facebook en puntuacions de valor d’aficionat.',
     openQuestions: [
       'Quines xarxes de publicitat programàtica concretes hi participen? La política remet a un enllaç extern que no reprodueix la llista dins del document.',
       'Quin és el proveïdor tercer que estructura la informació obtinguda de Facebook i Google?',
@@ -294,7 +294,7 @@ const fcf: AppSeed = {
   tagline:
     'Una federació que tracta dades de salut i de menors amb un text legal que encara parla de «fitxers automatitzats» i de la desapareguda agpd.es',
   summary:
-    'L’aplicació de la Federació Catalana de Futbol dona resultats i classificacions i integra el Portal del Federat. El document legal reconeix que es tracten categories especials de dades —de salut, biomètriques i altres— i que hi pot haver transferències internacionals a països sense decisió d’adequació ni garanties adequades, que la persona federada «assumeix i consent» en signar la sol·licitud de llicència. La redacció és antiga: parla de fitxers automatitzats, remet a l’adreça agpd.es i reprodueix un text de Google Analytics anterior al RGPD.',
+    'L’aplicació de la Federació Catalana de Futbol dona resultats i classificacions i integra el Portal del Federat. El document legal reconeix que es tracten categories especials de dades (de salut, biomètriques i altres) i que hi pot haver transferències internacionals a països sense decisió d’adequació ni garanties adequades, que la persona federada «assumeix i consent» en signar la sol·licitud de llicència. La redacció és antiga: parla de fitxers automatitzats, remet a l’adreça agpd.es i reprodueix un text de Google Analytics anterior al RGPD.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'freemium',
   jurisdiction: 'Catalunya',
@@ -307,7 +307,7 @@ const fcf: AppSeed = {
   accountRequired: f('no', 'official', ['fcf-legal'], 'Els resultats i les classificacions són d’accés lliure; el Portal del Federat i altres serveis demanen emplenar el formulari corresponent.'),
   openSource: f('no', 'editorial', [], 'Aplicació institucional tancada.', { licence: 'Privativa' }),
   dataSummary:
-    'Una llicència federativa és un document d’identitat esportiu: nom, data de naixement, club, categoria i aptitud mèdica. Aplicat a una població on una part important són menors d’edat, el conjunt diu on juga cada infant, quin dia i amb quin equip.',
+    'La llicència federativa inclou el nom, la data de naixement, el club, la categoria i l’aptitud mèdica. Com que una part important de les persones federades són menors d’edat, aquestes dades indiquen on juga cada infant, quin dia i amb quin equip.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'compliment-legal'], sources: ['fcf-legal', 'fcf-app-store'], note: 'Dades identificatives dels federats i usuaris dels serveis de la federació.' }),
     row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['fcf-legal', 'fcf-app-store'], note: 'La finalitat declarada inclou l’enviament de comunicacions comercials sobre productes, serveis i esdeveniments de la federació.' }),
@@ -360,7 +360,7 @@ const fcf: AppSeed = {
       'Si no obtens resposta, reclama davant de l’Autoritat Catalana de Protecció de Dades o de l’Agència Espanyola de Protecció de Dades.',
     ],
     obstacles:
-      'L’exercici de drets exigeix escrit signat i fotocòpia del DNI, un requisit que el RGPD no imposa i que afegeix una barrera a un tràmit que hauria de ser senzill.',
+      'L’exercici de drets exigeix escrit signat i fotocòpia del DNI, un requisit que el RGPD no imposa i que complica el tràmit.',
     sources: ['fcf-legal'],
   },
   userRights: {
@@ -375,7 +375,7 @@ const fcf: AppSeed = {
     telemetryOptOut: f('no', 'official', ['fcf-legal'], 'No es descriu cap manera de desactivar l’analítica dins de l’aplicació.'),
     granularControls: f('no', 'official', ['fcf-legal'], 'L’aplicació permet configurar notificacions per equip, però no hi ha cap control de privadesa per finalitat.'),
     defaultPosture: 'permissive',
-    darkPatterns: f('yes', 'editorial', ['fcf-legal'], 'El consentiment a transferències internacionals sense garanties s’obté agrupat amb la signatura de la llicència federativa: qui vol jugar no té alternativa pràctica a acceptar-lo.'),
+    darkPatterns: f('yes', 'editorial', ['fcf-legal'], 'El consentiment a transferències internacionals sense garanties s’obté agrupat amb la signatura de la llicència federativa, de manera que qui vol jugar no té cap alternativa pràctica a acceptar-lo.'),
     darkPatternList: [
       {
         type: 'unbalanced-consent',
@@ -407,7 +407,7 @@ const fcf: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'El document legal de l’aplicació combina un avís legal, una política de privadesa i una política de galetes que semblen de generacions normatives diferents. La frase sobre transferències internacionals sense garanties consentides amb la signatura de la llicència és la que mereix una revisió per part de l’autoritat catalana.',
+      'El document legal de l’aplicació combina un avís legal, una política de privadesa i una política de galetes que semblen de generacions normatives diferents. La clàusula que dona per consentides les transferències internacionals sense garanties amb la signatura de la llicència hauria de revisar-la l’autoritat catalana.',
     openQuestions: [
       'Com s’articula el consentiment de mares, pares i tutors per als milers de federats menors d’edat?',
       'Quines dades biomètriques i de salut tracta realment la federació, i amb quina base jurídica de l’article 9 del RGPD?',
@@ -425,7 +425,7 @@ const futGg: AppSeed = {
   tagline:
     'Base de dades de cartes d’EA FC finançada amb subhastes publicitàries en temps real i sense representant a la UE',
   summary:
-    'FUT.GG és una de les grans bases de dades de preus i d’evolucions d’EA Sports FC. La seva política, signada per Stormstrike Inc. des de Las Vegas, és explícita sobre com es paga: publicitat programàtica dins de l’aplicació, amb identificadors compartits amb plataformes de compra i de venda que competeixen en temps real, i socis que fan seguiment entre dispositius i fingerprinting quan no hi ha ni galetes ni identificador publicitari. Reconeix el RGPD, però no designa cap representant a la Unió Europea.',
+    'FUT.GG és una de les grans bases de dades de preus i d’evolucions d’EA Sports FC. La seva política, signada per Stormstrike Inc. des de Las Vegas, explica com es finança: publicitat programàtica dins de l’aplicació, amb identificadors compartits amb plataformes de compra i de venda que competeixen en temps real, i socis que fan seguiment entre dispositius i fingerprinting quan no hi ha ni galetes ni identificador publicitari. Reconeix el RGPD, però no designa cap representant a la Unió Europea.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'advertising',
   jurisdiction: 'Estats Units',
@@ -437,7 +437,7 @@ const futGg: AppSeed = {
   accountRequired: f('no', 'official', ['futgg-privacy-policy'], 'Consultar preus i cartes no demana compte; el compte, opcional, es crea amb correu electrònic o amb Google, Apple, Discord o Twitch.'),
   openSource: f('no', 'editorial', [], 'Servei comercial tancat.', { licence: 'Privativa' }),
   dataSummary:
-    'Cada consulta de carta diu què es busca, què s’està muntant i quant s’hi vol gastar. Lligat a l’identificador publicitari i a la ubicació aproximada, és un senyal de consum molt net per a la subhasta publicitària: joves, jugadors habituals i amb propensió a la compra dins del joc.',
+    'Les consultes de cartes mostren què busca cada persona, quin equip munta i quant s’hi vol gastar. Lligades a l’identificador publicitari i a la ubicació aproximada, permeten a la subhasta publicitària identificar un públic jove, que juga sovint i que tendeix a comprar dins del joc.',
   dataCollection: [
     row('adreca-electronica', 'optional', { linked: 'yes', tracking: 'no', shared: 'unknown', purposes: ['prestacio-del-servei'], sources: ['futgg-privacy-policy'], note: 'Només si es crea compte; també arriba des del proveïdor OAuth escollit.' }),
     row('identificador-de-compte', 'optional', { linked: 'yes', tracking: 'no', shared: 'unknown', purposes: ['prestacio-del-servei', 'mesura-i-analisi-dus'], sources: ['futgg-app-store', 'futgg-privacy-policy'] }),
@@ -508,7 +508,7 @@ const futGg: AppSeed = {
     telemetryOptOut: unknown('No es descriu cap manera de desactivar l’analítica ni la notificació d’errors.'),
     granularControls: f('partial', 'official', ['futgg-privacy-policy'], 'Els ajustos de privadesa i de consentiment dins de l’aplicació permeten veure la llista de socis publicitaris i modificar-ne les preferències.'),
     defaultPosture: 'permissive',
-    darkPatterns: f('partial', 'editorial', [], 'No s’hi han detectat patrons agressius, però la política admet el fingerprinting com a alternativa quan la persona bloqueja els identificadors: una manera d’esquivar la decisió que acaba de prendre.'),
+    darkPatterns: f('partial', 'editorial', [], 'No s’hi han detectat patrons agressius, però la política admet el fingerprinting com a alternativa quan la persona bloqueja els identificadors, cosa que permet continuar identificant-la malgrat aquesta decisió.'),
     darkPatternList: [
       {
         type: 'other',
@@ -532,8 +532,8 @@ const futGg: AppSeed = {
     {
       app: 'futbin',
       comparability: 'equivalent',
-      rationale: 'Cobreix la mateixa necessitat —preus, cartes i evolucions d’EA FC— i, a diferència de FUT.GG, el responsable és una societat europea amb delegat de protecció de dades designat.',
-      tradeOffs: 'FUTBIN declara a l’App Store fins i tot la ubicació exacta com a dada utilitzada per rastrejar, una cosa que FUT.GG no fa.',
+      rationale: 'Cobreix la mateixa necessitat (preus, cartes i evolucions d’EA FC) i, a diferència de FUT.GG, el responsable és una societat europea amb delegat de protecció de dades designat.',
+      tradeOffs: 'A diferència de FUT.GG, FUTBIN declara a l’App Store la ubicació exacta com a dada utilitzada per rastrejar.',
     },
   ],
   review: {
@@ -541,7 +541,7 @@ const futGg: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'La política és sorprenentment franca sobre la cadena publicitària, incloent-hi el fingerprinting. El buit rellevant és institucional: un responsable establert als Estats Units que tracta dades de persones de la Unió sense designar-hi representant.',
+      'La política explica amb detall la cadena publicitària, incloent-hi el fingerprinting. El principal buit és que el responsable, establert als Estats Units, tracta dades de persones de la Unió sense haver-hi designat cap representant.',
     openQuestions: [
       'Hi ha una opció d’eliminació del compte dins de l’aplicació, o cal escriure sempre a l’adreça de privadesa?',
       'Quins són els socis concrets de la subhasta programàtica? La llista només és accessible des dels ajustos de l’aplicació.',
@@ -558,7 +558,7 @@ const futbin: AppSeed = {
   tagline:
     'Correu electrònic convertit en identificador xifrat i enviat a LiveRamp, amb ubicació exacta declarada per rastrejar',
   summary:
-    'FUTBIN, propietat del grup danès Better Collective, és la base de dades de cartes d’EA FC més veterana. La política del juny del 2026 explica que el correu electrònic o altres identificadors de compte es converteixen en un identificador xifrat i es comparteixen amb socis de resolució d’identitat com LiveRamp per creuar el perfil amb campanyes publicitàries. L’etiqueta de l’App Store va més enllà que la política: hi declara la ubicació exacta entre les dades utilitzades per rastrejar. A favor seu, l’opció de desactivar aquest ús és un interruptor dins dels ajustos del compte, i els comptes inactius s’esborren als dotze mesos.',
+    'FUTBIN, propietat del grup danès Better Collective, és la base de dades de cartes d’EA FC més veterana. La política del juny del 2026 explica que el correu electrònic o altres identificadors de compte es converteixen en un identificador xifrat i es comparteixen amb socis de resolució d’identitat com LiveRamp per creuar el perfil amb campanyes publicitàries. L’etiqueta de l’App Store declara, a més, la ubicació exacta entre les dades utilitzades per rastrejar, cosa que la política no esmenta. Aquest ús es pot desactivar amb un interruptor als ajustos del compte, i els comptes inactius s’esborren als dotze mesos.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'advertising',
   jurisdiction: 'Dinamarca',
@@ -570,7 +570,7 @@ const futbin: AppSeed = {
   accountRequired: f('no', 'official', ['futbin-privacy-policy'], 'La consulta de preus i cartes no demana compte; el compte desbloqueja fòrums, perfil i subscripcions sense publicitat.'),
   openSource: f('no', 'editorial', [], 'Servei comercial tancat.', { licence: 'Privativa' }),
   dataSummary:
-    'La combinació de correu electrònic xifrat, segments d’audiència i ubicació converteix una consulta sobre una carta de futbol en una fila d’un gràfic d’identitat publicitari que es pot aparellar amb el mateix perfil en qualsevol altra web o aplicació.',
+    'El correu electrònic xifrat, els segments d’audiència i la ubicació permeten incorporar les consultes sobre cartes de futbol a un gràfic d’identitat publicitari, que les associa amb el mateix perfil en altres webs i aplicacions.',
   dataCollection: [
     row('adreca-electronica', 'optional', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['futbin-privacy-policy'], note: 'Convertida en identificador xifrat i compartida amb socis de resolució d’identitat com LiveRamp; la política precisa que no es lliura en text pla.' }),
     row('contrasenya', 'optional', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei', 'seguretat-i-prevencio-del-frau'], sources: ['futbin-privacy-policy'] }),
@@ -602,7 +602,7 @@ const futbin: AppSeed = {
   sharing: {
     thirdPartySharing: f('yes', 'official', ['futbin-privacy-policy'], 'Socis publicitaris i de resolució d’identitat, proveïdors d’analítica i de comunicacions, botigues associades i autoritats públiques quan la llei ho exigeix.'),
     intraGroupSharing: f('yes', 'official', ['futbin-privacy-policy'], 'Amb els membres del grup empresarial de Better Collective, sota acords de tractament.'),
-    dataBrokerSales: f('partial', 'official', ['futbin-privacy-policy'], 'No s’hi parla de venda, però compartir identificadors xifrats amb LiveRamp i amb plataformes de dades és, funcionalment, alimentar un gràfic d’identitat publicitari de tercers.'),
+    dataBrokerSales: f('partial', 'official', ['futbin-privacy-policy'], 'La política no parla de venda, però comparteix identificadors xifrats amb LiveRamp i amb plataformes de dades, i a la pràctica això alimenta un gràfic d’identitat publicitari de tercers.'),
     internationalTransfers: f('yes', 'official', ['futbin-privacy-policy'], 'Transferències fora de l’EEE amb decisions d’adequació o clàusules contractuals tipus.', { mechanism: 'sccs' }),
   },
   transparency: {
@@ -638,7 +638,7 @@ const futbin: AppSeed = {
     telemetryOptOut: f('partial', 'official', ['futbin-privacy-policy'], 'El centre de preferències de galetes cobreix l’analítica del web; per a l’aplicació la política no descriu un control equivalent.'),
     granularControls: f('yes', 'official', ['futbin-privacy-policy'], 'Ajustos del compte, enllaços de baixa a cada comunicació i centre de preferències de galetes.'),
     defaultPosture: 'mixed',
-    darkPatterns: f('partial', 'editorial', ['futbin-app-store', 'futbin-privacy-policy'], 'El problema no és el disseny dels controls, que són clars, sinó la distància entre el que diu la política —«ubicació aproximada»— i el que declara l’etiqueta de l’App Store: ubicació exacta utilitzada per rastrejar.'),
+    darkPatterns: f('partial', 'editorial', ['futbin-app-store', 'futbin-privacy-policy'], 'Els controls són clars, però la política parla d’«ubicació aproximada» i l’etiqueta de l’App Store declara ubicació exacta utilitzada per rastrejar.'),
     darkPatternList: [
       {
         type: 'confusing-language',
@@ -671,7 +671,7 @@ const futbin: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'FUTBIN és un cas poc habitual: una política ben escrita, un delegat de protecció de dades real i un interruptor efectiu per aturar la compartició publicitària. La contradicció amb l’etiqueta de l’App Store sobre la ubicació exacta és la peça que caldria aclarir.',
+      'FUTBIN té una política ben escrita, un delegat de protecció de dades designat i un interruptor efectiu per aturar la compartició publicitària, cosa poc habitual. Queda per aclarir la contradicció amb l’etiqueta de l’App Store sobre la ubicació exacta.',
     openQuestions: [
       'Per què l’etiqueta de l’App Store declara ubicació exacta si la política només parla d’ubicació aproximada?',
       'L’interruptor dels ajustos del compte atura també la compartició des de l’aplicació mòbil, o només des del web?',
@@ -687,7 +687,7 @@ const playtomic: AppSeed = {
   categories: ['esports-i-resultats'],
   tagline: 'Deu anys de conservació des de l’últim accés, agenda de contactes opcional i baixa en quatre tocs',
   summary:
-    'Playtomic reserva pistes de pàdel i organitza partides obertes. La política, redactada com una taula d’activitats de tractament, fixa un termini clar i llarg alhora: deu anys des de l’últim accés per a la major part de les dades del compte. L’aplicació pot sincronitzar la llista de contactes del telèfon per trobar-hi amistats, i el nom, els cognoms i les estadístiques queden visibles per a la resta de participants a les partides públiques. L’eliminació del compte és autoservei, en quatre tocs, i és irreversible.',
+    'Playtomic reserva pistes de pàdel i organitza partides obertes. La política, redactada com una taula d’activitats de tractament, fixa un termini concret i llarg: deu anys des de l’últim accés per a la major part de les dades del compte. L’aplicació pot sincronitzar la llista de contactes del telèfon per trobar-hi amistats, i el nom, els cognoms i les estadístiques queden visibles per a la resta de participants a les partides públiques. L’eliminació del compte és autoservei, en quatre tocs, i és irreversible.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'freemium',
   jurisdiction: 'Espanya',
@@ -700,7 +700,7 @@ const playtomic: AppSeed = {
   accountRequired: f('yes', 'official', ['playtomic-privacy-policy'], 'Cal compte per reservar pista, apuntar-se a partides i accedir al xat; es pot crear amb correu, Google o Facebook.'),
   openSource: f('no', 'editorial', [], 'Servei comercial tancat.', { licence: 'Privativa' }),
   dataSummary:
-    'Les reserves diuen amb qui jugues, a quina hora i en quin club, setmana rere setmana: una agenda d’hàbits i de relacions molt regular. L’avaluació de condició física i el nivell de joc hi afegeixen una dada que frega la salut, i la llista de contactes hi aporta persones que no han acceptat res.',
+    'Les reserves mostren amb qui jugues, a quina hora i en quin club cada setmana, i per tant els teus hàbits i les teves relacions. L’avaluació de la condició física i el nivell de joc són dades properes a la salut, i la sincronització de l’agenda hi afegeix persones que no hi han donat cap consentiment.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['playtomic-privacy-policy', 'playtomic-app-store'], note: 'A les partides públiques, el nom, els cognoms i les estadístiques són visibles per a la resta de participants.' }),
     row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['playtomic-privacy-policy', 'playtomic-app-store'] }),
@@ -732,7 +732,7 @@ const playtomic: AppSeed = {
     thirdPartySharing: f('yes', 'official', ['playtomic-privacy-policy'], 'Gestors dels clubs on es reserva, proveïdors d’allotjament i de programari, i xarxes socials.'),
     intraGroupSharing: f('yes', 'official', ['playtomic-privacy-policy'], 'Amb filials i empreses afiliades, com ara PrenotaUnCampo.'),
     dataBrokerSales: unknown('No consta la venda de dades.'),
-    internationalTransfers: f('partial', 'official', ['playtomic-privacy-policy'], 'La política adverteix que alguns encarregats poden transferir dades a servidors fora de la UE i que, «en donar el consentiment al tractament, també consents la transferència»: no identifica els països ni el mecanisme de garantia.', {
+    internationalTransfers: f('partial', 'official', ['playtomic-privacy-policy'], 'La política adverteix que alguns encarregats poden transferir dades a servidors fora de la UE i que, «en donar el consentiment al tractament, també consents la transferència». No identifica els països ni el mecanisme de garantia.', {
       mechanism: 'unknown',
     }),
   },
@@ -775,7 +775,7 @@ const playtomic: AppSeed = {
     telemetryOptOut: f('no', 'official', ['playtomic-privacy-policy'], 'El manteniment i la seguretat dels serveis informàtics es basen en interès legítim i obligació legal, sense opció de desactivació.'),
     granularControls: f('partial', 'official', ['playtomic-privacy-policy', 'playtomic-delete-guide'], 'Es poden revocar permisos del sistema operatiu (agenda), modificar les dades personals des del perfil i donar-se de baixa de les comunicacions.'),
     defaultPosture: 'mixed',
-    darkPatterns: f('partial', 'editorial', ['playtomic-privacy-policy'], 'El punt feble és el consentiment de l’agenda: en acceptar-lo, la persona «confirma tenir l’autorització dels seus amics per compartir-ne les dades», una càrrega que es trasllada a l’usuari sense que els contactes hi hagin dit res.'),
+    darkPatterns: f('partial', 'editorial', ['playtomic-privacy-policy'], 'En acceptar la sincronització de l’agenda, la persona «confirma tenir l’autorització dels seus amics per compartir-ne les dades». La responsabilitat recau en l’usuari i els contactes no hi intervenen.'),
     darkPatternList: [
       {
         type: 'unbalanced-consent',
@@ -808,7 +808,7 @@ const playtomic: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'La política de Playtomic és una de les poques del lot amb terminis numèrics per a cada tractament. El contrast útil és entre una baixa exemplar —quatre tocs, sense correu a suport— i una conservació de deu anys des de l’últim accés per a qui no la faci servir.',
+      'La política de Playtomic dona terminis numèrics per a cada tractament. La baixa és senzilla (quatre tocs, sense escriure a suport), però les dades de qui no la fa es conserven deu anys des de l’últim accés.',
     openQuestions: [
       'A quins països es transfereixen les dades i amb quines garanties? La política no ho concreta.',
       'Quant temps queden accessibles per als gestors dels clubs els xats de les partides ja jugades?',
@@ -825,7 +825,7 @@ const winamax: AppSeed = {
   tagline:
     'Etiqueta de l’App Store que només declara interacció amb el producte, i una política que recull DNI, dades bancàries i patrons de joc durant deu anys',
   summary:
-    'Winamax és un operador francès de pòquer i apostes amb llicència de la Direcció General d’Ordenació del Joc. La seva política descriu amb detall el que la llei espanyola del joc obliga a recollir: document d’identitat, residència fiscal, dades bancàries, geolocalització del dispositiu i categories especials de dades relatives a una possible addicció, si consta al Registre General d’Interdiccions. Tot plegat es conserva sis anys després de tancar el compte, deu si aplica la normativa de blanqueig i tres més bloquejat. L’etiqueta de l’App Store, en canvi, només declara interacció amb el producte i errors: un buit difícil de justificar.',
+    'Winamax és un operador francès de pòquer i apostes amb llicència de la Direcció General d’Ordenació del Joc. La seva política descriu amb detall el que la llei espanyola del joc obliga a recollir: document d’identitat, residència fiscal, dades bancàries, geolocalització del dispositiu i categories especials de dades relatives a una possible addicció, si consta al Registre General d’Interdiccions. Tot plegat es conserva sis anys després de tancar el compte, deu si aplica la normativa de blanqueig i tres més bloquejat. L’etiqueta de l’App Store, en canvi, només declara interacció amb el producte i errors, molt menys del que descriu la política.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'commerce',
   jurisdiction: 'França',
@@ -838,7 +838,7 @@ const winamax: AppSeed = {
   accountRequired: f('yes', 'official', ['winamax-privacy-policy'], 'El joc amb diners reals exigeix registre, verificació d’identitat i comprovació al Registre General d’Interdiccions d’Accés al Joc.'),
   openSource: f('no', 'editorial', [], 'Programari de joc tancat i certificat.', { licence: 'Privativa' }),
   dataSummary:
-    'Un compte de joc en línia és un expedient complet: identitat oficial, solvència, patró horari de connexió i quantitats jugades, guanyades i perdudes. La normativa de joc segur hi afegeix una classificació de la persona com a jugadora jove, intensiva o vulnerable, que és una inferència sobre el seu comportament i la seva salut.',
+    'Un compte de joc en línia inclou la identitat oficial, la solvència, el patró horari de connexió i les quantitats jugades, guanyades i perdudes. La normativa de joc segur hi afegeix una classificació de la persona com a jugadora jove, intensiva o vulnerable, que és una inferència sobre el seu comportament i la seva salut.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['compliment-legal', 'prestacio-del-servei', 'seguretat-i-prevencio-del-frau'], sources: ['winamax-privacy-policy'] }),
     row('document-identificatiu-oficial', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['compliment-legal', 'seguretat-i-prevencio-del-frau'], sources: ['winamax-privacy-policy'], note: 'DNI, NIE o passaport, i també permís de conduir o targeta de la seguretat social per a la verificació.' }),
@@ -913,9 +913,9 @@ const winamax: AppSeed = {
   controls: {
     adPersonalizationOptOut: f('partial', 'official', ['winamax-privacy-policy', 'winamax-faq-account'], 'La baixa del butlletí es fa desmarcant la casella corresponent a les preferències de correu; per a la resta de perfils de màrqueting cal exercir el dret d’oposició.'),
     telemetryOptOut: f('no', 'official', ['winamax-privacy-policy'], 'L’anàlisi estadística i la prevenció del frau es basen en interès legítim i obligació legal, sense opció de desactivació.'),
-    granularControls: f('partial', 'official', ['winamax-faq-account'], 'Els controls de joc responsable són granulars i ben documentats —límits de dipòsit, autoexclusió, RGIAJ—, però no hi ha un panell de privadesa equivalent.'),
+    granularControls: f('partial', 'official', ['winamax-faq-account'], 'Els controls de joc responsable són granulars i ben documentats (límits de dipòsit, autoexclusió, RGIAJ), però no hi ha un panell de privadesa equivalent.'),
     defaultPosture: 'mixed',
-    darkPatterns: f('partial', 'editorial', ['winamax-faq-account'], 'Augmentar els límits de dipòsit exigeix esperar tres mesos, superar un test i passar una revisió del departament de joc responsable, una fricció deliberada i saludable. En sentit contrari, el tancament del compte fa perdre les milles i els bons acumulats.'),
+    darkPatterns: f('partial', 'editorial', ['winamax-faq-account'], 'Augmentar els límits de dipòsit exigeix esperar tres mesos, superar un test i passar una revisió del departament de joc responsable, una fricció que protegeix la persona jugadora. En sentit contrari, el tancament del compte fa perdre les milles i els bons acumulats.'),
   },
   security: {
     e2ee: na('El servei no transporta comunicacions privades entre persones.'),
@@ -931,7 +931,7 @@ const winamax: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'La política de Winamax és de les més completes del lot perquè la normativa del joc l’obliga a ser-ho. La troballa és la distància amb l’etiqueta de l’App Store: un servei que exigeix el DNI, les dades bancàries i la geolocalització declara a Apple només «interacció amb el producte» i «dades d’errors».',
+      'La política de Winamax és completa perquè la normativa del joc l’obliga a ser-ho. En canvi, un servei que exigeix el DNI, les dades bancàries i la geolocalització només declara a l’etiqueta de l’App Store «interacció amb el producte» i «dades d’errors».',
     openQuestions: [
       'Per què l’etiqueta de privadesa de l’App Store no declara les dades de contacte, financeres ni d’identitat que la política descriu com a obligatòries?',
       'Hi ha un delegat de protecció de dades designat i una adreça específica per exercir drets?',
@@ -948,7 +948,7 @@ const bet365: AppSeed = {
   tagline:
     'Dades compartides amb agències de solvència, empreses d’anàlisi de comportament i serveis de vulnerabilitat, i conservades entre cinc i deu anys',
   summary:
-    'bet365 és el major operador d’apostes en línia del món, gestionat per societats constituïdes a Malta. La política enumera una llista de destinataris poc habitual: agències d’informació creditícia per a les comprovacions d’assequibilitat, agències de prevenció del frau, organismes rectors de l’esport, «empreses d’anàlisi de comportament», «serveis de vulnerabilitat del consumidor» i agències de recobrament. La conservació és d’un mínim de cinc anys —deu segons el país— des de l’última interacció, i és indefinida si s’hi ha aplicat una autoexclusió permanent, precisament per poder impedir-ne l’accés.',
+    'bet365 és el major operador d’apostes en línia del món, gestionat per societats constituïdes a Malta. La política enumera una llista de destinataris poc habitual: agències d’informació creditícia per a les comprovacions d’assequibilitat, agències de prevenció del frau, organismes rectors de l’esport, «empreses d’anàlisi de comportament», «serveis de vulnerabilitat del consumidor» i agències de recobrament. La conservació és d’un mínim de cinc anys (deu segons el país) des de l’última interacció, i és indefinida si s’hi ha aplicat una autoexclusió permanent, per poder impedir-ne l’accés.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'commerce',
   jurisdiction: 'Malta',
@@ -961,7 +961,7 @@ const bet365: AppSeed = {
   accountRequired: f('yes', 'official', ['bet365-privacy-policy'], 'Cal obrir un compte i superar la verificació d’identitat per apostar.'),
   openSource: f('no', 'editorial', [], 'Plataforma de joc tancada.', { licence: 'Privativa' }),
   dataSummary:
-    'L’expedient d’un compte d’apostes barreja identitat verificada, capacitat econòmica i comportament. bet365 hi afegeix una capa d’anàlisi de conducta pensada per detectar risc de joc problemàtic: una finalitat legítima que, tècnicament, és una inferència sobre la salut de la persona feta a partir de com aposta.',
+    'Un compte d’apostes reuneix identitat verificada, capacitat econòmica i comportament de joc. bet365 hi afegeix una anàlisi de conducta per detectar el risc de joc problemàtic, una finalitat legítima que implica fer inferències sobre la salut de la persona a partir de com aposta.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['compliment-legal', 'prestacio-del-servei'], sources: ['bet365-privacy-policy', 'bet365-app-store'] }),
     row('adreca-postal', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['compliment-legal', 'prestacio-del-servei'], sources: ['bet365-app-store', 'bet365-privacy-policy'] }),
@@ -1003,7 +1003,7 @@ const bet365: AppSeed = {
   },
   retention: {
     definedPeriods: f('yes', 'official', ['bet365-privacy-policy'], 'Mínim de cinc anys des de l’última interacció, i mínim de deu segons el país, amb reserva expressa d’ampliar-ho.'),
-    dataAfterDeletion: f('yes', 'official', ['bet365-privacy-policy'], 'Les dades es conserven després de tancar el compte i, si s’hi ha aplicat una exclusió permanent, durant tot el període de l’exclusió, precisament per poder impedir l’accés al servei.'),
+    dataAfterDeletion: f('yes', 'official', ['bet365-privacy-policy'], 'Les dades es conserven després de tancar el compte i, si s’hi ha aplicat una exclusió permanent, durant tot el període de l’exclusió, per poder impedir l’accés al servei.'),
     periods: [
       { period: 'Mínim 5 anys des de l’última interacció', sources: ['bet365-privacy-policy'] },
       { period: 'Mínim 10 anys segons el país de residència', sources: ['bet365-privacy-policy'] },
@@ -1021,7 +1021,7 @@ const bet365: AppSeed = {
       'Guarda la resposta com a prova; si no és satisfactòria, reclama davant de l’autoritat de control competent.',
     ],
     obstacles:
-      'La conservació mínima legal buida de contingut pràctic el dret de supressió mentre duri, i l’exclusió permanent obliga bet365 a mantenir les dades indefinidament.',
+      'Mentre duri la conservació mínima legal, el dret de supressió no té efecte pràctic, i l’exclusió permanent obliga bet365 a mantenir les dades indefinidament.',
     dataRetained: 'Identitat, transaccions, verificacions i registres d’exclusió durant 5 a 10 anys o més.',
     sources: ['bet365-privacy-policy'],
   },
@@ -1037,7 +1037,7 @@ const bet365: AppSeed = {
     telemetryOptOut: f('no', 'official', ['bet365-privacy-policy'], 'Les galetes de rendiment es descriuen com a necessàries per mesurar i millorar el servei, i l’anàlisi de comportament respon a obligacions de joc segur.'),
     granularControls: f('partial', 'official', ['bet365-privacy-policy'], 'Gestor de galetes amb tres categories i eines de joc segur; no hi ha un panell de privadesa per finalitat.'),
     defaultPosture: 'mixed',
-    darkPatterns: f('partial', 'editorial', ['bet365-privacy-policy'], 'La política es compromet a no aplicar canvis materials sense consentiment exprés, però afegeix que, si no s’accepten, pot deixar de prestar part o la totalitat dels serveis: un consentiment amb una sola sortida possible.'),
+    darkPatterns: f('partial', 'editorial', ['bet365-privacy-policy'], 'La política es compromet a no aplicar canvis materials sense consentiment exprés, però afegeix que, si no s’accepten, pot deixar de prestar part o la totalitat dels serveis, de manera que l’única opció per continuar fent-los servir és acceptar-los.'),
     darkPatternList: [
       {
         type: 'unbalanced-consent',
@@ -1062,7 +1062,7 @@ const bet365: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'La política de bet365 és breu però la llista de destinataris és molt reveladora: poques aplicacions de consum comparteixen dades simultàniament amb agències de solvència, organismes rectors de l’esport i serveis de vulnerabilitat del consumidor. La conservació lligada a l’exclusió permanent és un cas net de tensió entre dret de supressió i protecció de la persona.',
+      'La política de bet365 és breu, però la llista de destinataris és inusual: poques aplicacions de consum comparteixen dades alhora amb agències de solvència, organismes rectors de l’esport i serveis de vulnerabilitat del consumidor. La conservació lligada a l’exclusió permanent enfronta el dret de supressió amb la protecció de la persona.',
     openQuestions: [
       'Quina societat és exactament responsable del tractament per als comptes espanyols amb llicència de la DGOJ? La política general només identifica les societats malteses Hillside (UK Sports) ENC i Hillside (UK Gaming) ENC.',
       'Hi ha verificació en dos passos disponible per als comptes espanyols?',
@@ -1078,9 +1078,9 @@ const besoccer: AppSeed = {
   company: 'besoccer',
   categories: ['esports-i-resultats'],
   tagline:
-    'Resultats en directe amb desactivació i eliminació del compte separades, i una llista de socis publicitaris que la política sí que publica',
+    'Resultats en directe amb desactivació i eliminació del compte separades, i una política que publica la llista de socis publicitaris',
   summary:
-    'BeSoccer, abans Resultados de Fútbol, és una aplicació malaguenya de resultats en directe. La política identifica els socis que fan el seguiment —Google Analytics i Ad Manager, Facebook, Criteo, Smartadserver, AppNexus, comScore— i situa els servidors a OVH dins de la Unió Europea. A l’App Store declara ubicació aproximada, identificador de dispositiu, dades d’ús i de publicitat i dades de diagnòstic com a utilitzats per rastrejar: el paquet complet de la publicitat programàtica. El perfil ofereix dues opcions distintes, desactivar el compte —recuperable durant un any— i eliminar-lo definitivament.',
+    'BeSoccer, abans Resultados de Fútbol, és una aplicació malaguenya de resultats en directe. La política identifica els socis que fan el seguiment (Google Analytics i Ad Manager, Facebook, Criteo, Smartadserver, AppNexus i comScore) i situa els servidors a OVH dins de la Unió Europea. A l’App Store declara ubicació aproximada, identificador de dispositiu, dades d’ús i de publicitat i dades de diagnòstic com a utilitzats per rastrejar. El perfil ofereix dues opcions: desactivar el compte, que es pot recuperar durant un any, o eliminar-lo definitivament.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'advertising',
   jurisdiction: 'Espanya',
@@ -1092,7 +1092,7 @@ const besoccer: AppSeed = {
   accountRequired: f('no', 'official', ['besoccer-privacy-policy'], 'Els resultats i les classificacions es consulten sense compte; el registre amb usuari, correu i contrasenya serveix per als continguts personalitzats.'),
   openSource: f('no', 'editorial', [], 'Servei comercial tancat.', { licence: 'Privativa' }),
   dataSummary:
-    'Una aplicació de resultats sap quins equips segueixes, a quina hora consultes els partits i des d’on. És poca cosa per separat, però és exactament el senyal que la subhasta publicitària necessita: un perfil d’interès estable, geolocalitzat de manera aproximada i lligat a l’identificador del dispositiu.',
+    'Una aplicació de resultats sap quins equips segueixes, a quina hora consultes els partits i des d’on. Per separat són poques dades, però juntes donen a la subhasta publicitària un perfil d’interès estable, amb una ubicació aproximada i lligat a l’identificador del dispositiu.',
   dataCollection: [
     row('identificador-de-compte', 'optional', { linked: 'yes', tracking: 'no', shared: 'unknown', purposes: ['prestacio-del-servei'], sources: ['besoccer-privacy-policy'], note: 'Nom d’usuari escollit al registre.' }),
     row('adreca-electronica', 'optional', { linked: 'yes', tracking: 'no', shared: 'unknown', purposes: ['prestacio-del-servei'], sources: ['besoccer-privacy-policy'] }),
@@ -1158,7 +1158,7 @@ const besoccer: AppSeed = {
     telemetryOptOut: unknown('No consta cap manera de desactivar l’analítica dins de l’aplicació.'),
     granularControls: f('partial', 'official', ['besoccer-privacy-policy'], 'La distinció entre desactivar i eliminar el compte és un control ben pensat; en canvi, no hi ha un panell de privadesa per finalitat.'),
     defaultPosture: 'permissive',
-    darkPatterns: f('partial', 'editorial', ['besoccer-privacy-policy', 'besoccer-app-store'], 'La política publica els socis de seguiment, cosa poc habitual, però descriu el tractament com si fos només web: no explica que l’aplicació declara a Apple cinc categories de dades utilitzades per rastrejar.'),
+    darkPatterns: f('partial', 'editorial', ['besoccer-privacy-policy', 'besoccer-app-store'], 'La política publica els socis de seguiment, cosa poc habitual, però descriu el tractament com si només hi hagués el web i no explica que l’aplicació declara a Apple cinc categories de dades utilitzades per rastrejar.'),
   },
   security: {
     e2ee: na('L’aplicació no transporta comunicacions privades entre persones.'),
@@ -1174,7 +1174,7 @@ const besoccer: AppSeed = {
       app: 'flashscore',
       comparability: 'equivalent',
       rationale: 'Ofereix el mateix servei de resultats en directe i notificacions sense necessitat de compte.',
-      tradeOffs: 'Cal comprovar-ne l’etiqueta de privadesa pròpia: el model publicitari del sector és el mateix.',
+      tradeOffs: 'Cal comprovar-ne l’etiqueta de privadesa, perquè el model publicitari del sector és el mateix.',
     },
   ],
   review: {
@@ -1182,7 +1182,7 @@ const besoccer: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'BeSoccer fa una cosa que gairebé ningú fa al lot: publicar els noms dels socis de seguiment. El problema és l’altre: la política descriu un web i l’aplicació declara a Apple cinc categories de dades utilitzades per rastrejar, entre elles els diagnòstics.',
+      'BeSoccer publica els noms dels socis de seguiment. En canvi, la política descriu només el web, mentre que l’aplicació declara a Apple cinc categories de dades utilitzades per rastrejar, entre elles els diagnòstics.',
     openQuestions: [
       'Com es concilia l’afirmació que les dades es guarden a servidors europeus amb els socis publicitaris nord-americans que la mateixa política enumera?',
       'Per què les dades de diagnòstic figuren entre les utilitzades per rastrejar?',
@@ -1482,7 +1482,7 @@ const sources: SourceSeed[] = [
   s('besoccer-privacy-policy', 'Política de privacidad — BeSoccer', 'https://www.besoccer.com/legal/privacidad', 'BeSoccer Solutions, S.L.', 'privacy-policy', 'primary', {
     language: 'es',
     summary:
-      'Política de BeSoccer: responsable a Màlaga, dades de registre mínimes, llista explícita de socis publicitaris i d’analítica (Google, Facebook, Criteo, Smartadserver, AppNexus, comScore), allotjament a OVH Hispano dins de la UE i distinció entre desactivar el compte —recuperable un any— i eliminar-lo definitivament.',
+      'Política de BeSoccer: responsable a Màlaga, dades de registre mínimes, llista explícita de socis publicitaris i d’analítica (Google, Facebook, Criteo, Smartadserver, AppNexus, comScore), allotjament a OVH Hispano dins de la UE i distinció entre desactivar el compte (recuperable un any) i eliminar-lo definitivament.',
   }),
   s('besoccer-app-store', 'BeSoccer: Resultados de Fútbol — App Store (España)', 'https://apps.apple.com/es/app/id550928207', 'Apple', 'app-store', 'primary', {
     language: 'es',
@@ -1521,7 +1521,7 @@ const incidents: IncidentSeed[] = [
     occurredAt: '2023-10-17',
     disclosedAt: '2024-05-21',
     description:
-      'Arran d’una licitació pública de «Biometric solutions for facial recognition» per a l’accés dels aficionats als estadis, l’AEPD va dirigir una advertència formal a LALIGA recordant-li que, abans de qualsevol decisió d’implantació d’un tractament de dades biomètriques, cal una gestió del risc, mesures des del disseny i per defecte i, en cas d’alt risc, una avaluació d’impacte que superi el triple judici d’idoneïtat, necessitat i proporcionalitat, a més d’una excepció de l’article 9.2 del RGPD. No és una sanció, però marca el límit d’un tractament que la lliga ja estava contractant.',
+      'Arran d’una licitació pública de «Biometric solutions for facial recognition» per a l’accés dels aficionats als estadis, l’AEPD va dirigir una advertència formal a LALIGA recordant-li que, abans de qualsevol decisió d’implantació d’un tractament de dades biomètriques, cal una gestió del risc, mesures des del disseny i per defecte i, en cas d’alt risc, una avaluació d’impacte que superi el triple judici d’idoneïtat, necessitat i proporcionalitat, a més d’una excepció de l’article 9.2 del RGPD. No és una sanció, però fixa les condicions d’un tractament que la lliga ja estava contractant.',
     affectedPeople: 'Persones assistents als estadis de primera i segona divisió.',
     regulatory: {
       authority: 'Agencia Española de Protección de Datos',

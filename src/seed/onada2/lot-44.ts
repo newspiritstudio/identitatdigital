@@ -253,7 +253,7 @@ export const lot: SeedLot = {
       accountRequired: f('partial', 'official', ['ara-condicions'], 'L’accés és gratuït, però alguns serveis demanen subscripció; el registre gratuït permet llegir 10 articles propis al mes.'),
       openSource: f('no', 'official', ['ara-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'Què llegeixes, quant de temps i quines seccions segueixes queda lligat al teu compte, i l’app declara que aquestes dades d’ús poden servir per seguir-te en apps i webs d’altres empreses.',
+        'L’app vincula al compte les dades d’ús (què es llegeix, quant de temps, quines seccions se segueixen) i declara que poden servir per rastrejar en apps i webs d’altres empreses.',
       dataCollection: [
         row('adreca-electronica', 'optional', { linked: 'yes', tracking: 'no', shared: 'unknown', purposes: ['prestacio-del-servei'], sources: ['ara-app-store', 'ara-privacy-policy'], note: 'Per al registre, la subscripció i els butlletins.' }),
         row('nom-i-cognoms', 'optional', { linked: 'yes', tracking: 'no', shared: 'unknown', purposes: ['prestacio-del-servei'], sources: ['ara-app-store'] }),
@@ -348,7 +348,7 @@ export const lot: SeedLot = {
       name: 'VilaWeb',
       company: 'partal-maresma-i-associats',
       categories: ['noticies-i-mitjans'],
-      tagline: 'App de notícies que no declara rastreig, amb una política envellida',
+      tagline: 'App de notícies que no declara rastreig, amb una política que encara cita el Privacy Shield',
       summary:
         'L’etiqueta de l’App Store només declara historial de navegació i dades d’ús, no vinculats a la identitat i sense rastreig. La política de privadesa se centra en la subscripció, la botiga i els butlletins, i encara cita el Privacy Shield, anul·lat pel Tribunal de Justícia de la UE el 2020. El web sí que té galetes de publicitat, analítica i geolocalització, i un bàner que ofereix tots els proveïdors del marc de l’IAB. Els drets s’exerceixen per correu.',
       platforms: ['ios', 'android', 'web'],
@@ -361,7 +361,7 @@ export const lot: SeedLot = {
       },
       accountRequired: f('no', 'official', ['vilaweb-app-store'], 'L’etiqueta no declara dades de contacte ni identificadors vinculats a la persona.'),
       openSource: f('no', 'official', ['vilaweb-app-store'], undefined, { licence: 'Privativa' }),
-      dataSummary: 'Les notícies que obres a l’app, sense vincular-les a la teva identitat segons l’etiqueta. Al web, les galetes de tercers poden seguir-te si les acceptes.',
+      dataSummary: 'Segons l’etiqueta, l’app recull les notícies que s’obren sense vincular-les a la identitat. Al web, les galetes de tercers fan seguiment si s’accepten.',
       dataCollection: [
         row('historial-de-navegacio', 'yes', { linked: 'no', tracking: 'no', shared: 'unknown', purposes: ['mesura-i-analisi-dus'], sources: ['vilaweb-app-store'] }),
         row('interaccions-i-us', 'yes', { linked: 'no', tracking: 'no', shared: 'unknown', purposes: ['mesura-i-analisi-dus'], sources: ['vilaweb-app-store'] }),
@@ -432,7 +432,7 @@ export const lot: SeedLot = {
         lastReviewedAt: CATALAN_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'L’etiqueta és de les més netes del lot, però la política encara cita el Privacy Shield, anul·lat el 2020, cosa que fa pensar que fa anys que no es revisa. El procediment de l’AEPD del 2026 és per un contingut periodístic, no per les dades dels lectors.',
+          'L’etiqueta declara poques dades i cap per rastrejar. La política encara cita el Privacy Shield, anul·lat el 2020, i per això sembla que fa anys que no es revisa. El procediment de l’AEPD del 2026 és per un contingut periodístic, no per les dades dels lectors.',
         openQuestions: ['L’app mostra publicitat de tercers com el web?'],
       },
     },
@@ -456,7 +456,7 @@ export const lot: SeedLot = {
       },
       accountRequired: f('no', 'official', ['paraulogic-app-store'], 'L’etiqueta no declara cap dada de contacte ni identificador.'),
       openSource: f('no', 'official', ['paraulogic-app-store'], undefined, { licence: 'Privativa' }),
-      dataSummary: 'Com fas servir el joc, sense vincular-ho a la teva identitat segons l’etiqueta.',
+      dataSummary: 'Segons l’etiqueta, l’app només recull com es fa servir el joc, sense vincular-ho a la identitat.',
       dataCollection: [
         row('interaccions-i-us', 'yes', { linked: 'no', tracking: 'no', shared: 'unknown', purposes: ['mesura-i-analisi-dus'], sources: ['paraulogic-app-store'] }),
       ],
@@ -526,7 +526,7 @@ export const lot: SeedLot = {
       name: 'El Nacional.cat',
       company: 'grup-les-noticies-de-catalunya',
       categories: ['noticies-i-mitjans'],
-      tagline: 'Diari gratuït que fa servir identificadors de l’operador de telefonia per seguir-te entre webs',
+      tagline: 'Diari gratuït que fa servir identificadors de l’operador de telefonia per seguir la navegació entre webs',
       summary:
         'ElNacional.cat es llegeix sense registre i es finança amb publicitat. L’etiqueta de l’App Store declara dades d’ús per rastrejar. Al web, el bàner ofereix 209 proveïdors del marc de l’IAB i 92 més de propis, i la política preveu Utiq: amb consentiment, l’operador de telefonia genera identificadors de màrqueting per seguir la navegació entre webs, compartits per tota la llar si la connexió és wifi. La política de galetes considera estrictament necessàries Google Analytics i Comscore.',
       platforms: ['ios', 'android', 'web'],
@@ -541,7 +541,7 @@ export const lot: SeedLot = {
       accountRequired: f('no', 'official', ['el-nacional-club-terms'], 'No cal registrar-se per accedir als continguts; sí per comentar o entrar al Club.'),
       openSource: f('no', 'official', ['el-nacional-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'El que llegeixes serveix per perfilar-te amb finalitats publicitàries; al web, si ho acceptes, amb un identificador lligat a la connexió de la teva operadora que et reconeix en altres webs adherits.',
+        'La lectura serveix per elaborar perfils publicitaris. Al web, si s’accepta, s’hi afegeix un identificador lligat a la connexió de l’operadora que reconeix la persona en altres webs adherits.',
       dataCollection: [
         row('interaccions-i-us', 'yes', { linked: 'no', tracking: 'yes', shared: 'third-parties', purposes: ['mesura-i-analisi-dus', 'publicitat-personalitzada'], sources: ['el-nacional-app-store'] }),
         row('historial-de-navegacio', 'yes', { linked: 'unknown', tracking: 'yes', shared: 'third-parties', purposes: ['elaboracio-de-perfils', 'publicitat-personalitzada'], sources: ['el-nacional-privacy-policy', 'el-nacional-cookies-policy'], note: 'Al web, amb consentiment; també a través d’Utiq.' }),
@@ -624,7 +624,7 @@ export const lot: SeedLot = {
         lastReviewedAt: CATALAN_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'Utiq és el punt més rellevant: un identificador de l’operador que no s’esborra en canviar de navegador i que, per wifi, es comparteix entre tots els membres de la llar que hi consenten. La llista de proveïdors és del web. No hem trobat sancions ni filtracions.',
+          'El punt més rellevant és Utiq, un identificador de l’operador que no s’esborra en canviar de navegador i que, per wifi, es comparteix entre tots els membres de la llar que hi consenten. La llista de proveïdors és del web. No hem trobat sancions ni filtracions.',
         openQuestions: ['L’app integra Utiq o només el web?'],
       },
     },
@@ -649,7 +649,7 @@ export const lot: SeedLot = {
       accountRequired: f('partial', 'official', ['la-vanguardia-privacy-policy', 'la-vanguardia-didomi-config'], 'El registre és opcional, però al web l’accés sense acceptar galetes exigeix subscripció.'),
       openSource: f('no', 'official', ['la-vanguardia-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'El que llegeixes, on ets si ho autoritzes i el que compres queden en un perfil publicitari que el grup comparteix entre La Vanguardia, Mundo Deportivo i RAC1 i pot deixar fer servir a altres empreses.',
+        'Els continguts llegits, la ubicació (si s’autoritza) i les compres formen part d’un perfil publicitari que el grup comparteix entre La Vanguardia, Mundo Deportivo i RAC1 i que pot deixar fer servir a altres empreses.',
       dataCollection: [
         row('adreca-electronica', 'optional', { linked: 'yes', tracking: 'yes', shared: 'group', purposes: ['prestacio-del-servei', 'elaboracio-de-perfils'], sources: ['la-vanguardia-app-store', 'la-vanguardia-privacy-policy'], note: 'Les dades del registre poden enriquir el perfil publicitari si hi consents.' }),
         row('identificador-de-compte', 'optional', { linked: 'yes', tracking: 'yes', shared: 'group', purposes: ['prestacio-del-servei', 'elaboracio-de-perfils'], sources: ['la-vanguardia-app-store', 'la-vanguardia-privacy-policy'], note: 'Identificador únic per reconèixer l’usuari registrat en tots els dispositius.' }),
@@ -767,7 +767,7 @@ export const lot: SeedLot = {
       },
       accountRequired: f('no', 'official', ['prensa-iberica-privacy-extended'], 'Per navegar no cal donar dades personals; alguns serveis demanen registre o subscripció.'),
       openSource: f('no', 'official', ['el-periodico-app-store'], undefined, { licence: 'Privativa' }),
-      dataSummary: 'El perfil que el grup construeix amb la teva lectura es comparteix amb anunciants i empreses tecnològiques per servir-te publicitat.',
+      dataSummary: 'Amb consentiment, el grup elabora un perfil a partir de la lectura i el comparteix amb anunciants i empreses tecnològiques per mostrar publicitat.',
       dataCollection: [
         row('identificador-de-dispositiu', 'yes', { linked: 'no', tracking: 'yes', shared: 'third-parties', purposes: ['publicitat-personalitzada'], sources: ['el-periodico-app-store'] }),
         row('adreca-ip', 'yes', { linked: 'unknown', tracking: 'unknown', shared: 'unknown', purposes: ['prestacio-del-servei', 'mesura-i-analisi-dus'], sources: ['prensa-iberica-privacy-extended'] }),
@@ -843,7 +843,7 @@ export const lot: SeedLot = {
         lastReviewedAt: CATALAN_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'L’enllaç de privadesa de l’App Store porta a l’avís legal, i la política d’El Periódico es carrega des de la del grup. L’etiqueta és molt més escassa que el que descriu la política i el bàner del web. No hem trobat sancions ni filtracions documentades.',
+          'L’enllaç de privadesa de l’App Store porta a l’avís legal, i la política d’El Periódico es carrega des de la del grup. L’etiqueta declara molt menys del que descriuen la política i el bàner del web. No hem trobat sancions ni filtracions documentades.',
         openQuestions: ['L’app integra Utiq com el web?', 'Hi ha un botó per esborrar el compte a l’àrea privada?'],
       },
     },

@@ -52,7 +52,7 @@ export const lot: SeedLot = {
       name: 'Sergas',
       legalName: 'Servizo Galego de Saúde',
       description:
-        'Servei públic de salut de Galícia, integrat a la Conselleria de Sanidade de la Xunta. És el responsable del tractament de l’aplicació Sergas Móbil, que fa de porta d’entrada a la resta de serveis electrònics sanitaris gallecs.',
+        'Servei públic de salut de Galícia, integrat a la Conselleria de Sanidade de la Xunta. És el responsable del tractament de l’aplicació Sergas Móbil, que dona accés a la resta de serveis electrònics sanitaris gallecs.',
       headquartersCountry: 'ES',
       euEstablishment: 'ES',
       leadSupervisoryAuthority: 'aepd',
@@ -195,7 +195,7 @@ export const lot: SeedLot = {
     s('sergas-mobil-privacy-policy', 'Política de privacidade da aplicación Sergas Móbil', 'https://www.sergas.gal/A-nosa-organizacion/Sergas-Mobil-politica-de-privacidade', 'Servizo Galego de Saúde', 'privacy-policy', 'primary', {
       language: 'other',
       summary:
-        'Política específica de l’aplicació, en gallec: tres nivells d’identificació, dades identificatives i de salut tractades, permisos que demana cada sistema operatiu —inclòs el de rastreig a iOS per generar estadístiques de navegació—, base d’interès públic, absència de cessions i avaluació d’impacte feta.',
+        'Política específica de l’aplicació, en gallec: tres nivells d’identificació, dades identificatives i de salut tractades, permisos que demana cada sistema operatiu (inclòs el de rastreig a iOS per generar estadístiques de navegació), base d’interès públic, absència de cessions i avaluació d’impacte feta.',
     }),
     s('espaisalut-rat', 'Registro de actividades de tratamiento (RAT) de la Dirección General del Servicio de Salud de las Islas Baleares', 'https://www.ibsalut.es/es/servicio-de-salud/proteccion-de-datos-personales/534-registro-de-actividades-de-tratamiento/3946-registro-de-actividades-de-tratamiento-del-servicio-de-salud-de-las-islas-baleares', 'Servei de Salut de les Illes Balears', 'privacy-center', 'primary', {
       language: 'es',
@@ -220,7 +220,7 @@ export const lot: SeedLot = {
     s('espaisalut-cita-previa', 'Cita previa IB-SALUT', 'https://www.ibsalut.es/es/info-ciudadania/cita-previa-ibsalut', 'Servei de Salut de les Illes Balears', 'support-doc', 'primary', {
       language: 'es',
       summary:
-        'Canals per demanar cita d’atenció primària: el portal i l’aplicació EspaiSalut, el telèfon INFOSALUT CONNECTA 971 220 000 —de dilluns a dissabte de 7 a 21 h i diumenges i festius de 8 a 21 h— i el mateix centre de salut.',
+        'Canals per demanar cita d’atenció primària: el portal i l’aplicació EspaiSalut, el telèfon INFOSALUT CONNECTA 971 220 000 (de dilluns a dissabte de 7 a 21 h i diumenges i festius de 8 a 21 h) i el mateix centre de salut.',
     }),
     s('mi-salud-digital-clm-rat', 'Historia Clínica del SESCAM — Registro de actividades de tratamiento de Castilla-La Mancha', 'https://rat.castillalamancha.es/info/1154', 'Junta de Comunidades de Castilla-La Mancha', 'privacy-center', 'primary', {
       language: 'es',
@@ -366,7 +366,7 @@ export const lot: SeedLot = {
         isPublicService: true,
         administrationLevel: 'regional',
         legalBasis: f('partial', 'official', ['espaisalut-privacy-policy', 'espaisalut-rat'], 'La política de privadesa només invoca el Reglament (UE) 2016/679 i la Llei orgànica 3/2018 i remet la base jurídica de cada tractament al registre d’activitats. El registre sí que cita normes sectorials, però sense article: la Llei 14/1986 general de sanitat i la Llei 41/2002 d’autonomia del pacient.', { norm: 'Llei 14/1986, general de sanitat, i Llei 41/2002, d’autonomia del pacient (citades al RAT sense article)' }),
-        processingRegistry: f('partial', 'official', ['espaisalut-rat'], 'L’IB-Salut publica el registre d’activitats de tractament per unitats —direcció general, hospitals, gerències i SAMU 061— i el de la direcció general inclou els tractaments «Historia Clínica» i «Historia de clínica compartida», però no hi ha cap activitat identificable com a EspaiSalut.', { url: 'https://www.ibsalut.es/es/servicio-de-salud/proteccion-de-datos-personales/534-registro-de-actividades-de-tratamiento' }),
+        processingRegistry: f('partial', 'official', ['espaisalut-rat'], 'L’IB-Salut publica el registre d’activitats de tractament per unitats (direcció general, hospitals, gerències i SAMU 061), i el de la direcció general inclou els tractaments «Historia Clínica» i «Historia de clínica compartida», però no hi ha cap activitat identificable com a EspaiSalut.', { url: 'https://www.ibsalut.es/es/servicio-de-salud/proteccion-de-datos-personales/534-registro-de-actividades-de-tratamiento' }),
         dpia: unknown('No hem trobat publicada cap avaluació d’impacte relativa a la protecció de dades d’EspaiSalut ni de la història de salut electrònica.'),
         ensConformity: f('partial', 'official', ['espaisalut-seguretat-informacio', 'espaisalut-privacy-policy'], 'L’IB-Salut publica una certificació de conformitat amb el Reial decret 311/2022, però només dels sistemes que donen suport als serveis de l’Oficina de Seguretat, no dels sistemes assistencials ni de l’aplicació, i no en declara la categoria.'),
         dpo: f('partial', 'official', ['espaisalut-dpd'], 'L’IB-Salut identifica el delegat de protecció de dades amb nom, adreça postal del Servei de Protecció de Dades i telèfon, però no en publica cap adreça electrònica ni cap formulari de contacte.', { contact: 'Servei de Protecció de Dades, c/ de la Reina Esclarmunda, 9, 07003 Palma — tel. 971 175 600' }),
@@ -472,7 +472,7 @@ export const lot: SeedLot = {
       categories: ['salut-i-assistencia-sanitaria', 'administracio-publica'],
       tagline: 'Ensenya la carpeta de salut i la medicació, però declara a l’App Store que no recull cap dada',
       summary:
-        'L’aplicació del Servei de Salut de Castella-la Manxa serveix per demanar, canviar o anul·lar cites, consultar la llista d’espera, buscar farmàcies de guàrdia i veure la carpeta de salut amb al·lèrgies, vacunes i medicació. Per a segons quins tràmits n’hi ha prou amb el codi d’identificació personal imprès a la targeta sanitària; per a d’altres cal DNI electrònic, certificat o Cl@ve. L’etiqueta de privadesa de l’App Store afirma que no es recull cap dada, una afirmació difícil de sostenir per a una aplicació que mostra la història clínica. La política de privadesa és la general del SESCAM, sense cap apartat propi per a l’app.',
+        'L’aplicació del Servei de Salut de Castella-la Manxa serveix per demanar, canviar o anul·lar cites, consultar la llista d’espera, buscar farmàcies de guàrdia i veure la carpeta de salut amb al·lèrgies, vacunes i medicació. Per a segons quins tràmits n’hi ha prou amb el codi d’identificació personal imprès a la targeta sanitària; per a d’altres cal DNI electrònic, certificat o Cl@ve. L’etiqueta de privadesa de l’App Store afirma que no es recull cap dada, tot i que l’aplicació mostra la història clínica. La política de privadesa és la general del SESCAM, sense cap apartat propi per a l’app.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'public-service',
       jurisdiction: 'Espanya (UE); servei públic de la comunitat autònoma de Castella-la Manxa',
@@ -496,7 +496,7 @@ export const lot: SeedLot = {
         mandatoryRetention: f('yes', 'official', ['boe-llei-41-2002', 'mi-salud-digital-clm-privacy-policy'], 'L’aplicació dona accés a la història clínica del SESCAM, i l’article 17.1 de la Llei 41/2002 obliga a conservar la documentació clínica com a mínim cinc anys des de l’alta de cada procés assistencial: es pot esborrar l’usuari propi de Mi Salud Digital, però no l’expedient clínic.'),
       },
       dataSummary:
-        'La carpeta de salut mostra al·lèrgies, vacunes, medicació dispensada i informes clínics: el conjunt dibuixa l’estat de salut d’una persona i el seu calendari de visites. Que el codi de la targeta sanitària serveixi per identificar-se fa que una dada impresa en una targeta física obri part d’aquesta informació.',
+        'La carpeta de salut mostra al·lèrgies, vacunes, medicació dispensada i informes clínics, és a dir, l’estat de salut d’una persona i el seu calendari de visites. Com que el codi de la targeta sanitària serveix per identificar-se, una dada impresa en una targeta física dona accés a part d’aquesta informació.',
       dataCollection: [
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'unknown', purposes: ['prestacio-del-servei', 'compliment-legal'], sources: ['mi-salud-digital-clm-privacy-policy'] }),
         row('document-identificatiu-oficial', 'yes', { linked: 'yes', tracking: 'no', shared: 'unknown', purposes: ['prestacio-del-servei', 'seguretat-i-prevencio-del-frau'], sources: ['mi-salud-digital-clm-app-store'], note: 'Codi d’identificació personal de la targeta sanitària, DNI electrònic, certificat digital o Cl@ve.' }),
@@ -705,7 +705,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: false,
         editorialNotes:
-          'La política de l’aplicació és en gallec i la classifiquem amb l’idioma «other», perquè la taxonomia de fonts no el preveu. El punt més destacable és la coincidència entre el permís de rastreig que la política admet demanar a iOS i les dades que l’etiqueta declara com a usades per rastrejar: cap altra aplicació pública del lot ho fa. El buscador de resolucions de l’AEPD no ens ha respost i no hem pogut completar la cerca d’incidents.',
+          'La política de l’aplicació és en gallec i la classifiquem amb l’idioma «other», perquè la taxonomia de fonts no el preveu. El punt més destacable és la coincidència entre el permís de rastreig que la política admet demanar a iOS i les dades que l’etiqueta declara com a usades per rastrejar. El buscador de resolucions de l’AEPD no ens ha respost i no hem pogut completar la cerca d’incidents.',
         openQuestions: [
           'Quina eina d’analítica hi ha darrere de les «estadístiques d’hàbits de navegació» i amb quin identificador funciona?',
           'Les videoconsultes van xifrades d’extrem a extrem?',
@@ -720,7 +720,7 @@ export const lot: SeedLot = {
       categories: ['salut-i-assistencia-sanitaria'],
       tagline: 'El portal del pacient comparteix la història clínica amb una vintena de societats del grup per interès legítim',
       summary:
-        'L’aplicació d’HM Hospitales és el portal del pacient del grup: cites, història clínica i gestió de familiars associats. L’etiqueta de l’App Store és, de les del lot, la que declara les dades més sensibles: salut, ubicació exacta, adreça postal, correu, nom i telèfon, tots vinculats a la identitat. La política de privadesa és del grup sencer i llista una vintena de societats que comparteixen les dades dels pacients «per interès legítim, per mantenir una gestió integral i centralitzada». També hi consta que el grup fa servir eines d’intel·ligència artificial com a suport al diagnòstic, amb la decisió mèdica final sempre en mans del facultatiu.',
+        'L’aplicació d’HM Hospitales és el portal del pacient del grup: cites, història clínica i gestió de familiars associats. L’etiqueta de l’App Store declara dades molt sensibles: salut, ubicació exacta, adreça postal, correu, nom i telèfon, tots vinculats a la identitat. La política de privadesa és del grup sencer i llista una vintena de societats que comparteixen les dades dels pacients «per interès legítim, per mantenir una gestió integral i centralitzada». També hi consta que el grup fa servir eines d’intel·ligència artificial com a suport al diagnòstic, amb la decisió mèdica final sempre en mans del facultatiu.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'commerce',
       jurisdiction: 'Espanya (UE)',
@@ -836,7 +836,7 @@ export const lot: SeedLot = {
       categories: ['salut-i-assistencia-sanitaria'],
       tagline: 'La política admet cedir dades a les empreses del grup «amb la finalitat d’elaborar perfils» amb procediments automatitzats',
       summary:
-        'L’aplicació d’IMED Hospitales és el portal del pacient d’un grup hospitalari del País Valencià i Múrcia: cites, gestió del compte i consultes. L’etiqueta de l’App Store declara nom, correu, telèfon, identificador d’usuari i interacció, i és notable que el nom aparegui també sota «analítica» i «personalització del producte». La política ho explica: el grup gestiona les dades dels pacients de manera centralitzada i les cedeix a les empreses del grup per elaborar perfils amb procediments automatitzats d’anàlisi, per oferir informació comercial i plans de salut personalitzats. La història clínica es conserva com a mínim cinc anys des de l’alta de cada procés assistencial.',
+        'L’aplicació d’IMED Hospitales és el portal del pacient d’un grup hospitalari del País Valencià i Múrcia: cites, gestió del compte i consultes. L’etiqueta de l’App Store declara nom, correu, telèfon, identificador d’usuari i interacció, i el nom hi apareix també sota «analítica» i «personalització del producte». La política ho explica: el grup gestiona les dades dels pacients de manera centralitzada i les cedeix a les empreses del grup per elaborar perfils amb procediments automatitzats d’anàlisi, per oferir informació comercial i plans de salut personalitzats. La història clínica es conserva com a mínim cinc anys des de l’alta de cada procés assistencial.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'commerce',
       jurisdiction: 'Espanya (UE)',
@@ -848,7 +848,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['imed-hospitales-privacy-policy', 'imed-hospitales-app-store'], 'Cal registrar-se al Portal del Pacient per gestionar cites i consultes.'),
       openSource: f('no', 'official', ['imed-hospitales-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'Les dades van des de la identitat i el contacte fins a la història clínica, passant per dades socioeconòmiques i d’assegurances i per les preferències de serveis. El que les fa singulars és que la política preveu creuar-les entre les empreses del grup per anticipar necessitats i oferir serveis.',
+        'Les dades van des de la identitat i el contacte fins a la història clínica, passant per dades socioeconòmiques i d’assegurances i per les preferències de serveis. La política preveu creuar-les entre les empreses del grup per anticipar necessitats i oferir serveis.',
       dataCollection: [
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'mesura-i-analisi-dus', 'personalitzacio-de-continguts'], sources: ['imed-hospitales-app-store', 'imed-hospitales-privacy-policy'], note: 'L’etiqueta declara el nom també per a analítica i per a personalització del producte.' }),
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'atencio-a-lusuari'], sources: ['imed-hospitales-app-store', 'imed-hospitales-privacy-policy'] }),
@@ -953,7 +953,7 @@ export const lot: SeedLot = {
       categories: ['salut-i-assistencia-sanitaria', 'banca-i-finances'],
       tagline: 'Una asseguradora que tracta dades mèdiques i declara la interacció amb l’app com a dada per rastrejar-te',
       summary:
-        'Activa DKV és l’aplicació amb què els clients de l’asseguradora gestionen la pòlissa de salut: autoritzacions, reemborsaments, quadre mèdic i, si tenen l’app QC+, teleconsulta, biografia de salut i recepta electrònica. La política reconeix que tracta dades d’identificació, contacte, localització, imatge, veu —incloses les de les videotrucades— i dades mèdiques, i que les fa servir també per a mercadotecnia directa i per segmentar perfils, amb base en l’interès legítim. L’etiqueta de l’App Store declara la interacció amb el producte com a dada usada per rastrejar-te. El compte només es pot cancel·lar escrivint al delegat de protecció de dades del grup.',
+        'Activa DKV és l’aplicació amb què els clients de l’asseguradora gestionen la pòlissa de salut: autoritzacions, reemborsaments, quadre mèdic i, si tenen l’app QC+, teleconsulta, biografia de salut i recepta electrònica. La política reconeix que tracta dades d’identificació, contacte, localització, imatge, veu (incloses les de les videotrucades) i dades mèdiques, i que les fa servir també per a mercadotecnia directa i per segmentar perfils, amb base en l’interès legítim. L’etiqueta de l’App Store declara la interacció amb el producte com a dada usada per rastrejar-te. El compte només es pot cancel·lar escrivint al delegat de protecció de dades del grup.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'subscription',
       jurisdiction: 'Espanya (UE)',
@@ -1101,7 +1101,7 @@ export const lot: SeedLot = {
       accountRequired: f('no', 'official', ['virtual-waiting-room-privacy-policy', 'virtual-waiting-room-app-store'], 'No hi ha registre: cal un codi d’accés que lliura l’hospital i que es llegeix amb la càmera en forma de codi QR.'),
       openSource: f('no', 'official', ['virtual-waiting-room-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'El que revela l’aplicació no són dades del familiar sinó del pacient: que és en un quiròfan o a urgències i en quina fase del procés es troba. Mysphera diu que aquesta informació la gestiona l’hospital i que a l’app només hi arriba una notificació lligada a un identificador d’instància.',
+        'Les dades que mostra l’aplicació són del pacient, no del familiar que la fa servir: que és en un quiròfan o a urgències i en quina fase del procés es troba. Mysphera diu que aquesta informació la gestiona l’hospital i que a l’app només hi arriba una notificació lligada a un identificador d’instància.',
       dataCollection: [
         row('identificador-de-dispositiu', 'yes', { linked: 'no', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['virtual-waiting-room-privacy-policy'], note: 'Identificador d’instància de Firebase Cloud Messaging, gestionat per Google com a encarregat del tractament. És l’única categoria de dades que la política declara.' }),
         row('dades-de-salut', 'no', { linked: 'no', tracking: 'no', shared: 'none', purposes: [], sources: ['virtual-waiting-room-privacy-policy', 'virtual-waiting-room-app-store'], note: 'La política diu que la solució no desa cap dada identificativa del telèfon ni cap altra dada personal; l’estat del pacient el gestiona l’hospital.' }),
@@ -1172,7 +1172,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: false,
         editorialNotes:
-          'És l’aplicació més sòbria del lot: una sola categoria de dades, un sol encarregat del tractament i un termini de conservació concret. El risc real no és a l’app sinó al sistema de localització de l’hospital, que Mysphera ven a part i que queda fora de la política que hem llegit. El web de Mysphera sí que fa servir galetes de mercadotecnia, però això no afecta l’aplicació. El buscador de resolucions de l’AEPD no ens ha respost i no hem pogut completar la cerca d’incidents.',
+          'És una aplicació sòbria: una sola categoria de dades, un sol encarregat del tractament i un termini de conservació concret. El risc principal és al sistema de localització de l’hospital, que Mysphera ven a part i que queda fora de la política que hem llegit. El web de Mysphera sí que fa servir galetes de mercadotecnia, però això no afecta l’aplicació. El buscador de resolucions de l’AEPD no ens ha respost i no hem pogut completar la cerca d’incidents.',
         openQuestions: [
           'Qui és el responsable del tractament de les dades de localització del pacient: l’hospital o Mysphera?',
           'On s’allotgen els identificadors d’instància de Firebase i amb quin mecanisme de transferència?',
@@ -1187,7 +1187,7 @@ export const lot: SeedLot = {
       categories: ['salut-i-assistencia-sanitaria', 'assistents-d-ia'],
       tagline: 'Es promociona com a «conforme amb el RGPD» i declara a l’App Store que no recull cap dada, però la política parla de socis publicitaris',
       summary:
-        'Vera Health és un motor de respostes clíniques amb intel·ligència artificial adreçat a professionals sanitaris, que cita les fonts de cada resposta. L’etiqueta de l’App Store diu que no es recull cap dada; la política de privadesa, en canvi, enumera nom i correu, historial d’ús, identificador de dispositiu, adreça IP, geolocalització per IP i les entrades i sortides de la IA, i diu que algunes d’aquestes categories es comparteixen amb socis publicitaris i d’analítica. L’empresa és de Delaware i allotja el servei als Estats Units. A favor seu, la política afirma que no fa servir les dades personals per entrenar els seus models.',
+        'Vera Health és un motor de respostes clíniques amb intel·ligència artificial adreçat a professionals sanitaris, que cita les fonts de cada resposta. L’etiqueta de l’App Store diu que no es recull cap dada; la política de privadesa, en canvi, enumera nom i correu, historial d’ús, identificador de dispositiu, adreça IP, geolocalització per IP i les entrades i sortides de la IA, i diu que algunes d’aquestes categories es comparteixen amb socis publicitaris i d’analítica. L’empresa és de Delaware i allotja el servei als Estats Units. La política afirma que no fa servir les dades personals per entrenar els seus models.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'freemium',
       jurisdiction: 'Estats Units; responsable sense establiment declarat a la Unió Europea',
@@ -1200,7 +1200,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['vera-health-privacy-policy'], 'La política descriu la creació i la gestió d’un compte com una de les finalitats principals, i el servei s’adreça a professionals sanitaris verificats.'),
       openSource: f('no', 'official', ['vera-health-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'El que revelen les dades no és la salut de qui fa servir l’app sinó la seva pràctica clínica: quines preguntes fa, sobre quines patologies i amb quina freqüència. La política reconeix que agrega i desidentifica aquesta activitat —inclosos els textos d’entrada i de sortida— i que en comparteix conclusions amb socis i organitzacions de recerca.',
+        'Les dades mostren la pràctica clínica de qui fa servir l’app: quines preguntes fa, sobre quines patologies i amb quina freqüència. La política reconeix que agrega i desidentifica aquesta activitat (inclosos els textos d’entrada i de sortida) i que en comparteix conclusions amb socis i organitzacions de recerca.',
       dataCollection: [
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['vera-health-privacy-policy'], note: 'L’etiqueta de l’App Store no declara cap dada.' }),
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'atencio-a-lusuari'], sources: ['vera-health-privacy-policy'] }),
@@ -1389,7 +1389,7 @@ export const lot: SeedLot = {
           {
             type: 'unbalanced-consent',
             severity: 'medium',
-            description: 'Fer servir el servei es presenta com a consentiment a les galetes d’analítica i de publicitat, i el web ignora deliberadament els senyals «Do Not Track» i les preferències d’exclusió.',
+            description: 'Fer servir el servei es presenta com a consentiment a les galetes d’analítica i de publicitat, i el web no atén els senyals «Do Not Track» i les preferències d’exclusió.',
             sources: ['suno-privacy-notice'],
           },
         ],
@@ -1429,7 +1429,7 @@ export const lot: SeedLot = {
       name: 'Shazam',
       company: 'apple',
       categories: ['musica-i-audio', 'descobriment-visual'],
-      tagline: 'Es pot fer servir sense compte: sense identificar-te, el que escoltes queda lligat a un Shazam ID i no a tu',
+      tagline: 'Es pot fer servir sense compte, i llavors les identificacions queden lligades a un Shazam ID que Apple descriu com a no identificatiu',
       summary:
         'Shazam identifica la cançó que sona al voltant o dins d’una altra aplicació. És d’Apple des del 2018 i manté una política de privadesa pròpia: si es fa servir sense compte, les identificacions queden lligades a un «Shazam ID» que la companyia descriu com a no identificatiu; amb compte, queden lligades al correu o al compte d’Apple. L’etiqueta de l’App Store no declara cap dada per rastrejar, però sí historial de compres, ubicació aproximada, identificadors i ús vinculats a la identitat per a analítica i personalització. El portal de dades permet descarregar o eliminar el compte en trenta dies, i Apple publica informe de transparència, security.txt i programa de recompenses.',
       platforms: ['ios', 'android', 'web', 'macos'],
@@ -1444,7 +1444,7 @@ export const lot: SeedLot = {
       accountRequired: f('no', 'official', ['shazam-privacy'], 'Shazam funciona sense compte: llavors les dades només queden associades a un Shazam ID que la companyia qualifica de no identificatiu personalment.'),
       openSource: f('no', 'official', ['shazam-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'L’historial de cançons identificades és un diari del que has escoltat, quan i on: música, però també vídeos de xarxes socials, anuncis i programes de televisió. Shazam el fa servir per recomanar i, agregat i desidentificat amb la ciutat i el país, el comparteix amb socis del sector musical.',
+        'L’historial de cançons identificades registra què has escoltat, quan i on: música, però també vídeos de xarxes socials, anuncis i programes de televisió. Shazam el fa servir per recomanar i, agregat i desidentificat amb la ciutat i el país, el comparteix amb socis del sector musical.',
       dataCollection: [
         row('adreca-electronica', 'optional', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['shazam-privacy'], note: 'Només si es crea un compte; també es pot entrar amb el compte d’Apple o amb un servei de tercers.' }),
         row('identificador-de-compte', 'yes', { linked: 'unknown', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'personalitzacio-de-continguts'], sources: ['shazam-app-store', 'shazam-privacy'], note: 'Sense compte, el Shazam ID; amb compte, les credencials o el compte d’Apple.' }),
@@ -1473,7 +1473,7 @@ export const lot: SeedLot = {
       sharing: {
         thirdPartySharing: f('partial', 'official', ['shazam-privacy'], 'Comparteix informació agregada i desidentificada amb socis, incloses les cançons identificades i la ciutat i el país de cada identificació, a més de proveïdors de serveis i de peticions legals vàlides.'),
         intraGroupSharing: f('yes', 'official', ['apple-privacy-policy'], 'Les dades de les persones de l’Espai Econòmic Europeu les controla Apple Distribution International Limited, a Irlanda, i les poden tractar Apple Inc. i altres filials en nom seu.'),
-        dataBrokerSales: f('no', 'official', ['apple-privacy-policy'], 'La política d’Apple afirma que no ven dades personals —inclosa la definició de venda de Califòrnia i Nevada— ni les «comparteix» en el sentit de la llei californiana.'),
+        dataBrokerSales: f('no', 'official', ['apple-privacy-policy'], 'La política d’Apple afirma que no ven dades personals (inclosa la definició de venda de Califòrnia i Nevada) ni les «comparteix» en el sentit de la llei californiana.'),
         internationalTransfers: f('yes', 'official', ['apple-privacy-policy'], 'Les dades recollides a l’Espai Econòmic Europeu es poden transferir a Apple Inc. als Estats Units, segons la política, que remet a les clàusules contractuals tipus d’Apple.', { mechanism: 'sccs' }),
       },
       transparency: {
@@ -1536,7 +1536,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: false,
         editorialNotes:
-          'Shazam té una pàgina de privadesa pròpia, curta i clara, però el document jurídic aplicable és la política general d’Apple, que hi remet expressament. Bona part del detall —terminis, bases jurídiques, encarregats— no és en cap dels dos llocs. Hem marcat les dades d’àudio com a editorials: el micròfon és imprescindible, però cap font declara que es desin gravacions. El buscador de resolucions de l’AEPD no ens ha respost i no hem pogut completar la cerca d’incidents.',
+          'Shazam té una pàgina de privadesa pròpia, curta i clara, però el document jurídic aplicable és la política general d’Apple, que hi remet expressament. Bona part del detall (terminis, bases jurídiques, encarregats) no consta en cap dels dos llocs. Hem marcat les dades d’àudio com a editorials: el micròfon és imprescindible, però cap font declara que es desin gravacions. El buscador de resolucions de l’AEPD no ens ha respost i no hem pogut completar la cerca d’incidents.',
         openQuestions: [
           'Quant de temps conserva Shazam l’historial d’identificacions de qui el fa servir sense compte?',
           'Què inclou exactament la informació agregada que es comparteix amb els socis del sector musical?',

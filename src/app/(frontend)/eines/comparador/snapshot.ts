@@ -128,9 +128,9 @@ const SELECT_PATHS: Record<
   'policy-clarity': {
     path: 'transparency.policyClarity',
     labels: {
-      high: 'Alta — dades i finalitats concretes',
-      medium: 'Mitjana — categories àmplies',
-      low: 'Baixa — genèrica o dispersa',
+      high: 'Alta: dades i finalitats concretes',
+      medium: 'Mitjana: categories àmplies',
+      low: 'Baixa: genèrica o dispersa',
     },
   },
   'privacy-by-default': {

@@ -462,7 +462,7 @@ export const lot: SeedLot = {
       categories: ['noticies-i-mitjans'],
       tagline: 'Diari de subscripció que converteix el correu i el telèfon en identificadors publicitaris',
       summary:
-        'L’etiqueta de l’App Store del New York Times declara més dades de rastreig que la majoria d’aplicacions de notícies: informació financera, ubicació, contacte, historial de cerca i de navegació. La política explica com ho fa: converteix el correu i el telèfon en identificadors publicitaris amb Unified ID 2.0 i LiveRamp. Ser subscriptor no treu l’app d’aquest circuit.',
+        'L’etiqueta de l’App Store del New York Times declara més dades de rastreig que la majoria d’aplicacions de notícies: informació financera, ubicació, contacte, historial de cerca i de navegació. La política explica com ho fa: converteix el correu i el telèfon en identificadors publicitaris amb Unified ID 2.0 i LiveRamp. Pagar la subscripció no evita aquest tractament.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'subscription',
       jurisdiction: 'Estats Units',
@@ -474,7 +474,7 @@ export const lot: SeedLot = {
       accountRequired: f('partial', 'editorial', [], 'És un model de mur de pagament: es poden veure alguns continguts sense registre, però la lectura habitual exigeix compte i subscripció.'),
       openSource: f('no', 'official', ['new-york-times-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'El que llegeixes, cerques i jugues, sumat a la ubicació, a les dades de pagament i al correu convertit en identificador, dibuixa un perfil d’interessos polítics i culturals que el diari pot vendre a anunciants dins i fora de les seves apps.',
+        'El que llegeixes, cerques i jugues, sumat a la ubicació, a les dades de pagament i al correu convertit en identificador, permet fer un perfil d’interessos polítics i culturals que el diari pot vendre a anunciants dins i fora de les seves apps.',
       dataCollection: [
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['new-york-times-app-store', 'new-york-times-privacy-policy'], note: 'Es converteix en identificador publicitari amb Unified ID 2.0 i LiveRamp ATS.' }),
         row('numero-de-telefon', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['publicitat-personalitzada'], sources: ['new-york-times-app-store', 'new-york-times-privacy-policy'] }),
@@ -681,7 +681,7 @@ export const lot: SeedLot = {
       categories: ['noticies-i-mitjans'],
       tagline: 'Diari econòmic que dedueix el gènere i l’edat i creua subscriptors amb xarxes socials',
       summary:
-        'El Financial Times dedueix el gènere i la franja d’edat a partir del nom i el tractament, i grava a la web els moviments, els clics i el text que s’escriu. També comparteix subscriptors amb xarxes socials i serveis de creuament de dades per fer publicitat i audiències similars. A canvi, la política té una taula de terminis de conservació més concreta que la de molts diaris.',
+        'El Financial Times dedueix el gènere i la franja d’edat a partir del nom i el tractament, i grava a la web els moviments, els clics i el text que s’escriu. També comparteix subscriptors amb xarxes socials i serveis de creuament de dades per fer publicitat i audiències similars. D’altra banda, la política té una taula de terminis de conservació més concreta que la de molts diaris.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'subscription',
       jurisdiction: 'Regne Unit',
@@ -693,7 +693,7 @@ export const lot: SeedLot = {
       accountRequired: f('partial', 'editorial', [], 'Mur de pagament estricte: sense compte i subscripció només es veuen titulars i poca cosa més.'),
       openSource: f('no', 'official', ['financial-times-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'Càrrec, empresa, cartera d’inversions i hàbits de lectura revelen el perfil professional i econòmic de qui llegeix, un públic molt valuós per a la publicitat financera.',
+        'Càrrec, empresa, cartera d’inversions i hàbits de lectura revelen el perfil professional i econòmic de qui llegeix, que interessa especialment a la publicitat financera.',
       dataCollection: [
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['financial-times-app-store', 'financial-times-privacy-policy'] }),
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['financial-times-app-store', 'financial-times-privacy-policy'], note: 'El correu, codificat, es fa servir a les «sales rooms» per creuar audiències amb anunciants.' }),
@@ -777,7 +777,7 @@ export const lot: SeedLot = {
         researchStatus: 'documented',
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
-        editorialNotes: 'No hem trobat sancions ni filtracions documentades. La contradicció entre l’etiqueta, que no declara rastreig, i la compartició d’audiències amb xarxes socials és la troballa principal.',
+        editorialNotes: 'No hem trobat sancions ni filtracions documentades. La discrepància principal és entre l’etiqueta, que no declara rastreig, i la compartició d’audiències amb xarxes socials que descriu la política.',
         openQuestions: [
           'L’app permet eliminar el compte directament, com exigeix Apple, o cal passar per l’atenció al client?',
           'Quin mecanisme de transferència fa servir per a les dades de persones de l’EEE?',
@@ -793,7 +793,7 @@ export const lot: SeedLot = {
       categories: ['noticies-i-mitjans'],
       tagline: 'Ràdio en català que ven perfils publicitaris compartits amb La Vanguardia i Mundo Deportivo',
       summary:
-        'RAC1 no demana compte per escoltar la ràdio, però amb consentiment crea perfils publicitaris que comparteix amb La Vanguardia, Mundo Deportivo i anunciants. Els pot cedir a empreses triades perquè en facin les seves pròpies campanyes. La política és clara i detallada: explica cada finalitat, la base legal i el termini segons el marc de consentiment de l’IAB. Algun soci pot fer geolocalització precisa o identificar el dispositiu per l’empremta digital.',
+        'RAC1 no demana compte per escoltar la ràdio, però amb consentiment crea perfils publicitaris que comparteix amb La Vanguardia, Mundo Deportivo i anunciants. Els pot cedir a empreses triades perquè en facin les seves pròpies campanyes. La política és detallada: explica cada finalitat, la base legal i el termini segons el marc de consentiment de l’IAB. Algun soci pot fer geolocalització precisa o identificar el dispositiu per l’empremta digital.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'advertising',
       jurisdiction: 'Espanya',
@@ -910,7 +910,7 @@ export const lot: SeedLot = {
       accountRequired: f('partial', 'official', ['chatgpt-delete-account'], 'Es pot fer servir sense iniciar sessió, amb una sola conversa alhora; per desar-les cal compte.'),
       openSource: f('no', 'official', ['chatgpt-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'Les converses amb un assistent solen contenir el que no s’explica enlloc més: salut, feina, relacions, dubtes legals. Amb la memòria activa, ChatGPT en guarda detalls entre converses, i als plans amb anuncis aquest context pot servir per triar publicitat.',
+        'Les converses amb un assistent sovint tracten de salut, feina, relacions o dubtes legals. Amb la memòria activa, ChatGPT en guarda detalls entre converses, i als plans amb anuncis aquest context pot servir per triar publicitat.',
       dataCollection: [
         row('contingut-de-missatges', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'entrenament-de-models-dia', 'publicitat-personalitzada', 'moderacio-de-continguts'], sources: ['chatgpt-privacy-policy'], note: 'Les instruccions i els fitxers pujats. S’usen per entrenar models si no s’hi oposa la persona, i per triar anuncis si s’hi dona el consentiment.' }),
         row('fitxers-i-documents', 'optional', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei', 'entrenament-de-models-dia'], sources: ['chatgpt-privacy-policy'] }),
@@ -1181,7 +1181,7 @@ export const lot: SeedLot = {
       publicService: {
         isPublicService: true,
         administrationLevel: 'state',
-        legalBasis: f('partial', 'official', ['clave-privacy-policy', 'aeat-rat-clave', 'aeat-rat-apps-moviles'], 'La política diu que el tractament es basa en el consentiment i enumera les normes del servei —l’Ordre HAP/2142/2014, que crea el fitxer Cl@ve, l’Ordre PRE/1838/2014 i la Resolució de 14 de desembre del 2015— sense concretar-ne cap article. El registre d’activitats hi afegeix que l’Agència hi actua com a encarregada del tractament, i per a les aplicacions mòbils invoca l’article 6.1.a del RGPD.', {
+        legalBasis: f('partial', 'official', ['clave-privacy-policy', 'aeat-rat-clave', 'aeat-rat-apps-moviles'], 'La política diu que el tractament es basa en el consentiment i enumera les normes del servei (l’Ordre HAP/2142/2014, que crea el fitxer Cl@ve, l’Ordre PRE/1838/2014 i la Resolució de 14 de desembre del 2015) sense concretar-ne cap article. El registre d’activitats hi afegeix que l’Agència hi actua com a encarregada del tractament, i per a les aplicacions mòbils invoca l’article 6.1.a del RGPD.', {
           norm: 'Ordre PRE/1838/2014, de 8 d’octubre, que publica l’Acord del Consell de Ministres de 19 de setembre del 2014 pel qual s’aprova Cl@ve',
         }),
         processingRegistry: f('yes', 'official', ['aeat-rat-clave', 'aeat-rat-apps-moviles'], 'El registre d’activitats de tractament de l’Agència és públic i hi consten les activitats 5.13 «Registro del Sistema de Identificación Cl@ve», 5.24 «Aplicaciones móviles de la AEAT» i 5.97 «Autenticación del Sistema de Identificación Cl@ve PIN».', {
@@ -1197,7 +1197,7 @@ export const lot: SeedLot = {
         mandatoryRetention: f('no', 'official', ['clave-renunciar', 'clave-privacy-policy'], 'Cap norma obliga a mantenir-se registrat a Cl@ve: s’hi pot renunciar des de l’app o des de la seu electrònica, i les dades desades al mòbil s’esborren amb «desactivar dispositivo».'),
       },
       dataSummary:
-        'Les dades identifiquen la persona de manera inequívoca i són la clau d’accés a la seva vida administrativa: impostos, Seguretat Social, salut. El risc principal no és la publicitat sinó la usurpació d’identitat.',
+        'Les dades identifiquen la persona de manera inequívoca i donen accés a les seves gestions amb l’Administració: impostos, Seguretat Social, salut. El risc principal és la usurpació d’identitat, més que la publicitat.',
       dataCollection: [
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['clave-privacy-policy'] }),
         row('document-identificatiu-oficial', 'yes', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei', 'seguretat-i-prevencio-del-frau'], sources: ['clave-privacy-policy'], note: 'DNI o NIE amb la data de validesa o el número de suport. Es desa al dispositiu fins que es desactiva.' }),
@@ -1525,7 +1525,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['discord-privacy-policy']),
       openSource: f('no', 'official', ['discord-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'Els servidors on participa una persona, amb qui parla i què escriu mostren aficions, identitat i xarxa social. A més, la verificació d’edat ha portat Discord a tractar documents d’identitat, una dada que no hauria de necessitar un xat.',
+        'Els servidors on participa una persona, amb qui parla i què escriu mostren aficions, identitat i xarxa social. A més, la verificació d’edat ha portat Discord a tractar documents d’identitat.',
       dataCollection: [
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['discord-app-store', 'discord-privacy-policy'], note: 'Es conserva 180 dies després de la baixa per seguretat.' }),
         row('numero-de-telefon', 'optional', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei', 'seguretat-i-prevencio-del-frau'], sources: ['discord-app-store', 'discord-retention'] }),

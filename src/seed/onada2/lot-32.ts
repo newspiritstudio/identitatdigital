@@ -180,7 +180,7 @@ export const lot: SeedLot = {
     }),
     s('coinin-privacy-policy', 'CoinIn Privacy Policy', 'https://legal.coininapp.com/privacy-policy.html', 'Vortemol Limited', 'privacy-policy', 'primary', {
       summary:
-        'Política vigent des del 3 de febrer del 2023. Identifica Vortemol Limited (Nicòsia) com a responsable, enumera les dades automàtiques (IDFA, AAID, identificador de maquinari, identificador de Facebook, IP, geolocalització), anomena els destinataris —Facebook, Apple, AppsFlyer, Amplitude, Firebase, IronSource i Appodeal—, detalla les bases jurídiques per a l’EEE i les clàusules tipus per a les transferències.',
+        'Política vigent des del 3 de febrer del 2023. Identifica Vortemol Limited (Nicòsia) com a responsable, enumera les dades automàtiques (IDFA, AAID, identificador de maquinari, identificador de Facebook, IP, geolocalització), anomena els destinataris (Facebook, Apple, AppsFlyer, Amplitude, Firebase, IronSource i Appodeal), detalla les bases jurídiques per a l’EEE i les clàusules tipus per a les transferències.',
     }),
 
     /* ── Collectr ── */
@@ -272,7 +272,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['zangi-privacy-policy', 'zangi-app-store'], 'Cal un compte, però es crea amb un número virtual de Zangi, sense SIM ni telèfon real.'),
       openSource: unknown('No consta cap repositori públic del client ni del protocol Zangi SCP.'),
       dataSummary:
-        'El que queda al servidor no és el contingut de les converses, sinó el mapa del compte: quan es va crear, amb quin aparell, quin nom hi vas posar i quan el vas esborrar. És prou per situar una persona en el temps i en un dispositiu concret, i la política diu explícitament que es lliura davant d’una ordre judicial.',
+        'L’empresa diu que no desa el contingut de les converses, però al servidor hi queden les dades del compte: quan es va crear, amb quin aparell, quin nom hi vas posar i quan el vas esborrar. N’hi ha prou per situar una persona en el temps i en un dispositiu, i la política diu explícitament que es lliuren davant d’una ordre judicial.',
       dataCollection: [
         row('identificador-de-compte', 'yes', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['zangi-privacy-policy'], note: 'Número virtual de Zangi, assignat en el registre.' }),
         row('identificador-de-dispositiu', 'yes', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei', 'atencio-a-lusuari'], sources: ['zangi-privacy-policy'], note: 'Identificador del terminal i testimoni de notificacions, desats als servidors.' }),
@@ -358,7 +358,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: false,
         editorialNotes:
-          'La contradicció central és documental: l’etiqueta de l’App Store diu «no es recullen dades» i la política del mateix servei enumera identificadors desats als servidors i una llista concreta de dades cedibles a les autoritats. Les promeses de xifratge no es poden verificar perquè el client és privatiu i no hi ha auditoria.',
+          'L’etiqueta de l’App Store diu «no es recullen dades», però la política del mateix servei enumera identificadors desats als servidors i una llista concreta de dades cedibles a les autoritats. Les promeses de xifratge no es poden verificar perquè el client és privatiu i no hi ha auditoria.',
         openQuestions: [
           'On són allotjats els servidors de Zangi i sota quin mecanisme es transfereixen les dades des de la Unió Europea?',
           'Hi ha hagut alguna auditoria externa del protocol Zangi SCP o del xifratge de les converses?',
@@ -375,7 +375,7 @@ export const lot: SeedLot = {
       categories: ['traduccio-i-referencia'],
       tagline: 'Un teclat amb accés complet que reconeix que llegeix el que escrius i el passa a serveis d’IA de tercers',
       summary:
-        'És un teclat de sistema que tradueix el que escrius dins de qualsevol altra aplicació. Per funcionar demana «accés complet», i la política ho admet sense embuts: recull el text que hi introdueixes i el processa amb serveis d’intel·ligència artificial de tercers que no anomena. Aquesta política és allotjada en un subdomini gratuït de Firebase, no identifica cap responsable del tractament, no fixa cap termini i dona com a contacte un compte de Gmail personal.',
+        'És un teclat de sistema que tradueix el que escrius dins de qualsevol altra aplicació. Per funcionar demana «accés complet», i la política admet que recull el text que hi introdueixes i el processa amb serveis d’intel·ligència artificial de tercers que no anomena. La política és allotjada en un subdomini gratuït de Firebase, no identifica cap responsable del tractament, no fixa cap termini i dona com a contacte un compte de Gmail personal.',
       platforms: ['ios'],
       businessModel: 'freemium',
       jurisdiction: 'Hong Kong',
@@ -484,7 +484,7 @@ export const lot: SeedLot = {
       categories: ['llibres-i-lectura', 'comunitats-i-forums'],
       tagline: 'Una entitat sense ànim de lucre que renuncia a la publicitat segmentada sobre dades de conviccions religioses',
       summary:
-        'El que registra aquesta aplicació —què subratlles, quins plans de lectura segueixes, quines notes escrius— és informació sobre conviccions religioses, una categoria especial del RGPD. YouVersion és de les poques aplicacions massives d’aquesta onada que diu explícitament que no fa servir galetes ni tecnologies similars per a publicitat basada en interessos i que no mostra anuncis, i l’etiqueta de l’App Store ho acompanya: no declara cap dada usada per rastrejar. A canvi, el correu queda vinculat al màrqueting propi i les dades es processen als Estats Units.',
+        'El que registra aquesta aplicació (què subratlles, quins plans de lectura segueixes, quines notes escrius) és informació sobre conviccions religioses, una categoria especial del RGPD. YouVersion és de les poques aplicacions massives d’aquesta onada que diu explícitament que no fa servir galetes ni tecnologies similars per a publicitat basada en interessos i que no mostra anuncis, i l’etiqueta de l’App Store no declara cap dada usada per rastrejar. D’altra banda, el correu queda vinculat al màrqueting propi i les dades es processen als Estats Units.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'donations',
       jurisdiction: 'Estats Units',
@@ -497,7 +497,7 @@ export const lot: SeedLot = {
       accountRequired: f('no', 'official', ['santa-biblia-app-store'], 'Es pot llegir sense compte; el compte cal per als plans, els amics, les notes i la sincronització.'),
       openSource: f('no', 'official', ['santa-biblia-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'Les marques, les notes i els plans de lectura dibuixen amb precisió la pràctica religiosa d’una persona, i l’historial de cerca hi afegeix els dubtes que no explicaria a ningú. És una de les dades més sensibles que pot recollir una aplicació de lectura.',
+        'Les marques, les notes i els plans de lectura mostren la pràctica religiosa d’una persona, i l’historial de cerca hi afegeix els seus dubtes. És una de les dades més sensibles que pot recollir una aplicació de lectura.',
       dataCollection: [
         row('conviccions-i-opinions', 'yes', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['santa-biblia-privacy-policy'], note: 'Subratllats, notes, marcadors, oracions i plans de lectura. Són dades de categoria especial segons el RGPD.' }),
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei', 'personalitzacio-de-continguts'], sources: ['santa-biblia-app-store', 'santa-biblia-privacy-policy'], note: 'L’etiqueta la declara també per al màrqueting del mateix desenvolupador.' }),
@@ -556,7 +556,7 @@ export const lot: SeedLot = {
       userRights: {
         dataExport: f('partial', 'official', ['santa-biblia-privacy-policy'], 'Es pot demanar una còpia de les dades facilitades, però la política avisa que part del contingut propi de YouVersion pot no ser exportable fora de l’aplicació.'),
         exportFormatQuality: 'unknown',
-        rightsExercise: f('yes', 'official', ['santa-biblia-privacy-policy'], 'La política enumera les bases jurídiques per a l’EEE —consentiment, contracte i interès legítim— i el procediment per exercir els drets.'),
+        rightsExercise: f('yes', 'official', ['santa-biblia-privacy-policy'], 'La política enumera les bases jurídiques per a l’EEE (consentiment, contracte i interès legítim) i el procediment per exercir els drets.'),
       },
       controls: {
         adPersonalizationOptOut: na('No hi ha publicitat segmentada de la qual es pugui sortir.'),
@@ -596,7 +596,7 @@ export const lot: SeedLot = {
       categories: ['traduccio-i-referencia'],
       tagline: 'Identifica monedes amb la càmera i reparteix l’identificador publicitari entre set xarxes d’anuncis i d’analítica',
       summary:
-        'CoinIn fotografia una moneda i te’n diu el valor. Per fer-ho recull l’IDFA, l’identificador de maquinari, l’identificador de Facebook, l’adreça IP i, opcionalment, la geolocalització «per entendre millor d’on és la moneda». La política enumera els destinataris sense embuts: Facebook, Apple, AppsFlyer, Amplitude, Firebase, IronSource i Appodeal. És una de les poques aplicacions d’aquest lot amb una política completa i verificable, però el que hi explica és un repartiment ampli de dades amb la indústria publicitària.',
+        'CoinIn fotografia una moneda i te’n diu el valor. Per fer-ho recull l’IDFA, l’identificador de maquinari, l’identificador de Facebook, l’adreça IP i, opcionalment, la geolocalització «per entendre millor d’on és la moneda». La política enumera els destinataris: Facebook, Apple, AppsFlyer, Amplitude, Firebase, IronSource i Appodeal. Té una política completa i verificable, però el que hi explica és un repartiment ampli de dades amb la indústria publicitària.',
       platforms: ['ios', 'android'],
       businessModel: 'freemium',
       jurisdiction: 'Xipre',
@@ -608,7 +608,7 @@ export const lot: SeedLot = {
       accountRequired: f('partial', 'official', ['coinin-privacy-policy'], 'Es comença sense registre, tot i que la política parla d’un compte i d’una funció d’eliminació dins de la configuració.'),
       openSource: f('no', 'official', ['coinin-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'Una col·lecció de monedes és patrimoni. Si s’hi suma la geolocalització de les troballes i un identificador estable compartit amb xarxes publicitàries, el perfil que en resulta diu què tens, quant val i on ets.',
+        'Una col·lecció de monedes és patrimoni. Amb la geolocalització de les troballes i un identificador estable compartit amb xarxes publicitàries, el perfil que en resulta indica què tens, quant val i on ets.',
       dataCollection: [
         row('fotografies-i-videos', 'yes', { linked: 'yes', tracking: 'no', shared: 'unknown', purposes: ['prestacio-del-servei'], sources: ['coinin-app-store', 'coinin-privacy-policy'], note: 'Fotografies de les monedes, fetes amb la càmera.' }),
         row('ubicacio-precisa', 'optional', { linked: 'yes', tracking: 'unknown', shared: 'unknown', purposes: ['prestacio-del-servei'], sources: ['coinin-privacy-policy'], note: 'La política diu que es demana per «entendre millor la localitat de la moneda» i que la base jurídica és el consentiment.' }),
@@ -693,7 +693,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: false,
         editorialNotes:
-          'La política és del febrer del 2023 i encara esmenta «Facebook Analytics», un servei discontinuat, cosa que indica que fa temps que no s’actualitza. Tot i així, és de les poques del lot que identifica el responsable, les bases jurídiques i els destinataris amb noms i cognoms.',
+          'La política és del febrer del 2023 i encara esmenta «Facebook Analytics», un servei discontinuat, cosa que indica que fa temps que no s’actualitza. Tot i així, identifica el responsable, les bases jurídiques i els destinataris amb noms i cognoms.',
         openQuestions: [
           'Hi ha realment una opció d’eliminar el compte dins de l’aplicació, com diu la política?',
           'Quant de temps es conserven les fotografies de les monedes i la geolocalització associada?',
@@ -709,7 +709,7 @@ export const lot: SeedLot = {
       categories: ['utilitats', 'comunitats-i-forums'],
       tagline: 'Un inventari de cartes col·leccionables que declara la ubicació exacta vinculada a la identitat',
       summary:
-        'Collectr valora col·leccions de cartes de Pokémon, Magic o Yu-Gi-Oh a partir d’una base de dades de preus en temps real. L’etiqueta de l’App Store no declara cap dada de rastreig, però sí una cosa poc habitual en una aplicació d’inventari: la ubicació exacta, vinculada a la identitat, per a «personalització del producte». La política, canadenca, cobreix alhora el web i l’aplicació i descriu galetes de segmentació, gravació de sessions i publicitat de tercers sense dir quina part correspon a cadascun.',
+        'Collectr valora col·leccions de cartes de Pokémon, Magic o Yu-Gi-Oh a partir d’una base de dades de preus en temps real. L’etiqueta de l’App Store no declara cap dada de rastreig, però sí la ubicació exacta vinculada a la identitat per a «personalització del producte», cosa poc habitual en una aplicació d’inventari. La política, canadenca, cobreix alhora el web i l’aplicació i descriu galetes de segmentació, gravació de sessions i publicitat de tercers sense dir quina part correspon a cadascun.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'freemium',
       jurisdiction: 'Canadà',
@@ -721,7 +721,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['collectr-app-store', 'collectr-privacy-policy'], 'Cal un compte amb nom i correu per desar i sincronitzar la col·lecció.'),
       openSource: f('no', 'official', ['collectr-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'Un inventari valorat de cartes és una llista d’objectes cars amb el seu preu al costat. Vincular-hi la ubicació exacta de qui el manté converteix l’aplicació en un mapa de col·leccions i de patrimoni.',
+        'Un inventari valorat de cartes és una llista d’objectes cars amb el seu preu al costat. Si s’hi vincula la ubicació exacta de qui el manté, l’aplicació sap on són aquestes col·leccions.',
       dataCollection: [
         row('ubicacio-precisa', 'yes', { linked: 'yes', tracking: 'no', shared: 'unknown', purposes: ['personalitzacio-de-continguts'], sources: ['collectr-app-store'], note: 'L’etiqueta la declara per a personalització del producte. La política no explica per a què cal en una aplicació d’inventari.' }),
         row('ubicacio-aproximada', 'yes', { linked: 'yes', tracking: 'no', shared: 'unknown', purposes: ['personalitzacio-de-continguts'], sources: ['collectr-app-store'] }),
@@ -798,7 +798,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: false,
         editorialNotes:
-          'La discrepància a vigilar és entre la política —que parla de publicitat segmentada, gravació de sessions i xarxes publicitàries— i l’etiqueta de l’App Store, que no declara cap dada publicitària ni de rastreig. La política cobreix el web i l’aplicació sense separar-los, i això fa que no es pugui saber què s’aplica a cadascun.',
+          'Hi ha una discrepància entre la política, que parla de publicitat segmentada, gravació de sessions i xarxes publicitàries, i l’etiqueta de l’App Store, que no declara cap dada publicitària ni de rastreig. La política cobreix el web i l’aplicació sense separar-los, i això fa que no es pugui saber què s’aplica a cadascun.',
         openQuestions: [
           'Per a què necessita una aplicació d’inventari la ubicació exacta vinculada a la identitat?',
           'Hi ha una opció d’eliminar el compte dins de l’aplicació?',
@@ -815,7 +815,7 @@ export const lot: SeedLot = {
       categories: ['traduccio-i-referencia'],
       tagline: 'Diu que no desa cap text traduït, però viu de l’identificador publicitari',
       summary:
-        'De les tres aplicacions de traducció amb IA d’aquest lot, és la que explica millor què fa: afirma que no recull ni desa els textos traduïts, i detalla que la traducció fora de línia es fa al dispositiu amb Google ML Kit. El que sí que recull és l’identificador publicitari i les dades de rendiment dels anuncis per a les plataformes de publicitat, i l’etiqueta de l’App Store confirma que els identificadors s’utilitzen per rastrejar entre aplicacions. Què passa amb el text quan la traducció es fa al núvol, en canvi, no consta enlloc.',
+        'Explica bé què fa: afirma que no recull ni desa els textos traduïts, i detalla que la traducció fora de línia es fa al dispositiu amb Google ML Kit. El que sí que recull és l’identificador publicitari i les dades de rendiment dels anuncis per a les plataformes de publicitat, i l’etiqueta de l’App Store confirma que els identificadors s’utilitzen per rastrejar entre aplicacions. Què passa amb el text quan la traducció es fa al núvol, en canvi, no consta enlloc.',
       platforms: ['ios'],
       businessModel: 'freemium',
       jurisdiction: 'Hong Kong',
@@ -827,7 +827,7 @@ export const lot: SeedLot = {
       accountRequired: unknown('Ni la política ni la fitxa de l’App Store esmenten cap registre.'),
       openSource: f('no', 'official', ['instant-translator-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'El que travessa un traductor és allò que una persona no entén i vol entendre: correus de la feina, cartes de metges, converses privades. L’aplicació diu que no en desa res; el que sí que desa i comparteix és l’identificador que permet seguir-la entre aplicacions.',
+        'Per un traductor hi passen textos que la persona necessita entendre: correus de la feina, cartes de metges, converses privades. L’aplicació diu que no en desa res; el que sí que desa i comparteix és l’identificador que permet seguir-la entre aplicacions.',
       dataCollection: [
         row('contingut-de-missatges', 'no', { linked: 'no', tracking: 'no', shared: 'none', sources: ['instant-translator-privacy-policy'], note: 'La política afirma que no es recull, no es monitora i no es desa el contingut ni les preferències de cerca. No diu què passa amb el text quan la traducció es fa al núvol.' }),
         row('identificador-publicitari', 'yes', { linked: 'no', tracking: 'yes', shared: 'third-parties', purposes: ['publicitat-personalitzada', 'mesura-publicitaria', 'seguretat-i-prevencio-del-frau'], sources: ['instant-translator-app-store', 'instant-translator-privacy-policy'], note: 'La política diu que es recull per complir els requisits de les plataformes publicitàries i evitar el frau amb els anuncis.' }),
@@ -934,7 +934,7 @@ export const lot: SeedLot = {
       accountRequired: unknown('No hi ha cap document del servei que ho digui.'),
       openSource: f('no', 'official', ['ai-translator-three-tiger-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'El que se sap d’aquesta aplicació és el que declara l’etiqueta de l’App Store i prou: identificadors per rastrejar-te entre aplicacions i l’identificador del dispositiu per a analítica. La resta —qui tracta els textos traduïts, on i durant quant de temps— no està documentada enlloc.',
+        'D’aquesta aplicació només se sap el que declara l’etiqueta de l’App Store: identificadors per rastrejar-te entre aplicacions i l’identificador del dispositiu per a analítica. No està documentat enlloc qui tracta els textos traduïts, on ni durant quant de temps.',
       dataCollection: [
         row('identificador-publicitari', 'yes', { linked: 'no', tracking: 'yes', shared: 'third-parties', purposes: ['publicitat-personalitzada'], sources: ['ai-translator-three-tiger-app-store'], note: 'L’etiqueta declara identificadors usats per rastrejar entre aplicacions i webs d’altres empreses.' }),
         row('identificador-de-dispositiu', 'yes', { linked: 'no', tracking: 'unknown', shared: 'unknown', purposes: ['mesura-i-analisi-dus'], sources: ['ai-translator-three-tiger-app-store'] }),
@@ -1015,7 +1015,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: false,
         editorialNotes:
-          'No es tracta d’una política difícil de llegir: no n’hi ha. L’adreça que enllaça la fitxa de l’App Store retorna un 404 i el domini del desenvolupador s’ha reconvertit en un web de ressenyes de casinos. Tota la fitxa queda, per tant, en desconegut, llevat del que declara l’etiqueta de l’App Store.',
+          'No hi ha política de privadesa: l’adreça que enllaça la fitxa de l’App Store retorna un 404 i el domini del desenvolupador s’ha reconvertit en un web de ressenyes de casinos. Tota la fitxa queda, per tant, en desconegut, llevat del que declara l’etiqueta de l’App Store.',
         openQuestions: [
           'Qui és el responsable del tractament i en quin país està establert?',
           'Els textos, l’àudio i les fotografies que es tradueixen s’envien a un servidor?',
@@ -1032,7 +1032,7 @@ export const lot: SeedLot = {
       categories: ['educacio', 'utilitats'],
       tagline: 'Sense comptes i amb la ubicació desdibuixada a cinc quilòmetres abans de sortir del telèfon',
       summary:
-        'Sky Guide identifica estrelles, planetes i satèl·lits apuntant el telèfon al cel. L’estudi no crea comptes d’usuari —ho diu la política, i per això no pot atendre ni exportacions ni eliminacions— i la ubicació, que és imprescindible per calcular el cel, es queda al dispositiu llevat que s’activin les notificacions de pas de satèl·lits: llavors s’envia desdibuixada a un radi de cinc quilòmetres i acompanyada d’un testimoni anònim. L’etiqueta de l’App Store ho confirma: cap dada vinculada a la identitat i cap dada de rastreig.',
+        'Sky Guide identifica estrelles, planetes i satèl·lits apuntant el telèfon al cel. L’estudi no crea comptes d’usuari (ho diu la política, i per això no pot atendre ni exportacions ni eliminacions), i la ubicació, que és imprescindible per calcular el cel, es queda al dispositiu llevat que s’activin les notificacions de pas de satèl·lits: llavors s’envia desdibuixada a un radi de cinc quilòmetres i acompanyada d’un testimoni anònim. L’etiqueta de l’App Store ho confirma: cap dada vinculada a la identitat i cap dada de rastreig.',
       platforms: ['ios', 'macos'],
       businessModel: 'freemium',
       jurisdiction: 'Estats Units',
@@ -1044,7 +1044,7 @@ export const lot: SeedLot = {
       accountRequired: f('no', 'official', ['sky-guide-privacy-policy'], 'La política diu explícitament que l’estudi no genera ni desa comptes d’usuari.'),
       openSource: f('no', 'official', ['sky-guide-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'La ubicació d’una persona que mira el cel és una dada de casa seva. Aquí es fa servir al dispositiu i, quan ha de sortir-ne, s’engreixa fins a un radi de cinc quilòmetres i es desvincula del compte, perquè no n’hi ha.',
+        'Qui mira el cel ho sol fer des de casa, i per això la ubicació indica on viu. Aquí es fa servir al dispositiu i, quan n’ha de sortir, es desdibuixa a un radi de cinc quilòmetres i no es vincula a cap compte, perquè l’aplicació no en té.',
       dataCollection: [
         row('ubicacio-aproximada', 'yes', { linked: 'no', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['sky-guide-app-store', 'sky-guide-privacy-policy'], note: 'Només surt del dispositiu si s’activen les notificacions, desdibuixada a un radi de 5 km i amb un testimoni anònim.' }),
         row('ubicacio-precisa', 'optional', { linked: 'no', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['sky-guide-privacy-policy'], note: 'La ubicació precisa es fa servir al dispositiu per calcular el cel; la política diu que no es transmet a l’estudi.' }),
@@ -1118,7 +1118,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: false,
         editorialNotes:
-          'La política és del maig del 2018 i no s’ha actualitzat des de llavors: no esmenta el RGPD, ni terminis, ni un representant a la Unió Europea. Tot i això, el disseny del producte —sense comptes i amb la ubicació desdibuixada abans de sortir del telèfon— és de minimització real, i l’etiqueta de l’App Store el corrobora.',
+          'La política és del maig del 2018 i no s’ha actualitzat des de llavors: no esmenta el RGPD, ni terminis, ni un representant a la Unió Europea. Tot i això, el disseny del producte, sense comptes i amb la ubicació desdibuixada abans de sortir del telèfon, minimitza les dades, i l’etiqueta de l’App Store el corrobora.',
         openQuestions: [
           'On són allotjats els servidors de notificacions i quin mecanisme empara les transferències des de la Unió Europea?',
           'Quin servei d’analítica fa servir l’aplicació per a les dades d’ús i de diagnòstic que declara l’etiqueta?',
@@ -1221,7 +1221,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: false,
         editorialNotes:
-          'La política és de les més completes del lot pel que fa al tractament de les imatges, però contradiu l’etiqueta de l’App Store en un punt central: la taula d’«App Privacy Disclosure» afirma que cap dada no s’usa per rastrejar, mentre que la fitxa d’Apple declara identificadors usats per rastrejar i l’identificador del dispositiu per a publicitat de tercers. La contradicció és del mateix desenvolupador, que omple totes dues coses.',
+          'La política és completa pel que fa al tractament de les imatges, però contradiu l’etiqueta de l’App Store en un punt central: la taula d’«App Privacy Disclosure» afirma que cap dada no s’usa per rastrejar, mentre que la fitxa d’Apple declara identificadors usats per rastrejar i l’identificador del dispositiu per a publicitat de tercers. La contradicció és del mateix desenvolupador, que omple totes dues coses.',
         openQuestions: [
           'Quina xarxa publicitària hi ha integrada, si la política no n’esmenta cap?',
           'Qui és JOYLINK NETWORK TECH LIMITED i en quin país està establerta?',
@@ -1249,7 +1249,7 @@ export const lot: SeedLot = {
       accountRequired: unknown('Ni la política ni la fitxa de l’App Store esmenten cap registre.'),
       openSource: f('no', 'official', ['auto-clicker-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'El valor de l’aplicació per a qui la publica no és l’automatització de tocs, sinó el flux d’ús i de publicitat que en surt: és l’única categoria que declara vinculada a la identitat i, alhora, utilitzada per rastrejar.',
+        'Les dades d’ús són l’única categoria que l’etiqueta declara alhora vinculada a la identitat i utilitzada per rastrejar, i serveixen per a publicitat de tercers.',
       dataCollection: [
         row('interaccions-i-us', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['publicitat-personalitzada', 'mesura-i-analisi-dus'], sources: ['auto-clicker-app-store'], note: 'És l’única categoria que l’etiqueta declara alhora vinculada a la identitat i usada per rastrejar.' }),
         row('identificador-publicitari', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['publicitat-personalitzada', 'mesura-publicitaria'], sources: ['auto-clicker-app-store', 'auto-clicker-privacy-policy'], note: 'L’etiqueta declara «datos de publicidad» vinculats a la identitat i la política enumera AdMob com a proveïdor.' }),

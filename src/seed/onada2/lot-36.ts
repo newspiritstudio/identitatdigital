@@ -298,7 +298,7 @@ export const lot: SeedLot = {
       name: 'Meteored - El Tiempo 14 Días',
       company: 'alpred',
       categories: ['meteorologia'],
-      tagline: 'La previsió del temps a canvi de la ubicació exacta, declarada com a dada per rastrejar-te',
+      tagline: 'Previsió del temps amb la ubicació exacta declarada com a dada per rastrejar-te',
       summary:
         'Meteored, l’aplicació de tiempo.com, és el servei meteorològic espanyol més descarregat. La seva etiqueta de l’App Store declara que la ubicació exacta i aproximada, l’identificador de dispositiu i les dades de publicitat es poden fer servir per rastrejar-te en apps i webs d’altres empreses. La política ho confirma: descriu la precisió del GPS, els identificadors publicitaris GAID i IDFA i una plataforma de consentiment conforme a l’estàndard d’IAB Spain amb els seus socis publicitaris.',
       platforms: ['ios', 'android', 'web'],
@@ -312,7 +312,7 @@ export const lot: SeedLot = {
       accountRequired: f('no', 'editorial', ['meteored-app-store', 'meteored-privacy-policy'], 'L’etiqueta no declara cap dada vinculada a la identitat i la política només parla de compte per a funcions com les alertes i la comunitat: la previsió es consulta sense registre.'),
       openSource: unknown('No hem trobat el codi publicat.'),
       dataSummary:
-        'La ubicació d’una aplicació del temps es consulta moltes vegades al dia i dibuixa on vius, on treballes i on vas de vacances. Aquí no es queda dins del servei: viatja cap als socis publicitaris junt amb l’identificador del dispositiu.',
+        'Una aplicació del temps consulta la ubicació moltes vegades al dia, i això pot revelar on vius, on treballes i on vas de vacances. En aquest cas, la ubicació s’envia als socis publicitaris junt amb l’identificador del dispositiu.',
       dataCollection: [
         row('ubicacio-precisa', 'yes', { linked: 'no', tracking: 'yes', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada', 'mesura-publicitaria'], sources: ['meteored-app-store', 'meteored-privacy-policy'], note: 'La política xifra la precisió entre 5 metres amb GPS i uns 2 km amb la xarxa mòbil.' }),
         row('ubicacio-aproximada', 'yes', { linked: 'no', tracking: 'yes', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['meteored-app-store', 'meteored-privacy-policy'] }),
@@ -500,7 +500,7 @@ export const lot: SeedLot = {
       categories: ['meteorologia'],
       tagline: 'Ubicació exacta i correu vinculats a la identitat, i xarxes publicitàries entre els destinataris',
       summary:
-        'Surf Forecast dona previsions d’onatge per a més de set mil platges. L’etiqueta de l’App Store és de les més expansives del lot: ubicació exacta, adreça electrònica i identificadors queden vinculats a la identitat i serveixen per a publicitat de tercers, màrqueting, analítica, personalització i «altres finalitats». A canvi, el compte s’esborra des de la mateixa aplicació amb una opció explícita i irreversible.',
+        'Surf Forecast dona previsions d’onatge per a més de set mil platges. L’etiqueta de l’App Store declara que la ubicació exacta, l’adreça electrònica i els identificadors queden vinculats a la identitat i serveixen per a publicitat de tercers, màrqueting, analítica, personalització i «altres finalitats». El compte, en canvi, s’esborra des de la mateixa aplicació amb una opció explícita i irreversible.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'freemium',
       jurisdiction: 'Regne Unit',
@@ -512,7 +512,7 @@ export const lot: SeedLot = {
       accountRequired: f('no', 'official', ['surf-forecast-privacy-policy'], 'Les previsions es consulten sense registre; el compte serveix per desar llocs preferits i per a les subscripcions.'),
       openSource: unknown(),
       dataSummary:
-        'Saber a quina platja i a quina hora vol anar algú és informació d’oci, però quan es lliga al correu electrònic i a la ubicació exacta esdevé un perfil de mobilitat amb nom i cognoms.',
+        'Les platges i els horaris que consulta algú, lligats al correu electrònic i a la ubicació exacta, formen un perfil de mobilitat identificable.',
       dataCollection: [
         row('ubicacio-precisa', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada', 'personalitzacio-de-continguts'], sources: ['surf-forecast-app-store', 'surf-forecast-privacy-policy'] }),
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['surf-forecast-app-store', 'surf-forecast-privacy-policy'] }),
@@ -590,7 +590,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'Cap filtració associada a surf-forecast.com ni a snow-forecast.com a Have I Been Pwned. L’etiqueta de l’App Store és molt més expansiva que la política, que amb prou feines parla de l’aplicació.',
+          'Cap filtració associada a surf-forecast.com ni a snow-forecast.com a Have I Been Pwned. L’etiqueta de l’App Store declara moltes més dades que la política, que amb prou feines parla de l’aplicació.',
         openQuestions: [
           'Quines xarxes publicitàries reben la ubicació exacta i el correu?',
           'Amb quines garanties transfereix Meteo365 les dades fora de l’EEE?',
@@ -604,9 +604,9 @@ export const lot: SeedLot = {
       name: 'Windfinder: Viento & Tiempo',
       company: 'windfinder',
       categories: ['meteorologia'],
-      tagline: 'La ubicació no es desa i el compte s’esborra en un toc, però l’identificador de dispositiu serveix per rastrejar-te',
+      tagline: 'La ubicació no es desa i el compte s’esborra des de l’aplicació, però l’identificador de dispositiu serveix per rastrejar-te',
       summary:
-        'Windfinder és la referència per a vela, surf i kite. La seva política diu una cosa poc habitual en aquest sector: la ubicació només es determina quan la persona ho demana i no es desa. El compte és opcional, només serveix per sincronitzar llocs preferits i s’elimina des de la mateixa aplicació amb un botó «Delete Account». El contrapès és la publicitat: l’etiqueta declara l’identificador de dispositiu i les dades de publicitat com a dades usades per rastrejar-te.',
+        'Windfinder dona previsions de vent per a vela, surf i kite. Segons la política, la ubicació només es determina quan la persona ho demana i no es desa. El compte és opcional, només serveix per sincronitzar llocs preferits i s’elimina des de la mateixa aplicació amb un botó «Delete Account». En canvi, l’etiqueta declara l’identificador de dispositiu i les dades de publicitat com a dades usades per rastrejar-te.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'freemium',
       jurisdiction: 'Alemanya',
@@ -618,7 +618,7 @@ export const lot: SeedLot = {
       accountRequired: f('no', 'official', ['windfinder-account-help'], 'L’ajuda diu explícitament que crear un compte és opcional i que només serveix per sincronitzar els llocs preferits i les preferències.'),
       openSource: unknown(),
       dataSummary:
-        'Aquí el rastre no és la ubicació, que segons la política no es desa, sinó l’identificador del dispositiu i les dades publicitàries que alimenten AdSense i la xarxa SnigelWeb.',
+        'Segons la política, la ubicació no es desa. El rastreig es fa amb l’identificador del dispositiu i les dades publicitàries que alimenten AdSense i la xarxa SnigelWeb.',
       dataCollection: [
         row('identificador-de-dispositiu', 'yes', { linked: 'no', tracking: 'yes', shared: 'third-parties', purposes: ['publicitat-personalitzada', 'mesura-i-analisi-dus'], sources: ['windfinder-app-store', 'windfinder-privacy-policy'] }),
         row('galetes-i-identificadors-web', 'yes', { linked: 'no', tracking: 'yes', shared: 'third-parties', purposes: ['publicitat-personalitzada', 'mesura-publicitaria'], sources: ['windfinder-privacy-policy'], note: 'Una vintena llarga de galetes, entre analítiques, de consentiment i publicitàries.' }),
@@ -695,7 +695,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'Cap filtració associada a windfinder.com a Have I Been Pwned. La política és de les més detallades del lot: enumera proveïdors, terminis i galetes una per una.',
+          'Cap filtració associada a windfinder.com a Have I Been Pwned. La política enumera proveïdors, terminis i galetes un per un.',
         openQuestions: ['Quines dades exactes envia l’aplicació a SnigelWeb i amb quin consentiment?'],
       },
     },
@@ -721,7 +721,7 @@ export const lot: SeedLot = {
       accountRequired: f('no', 'official', ['meteoblue-privacy-policy'], 'Les previsions es consulten sense compte; el compte serveix per desar llocs, avisos i subscripcions.'),
       openSource: unknown(),
       dataSummary:
-        'A la ubicació que necessita qualsevol previsió s’hi suma el registre de com et mous per la interfície: Microsoft Clarity permet reproduir les sessions, i l’identificador del dispositiu queda vinculat a la identitat per a publicitat.',
+        'A més de la ubicació, l’aplicació registra com et mous per la interfície: Microsoft Clarity permet reproduir les sessions, i l’identificador del dispositiu queda vinculat a la identitat per a publicitat.',
       dataCollection: [
         row('identificador-de-dispositiu', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['publicitat-personalitzada', 'mesura-publicitaria'], sources: ['meteoblue-app-store', 'meteoblue-ad-providers'] }),
         row('ubicacio-precisa', 'yes', { linked: 'no', tracking: 'no', shared: 'unknown', purposes: ['prestacio-del-servei'], sources: ['meteoblue-app-store'] }),
@@ -779,7 +779,7 @@ export const lot: SeedLot = {
         telemetryOptOut: f('partial', 'official', ['meteoblue-privacy-policy'], 'Es poden refusar galetes, però la política avisa que això limita molt les funcions.'),
         granularControls: f('partial', 'official', ['meteoblue-privacy-policy'], 'Hi ha preferències de privadesa dins del compte.'),
         defaultPosture: 'mixed',
-        darkPatterns: unknown('Avisar que refusar galetes provoca «limitacions significatives» és un avís de frontera, però no l’hem pogut comprovar a la interfície.'),
+        darkPatterns: unknown('La política avisa que refusar galetes provoca «limitacions significatives»; podria ser un patró enganyós, però no ho hem pogut comprovar a la interfície.'),
       },
       security: {
         e2ee: na('Servei de previsió meteorològica: no hi ha comunicació privada entre persones.'),
@@ -814,7 +814,7 @@ export const lot: SeedLot = {
       categories: ['meteorologia'],
       tagline: 'L’enllaç de «política de privadesa» porta a unes condicions d’ús que no parlen de dades personals',
       summary:
-        'Nautide, l’aplicació oficial de Tabla de Mareas, dona marees, vent, onatge i activitat solunar de més de 25.000 estacions. L’adreça que l’App Store presenta com a política de privadesa conté un document de condicions d’ús del 2018 que no esmenta ni dades personals, ni el RGPD, ni cap dret. Mentrestant, l’etiqueta de l’App Store declara que l’identificador de dispositiu i les dades de publicitat es fan servir per rastrejar-te.',
+        'Nautide, l’aplicació oficial de Tabla de Mareas, dona marees, vent, onatge i activitat solunar de més de 25.000 estacions. L’adreça que l’App Store presenta com a política de privadesa conté un document de condicions d’ús del 2018 que no esmenta ni dades personals, ni el RGPD, ni cap dret. L’etiqueta de l’App Store, en canvi, declara que l’identificador de dispositiu i les dades de publicitat es fan servir per rastrejar-te.',
       platforms: ['ios', 'android'],
       businessModel: 'freemium',
       jurisdiction: 'Espanya',
@@ -826,7 +826,7 @@ export const lot: SeedLot = {
       accountRequired: f('no', 'official', ['nautide-app-store', 'nautide-terms'], 'La fitxa descriu una descàrrega gratuïta amb subscripció opcional i l’etiqueta no declara cap dada vinculada a la identitat.'),
       openSource: unknown(),
       dataSummary:
-        'Una taula de marees sembla inofensiva, però l’etiqueta diu que l’identificador del dispositiu i les dades publicitàries surten cap a tercers per rastrejar; sense política de privadesa, no hi ha manera de saber cap a qui.',
+        'Segons l’etiqueta, l’identificador del dispositiu i les dades publicitàries s’envien a tercers per rastrejar-te. Com que no hi ha política de privadesa, no sabem a quins.',
       dataCollection: [
         row('identificador-de-dispositiu', 'yes', { linked: 'no', tracking: 'yes', shared: 'third-parties', purposes: ['publicitat-personalitzada'], sources: ['nautide-app-store'] }),
         row('identificador-publicitari', 'yes', { linked: 'no', tracking: 'yes', shared: 'third-parties', purposes: ['publicitat-personalitzada', 'mesura-publicitaria'], sources: ['nautide-app-store'], note: 'L’etiqueta ho declara com a «datos de publicidad» dins dels identificadors usats per rastrejar.' }),
@@ -908,9 +908,9 @@ export const lot: SeedLot = {
       name: 'miDGT',
       company: 'direccion-general-de-trafico',
       categories: ['administracio-publica', 'utilitats'],
-      tagline: 'Declara a l’App Store que no recull cap dada mentre mostra el permís, els punts i les sancions',
+      tagline: 'Declara a l’App Store que no recull cap dada, tot i que mostra el permís, els punts i les sancions',
       summary:
-        'miDGT porta al mòbil el permís de conducció digital, amb validesa per circular per Espanya, i la documentació dels vehicles. També mostra els punts, la caducitat del permís, la ITV i les sancions, i permet pagar-les. A l’App Store hi consta «No se recopilan datos», una declaració difícil de conciliar amb un servei que consulta els registres de conductors i de vehicles, i l’enllaç a la política de privadesa que hi publica la DGT ja no existeix.',
+        'miDGT porta al mòbil el permís de conducció digital, amb validesa per circular per Espanya, i la documentació dels vehicles. També mostra els punts, la caducitat del permís, la ITV i les sancions, i permet pagar-les. A l’App Store hi consta «No se recopilan datos», tot i que el servei consulta els registres de conductors i de vehicles, i l’enllaç a la política de privadesa que hi publica la DGT ja no existeix.',
       platforms: ['ios', 'android'],
       businessModel: 'public-service',
       jurisdiction: 'Espanya',
@@ -934,7 +934,7 @@ export const lot: SeedLot = {
         mandatoryRetention: f('yes', 'official', ['midgt-boe-trafic', 'midgt-dgt-proteccion-datos'], 'L’aplicació no crea cap compte propi: mostra les dades dels registres de vehicles i de conductors i infractors que el Ministeri de l’Interior ha de gestionar per llei, i que es conserven segons la normativa d’arxius. No es pot demanar que se n’esborri l’expedient.', { norm: 'Reial decret legislatiu 6/2015, article 5.h)' }),
       },
       dataSummary:
-        'El permís, els punts, els vehicles i les sancions són l’historial administratiu de la vida al volant. Aquí no van a parar a cap anunciant, però el rastre queda als registres de la DGT i l’aplicació no explica què en desa al telèfon.',
+        'El permís, els punts, els vehicles i les sancions formen l’historial administratiu de cada conductor. Aquestes dades no s’envien a cap anunciant, però queden als registres de la DGT, i l’aplicació no explica què en desa al telèfon.',
       dataCollection: [
         row('document-identificatiu-oficial', 'yes', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei', 'compliment-legal'], sources: ['midgt-dgt-noticia'], note: 'Permís de conducció digital amb les seves dades i la data de caducitat.' }),
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['midgt-dgt-noticia'] }),
@@ -995,7 +995,7 @@ export const lot: SeedLot = {
         vulnerabilityDisclosure: unknown('No hi ha security.txt a dgt.es.'),
       },
       alternatives: [
-        { app: 'clave', comparability: 'complementary', rationale: 'És el sistema d’identificació amb què s’entra a miDGT i, de fet, té una política de privadesa pròpia que miDGT no té.', tradeOffs: 'No mostra el permís de conducció ni la documentació dels vehicles.' },
+        { app: 'clave', comparability: 'complementary', rationale: 'És el sistema d’identificació amb què s’entra a miDGT i té una política de privadesa pròpia que miDGT no té.', tradeOffs: 'No mostra el permís de conducció ni la documentació dels vehicles.' },
       ],
       review: {
         researchStatus: 'documented',
@@ -1043,7 +1043,7 @@ export const lot: SeedLot = {
         mandatoryRetention: f('no', 'official', ['midni-dnie-info'], 'Les dades del registre de l’aplicació es conserven «mientras aquel continúe haciendo uso de la APP»: cap norma no obliga a mantenir-lo, perquè el servei és un afegit voluntari al DNI físic.'),
       },
       dataSummary:
-        'És la identitat legal sencera dins del telèfon. El risc no és la publicitat sinó la usurpació: qui controli l’aplicació pot acreditar-se com una altra persona davant de tercers.',
+        'L’aplicació conté la identitat legal completa. El risc principal és la usurpació: qui controli l’aplicació pot acreditar-se com una altra persona davant de tercers.',
       dataCollection: [
         row('document-identificatiu-oficial', 'yes', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei', 'compliment-legal'], sources: ['midni-dnie-info'], note: 'Les dades provenen del registre del DNI i es consulten als servidors de la Direcció General de la Policia.' }),
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['midni-dnie-info'] }),
@@ -1125,9 +1125,9 @@ export const lot: SeedLot = {
       name: 'Mi DIGI',
       company: 'digi-spain-telecom',
       categories: ['telecomunicacions'],
-      tagline: 'L’única aplicació del lot que declara les dades d’error com a dades per rastrejar-te',
+      tagline: 'Declara les dades d’error com a dades per rastrejar-te',
       summary:
-        'Mi DIGI és l’àrea de client de l’operador: factures, consum, tarifes, fibra i televisió. La política de DIGI Spain Telecom és sòlida —bases jurídiques, destinataris i bloqueig de les dades en acabar la relació—, però l’etiqueta de l’App Store té una singularitat: declara les dades de diagnòstic d’errors com a dades usades per rastrejar-te, i la interacció amb el producte com a dada vinculada a la identitat.',
+        'Mi DIGI és l’àrea de client de l’operador: factures, consum, tarifes, fibra i televisió. La política de DIGI Spain Telecom detalla les bases jurídiques, els destinataris i el bloqueig de les dades en acabar la relació. L’etiqueta de l’App Store declara les dades de diagnòstic d’errors com a dades usades per rastrejar-te, i la interacció amb el producte com a dada vinculada a la identitat.',
       platforms: ['ios', 'android'],
       businessModel: 'subscription',
       jurisdiction: 'Espanya',
@@ -1139,7 +1139,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['mi-digi-privacy-policy', 'mi-digi-app-store'], 'L’aplicació és l’àrea privada de clients de contracte o prepagament.'),
       openSource: unknown(),
       dataSummary:
-        'L’àrea de client d’un operador conté el document d’identitat, les dades de pagament i el consum. La política hi afegeix una capa menys visible: DIGI pot calcular o estimar informació a partir de les dades disponibles i de les interaccions.',
+        'L’àrea de client d’un operador conté el document d’identitat, les dades de pagament i el consum. A més, segons la política, DIGI pot calcular o estimar informació a partir de les dades disponibles i de les interaccions.',
       dataCollection: [
         row('interaccions-i-us', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'mesura-i-analisi-dus'], sources: ['mi-digi-app-store', 'mi-digi-privacy-policy'] }),
         row('dades-de-diagnostic', 'yes', { linked: 'no', tracking: 'yes', shared: 'third-parties', purposes: ['millora-del-producte'], sources: ['mi-digi-app-store'], note: 'L’etiqueta declara les dades d’error com a dades usades per rastrejar-te.' }),
@@ -1213,7 +1213,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'Cap filtració associada a digimobil.es a Have I Been Pwned, i el cercador de resolucions de l’AEPD no s’ha pogut consultar des d’aquí. La política és recent i està ben estructurada, però descriu el web i les aplicacions en bloc: res no és específic de Mi DIGI.',
+          'Cap filtració associada a digimobil.es a Have I Been Pwned, i el cercador de resolucions de l’AEPD no s’ha pogut consultar des d’aquí. La política és recent, però descriu el web i les aplicacions en bloc: res no és específic de Mi DIGI.',
         openQuestions: [
           'Per què l’etiqueta declara les dades d’error com a dades per rastrejar, i cap a quins tercers van?',
           'Quin proveïdor de diagnòstics fa servir l’aplicació?',

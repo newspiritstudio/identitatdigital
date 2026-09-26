@@ -287,7 +287,7 @@ export const incidents: IncidentSeed[] = [
     occurredAt: '2021-07-16',
     disclosedAt: '2021-07-30',
     description:
-      'L’autoritat luxemburguesa va imposar a Amazon la que llavors era la sanció més alta del RGPD, per la publicitat basada en el comportament sense consentiment vàlid. El juliol de 2025 el tribunal d’apel·lació de Luxemburg va anul·lar la resolució per defectes de motivació i per no haver concretat prou les mesures correctores exigides. L’anul·lació és processal: no valida les pràctiques, però deixa la sanció sense efecte.',
+      'L’autoritat luxemburguesa va imposar a Amazon la que llavors era la sanció més alta del RGPD, per la publicitat basada en el comportament sense consentiment vàlid. El juliol de 2025 el tribunal d’apel·lació de Luxemburg va anul·lar la resolució per defectes de motivació i per no haver concretat prou les mesures correctores exigides. L’anul·lació es basa en motius processals i no valida les pràctiques, però deixa la sanció sense efecte.',
     affectedPeople: 'Persones usuàries de les botigues europees d’Amazon.',
     regulatory: {
       authority: 'Commission nationale pour la protection des données (Luxemburg)',
@@ -431,7 +431,7 @@ export const incidents: IncidentSeed[] = [
     occurredAt: '2024-02-01',
     disclosedAt: '2024-02-02',
     description:
-      'L’Agència Espanyola de Protecció de Dades va sancionar Glovo per infringir les obligacions d’informació, de protecció de dades des del disseny i per defecte i de seguretat del tractament en relació amb les dades de les persones repartidores. El cas mostra que una plataforma tracta dades de col·lectius diferents amb graus de protecció molt desiguals.',
+      'L’Agència Espanyola de Protecció de Dades va sancionar Glovo per infringir les obligacions d’informació, de protecció de dades des del disseny i per defecte i de seguretat del tractament en relació amb les dades de les persones repartidores.',
     affectedPeople: 'Persones repartidores de Glovo a l’Estat espanyol.',
     regulatory: {
       authority: 'Agencia Española de Protección de Datos',
@@ -469,7 +469,7 @@ export const incidents: IncidentSeed[] = [
     occurredAt: '2022-05-23',
     disclosedAt: '2022-05-24',
     description:
-      'Una anàlisi independent va revelar que el navegador de DuckDuckGo bloquejava els rastrejadors de Google i de Facebook però permetia carregar els de Microsoft en llocs de tercers, per una clàusula de l’acord de sindicació de cerca amb Bing. L’empresa ho va reconèixer públicament i mesos després va anunciar que ampliava el bloqueig també als dominis de Microsoft. És un cas útil perquè mostra que una promesa de privadesa pot tenir excepcions contractuals no visibles.',
+      'Una anàlisi independent va revelar que el navegador de DuckDuckGo bloquejava els rastrejadors de Google i de Facebook però permetia carregar els de Microsoft en llocs de tercers, per una clàusula de l’acord de sindicació de cerca amb Bing. L’empresa ho va reconèixer públicament i mesos després va anunciar que ampliava el bloqueig també als dominis de Microsoft.',
     affectedPeople: 'Persones usuàries del navegador de DuckDuckGo.',
     sources: ['bleeping-ddg-microsoft-2022'],
   },

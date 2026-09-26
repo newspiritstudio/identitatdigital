@@ -55,7 +55,7 @@ const infojobs: AppSeed = {
   accountRequired: f('partial', 'official', ['infojobs-privacy-policy'], 'Les ofertes es poden consultar sense compte; cal registrar-se per inscriure’s, desar el currículum o rebre alertes.'),
   openSource: f('no', 'editorial', [], noRepo, { licence: 'Privativa' }),
   dataSummary:
-    'Un currículum a InfoJobs recull la trajectòria laboral, la formació, les competències, la data de naixement i sovint el document d’identitat. Afegit a les inscripcions i les cerques, mostra quan i on una persona busca feina, i és el tipus de dada que la filtració del 2025 va posar en mans d’estafadors d’ofertes falses.',
+    'Un currículum a InfoJobs recull la trajectòria laboral, la formació, les competències, la data de naixement i sovint el document d’identitat. Afegit a les inscripcions i les cerques, mostra quan i on una persona busca feina, i és el tipus de dada que va exposar la filtració del 2025, després de la qual InfoJobs va alertar del risc d’estafes amb ofertes de feina falses.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'mesura-i-analisi-dus', 'personalitzacio-de-continguts'], sources: ['infojobs-privacy-policy', 'infojobs-app-store'], note: 'Es comunica a l’empresa de cada oferta on t’inscrius.' }),
     row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['infojobs-privacy-policy', 'infojobs-app-store'] }),
@@ -194,7 +194,7 @@ const milanuncios: AppSeed = {
   accountRequired: f('partial', 'official', ['milanuncios-privacy-policy'], 'Els anuncis es poden consultar sense compte; cal per publicar, xatejar o fer servir Milanuncios Express.'),
   openSource: f('no', 'editorial', [], noRepo, { licence: 'Privativa' }),
   dataSummary:
-    'El que una persona compra i ven a Milanuncios, amb l’adreça, la ubicació precisa i els missatges, dibuixa la seva economia domèstica i els seus moviments. Qui ven sovint hi deixa també el NIF, el compte bancari i els imports cobrats, i els identificadors publicitaris permeten reconèixer-la fora del portal.',
+    'El que una persona compra i ven a Milanuncios, juntament amb l’adreça, la ubicació precisa i els missatges, dona informació sobre la seva economia domèstica i els seus desplaçaments. Qui ven sovint hi deixa també el NIF, el compte bancari i els imports cobrats, i els identificadors publicitaris permeten reconèixer-la fora del portal.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['milanuncios-privacy-policy', 'milanuncios-app-store'] }),
     row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'mesura-i-analisi-dus', 'publicitat-personalitzada'], sources: ['milanuncios-privacy-policy', 'milanuncios-app-store'], note: 'Es comparteix en format hash amb LiveRamp i ID5 si s’hi dona consentiment.' }),
@@ -319,7 +319,7 @@ const fotocasa: AppSeed = {
   accountRequired: f('partial', 'official', ['fotocasa-privacy-policy'], 'Es pot cercar sense compte; cal per desar cerques, crear alertes, publicar o xatejar.'),
   openSource: f('no', 'editorial', [], noRepo, { licence: 'Privativa' }),
   dataSummary:
-    'Les cerques d’habitatge revelen on vol viure una persona, amb quin pressupost i en quin moment vital: una mudança, una separació, un fill. Amb la ubicació precisa i els contactes amb agències, el conjunt diu molt de la seva situació econòmica i familiar.',
+    'Les cerques d’habitatge indiquen on vol viure una persona, amb quin pressupost i quan preveu canviar de casa. Amb la ubicació precisa i els contactes amb agències, donen informació sobre la seva situació econòmica i familiar.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['fotocasa-privacy-policy', 'fotocasa-app-store'], note: 'Es comunica a l’anunciant quan el contactes.' }),
     row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'mesura-i-analisi-dus', 'publicitat-personalitzada'], sources: ['fotocasa-privacy-policy', 'fotocasa-app-store'], note: 'Es comparteix en format hash amb LiveRamp si s’hi dona consentiment.' }),
@@ -426,7 +426,7 @@ const cochesNet: AppSeed = {
   categories: ['compravenda-entre-particulars', 'mobilitat-i-transport'],
   tagline: 'Compravenda de cotxes amb exportació de dades en JSON i xat d’IA que s’esborra en 48 hores',
   summary:
-    'coches.net és l’únic portal del lot amb una eina d’exportació documentada: des de l’àrea d’usuari s’obté un fitxer JSON en un termini de 30 dies. L’assistent de cerca Net AI esborra les converses al cap de 48 hores i, segons la política, no s’entrenen models propis amb aquestes converses. En canvi, les dades de contacte arriben a concessionaris, marques i entitats de finançament, i l’App Store declara rastreig entre aplicacions.',
+    'coches.net té una eina d’exportació documentada: des de l’àrea d’usuari s’obté un fitxer JSON en un termini de 30 dies. L’assistent de cerca Net AI esborra les converses al cap de 48 hores i, segons la política, no s’entrenen models propis amb aquestes converses. En canvi, les dades de contacte arriben a concessionaris, marques i entitats de finançament, i l’App Store declara rastreig entre aplicacions.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'freemium',
   jurisdiction: 'Espanya',
@@ -534,7 +534,7 @@ const cochesNet: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'És la política més recent del lot (19 de febrer de 2026) i l’única que regula l’ús de l’IA. L’ajuda encara parla del grup «Adevinta Spain». Els expedients de l’AEPD que la citen són contra tercers.',
+      'La política és del 19 de febrer de 2026 i regula l’ús de l’IA. L’ajuda encara parla del grup «Adevinta Spain». Els expedients de l’AEPD que la citen són contra tercers.',
     openQuestions: ['Quin proveïdor fa funcionar Net AI i quines dades de la conversa rep?'],
   },
 }
@@ -554,7 +554,7 @@ const ipasen: AppSeed = {
   categories: ['educacio', 'administracio-publica'],
   tagline: 'Notes, faltes i missatges de l’alumnat andalús amb una política de privadesa anterior al RGPD',
   summary:
-    'iPasen és la finestra mòbil de Séneca, el sistema de gestió escolar de la Junta: famílies i alumnat hi veuen notes, faltes d’assistència i missatges del professorat, i hi signen documents. La política de privadesa es limita a dir que l’aplicació no afegeix dades a les que ja té la Conselleria i remet a drets de l’antiga llei (accés, rectificació, cancel·lació i oposició). L’App Store diu que no recull cap dada.',
+    'iPasen és l’aplicació mòbil de Séneca, el sistema de gestió escolar de la Junta: famílies i alumnat hi veuen notes, faltes d’assistència i missatges del professorat, i hi signen documents. La política de privadesa es limita a dir que l’aplicació no afegeix dades a les que ja té la Conselleria i remet a drets de l’antiga llei (accés, rectificació, cancel·lació i oposició). L’App Store diu que no recull cap dada.',
   platforms: ['ios', 'android'],
   businessModel: 'public-service',
   jurisdiction: 'Espanya (Andalusia); autoritat de control: Consejo de Transparencia y Protección de Datos de Andalucía',
@@ -579,14 +579,14 @@ const ipasen: AppSeed = {
     dpo: f('yes', 'official', ['junta-andalucia-rat-educacio'], 'El registre d’activitats publica el correu del delegat de protecció de dades de la Conselleria de Desenvolupament Educatiu i Formació Professional.', {
       contact: 'dpd.ced@juntadeandalucia.es',
     }),
-    offlineAlternative: f('partial', 'official', ['ipasen-portal-pasen'], 'El portal PASEN manté un accés web amb usuari i clau o amb certificat —l’accés amb codi QR sí que demana l’aplicació— i, per a qualsevol dubte, remet al centre educatiu. No hem trobat cap document que reguli una via presencial, telefònica o per correu per consultar notes, faltes i comunicacions.'),
+    offlineAlternative: f('partial', 'official', ['ipasen-portal-pasen'], 'El portal PASEN manté un accés web amb usuari i clau o amb certificat (l’accés amb codi QR sí que demana l’aplicació) i, per a qualsevol dubte, remet al centre educatiu. No hem trobat cap document que reguli una via presencial, telefònica o per correu per consultar notes, faltes i comunicacions.'),
     accessibilityStatement: f('partial', 'official', ['junta-andalucia-accessibilitat'], 'La Junta declara el seu web «parcialment conforme» amb el Reial decret 1112/2018, per autoavaluació segons la UNE-EN 301-549:2022 i amb revisió del 16 de setembre de 2025. La declaració cobreix juntadeandalucia.es; no n’hi ha cap d’específica per a l’aplicació mòbil.', {
       url: 'https://www.juntadeandalucia.es/informacion/accesibilidad.html',
     }),
-    mandatoryRetention: f('yes', 'official', ['junta-andalucia-rat-educacio'], 'El registre d’activitats diu que els documents oficials d’avaluació —expedient acadèmic, actes d’avaluació, historial acadèmic i informe personal per trasllat— «se conservarán permanentemente», i la resta de dades, mentre l’alumnat estigui escolaritzat i pels terminis de la normativa d’arxius. La conservació és un mandat de la normativa educativa (Llei orgànica 2/2006 i Llei 17/2007 d’educació d’Andalusia), no una decisió de l’aplicació: l’expedient escolar no es pot esborrar.'),
+    mandatoryRetention: f('yes', 'official', ['junta-andalucia-rat-educacio'], 'El registre d’activitats diu que els documents oficials d’avaluació (expedient acadèmic, actes d’avaluació, historial acadèmic i informe personal per trasllat) «se conservarán permanentemente», i la resta de dades, mentre l’alumnat estigui escolaritzat i pels terminis de la normativa d’arxius. La conservació la imposa la normativa educativa (Llei orgànica 2/2006 i Llei 17/2007 d’educació d’Andalusia), i l’expedient escolar no es pot esborrar.'),
   },
   dataSummary:
-    'iPasen recull la vida escolar d’infants i adolescents: qualificacions, absències, incidències, comunicacions amb el professorat i documents signats. Són dades de menors que acompanyen tota l’escolarització i que el centre i les famílies consulten en temps real.',
+    'iPasen conté dades escolars d’infants i adolescents: qualificacions, absències, incidències, comunicacions amb el professorat i documents signats. Són dades de menors que acompanyen tota l’escolarització i que el centre i les famílies consulten en temps real.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['ipasen-privacy-policy'], note: 'Dades de l’alumnat i de les famílies que ja són a Séneca.' }),
     row('identificador-de-compte', 'yes', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['ipasen-privacy-policy'] }),
@@ -695,11 +695,11 @@ const saludResponde: AppSeed = {
     dpo: f('yes', 'official', ['sas-privacy-policy'], 'El SAS identifica el delegat de protecció de dades i en publica el correu com a canal de comunicació informal i de reclamació.', {
       contact: 'dpd.sspa@juntadeandalucia.es',
     }),
-    offlineAlternative: f('yes', 'official', ['sas-salud-responde-servei'], 'Salud Responde és, abans que res, un servei telefònic: el 955 54 50 60 atén les 24 hores tots els dies de l’any i hi gestiona les mateixes cites que l’aplicació. També es poden demanar al taulell del centre de salut.'),
+    offlineAlternative: f('yes', 'official', ['sas-salud-responde-servei'], 'Salud Responde és sobretot un servei telefònic: el 955 54 50 60 atén les 24 hores tots els dies de l’any i hi gestiona les mateixes cites que l’aplicació. També es poden demanar al taulell del centre de salut.'),
     accessibilityStatement: f('partial', 'official', ['sas-accessibilitat'], 'El SAS declara el seu web «parcialment conforme» amb el Reial decret 1112/2018, amb una darrera revisió del 10 d’agost de 2020. La declaració s’aplica al portal sspa.juntadeandalucia.es i no esmenta les aplicacions mòbils.', {
       url: 'https://www.sspa.juntadeandalucia.es/servicioandaluzdesalud/accesibilidad',
     }),
-    mandatoryRetention: f('yes', 'official', ['junta-andalucia-rat-historia-salut', 'sas-privacy-policy'], 'Les cites d’atenció primària s’incorporen a la història de salut, i el registre d’activitats del SAS en fixa la conservació per l’article 17 de la Llei 41/2002, bàsica reguladora de l’autonomia del pacient, que obliga a conservar la documentació clínica com a mínim cinc anys des de l’alta de cada procés, a més del que disposa la normativa d’arxius. Per això la persona no pot fer desaparèixer el seu rastre de cites, encara que deixi d’usar l’aplicació.'),
+    mandatoryRetention: f('yes', 'official', ['junta-andalucia-rat-historia-salut', 'sas-privacy-policy'], 'Les cites d’atenció primària s’incorporen a la història de salut, i el registre d’activitats del SAS en fixa la conservació per l’article 17 de la Llei 41/2002, bàsica reguladora de l’autonomia del pacient, que obliga a conservar la documentació clínica com a mínim cinc anys des de l’alta de cada procés, a més del que disposa la normativa d’arxius. Per això les cites es conserven encara que la persona deixi d’usar l’aplicació.'),
   },
   dataSummary:
     'Les cites mèdiques diuen quan i amb quina freqüència una persona va al metge o a infermeria, i en quin centre. Són dades de salut encara que no incloguin el diagnòstic.',
@@ -790,7 +790,7 @@ const sae: AppSeed = {
   categories: ['feina-i-ocupacio', 'administracio-publica'],
   tagline: 'Demanda d’ocupació al mòbil sense perfilat i sense transferències fora de l’Espai Econòmic Europeu',
   summary:
-    'L’aplicació del Servei Andalús d’Ocupació permet renovar la demanda d’ocupació, demanar cita, consultar ofertes i enviar el currículum. La política diu expressament que no es fan decisions automatitzades ni perfils i que les dades no surten de l’Espai Econòmic Europeu. És l’única aplicació andalusa del lot que declara dades a l’App Store: dades d’ús i errors vinculats a la identitat.',
+    'L’aplicació del Servei Andalús d’Ocupació permet renovar la demanda d’ocupació, demanar cita, consultar ofertes i enviar el currículum. La política diu expressament que no es fan decisions automatitzades ni perfils i que les dades no surten de l’Espai Econòmic Europeu. A l’App Store declara dades d’ús i errors vinculats a la identitat.',
   platforms: ['ios', 'android'],
   businessModel: 'public-service',
   jurisdiction: 'Espanya (Andalusia); autoritat de control: Consejo de Transparencia y Protección de Datos de Andalucía',
@@ -912,7 +912,7 @@ const saludAndalucia: AppSeed = {
   categories: ['salut-i-assistencia-sanitaria', 'administracio-publica'],
   tagline: 'Història de salut i targeta sanitària al mòbil, amb una etiqueta que diu que no recull cap dada',
   summary:
-    'Salud Andalucía dona accés a la targeta sanitària virtual, cites, medicació, informes, proves i vacunes de la història de salut andalusa, i fins i tot a videotrucades amb professionals. La política del SAS ho detalla i diu que no es venen dades ni es fan perfils, però l’App Store declara que l’aplicació no recull cap dada. Per retirar-se’n, la política diu que n’hi ha prou de desinstal·lar-la; les dades clíniques queden a la història de salut.',
+    'Salud Andalucía dona accés a la targeta sanitària virtual, cites, medicació, informes, proves i vacunes de la història de salut andalusa, i a videotrucades amb professionals. La política del SAS ho detalla i diu que no es venen dades ni es fan perfils, però l’App Store declara que l’aplicació no recull cap dada. Per retirar-se’n, la política diu que n’hi ha prou de desinstal·lar-la; les dades clíniques queden a la història de salut.',
   platforms: ['ios', 'android'],
   businessModel: 'public-service',
   jurisdiction: 'Espanya (Andalusia); autoritat de control: Consejo de Transparencia y Protección de Datos de Andalucía',
@@ -933,7 +933,7 @@ const saludAndalucia: AppSeed = {
       url: 'https://www.juntadeandalucia.es/protecciondedatos/detalle/210584.html',
     }),
     dpia: unknown('No hem trobat publicada cap avaluació d’impacte de l’aplicació ni de la història de salut d’Andalusia.'),
-    ensConformity: f('partial', 'official', ['sas-privacy-policy', 'junta-andalucia-rat-historia-salut'], 'El SAS diu que aplica les mesures de l’annex II de l’Esquema Nacional de Seguretat, però ho fa citant el Reial decret 3/2010, derogat pel Reial decret 311/2022, i només esmenta una categoria —el nivell alt— per a l’eina Zoom, no per a l’aplicació. No publica cap declaració de conformitat.'),
+    ensConformity: f('partial', 'official', ['sas-privacy-policy', 'junta-andalucia-rat-historia-salut'], 'El SAS diu que aplica les mesures de l’annex II de l’Esquema Nacional de Seguretat, però ho fa citant el Reial decret 3/2010, derogat pel Reial decret 311/2022, i només esmenta una categoria (el nivell alt) per a l’eina Zoom, no per a l’aplicació. No publica cap declaració de conformitat.'),
     dpo: f('yes', 'official', ['sas-privacy-policy'], 'El SAS identifica el delegat de protecció de dades, en publica el correu i el presenta com la via prèvia a la reclamació davant l’autoritat de control.', {
       contact: 'dpd.sspa@juntadeandalucia.es',
     }),
@@ -941,7 +941,7 @@ const saludAndalucia: AppSeed = {
     accessibilityStatement: f('partial', 'official', ['sas-accessibilitat'], 'El SAS declara el seu web «parcialment conforme» amb el Reial decret 1112/2018, amb una darrera revisió del 10 d’agost de 2020. La declaració s’aplica al portal i no esmenta les aplicacions mòbils, tot i que el reial decret també les cobreix.', {
       url: 'https://www.sspa.juntadeandalucia.es/servicioandaluzdesalud/accesibilidad',
     }),
-    mandatoryRetention: f('yes', 'official', ['junta-andalucia-rat-historia-salut', 'sas-privacy-policy'], 'El registre d’activitats de la història de salut fixa la conservació en l’article 17 de la Llei 41/2002, bàsica reguladora de l’autonomia del pacient —documentació clínica conservada com a mínim cinc anys des de l’alta de cada procés—, amb els afegits de l’article 23 de la Llei orgànica 2/2010 i de l’article 52 de la Llei 14/2007 d’investigació biomèdica, i el que disposa la normativa d’arxius. Desinstal·lar l’aplicació esborra les dades que recull l’app, però no la història clínica, que la llei obliga a mantenir.'),
+    mandatoryRetention: f('yes', 'official', ['junta-andalucia-rat-historia-salut', 'sas-privacy-policy'], 'El registre d’activitats de la història de salut fixa la conservació en l’article 17 de la Llei 41/2002, bàsica reguladora de l’autonomia del pacient (documentació clínica conservada com a mínim cinc anys des de l’alta de cada procés), amb els afegits de l’article 23 de la Llei orgànica 2/2010 i de l’article 52 de la Llei 14/2007 d’investigació biomèdica, i el que disposa la normativa d’arxius. Desinstal·lar l’aplicació esborra les dades que recull l’app, però no la història clínica, que la llei obliga a mantenir.'),
   },
   dataSummary:
     'L’aplicació dona accés a la història clínica: medicació, informes, resultats de proves, vacunes, baixes laborals i llista d’espera quirúrgica. És la categoria de dades més sensible del RGPD, lligada al número d’usuari del sistema sanitari i al DNI.',

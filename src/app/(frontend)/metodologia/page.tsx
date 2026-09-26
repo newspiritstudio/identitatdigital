@@ -136,8 +136,8 @@ export default async function MethodologyPage() {
             <p>
               Les fitxes marcades com a servei públic es puntuen amb set indicadors més, que
               substitueixen el programa de recompenses i l’informe de transparència. Un ajuntament no
-              té cap d’aquestes dues coses i no té sentit restar-li punts per això; el que sí que ha de
-              tenir és una base legal publicada, un registre d’activitats de tractament i un delegat de
+              té cap d’aquestes dues coses i no se li resten punts per això. En canvi, ha de tenir
+              una base legal publicada, un registre d’activitats de tractament i un delegat de
               protecció de dades.
             </p>
             {(methodology.dimensions ?? [])

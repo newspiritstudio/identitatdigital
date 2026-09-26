@@ -108,7 +108,7 @@ export const companies: CompanySeed[] = [
     name: 'ByteDance',
     legalName: 'ByteDance Ltd.',
     description:
-      'Grup d’origen xinès, constituït a les Illes Caiman, propietari de TikTok i de Douyin. La ubicació real de les dades europees i l’accés des de la Xina han estat objecte de decisions sancionadores.',
+      'Grup d’origen xinès, constituït a les Illes Caiman, propietari de TikTok i de Douyin. La ubicació de les dades europees i l’accés des de la Xina han estat objecte de decisions sancionadores.',
     headquartersCountry: 'CN',
     ownership: 'private',
     foundedYear: 2012,
@@ -308,7 +308,7 @@ export const companies: CompanySeed[] = [
     name: 'Pinterest',
     legalName: 'Pinterest, Inc.',
     description:
-      'Plataforma de descobriment visual on el catàleg d’imatges desades funciona, de fet, com una declaració d’intencions de compra.',
+      'Plataforma de descobriment visual. Les imatges que s’hi desen permeten inferir intencions de compra.',
     headquartersCountry: 'US',
     euEstablishment: 'IE',
     leadSupervisoryAuthority: 'dpc-ie',

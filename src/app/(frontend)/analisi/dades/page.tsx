@@ -69,7 +69,8 @@ export default async function DataTypesPage() {
         Cada fitxa porta una matriu on consta, tipus de dada per tipus de dada, si el servei el
         recull, si el lliga a la identitat de la persona, si el fa servir per seguir-la fora del
         servei i amb qui el comparteix. Sumades, les {num(analysis.totalRows)} files d’aquestes
-        matrius responen la pregunta que cap fitxa no pot respondre sola: qui recull això?
+        matrius permeten saber quants serveis recullen cada tipus de dada, cosa que cap fitxa sola
+        no pot dir.
       </p>
 
       <KeyNumbers>
@@ -83,8 +84,8 @@ export default async function DataTypesPage() {
       <p>
         La columna d’abast compta les fitxes on la dada acaba als servidors del servei, tant si es
         recull sempre com si només es recull quan la persona activa una funció. Les dues columnes
-        següents es calculen només sobre aquestes fitxes: preguntar si una dada que no es recull
-        queda vinculada a la identitat no té resposta possible.
+        següents es calculen només sobre aquestes fitxes, perquè una dada que no es recull no pot
+        quedar vinculada a la identitat.
       </p>
       <Scroller label="Tipus de dada del vocabulari, amb quantes fitxes els recullen, els lliguen a la identitat, els fan servir per al seguiment i els cedeixen a tercers">
         <table>
@@ -134,24 +135,23 @@ export default async function DataTypesPage() {
         Buits d’aquesta taula: {num(collectionUnknown)} files no diuen si la dada es recull,{' '}
         {num(linkageUnknown)} no diuen si queda vinculada a la identitat, {num(trackingUnknown)} no
         diuen si serveix per al seguiment i {num(sharingUnknown)} no diuen amb qui es comparteix. La
-        matriu de dades és, ara mateix, la part més ben documentada del projecte; el que està pitjor
+        matriu de dades és ara la part més ben documentada del projecte; el que està pitjor
         documentat és a <Link href="/analisi/evidencia">la pàgina d’evidència</Link>.
       </Note>
 
       <h2>De dada tècnica a historial amb nom</h2>
       <p>
-        La diferència entre una dada recollida i una dada vinculada a la identitat és tot el que hi
-        ha entre una estadística i un expedient. {present[0]?.name} apareix a{' '}
+        Una dada recollida pot servir per fer estadístiques; una dada vinculada a la identitat passa
+        a formar part de l’expedient d’una persona. {present[0]?.name} apareix a{' '}
         {num(present[0]?.reach ?? 0)} de les {num(apps)} fitxes i{' '}
-        {num(present[0]?.linkedToIdentity ?? 0)} d’aquestes la lliguen a un compte. A partir d’aquí,
-        cada connexió deixa de ser un registre tècnic anònim i passa a ser una línia d’un historial
-        que té nom, hora i lloc aproximat.
+        {num(present[0]?.linkedToIdentity ?? 0)} d’aquestes la lliguen a un compte. En aquests
+        casos, cada connexió queda registrada en un historial amb nom, hora i lloc aproximat.
       </p>
       <p>
         Hi ha raons tècniques legítimes per registrar aquestes dades, com la seguretat, la detecció
-        d’abús o el compliment legal, i moltes polítiques les expliquen. El que la taula deixa veure
-        és que la mateixa dada que serveix per protegir el compte serveix, al mateix temps i sense
-        tornar a demanar res, per construir el perfil.
+        d’abús o el compliment legal, i moltes polítiques les expliquen. La taula mostra que la
+        mateixa dada que serveix per protegir el compte serveix també per construir el perfil, sense
+        que se n’hagi de tornar a demanar permís.
       </p>
 
       <h2>Les dades que serveixen per seguir la gent</h2>
@@ -187,19 +187,19 @@ export default async function DataTypesPage() {
         </tbody>
       </table>
       <p>
-        Aquí és on la cessió a tercers pesa més. De les {num(analysis.totalRows)} files de la
+        En aquest punt pesa la cessió a tercers. De les {num(analysis.totalRows)} files de la
         matriu, {num(graph.rowsToThirdParties)} declaren que la dada es comparteix amb tercers,{' '}
         {num(graph.rowsWithinGroup)} que es comparteix dins del mateix grup empresarial i{' '}
-        {num(graph.rowsSharedWithNobody)} que no es comparteix amb ningú. Qui són aquests tercers és
-        una pregunta que el model encara no sap respondre, i està explicada a{' '}
+        {num(graph.rowsSharedWithNobody)} que no es comparteix amb ningú. El model encara no sap qui
+        són aquests tercers; el motiu s’explica a{' '}
         <Link href="/analisi/grups">la pàgina de grups</Link>.
       </p>
 
       <h2>Categories especials</h2>
       <p>
-        El Reglament general de protecció de dades tracta a part unes quantes categories —salut,
-        biometria, conviccions, orientació sexual, origen ètnic— perquè el dany d’una filtració no
-        és comparable. Al directori hi apareixen així:
+        El Reglament general de protecció de dades tracta a part unes quantes categories (salut,
+        biometria, conviccions, orientació sexual, origen ètnic) perquè el dany d’una filtració és
+        més greu. Al directori hi apareixen així:
       </p>
       <table>
         <caption className="visually-hidden">
@@ -227,9 +227,9 @@ export default async function DataTypesPage() {
         </tbody>
       </table>
       <Note>
-        Les xifres d’aquesta taula són massa petites per generalitzar-hi res. No diuen que el sector
-        reculli categories especials ni que no ho faci: diuen quines fitxes concretes ho declaren, i
-        cada cas s’ha de llegir a la seva fitxa, amb la funció que el justifica al costat.
+        Les xifres d’aquesta taula són massa petites per generalitzar sobre el sector. Indiquen
+        quines fitxes ho declaren, i cada cas s’ha de llegir a la seva fitxa, amb la funció que el
+        justifica al costat.
       </Note>
 
       <h2>El que el catàleg preveu i cap fitxa no documenta</h2>
@@ -239,9 +239,9 @@ export default async function DataTypesPage() {
       </p>
       <Note>
         Que no hi siguin no vol dir que ningú no els reculli. Una contrasenya o una data de
-        naixement són dades que molts serveis demanen; el que diu aquesta llista és que cap de les{' '}
-        {num(apps)} fitxes no ho ha documentat com a fila de la matriu. És feina nostra pendent, no
-        una afirmació sobre els serveis.
+        naixement són dades que molts serveis demanen; aquesta llista indica que cap de les{' '}
+        {num(apps)} fitxes no ho ha documentat com a fila de la matriu. És feina pendent nostra i no
+        diu res sobre els serveis.
       </Note>
 
       <BackToIndex />

@@ -838,10 +838,10 @@ export function CompanyGraph({
                       }}
                       tabIndex={0}
                       role="button"
-                      aria-label={`Veure la fitxa de ${
+                      aria-label={`Veure la fitxa ${de(
                         current?.name ??
-                        node.name
-                      }`}
+                        node.name,
+                      )}`}
                       style={{
                         cursor:
                           'pointer',
@@ -945,8 +945,7 @@ export function CompanyGraph({
       >
         <table>
           <caption className="visually-hidden">
-            Identificació de{' '}
-            {selectedCompany.name}
+            {`Identificació ${de(selectedCompany.name)}`}
           </caption>
 
           <tbody>

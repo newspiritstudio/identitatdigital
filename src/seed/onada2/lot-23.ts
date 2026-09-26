@@ -280,7 +280,7 @@ export const lot: SeedLot = {
     s('anystories-app-store', 'AnyStories - Novelas y Libros — App Store (Privacidad de la app)', 'https://apps.apple.com/es/app/id1500217654', 'Apple', 'app-store', 'primary', {
       language: 'es',
       summary:
-        'Etiqueta de privadesa de l’app. Declara els identificadors com a dades per rastrejar i posa tota la resta —compres, adreça electrònica, historial de cerca, identificador d’usuari i de dispositiu, interacció amb el producte i diagnòstics— a l’apartat de dades no vinculades amb la identitat, tot i que la política descriu un compte amb correu i contrasenya.',
+        'Etiqueta de privadesa de l’app. Declara els identificadors com a dades per rastrejar i posa tota la resta (compres, adreça electrònica, historial de cerca, identificador d’usuari i de dispositiu, interacció amb el producte i diagnòstics) a l’apartat de dades no vinculades amb la identitat, tot i que la política descriu un compte amb correu i contrasenya.',
     }),
     s('anystories-privacy-policy', 'AnyStories Privacy Policy', 'https://www.anystories.app/protocol.html?packageName=write.read.story.webnovel.book.anystories&appName=AnyStories&os=ios&lang=en&keys=privacy-policy', 'READ ASAP LTD', 'privacy-policy', 'primary', {
       language: 'en',
@@ -393,7 +393,7 @@ export const lot: SeedLot = {
     s('readera-privacy-android', 'Privacy Policy ReadEra for Android', 'https://readera.org/privacy', 'READERA EOOD', 'privacy-policy', 'primary', {
       language: 'en',
       summary:
-        'Política de la versió per a Android, que serveix per contrastar: aquella sí que recull estadístiques tècniques anònimes (errors, rendiment i ús de funcions), desactivables des de la configuració, i tampoc no les cedeix a tercers.',
+        'Política de la versió per a Android. A diferència de la d’iOS, recull estadístiques tècniques anònimes (errors, rendiment i ús de funcions), desactivables des de la configuració, i tampoc no les cedeix a tercers.',
     }),
     s('readera-premium', 'ReadEra Premium', 'https://readera.org/premium', 'READERA EOOD', 'support-doc', 'primary', {
       language: 'en',
@@ -437,7 +437,7 @@ export const lot: SeedLot = {
     s('novelo-app-store', 'NovelO - Read Books & Novels — App Store (Privacidad de la app)', 'https://apps.apple.com/es/app/id6801094167', 'Apple', 'app-store', 'primary', {
       language: 'es',
       summary:
-        'Etiqueta de privadesa de l’app. Declara les dades d’ús com a dades per rastrejar i posa la resta —identificador de dispositiu, interacció amb el producte, dades de publicitat i diagnòstics— com a no vinculades amb la identitat. No hi consta cap dada vinculada, tot i que la política descriu un compte. Compres integrades: 22,99 € setmanals i 99,90 € anuals.',
+        'Etiqueta de privadesa de l’app. Declara les dades d’ús com a dades per rastrejar i posa la resta (identificador de dispositiu, interacció amb el producte, dades de publicitat i diagnòstics) com a no vinculades amb la identitat. No hi consta cap dada vinculada, tot i que la política descriu un compte. Compres integrades: 22,99 € setmanals i 99,90 € anuals.',
     }),
     s('novelo-privacy-policy', 'NovelO Privacy Policy', 'https://novelooo.com/privacy.html', 'Kynix Group Limited', 'privacy-policy', 'primary', {
       language: 'en',
@@ -452,9 +452,9 @@ export const lot: SeedLot = {
       name: 'Diccionario de la lengua española (DLE)',
       company: 'real-academia-espanola',
       categories: ['traduccio-i-referencia', 'llibres-i-lectura'],
-      tagline: 'Una app que no recull cap dada i que, precisament per això, es permet no tenir política de privadesa pròpia',
+      tagline: 'Una app que no recull cap dada i que no té política de privadesa pròpia',
       summary:
-        'El diccionari oficial de la Real Academia Española cap en 4,6 MB, funciona sense connexió, no demana registre i no mostra publicitat gràcies al patrocini de la Fundació «la Caixa». L’etiqueta de l’App Store és la més curta possible: «No se recopilan datos». La contrapartida és documental: la fitxa no enllaça cap política de privadesa, i l’única que publica la RAE diu explícitament que només cobreix el web www.rae.es. A la pàgina hi ha, això sí, un security.txt en regla, cosa gens habitual en una institució d’aquesta mena.',
+        'El diccionari oficial de la Real Academia Española cap en 4,6 MB, funciona sense connexió, no demana registre i no mostra publicitat gràcies al patrocini de la Fundació «la Caixa». L’etiqueta de l’App Store és la més curta possible: «No se recopilan datos». En canvi, la fitxa no enllaça cap política de privadesa, i l’única que publica la RAE diu explícitament que només cobreix el web www.rae.es. La RAE sí que publica un security.txt en regla, cosa gens habitual en una institució d’aquesta mena.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'donations',
       jurisdiction: 'Espanya (UE)',
@@ -468,7 +468,7 @@ export const lot: SeedLot = {
       accountRequired: f('no', 'official', ['rae-app-store'], 'L’etiqueta declara que no es recull cap dada i la fitxa no descriu cap registre ni inici de sessió.'),
       openSource: f('no', 'official', ['rae-app-store'], 'No hem trobat cap repositori públic del codi de l’aplicació.', { licence: 'Privativa' }),
       dataSummary:
-        'El que es consulta en un diccionari pot ser tan revelador com un historial de cerca: paraules relacionades amb malalties, amb sexualitat o amb feines. Aquí la troballa és que, segons la declaració de l’App Store, aquestes consultes no surten del dispositiu. L’historial de consultes que sí que es conserva és el de la versió web, quan s’hi fa servir un compte.',
+        'El que es consulta en un diccionari pot ser tan revelador com un historial de cerca: paraules relacionades amb malalties, amb sexualitat o amb feines. Segons la declaració de l’App Store, a l’app aquestes consultes no surten del dispositiu. L’historial de consultes que sí que es conserva és el de la versió web, quan s’hi fa servir un compte.',
       dataCollection: [
         row('historial-de-cerca', 'no', { linked: 'no', tracking: 'no', shared: 'none', sources: ['rae-app-store', 'rae-consultes'], note: 'A l’app no es recull cap dada. La política del web, en canvi, diu que a rae.es es manté un històric de les consultes lingüístiques fetes per la persona usuària.' }),
         row('identificador-de-dispositiu', 'no', { linked: 'no', tracking: 'no', shared: 'none', sources: ['rae-app-store'] }),
@@ -538,7 +538,7 @@ export const lot: SeedLot = {
         {
           app: 'ebiblio',
           comparability: 'complementary',
-          rationale: 'És l’altre servei de referència en castellà del lot que funciona sense ànim de lucre i sense publicitat.',
+          rationale: 'És un servei de referència en castellà que funciona sense ànim de lucre i sense publicitat.',
           tradeOffs: 'Fa una cosa completament diferent: presta llibres, no defineix paraules, i sí que tracta dades personals.',
         },
       ],
@@ -547,7 +547,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'És la fitxa amb menys tractament de dades del lot, juntament amb ReadEra, i el security.txt en regla és un detall que institucions molt més grans no tenen. El retret és de forma: distribuir una app sense cap política de privadesa enllaçada i amb una política corporativa que declara expressament que només cobreix el web deixa la persona usuària sense cap document al qual agafar-se si algun dia la recollida canvia. La política tampoc no porta data de revisió, i no n’hi ha cap còpia a l’Internet Archive que permeti datar-la. El domini bloqueja les peticions automatitzades amb Cloudflare; l’hem llegida a través d’un servei de lectura i hem contrastat l’avís legal amb una còpia arxivada. No hem trobat cap sanció de l’AEPD ni cap filtració relacionada amb la RAE.',
+          'Tracta molt poques dades, i el security.txt en regla és un detall que institucions molt més grans no tenen. El problema és formal: distribuir una app sense cap política de privadesa enllaçada i amb una política corporativa que declara expressament que només cobreix el web deixa la persona usuària sense cap document de referència si algun dia la recollida canvia. La política tampoc no porta data de revisió, i no n’hi ha cap còpia a l’Internet Archive que permeti datar-la. El domini bloqueja les peticions automatitzades amb Cloudflare; l’hem llegida a través d’un servei de lectura i hem contrastat l’avís legal amb una còpia arxivada. No hem trobat cap sanció de l’AEPD ni cap filtració relacionada amb la RAE.',
         openQuestions: [
           'Per què la fitxa de l’App Store no enllaça cap política de privadesa ni cap web del desenvolupador?',
           'Hi ha alguna política específica de l’aplicació, i de quina data és la del web?',
@@ -562,7 +562,7 @@ export const lot: SeedLot = {
       categories: ['llibres-i-lectura', 'administracio-publica'],
       tagline: 'El préstec digital de les biblioteques públiques, amb dues polítiques de privadesa incompatibles per a la mateixa app',
       summary:
-        'eBiblio és el servei de préstec de llibres electrònics, audiollibres, diaris i revistes de les biblioteques públiques espanyoles: gratuït, amb el carnet de la biblioteca i amb el Ministeri de Cultura com a responsable del tractament sota l’article 6.1.e del RGPD. La base jurídica és impecable i la política diu expressament que no es fan perfils. El problema és que l’app és una versió de marca blanca de Cantook, de l’empresa quebequesa De Marque, i la política de Cantook admet coses que la del Ministeri no esmenta: l’històric de préstecs, els marcadors, els subratllats i les notes, i servidors al Quebec sobre Google Cloud.',
+        'eBiblio és el servei de préstec de llibres electrònics, audiollibres, diaris i revistes de les biblioteques públiques espanyoles: gratuït, amb el carnet de la biblioteca i amb el Ministeri de Cultura com a responsable del tractament sota l’article 6.1.e del RGPD. La base jurídica és explícita i la política diu expressament que no es fan perfils. Però l’app és una versió de marca blanca de Cantook, de l’empresa quebequesa De Marque, i la política de Cantook admet coses que la del Ministeri no esmenta: l’històric de préstecs, els marcadors, els subratllats i les notes, i servidors al Quebec sobre Google Cloud.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'freemium',
       jurisdiction: 'Espanya (UE), amb tractament al Canadà',
@@ -575,7 +575,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['ebiblio-privacy-policy', 'ebiblio-app-store'], 'Cal ser soci d’una biblioteca pública: l’alta al servei la fa la biblioteca, no la persona usuària des de l’app.'),
       openSource: f('no', 'official', ['ebiblio-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'Què llegeix una persona a la biblioteca pública és una dada que la legislació de biblioteques ha protegit tradicionalment amb molta cura. La política del Ministeri només reconeix el nom, l’identificador de soci i el correu; la de Cantook hi afegeix la llista de préstecs en curs, l’històric complet, les reserves, la llista de desitjos i fins i tot els subratllats i les notes que es fan dins els llibres.',
+        'La legislació de biblioteques ha protegit tradicionalment amb molta cura què llegeix cada persona a la biblioteca pública. La política del Ministeri només reconeix el nom, l’identificador de soci i el correu; la de Cantook hi afegeix la llista de préstecs en curs, l’històric complet, les reserves, la llista de desitjos i fins i tot els subratllats i les notes que es fan dins els llibres.',
       dataCollection: [
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['ebiblio-privacy-policy'], note: 'Procedent de la fitxa de soci de la biblioteca pública.' }),
         row('identificador-de-compte', 'yes', { linked: 'no', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['ebiblio-privacy-policy', 'ebiblio-app-store', 'ebiblio-cantook-privacy'], note: 'Número de carnet de la biblioteca. La política del Ministeri el tracta com a dada identificativa, però l’etiqueta de l’App Store el declara com a dada NO vinculada amb la identitat.' }),
@@ -596,7 +596,7 @@ export const lot: SeedLot = {
       },
       dataUses: {
         targetedAdvertising: f('no', 'official', ['ebiblio-privacy-policy'], 'És un servei públic de préstec sense publicitat; la finalitat declarada és només permetre l’accés al préstec i les reserves.'),
-        profiling: f('no', 'official', ['ebiblio-privacy-policy'], 'La política diu literalment que «en ningún caso se realizarán tomas decisiones individuales automatizadas, incluida la elaboración de perfiles».'),
+        profiling: f('no', 'official', ['ebiblio-privacy-policy'], 'La política diu que «en ningún caso se realizarán tomas decisiones individuales automatizadas, incluida la elaboración de perfiles».'),
         aiTraining: unknown('Cap de les dues polítiques no en parla.'),
       },
       sharing: {
@@ -621,7 +621,7 @@ export const lot: SeedLot = {
         steps: [
           'Adreça’t a la biblioteca pública on ets soci, o a la xarxa de biblioteques de la teva comunitat autònoma, i demana la baixa del servei eBiblio.',
           'Si el que vols és exercir el dret de supressió davant el responsable, escriu al delegat de protecció de dades del Ministerio de Cultura a dpd@cultura.gob.es o presenta la sol·licitud a la seva seu electrònica.',
-          'Per a les dades en mans de De Marque —històric de préstecs, marcadors, subratllats i notes— la política de Cantook remet a aide@demarque.com.',
+          'Per a les dades en mans de De Marque (històric de préstecs, marcadors, subratllats i notes), la política de Cantook remet a aide@demarque.com.',
         ],
         obstacles: 'No hi ha cap botó ni formulari dins l’app; la baixa depèn de cada xarxa autonòmica de biblioteques. Cap dels documents no fixa un termini de resposta.',
         dataRetained: 'Les dades es conserven bloquejades durant els terminis de prescripció de les responsabilitats derivades del servei.',
@@ -667,7 +667,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'eBiblio fa moltes coses bé: base jurídica explícita, exclusió del perfilat, absència de publicitat i un informe anual d’ús. La fractura és entre les tres capes del servei. La política que enllaça l’App Store és la del Ministeri i no esmenta ni De Marque, ni l’històric de préstecs, ni els subratllats i les notes, ni els servidors del Quebec: tot això només surt a la política de Cantook, en francès, que la persona usuària no té cap motiu per anar a buscar. L’etiqueta de l’App Store, a més, declara l’identificador d’usuari com a dada no vinculada amb la identitat quan la política diu que és el número de carnet. Les condicions d’ús de l’aplicació no es podien llegir en el moment de la consulta. No hem trobat cap sanció ni cap filtració documentada relacionada amb eBiblio, De Marque, Cantook o Libranda.',
+          'eBiblio fa moltes coses bé: base jurídica explícita, exclusió del perfilat, absència de publicitat i un informe anual d’ús. El problema és la desconnexió entre les tres capes del servei. La política que enllaça l’App Store és la del Ministeri i no esmenta ni De Marque, ni l’històric de préstecs, ni els subratllats i les notes, ni els servidors del Quebec: tot això només surt a la política de Cantook, en francès, que no és la que enllaça l’App Store. L’etiqueta de l’App Store, a més, declara l’identificador d’usuari com a dada no vinculada amb la identitat quan la política diu que és el número de carnet. Les condicions d’ús de l’aplicació no es podien llegir en el moment de la consulta. No hem trobat cap sanció ni cap filtració documentada relacionada amb eBiblio, De Marque, Cantook o Libranda.',
         openQuestions: [
           'Per què la política del Ministeri no declara el tractament al Canadà ni l’històric de lectura que sí que descriu la de Cantook?',
           'Qui és el delegat de protecció de dades de De Marque a la Unió Europea?',
@@ -681,9 +681,9 @@ export const lot: SeedLot = {
       name: 'Galatea',
       company: 'inkitt',
       categories: ['llibres-i-lectura'],
-      tagline: 'Una editorial berlinesa que fa passar la lectura de novel·la romàntica per una vintena de xarxes de publicitat i atribució',
+      tagline: 'Una editorial berlinesa que envia dades de lectura de novel·la romàntica a una vintena de xarxes de publicitat i atribució',
       summary:
-        'Galatea serveix novel·la popular per capítols, amb àudio i efectes, dins una aplicació que es paga amb subscripció. La política d’Inkitt és detallada i està al dia, però el que hi detalla és una llista llarguíssima de proveïdors: Google Analytics, Firebase, AdMob, AppLovin, Taboola, Adjust, Branch, Meta i RevenueCat, entre d’altres, tots amb l’identificador publicitari i l’adreça IP. L’etiqueta de l’App Store ho confirma declarant compres, identificadors i dades d’ús per rastrejar. El compte serveix també per a una altra app del grup, i el document no diu enlloc com es dona de baixa.',
+        'Galatea serveix novel·la popular per capítols, amb àudio i efectes, dins una aplicació que es paga amb subscripció. La política d’Inkitt és detallada i està al dia, i inclou una llista llarga de proveïdors: Google Analytics, Firebase, AdMob, AppLovin, Taboola, Adjust, Branch, Meta i RevenueCat, entre d’altres, tots amb l’identificador publicitari i l’adreça IP. L’etiqueta de l’App Store ho confirma declarant compres, identificadors i dades d’ús per rastrejar. El compte serveix també per a una altra app del grup, i el document no diu enlloc com es dona de baixa.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'subscription',
       jurisdiction: 'Alemanya (UE)',
@@ -695,7 +695,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['galatea-privacy-policy'], 'El registre demana correu i contrasenya com a dades obligatòries, i opcionalment nom d’usuari i data de naixement; també es pot entrar amb un compte d’Apple o de Google.'),
       openSource: f('no', 'official', ['galatea-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'El que es llegeix en una app de novel·la romàntica —gènere, ritme, hora del dia, fins a quin capítol s’arriba abans de pagar— és una dada íntima. Aquí aquesta activitat es mesura amb identificadors publicitaris que Google, Meta, AppLovin, Taboola, Adjust i Branch comparteixen amb la resta del seu inventari, de manera que el perfil no es queda dins l’aplicació.',
+        'El que es llegeix en una app de novel·la romàntica (gènere, ritme, hora del dia, fins a quin capítol s’arriba abans de pagar) és una dada íntima. Galatea mesura aquesta activitat amb identificadors publicitaris que Google, Meta, AppLovin, Taboola, Adjust i Branch comparteixen amb la resta del seu inventari, de manera que el perfil no es queda dins l’aplicació.',
       dataCollection: [
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['galatea-privacy-policy', 'galatea-app-store'], note: 'Obligatòria per registrar-se. La política la inclou entre les dades que poden processar Google Analytics i Firebase.' }),
         row('contrasenya', 'yes', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['galatea-privacy-policy'] }),
@@ -784,7 +784,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'La política d’Inkitt és, tècnicament, de les millors del lot: està datada, identifica cada proveïdor amb adreça i categories de dades, i cita els articles del RGPD. Precisament per això deixa veure l’abast del rastreig. Crida l’atenció que l’apartat de menors digui que l’oferta «is also aimed at young people and children» i que no se’n fan perfils publicitaris, en una aplicació de romàntica que integra AdMob, AppLovin i Taboola. Cap domini d’Inkitt o de Galatea no consta a la llista de filtracions de Have I Been Pwned.',
+          'Tècnicament, la política d’Inkitt és sòlida: està datada, identifica cada proveïdor amb adreça i categories de dades, i cita els articles del RGPD. Aquest detall permet veure l’abast del rastreig. L’apartat de menors diu que l’oferta «is also aimed at young people and children» i que no se’n fan perfils publicitaris, en una aplicació de romàntica que integra AdMob, AppLovin i Taboola. Cap domini d’Inkitt o de Galatea no consta a la llista de filtracions de Have I Been Pwned.',
         openQuestions: [
           'L’app té un botó per eliminar el compte o cal escriure a privacy@inkitt.com?',
           'Què inclou el panell «Your Privacy Choices» i quin efecte té sobre AdMob i Taboola?',
@@ -808,7 +808,7 @@ export const lot: SeedLot = {
         privacyPolicy: 'https://www.anystories.app/protocol.html?packageName=write.read.story.webnovel.book.anystories&appName=AnyStories&os=ios&lang=en&keys=privacy-policy',
         appStore: 'https://apps.apple.com/es/app/id1500217654',
       },
-      accountRequired: f('partial', 'official', ['anystories-privacy-policy'], 'Es pot navegar sense compte —«If you’re just browsing our Site, we don’t collect any Personal Information about you»—, però cal correu, nom d’usuari, data de naixement i contrasenya per llegir i publicar.'),
+      accountRequired: f('partial', 'official', ['anystories-privacy-policy'], 'Es pot navegar sense compte («If you’re just browsing our Site, we don’t collect any Personal Information about you»), però cal correu, nom d’usuari, data de naixement i contrasenya per llegir i publicar.'),
       openSource: f('no', 'official', ['anystories-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
         'El catàleg és de romàntica, fantasia i temàtica LGBTIQ+, i el que s’hi llegeix i comenta pot revelar orientació sexual o interessos que la persona no faria públics. La política diu que el comportament per defecte és fer públic gairebé tot el que s’hi aporta i que amb els socis publicitaris es comparteixen l’adreça IP, l’identificador publicitari, la versió del dispositiu, el codi de país i el tipus de xarxa.',
@@ -839,7 +839,7 @@ export const lot: SeedLot = {
       dataUses: {
         targetedAdvertising: f('yes', 'official', ['anystories-privacy-policy'], 'Anuncis personalitzats servits per tercers a partir de dades demogràfiques, d’ús i d’activitat, amb informes de rendiment per als anunciants.'),
         profiling: f('yes', 'official', ['anystories-privacy-policy'], 'Diu que fa inferències sobre els temes que poden interessar per personalitzar el contingut i els anuncis, i per «optimize the algorithm».'),
-        aiTraining: unknown('La política no en parla, tot i que la fitxa de l’App Store presumeix de llistes de lectura personalitzades amb intel·ligència artificial.'),
+        aiTraining: unknown('La política no en parla, tot i que la fitxa de l’App Store anuncia llistes de lectura personalitzades amb intel·ligència artificial.'),
       },
       sharing: {
         thirdPartySharing: f('yes', 'official', ['anystories-privacy-policy'], 'Proveïdors de correu i de servidors, socis publicitaris i d’analítica, i cessions per obligació legal o en cas de fusió o venda.'),
@@ -881,7 +881,7 @@ export const lot: SeedLot = {
         telemetryOptOut: unknown('No descriu cap control sobre l’analítica.'),
         granularControls: f('partial', 'official', ['anystories-privacy-policy'], 'Es pot fer pública o privada part de la informació del perfil des de la configuració i cancel·lar les subscripcions al correu, però els correus de sistema i els avisos legals continuen arribant.'),
         defaultPosture: 'permissive',
-        darkPatterns: f('partial', 'official', ['anystories-privacy-policy'], 'El consentiment és de tot o res: «By accessing or using the AnyStories website and application, you are consenting that you unconditionally accept this Privacy Policy.» I el valor per defecte és publicar.'),
+        darkPatterns: f('partial', 'official', ['anystories-privacy-policy'], 'El consentiment és de tot o res: «By accessing or using the AnyStories website and application, you are consenting that you unconditionally accept this Privacy Policy.» A més, el valor per defecte és publicar.'),
         darkPatternList: [
           {
             type: 'unbalanced-consent',
@@ -910,7 +910,7 @@ export const lot: SeedLot = {
         {
           app: 'wattpad',
           comparability: 'equivalent',
-          rationale: 'Cobreix la mateixa necessitat —llegir i publicar novel·la per capítols amb una comunitat al voltant— amb una empresa sotmesa a la legislació canadenca i amb representació europea.',
+          rationale: 'Cobreix la mateixa necessitat (llegir i publicar novel·la per capítols amb una comunitat al voltant) amb una empresa sotmesa a la legislació canadenca i amb representació europea.',
           tradeOffs: 'També es finança amb publicitat i monedes, i el catàleg no és el mateix.',
         },
       ],
@@ -919,7 +919,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'La política és un document cosit de fragments: invoca la Data Protection Act britànica del 2018 i el RGPD «until such time as it might cease to apply in the HK», parla de clients residents fora d’«England and Wales» i alhora sotmet tot el contracte a la llei de Hong Kong. No hi ha responsable ni representant a la Unió Europea, i el «Data Protection Officer» és la mateixa bústia d’atenció general. La pàgina web de la política es carrega per JavaScript des d’una API de tercers (api.novelago.vip); l’hem llegida des d’aquesta API. Cap dels dominis del servei no consta a la llista de filtracions de Have I Been Pwned.',
+          'La política barreja marcs legals: invoca la Data Protection Act britànica del 2018 i el RGPD «until such time as it might cease to apply in the HK», parla de clients residents fora d’«England and Wales» i alhora sotmet tot el contracte a la llei de Hong Kong. No hi ha responsable ni representant a la Unió Europea, i el «Data Protection Officer» és la mateixa bústia d’atenció general. La pàgina web de la política es carrega per JavaScript des d’una API de tercers (api.novelago.vip); l’hem llegida des d’aquesta API. Cap dels dominis del servei no consta a la llista de filtracions de Have I Been Pwned.',
         openQuestions: [
           'Quines xarxes publicitàries concretes integra l’app i com es demana el permís d’App Tracking Transparency?',
           'Per què l’etiqueta de l’App Store declara el correu i l’identificador d’usuari com a dades no vinculades amb la identitat si la política descriu un compte?',
@@ -932,9 +932,9 @@ export const lot: SeedLot = {
       name: 'Nextory',
       company: 'nextory',
       categories: ['llibres-i-lectura', 'musica-i-audio'],
-      tagline: 'Subscripció sueca d’audiollibres amb terminis escrits però amb una política espanyola que no s’ha tocat des del 2021',
+      tagline: 'Subscripció sueca d’audiollibres amb terminis escrits però amb una política espanyola que no s’ha actualitzat des del 2021',
       summary:
-        'Nextory és una subscripció d’audiollibres i llibres electrònics amb versió espanyola pròpia. La política aplicable a Espanya és curta i llegible: té una taula de finalitats i bases jurídiques i xifres concretes de conservació —la subscripció més 36 mesos, 12 mesos per als registres incomplets i 6 anys per a les obligacions fiscals—, però està datada el maig del 2021 i no diu res de transferències internacionals ni de mesures de seguretat. L’etiqueta de l’App Store no declara cap dada per rastrejar, però sí que declara el correu per a publicitat de tercers. La baixa és autoservei des de l’app, un cop cancel·lada la subscripció.',
+        'Nextory és una subscripció d’audiollibres i llibres electrònics amb versió espanyola pròpia. La política aplicable a Espanya és curta i llegible: té una taula de finalitats i bases jurídiques i xifres concretes de conservació (la subscripció més 36 mesos, 12 mesos per als registres incomplets i 6 anys per a les obligacions fiscals), però està datada el maig del 2021 i no diu res de transferències internacionals ni de mesures de seguretat. L’etiqueta de l’App Store no declara cap dada per rastrejar, però sí que declara el correu per a publicitat de tercers. La baixa és autoservei des de l’app, un cop cancel·lada la subscripció.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'subscription',
       jurisdiction: 'Suècia i Espanya (UE)',
@@ -946,7 +946,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['nextory-privacy-policy', 'nextory-cancel-subscription'], 'El servei és de subscripció i tot hi funciona amb un compte lligat a una adreça electrònica.'),
       openSource: f('no', 'official', ['nextory-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'L’historial de lectura i d’escolta d’anys de subscripció dibuixa gustos, creences i moments del dia. Nextory diu que el fa servir per recomanar i per millorar el servei a l’empara de l’interès legítim, i el conserva fins a 36 mesos després de donar-se de baixa.',
+        'L’historial de lectura i d’escolta d’anys de subscripció revela gustos, creences i a quines hores es llegeix o s’escolta. Nextory diu que el fa servir per recomanar i per millorar el servei a l’empara de l’interès legítim, i el conserva fins a 36 mesos després de donar-se de baixa.',
       dataCollection: [
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['nextory-app-store', 'nextory-privacy-policy'], note: 'L’etiqueta la declara també sota «publicidad de terceros».' }),
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'unknown', purposes: ['prestacio-del-servei', 'personalitzacio-de-continguts'], sources: ['nextory-app-store', 'nextory-privacy-policy'] }),
@@ -1021,7 +1021,7 @@ export const lot: SeedLot = {
         mfa: unknown(),
         independentAudits: unknown(),
         bugBounty: unknown(),
-        vulnerabilityDisclosure: f('no', 'official', ['nextory-privacy-policy'], 'No hi ha security.txt a nextory.com —la petició redirigeix i acaba en un error 404— ni cap canal descrit a la política per comunicar vulnerabilitats.'),
+        vulnerabilityDisclosure: f('no', 'official', ['nextory-privacy-policy'], 'No hi ha security.txt a nextory.com (la petició redirigeix i acaba en un error 404) ni cap canal descrit a la política per comunicar vulnerabilitats.'),
       },
       alternatives: [
         {
@@ -1042,7 +1042,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'La política espanyola és de les poques del lot amb terminis numèrics, però té cinc anys i li falten apartats sencers: no hi ha transferències internacionals, ni mesures de seguretat, ni delegat de protecció de dades identificat com a tal. La barreja de domicilis també és confusa: hi consta el número de registre mercantil suec amb una adreça de Barcelona. L’etiqueta de l’App Store enllaça encara la versió sueca de la política. Cap domini de Nextory no consta a la llista de filtracions de Have I Been Pwned.',
+          'La política espanyola dona terminis numèrics, però té cinc anys i li falten apartats sencers: no hi ha transferències internacionals, ni mesures de seguretat, ni delegat de protecció de dades identificat com a tal. La barreja de domicilis també és confusa: hi consta el número de registre mercantil suec amb una adreça de Barcelona. L’etiqueta de l’App Store enllaça encara la versió sueca de la política. Cap domini de Nextory no consta a la llista de filtracions de Have I Been Pwned.',
         openQuestions: [
           'On s’allotgen les dades i amb quin mecanisme es cobreixen les transferències fora de l’EEE?',
           'Quins encarregats de màrqueting i de telemàrqueting fa servir Nextory?',
@@ -1055,9 +1055,9 @@ export const lot: SeedLot = {
       name: 'Storytel',
       company: 'storytel',
       categories: ['llibres-i-lectura', 'musica-i-audio'],
-      tagline: 'La política amb els terminis més concrets del lot, en una app que igualment declara identificadors i ús per rastrejar',
+      tagline: 'Una política amb terminis concrets, en una app que igualment declara identificadors i ús per rastrejar',
       summary:
-        'Storytel és una subscripció sueca d’audiollibres i llibres electrònics. La seva política és, de lluny, la més treballada de la categoria: taules de categories de dades, finalitats i bases jurídiques, i terminis numèrics —24 mesos després de la subscripció, 12 per al màrqueting i 7 anys per a la comptabilitat—. Té delegat de protecció de dades i un security.txt. Alhora, l’etiqueta de l’App Store declara identificadors i dades d’ús com a dades per rastrejar, i la política admet remàrqueting i publicitat basada en interessos amb proveïdors de màrqueting. La baixa és autoservei des de l’app, després de cancel·lar la subscripció.',
+        'Storytel és una subscripció sueca d’audiollibres i llibres electrònics. La seva política és la més treballada de la categoria: taules de categories de dades, finalitats i bases jurídiques, i terminis numèrics (24 mesos després de la subscripció, 12 per al màrqueting i 7 anys per a la comptabilitat). Té delegat de protecció de dades i un security.txt. Alhora, l’etiqueta de l’App Store declara identificadors i dades d’ús com a dades per rastrejar, i la política admet remàrqueting i publicitat basada en interessos amb proveïdors de màrqueting. La baixa és autoservei des de l’app, després de cancel·lar la subscripció.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'subscription',
       jurisdiction: 'Suècia (UE)',
@@ -1147,7 +1147,7 @@ export const lot: SeedLot = {
         telemetryOptOut: unknown('No hem trobat cap interruptor per desactivar l’analítica d’ús dins l’app.'),
         granularControls: f('yes', 'official', ['storytel-privacy-settings'], 'Es pot fer el perfil privat, editar el nom, canviar la contrasenya i separar les preferències de màrqueting directe de les de màrqueting personalitzat.'),
         defaultPosture: 'mixed',
-        darkPatterns: f('partial', 'official', ['storytel-privacy-settings'], 'El perfil privat amaga les ressenyes del perfil, però les deixa visibles a la fitxa de cada llibre: el control no fa el que sembla que promet.'),
+        darkPatterns: f('partial', 'official', ['storytel-privacy-settings'], 'El perfil privat amaga les ressenyes del perfil, però les deixa visibles a la fitxa de cada llibre, de manera que el control no fa el que el nom fa esperar.'),
         darkPatternList: [
           {
             type: 'confusing-language',
@@ -1185,7 +1185,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'La política és la més completa del lot i l’única amb una taula de bases jurídiques per finalitat, però la versió que enllaça l’App Store és la del mercat de Singapur, en anglès i modificada per última vegada el novembre del 2022; no n’hem trobat cap versió en castellà ni en català. El centre d’ajuda en castellà és més recent i coincideix amb els terminis. El security.txt existeix però ha caducat. Cap domini de Storytel no consta a la llista de filtracions de Have I Been Pwned.',
+          'La política és completa i inclou una taula de bases jurídiques per finalitat, però la versió que enllaça l’App Store és la del mercat de Singapur, en anglès i modificada per última vegada el novembre del 2022; no n’hem trobat cap versió en castellà ni en català. El centre d’ajuda en castellà és més recent i coincideix amb els terminis. El security.txt existeix però ha caducat. Cap domini de Storytel no consta a la llista de filtracions de Have I Been Pwned.',
         openQuestions: [
           'Quins proveïdors de màrqueting i d’analítica fa servir Storytel, i quines dades els cedeix?',
           'Hi ha una versió en castellà de la política, i és la mateixa que la de Singapur?',
@@ -1200,7 +1200,7 @@ export const lot: SeedLot = {
       categories: ['llibres-i-lectura', 'comerc-electronic'],
       tagline: 'Una botiga de llibres del grup Rakuten amb una política de privadesa que no s’ha actualitzat des del 2018',
       summary:
-        'Kobo ven llibres electrònics i audiollibres i és l’alternativa principal a la botiga de Kindle. L’etiqueta de l’App Store no declara cap dada per rastrejar, i les transferències dins del grup es cobreixen amb les normes corporatives vinculants de Rakuten aprovades a Luxemburg. La contrapartida és que la política porta la data d’1 de març del 2018 i la de galetes, del setembre del 2017: no parla de dades de lectura, ni de bases jurídiques per a l’analítica de l’aparell, ni de terminis més enllà de «fins que tanquis el compte». El centre d’ajuda, en canvi, admet obertament que «Kobo tracks your data, activity, and preferences» i explica que els comptes inactius durant tres anys es poden esborrar.',
+        'Kobo ven llibres electrònics i audiollibres i és l’alternativa principal a la botiga de Kindle. L’etiqueta de l’App Store no declara cap dada per rastrejar, i les transferències dins del grup es cobreixen amb les normes corporatives vinculants de Rakuten aprovades a Luxemburg. En canvi, la política porta la data d’1 de març del 2018 i la de galetes, del setembre del 2017: no parla de dades de lectura, ni de bases jurídiques per a l’analítica de l’aparell, ni de terminis més enllà de «fins que tanquis el compte». El centre d’ajuda sí que admet que «Kobo tracks your data, activity, and preferences» i explica que els comptes inactius durant tres anys es poden esborrar.',
       platforms: ['ios', 'android', 'web', 'windows', 'macos'],
       businessModel: 'commerce',
       jurisdiction: 'Canadà i Luxemburg (UE)',
@@ -1235,11 +1235,11 @@ export const lot: SeedLot = {
       dataUses: {
         targetedAdvertising: f('partial', 'official', ['kobo-privacy-policy'], 'La política descriu galetes «relacionadas con la focalización» per servir anuncis segons els interessos, i butlletins personalitzats del grup Rakuten amb consentiment; l’etiqueta de l’app no declara dades per a publicitat.'),
         profiling: f('partial', 'official', ['kobo-privacy-policy', 'kobo-privacy-settings'], 'La política parla d’ofertes personalitzades i d’anàlisis estadístiques, i el centre d’ajuda admet que es fa seguiment de l’activitat i les preferències per fer «Kobo services more useful to you». No descriu com es construeix el perfil.'),
-        aiTraining: unknown('La política no en parla; és vuit anys anterior al debat actual.'),
+        aiTraining: unknown('La política, del 2018, no en parla.'),
       },
       sharing: {
         thirdPartySharing: f('yes', 'official', ['kobo-privacy-policy'], 'Proveïdors de serveis i socis comercials de màrqueting, pagaments i analítica, socis minoristes del país de residència, autoritats i eventuals compradors del negoci.'),
-        intraGroupSharing: f('yes', 'official', ['kobo-privacy-policy'], 'Kobo forma part del grup Rakuten i les dades del compte —correu i contrasenya xifrada— les emmagatzema Rakuten Inc., que permet que altres serveis del grup hi accedeixin.'),
+        intraGroupSharing: f('yes', 'official', ['kobo-privacy-policy'], 'Kobo forma part del grup Rakuten i les dades del compte (correu i contrasenya xifrada) les emmagatzema Rakuten Inc., que permet que altres serveis del grup hi accedeixin.'),
         dataBrokerSales: unknown('La política no diu si ven o cedeix dades a intermediaris.'),
         internationalTransfers: f('yes', 'official', ['kobo-privacy-policy'], 'Transferències al grup Rakuten als Estats Units, al Japó i al Canadà. Dins del grup s’apliquen les normes corporatives vinculants de Rakuten, aprovades amb l’autoritat luxemburguesa com a autoritat principal; per al Canadà s’invoca la decisió d’adequació 2002/2/CE.', { mechanism: 'bcrs' }),
       },
@@ -1322,9 +1322,9 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'El problema principal de Kobo no és el que fa, sinó el que no explica: la política vigent és del març del 2018 i la de galetes, del setembre del 2017, i cap de les dues no descriu el tractament de les dades de lectura que el centre d’ajuda sí que reconeix. La botiga bloqueja les peticions automatitzades amb Cloudflare; hem llegit la política a l’Internet Archive (còpia del març del 2026 d’es.kobo.com) i els articles d’ajuda directament a help.kobo.com. L’article de seguretat del compte afirma que «There are no known data breaches on Rakuten Kobo», i cap domini de Kobo no consta a la llista de filtracions de Have I Been Pwned.',
+          'La documentació de Kobo és antiga: la política vigent és del març del 2018 i la de galetes, del setembre del 2017, i cap de les dues no descriu el tractament de les dades de lectura que el centre d’ajuda sí que reconeix. La botiga bloqueja les peticions automatitzades amb Cloudflare; hem llegit la política a l’Internet Archive (còpia del març del 2026 d’es.kobo.com) i els articles d’ajuda directament a help.kobo.com. L’article de seguretat del compte afirma que «There are no known data breaches on Rakuten Kobo», i cap domini de Kobo no consta a la llista de filtracions de Have I Been Pwned.',
         openQuestions: [
-          'Quines dades de lectura recull el lector i l’app —progrés, temps de lectura, subratllats— i amb quina base jurídica?',
+          'Quines dades de lectura recull el lector i l’app (progrés, temps de lectura, subratllats) i amb quina base jurídica?',
           'Què hi ha exactament a kobo.com/privacy per a les persones residents a la Unió Europea?',
           'El programa de recompenses de Rakuten a HackerOne cobreix els dominis de Kobo?',
           'Hi ha alguna versió posterior al 2018 de la política, o continua sent la vigent el 2026?',
@@ -1338,7 +1338,7 @@ export const lot: SeedLot = {
       categories: ['llibres-i-lectura', 'utilitats'],
       tagline: 'Un lector de llibres que declara no recollir cap dada, ni tan sols estadístiques anònimes, a la versió d’iOS',
       summary:
-        'ReadEra obre EPUB, PDF, MOBI, DjVu, Word i una dotzena de formats més i no demana registre ni connexió. L’etiqueta de l’App Store diu literalment que el desenvolupador no recull cap dada, i la política d’iOS ho confirma: ni informació personal, ni informació sobre els fitxers, ni estadístiques tècniques anònimes. La versió d’Android, en canvi, sí que recull diagnòstics anònims, desactivables des de la configuració. La versió de pagament sincronitza contra el Google Drive de la mateixa persona, no contra servidors de l’empresa. El punt feble és documental: l’editor de l’App Store és una societat búlgara i les polítiques parlen d’una «Readera LLC» que no s’identifica enlloc.',
+        'ReadEra obre EPUB, PDF, MOBI, DjVu, Word i una dotzena de formats més i no demana registre ni connexió. L’etiqueta de l’App Store diu que el desenvolupador no recull cap dada, i la política d’iOS ho confirma: ni informació personal, ni informació sobre els fitxers, ni estadístiques tècniques anònimes. La versió d’Android, en canvi, sí que recull diagnòstics anònims, desactivables des de la configuració. La versió de pagament sincronitza contra el Google Drive de la mateixa persona, no contra servidors de l’empresa. El que falla és la identificació de l’empresa: l’editor de l’App Store és una societat búlgara i les polítiques parlen d’una «Readera LLC» que no s’identifica enlloc.',
       platforms: ['ios', 'android'],
       businessModel: 'freemium',
       jurisdiction: 'Bulgària (UE)',
@@ -1351,7 +1351,7 @@ export const lot: SeedLot = {
       accountRequired: f('no', 'official', ['readera-privacy-ios', 'readera-website'], 'La política diu que l’app «does not require the user to provide any personal, financial, or other private information», i el web promet lectura «without registration».'),
       openSource: f('no', 'official', ['readera-app-store'], 'No hem trobat cap repositori públic del codi.', { licence: 'Privativa' }),
       dataSummary:
-        'Aquí la troballa és l’absència: els llibres es queden al dispositiu, no s’envia cap informació sobre quins fitxers s’obren i, a iOS, ni tan sols hi ha telemetria. La sincronització de la versió Premium passa pel Google Drive de la persona usuària, de manera que qui veu les dades és Google, no ReadEra.',
+        'Els llibres es queden al dispositiu, no s’envia cap informació sobre quins fitxers s’obren i, a iOS, ni tan sols hi ha telemetria. La sincronització de la versió Premium passa pel Google Drive de la persona usuària, de manera que les dades les té Google i ReadEra no hi accedeix.',
       dataCollection: [
         row('fitxers-i-documents', 'no', { linked: 'no', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['readera-privacy-ios'], note: 'La política és explícita: «user files or any information about the files are not collected or transmitted by the application».' }),
         row('dades-de-diagnostic', 'no', { linked: 'no', tracking: 'no', shared: 'none', sources: ['readera-privacy-ios', 'readera-app-store'], note: 'A iOS no se’n recull cap; a Android sí (errors, rendiment i ús de funcions), i es poden desactivar des de la configuració.' }),
@@ -1429,7 +1429,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'És la fitxa més protectora del lot, i la contradicció que hi queda és documental, no tècnica: l’editor que consta a l’App Store és READERA EOOD, una societat búlgara, però totes dues polítiques atribueixen el desenvolupament a «Readera LLC», sense país ni domicili, i cap document no identifica un responsable del tractament amb adreça postal ni esmenta els drets del RGPD. Tenint en compte que l’app no recull dades, l’impacte pràctic és baix, però l’empresa és a la Unió Europea i això és exigible. Cap domini de ReadEra no consta a la llista de filtracions de Have I Been Pwned.',
+          'L’única contradicció és documental: l’editor que consta a l’App Store és READERA EOOD, una societat búlgara, però totes dues polítiques atribueixen el desenvolupament a «Readera LLC», sense país ni domicili, i cap document no identifica un responsable del tractament amb adreça postal ni esmenta els drets del RGPD. Com que l’app no recull dades, l’impacte pràctic és baix, però una empresa establerta a la Unió Europea està obligada a donar aquesta informació. Cap domini de ReadEra no consta a la llista de filtracions de Have I Been Pwned.',
         openQuestions: [
           'Quina relació hi ha entre READERA EOOD i «Readera LLC», i qui és el responsable del tractament?',
           'La versió Premium d’iOS també sincronitza amb Google Drive, o fa servir iCloud?',
@@ -1458,7 +1458,7 @@ export const lot: SeedLot = {
       accountRequired: unknown('Ni la fitxa de l’App Store ni el web diuen si cal registrar-se; l’etiqueta declara l’adreça electrònica, i les funcions de notes i plans de pregària fan pensar en un compte o una sincronització.'),
       openSource: f('no', 'official', ['eprex-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'El que una persona resa, a quina hora i quines intencions apunta al quadern de l’app són conviccions religioses, una categoria especial de dades segons el RGPD. L’etiqueta de l’App Store declara precisament el contingut de l’usuari i les dades d’ús entre les que es fan servir per rastrejar, i no hi ha cap document que expliqui per a què.',
+        'El que una persona resa, a quina hora i quines intencions apunta al quadern de l’app són conviccions religioses, una categoria especial de dades segons el RGPD. L’etiqueta de l’App Store declara el contingut de l’usuari i les dades d’ús entre les que es fan servir per rastrejar, i no hi ha cap document que expliqui per a què.',
       dataCollection: [
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['prestacio-del-servei', 'mesura-i-analisi-dus'], sources: ['eprex-app-store'], note: 'L’etiqueta la declara vinculada a la identitat i entre les dades utilitzades per rastrejar. La política enllaçada no l’esmenta en relació amb l’app.' }),
         row('conviccions-i-opinions', 'yes', { linked: 'yes', tracking: 'unknown', shared: 'unknown', purposes: ['prestacio-del-servei'], sources: ['eprex-app-store', 'eprex-website'], note: 'El simple ús de l’app revela la pertinença religiosa, i el web anuncia quaderns de notes i intencions de pregària. Cap document no diu com es tracten.' }),
@@ -1532,7 +1532,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'El projecte té molt bona fama i una vocació clarament no comercial —gratuït, sense anuncis, mantingut per voluntariat i finançat amb donacions—, però la documentació legal no acompanya. La política que l’App Store dona com a política de privadesa de l’app és la del web de donacions i no esmenta l’aplicació en cap moment. Mentrestant, l’etiqueta declara rastreig de contingut de l’usuari i de dades de contacte en una app que tracta, de facto, conviccions religioses. També hi ha una incoherència d’editor: la fitxa de l’App Store surt a nom de «Saints App (FUNDACION EDUCATIO IMPRIMIS)» i l’avís legal del web identifica la Fundación Summa Humanitate. No hi consta cap domini del projecte a la llista de filtracions de Have I Been Pwned.',
+          'El projecte no té afany comercial (és gratuït, sense anuncis, mantingut per voluntariat i finançat amb donacions), però la documentació legal és deficient. La política que l’App Store dona com a política de privadesa de l’app és la del web de donacions i no esmenta l’aplicació en cap moment. A més, l’etiqueta declara rastreig de contingut de l’usuari i de dades de contacte en una app que, de fet, tracta conviccions religioses. També hi ha una incoherència d’editor: la fitxa de l’App Store surt a nom de «Saints App (FUNDACION EDUCATIO IMPRIMIS)» i l’avís legal del web identifica la Fundación Summa Humanitate. No hi consta cap domini del projecte a la llista de filtracions de Have I Been Pwned.',
         openQuestions: [
           'Quins components de tercers fa servir l’app i per què l’etiqueta declara rastreig si no hi ha publicitat?',
           'Cal registrar-se per fer servir les notes, les intencions i els plans de pregària, i on es desen?',
@@ -1548,7 +1548,7 @@ export const lot: SeedLot = {
       categories: ['llibres-i-lectura'],
       tagline: 'Novel·la per capítols des de Hong Kong, amb una subscripció de 22,99 € a la setmana i una política de nou paràgrafs',
       summary:
-        'NovelO és una aplicació de novel·la romàntica per capítols publicada per una societat de Hong Kong. La política és curta però honesta pel que fa a la recollida: nom d’usuari i contrasenya, estat VIP, llibres i progrés de lectura, transaccions d’Apple, model del dispositiu, adreça IP i identificadors publicitaris, amb Adjust per mesurar campanyes. L’etiqueta de l’App Store, en canvi, no declara cap dada vinculada a la identitat, tot i que la política descriu un compte. La baixa és autoservei des del menú de l’app, però la política avisa que no cancel·la la subscripció d’Apple, que és de 22,99 € setmanals o 99,90 € anuals.',
+        'NovelO és una aplicació de novel·la romàntica per capítols publicada per una societat de Hong Kong. La política és curta però detalla què es recull: nom d’usuari i contrasenya, estat VIP, llibres i progrés de lectura, transaccions d’Apple, model del dispositiu, adreça IP i identificadors publicitaris, amb Adjust per mesurar campanyes. L’etiqueta de l’App Store, en canvi, no declara cap dada vinculada a la identitat, tot i que la política descriu un compte. La baixa és autoservei des del menú de l’app, però la política avisa que no cancel·la la subscripció d’Apple, que és de 22,99 € setmanals o 99,90 € anuals.',
       platforms: ['ios'],
       businessModel: 'subscription',
       jurisdiction: 'Hong Kong (fora de la UE)',
@@ -1608,7 +1608,7 @@ export const lot: SeedLot = {
           'A l’app, ves a «Mine» > «About Us» > «Delete Account».',
           'Confirma-ho: la política diu que l’esborrat és permanent.',
         ],
-        obstacles: 'La subscripció és molt cara —22,99 € a la setmana— i no es cancel·la amb la baixa del compte; la política avisa que cal fer-ho a Apple per separat.',
+        obstacles: 'La subscripció costa 22,99 € a la setmana i no es cancel·la amb la baixa del compte; la política avisa que cal fer-ho a Apple per separat.',
         dataRetained: 'Les dades que l’empresa consideri necessàries per a registres, prevenció del frau i obligacions legals.',
         sources: ['novelo-privacy-policy', 'novelo-app-store'],
       },
@@ -1646,7 +1646,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'L’app és nova —la fitxa de l’App Store es va publicar el 2026— i la política, datada l’agost del 2026, és breu però raonablement clara sobre què es recull; el problema és tot el que no hi ha: ni base jurídica, ni terminis, ni mecanisme de transferència, ni autoritat de control, ni representant a la Unió Europea per a una empresa de Hong Kong que s’adreça al mercat espanyol. La contradicció amb l’etiqueta és notable: la política descriu un compte i l’etiqueta no declara cap dada vinculada a la identitat. Cap domini del servei no consta a la llista de filtracions de Have I Been Pwned.',
+          'L’app és nova (la fitxa de l’App Store es va publicar el 2026) i la política, datada l’agost del 2026, és breu però clara sobre què es recull. En canvi, no indica la base jurídica, els terminis, el mecanisme de transferència ni l’autoritat de control, i no hi consta cap representant a la Unió Europea per a una empresa de Hong Kong que s’adreça al mercat espanyol. L’etiqueta contradiu la política: la política descriu un compte i l’etiqueta no declara cap dada vinculada a la identitat. Cap domini del servei no consta a la llista de filtracions de Have I Been Pwned.',
         openQuestions: [
           'Quin és el preu real per capítol i com es converteixen les monedes?',
           'Per què l’etiqueta de l’App Store no declara cap dada vinculada a la identitat si la política descriu un compte?',

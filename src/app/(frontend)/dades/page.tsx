@@ -38,8 +38,8 @@ export default async function OpenDataPage() {
       </p>
 
       <p>
-        Demanem a les empreses del directori que deixin emportar-se les dades en un format que
-        serveixi per a alguna cosa. Aquesta pàgina és la part que ens toca a nosaltres.
+        Demanem a les empreses del directori que permetin emportar-se les dades en un format
+        reutilitzable, i aquesta pàgina aplica el mateix criteri a les nostres.
       </p>
 
       <h2>Condicions d’ús</h2>
@@ -58,7 +58,7 @@ export default async function OpenDataPage() {
         </li>
         <li>
           <strong>Atribució suggerida:</strong> «Identitat.digital — New Spirit Studio, S.L., CC
-          BY-SA 4.0, consultat el [data]». La data importa: les puntuacions canvien.
+          BY-SA 4.0, consultat el [data]». Indica la data, perquè les puntuacions canvien.
         </li>
         <li>
           <strong>Excepcions:</strong> el catàleg de filtracions prové de{' '}
@@ -67,7 +67,7 @@ export default async function OpenDataPage() {
             <span className="visually-hidden"> (s’obre en una pestanya nova)</span>
           </a>{' '}
           amb llicència CC BY 4.0, i els logotips i les marques no entren en cap de les dues
-          llicències. Ho detalla el fitxer <code>NOTICE</code> del repositori.
+          llicències.
         </li>
         <li>
           <strong>Compromís:</strong> aquestes exportacions no deixaran de publicar-se ni perdran
@@ -90,10 +90,10 @@ export default async function OpenDataPage() {
         una barra vertical.
       </p>
       <p>
-        <strong>Un camp buit vol dir buit.</strong> Mai no vol dir zero ni «no». Quan una afirmació
-        no s’ha pogut documentar, la columna d’estat diu <code>unknown</code>, que és una cosa
-        diferent de <code>no</code>. Tota la utilitat d’aquest conjunt de dades depèn de respectar
-        aquesta distinció.
+        <strong>Un camp buit vol dir que no hi ha valor</strong>, no zero ni «no». Quan una
+        afirmació no s’ha pogut documentar, la columna d’estat diu <code>unknown</code>, que és
+        diferent de <code>no</code>. Si no es respecta aquesta distinció, les conclusions que
+        se’n treguin seran errònies.
       </p>
 
       <h2>Els conjunts</h2>
@@ -139,7 +139,7 @@ export default async function OpenDataPage() {
 
       <h2>Vocabularis</h2>
       <p>
-        Tres columnes es repeteixen per tot arreu i convé tenir-les a mà. L’estat d’una afirmació és{' '}
+        Tres columnes es repeteixen en diversos conjunts. L’estat d’una afirmació és{' '}
         <code>yes</code>, <code>partial</code>, <code>no</code>, <code>unknown</code> o{' '}
         <code>na</code>, on <code>na</code> vol dir que l’indicador no té sentit per a aquell servei
         i <code>unknown</code> vol dir que no ho hem pogut documentar. El nivell d’evidència és{' '}
@@ -153,16 +153,8 @@ export default async function OpenDataPage() {
       <p>
         Amb el conjunt d’<a href="#indicadors">indicadors</a> i la metodologia publicada es pot
         refer qualsevol nota des de zero: cada fila porta l’indicador, el seu pes, el seu valor i si
-        era aplicable. Si algun càlcul no et surt, és un error nostre i el volem saber. El{' '}
-        <a
-          href="https://github.com/newspiritstudio/identitatdigital"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          codi que els calcula
-          <span className="visually-hidden"> (s’obre en una pestanya nova)</span>
-        </a>{' '}
-        també és públic.
+        era aplicable. Si algun càlcul no et surt, és un error nostre: escriu-nos a{' '}
+        <a href="mailto:admin@newspirit.studio">admin@newspirit.studio</a>.
       </p>
     </div>
     </div>

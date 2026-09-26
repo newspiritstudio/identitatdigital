@@ -45,7 +45,7 @@ export const buildReport = ({
   lines.push('')
   for (const app of exposure.apps) {
     lines.push(
-      `- ${app.name} — ${app.company.name}${app.overall !== null ? ` · puntuació ${app.overall}/100` : ''} · ${base}/aplicacions/${app.slug}`,
+      `- ${app.name} (${app.company.name})${app.overall !== null ? ` · puntuació ${app.overall}/100` : ''} · ${base}/aplicacions/${app.slug}`,
     )
   }
   lines.push('')
@@ -88,7 +88,7 @@ export const buildReport = ({
   for (const risk of risks) {
     const on = risk.signals.filter((signal) => signal.state === 'on')
     lines.push(
-      `- ${risk.app.name}: ${risk.count} de ${risk.signals.length} senyals${on.length > 0 ? ` — ${on.map((signal) => `${SIGNAL_LABELS[signal.key].toLocaleLowerCase('ca')} (${signal.text})`).join('; ')}` : ''}`,
+      `- ${risk.app.name}: ${risk.count} de ${risk.signals.length} senyals${on.length > 0 ? `. Encesos: ${on.map((signal) => `${SIGNAL_LABELS[signal.key].toLocaleLowerCase('ca')} (${signal.text})`).join('; ')}` : ''}`,
     )
   }
   lines.push('')
@@ -98,7 +98,7 @@ export const buildReport = ({
     lines.push('')
     for (const { breach, apps } of breaches.items) {
       lines.push(
-        `- ${breach.title}${breach.date ? ` (${breach.date.slice(0, 4)})` : ''}: ${breach.pwnCount !== null ? `${plain.format(breach.pwnCount)} comptes` : 'comptes no publicats'}${breach.passwords ? ', amb contrasenyes' : ''} — ${apps.map(({ app }) => app.name).join(', ')}`,
+        `- ${breach.title}${breach.date ? ` (${breach.date.slice(0, 4)})` : ''}: ${breach.pwnCount !== null ? `${plain.format(breach.pwnCount)} comptes` : 'comptes no publicats'}${breach.passwords ? ', amb contrasenyes' : ''}. Servei: ${apps.map(({ app }) => app.name).join(', ')}`,
       )
     }
     lines.push('')

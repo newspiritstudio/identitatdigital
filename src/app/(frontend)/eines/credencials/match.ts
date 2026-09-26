@@ -353,7 +353,7 @@ export function buildEmailActions(
         id: 'phone',
         title: 'Desconfia dels SMS i les trucades que semblin d’aquests serveis',
         detail:
-          'El teu número de telèfon és a les filtracions al costat del teu nom i dels serveis que fas servir: és exactament el que cal per a un SMS o una trucada falsa creïble. A més, on puguis, no facis servir l’SMS com a segon factor, perquè el número es pot duplicar.',
+          'El teu número de telèfon és a les filtracions al costat del teu nom i dels serveis que fas servir: és el que cal per fer creïble un SMS o una trucada falsa. A més, on puguis, no facis servir l’SMS com a segon factor, perquè el número es pot duplicar.',
         steps: [
           'Si un missatge et demana que entris a un enllaç o que diguis un codi, no ho facis: entra al servei pel teu compte.',
           'On el servei ho permeti, canvia l’SMS de verificació per una aplicació d’autenticació o una clau d’accés.',
@@ -373,7 +373,7 @@ export function buildEmailActions(
         id: 'phishing',
         title: 'Compta que et poden escriure fent-se passar per algú que et coneix',
         detail:
-          'L’adreça postal o la data de naixement no es poden canviar. Serveixen per fer creïble un correu o una carta que cita dades teves de debò. Que un missatge sàpiga coses de tu no el fa legítim.',
+          'L’adreça postal o la data de naixement no es poden canviar. Serveixen per fer creïble un correu o una carta que cita dades teves reals. Que un missatge sàpiga coses de tu no vol dir que sigui legítim.',
         steps: [
           'Davant d’un missatge urgent que et demana diners, dades o un codi, verifica-ho per un altre canal abans de fer res.',
           'No facis servir la data de naixement com a PIN ni com a resposta de seguretat.',

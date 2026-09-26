@@ -146,14 +146,14 @@ function Strength({ bits, exact }: { bits: number; exact: boolean }) {
         <summary>Quant es trigaria a trobar-la</summary>
         <p className="meta">
           {exact
-            ? 'Xifra exacta: sabem exactament com s’ha generat, de manera que els bits es compten, no s’estimen.'
-            : 'Cota inferior: forçar classes de caràcters trenca la uniformitat, i el càlcul es queda curt a posta.'}
+            ? 'Xifra exacta: com que sabem com s’ha generat, els bits es compten en lloc d’estimar-se.'
+            : 'Cota inferior: forçar classes de caràcters trenca la uniformitat, i el càlcul dona una xifra per sota de la real.'}
         </p>
 
         <table className={styles.scenarios}>
           <caption className="meta">
-            Temps mitjà per trobar-la provant combinacions. Cada xifra val només amb la hipòtesi del
-            costat: un temps de trencament sense dir quin atac se suposa no vol dir res.
+            Temps mitjà per trobar-la provant combinacions. Cada xifra val només per a la hipòtesi
+            que té al costat.
           </caption>
           <thead>
             <tr>
@@ -263,9 +263,9 @@ function PassphrasePanel({ onSend }: { onSend: (value: string) => void }) {
       <h3 id="frases">Frase de pas</h3>
       <p>
         Sis paraules catalanes triades a l’atzar són 66 bits: n’hi ha prou per a gairebé qualsevol
-        compte i, a diferència d’una ristra de símbols, es poden recordar i teclejar. És el que val
-        la pena fer servir per a les poques contrasenyes que has de saber de memòria; per a la
-        mestra del gestor, posa’n set o vuit.
+        compte i, a diferència d’una ristra de símbols, es poden recordar i teclejar. Fes-la servir
+        per a les poques contrasenyes que has de saber de memòria; per a la mestra del gestor,
+        posa’n set o vuit.
       </p>
 
       <fieldset className={styles.controls}>
@@ -338,8 +338,8 @@ function PassphrasePanel({ onSend }: { onSend: (value: string) => void }) {
           {capitalise && (
             <>Les majúscules inicials aporten zero bits: són una transformació fixa. </>
           )}
-          Totes dues opcions serveixen per passar formularis que les exigeixen, no per guanyar
-          força.
+          Totes dues opcions serveixen per passar formularis que les exigeixen; per guanyar força,
+          afegeix paraules.
         </p>
       )}
 
@@ -369,8 +369,8 @@ function PassphrasePanel({ onSend }: { onSend: (value: string) => void }) {
             {result.extraBits > 0
               ? `, més ${oneDecimal.format(result.extraBits)} bits de la xifra`
               : ''}
-            . La llista té {plain.format(result.wordlistSize)} paraules, que són 2¹¹: per això el
-            compte és exacte i no un arrodoniment.
+            . La llista té {plain.format(result.wordlistSize)} paraules, que són 2¹¹, i per això el
+            compte és exacte.
           </p>
         </>
       )}
@@ -471,8 +471,8 @@ function PasswordPanel({ onSend }: { onSend: (value: string) => void }) {
 
       {requireEachClass && (
         <p className={styles.note}>
-          Forçar la presència de cada classe no fa la contrasenya més forta: la fa una mica més
-          feble, perquè descarta combinacions. Serveix per passar formularis que exigeixen un
+          Forçar la presència de cada classe fa la contrasenya una mica més feble, perquè descarta
+          combinacions. Serveix per passar formularis que exigeixen un
           símbol. Els bits de sota ja ho tenen en compte.
         </p>
       )}

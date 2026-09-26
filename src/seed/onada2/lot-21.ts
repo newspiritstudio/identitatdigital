@@ -28,7 +28,7 @@ const canva: AppSeed = {
   categories: ['edicio-de-foto-i-video'],
   tagline: 'Els dissenys serveixen per entrenar els models d’IA si no ho desactives a la configuració',
   summary:
-    'Canva analitza l’activitat, el contingut i els fitxers pujats per entrenar els seus algorismes, i deixa l’exclusió a un interruptor de la pàgina de preferències de privadesa que cal anar a buscar. L’etiqueta de l’App Store és una de les més carregades del lot: declara compres, ubicació, historial de cerca, contingut i identificadors vinculats a la persona, i publicitat de tercers entre les finalitats. A canvi, la seguretat està ben documentada: ISO 27001, SOC 2 Type II, PCI DSS, xifratge AES256 en repòs i un programa de recompenses a Bugcrowd.',
+    'Canva analitza l’activitat, el contingut i els fitxers pujats per entrenar els seus algorismes, i deixa l’exclusió a un interruptor de la pàgina de preferències de privadesa que cal anar a buscar. L’etiqueta de l’App Store declara compres, ubicació, historial de cerca, contingut i identificadors vinculats a la persona, i publicitat de tercers entre les finalitats. La seguretat està ben documentada: ISO 27001, SOC 2 Type II, PCI DSS, xifratge AES256 en repòs i un programa de recompenses a Bugcrowd.',
   platforms: ['ios', 'android', 'web', 'windows', 'macos'],
   businessModel: 'freemium',
   jurisdiction: 'Austràlia',
@@ -41,7 +41,7 @@ const canva: AppSeed = {
   accountRequired: f('yes', 'official', ['canva-privacy-policy'], 'Cal un compte amb adreça electrònica, o amb un identificador de Google, Facebook o Apple, per desar cap disseny.'),
   openSource: f('no', 'official', ['canva-privacy-policy'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'Els dissenys revelen per a qui es treballa: el currículum d’una persona, el cartell d’una manifestació, la invitació d’un bateig o la presentació d’una empresa abans de fer-se pública. Que aquest contingut alimenti per defecte l’entrenament d’algorismes és, en aquesta fitxa, el punt que més importa.',
+    'Els dissenys poden ser el currículum d’una persona, el cartell d’una manifestació, la invitació d’un bateig o la presentació d’una empresa abans de fer-se pública. Aquest contingut es fa servir per defecte per entrenar algorismes.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['canva-privacy-policy'] }),
     row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['canva-privacy-policy', 'canva-app-store'] }),
@@ -124,7 +124,7 @@ const canva: AppSeed = {
     telemetryOptOut: unknown('No hem trobat cap control per desactivar l’analítica d’ús.'),
     granularControls: f('partial', 'official', ['canva-privacy-policy'], 'Les preferències de privadesa separen la publicitat de l’entrenament de models, però no hi ha controls per finalitat més enllà d’això.'),
     defaultPosture: 'permissive',
-    darkPatterns: f('partial', 'editorial', [], 'Que l’ús del contingut per entrenar algorismes estigui actiu per defecte i s’hagi de desactivar en una pàgina separada de la configuració és un consentiment desequilibrat: la decisió es pren sense que es plantegi.'),
+    darkPatterns: f('partial', 'editorial', [], 'Que l’ús del contingut per entrenar algorismes estigui actiu per defecte i s’hagi de desactivar en una pàgina separada de la configuració és un consentiment desequilibrat, perquè la decisió es pren sense que es plantegi a la persona.'),
     darkPatternList: [
       {
         type: 'unbalanced-consent',
@@ -151,7 +151,7 @@ const canva: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'La filtració del 2019 és de les més grans del catàleg per nombre de comptes i, set mesos després, quatre milions de contrasenyes ja s’havien desxifrat. La resposta de l’empresa va ser pública i detallada, cosa que no sempre passa.',
+      'La filtració del 2019 és de les més grans del catàleg per nombre de comptes i, set mesos després, quatre milions de contrasenyes ja s’havien desxifrat. La resposta de l’empresa va ser pública i detallada.',
     openQuestions: [
       'Quant dura exactament el «termini comercialment raonable» de conservació del contingut després de tancar el compte?',
       'L’exclusió de l’entrenament de models s’aplica retroactivament al contingut ja processat?',
@@ -167,7 +167,7 @@ const retro: AppSeed = {
   categories: ['xarxes-socials'],
   tagline: 'Fotos només per a amics, però la baixa del compte passa per escriure als fundadors',
   summary:
-    'Retro és un diari fotogràfic privat entre amics fet per un equip petit que ve d’Instagram. La política de privadesa és nord-americana i genèrica: no té secció europea ni representant a la UE, i l’única manera que hi consta per esborrar el compte és escriure a founders@retro.app. A canvi, l’etiqueta de l’App Store no declara cap dada utilitzada per rastrejar, i això la separa de gairebé tota la resta d’aplicacions socials del catàleg.',
+    'Retro és un diari fotogràfic privat entre amics fet per un equip petit que ve d’Instagram. La política de privadesa és nord-americana i genèrica: no té secció europea ni representant a la UE, i l’única manera que hi consta per esborrar el compte és escriure a founders@retro.app. L’etiqueta de l’App Store no declara cap dada utilitzada per rastrejar, a diferència de gairebé totes les altres aplicacions socials del catàleg.',
   platforms: ['ios', 'android'],
   businessModel: 'freemium',
   jurisdiction: 'Estats Units',
@@ -181,12 +181,12 @@ const retro: AppSeed = {
   accountRequired: f('yes', 'official', ['retro-privacy-policy'], 'El registre demana nom, nom d’usuari i número de telèfon.'),
   openSource: f('no', 'official', ['retro-terms'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'Les fotos setmanals amb amics, amb la ubicació que la càmera hi afegeix i que es mostra als contactes per defecte, dibuixen amb qui es passa el temps i on. La llista de contactes puja al servidor quan s’usa la cerca d’amics: dades de persones que no han acceptat res.',
+    'Les fotos setmanals amb amics, amb la ubicació que la càmera hi afegeix i que es mostra als contactes per defecte, mostren amb qui es passa el temps i on. Quan s’usa la cerca d’amics, la llista de contactes puja al servidor, amb dades de persones que no han acceptat res.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['retro-privacy-policy', 'retro-app-store'] }),
     row('identificador-de-compte', 'yes', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['retro-privacy-policy'], note: 'El nom d’usuari és públic al perfil.' }),
     row('numero-de-telefon', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'seguretat-i-prevencio-del-frau'], sources: ['retro-privacy-policy'], note: 'És obligatori per crear el compte, però no es mostra al perfil si no es vol.' }),
-    row('llista-de-contactes', 'optional', { linked: 'yes', tracking: 'no', shared: 'unknown', purposes: ['prestacio-del-servei', 'personalitzacio-de-continguts'], sources: ['retro-privacy-policy', 'retro-app-store'], note: 'La política demana que només es comparteixin contactes de persones properes o que hi hagin consentit: el consentiment de tercers es delega a qui instal·la l’aplicació.' }),
+    row('llista-de-contactes', 'optional', { linked: 'yes', tracking: 'no', shared: 'unknown', purposes: ['prestacio-del-servei', 'personalitzacio-de-continguts'], sources: ['retro-privacy-policy', 'retro-app-store'], note: 'La política demana que només es comparteixin contactes de persones properes o que hi hagin consentit, de manera que el consentiment de tercers queda en mans de qui instal·la l’aplicació.' }),
     row('fotografies-i-videos', 'yes', { linked: 'yes', tracking: 'no', shared: 'unknown', purposes: ['prestacio-del-servei'], sources: ['retro-privacy-policy', 'retro-app-store'] }),
     row('ubicacio-precisa', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['retro-privacy-policy'], note: 'La ubicació de les fotos i els vídeos, presa de la càmera del sistema, es mostra als amics per defecte.' }),
     row('ubicacio-aproximada', 'yes', { linked: 'yes', tracking: 'no', shared: 'unknown', purposes: ['prestacio-del-servei', 'seguretat-i-prevencio-del-frau'], sources: ['retro-privacy-policy'], note: 'Geolocalització aproximada deduïda de l’adreça IP.' }),
@@ -284,7 +284,7 @@ const retro: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'És una aplicació petita amb una política de privadesa de plantilla nord-americana. La troballa útil no és cap pràctica agressiva, sinó el desajust entre un producte pensat per a l’esfera privada i un text legal que preveu socis publicitaris, verificació d’identitat i cap garantia europea.',
+      'És una aplicació petita amb una política de privadesa de plantilla nord-americana. No hi hem trobat pràctiques agressives, però sí un desajust entre un producte pensat per a l’esfera privada i un text legal que preveu socis publicitaris, verificació d’identitat i cap garantia europea.',
     openQuestions: [
       'L’aplicació ofereix l’eliminació del compte des de la configuració, com exigeix l’App Store des del 2022?',
       'Hi ha representant a la Unió Europea segons l’article 27 del RGPD?',
@@ -300,7 +300,7 @@ const plazo: AppSeed = {
   categories: ['banca-i-finances'],
   tagline: 'Crèdit al consum amb decisió automatitzada, fitxers de morositat i dades sensibles declarades a l’etiqueta de l’App Store',
   summary:
-    'Plazo no és un banc: és la targeta i la línia de crèdit del grup ID Finance, amb el diner electrònic emès per Pecunia Cards. Per concedir-la, la solvència s’avalua de manera automatitzada amb consultes a ASNEF-Equifax, a CIREX d’Experian i als registres de la Seguretat Social. La política és, de tot el lot, la que descriu més usos operatius d’intel·ligència artificial: assistents de veu generativa per reclamar deute, amb gravacions i transcripcions processades per aquests sistemes.',
+    'Plazo és la targeta i la línia de crèdit del grup ID Finance. No és un banc: el diner electrònic l’emet Pecunia Cards. Per concedir-la, la solvència s’avalua de manera automatitzada amb consultes a ASNEF-Equifax, a CIREX d’Experian i als registres de la Seguretat Social. La política descriu usos operatius d’intel·ligència artificial: assistents de veu generativa per reclamar deute, amb gravacions i transcripcions processades per aquests sistemes.',
   platforms: ['ios', 'android'],
   businessModel: 'subscription',
   jurisdiction: 'Espanya',
@@ -312,7 +312,7 @@ const plazo: AppSeed = {
   accountRequired: f('yes', 'official', ['plazo-privacy-policy'], 'El servei és una línia de crèdit: cal identificar-se amb document oficial, selfie i dades econòmiques.'),
   openSource: f('no', 'official', ['plazo-privacy-policy'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'La combinació d’ingressos, despesa mitjana, saldos, tipus d’habitatge, nombre de fills i situació laboral és un retrat econòmic complet. Passada per un model automàtic, decideix si es té crèdit i per quant, i acaba en fitxers de solvència que altres entitats consulten durant cinc anys.',
+    'Ingressos, despesa mitjana, saldos, tipus d’habitatge, nombre de fills i situació laboral descriuen tota la situació econòmica d’una persona. Un model automàtic les fa servir per decidir si es concedeix crèdit i per quant, i el resultat acaba en fitxers de solvència que altres entitats consulten durant cinc anys.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'compliment-legal'], sources: ['plazo-privacy-policy', 'plazo-app-store'] }),
     row('document-identificatiu-oficial', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['compliment-legal', 'seguretat-i-prevencio-del-frau'], sources: ['plazo-privacy-policy'], note: 'Imatge del DNI o NIE i selfie per a la verificació d’identitat.' }),
@@ -427,7 +427,7 @@ const cetelem: AppSeed = {
   categories: ['banca-i-finances'],
   tagline: 'Una denegació de crèdit pot ser definitiva sense que hi intervingui cap persona',
   summary:
-    'Cetelem és la marca de crèdit al consum de BNP Paribas Personal Finance a Espanya. L’avís de protecció de dades és dels més explícits del lot: diu que, si el sistema de puntuació respon amb un rebuig directe, l’operació es dona per rebutjada sense intervenció humana posterior. Consulta la CIRBE, ASNEF i BADEXCUG, i fins a cinc fitxers antifrau, i el perfil comercial avançat pot arribar a set anys d’històric.',
+    'Cetelem és la marca de crèdit al consum de BNP Paribas Personal Finance a Espanya. L’avís de protecció de dades és explícit: diu que, si el sistema de puntuació respon amb un rebuig directe, l’operació es dona per rebutjada sense intervenció humana posterior. Consulta la CIRBE, ASNEF i BADEXCUG, i fins a cinc fitxers antifrau, i el perfil comercial avançat pot arribar a set anys d’històric.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'subscription',
   jurisdiction: 'Espanya',
@@ -439,7 +439,7 @@ const cetelem: AppSeed = {
   accountRequired: f('yes', 'official', ['cetelem-privacy-policy'], 'L’aplicació és l’espai de client d’un contracte de crèdit o d’una targeta ja signats.'),
   openSource: f('no', 'official', ['cetelem-privacy-policy'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'Les dades transaccionals inclouen l’import, la data, l’hora, el tipus d’operació i qui n’és el beneficiari: el mapa complet de què es compra, quan i a qui es paga. A sobre s’hi construeix un perfil comercial que pot mirar set anys enrere i que es fa servir per oferir productes de socis de sectors que no tenen res a veure amb el crèdit.',
+    'Les dades transaccionals inclouen l’import, la data, l’hora, el tipus d’operació i qui n’és el beneficiari, és a dir, què es compra, quan i a qui es paga. Amb aquestes dades es construeix un perfil comercial de fins a set anys d’històric, que es fa servir per oferir productes de socis de sectors aliens al crèdit.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'compliment-legal'], sources: ['cetelem-privacy-policy'] }),
     row('document-identificatiu-oficial', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['compliment-legal', 'seguretat-i-prevencio-del-frau'], sources: ['cetelem-privacy-policy'] }),
@@ -532,7 +532,7 @@ const cetelem: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'La frase de l’annex de puntuació —el rebuig directe es dona per definitiu «sense intervenció humana posterior»— és de les poques vegades que una entitat espanyola ho escriu tan clarament. El cas sancionat el 2024, en què van cobrar mesos el deute d’un desconegut al compte d’una altra persona, mostra el cost pràctic d’aquesta automatització.',
+      'L’annex de puntuació diu que el rebuig directe es dona per definitiu «sense intervenció humana posterior»; poques entitats espanyoles ho escriuen tan clarament. El cas sancionat el 2024, en què van cobrar mesos el deute d’un desconegut al compte d’una altra persona, mostra el cost pràctic d’aquesta automatització.',
     openQuestions: [
       'Quina és la data de vigència de l’avís de protecció de dades? El document no en porta cap.',
       'Quin és el procediment oficial i el termini per donar de baixa una targeta?',
@@ -548,7 +548,7 @@ const bankinter: AppSeed = {
   categories: ['banca-i-finances'],
   tagline: 'Les dades dels exclients es poden conservar fins a vuitanta anys, i les dels clients serveixen per construir models d’IA',
   summary:
-    'El document de vint-i-tants apartats de Bankinter és el més detallat del lot i també el que revela els terminis més llargs: fins a vuitanta anys d’informació d’exclients per si es discuteix la nul·litat d’una clàusula, i sis anys de justificants de sol·licituds de crèdit encara que s’hagin denegat. És l’únic banc del lot que declara expressament que tracta dades de clients per desenvolupar i validar models d’intel·ligència artificial, per interès legítim. A canvi, és l’única aplicació del lot financer que no declara cap dada utilitzada per rastrejar.',
+    'El document de vint-i-tants apartats de Bankinter revela terminis molt llargs: fins a vuitanta anys d’informació d’exclients per si es discuteix la nul·litat d’una clàusula, i sis anys de justificants de sol·licituds de crèdit encara que s’hagin denegat. Declara expressament que tracta dades de clients per desenvolupar i validar models d’intel·ligència artificial, per interès legítim. L’aplicació no declara cap dada utilitzada per rastrejar.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'subscription',
   jurisdiction: 'Espanya',
@@ -560,7 +560,7 @@ const bankinter: AppSeed = {
   accountRequired: f('yes', 'official', ['bankinter-privacy-policy'], 'L’aplicació és la banca en línia del banc: cal ser-ne client.'),
   openSource: f('no', 'official', ['bankinter-privacy-policy'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'Saldos mitjans, moviments i productes contractats alimenten un perfil comercial que, amb consentiment, es completa amb registres públics, sistemes d’informació creditícia, la CIRBE, xarxes socials i Informa. És la imatge econòmica d’una persona vista alhora des de dins i des de fora del banc.',
+    'Saldos mitjans, moviments i productes contractats formen un perfil comercial que, amb consentiment, es completa amb fonts externes al banc: registres públics, sistemes d’informació creditícia, la CIRBE, xarxes socials i Informa.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'compliment-legal'], sources: ['bankinter-privacy-policy'] }),
     row('document-identificatiu-oficial', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['compliment-legal', 'seguretat-i-prevencio-del-frau'], sources: ['bankinter-privacy-policy'] }),
@@ -621,7 +621,7 @@ const bankinter: AppSeed = {
       'Demana el justificant del tancament per escrit.',
     ],
     obstacles:
-      'El banc no publica cap guia del procediment. La conservació de fins a vuitanta anys de certa informació d’exclients fa que tancar el compte no equivalgui, ni de lluny, a desaparèixer dels seus sistemes.',
+      'El banc no publica cap guia del procediment. La conservació de fins a vuitanta anys de certa informació d’exclients fa que tancar el compte no n’elimini les dades dels seus sistemes.',
     dataRetained: 'Informació d’exclients fins a vuitanta anys, deu anys de dades de prevenció del blanqueig i sis anys de justificants de sol·licituds de crèdit.',
     sources: ['bankinter-privacy-policy'],
   },
@@ -655,7 +655,7 @@ const bankinter: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'Bankinter va absorbir EVO Banco l’abril de 2025 i, com a successora legal, va assumir la responsabilitat de la bretxa d’EVO de 2024. És un recordatori útil: en una fusió bancària, les dades i els incidents canvien de mans alhora.',
+      'Bankinter va absorbir EVO Banco l’abril de 2025 i, com a successora legal, va assumir la responsabilitat de la bretxa d’EVO de 2024. En una fusió bancària, les dades i els incidents canvien de mans alhora.',
     openQuestions: [
       'Quin és el procediment oficial per tancar un compte i quants dies triga?',
       'Quin mecanisme de transferència internacional s’aplica quan hi ha proveïdors fora de l’Espai Econòmic Europeu?',
@@ -684,7 +684,7 @@ const klarna: AppSeed = {
   accountRequired: f('yes', 'official', ['klarna-privacy-policy'], 'Pagar a terminis exigeix identificació i avaluació de solvència.'),
   openSource: f('no', 'official', ['klarna-privacy-policy'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'Klarna veu alhora què compres, a quines botigues, si pagues tard i quina és la teva situació financera. Amb les funcions de finances personals arriba als comptes bancaris externs, i amb el navegador propi, als llocs que visites. És una posició d’observació que cap botiga té per separat.',
+    'Klarna veu alhora què compres, a quines botigues, si pagues tard i quina és la teva situació financera. Amb les funcions de finances personals arriba als comptes bancaris externs, i amb el navegador propi, als llocs que visites. Cap botiga, per separat, disposa de tota aquesta informació.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'compliment-legal'], sources: ['klarna-privacy-policy', 'klarna-app-store'] }),
     row('document-identificatiu-oficial', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['compliment-legal', 'seguretat-i-prevencio-del-frau'], sources: ['klarna-privacy-policy'], note: 'Fotos i vídeos del document d’identitat, signatures electròniques reconegudes i, a Espanya, enviament del DNI a l’agència de crèdit.' }),
@@ -719,7 +719,7 @@ const klarna: AppSeed = {
   sharing: {
     thirdPartySharing: f('yes', 'official', ['klarna-privacy-policy'], 'Botigues, passarel·les i xarxes de targetes, agències d’informació creditícia i fitxers de morositat, agències antifrau, empreses de cobrament i compradors de deute, xarxes d’afiliats i socis publicitaris.'),
     intraGroupSharing: f('yes', 'official', ['klarna-privacy-policy'], 'Empreses del grup Klarna; en compres a botigues de fora de l’EEE, la cessió entre societats del grup és obligatòria per processar el pagament.'),
-    dataBrokerSales: f('partial', 'official', ['klarna-privacy-policy'], 'No ven dades com a tal, però la compartició amb socis publicitaris que les tracten per a finalitats pròpies i la cessió a compradors de deute hi són a prop.'),
+    dataBrokerSales: f('partial', 'official', ['klarna-privacy-policy'], 'No ven dades com a tal, però les comparteix amb socis publicitaris que les tracten per a finalitats pròpies i les cedeix a compradors de deute, pràctiques properes a una venda.'),
     internationalTransfers: f('yes', 'official', ['klarna-privacy-policy'], 'Decisions d’adequació, clàusules contractuals tipus amb avaluació del país receptor, el Marc de privadesa UE-EUA i normes corporatives vinculants d’alguns proveïdors. La política reconeix que hi ha països amb lleis que poden impedir que les clàusules siguin efectives.', { mechanism: 'sccs' }),
   },
   transparency: {
@@ -793,7 +793,7 @@ const klarna: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'La sanció de la IMY va passar per tres instàncies: 7,5 milions de corones, rebaixades a 6 pel tribunal administratiu i restablertes en apel·lació. Val la pena recordar que l’autoritat principal de Klarna és la sueca, no l’espanyola: una reclamació presentada a l’AEPD s’acaba tramitant a Estocolm.',
+      'La sanció de la IMY va passar per tres instàncies: 7,5 milions de corones, rebaixades a 6 pel tribunal administratiu i restablertes en apel·lació. L’autoritat principal de Klarna és la sueca: una reclamació presentada a l’AEPD s’acaba tramitant a Estocolm.',
     openQuestions: [
       'Les dades de clientela es fan servir per entrenar els models d’aprenentatge automàtic, més enllà d’aplicar-los?',
       'Quin és l’abast real de l’incident de novembre de 2025 que l’empresa atribueix a números de telèfon reciclats?',
@@ -809,7 +809,7 @@ const myinvestor: AppSeed = {
   categories: ['banca-i-finances'],
   tagline: 'Cap dada declarada per rastrejar, però trenta anys de conservació i cap explicació de les decisions automàtiques',
   summary:
-    'MyInvestor és el banc digital del grup Andbank. L’etiqueta de l’App Store no declara cap dada utilitzada per rastrejar, cosa que el situa entre els millors del lot financer. En canvi, la política de protecció de dades no té cap apartat sobre decisions individuals automatitzades, tot i que consulta la CIRBE i ASNEF per avaluar la solvència, i fixa terminis de conservació que arriben als trenta anys.',
+    'MyInvestor és el banc digital del grup Andbank. L’etiqueta de l’App Store no declara cap dada utilitzada per rastrejar. En canvi, la política de protecció de dades no té cap apartat sobre decisions individuals automatitzades, tot i que consulta la CIRBE i ASNEF per avaluar la solvència, i fixa terminis de conservació que arriben als trenta anys.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'subscription',
   jurisdiction: 'Espanya',
@@ -821,7 +821,7 @@ const myinvestor: AppSeed = {
   accountRequired: f('yes', 'official', ['myinvestor-legal'], 'És un banc supervisat pel Banc d’Espanya i la CNMV: cal obrir-hi compte.'),
   openSource: f('no', 'official', ['myinvestor-privacy-policy'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'Un banc d’inversió veu la nòmina, el perfil inversor, els deutes, les despeses i fins i tot on es retira efectiu o es paga amb targeta. Aquestes dades de localització de les operacions són un mapa de moviments que poques aplicacions demanen de manera explícita.',
+    'Un banc d’inversió veu la nòmina, el perfil inversor, els deutes, les despeses i fins i tot on es retira efectiu o es paga amb targeta. Les dades de localització de les operacions mostren per on es mou la persona, i poques aplicacions les demanen de manera explícita.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'compliment-legal'], sources: ['myinvestor-privacy-policy', 'myinvestor-app-store'] }),
     row('document-identificatiu-oficial', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['compliment-legal', 'seguretat-i-prevencio-del-frau'], sources: ['myinvestor-privacy-policy'] }),
@@ -913,7 +913,7 @@ const myinvestor: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'El detall més útil de la política és l’advertiment sobre la portabilitat: citant l’AEPD, exclou del dret les dades «inferides» i «derivades». És a dir, el perfil que el banc construeix sobre una persona no és una dada que aquesta persona es pugui emportar.',
+      'La política adverteix, citant l’AEPD, que el dret de portabilitat exclou les dades «inferides» i «derivades». Per tant, el perfil que el banc construeix sobre una persona no és una dada que aquesta es pugui emportar.',
     openQuestions: [
       'Hi ha decisions individuals automatitzades de l’article 22 del RGPD? La política no en documenta cap, tot i que hi ha avaluació de solvència.',
       'Com es tanca el compte i quant triga?',
@@ -929,7 +929,7 @@ const ing: AppSeed = {
   categories: ['banca-i-finances'],
   tagline: 'Explica com decideix de manera automàtica i com fa servir la IA generativa, però no diu quants anys conserva les dades',
   summary:
-    'La política d’ING és la més explícita del lot en dos punts que gairebé ningú documenta: les decisions automatitzades —puntuació de risc amb rebuig automàtic, bloqueig d’operacions en temps real i fins i tot rescissió automàtica del contracte per risc de blanqueig— i l’ús d’IA generativa, amb proves al centre de trucades i compromís que les dades no s’utilitzen per a finalitats pròpies d’aquests sistemes. El buit és la conservació: remet a una política interna, sense cap termini. I l’etiqueta de l’App Store declara identificadors per rastrejar.',
+    'La política d’ING és explícita en dos punts que gairebé ningú documenta. El primer són les decisions automatitzades: puntuació de risc amb rebuig automàtic, bloqueig d’operacions en temps real i fins i tot rescissió automàtica del contracte per risc de blanqueig. El segon és l’ús d’IA generativa, amb proves al centre de trucades i el compromís que les dades no s’utilitzen per a finalitats pròpies d’aquests sistemes. En canvi, no dona cap termini de conservació i remet a una política interna. L’etiqueta de l’App Store declara identificadors per rastrejar.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'subscription',
   jurisdiction: 'Espanya',
@@ -941,7 +941,7 @@ const ing: AppSeed = {
   accountRequired: f('yes', 'official', ['ing-privacy-policy'], 'L’aplicació és la banca en línia del banc: cal ser-ne client.'),
   openSource: f('no', 'official', ['ing-privacy-policy'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'La política enumera la localització GPS, les interaccions a xarxes socials, les gravacions de trucades i de xats i els interessos inferits al costat de les dades financeres. Fins i tot calcula una petjada de carboni estimada per transacció: una lectura del que es consumeix, no només del que es gasta.',
+    'La política enumera la localització GPS, les interaccions a xarxes socials, les gravacions de trucades i de xats i els interessos inferits al costat de les dades financeres. També calcula una petjada de carboni estimada per a cada transacció, que informa de què es consumeix a més de quant es gasta.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'compliment-legal'], sources: ['ing-privacy-policy', 'ing-app-store'] }),
     row('document-identificatiu-oficial', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['compliment-legal', 'seguretat-i-prevencio-del-frau'], sources: ['ing-privacy-policy'] }),
@@ -965,7 +965,7 @@ const ing: AppSeed = {
     row('dades-de-diagnostic', 'yes', { linked: 'no', tracking: 'no', shared: 'unknown', purposes: ['millora-del-producte'], sources: ['ing-app-store'] }),
   ],
   tracking: {
-    crossAppTracking: f('yes', 'official', ['ing-app-store'], 'L’etiqueta declara els identificadors com a dades utilitzades per rastrejar: inusual en un banc.'),
+    crossAppTracking: f('yes', 'official', ['ing-app-store'], 'L’etiqueta declara els identificadors com a dades utilitzades per rastrejar, cosa inusual en un banc.'),
     advertisingIdentifiers: f('yes', 'official', ['ing-app-store'], 'L’etiqueta declara identificadors de dispositiu i dades de publicitat per a publicitat de tercers i del desenvolupador.'),
     thirdPartyTrackersPresent: f('yes', 'official', ['ing-app-store'], 'La categoria «publicitat de tercers» apareix a l’etiqueta de l’aplicació.'),
   },
@@ -985,7 +985,7 @@ const ing: AppSeed = {
     transparencyReport: unknown('No hem trobat cap informe de transparència sobre peticions d’autoritats.'),
   },
   retention: {
-    definedPeriods: f('no', 'official', ['ing-privacy-policy'], 'És el punt feble del document: no hi ha cap termini en anys per a les dades de clientela, només una remissió a «la nostra política interna de retenció i esborrament». Els únics terminis numèrics són perifèrics: cinc anys per a dades de sol·licitants i trenta dies per a un fitxer antifrau.'),
+    definedPeriods: f('no', 'official', ['ing-privacy-policy'], 'No hi ha cap termini en anys per a les dades de clientela, només una remissió a «la nostra política interna de retenció i esborrament». Els únics terminis numèrics són perifèrics: cinc anys per a dades de sol·licitants i trenta dies per a un fitxer antifrau.'),
     dataAfterDeletion: f('partial', 'official', ['ing-privacy-policy'], 'Diu que les dades es mantindran bloquejades durant el termini previst a la legislació vigent, sense xifrar-lo.'),
   },
   accountDeletion: {
@@ -1036,7 +1036,7 @@ const ing: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'El contrast intern d’aquesta fitxa és el que la fa interessant: el banc que millor explica com decideixen els seus algorismes és, alhora, el que no publica cap termini de conservació i el que declara rastreig a l’App Store.',
+      'El banc que millor explica com decideixen els seus algorismes és, alhora, el que no publica cap termini de conservació i el que declara rastreig a l’App Store.',
     openQuestions: [
       'Quins terminis concrets fixa la política interna de retenció i esborrament?',
       'Hi ha resolucions de l’AEPD contra la sucursal espanyola? No hem pogut consultar el cercador de resolucions, que responia amb errors.',
@@ -1052,7 +1052,7 @@ const bancoSabadell: AppSeed = {
   categories: ['banca-i-finances'],
   tagline: 'Consulta els fitxers de solvència per iniciativa pròpia i mira si tens una trucada en curs quan envies diners',
   summary:
-    'L’annex de protecció de dades del Banc Sabadell diu que consulta ASNEF, BADEXCUG, la CIRBE i el RAI «sense que calgui una sol·licitud o autorització específica, prèvia i expressa» de la persona. El mecanisme antifrau de l’aplicació és igual de singular: comprova si hi ha una trucada en curs mentre s’envia un Bizum o una transferència, accedeix a l’agenda i mira si hi ha aplicacions fraudulentes al telèfon. L’etiqueta de l’App Store, en canvi, no declara cap dada per rastrejar.',
+    'L’annex de protecció de dades del Banc Sabadell diu que consulta ASNEF, BADEXCUG, la CIRBE i el RAI «sense que calgui una sol·licitud o autorització específica, prèvia i expressa» de la persona. El mecanisme antifrau de l’aplicació també és poc habitual: comprova si hi ha una trucada en curs mentre s’envia un Bizum o una transferència, accedeix a l’agenda i mira si hi ha aplicacions fraudulentes al telèfon. L’etiqueta de l’App Store, en canvi, no declara cap dada per rastrejar.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'subscription',
   jurisdiction: 'Espanya',
@@ -1064,7 +1064,7 @@ const bancoSabadell: AppSeed = {
   accountRequired: f('yes', 'official', ['banco-sabadell-app-privacy'], 'L’aplicació és la banca en línia del banc: cal ser-ne client.'),
   openSource: f('no', 'official', ['banco-sabadell-privacy-policy'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'El banc tracta el detall de les operacions, els moviments i «els textos» de les transaccions per detectar necessitats de contractació. El concepte de moviment bancari inclou a qui es paga i per què: qui va al fisioterapeuta, qui paga una quota sindical, qui manté una segona residència.',
+    'El banc tracta el detall de les operacions, els moviments i «els textos» de les transaccions per detectar necessitats de contractació. El concepte d’un moviment bancari indica a qui es paga i per què: una visita al fisioterapeuta, una quota sindical o les despeses d’una segona residència.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'compliment-legal'], sources: ['banco-sabadell-privacy-policy'] }),
     row('document-identificatiu-oficial', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['compliment-legal', 'seguretat-i-prevencio-del-frau'], sources: ['banco-sabadell-privacy-policy'], note: 'Es comunica al Fitxer de Titularitats Financeres del SEPBLAC, per l’article 43 de la Llei 10/2010.' }),
@@ -1121,7 +1121,7 @@ const bancoSabadell: AppSeed = {
       'Demana el justificant de la cancel·lació per escrit.',
     ],
     obstacles:
-      'No hi ha cap opció de baixa dins de l’aplicació i el banc no publica terminis. La conservació fins a la prescripció de les accions, que pot arribar als trenta anys, fa que la baixa sigui de servei, no de dades.',
+      'No hi ha cap opció de baixa dins de l’aplicació i el banc no publica terminis. La conservació fins a la prescripció de les accions, que pot arribar als trenta anys, fa que es doni de baixa el servei sense que s’esborrin les dades.',
     dataRetained: 'Documentació contractual durant un mínim de deu anys i fins a la prescripció de les accions civils.',
     sources: ['banco-sabadell-app-privacy', 'banco-sabadell-privacy-policy'],
   },
@@ -1155,7 +1155,7 @@ const bancoSabadell: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'La troballa d’aquesta fitxa és la doble política: la que enllaça l’App Store és un text antic i curt, i la que val és l’annex d’informació detallada, actualitzat el juny de 2026. Qui llegeixi la primera no sabrà que el banc consulta fitxers de solvència per iniciativa pròpia.',
+      'El banc té dues polítiques: la que enllaça l’App Store és un text antic i curt, i la vigent és l’annex d’informació detallada, actualitzat el juny de 2026. Qui llegeixi la primera no sabrà que el banc consulta fitxers de solvència per iniciativa pròpia.',
     openQuestions: [
       'Hi ha decisions individuals automatitzades de l’article 22 del RGPD? L’annex no en diu res, ni per afirmar-ho ni per negar-ho.',
       'Quin mecanisme de transferència internacional s’aplica quan hi ha proveïdors fora de l’Espai Econòmic Europeu?',
@@ -1171,7 +1171,7 @@ const mapfre: AppSeed = {
   categories: ['banca-i-finances'],
   tagline: 'Assegurances amb dades de salut i normes corporatives vinculants aprovades per l’AEPD, però amb rastreig declarat a l’App Store',
   summary:
-    'La política de Mapfre tracta dades de salut per gestionar sinistres i validar reemborsaments, i preveu demanar-ne els antecedents als metges i als centres sanitaris. És dels pocs serveis del catàleg amb normes corporatives vinculants aprovades per l’AEPD el 2024, un mecanisme de transferència internacional molt més exigent que les clàusules tipus. Contrasta amb l’etiqueta de l’App Store, que declara les dades de contacte com a utilitzades per rastrejar: inusual en una asseguradora.',
+    'La política de Mapfre tracta dades de salut per gestionar sinistres i validar reemborsaments, i preveu demanar-ne els antecedents als metges i als centres sanitaris. És dels pocs serveis del catàleg amb normes corporatives vinculants aprovades per l’AEPD el 2024, un mecanisme de transferència internacional més exigent que les clàusules tipus. En canvi, l’etiqueta de l’App Store declara les dades de contacte com a utilitzades per rastrejar, cosa inusual en una asseguradora.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'subscription',
   jurisdiction: 'Espanya',
@@ -1183,7 +1183,7 @@ const mapfre: AppSeed = {
   accountRequired: f('yes', 'official', ['mapfre-privacy-policy'], 'L’aplicació és l’àrea de clients: cal tenir pòlissa o registrar-s’hi.'),
   openSource: f('no', 'official', ['mapfre-privacy-policy'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'Un expedient de sinistre d’assegurança de salut conté diagnòstics, proves i factures mèdiques. A més, les dades del cotxe i dels sinistres passen a fitxers comuns del sector gestionats per TIREA, que consulten totes les asseguradores: el que passa amb una companyia deixa de ser només amb aquella companyia.',
+    'Un expedient de sinistre d’assegurança de salut conté diagnòstics, proves i factures mèdiques. A més, les dades del cotxe i dels sinistres passen a fitxers comuns del sector gestionats per TIREA, que consulten totes les asseguradores, de manera que el que passa amb una companyia arriba a la resta del sector.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['prestacio-del-servei', 'compliment-legal'], sources: ['mapfre-privacy-policy', 'mapfre-app-store'] }),
     row('document-identificatiu-oficial', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['compliment-legal', 'prestacio-del-servei'], sources: ['mapfre-privacy-policy'] }),
@@ -1222,7 +1222,7 @@ const mapfre: AppSeed = {
     transparencyReport: unknown('No hem trobat cap informe de transparència.'),
   },
   retention: {
-    definedPeriods: f('partial', 'official', ['mapfre-privacy-policy'], 'Els terminis són genèrics —la durada del contracte més els períodes legals i antifrau— tret dels fitxers comuns del sector, on són de cinc anys.'),
+    definedPeriods: f('partial', 'official', ['mapfre-privacy-policy'], 'Els terminis són genèrics (la durada del contracte més els períodes legals i antifrau), tret dels fitxers comuns del sector, on són de cinc anys.'),
     dataAfterDeletion: f('partial', 'official', ['mapfre-privacy-policy'], 'Un cop acabada la relació, les dades queden bloquejades durant els terminis legals de responsabilitat.'),
     periods: [
       { dataType: 'dades-de-salut', period: 'Durada del contracte més els terminis legals de responsabilitat, sense xifra concreta a la política', sources: ['mapfre-privacy-policy'] },
@@ -1256,7 +1256,7 @@ const mapfre: AppSeed = {
     telemetryOptOut: unknown('No hem trobat cap control per desactivar l’analítica de l’aplicació.'),
     granularControls: unknown('No hem trobat cap panell de preferències de privadesa documentat dins de l’aplicació.'),
     defaultPosture: 'mixed',
-    darkPatterns: f('partial', 'regulator', ['mapfre-aepd-galetes-2023'], 'L’AEPD va apercebre l’asseguradora perquè el web carregava galetes analítiques abans que la persona les pogués gestionar: el consentiment arribava quan ja s’havien instal·lat.'),
+    darkPatterns: f('partial', 'regulator', ['mapfre-aepd-galetes-2023'], 'L’AEPD va apercebre l’asseguradora perquè el web carregava galetes analítiques abans que la persona les pogués gestionar, de manera que el consentiment arribava quan ja s’havien instal·lat.'),
     darkPatternList: [
       {
         type: 'preselected',
@@ -1281,7 +1281,7 @@ const mapfre: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'El ciberatac de 2020 és un dels pocs casos documentats pas a pas per una autoritat: la resolució d’arxiu de l’AEPD recull l’hora exacta de cada moviment de l’atacant i conclou que no hi va haver evidències de fuita d’informació. Serveix de contrast amb les notificacions de filtracions que no expliquen res.',
+      'El ciberatac de 2020 és un dels pocs casos documentats pas a pas per una autoritat: la resolució d’arxiu de l’AEPD recull l’hora exacta de cada moviment de l’atacant i conclou que no hi va haver evidències de fuita d’informació.',
     openQuestions: [
       'Es pot eliminar el compte de l’àrea de clients sense passar per l’exercici del dret de supressió?',
       'Quins són els terminis concrets de conservació de les dades de salut dels sinistres?',
@@ -1309,7 +1309,7 @@ export const lot: SeedLot = {
       legalName: 'Klarna Bank AB (publ)',
       parent: 'klarna-group',
       description:
-        'Banc suec fundat el 2005 com a Kreditor, responsable del tractament de dades del servei de pagament ajornat. L’autoritat de control principal és la sueca, l’IMY, i no l’espanyola.',
+        'Banc suec fundat el 2005 com a Kreditor, responsable del tractament de dades del servei de pagament ajornat. L’autoritat de control principal és la sueca, l’IMY.',
       headquartersCountry: 'SE',
       euEstablishment: 'SE',
       leadSupervisoryAuthority: 'imy-se',

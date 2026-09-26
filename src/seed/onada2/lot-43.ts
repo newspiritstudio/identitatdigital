@@ -359,7 +359,7 @@ export const lot: SeedLot = {
       name: 'TMB App (Metro Bus Barcelona)',
       company: 'transports-metropolitans-de-barcelona',
       categories: ['mobilitat-i-transport', 'mapes-i-navegacio'],
-      tagline: 'L’app del metro i el bus funciona sense compte, però l’etiqueta calla la targeta desada i l’historial de compres',
+      tagline: 'L’app del metro i el bus funciona sense compte, però l’etiqueta no declara la targeta desada ni l’historial de compres',
       summary:
         'La TMB App planifica trajectes, mostra el temps d’arribada dels autobusos i ven i recarrega títols de la T-mobilitat. Sense compte es poden fer servir gairebé totes les funcions d’informació; comprar exigeix el compte TMB, que es pot crear amb Facebook, Google, Apple o l’AMB. L’etiqueta de l’App Store només declara el correu com a dada vinculada, tot i que l’app permet desar la targeta i guarda l’historial de compres. TMB publica un registre d’activitats amb terminis concrets i un delegat de protecció de dades, però no cap certificació de l’Esquema Nacional de Seguretat, i té obert un expedient sancionador de l’APDCAT per una bretxa que va exposar dades del seu personal.',
       platforms: ['ios', 'android', 'web'],
@@ -513,7 +513,7 @@ export const lot: SeedLot = {
         mandatoryRetention: f('no', 'official', ['tmobilitat-condicions'], 'Les condicions permeten donar-se de baixa. Només es conserven les dades bàsiques associades a penalitzacions fins que prescriuen.'),
       },
       dataSummary:
-        'Un títol personalitzat lliga el nom i el document d’identitat amb cada validació: data, hora, operador i zona. És el mapa dels desplaçaments habituals d’una persona, i l’ATM el comunica als operadors de transport, a altres administracions i a les forces de seguretat.',
+        'Un títol personalitzat lliga el nom i el document d’identitat amb cada validació: data, hora, operador i zona. Aquestes dades mostren els desplaçaments habituals d’una persona, i l’ATM les comunica als operadors de transport, a altres administracions i a les forces de seguretat.',
       dataCollection: [
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['tmobilitat-rat'], note: 'Activitat «Alta app» del registre; l’etiqueta de l’App Store no declara cap dada.' }),
         row('document-identificatiu-oficial', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'seguretat-i-prevencio-del-frau'], sources: ['tmobilitat-rat', 'tmobilitat-condicions'], note: 'DNI, NIE o passaport, al qual van lligats els suports personalitzats.' }),
@@ -606,9 +606,9 @@ export const lot: SeedLot = {
       name: 'FGC: horario, zonas, tarifas',
       company: 'ferrocarrils-de-la-generalitat-de-catalunya',
       categories: ['mobilitat-i-transport'],
-      tagline: 'L’app pública d’horaris declara dades de contacte per rastrejar-te en apps d’altres empreses',
+      tagline: 'L’app pública d’horaris declara dades de contacte per rastrejar en apps d’altres empreses',
       summary:
-        'L’app d’FGC ofereix horaris, zones, tarifes i alertes de servei, i un compte opcional per desar trajectes i rebre avisos. És l’única del lot que declara a l’App Store dades utilitzades per rastrejar en apps i webs d’altres empreses (les de contacte), cosa difícil de conciliar amb unes condicions que diuen que les dades no es cedeixen a tercers. En canvi, el compte s’esborra des de la mateixa app. El registre d’activitats d’FGC és públic però no té cap entrada per a aquesta app.',
+        'L’app d’FGC ofereix horaris, zones, tarifes i alertes de servei, i un compte opcional per desar trajectes i rebre avisos. De les apps de transport públic de l’àrea de Barcelona, és l’única que declara a l’App Store dades utilitzades per rastrejar en apps i webs d’altres empreses (les de contacte), mentre les condicions diuen que les dades no es cedeixen a tercers. El compte s’esborra des de la mateixa app. El registre d’activitats d’FGC és públic però no té cap entrada per a aquesta app.',
       platforms: ['ios', 'android'],
       businessModel: 'public-service',
       jurisdiction: 'Espanya',
@@ -742,7 +742,7 @@ export const lot: SeedLot = {
       publicService: {
         isPublicService: true,
         administrationLevel: 'state',
-        legalBasis: f('partial', 'official', ['rodalies-politica-privadesa'], 'La política assigna una base a cada finalitat —contracte, interès legítim, obligació legal i consentiment— i cita el Reial decret 1575/1989 per a la cessió a les asseguradores, però no la norma que empara la resta de tractaments.'),
+        legalBasis: f('partial', 'official', ['rodalies-politica-privadesa'], 'La política assigna una base a cada finalitat (contracte, interès legítim, obligació legal i consentiment) i cita el Reial decret 1575/1989 per a la cessió a les asseguradores, però no la norma que empara la resta de tractaments.'),
         processingRegistry: unknown('No hem trobat cap activitat del registre de Renfe Viajeros que correspongui a l’app de Rodalies.'),
         dpia: unknown('No hem trobat cap avaluació d’impacte publicada.'),
         ensConformity: f('yes', 'official', ['renfe-certificaciones-ciberseguridad'], 'El grup Renfe declara la conformitat amb l’Esquema Nacional de Seguretat i la ISO 27001, sense publicar-ne la categoria, l’abast ni l’entitat certificadora.'),
@@ -848,7 +848,7 @@ export const lot: SeedLot = {
       categories: ['mobilitat-i-transport', 'mapes-i-navegacio'],
       tagline: 'L’app metropolitana de mobilitat té un certificat ENS, però enllaça un avís legal genèric com a política',
       summary:
-        'AMB Mobilitat, l’antiga Picmi, planifica trajectes amb el transport públic metropolità i permet demanar un taxi. L’etiqueta declara poca cosa, només l’ús i els errors com a dades no vinculades, però el servei de taxi exigeix un compte amb nom, correu i ubicació, que tracta l’Institut Metropolità del Taxi. No té una política de privadesa pròpia: l’App Store enllaça l’avís legal genèric de l’AMB. En canvi, els sistemes que la sostenen tenen un certificat de l’Esquema Nacional de Seguretat de categoria mitjana.',
+        'AMB Mobilitat, l’antiga Picmi, planifica trajectes amb el transport públic metropolità i permet demanar un taxi. L’etiqueta només declara l’ús i els errors com a dades no vinculades, però el servei de taxi exigeix un compte amb nom, correu i ubicació, que tracta l’Institut Metropolità del Taxi. No té una política de privadesa pròpia: l’App Store enllaça l’avís legal genèric de l’AMB. Els sistemes que la sostenen tenen un certificat de l’Esquema Nacional de Seguretat de categoria mitjana.',
       platforms: ['ios', 'android'],
       businessModel: 'public-service',
       jurisdiction: 'Espanya',
@@ -956,7 +956,7 @@ export const lot: SeedLot = {
       categories: ['mobilitat-i-transport'],
       tagline: 'L’app del tramvia diu que no recull dades, però la seva política envia l’ús a Google sota un acord anul·lat el 2020',
       summary:
-        'L’app del Trambaix i el Trambesòs mostra horaris, parades properes i incidències. L’etiqueta de l’App Store diu que no recull cap dada, i l’enllaç de privadesa que hi figura porta a una pàgina inexistent. La política real, a tram.cat, admet la ubicació, les notificacions i una anàlisi estadística d’ús feta per Google Inc. als Estats Units, que empara en l’Escut de Privadesa, anul·lat pel Tribunal de Justícia de la UE el juliol del 2020. L’operen concessionàries privades del tramvia, per concessió de l’ATM.',
+        'L’app del Trambaix i el Trambesòs mostra horaris, parades properes i incidències. L’etiqueta de l’App Store diu que no recull cap dada, i l’enllaç de privadesa que hi figura porta a una pàgina inexistent. La política vigent, a tram.cat, admet la ubicació, les notificacions i una anàlisi estadística d’ús feta per Google Inc. als Estats Units, que empara en l’Escut de Privadesa, anul·lat pel Tribunal de Justícia de la UE el juliol del 2020. L’operen concessionàries privades del tramvia, per concessió de l’ATM.',
       platforms: ['ios', 'android'],
       businessModel: 'public-service',
       jurisdiction: 'Espanya',

@@ -65,9 +65,8 @@ export async function GET(
           atribucio: ATTRIBUTION,
           documentacio: 'https://identitat.digital/dades',
           metodologia: 'https://identitat.digital/metodologia',
-          codi: 'https://github.com/newspiritstudio/identitatdigital',
           excepcions:
-            'El catàleg de filtracions prové de Have I Been Pwned (CC BY 4.0). Els logotips i les marques no entren en cap de les dues llicències. Vegeu el fitxer NOTICE del repositori.',
+            'El catàleg de filtracions prové de Have I Been Pwned (CC BY 4.0). Els logotips i les marques no entren en cap de les dues llicències.',
           conjunts: DATASETS.map((dataset) => ({
             clau: dataset.key,
             titol: dataset.title,

@@ -22,21 +22,19 @@ export default function AccessibilityPage() {
         <p>
           <strong>Estat: parcialment conforme amb les WCAG 2.2 nivell AA.</strong> L’avaluació és
           una <strong>autoavaluació</strong>: revisió manual del codi més un comprovador automàtic
-          propi que és al repositori i que qualsevol pot tornar a executar. No hi ha hagut
-          auditoria externa ni proves amb persones usuàries de tecnologies de suport, i mentre no
-          n’hi hagi aquesta declaració no pot valer com a certificat de res.
+          propi. No hi ha hagut auditoria externa ni proves amb persones usuàries de tecnologies de
+          suport, i mentre no n’hi hagi aquesta declaració no té valor de certificat.
         </p>
         <p>
-          El que hi ha a continuació és l’estat real, com s’ha comprovat, què queda fora i amb quin
+          A continuació hi ha l’estat actual, com s’ha comprovat, què queda fora i amb quin
           calendari, i com informar-nos si trobes una barrera.
         </p>
       </Avis>
 
       <Resum>
         <p>
-          <strong>En curt:</strong> aquesta declaració és <strong>voluntària</strong> —cap norma no
-          l’exigeix a aquest lloc, i a l’apartat 2 expliquem per què—, i l’assumim igualment. El
-          compromís és arribar a les WCAG 2.2 nivell AA i a la norma EN 301 549. L’estat actual és
+          <strong>En resum:</strong> aquesta declaració és <strong>voluntària</strong>, perquè cap
+          norma no l’exigeix a aquest lloc (l’apartat 2 explica per què). El compromís és arribar a les WCAG 2.2 nivell AA i a la norma EN 301 549. L’estat actual és
           parcialment conforme: 78 pàgines analitzades sense cap incidència de les que una màquina
           sap detectar, i tres excepcions conegudes, totes lligades a que el disseny visual encara
           és provisional i a que no s’han fet proves amb persones.
@@ -52,15 +50,14 @@ export default function AccessibilityPage() {
         Unió Europea i que incorpora les WCAG per a la part web.
       </p>
       <p>
-        Aquest compromís no és decoratiu: un lloc que publica informació d’interès públic sobre
-        drets digitals i que no es pot llegir amb un lector de pantalla estaria excloent precisament
-        les persones que més sovint queden fora de les decisions sobre tecnologia.
+        Un lloc que publica informació d’interès públic sobre drets digitals i que no es pot llegir
+        amb un lector de pantalla exclouria les persones que més sovint queden fora de les
+        decisions sobre tecnologia.
       </p>
 
-      <h2>2. És obligatòria aquesta declaració? No. I l’assumim igualment</h2>
+      <h2>2. És obligatòria aquesta declaració?</h2>
       <p>
-        Cal ser precisos, perquè la resposta canvia segons la norma que es miri. Hem revisat les
-        tres que podrien aplicar.
+        No. La resposta depèn de la norma que es miri, i hem revisat les tres que podrien aplicar.
       </p>
 
       <h3>2.1. Reial decret 1112/2018: no aplica</h3>
@@ -97,10 +94,10 @@ export default function AccessibilityPage() {
       <p>
         <strong>Segona raó, subsidiària:</strong> encara que un dia el projecte incorporés un servei
         de l’àmbit de la Directiva, l’article 4.5 exclou les microempreses que presten serveis de
-        les obligacions d’accessibilitat, precisament per la desproporció de la càrrega. Ho diem com
-        a argument de reforç, no com a excusa: no pensem acollir-nos-hi. New Spirit Studio S.L.
-        compleix la definició de microempresa: no té cap persona treballadora per compte aliè —els
-        dos administradors cotitzen al règim especial de treballadors autònoms— i el volum de negoci
+        les obligacions d’accessibilitat per la desproporció de la càrrega. És un argument
+        subsidiari i no pensem acollir-nos-hi. New Spirit Studio S.L. compleix la definició de
+        microempresa: no té cap persona treballadora per compte aliè (els dos administradors
+        cotitzen al règim especial de treballadors autònoms) i el volum de negoci
         anual és molt per sota dels dos milions d’euros que marca el llindar.
       </p>
 
@@ -126,16 +123,15 @@ export default function AccessibilityPage() {
       </p>
       <ul>
         <li>
-          Perquè un projecte que exigeix transparència a les grans plataformes no pot escudar-se en
-          una exempció legal per no dir en quin estat està.
+          Un projecte que exigeix transparència a les grans plataformes també ha de dir en quin
+          estat està, encara que la llei no l’hi obligui.
         </li>
         <li>
-          Perquè l’accessibilitat és una condició del dret a la informació. Publicar informació que
-          una part de la població no pot llegir és una forma de no publicar-la.
+          L’accessibilitat és una condició del dret a la informació: el que una part de la població
+          no pot llegir no li arriba.
         </li>
         <li>
-          Perquè declarar-ho públicament ens obliga a complir-ho, i un compromís que no es pot
-          comprovar no val res.
+          Declarar-ho públicament ens obliga a complir-ho i permet que qualsevol ho comprovi.
         </li>
       </ul>
 
@@ -145,13 +141,12 @@ export default function AccessibilityPage() {
         s’enumeren a l’apartat 3.3. L’estat es basa en una <strong>autoavaluació</strong> feta amb
         una eina automàtica pròpia i una revisió manual del codi. No hi ha hagut avaluació externa
         ni proves amb persones usuàries de tecnologies de suport, i per tant el que es diu aquí no
-        pot valer com a certificat de res.
+        té valor de certificat.
       </p>
 
       <h3>3.1. Com s’ha avaluat</h3>
       <p>
-        El repositori conté un comprovador propi, <code>scripts/check-accessibility.ts</code>, que
-        es llança amb <code>pnpm check-a11y</code>. Rastreja totes les pàgines públiques del lloc,
+        Hem fet servir un comprovador automàtic propi. Rastreja totes les pàgines públiques del lloc,
         en llegeix l’HTML que arriba al navegador i hi busca les barreres que una màquina sap
         trobar: imatges sense text alternatiu, capçaleres de taula sense abast, taules sense títol,
         camps de formulari sense etiqueta, enllaços i botons sense nom accessible, identificadors
@@ -161,16 +156,11 @@ export default function AccessibilityPage() {
       </p>
       <p>
         <strong>Resultat de la darrera execució, el 12 de setembre de 2026: 78 pàgines
-        analitzades, cap incidència.</strong> El resultat no s’ha d’estirar més enllà del que diu:
-        no hi ha els errors que una eina automàtica sap detectar. Les eines automàtiques troben
+        analitzades, cap incidència.</strong> Això vol dir només que no hi ha els errors que una
+        eina automàtica sap detectar. Les eines automàtiques troben
         entre un quart i un terç de les barreres reals. Si l’ordre de lectura té sentit, si un text
         alternatiu diu el que ha de dir o si el focus es veu sobre el fons que hi ha només ho troba
         una persona mirant-s’ho, i això encara no s’ha fet amb mètode.
-      </p>
-      <p>
-        El comprovador és al repositori perquè qualsevol persona el pugui llegir, hi trobi els
-        forats i ens digui què no mira. Amb una eina de tercers que no podem ensenyar, la
-        declaració seria més fàcil de signar i més difícil de comprovar.
       </p>
 
       <h3>3.2. El que ja funciona</h3>
@@ -186,8 +176,8 @@ export default function AccessibilityPage() {
         </li>
         <li>
           <strong>Enllaç de salt al contingut</strong> com a primer element focalitzable de cada
-          pàgina, visible quan rep el focus, que porta el focus de debò a <code>&lt;main&gt;</code> i
-          no només el desplaçament (criteri 2.4.1).
+          pàgina, visible quan rep el focus, que porta el focus a <code>&lt;main&gt;</code> i no
+          només el desplaçament (criteri 2.4.1).
         </li>
         <li>
           <strong>Taules de dades amb semàntica completa.</strong> Les seixanta-cinc capçaleres del
@@ -223,9 +213,8 @@ export default function AccessibilityPage() {
           estigui coberta.
         </li>
         <li>
-          <strong>Cap imatge sense text alternatiu.</strong> Això no depèn de la disciplina de qui
-          edita: el camp de text alternatiu és obligatori al gestor de continguts i una imatge no es
-          pot desar sense ell.
+          <strong>Cap imatge sense text alternatiu.</strong> El camp de text alternatiu és
+          obligatori al gestor de continguts i una imatge no es pot desar sense ell.
         </li>
         <li>
           <strong>Cap animació, cap moviment automàtic, cap contingut intermitent i cap reproducció
@@ -247,7 +236,7 @@ export default function AccessibilityPage() {
           <strong>Eines interactives amb etiquetatge complet.</strong> Els camps de les tres eines
           tenen etiqueta associada, els grups de caselles porten <code>fieldset</code> i{' '}
           <code>legend</code>, i els resultats que canvien sense recarregar s’anuncien amb una
-          regió d’estat acotada, no recitant taules senceres (criteris 3.3.2, 4.1.2 i 4.1.3).
+          regió d’estat acotada, sense llegir taules senceres (criteris 3.3.2, 4.1.2 i 4.1.3).
         </li>
         <li>
           <strong>Cap límit de temps, cap sessió que caduqui i cap CAPTCHA</strong> a la part
@@ -257,8 +246,8 @@ export default function AccessibilityPage() {
 
       <h3>3.3. Contingut no accessible</h3>
       <p>
-        Aquestes són les excepcions per les quals la conformitat és parcial i no total. Les hem
-        trobades nosaltres; n’hi haurà més, i per això hi ha l’apartat 5.
+        Aquestes són les excepcions per les quals la conformitat és parcial. Les hem trobades
+        nosaltres; segur que n’hi ha més, i per això hi ha l’apartat 5.
       </p>
       <TableWrap label="Excepcions de conformitat conegudes, amb el criteri WCAG 2.2 afectat i el motiu">
         <table>
@@ -292,14 +281,6 @@ export default function AccessibilityPage() {
             </tr>
             <tr>
               <td>
-                No hi ha tema fosc. Qui necessiti contrast invertit depèn del que li ofereixi el
-                navegador o el sistema.
-              </td>
-              <td>Bona pràctica; no és un criteri de nivell AA</td>
-              <td>Pendent del disseny definitiu</td>
-            </tr>
-            <tr>
-              <td>
                 El panell d’administració a <code>/admin</code> és programari de tercers i el seu
                 nivell d’accessibilitat no depèn de nosaltres. No l’hem avaluat i el comprovador
                 l’exclou expressament.
@@ -309,7 +290,7 @@ export default function AccessibilityPage() {
             </tr>
             <tr>
               <td>
-                Els documents de tercers als quals enllacem —polítiques, resolucions, articles— són
+                Els documents de tercers als quals enllacem (polítiques, resolucions, articles) són
                 sovint PDF sense etiquetar.
               </td>
               <td>Contingut de tercers, art. 3.2 de referència habitual</td>
@@ -321,10 +302,9 @@ export default function AccessibilityPage() {
 
       <h3>3.4. Contingut de tercers</h3>
       <p>
-        Els documents als quals enllacem —polítiques de privadesa, resolucions d’autoritats,
-        articles— són de tercers i la seva accessibilitat no depèn de nosaltres. Molts d’ells són
-        PDF sense etiquetar. La mesura compensatòria és estructural i no depèn de la bona voluntat:
-        cada font del catàleg porta un resum en català escrit per nosaltres, de manera que el
+        Els documents als quals enllacem (polítiques de privadesa, resolucions d’autoritats,
+        articles) són de tercers i la seva accessibilitat no depèn de nosaltres. Molts d’ells són
+        PDF sense etiquetar. Com a mesura compensatòria, cada font del catàleg porta un resum en català escrit per nosaltres, de manera que el
         contingut essencial es pugui entendre sense haver d’obrir el document original.
       </p>
 
@@ -335,9 +315,9 @@ export default function AccessibilityPage() {
       </p>
       <ol>
         <li>
-          <strong>Comprovació automàtica a cada canvi.</strong> Feta. <code>pnpm check-a11y</code> és
-          al repositori i s’executa contra el lloc publicat; una pàgina nova que introdueixi un
-          error de taula, d’etiqueta o d’enllaç el fa aparèixer immediatament.
+          <strong>Comprovació automàtica a cada canvi.</strong> Feta. El comprovador s’executa
+          contra el lloc publicat; si una pàgina nova introdueix un error de taula, d’etiqueta o
+          d’enllaç, apareix immediatament.
         </li>
         <li>
           <strong>Proves manuals només amb teclat i amb lector de pantalla</strong> (VoiceOver i
@@ -352,25 +332,24 @@ export default function AccessibilityPage() {
         </li>
         <li>
           <strong>Proves amb persones usuàries reals de tecnologies de suport</strong>, si trobem la
-          manera de fer-les bé i de remunerar-les. Dir que es faran «si es pot» seria un compromís
-          buit: el compromís concret és buscar-hi pressupost i dir públicament si no se n’ha
-          trobat.
+          manera de fer-les bé i de remunerar-les. Ens comprometem a buscar-hi pressupost i a dir
+          públicament si no se n’ha trobat.
         </li>
         <li>
           <strong>Actualització d’aquesta declaració</strong> amb l’estat de conformitat que
-          resulti de l’avaluació, i no el que ens agradaria que fos.
+          resulti de l’avaluació.
         </li>
       </ol>
       <p>
-        Si alguna d’aquestes dates es passa, el que canviarà és la data, no el que diu aquesta
-        pàgina. Un calendari que s’esborra quan no es compleix no és un calendari.
+        Si alguna d’aquestes dates es passa, actualitzarem la data i mantindrem el compromís
+        d’aquesta pàgina.
       </p>
 
       <h2>5. Com informar-nos d’una barrera</h2>
       <p>
         Si no pots accedir a algun contingut d’aquest lloc, o si hi trobes una barrera, escriu a{' '}
         <a href="mailto:admin@newspirit.studio">admin@newspirit.studio</a>. Ens arriba directament a
-        les persones que administren la societat, no a un bústia genèrica.
+        les persones que administren la societat.
       </p>
       <p>Digue’ns, si pots:</p>
       <ul>
@@ -384,7 +363,7 @@ export default function AccessibilityPage() {
       <p>
         <strong>El que ens comprometem a fer:</strong> acusar-ne recepció en 5 dies hàbils, dir-te
         en 15 dies hàbils si ho podem corregir i quan, i fer-ho. Si una correcció requereix el
-        disseny definitiu i no la podem avançar, t’ho direm clarament i et facilitarem el contingut
+        disseny definitiu i no la podem avançar, t’ho direm i et facilitarem el contingut
         en un format alternatiu accessible mentrestant. Això últim és el que la llei anomena un
         ajust raonable, i hi estem obligats amb declaració o sense.
       </p>
@@ -392,38 +371,26 @@ export default function AccessibilityPage() {
       <h3>Si no estàs satisfet amb la resposta</h3>
       <p>
         Com que aquest lloc no és del sector públic, no hi ha el procediment de reclamació davant la
-        unitat responsable d’accessibilitat que preveu el Reial decret 1112/2018, i no seria honest
-        derivar-te a un canal que no et pot atendre.
+        unitat responsable d’accessibilitat que preveu el Reial decret 1112/2018.
       </p>
       <p>
         El que sí que existeix: pots dirigir-te a l’Oficina d’Atenció a la Discapacitat, a les
         entitats del moviment associatiu de la discapacitat, o exercir les accions que preveu el
         text refós de la Llei general de drets de les persones amb discapacitat davant la
-        jurisdicció ordinària. I, en qualsevol cas, insistir-nos. La barrera continua sent nostra i
-        la volem corregir.
+        jurisdicció ordinària. També pots tornar a escriure’ns: la barrera continua sent
+        responsabilitat nostra i la volem corregir.
       </p>
 
       <h2>6. Preparació d’aquesta declaració</h2>
       <p>
         Preparada el 12 de setembre de 2026 mitjançant una <strong>autoavaluació</strong> que
-        combina dues coses: una revisió manual del codi font i l’execució del comprovador automàtic{' '}
-        <code>scripts/check-accessibility.ts</code> contra el lloc publicat, descrit a l’apartat
-        3.1. No hi ha hagut avaluació externa ni proves amb persones usuàries de tecnologies de
+        combina una revisió manual del codi font i l’execució del comprovador automàtic propi
+        contra el lloc publicat, descrit a l’apartat 3.1. No hi ha hagut avaluació externa ni proves amb persones usuàries de tecnologies de
         suport.
       </p>
       <p>
-        Tant el comprovador com el codi del lloc són públics al{' '}
-        <a
-          href="https://github.com/newspiritstudio/identitatdigital"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          repositori del projecte
-          <span className="visually-hidden"> (s’obre en una pestanya nova)</span>
-        </a>
-        , de manera que qualsevol persona pot refer l’avaluació i comprovar si el que diem aquí és
-        cert. Es revisarà cada vegada que el lloc canviï de manera substancial i, en tot cas, com a
-        mínim un cop l’any.
+        Aquesta declaració es revisarà cada vegada que el lloc canviï de manera substancial i, en
+        tot cas, com a mínim un cop l’any.
       </p>
       <p className="meta">
         Referències: Directiva (UE) 2019/882; Llei 11/2023; Reial decret legislatiu 1/2013; Reial

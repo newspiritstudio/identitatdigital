@@ -41,7 +41,7 @@ const randstad: AppSeed = {
   accountRequired: f('yes', 'official', ['randstad-candidate-privacy', 'randstad-account-settings'], 'Per inscriure’s a les ofertes cal un compte de candidat amb perfil professional i currículum.'),
   openSource: f('no', 'official', ['randstad-app-store'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'Un expedient laboral complet: currículum, titulacions, idiomes, disponibilitat horària, vehicle propi, salari desitjat, nacionalitat, gènere i data de naixement, més vídeos de presentació i enregistraments d’entrevistes. La política admet que també pot recollir informació de perfils públics de xarxes socials i de referències laborals demanades a antics ocupadors, és a dir, dades sobre la persona obtingudes sense que hi intervingui.',
+    'Randstad recull el currículum, les titulacions, idiomes, disponibilitat horària, vehicle propi, salari desitjat, nacionalitat, gènere i data de naixement, més vídeos de presentació i enregistraments d’entrevistes. La política admet que també pot recollir informació de perfils públics de xarxes socials i de referències laborals demanades a antics ocupadors, és a dir, dades sobre la persona obtingudes sense que hi intervingui.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'cessio-a-tercers'], sources: ['randstad-candidate-privacy', 'randstad-app-store'], note: 'Es comunica a les empreses clientes en els processos de selecció externa.' }),
     row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'atencio-a-lusuari'], sources: ['randstad-candidate-privacy', 'randstad-app-store'] }),
@@ -134,7 +134,7 @@ const randstad: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'Randstad té dues polítiques: una de general per al web i l’aplicació, i una d’específica per a candidats, que és la que descriu el tractament rellevant. L’element més notable és el reconeixement explícit de l’ús d’intel·ligència artificial per elaborar el perfil professional, combinat amb l’absència de terminis concrets de conservació.',
+      'Randstad té dues polítiques: una de general per al web i l’aplicació, i una d’específica per a candidats, que és la que descriu el tractament rellevant. Aquesta segona reconeix explícitament que fa servir intel·ligència artificial per elaborar el perfil professional i no dona terminis concrets de conservació.',
     openQuestions: [
       'Quant de temps es conserva el currículum d’una persona que no ha arribat a treballar per a Randstad?',
       'Quins sistemes d’intel·ligència artificial s’utilitzen per analitzar les entrevistes gravades i qui els proporciona?',
@@ -150,7 +150,7 @@ const adecco: AppSeed = {
   categories: ['feina-i-ocupacio'],
   tagline: 'Tres anys de conservació del perfil i sis mesos per a les dades de discapacitat, amb aprenentatge automàtic a la preselecció',
   summary:
-    'De les cinc aplicacions de feina del lot, Adecco és l’única que publica terminis de conservació concrets: fins a tres anys des de l’última activitat, sis mesos per a les dades sensibles com la discapacitat i fins a sis anys per a les reclamacions. La política admet que recull dades sobre discapacitat i sobre delictes penals quan la llei ho permet, i que fa servir aprenentatge automàtic per elaborar la preselecció, tot i que assegura que les decisions són humanes. El 2021 es va filtrar una base de dades de candidats d’Adecco a Sud-amèrica.',
+    'Adecco publica terminis de conservació concrets: fins a tres anys des de l’última activitat, sis mesos per a les dades sensibles com la discapacitat i fins a sis anys per a les reclamacions. La política admet que recull dades sobre discapacitat i sobre delictes penals quan la llei ho permet, i que fa servir aprenentatge automàtic per elaborar la preselecció, tot i que assegura que les decisions són humanes. El 2021 es va filtrar una base de dades de candidats d’Adecco a Sud-amèrica.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'unknown',
   jurisdiction: 'Espanya (Adecco Iberia, S.A.), dins del grup suís The Adecco Group',
@@ -162,7 +162,7 @@ const adecco: AppSeed = {
   accountRequired: f('yes', 'official', ['adecco-candidate-privacy'], 'Cal registrar-se com a candidat per inscriure’s a les ofertes i constar a la base de dades.'),
   openSource: f('no', 'official', ['adecco-app-store'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'Currículum, titulacions, documents d’identitat, proves del dret a treballar i, quan la llei ho permet, dades sobre discapacitat i sobre delictes penals presumptes o provats. L’etiqueta de l’App Store hi afegeix la ubicació exacta i les fotografies o vídeos. El conjunt permet reconstruir la trajectòria laboral completa d’una persona i la seva situació de salut.',
+    'Currículum, titulacions, documents d’identitat, proves del dret a treballar i, quan la llei ho permet, dades sobre discapacitat i sobre delictes penals presumptes o provats. L’etiqueta de l’App Store hi afegeix la ubicació exacta i les fotografies o vídeos. Amb aquestes dades es pot reconstruir la trajectòria laboral d’una persona i conèixer part de la seva situació de salut.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'cessio-a-tercers'], sources: ['adecco-candidate-privacy', 'adecco-app-store'] }),
     row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['adecco-candidate-privacy', 'adecco-app-store'], note: 'El màrqueting directe es basa en el consentiment.' }),
@@ -255,7 +255,7 @@ const adecco: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'La política de candidats del grup Adecco és, de les cinc aplicacions de feina d’aquest lot, la que dona més detall sobre terminis i categories especials de dades. Contrasta amb el fet que l’etiqueta de l’App Store declari ubicació exacta i fotografies que la política no esmenta. La filtració del 2021 afecta usuaris d’Amèrica del Sud, no consta que afectés Espanya.',
+      'La política de candidats del grup Adecco dona detall sobre terminis i categories especials de dades. En canvi, l’etiqueta de l’App Store declara ubicació exacta i fotografies que la política no esmenta. La filtració del 2021 afecta usuaris d’Amèrica del Sud; no consta que afectés Espanya.',
     openQuestions: [
       'Per a què demana l’aplicació la ubicació exacta, si la política de candidats no la menciona?',
       'Quin sistema d’aprenentatge automàtic fa la preselecció i com es pot demanar la revisió humana?',
@@ -284,7 +284,7 @@ const yobalia: AppSeed = {
   accountRequired: f('yes', 'official', ['yobalia-privacy-policy'], 'Cal un compte amb zona privada per inscriure’s a les ofertes i per exercir els drets.'),
   openSource: f('no', 'official', ['yobalia-app-store'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'Les dades que demana un portal d’ofertes —identificació, contacte i perfil professional— i, segons la mateixa política, l’historial de navegació per adaptar-hi la publicitat. L’etiqueta de l’App Store no declara ni el nom ni el correu, tot i que el servei els necessita per funcionar: és una etiqueta clarament incompleta.',
+    'Les dades que demana un portal d’ofertes (identificació, contacte i perfil professional) i, segons la mateixa política, l’historial de navegació per adaptar-hi la publicitat. L’etiqueta de l’App Store no declara ni el nom ni el correu, tot i que el servei els necessita per funcionar, de manera que és incompleta.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'cessio-a-tercers'], sources: ['yobalia-privacy-policy'], note: 'Es comunica a les empreses que publiquen les ofertes. L’etiqueta de l’App Store no declara aquesta dada.' }),
     row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'cessio-a-tercers'], sources: ['yobalia-privacy-policy'] }),
@@ -360,7 +360,7 @@ const yobalia: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'La política de privadesa de Yobalia ocupa poc més d’una pantalla i no identifica destinataris, terminis ni transferències. L’etiqueta de l’App Store tampoc declara el nom ni el correu, que el servei necessita per funcionar: la fitxa s’ha construït sobretot a partir de la política, i l’etiqueta serveix per confirmar el rastreig i la presència de publicitat. No hem trobat cap incident documentat.',
+      'La política de privadesa de Yobalia ocupa poc més d’una pantalla i no identifica destinataris, terminis ni transferències. L’etiqueta de l’App Store tampoc declara el nom ni el correu, que el servei necessita per funcionar. Per això la fitxa s’ha construït sobretot a partir de la política, i l’etiqueta serveix per confirmar el rastreig i la presència de publicitat. No hem trobat cap incident documentat.',
     openQuestions: [
       'Quina xarxa publicitària serveix els anuncis de l’aplicació i quines dades hi arriben?',
       'Per què l’etiqueta de l’App Store no declara el nom ni el correu electrònic si el registre els demana?',
@@ -388,7 +388,7 @@ const scannerApp: AppSeed = {
   accountRequired: f('partial', 'official', ['scanner-app-tapsuite-privacy-policy'], 'La política descriu un registre amb adreça electrònica i contrasenya, però l’escaneig bàsic sembla funcionar sense compte; no ho hem pogut verificar.'),
   openSource: f('no', 'official', ['scanner-app-tapsuite-app-store'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'Un escàner de documents veu passaports, nòmines, contractes, receptes i tota mena de paper sensible. La política no diu si els documents es processen al dispositiu o s’envien a servidors, ni els esmenta enlloc; l’etiqueta de l’App Store sí que declara contingut de l’usuari (fotos o vídeos) per a la funcionalitat de l’aplicació, i identificadors i dades d’ús per a publicitat i analítica.',
+    'Amb un escàner de documents es digitalitzen passaports, nòmines, contractes, receptes i altres papers sensibles. La política no diu si els documents es processen al dispositiu o s’envien a servidors, ni els esmenta enlloc; l’etiqueta de l’App Store sí que declara contingut de l’usuari (fotos o vídeos) per a la funcionalitat de l’aplicació, i identificadors i dades d’ús per a publicitat i analítica.',
   dataCollection: [
     row('adreca-electronica', 'optional', { linked: 'no', tracking: 'unknown', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['scanner-app-tapsuite-privacy-policy'], note: 'La política diu que en enviar l’adreça s’accepta rebre correus i que es pot fer servir per segmentar audiències a plataformes com Facebook.' }),
     row('contrasenya', 'optional', { linked: 'no', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['scanner-app-tapsuite-privacy-policy'] }),
@@ -483,7 +483,7 @@ const b4work: AppSeed = {
   categories: ['feina-i-ocupacio'],
   tagline: 'L’etiqueta de l’App Store diu que no recull cap dada, però la política descriu comptes, currículums i cessió a les empreses ofertants',
   summary:
-    'B4work és un portal d’ofertes de feina amb seu a Barcelona. La contradicció més visible és que l’etiqueta de l’App Store declara «No se recopilan datos» mentre la política de privadesa descriu comptes, perfils, currículums i comunicació de les dades a les empreses que publiquen les ofertes. La política és breu però identifica el responsable i un delegat de protecció de dades, i no hi ha cap opció documentada per eliminar el compte per un mateix.',
+    'B4work és un portal d’ofertes de feina amb seu a Barcelona. L’etiqueta de l’App Store declara «No se recopilan datos», però la política de privadesa descriu comptes, perfils, currículums i comunicació de les dades a les empreses que publiquen les ofertes. La política és breu però identifica el responsable i un delegat de protecció de dades, i no hi ha cap opció documentada per eliminar el compte per un mateix.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'unknown',
   jurisdiction: 'Espanya (Vehículo de Inversión Tecnológica, S.L., Barcelona)',
@@ -496,7 +496,7 @@ const b4work: AppSeed = {
   accountRequired: f('yes', 'official', ['b4work-privacy-policy'], 'La política descriu la gestió de comptes i de processos de selecció com a base contractual del servei.'),
   openSource: f('no', 'official', ['b4work-app-store'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'Perfil, currículum i dades de registre. El que en surt és una candidatura completa que arriba a l’empresa ofertant, amb la seva pròpia política de privadesa, de manera que la persona ha de confiar en dues organitzacions per cada inscripció.',
+    'Perfil, currículum i dades de registre. Amb aquestes dades es forma una candidatura completa que arriba a l’empresa ofertant, que té la seva pròpia política de privadesa; per això, a cada inscripció, la persona ha de confiar en dues organitzacions.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'cessio-a-tercers'], sources: ['b4work-privacy-policy'], note: 'L’etiqueta de l’App Store, en canvi, declara que l’aplicació no recull cap dada.' }),
     row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'cessio-a-tercers'], sources: ['b4work-privacy-policy'] }),
@@ -572,7 +572,7 @@ const b4work: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'La troballa principal és la contradicció entre l’etiqueta de l’App Store, que declara que l’aplicació no recull cap dada, i la política de privadesa, que descriu comptes, currículums i cessions. L’etiqueta la declara el desenvolupador i Apple no la verifica. No hem trobat cap incident documentat.',
+      'L’etiqueta de l’App Store declara que l’aplicació no recull cap dada, i la política de privadesa descriu comptes, currículums i cessions. L’etiqueta la declara el desenvolupador i Apple no la verifica. No hem trobat cap incident documentat.',
     openQuestions: [
       'L’aplicació recull realment zero dades, com diu l’etiqueta, o l’etiqueta està desactualitzada?',
       'Hi ha alguna opció d’eliminació del compte dins de l’aplicació que no consti a la documentació?',
@@ -602,7 +602,7 @@ const webex: AppSeed = {
   accountRequired: f('partial', 'official', ['webex-app-store', 'cisco-privacy-statement'], 'Cal un compte per organitzar reunions i per a la missatgeria; s’hi pot entrar com a convidat amb un enllaç de reunió.'),
   openSource: f('no', 'official', ['webex-app-store'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'Qui es reuneix amb qui, quan i durant quant de temps, a més del contingut de les reunions i dels xats quan no hi ha xifratge extrem a extrem. En un entorn de feina, aquestes metadades dibuixen l’organigrama real i les relacions entre persones; l’incident de Frankfurt del 2024 va demostrar que són prou sensibles per interessar actors estatals.',
+    'Qui es reuneix amb qui, quan i durant quant de temps, a més del contingut de les reunions i dels xats quan no hi ha xifratge extrem a extrem. En un entorn de feina, aquestes metadades permeten deduir l’organigrama real i les relacions entre persones. La premsa va relacionar l’incident de Frankfurt del 2024 amb reunions del govern alemany.',
   dataCollection: [
     row('identificador-de-compte', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['webex-app-store', 'cisco-privacy-statement'] }),
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'unknown', purposes: ['prestacio-del-servei'], sources: ['cisco-privacy-statement'] }),
@@ -685,7 +685,7 @@ const webex: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'Les fitxes de privadesa de Webex al portal de confiança de Cisco són PDF que no hem pogut llegir de manera fiable; la fitxa es basa en la declaració de privadesa general de Cisco, en la documentació d’ajuda sobre xifratge i en l’avís de seguretat del 2024. Queden com a desconeguts el xifratge en repòs, la conservació concreta i la verificació en dos passos. El punt clau és que el xifratge extrem a extrem existeix però és opcional i incompatible amb les funcions que la majoria d’organitzacions volen.',
+      'Les fitxes de privadesa de Webex al portal de confiança de Cisco són PDF que no hem pogut llegir de manera fiable; la fitxa es basa en la declaració de privadesa general de Cisco, en la documentació d’ajuda sobre xifratge i en l’avís de seguretat del 2024. Queden com a desconeguts el xifratge en repòs, la conservació concreta i la verificació en dos passos. El xifratge extrem a extrem és opcional i incompatible amb les funcions que la majoria d’organitzacions volen.',
     openQuestions: [
       'Quin percentatge d’organitzacions activa el xifratge extrem a extrem, si desactiva la gravació i les transcripcions?',
       'El contingut de les reunions s’utilitza per entrenar els assistents d’intel·ligència artificial de Webex?',
@@ -701,7 +701,7 @@ const aisb: AppSeed = {
   categories: ['xarxes-professionals', 'utilitats'],
   tagline: 'L’aplicació d’un congrés on l’escaneig de la credencial cedeix el càrrec i l’empresa als patrocinadors',
   summary:
-    'És l’aplicació del congrés AI Summit Barcelona. La política identifica com a responsable AI Summit Alliance, S.L., tot i que a l’App Store la fitxa la publica Rusker Travel, S.L., que a més declara no ser comerciant a l’efecte dels drets del consumidor a la Unió Europea. La política és detallada per a un esdeveniment: enumera Supabase, Stripe, Google i Meta com a destinataris, publica terminis concrets —vint-i-quatre mesos per als comptes, noranta dies per als contactes captats— i explica que els patrocinadors només reben nom, empresa i càrrec quan la persona deixa escanejar voluntàriament la credencial.',
+    'És l’aplicació del congrés AI Summit Barcelona. La política identifica com a responsable AI Summit Alliance, S.L., tot i que a l’App Store la fitxa la publica Rusker Travel, S.L., que a més declara no ser comerciant a l’efecte dels drets del consumidor a la Unió Europea. La política és detallada per a un esdeveniment: enumera Supabase, Stripe, Google i Meta com a destinataris, publica terminis concrets (vint-i-quatre mesos per als comptes, noranta dies per als contactes captats) i explica que els patrocinadors només reben nom, empresa i càrrec quan la persona deixa escanejar voluntàriament la credencial.',
   platforms: ['ios'],
   businessModel: 'unknown',
   jurisdiction: 'Espanya (AI Summit Alliance, S.L., Barcelona)',
@@ -713,7 +713,7 @@ const aisb: AppSeed = {
   accountRequired: f('yes', 'official', ['aisb-privacy-policy'], 'L’aplicació funciona amb el compte de l’entrada i el perfil de networking del congrés.'),
   openSource: f('no', 'official', ['aisb-app-store'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'Un congrés professional genera un mapa precís de la xarxa de contactes: amb qui es parla, a quines sessions s’assisteix, quins patrocinadors escanegen la credencial i des de quin dispositiu es connecta a la wifi de l’esdeveniment. És informació de valor comercial directe per a qui ven al sector.',
+    'L’aplicació registra amb qui es parla durant el congrés, a quines sessions s’assisteix, quins patrocinadors escanegen la credencial i des de quin dispositiu es connecta a la wifi de l’esdeveniment. Aquesta informació té valor comercial directe per a qui ven al sector.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'cessio-a-tercers'], sources: ['aisb-privacy-policy', 'aisb-app-store'], note: 'Els patrocinadors el reben quan la persona deixa escanejar la credencial.' }),
     row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['aisb-privacy-policy', 'aisb-app-store'] }),
@@ -738,7 +738,7 @@ const aisb: AppSeed = {
   dataUses: {
     targetedAdvertising: f('partial', 'official', ['aisb-privacy-policy'], 'La publicitat i l’analítica es basen en el consentiment; les dades de màrqueting es conserven fins que la persona s’hi doni de baixa.'),
     profiling: unknown('La política no descriu cap perfilat automatitzat més enllà de les recomanacions de networking.'),
-    aiTraining: unknown('La política no esmenta cap ús de les dades per entrenar models, malgrat que el congrés és d’intel·ligència artificial.'),
+    aiTraining: unknown('La política no esmenta cap ús de les dades per entrenar models.'),
   },
   sharing: {
     thirdPartySharing: f('yes', 'official', ['aisb-privacy-policy'], 'Supabase, Stripe, Google, Meta i altres proveïdors de serveis; als patrocinadors només arriben el nom, l’empresa i el càrrec quan la persona deixa escanejar la credencial o demana una reunió.'),
@@ -779,7 +779,7 @@ const aisb: AppSeed = {
   controls: {
     adPersonalizationOptOut: f('yes', 'official', ['aisb-privacy-policy'], 'L’analítica i la publicitat depenen del consentiment i el màrqueting té baixa en qualsevol moment.'),
     telemetryOptOut: f('partial', 'official', ['aisb-privacy-policy'], 'L’analítica es basa en el consentiment, però la política no descriu on es gestiona dins de l’aplicació.'),
-    granularControls: f('partial', 'official', ['aisb-privacy-policy'], 'L’escaneig de credencial i les sol·licituds de reunió són accions voluntàries de la persona, que fan de control efectiu sobre la cessió als patrocinadors.'),
+    granularControls: f('partial', 'official', ['aisb-privacy-policy'], 'L’escaneig de credencial i les sol·licituds de reunió són accions voluntàries, i així la persona decideix si les seves dades arriben als patrocinadors.'),
     defaultPosture: 'mixed',
     darkPatterns: unknown('No hem analitzat les pantalles de registre i consentiment de l’aplicació.'),
   },
@@ -797,7 +797,7 @@ const aisb: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'Hi ha una discrepància que val la pena registrar: a l’App Store la fitxa la publica Rusker Travel, S.L., que declara no haver-se identificat com a comerciant —de manera que els drets del consumidor de la Unió Europea no s’hi apliquen—, mentre que la política de privadesa designa com a responsable AI Summit Alliance, S.L. Hem assignat la fitxa al responsable del tractament. La política, per a una aplicació d’esdeveniment, és inusualment concreta amb els terminis i els destinataris. No hem trobat cap incident documentat.',
+      'A l’App Store la fitxa la publica Rusker Travel, S.L., que declara no haver-se identificat com a comerciant (de manera que els drets del consumidor de la Unió Europea no s’hi apliquen), mentre que la política de privadesa designa com a responsable AI Summit Alliance, S.L. Hem assignat la fitxa al responsable del tractament. Per a una aplicació d’esdeveniment, la política és molt concreta amb els terminis i els destinataris. No hem trobat cap incident documentat.',
     openQuestions: [
       'Quina relació hi ha entre Rusker Travel, S.L. i AI Summit Alliance, S.L.?',
       'Per què la fitxa de l’App Store declara que el proveïdor no és comerciant a l’efecte dels drets del consumidor?',
@@ -811,9 +811,9 @@ const jobandtalent: AppSeed = {
   name: 'Job&Talent',
   company: 'jobs-and-talent',
   categories: ['feina-i-ocupacio'],
-  tagline: 'Fitxatges amb geolocalització, entrevistes en vídeo i dades bancàries: no és un portal d’ofertes, és l’empresa que et contracta',
+  tagline: 'Fitxatges amb geolocalització, entrevistes en vídeo i dades bancàries, perquè a més de portal d’ofertes és l’empresa que et contracta',
   summary:
-    'Job&Talent no és només un portal d’ofertes: és una empresa de treball temporal que contracta directament, i la seva política ho reflecteix. Recull document d’identitat, entrevistes en vídeo, compte bancari, nòmines, torns i la geolocalització dels fitxatges d’entrada i de sortida, a més de dades de salut rellevants per al lloc. Fa servir un algorisme que ordena les candidatures segons els requisits de l’oferta. L’etiqueta de l’App Store declara l’identificador del dispositiu per a publicitat de tercers, i l’aplicació pot fer servir la ubicació en segon pla.',
+    'A més de portal d’ofertes, Job&Talent és una empresa de treball temporal que contracta directament, i la seva política ho reflecteix. Recull document d’identitat, entrevistes en vídeo, compte bancari, nòmines, torns i la geolocalització dels fitxatges d’entrada i de sortida, a més de dades de salut rellevants per al lloc. Fa servir un algorisme que ordena les candidatures segons els requisits de l’oferta. L’etiqueta de l’App Store declara l’identificador del dispositiu per a publicitat de tercers, i l’aplicació pot fer servir la ubicació en segon pla.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'unknown',
   jurisdiction: 'Espanya (Jobs and Talent, S.L., Madrid)',
@@ -827,7 +827,7 @@ const jobandtalent: AppSeed = {
   accountRequired: f('yes', 'official', ['jobandtalent-privacy-notice', 'jobandtalent-terms-candidates'], 'Cal crear un compte amb dades d’identitat per inscriure’s a les ofertes i per treballar-hi.'),
   openSource: f('no', 'official', ['jobandtalent-app-store'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'Aquí no hi ha només un currículum: hi ha el document d’identitat, el compte bancari, les nòmines, els torns, les hores treballades i el lloc des d’on es fitxa. És la combinació de dades d’una relació laboral completa dins d’una aplicació de mòbil, amb el matís que la geolocalització dels fitxatges permet saber on és la persona cada dia a l’hora d’entrar i de sortir.',
+    'A més del currículum, l’aplicació recull el document d’identitat, el compte bancari, les nòmines, els torns, les hores treballades i el lloc des d’on es fitxa, és a dir, les dades d’una relació laboral completa. La geolocalització dels fitxatges permet saber on és la persona cada dia a l’hora d’entrar i de sortir.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'cessio-a-tercers'], sources: ['jobandtalent-privacy-notice', 'jobandtalent-app-store'] }),
     row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['jobandtalent-privacy-notice', 'jobandtalent-app-store'] }),
@@ -913,7 +913,7 @@ const jobandtalent: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'La diferència amb la resta d’aplicacions de feina del lot és que Job&Talent actua també com a ocupador, i per això tracta dades laborals, bancàries i de geolocalització que un portal d’ofertes no necessita. La política és força completa, però l’absència de terminis per tipus de dada i la publicitat de tercers declarada a l’etiqueta són els dos punts febles. No hem trobat cap sanció ni cap filtració documentada.',
+      'Job&Talent actua també com a ocupador, i per això tracta dades laborals, bancàries i de geolocalització que un portal d’ofertes no necessita. La política és força completa, però no assigna terminis per tipus de dada, i l’etiqueta declara publicitat de tercers. No hem trobat cap sanció ni cap filtració documentada.',
     openQuestions: [
       'Quina xarxa publicitària rep l’identificador del dispositiu que l’etiqueta declara per a publicitat de tercers?',
       'Amb quina freqüència es recull la ubicació en segon pla i què se’n conserva?',
@@ -927,9 +927,9 @@ const educamosFamilias: AppSeed = {
   name: 'Educamos Familias',
   company: 'tecnologia-y-gestion-educativa',
   categories: ['educacio'],
-  tagline: 'El responsable és l’escola, no l’aplicació: dades acadèmiques, de salut i bancàries de menors en servidors als Estats Units',
+  tagline: 'L’escola és la responsable del tractament de dades acadèmiques, de salut i bancàries de menors, allotjades en servidors als Estats Units',
   summary:
-    'Educamos Familias és l’aplicació de la plataforma escolar de Tecnología y Gestión Educativa, del grup SM. El responsable del tractament és el centre educatiu, no l’empresa, cosa que vol dir que els drets s’han d’exercir davant de l’escola. La política reconeix que la plataforma tracta dades identificatives, acadèmiques, de salut, bancàries i de circumstàncies socials —de menors d’edat—, i que els servidors són als Estats Units. L’etiqueta de l’App Store declara identificadors utilitzats per rastrejar.',
+    'Educamos Familias és l’aplicació de la plataforma escolar de Tecnología y Gestión Educativa, del grup SM. El responsable del tractament és el centre educatiu, i per tant els drets s’han d’exercir davant de l’escola. La política reconeix que la plataforma tracta dades identificatives, acadèmiques, de salut, bancàries i de circumstàncies socials de menors d’edat, i que els servidors són als Estats Units. L’etiqueta de l’App Store declara identificadors utilitzats per rastrejar.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'unknown',
   jurisdiction: 'Espanya; el responsable és cada centre educatiu i Tecnología y Gestión Educativa, S.L.U. hi actua com a proveïdora de la plataforma',
@@ -939,10 +939,10 @@ const educamosFamilias: AppSeed = {
     appStore: appStore('6746121007'),
     playStore: 'https://play.google.com/store/apps/details?id=com.educamos.familiasV4',
   },
-  accountRequired: f('yes', 'official', ['educamos-familias-privacy-policy'], 'Les credencials les dona el centre educatiu; sense compte del centre, l’aplicació no serveix de res.'),
+  accountRequired: f('yes', 'official', ['educamos-familias-privacy-policy'], 'Les credencials les dona el centre educatiu; sense compte del centre, l’aplicació no es pot fer servir.'),
   openSource: f('no', 'official', ['educamos-app-store'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'És l’expedient escolar sencer d’un infant vist des del mòbil de la família: qualificacions, faltes, incidències, comunicacions amb el professorat i, segons la mateixa política, dades de salut, bancàries i de circumstàncies socials. Són dades de menors, la categoria que el RGPD protegeix amb més cura, allotjades segons la política en servidors situats als Estats Units.',
+    'L’aplicació mostra a la família l’expedient escolar de l’infant: qualificacions, faltes, incidències, comunicacions amb el professorat i, segons la mateixa política, dades de salut, bancàries i de circumstàncies socials. Són dades de menors, als quals el RGPD reconeix una protecció específica, allotjades segons la política en servidors situats als Estats Units.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['educamos-familias-privacy-policy'], note: 'De l’alumnat i de les famílies; el responsable és el centre educatiu.' }),
     row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'atencio-a-lusuari'], sources: ['educamos-familias-privacy-policy'] }),
@@ -958,7 +958,7 @@ const educamosFamilias: AppSeed = {
     row('dades-de-diagnostic', 'yes', { linked: 'no', tracking: 'unknown', shared: 'unknown', purposes: ['millora-del-producte'], sources: ['educamos-app-store'] }),
   ],
   tracking: {
-    crossAppTracking: f('yes', 'official', ['educamos-app-store'], 'L’etiqueta de l’App Store declara identificadors entre les dades que poden servir per rastrejar en aplicacions i webs d’altres empreses. En una aplicació escolar amb dades de menors, és una declaració que mereix explicació.'),
+    crossAppTracking: f('yes', 'official', ['educamos-app-store'], 'L’etiqueta de l’App Store declara identificadors entre les dades que poden servir per rastrejar en aplicacions i webs d’altres empreses. La política no ho explica, tot i tractar-se d’una aplicació escolar amb dades de menors.'),
     advertisingIdentifiers: unknown('L’etiqueta declara «Identificadores» sense concretar si inclou l’identificador publicitari, i la política no l’esmenta.'),
     thirdPartyTrackersPresent: f('yes', 'official', ['educamos-familias-privacy-policy'], 'La política diu que TGE utilitza Google Analytics per obtenir estadístiques d’ús de l’aplicació.'),
   },
@@ -991,7 +991,7 @@ const educamosFamilias: AppSeed = {
       'Si el centre no respon, adreça’t al delegat de protecció de dades que indica la política d’Educamos.',
       'Si tampoc hi ha resposta en un mes, reclama davant de l’Agencia Española de Protección de Datos.',
     ],
-    obstacles: 'Mentre l’infant estigui escolaritzat al centre, la relació és obligatòria: no hi ha manera real de deixar de fer servir la plataforma si l’escola l’ha triada.',
+    obstacles: 'Mentre l’infant estigui escolaritzat al centre, no es pot deixar de fer servir la plataforma si l’escola l’ha triada.',
     dataRetained: 'Dades de facturació durant el termini legal.',
     sources: ['educamos-familias-privacy-policy'],
   },
@@ -1029,7 +1029,7 @@ const educamosFamilias: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'El repartiment de papers és el punt clau: el centre educatiu és el responsable del tractament i TGE hi actua com a proveïdora, però es reserva un interès legítim propi per analitzar l’ús de l’aplicació amb Google Analytics. Això, sumat a la declaració d’identificadors utilitzats per rastrejar a l’App Store i als servidors situats als Estats Units, mereix una revisió atenta tractant-se de dades de menors. No hem trobat cap sanció ni cap filtració documentada.',
+      'El centre educatiu és el responsable del tractament i TGE hi actua com a proveïdora, però es reserva un interès legítim propi per analitzar l’ús de l’aplicació amb Google Analytics. Aquest ús, la declaració d’identificadors utilitzats per rastrejar a l’App Store i els servidors situats als Estats Units són punts a revisar, perquè són dades de menors. No hem trobat cap sanció ni cap filtració documentada.',
     openQuestions: [
       'A què corresponen els identificadors que l’etiqueta declara com a utilitzats per rastrejar en una aplicació escolar?',
       'Quin mecanisme de transferència empara l’allotjament de dades de menors en servidors dels Estats Units?',
@@ -1342,7 +1342,7 @@ export const lot: SeedLot = {
       occurredAt: '2024-05-01',
       disclosedAt: '2024-06-13',
       description:
-        'Cisco va detectar el maig del 2024 uns errors de Webex Meetings que permetien l’accés no autoritzat a informació i metadades de reunions —temes i participants— i, en alguns casos, connectar-s’hi per telefonia. La premsa especialitzada va relacionar l’explotació d’aquestes fallades amb l’accés a reunions del govern alemany allotjades al centre de dades de Frankfurt. Cisco va completar la correcció el 28 de maig i va avisar els clients identificats amb els registres disponibles, tot i que no tenia registres anteriors al 6 de maig.',
+        'Cisco va detectar el maig del 2024 uns errors de Webex Meetings que permetien l’accés no autoritzat a informació i metadades de reunions (temes i participants) i, en alguns casos, connectar-s’hi per telefonia. La premsa especialitzada va relacionar l’explotació d’aquestes fallades amb l’accés a reunions del govern alemany allotjades al centre de dades de Frankfurt. Cisco va completar la correcció el 28 de maig i va avisar els clients identificats amb els registres disponibles, tot i que no tenia registres anteriors al 6 de maig.',
       affectedPeople: 'Cisco només va poder identificar els clients afectats a partir del 6 de maig del 2024; no en va publicar el nombre.',
       sources: ['webex-frankfurt-advisory', 'webex-frankfurt-securityaffairs'],
     },

@@ -196,7 +196,7 @@ const tresCat: AppSeed = {
   categories: ['video-i-streaming', 'noticies-i-mitjans'],
   tagline: 'La plataforma pública obliga a crear un compte per fer servir l’aplicació, porta publicitat i declara a l’App Store dades per rastrejar',
   summary:
-    'L’aplicació que va substituir la de TV3 aplega els directes i la carta de TV3, Catalunya Ràdio i l’SX3. A diferència del web i del botó vermell, l’aplicació no es pot fer servir sense compte: nom, correu i contrasenya són obligatoris, i el consum de continguts s’associa al perfil per personalitzar la portada. La política diu que les dades no es comuniquen a tercers, però l’etiqueta de l’App Store declara ubicació, identificadors, dades d’ús i diagnòstics per rastrejar i per a publicitat de tercers. La CCMA és una empresa pública, però l’aplicació no és un servei sense publicitat.',
+    'L’aplicació que va substituir la de TV3 aplega els directes i la carta de TV3, Catalunya Ràdio i l’SX3. A diferència del web i del botó vermell, l’aplicació no es pot fer servir sense compte: nom, correu i contrasenya són obligatoris, i el consum de continguts s’associa al perfil per personalitzar la portada. La política diu que les dades no es comuniquen a tercers, però l’etiqueta de l’App Store declara ubicació, identificadors, dades d’ús i diagnòstics per rastrejar i per a publicitat de tercers. Tot i ser d’una empresa pública, l’aplicació porta publicitat.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'public-service',
   jurisdiction: 'Catalunya; servei públic de comunicació audiovisual de la Generalitat',
@@ -228,7 +228,7 @@ const tresCat: AppSeed = {
     mandatoryRetention: noMandatoryRetention(['3cat-privacitat-registre'], 'Cap norma no obliga a conservar les dades del compte: es guarden mentre la persona sigui usuària registrada i després només es bloquegen fins a la prescripció de les responsabilitats.'),
   }),
   dataSummary:
-    'Una plataforma de vídeo amb compte obligatori sap què mires, quan i des d’on, i ho lliga a un nom i un correu. Aquí aquest historial alimenta la personalització per interès legítim i conviu amb SDK publicitaris que l’etiqueta declara per rastrejar.',
+    'Com que el compte és obligatori, el que es mira, quan i des d’on queda associat a un nom i un correu. Aquest historial serveix per personalitzar la portada per interès legítim, i l’aplicació porta SDK publicitaris que l’etiqueta declara per rastrejar.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['3cat-privacitat-registre'], note: 'Obligatori per registrar-se. L’etiqueta de l’App Store no declara cap dada de contacte, tot i que sense compte l’aplicació no funciona.' }),
     row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei', 'atencio-a-lusuari'], sources: ['3cat-privacitat-registre'], note: 'Obligatòria. Si es dona el consentiment, serveix també per als butlletins i les comunicacions comercials.' }),
@@ -301,7 +301,7 @@ const tresCat: AppSeed = {
     lastReviewedAt: CATALAN_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'La contradicció central és entre la política, que diu que les dades del registre no es comuniquen a tercers, i l’etiqueta de l’App Store, que declara ubicació, identificadors i dades d’ús per a publicitat de tercers i per rastrejar. També és remarcable que l’etiqueta no declari nom ni correu quan l’aplicació exigeix compte. La responsable és la Corporació Catalana de Mitjans Audiovisuals, SA (NIF A08849622), empresa pública de l’ens públic CCMA; la mateixa societat consta com a proveïdor a l’App Store. La pàgina pública que llistava els SDK de l’aplicació de TV3 ja no existeix: les dades d’SDK vénen de les aplicacions germanes, arxivades el 2024 i el 2025. ' + incidentsNote,
+      'La contradicció central és entre la política, que diu que les dades del registre no es comuniquen a tercers, i l’etiqueta de l’App Store, que declara ubicació, identificadors i dades d’ús per a publicitat de tercers i per rastrejar. L’etiqueta tampoc no declara nom ni correu, tot i que l’aplicació exigeix compte. La responsable és la Corporació Catalana de Mitjans Audiovisuals, SA (NIF A08849622), empresa pública de l’ens públic CCMA; la mateixa societat consta com a proveïdor a l’App Store. La pàgina pública que llistava els SDK de l’aplicació de TV3 ja no existeix: les dades d’SDK vénen de les aplicacions germanes, arxivades el 2024 i el 2025. ' + incidentsNote,
     openQuestions: [
       'Quins SDK publicitaris i analítics incorpora avui l’aplicació 3Cat, ara que la CCMA ha retirat les pàgines d’SDK per aplicació?',
       'Per què l’etiqueta de l’App Store no declara nom ni correu si el compte és obligatori?',
@@ -346,7 +346,7 @@ const tresCatInfo: AppSeed = {
     mandatoryRetention: noMandatoryRetention(['3cat-privacitat-registre'], 'Cap norma no obliga a conservar les dades del compte opcional: es guarden mentre la persona sigui usuària registrada.'),
   }),
   dataSummary:
-    'El que llegeix una persona diu molt de la seva ideologia, la seva salut o les seves preocupacions. Aquí aquesta lectura queda associada a identificadors que l’etiqueta declara per rastrejar, encara que no s’hagi creat cap compte.',
+    'Les notícies que llegeix una persona en poden revelar la ideologia, la salut o les preocupacions. En aquesta aplicació, la lectura queda associada a identificadors que l’etiqueta declara per rastrejar, encara que no s’hagi creat cap compte.',
   dataCollection: [
     row('historial-de-navegacio', 'yes', { linked: 'unknown', tracking: 'unknown', shared: 'third-parties', purposes: ['mesura-i-analisi-dus', 'personalitzacio-de-continguts', 'publicitat-personalitzada'], sources: ['3cat-cookies-app-324'], note: 'La pàgina d’SDK arxivada diu que l’aplicació recull les pàgines visitades per conèixer els hàbits de navegació, personalitzar continguts i mostrar publicitat segons els interessos.' }),
     row('interaccions-i-us', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['mesura-i-analisi-dus', 'publicitat-personalitzada', 'mesura-publicitaria', 'personalitzacio-de-continguts'], sources: ['3cat-3catinfo-app-store'] }),
@@ -416,7 +416,7 @@ const tresCatInfo: AppSeed = {
     researchStatus: 'documented',
     lastReviewedAt: CATALAN_DATE,
     incidentsReviewed: true,
-    editorialNotes: LABEL_NOTE + ' És l’única aplicació del lot on la pàgina d’SDK arxivada anomena AppsFlyer, per atribuir descàrregues a campanyes de màrqueting. ' + incidentsNote,
+    editorialNotes: LABEL_NOTE + ' La pàgina d’SDK arxivada anomena AppsFlyer, per atribuir descàrregues a campanyes de màrqueting. ' + incidentsNote,
     openQuestions: [
       'La CCMA ha retirat les pàgines d’SDK per aplicació: quins SDK hi ha a la versió actual?',
       'Quin va ser el resultat del procediment sancionador PS 33/2017 de l’APDCAT?',
@@ -458,7 +458,7 @@ const catalunyaRadio: AppSeed = {
     mandatoryRetention: noMandatoryRetention(['3cat-privacitat-registre'], 'No hi ha cap obligació legal de conservar les dades de l’aplicació ni del compte opcional.'),
   }),
   dataSummary:
-    'Escoltar la ràdio en un aparell no deixa rastre. Escoltar-la amb aquesta aplicació genera identificadors, ubicació aproximada i dades d’ús que l’etiqueta declara per rastrejar i per a publicitat de tercers.',
+    'Un receptor de ràdio no envia cap dada. Escoltar la ràdio amb aquesta aplicació genera identificadors, ubicació aproximada i dades d’ús que l’etiqueta declara per rastrejar i per a publicitat de tercers.',
   dataCollection: [
     row('historial-de-visualitzacio', 'yes', { linked: 'unknown', tracking: 'unknown', shared: 'third-parties', purposes: ['mesura-i-analisi-dus', 'personalitzacio-de-continguts', 'publicitat-personalitzada'], sources: ['3cat-cookies-app-catalunya-radio'], note: 'Emissores i podcasts escoltats. La pàgina d’SDK arxivada diu que les dades serveixen per recomanar continguts i mostrar publicitat segons els interessos.' }),
     row('interaccions-i-us', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['mesura-i-analisi-dus', 'publicitat-personalitzada', 'mesura-publicitaria', 'personalitzacio-de-continguts'], sources: ['3cat-catalunya-radio-app-store'] }),
@@ -541,7 +541,7 @@ const sx3: AppSeed = {
   categories: ['video-i-streaming', 'educacio'],
   tagline: 'L’aplicació infantil no porta publicitat ni vincula dades a la identitat, però declara identificadors i dades d’ús per rastrejar',
   summary:
-    'L’aplicació del canal infantil ofereix les sèries del S3 (0 a 6 anys) i de l’X3 (7 a 14 anys), un control de temps d’ús per a les famílies i el carnet virtual del club SX3. S’hi pot entrar sense registre; el carnet necessita l’autorització dels pares. L’etiqueta de l’App Store és molt més continguda que la de les aplicacions per a adults: no declara cap dada vinculada a la identitat ni cap publicitat. Però sí que declara identificadors i dades d’ús com a dades per rastrejar, una declaració difícil d’entendre en una aplicació adreçada a infants.',
+    'L’aplicació del canal infantil ofereix les sèries del S3 (0 a 6 anys) i de l’X3 (7 a 14 anys), un control de temps d’ús per a les famílies i el carnet virtual del club SX3. S’hi pot entrar sense registre; el carnet necessita l’autorització dels pares. A diferència de les aplicacions per a adults, l’etiqueta de l’App Store no declara cap dada vinculada a la identitat ni cap publicitat. Sí que declara identificadors i dades d’ús com a dades per rastrejar, cosa que no s’explica en una aplicació adreçada a infants.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'public-service',
   jurisdiction: 'Catalunya; servei públic de comunicació audiovisual de la Generalitat',
@@ -566,7 +566,7 @@ const sx3: AppSeed = {
     mandatoryRetention: noMandatoryRetention(['3cat-sx3-carnet-dades'], 'Cap norma no obliga a conservar les dades del carnet: es guarden fins que l’infant es dona de baixa, i als 15 anys es dissocien.'),
   }),
   dataSummary:
-    'Les dades d’un infant mereixen la protecció més alta. L’aplicació no declara cap dada vinculada a la identitat, però sí identificadors i dades d’ús per rastrejar; el carnet, a més, porta una fotografia de l’infant.',
+    'És una aplicació per a infants. No declara cap dada vinculada a la identitat, però sí identificadors i dades d’ús per rastrejar; el carnet, a més, porta una fotografia de l’infant.',
   dataCollection: [
     row('identificador-de-dispositiu', 'yes', { linked: 'no', tracking: 'yes', shared: 'unknown', purposes: ['mesura-i-analisi-dus', 'prestacio-del-servei'], sources: ['3cat-sx3-app-store'], note: 'Declarat no vinculat a la identitat però utilitzat per rastrejar.' }),
     row('identificador-de-compte', 'optional', { linked: 'no', tracking: 'unknown', shared: 'unknown', purposes: ['mesura-i-analisi-dus', 'prestacio-del-servei'], sources: ['3cat-sx3-app-store'], note: 'L’etiqueta declara «ID de usuario» no vinculat; correspon al carnet del club.' }),
@@ -635,7 +635,7 @@ const sx3: AppSeed = {
     lastReviewedAt: CATALAN_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'La declaració de rastreig és el punt que cal aclarir: l’etiqueta no declara cap dada vinculada a la identitat ni cap publicitat, però sí identificadors i dades d’ús per rastrejar, en una aplicació que es dirigeix a infants de 0 a 14 anys. La fitxa de l’App Store diu que l’aplicació té controls parentals i verificació d’edat. L’última actualització de l’aplicació és de l’agost del 2025. ' + incidentsNote,
+      'Queda per aclarir per què l’etiqueta, que no declara cap dada vinculada a la identitat ni cap publicitat, declara identificadors i dades d’ús per rastrejar en una aplicació per a infants de 0 a 14 anys. La fitxa de l’App Store diu que l’aplicació té controls parentals i verificació d’edat. L’última actualització de l’aplicació és de l’agost del 2025. ' + incidentsNote,
     openQuestions: [
       'Per què l’etiqueta declara identificadors i dades d’ús per rastrejar en una aplicació infantil sense publicitat?',
       'Quins SDK incorpora l’aplicació?',
@@ -652,7 +652,7 @@ const iCat: AppSeed = {
   categories: ['musica-i-audio'],
   tagline: 'L’emissora musical declara la ubicació exacta vinculada a la identitat i per a publicitat de tercers',
   summary:
-    'L’aplicació de l’emissora musical iCat té l’etiqueta més exposada del lot. A més del que declaren 3Cat i Catalunya Ràdio, hi afegeix la ubicació exacta vinculada a la identitat i per a publicitat de tercers, analítica i personalització. Es fa servir sense compte. La pàgina d’SDK arxivada el gener del 2025 anomenava comScore, Adobe Analytics, Smart AdServer, Google DBM, Firebase Crashlytics, Airship i Didomi.',
+    'De les aplicacions de la CCMA, la de l’emissora musical iCat és la que declara més dades a l’App Store. A més del que declaren 3Cat i Catalunya Ràdio, hi afegeix la ubicació exacta vinculada a la identitat i per a publicitat de tercers, analítica i personalització. Es fa servir sense compte. La pàgina d’SDK arxivada el gener del 2025 anomenava comScore, Adobe Analytics, Smart AdServer, Google DBM, Firebase Crashlytics, Airship i Didomi.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'public-service',
   jurisdiction: 'Catalunya; servei públic de comunicació audiovisual de la Generalitat',
@@ -678,7 +678,7 @@ const iCat: AppSeed = {
     mandatoryRetention: noMandatoryRetention(['3cat-privacitat-registre'], 'No hi ha cap obligació legal de conservar les dades de l’aplicació.'),
   }),
   dataSummary:
-    'La ubicació exacta revela on vius, on treballes i per on et mous. En una aplicació per escoltar música, declarar-la vinculada a la identitat i per a publicitat de tercers és difícil de justificar.',
+    'La ubicació exacta pot revelar on viu i on treballa una persona i per on es mou. Aquesta aplicació, que serveix per escoltar música, la declara vinculada a la identitat i per a publicitat de tercers.',
   dataCollection: [
     row('ubicacio-precisa', 'optional', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['publicitat-personalitzada', 'mesura-i-analisi-dus', 'personalitzacio-de-continguts', 'prestacio-del-servei'], sources: ['3cat-icat-app-store'], note: 'Declarada vinculada a la identitat per a publicitat de tercers, analítica, personalització i funcionalitat. Depèn del permís de localització.' }),
     row('ubicacio-aproximada', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['publicitat-personalitzada', 'mesura-i-analisi-dus'], sources: ['3cat-icat-app-store'] }),
@@ -907,7 +907,7 @@ export const lot: SeedLot = {
       occurredAt: '2021-12-03',
       disclosedAt: '2021-12-03',
       description:
-        'El 3 de desembre de 2021, un atac de denegació de servei contra els sistemes de la Generalitat va deixar sense servei durant unes hores les webs i les aplicacions de TV3 i Catalunya Ràdio, el portal 324.cat i l’Esport3.cat. Les fonts no descriuen cap accés a dades personals: un atac de denegació de servei satura els servidors, no n’extreu informació.',
+        'El 3 de desembre de 2021, un atac de denegació de servei contra els sistemes de la Generalitat va deixar sense servei durant unes hores les webs i les aplicacions de TV3 i Catalunya Ràdio, el portal 324.cat i l’Esport3.cat. Les fonts no descriuen cap accés a dades personals; un atac d’aquest tipus satura els servidors sense extreure’n informació.',
       affectedPeople: 'Persones usuàries de les webs i aplicacions de la CCMA durant la interrupció; no consta cap exposició de dades.',
       sources: ['3cat-3catinfo-ciberatac-2021', 'ccma-beteve-ciberatac-2021'],
     },

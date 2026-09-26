@@ -759,9 +759,9 @@ export const Apps: CollectionConfig = {
                   type: 'select',
                   defaultValue: 'unknown',
                   options: [
-                    { label: 'Alta — diu dades i finalitats concretes', value: 'high' },
-                    { label: 'Mitjana — categories àmplies però comprensibles', value: 'medium' },
-                    { label: 'Baixa — genèrica, dispersa o remet a altres documents', value: 'low' },
+                    { label: 'Alta: diu dades i finalitats concretes', value: 'high' },
+                    { label: 'Mitjana: categories àmplies però comprensibles', value: 'medium' },
+                    { label: 'Baixa: genèrica, dispersa o remet a altres documents', value: 'low' },
                     { label: 'Desconeguda', value: 'unknown' },
                   ],
                 },

@@ -176,7 +176,7 @@ export const lot: SeedLot = {
     }),
     s('uk-eta-apply', 'Get an electronic travel authorisation (ETA) to visit the UK: Apply for an ETA', 'https://www.gov.uk/eta/apply', 'GOV.UK', 'support-doc', 'primary', {
       summary:
-        'Pàgina del tràmit. Detalla les dues vies per demanar l’ETA —l’aplicació o el formulari web— i diu que qui no pugui instal·lar l’aplicació ha de fer-ho en línia i que, per sol·licitar-la per a una persona que no és present, la via web és obligatòria.',
+        'Pàgina del tràmit. Detalla les dues vies per demanar l’ETA (l’aplicació o el formulari web) i diu que qui no pugui instal·lar l’aplicació ha de fer-ho en línia i que, per sol·licitar-la per a una persona que no és present, la via web és obligatòria.',
     }),
     s('uk-eta-beta-assessment', 'Electronic Travel Authorisation (ETA) beta assessment', 'https://www.gov.uk/service-standard-reports/electronic-travel-authorisation-eta-beta-assessment', 'Government Digital Service', 'audit', 'authority', {
       summary:
@@ -184,7 +184,7 @@ export const lot: SeedLot = {
     }),
     s('uk-home-office-charter', 'Home Office personal information charter', 'https://www.gov.uk/government/organisations/home-office/about/personal-information-charter', 'Home Office', 'privacy-center', 'primary', {
       summary:
-        'Carta d’informació personal del ministeri: enumera les categories de dades que tracta —biomètriques, identificadors, dades penals, origen ètnic—, publica el contacte del delegat de protecció de dades i de la unitat de sol·licituds d’accés, i recorda el dret a reclamar davant de l’ICO.',
+        'Carta d’informació personal del ministeri: enumera les categories de dades que tracta (biomètriques, identificadors, dades penals, origen ètnic), publica el contacte del delegat de protecció de dades i de la unitat de sol·licituds d’accés, i recorda el dret a reclamar davant de l’ICO.',
     }),
 
     /* ── Yepexpress ── */
@@ -328,9 +328,9 @@ export const lot: SeedLot = {
       name: 'UK ETA',
       company: 'uk-home-office',
       categories: ['administracio-publica', 'viatges-i-allotjament'],
-      tagline: 'Passaport i cara al ministeri de l’Interior britànic, quinze anys de conservació i cap manera de fer-se enrere',
+      tagline: 'Passaport i imatge facial per al ministeri de l’Interior britànic, fins a quinze anys de conservació i una sol·licitud que potser no es pot retirar',
       summary:
-        'L’aplicació del Home Office serveix per demanar l’autorització electrònica de viatge que ara necessiten els ciutadans de la Unió Europea per entrar al Regne Unit. Demana el passaport i una imatge facial, decideix de manera automatitzada i, un cop enviada la sol·licitud, el mateix avís de privadesa adverteix que potser ja no es pot retirar. A canvi, és dels pocs serveis d’aquest lot que publica terminis de conservació exactes: tres anys els biomètrics facials i quinze anys la resta.',
+        'L’aplicació del Home Office serveix per demanar l’autorització electrònica de viatge que ara necessiten els ciutadans de la Unió Europea per entrar al Regne Unit. Demana el passaport i una imatge facial, decideix de manera automatitzada i, un cop enviada la sol·licitud, el mateix avís de privadesa adverteix que potser ja no es pot retirar. També publica terminis de conservació exactes: tres anys els biomètrics facials i quinze anys la resta.',
       platforms: ['ios', 'android'],
       businessModel: 'public-service',
       jurisdiction: 'Regne Unit',
@@ -345,7 +345,7 @@ export const lot: SeedLot = {
       publicService: {
         isPublicService: true,
         administrationLevel: 'other',
-        legalBasis: f('yes', 'official', ['uk-eta-privacy-notice'], 'L’avís de privadesa cita els articles 6.1.e (missió d’interès públic) i 9.2.g (interès públic essencial) del RGPD britànic i concreta la norma d’immigració que empara el tràmit, no només una invocació genèrica de l’interès públic.', {
+        legalBasis: f('yes', 'official', ['uk-eta-privacy-notice'], 'L’avís de privadesa cita els articles 6.1.e (missió d’interès públic) i 9.2.g (interès públic essencial) del RGPD britànic i concreta la norma d’immigració que empara el tràmit.', {
           norm: 'Section 11C de la Immigration Act 1971 i apèndix «Electronic Travel Authorisations» de les Immigration Rules; articles 6.1.e i 9.2.g del RGPD britànic',
         }),
         processingRegistry: f('partial', 'official', ['uk-home-office-charter', 'uk-eta-privacy-notice'], 'El Regne Unit no obliga a publicar el registre d’activitats de tractament: l’equivalent és el «personal information charter» del Home Office, que enumera les categories de dades que tracta el ministeri i remet als avisos específics, com el de l’ETA. Es pot resseguir el tractament, però no hi ha cap fitxa d’activitat identificable com la de l’article 31 de la LOPDGDD.', {
@@ -356,12 +356,12 @@ export const lot: SeedLot = {
         dpo: f('yes', 'official', ['uk-home-office-charter'], 'El ministeri publica el delegat de protecció de dades amb adreça electrònica i postal, i hi afegeix el canal de sol·licituds d’accés i el dret de reclamar davant de l’ICO.', {
           contact: 'dpo@homeoffice.gov.uk',
         }),
-        offlineAlternative: f('partial', 'official', ['uk-eta-apply', 'uk-eta-beta-assessment', 'uk-eta-gov-guidance'], 'Qui no pot instal·lar l’aplicació pot fer el tràmit al formulari web, que a més és l’única via per sol·licitar l’ETA per a una persona que no és present. Fora de la pantalla no hi ha res: UKVI adverteix que no atén consultes d’ETA per telèfon i el panell d’avaluació del servei constata que no hi ha suport digital assistit oficial i que la navegació cap a la versió web s’ha dificultat expressament.'),
+        offlineAlternative: f('partial', 'official', ['uk-eta-apply', 'uk-eta-beta-assessment', 'uk-eta-gov-guidance'], 'Qui no pot instal·lar l’aplicació pot fer el tràmit al formulari web, que a més és l’única via per sol·licitar l’ETA per a una persona que no és present. No hi ha cap via fora d’internet: UKVI adverteix que no atén consultes d’ETA per telèfon i el panell d’avaluació del servei constata que no hi ha suport digital assistit oficial i que la navegació cap a la versió web s’ha dificultat expressament.'),
         accessibilityStatement: unknown('No hem localitzat cap declaració d’accessibilitat de l’aplicació, que és el que exigeix l’equivalent britànic del Reial decret 1112/2018, les Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018. L’avaluació beta del febrer del 2025 va deixar en àmbar el punt «make sure everyone can use the service» perquè les proves de cap a cap amb tecnologies d’assistència encara no s’havien completat.'),
         mandatoryRetention: unknown('L’avís fixa quinze anys de conservació de les dades biogràfiques i tres anys de la imatge facial, però no cita cap norma que obligui a conservar-les: no podem afirmar si és una obligació legal o una política interna del ministeri.'),
       },
       dataSummary:
-        'La imatge facial i el passaport, units a la nacionalitat i a l’adreça, formen un expedient d’immigració que es queda al ministeri de l’Interior britànic quinze anys després de l’última actuació, encara que el viatge duri un cap de setmana.',
+        'La imatge facial i el passaport, units a la nacionalitat i a l’adreça, formen un expedient d’immigració que el ministeri de l’Interior britànic conserva fins a quinze anys després de l’última actuació, sigui quina sigui la durada del viatge.',
       dataCollection: [
         row('document-identificatiu-oficial', 'yes', { linked: 'yes', tracking: 'no', shared: 'unknown', purposes: ['compliment-legal', 'prestacio-del-servei'], sources: ['uk-eta-privacy-notice', 'uk-eta-app-store'], note: 'Número de passaport i data de caducitat; l’etiqueta de l’App Store ho declara com a «datos sensibles».' }),
         row('dades-biometriques', 'yes', { linked: 'yes', tracking: 'no', shared: 'unknown', purposes: ['compliment-legal', 'seguretat-i-prevencio-del-frau'], sources: ['uk-eta-privacy-notice', 'uk-eta-app-store'], note: 'Biometria facial tractada amb la base de l’article 9.2.g del RGPD britànic, interès públic essencial.' }),
@@ -398,7 +398,7 @@ export const lot: SeedLot = {
         transparencyReport: unknown('No hem trobat cap informe de transparència específic del programa ETA.'),
       },
       retention: {
-        definedPeriods: f('yes', 'official', ['uk-eta-privacy-notice'], 'És dels pocs serveis del lot amb terminis numèrics explícits.'),
+        definedPeriods: f('yes', 'official', ['uk-eta-privacy-notice'], 'Dona terminis numèrics explícits.'),
         dataAfterDeletion: f('yes', 'official', ['uk-eta-privacy-notice'], 'Les dades biogràfiques es conserven quinze anys després de l’última actuació de l’expedient, encara que l’autorització hagi caducat.'),
         periods: [
           { dataType: 'dades-biometriques', period: 'Normalment 3 anys, llevat que hi hagi motius per conservar la imatge facial més temps', sources: ['uk-eta-privacy-notice'] },
@@ -576,7 +576,7 @@ export const lot: SeedLot = {
       categories: ['telecomunicacions'],
       tagline: 'L’app de l’operadora és també el panell on es donen i es retiren els consentiments publicitaris',
       summary:
-        'Mi Vodafone gestiona la factura i la tarifa, però el tractament rellevant és el de l’operadora: dades de trànsit i localització, comprovacions de solvència a ASNEF i Badexcug i categories de navegació que, amb consentiment, alimenten la publicitat. La política fixa terminis concrets, sis anys després de deixar de ser client i dotze mesos per al trànsit, i concentra tots els permisos a l’eina «Permisos y Preferencias», accessible des de la mateixa app.',
+        'Mi Vodafone serveix per gestionar la factura i la tarifa. La major part del tractament de dades el fa l’operadora: dades de trànsit i localització, comprovacions de solvència a ASNEF i Badexcug i categories de navegació que, amb consentiment, alimenten la publicitat. La política fixa terminis concrets, sis anys després de deixar de ser client i dotze mesos per al trànsit, i concentra tots els permisos a l’eina «Permisos y Preferencias», accessible des de la mateixa app.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'subscription',
       jurisdiction: 'Espanya',
@@ -588,7 +588,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['vodafone-es-privacy-policy'], 'L’aplicació és l’àrea privada de clients; sense contracte i sense credencials no serveix de res.'),
       openSource: f('no', 'official', ['mi-vodafone-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'Qui truques, quan i des d’on, què navegues per categories i quina solvència tens: l’operadora veu una part de la vida quotidiana que cap app d’internet no arriba a veure, i la conserva sis anys després de marxar.',
+        'L’operadora sap a qui truques, quan i des d’on, quines categories de llocs visites i quina solvència tens, i conserva aquesta informació sis anys després que deixis de ser client.',
       dataCollection: [
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'compliment-legal'], sources: ['vodafone-es-privacy-policy'] }),
         row('document-identificatiu-oficial', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'seguretat-i-prevencio-del-frau'], sources: ['vodafone-es-privacy-policy'], note: 'Es fa servir també per a les consultes a ASNEF (Equifax) i Badexcug (Experian).' }),
@@ -695,9 +695,9 @@ export const lot: SeedLot = {
       name: 'geteduroam',
       company: 'surf-bv',
       categories: ['utilitats', 'autenticacio-i-seguretat'],
-      tagline: 'Codi obert, cap dada recollida per l’app i una xarxa dissenyada perquè ningú no sàpiga qui ets',
+      tagline: 'Codi obert, cap dada recollida per l’app i una xarxa dissenyada per no haver de saber qui ets',
       summary:
-        'geteduroam configura el perfil de la xarxa wifi acadèmica eduroam al telèfon. L’aplicació declara a Apple que no recull cap dada i el codi és públic amb llicència BSD. El tractament real el fa la infraestructura d’eduroam, coordinada per GÉANT: quan et connectes des d’un altre país, els servidors intermediaris europeus registren el domini de la teva institució i l’adreça MAC, i el nom d’usuari només si la institució no l’ha anonimitzat. Les dades d’itinerància es guarden sis mesos.',
+        'geteduroam configura el perfil de la xarxa wifi acadèmica eduroam al telèfon. L’aplicació declara a Apple que no recull cap dada i el codi és públic amb llicència BSD. Les dades les tracta la infraestructura d’eduroam, coordinada per GÉANT: quan et connectes des d’un altre país, els servidors intermediaris europeus registren el domini de la teva institució i l’adreça MAC, i el nom d’usuari només si la institució no l’ha anonimitzat. Les dades d’itinerància es guarden sis mesos.',
       platforms: ['ios', 'android', 'macos', 'windows', 'linux'],
       businessModel: 'unknown',
       jurisdiction: 'Països Baixos',
@@ -710,7 +710,7 @@ export const lot: SeedLot = {
       accountRequired: f('partial', 'official', ['eduroam-privacy-notice'], 'No hi ha cap compte de geteduroam: cal el compte de la institució d’origen, que és qui autentica la persona.'),
       openSource: f('yes', 'official', ['geteduroam-source'], 'El codi de l’aplicació per a iOS i macOS és públic.', { licence: 'BSD-3-Clause' }),
       dataSummary:
-        'El disseny d’eduroam separa qui ets de on ets: la institució d’origen sap qui s’autentica i la institució visitada només sap que algú d’aquell domini té permís per connectar-se.',
+        'El disseny d’eduroam separa la identitat del lloc de connexió: la institució d’origen sap qui s’autentica i la institució visitada només sap que algú d’aquell domini té permís per connectar-se.',
       dataCollection: [
         row('identificador-de-compte', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'seguretat-i-prevencio-del-frau'], sources: ['eduroam-privacy-notice'], note: 'El «realm» identifica la institució i la federació; el nom d’usuari només arriba als servidors europeus si la institució no l’ha anonimitzat.' }),
         row('identificador-de-dispositiu', 'yes', { linked: 'unknown', tracking: 'no', shared: 'group', purposes: ['seguretat-i-prevencio-del-frau', 'prestacio-del-servei'], sources: ['eduroam-privacy-notice'], note: 'Adreça MAC registrada pels servidors intermediaris europeus quan et connectes des d’un altre país.' }),
@@ -767,7 +767,7 @@ export const lot: SeedLot = {
         telemetryOptOut: f('no', 'official', ['eduroam-privacy-notice'], 'Els registres de itinerància són necessaris per al servei i no es poden desactivar des del client; l’anonimització depèn de la institució d’origen.'),
         granularControls: f('no', 'official', ['geteduroam-app-store'], 'L’aplicació només configura el perfil de xarxa; no té panell de privadesa perquè no recull dades.'),
         defaultPosture: 'protective',
-        darkPatterns: f('no', 'official', ['geteduroam-app-store', 'geteduroam-source'], 'No hi ha registre, ni publicitat, ni pantalles de consentiment: l’app fa una sola cosa.'),
+        darkPatterns: f('no', 'official', ['geteduroam-app-store', 'geteduroam-source'], 'No hi ha registre, publicitat ni pantalles de consentiment; l’app només configura la xarxa.'),
       },
       security: {
         e2ee: na('És un configurador de xarxa wifi, no un servei de missatgeria.'),
@@ -797,9 +797,9 @@ export const lot: SeedLot = {
       name: 'Proton VPN',
       company: 'proton',
       categories: ['autenticacio-i-seguretat', 'utilitats'],
-      tagline: 'La política de no registres és l’única d’aquest lot verificada cinc anys seguits per un auditor extern',
+      tagline: 'Una política de no registres verificada cinc anys seguits per un auditor extern',
       summary:
-        'Proton VPN no declara cap dada de rastreig ni cap dada vinculada amb la identitat: a l’App Store només hi consten l’adreça electrònica i les dades d’errors, sense vincular. La diferència amb la resta de VPN no és la promesa, sinó la comprovació: Securitum ha examinat cinc anys consecutius la infraestructura de servidors i Proton en publica els informes sencers, sense acords de confidencialitat. Les aplicacions són de codi obert i els servidors, a Suïssa, Alemanya i Noruega.',
+        'Proton VPN no declara cap dada de rastreig ni cap dada vinculada amb la identitat: a l’App Store només hi consten l’adreça electrònica i les dades d’errors, sense vincular. El que la distingeix de la resta de VPN és la verificació externa: Securitum ha examinat cinc anys consecutius la infraestructura de servidors i Proton en publica els informes sencers, sense acords de confidencialitat. Les aplicacions són de codi obert i els servidors, a Suïssa, Alemanya i Noruega.',
       platforms: ['ios', 'android', 'windows', 'macos', 'linux'],
       businessModel: 'freemium',
       jurisdiction: 'Suïssa',
@@ -811,7 +811,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['proton-vpn-app-store', 'proton-vpn-privacy-policy'], 'Cal un compte de Proton, identificat per una adreça electrònica, també al pla gratuït.'),
       openSource: f('yes', 'official', ['proton-vpn-no-logs', 'proton-vpn-no-logs-audit'], 'Totes les aplicacions són de codi obert i se’n publiquen les auditories de seguretat.'),
       dataSummary:
-        'El que revela una VPN és tot el que navegues; aquí la qüestió és què se’n guarda, i tant la política com les auditories diuen que no se’n guarda res que permeti reconstruir l’activitat d’una persona.',
+        'Tota la navegació passa per la VPN. Tant la política com les auditories diuen que Proton no en guarda res que permeti reconstruir l’activitat d’una persona.',
       dataCollection: [
         row('adreca-electronica', 'yes', { linked: 'no', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['proton-vpn-app-store'], note: 'L’etiqueta la declara com a dada no vinculada amb la identitat, per al funcionament de l’app.' }),
         row('dades-de-diagnostic', 'yes', { linked: 'no', tracking: 'no', shared: 'none', purposes: ['millora-del-producte'], sources: ['proton-vpn-app-store'], note: 'Només dades d’errors, sense vincular.' }),
@@ -898,9 +898,9 @@ export const lot: SeedLot = {
       name: 'Epic Games',
       company: 'epic-games-inc',
       categories: ['utilitats'],
-      tagline: 'Botiga alternativa que diu que no ven dades ni fa publicitat segmentada, amb una condemna de la FTC a l’esquena',
+      tagline: 'Botiga alternativa que diu que no ven dades ni fa publicitat segmentada, amb una condemna de la FTC del 2022',
       summary:
-        'La botiga d’Epic va arribar a l’iPhone a la Unió Europea gràcies a la Llei de mercats digitals. La política és inusualment restrictiva per a una empresa d’aquesta mida: afirma que no ven dades personals ni les tracta per a publicitat segmentada, i l’etiqueta de l’App Store no declara cap dada de rastreig. El contrapunt és el precedent: el 2022 la FTC li va imposar 520 milions de dòlars per vulnerar la llei de protecció de la infància i per patrons enganyosos de cobrament a Fortnite.',
+        'La botiga d’Epic va arribar a l’iPhone a la Unió Europea gràcies a la Llei de mercats digitals. La política és inusualment restrictiva per a una empresa d’aquesta mida: afirma que no ven dades personals ni les tracta per a publicitat segmentada, i l’etiqueta de l’App Store no declara cap dada de rastreig. El 2022, però, la FTC li va imposar 520 milions de dòlars per vulnerar la llei de protecció de la infància i per patrons enganyosos de cobrament a Fortnite.',
       platforms: ['ios', 'android', 'windows', 'macos'],
       businessModel: 'commerce',
       jurisdiction: 'Estats Units; per a les persones no residents als Estats Units, entitats suïsses del grup',
@@ -912,7 +912,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['epic-privacy-policy', 'epic-games-app-store'], 'Cal un compte d’Epic per comprar i per jugar als seus títols.'),
       openSource: f('no', 'official', ['epic-games-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'El catàleg que compres i amb qui jugues dibuixen una afició i una xarxa social; Epic ho fa servir per al servei i per recomanar, però diu que no ho converteix en un perfil publicitari.',
+        'Els jocs que compres i les persones amb qui jugues revelen aficions i relacions. Epic fa servir aquestes dades per al servei i per a recomanacions, i diu que no en fa cap perfil publicitari.',
       dataCollection: [
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['epic-games-app-store'], note: 'L’etiqueta la declara també per a publicitat o màrqueting del desenvolupador, que en aquest cas vol dir comunicacions pròpies.' }),
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['epic-games-app-store'] }),
@@ -1009,7 +1009,7 @@ export const lot: SeedLot = {
       categories: ['utilitats', 'llar-connectada'],
       tagline: 'Un comandament a distància que declara la ubicació entre les dades amb què et rastreja',
       summary:
-        'Per fer de comandament d’un televisor n’hi hauria d’haver prou amb la xarxa local. Aquesta aplicació declara a Apple quatre categories de dades, ubicació inclosa, utilitzades per rastrejar en apps i webs d’altres empreses, i les vincula amb la identitat per a publicitat de tercers. La política confirma la xarxa publicitària Appodeal i l’analítica de Google i Firebase, no fixa cap termini de conservació i diu que no admet el senyal Do Not Track.',
+        'Per controlar un televisor n’hi ha prou amb la xarxa local, però aquesta aplicació declara a Apple quatre categories de dades, ubicació inclosa, utilitzades per rastrejar en apps i webs d’altres empreses, i les vincula amb la identitat per a publicitat de tercers. La política confirma la xarxa publicitària Appodeal i l’analítica de Google i Firebase, no fixa cap termini de conservació i diu que no admet el senyal Do Not Track.',
       platforms: ['ios'],
       businessModel: 'freemium',
       jurisdiction: 'Xipre',
@@ -1021,7 +1021,7 @@ export const lot: SeedLot = {
       accountRequired: unknown('La política parla d’un compte amb correu i nom, però no hem pogut verificar si l’aplicació n’exigeix cap per funcionar.'),
       openSource: f('no', 'official', ['mando-universal-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'Una ubicació aproximada lligada a l’identificador del dispositiu i a les dades de publicitat és exactament el que necessita una xarxa publicitària per seguir-te de app en app, i aquí no aporta res al servei.',
+        'La ubicació aproximada lligada a l’identificador del dispositiu i a les dades de publicitat permet a una xarxa publicitària seguir-te d’una app a una altra, i no és necessària per fer de comandament.',
       dataCollection: [
         row('ubicacio-aproximada', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['publicitat-personalitzada', 'mesura-i-analisi-dus'], sources: ['mando-universal-app-store', 'kraftwerk9-privacy-policy'], note: 'Declarada per a publicitat de tercers i per a analítica, i inclosa entre les dades de rastreig.' }),
         row('identificador-de-dispositiu', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['publicitat-personalitzada', 'mesura-publicitaria'], sources: ['mando-universal-app-store'] }),
@@ -1124,7 +1124,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['my-verisure-privacy-policy'], 'L’app només funciona amb un contracte de Verisure i un compte de titular o de persona autoritzada.'),
       openSource: f('no', 'official', ['my-verisure-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'Quan connectes i desconnectes l’alarma diu quan hi ha ningú a casa, i GUARDIAN hi afegeix on és cada membre de la família en temps real: és de les dades més delicades que pot tenir una aplicació domèstica.',
+        'Les connexions i desconnexions de l’alarma indiquen quan hi ha algú a casa, i GUARDIAN hi afegeix la ubicació en temps real de cada membre de la família.',
       dataCollection: [
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei', 'compliment-legal'], sources: ['my-verisure-privacy-policy'] }),
         row('document-identificatiu-oficial', 'yes', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei', 'compliment-legal'], sources: ['my-verisure-privacy-policy'], note: 'DNI o NIF de la persona titular del contracte.' }),
@@ -1223,9 +1223,9 @@ export const lot: SeedLot = {
       name: 'Bolt',
       company: 'bolt-operations',
       categories: ['mobilitat-i-transport'],
-      tagline: 'Verificació facial amb consentiment i una taula de terminis amb xifres, cosa rara en aquest sector',
+      tagline: 'Verificació facial amb consentiment i una taula de terminis de conservació amb xifres, poc habitual en el sector',
       summary:
-        'Bolt recull el recorregut sencer d’un viatge: on ets, on vas, com pagues i com et puntua el conductor. L’avís per a passatgers és dels més detallats del lot i inclou coses que altres amaguen: la verificació d’identitat amb reconeixement facial exigeix consentiment i es pot substituir per una revisió manual, els enregistraments d’àudio del viatge s’esborren al cap de 24 hores si no es denuncia res i el nom i el telèfon queden visibles per al conductor entre 24 i 48 hores després del trajecte.',
+        'Bolt recull el recorregut sencer d’un viatge: on ets, on vas, com pagues i com et puntua el conductor. L’avís per a passatgers és detallat: la verificació d’identitat amb reconeixement facial exigeix consentiment i es pot substituir per una revisió manual, els enregistraments d’àudio del viatge s’esborren al cap de 24 hores si no es denuncia res i el nom i el telèfon queden visibles per al conductor entre 24 i 48 hores després del trajecte.',
       platforms: ['ios', 'android'],
       businessModel: 'commerce',
       jurisdiction: 'Estònia',
@@ -1237,7 +1237,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['bolt-privacy-riders'], 'Cal registrar-se amb nom, correu i telèfon per demanar un viatge.'),
       openSource: f('no', 'official', ['bolt-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'L’historial de viatges és un mapa de la vida quotidiana: on vius, on treballes, a quina hora tornes a casa i a qui vas a veure. Bolt l’enriqueix amb el calendari, si li dones permís, i amb la valoració que en fan els conductors.',
+        'L’historial de viatges mostra on vius, on treballes, a quina hora tornes a casa i a qui vas a veure. Bolt hi afegeix el calendari, si li dones permís, i la valoració que en fan els conductors.',
       dataCollection: [
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['bolt-app-store', 'bolt-privacy-riders'], note: 'Visible per al conductor durant el viatge i fins a 24-48 hores després.' }),
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['bolt-app-store', 'bolt-privacy-riders'], note: 'Es comparteix amb socis promocionals i de màrqueting per informar d’ofertes.' }),
@@ -1353,7 +1353,7 @@ export const lot: SeedLot = {
       categories: ['viatges-i-allotjament'],
       tagline: 'Política vigent des del 2025 que no es pot llegir: el contingut de cada apartat no arriba a carregar-se',
       summary:
-        'L’etiqueta de l’App Store de Ryanair és sòbria per a una aerolínia: no declara cap dada de rastreig i vincula amb la identitat la ubicació exacta, les dades de contacte i els identificadors. El problema és la verificació: la política de privadesa, vigent des del 24 de març del 2025, es carrega amb JavaScript i de cap de les versions provades, espanyola, irlandesa i britànica, n’hem pogut llegir el contingut. Per això gairebé tota la fitxa queda com a desconeguda.',
+        'L’etiqueta de l’App Store de Ryanair no declara cap dada de rastreig i vincula amb la identitat la ubicació exacta, les dades de contacte i els identificadors. La política de privadesa, vigent des del 24 de març del 2025, es carrega amb JavaScript i no n’hem pogut llegir el contingut en cap de les versions provades (espanyola, irlandesa i britànica). Per això gairebé tota la fitxa queda com a desconeguda.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'commerce',
       jurisdiction: 'Irlanda',

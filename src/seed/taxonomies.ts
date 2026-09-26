@@ -16,7 +16,7 @@ export const dataTypes: DataTypeSeed[] = [
     description:
       'Nom d’usuari, identificador intern i qualsevol clau que el servei utilitza per reconèixer un compte.',
     whyItMatters:
-      'És el fil que uneix totes les altres dades. Sense identificador no hi ha perfil; amb ell, tota l’activitat queda cosida a una mateixa persona.',
+      'Permet relacionar totes les altres dades entre si. Sense identificador no es pot construir un perfil; amb ell, tota l’activitat queda associada a una mateixa persona.',
     appleLabel: 'User ID',
   },
   {
@@ -96,7 +96,7 @@ export const dataTypes: DataTypeSeed[] = [
     sensitivity: 4,
     description: 'Agenda del telèfon o contactes importats.',
     whyItMatters:
-      'Revela dades de terceres persones que no han acceptat res. És l’exemple clàssic de dada que no és només teva.',
+      'Revela dades de terceres persones que no han acceptat res, de manera que no és una dada només teva.',
     appleLabel: 'Contacts',
   },
   {
@@ -106,7 +106,7 @@ export const dataTypes: DataTypeSeed[] = [
     sensitivity: 5,
     description: 'Coordenades amb precisió de metres, en temps real o històriques.',
     whyItMatters:
-      'On dorms, on treballes, a quin metge vas i a quina manifestació. Quatre punts d’ubicació basten per identificar una persona única entre milions.',
+      'Revela on dorms, on treballes, a quin metge vas i a quines manifestacions assisteixes. Quatre punts d’ubicació basten per identificar una persona única entre milions.',
     appleLabel: 'Precise Location',
   },
   {
@@ -124,7 +124,7 @@ export const dataTypes: DataTypeSeed[] = [
     sensitivity: 5,
     description: 'Text, àudio i fitxers de les converses privades.',
     whyItMatters:
-      'És el contingut més íntim que una persona confia a un servei. La diferència entre poder-lo llegir o no marca tota la resta.',
+      'És el contingut més íntim que una persona confia a un servei, i per això és decisiu saber si el servei el pot llegir.',
   },
   {
     slug: 'metadades-de-comunicacio',
@@ -208,7 +208,7 @@ export const dataTypes: DataTypeSeed[] = [
     description:
       'Categories que el servei dedueix de l’activitat, no dades que la persona hagi facilitat.',
     whyItMatters:
-      'És la dada que la persona no sap que existeix. Sovint inclou categories sensibles deduïdes indirectament.',
+      'La persona no sap que aquesta dada existeix. Sovint inclou categories sensibles deduïdes indirectament.',
   },
   {
     slug: 'xarxa-de-contactes',
@@ -238,7 +238,7 @@ export const dataTypes: DataTypeSeed[] = [
     sensitivity: 4,
     description: 'Inventari d’aplicacions presents al dispositiu.',
     whyItMatters:
-      'La llista d’aplicacions és un perfil per si sola: revela salut, orientació, religió i situació econòmica.',
+      'La llista d’aplicacions revela per si sola salut, orientació, religió i situació econòmica.',
   },
   {
     slug: 'dades-de-pagament',
@@ -264,7 +264,7 @@ export const dataTypes: DataTypeSeed[] = [
     specialCategory: true,
     description:
       'Trets facials, empremtes o veu tractats amb finalitat identificativa.',
-    whyItMatters: 'No es poden canviar. Una contrasenya filtrada es canvia; una cara, no.',
+    whyItMatters: 'A diferència d’una contrasenya, no es poden canviar si es filtren.',
   },
   {
     slug: 'dades-de-salut',
@@ -318,7 +318,7 @@ export const dataTypes: DataTypeSeed[] = [
     description:
       'Contrasenya del compte, tant si es desa xifrada amb una funció de derivació moderna com si es desa amb un resum antic o, en els casos pitjors, en text pla.',
     whyItMatters:
-      'La gent reutilitza contrasenyes. Una contrasenya filtrada d’un servei sense importància obre els comptes que sí que en tenen, i per això una sola filtració es propaga a mitja vida digital d’una persona.',
+      'La gent reutilitza contrasenyes. Una contrasenya filtrada d’un servei sense importància permet entrar als comptes que sí que en tenen, i per això una sola filtració s’estén a molts altres serveis de la mateixa persona.',
   },
   {
     slug: 'pregunta-de-seguretat',
@@ -328,7 +328,7 @@ export const dataTypes: DataTypeSeed[] = [
     description:
       'Preguntes de recuperació del compte i les seves respostes, sovint desades sense xifrar.',
     whyItMatters:
-      'La resposta no es pot canviar: el cognom de soltera de la mare és per sempre. Una filtració la crema a tots els serveis alhora, i habitualment permet saltar-se la contrasenya en comptes d’haver-la d’endevinar.',
+      'La resposta no es pot canviar (el cognom de soltera de la mare sempre és el mateix). Una filtració la inutilitza a tots els serveis alhora, i habitualment permet entrar al compte sense haver d’endevinar la contrasenya.',
   },
   {
     slug: 'testimoni-d-autenticacio',
@@ -338,7 +338,7 @@ export const dataTypes: DataTypeSeed[] = [
     description:
       'Galetes de sessió, testimonis d’accés i claus d’API que mantenen la sessió oberta sense tornar a demanar la contrasenya.',
     whyItMatters:
-      'Qui té el testimoni entra sense contrasenya i, sovint, sense passar pel segon factor. És la manera més silenciosa de perdre un compte que tens ben protegit.',
+      'Qui té el testimoni entra sense contrasenya i, sovint, sense passar pel segon factor, de manera que es pot perdre un compte ben protegit sense cap avís.',
   },
   {
     slug: 'data-de-naixement',
@@ -365,7 +365,7 @@ export const dataTypes: DataTypeSeed[] = [
     sensitivity: 3,
     description: 'Professió, càrrec, empresa ocupadora i situació laboral.',
     whyItMatters:
-      'És la matèria primera del frau dirigit: saber on treballes i de qui depens permet escriure el correu exacte que et farà caure.',
+      'És la base del frau dirigit: saber on treballes i de qui depens permet escriure un correu fraudulent molt creïble.',
   },
   {
     slug: 'document-identificatiu-oficial',
@@ -375,7 +375,7 @@ export const dataTypes: DataTypeSeed[] = [
     description:
       'Número de document nacional d’identitat, passaport, permís de conduir o número de seguretat social, i les imatges d’aquests documents.',
     whyItMatters:
-      'No es pot canviar quan es filtra i habilita la suplantació amb efectes legals, des d’obrir un contracte fins a demanar un crèdit. És la pèrdua més difícil de reparar.',
+      'No es pot canviar quan es filtra i habilita la suplantació amb efectes legals, des d’obrir un contracte fins a demanar un crèdit, i és la pèrdua més difícil de reparar.',
   },
   {
     slug: 'origen-etnic-o-nacionalitat',
@@ -385,7 +385,7 @@ export const dataTypes: DataTypeSeed[] = [
     specialCategory: true,
     description: 'Origen racial o ètnic, nacionalitat i país de naixement declarats o inferits.',
     whyItMatters:
-      'És una categoria especial de l’article 9 del RGPD. Tractar-la sense una base reforçada és il·lícit, i fer-la servir per segmentar obre la porta a la discriminació directa.',
+      'És una categoria especial de l’article 9 del RGPD. Tractar-la sense una base reforçada és il·lícit, i fer-la servir per segmentar permet la discriminació directa.',
     appleLabel: 'Sensitive Info',
   },
   {
@@ -405,7 +405,7 @@ export const dataTypes: DataTypeSeed[] = [
     description:
       'Ingressos estimats o declarats, capacitat de despesa, solvència i segment socioeconòmic assignat.',
     whyItMatters:
-      'És diferent de la dada de pagament: no diu com pagues sinó quant et poden cobrar. Permet preus personalitzats i decideix quines ofertes no arribes a veure mai.',
+      'A diferència de la dada de pagament, indica quant et poden cobrar. Permet aplicar preus personalitzats i decidir quines ofertes no et mostren mai.',
   },
   {
     slug: 'nivell-formatiu',
@@ -423,7 +423,7 @@ export const dataTypes: DataTypeSeed[] = [
     sensitivity: 2,
     description: 'Llengües que la persona declara parlar o que el servei dedueix del seu ús.',
     whyItMatters:
-      'Sembla innòcua i sovint no ho és: la llengua és un indici raonable de l’origen, i per aquesta via acaba funcionant com un substitut d’una dada que sí que és especial.',
+      'Sovint no és innòcua: la llengua és un indici raonable de l’origen, i per aquesta via acaba funcionant com a substitut d’una dada de categoria especial.',
   },
 ]
 
@@ -553,7 +553,7 @@ export const categories: CategorySeed[] = [
     functionalNeed:
       'Parlar en privat amb persones conegudes, en text, veu o vídeo, i compartir-hi fitxers.',
     privacyContext:
-      'El servei necessita saber a qui envies cada missatge; no necessita poder-lo llegir. Aquesta és la línia que separa un servei de missatgeria d’un altre.',
+      'El servei necessita saber a qui envies cada missatge, però no necessita poder-lo llegir. La diferència principal entre serveis de missatgeria és si el poden llegir o no.',
   },
   {
     slug: 'xarxes-socials',
@@ -561,14 +561,14 @@ export const categories: CategorySeed[] = [
     functionalNeed:
       'Publicar contingut per a un públic ampli i seguir el que publiquen altres persones.',
     privacyContext:
-      'La publicació és pública per definició, però el perfil de comportament que se’n deriva no ho és. La diferència entre el que expliques i el que dedueixen de tu és tot el terreny en disputa.',
+      'La publicació és pública per definició, però el perfil de comportament que se’n deriva no ho és. La qüestió de privadesa és el que dedueixen de tu a partir del que expliques.',
   },
   {
     slug: 'comunitats-i-forums',
     name: 'Comunitats i fòrums',
     functionalNeed: 'Participar en converses temàtiques amb persones desconegudes.',
     privacyContext:
-      'El pseudònim és la protecció principal. El que compta és si el servei el manté separat de la identitat real.',
+      'El pseudònim és la protecció principal, sempre que el servei el mantingui separat de la identitat real.',
   },
   {
     slug: 'descobriment-visual',
@@ -592,42 +592,42 @@ export const categories: CategorySeed[] = [
     name: 'Cercadors',
     functionalNeed: 'Trobar informació a la xarxa a partir d’una consulta.',
     privacyContext:
-      'Un cercador rep les preguntes que ningú faria en veu alta. Que les associï o no a una identitat ho canvia tot.',
+      'Un cercador rep preguntes que ningú faria en veu alta, i per això és decisiu si les associa o no a una identitat.',
   },
   {
     slug: 'navegadors',
     name: 'Navegadors',
     functionalNeed: 'Accedir a llocs web, gestionar sessions i sincronitzar dades entre dispositius.',
     privacyContext:
-      'El navegador ho veu tot. La qüestió no és què podria recollir, sinó què decideix no recollir i què bloqueja de tercers.',
+      'El navegador té accés a tota l’activitat web. Per això cal mirar què decideix no recollir i què bloqueja de tercers.',
   },
   {
     slug: 'correu-electronic',
     name: 'Correu electrònic',
     functionalNeed: 'Enviar i rebre correu, i conservar-lo de manera accessible.',
     privacyContext:
-      'La bústia és l’arxiu de la vida adulta: contractes, salut, feina i relacions. Qui la pot llegir és la pregunta central.',
+      'La bústia conserva contractes, informació de salut, feina i relacions. La pregunta principal és qui la pot llegir.',
   },
   {
     slug: 'mapes-i-navegacio',
     name: 'Mapes i navegació',
     functionalNeed: 'Orientar-se, buscar llocs i calcular rutes.',
     privacyContext:
-      'La ubicació és imprescindible per calcular una ruta; conservar-ne l’historial durant anys, no.',
+      'La ubicació és imprescindible per calcular una ruta, però conservar-ne l’historial durant anys no ho és.',
   },
   {
     slug: 'comerc-electronic',
     name: 'Comerç electrònic',
     functionalNeed: 'Comprar productes i rebre’ls a casa.',
     privacyContext:
-      'Una adreça i un mitjà de pagament són inevitables; un perfil de consum de deu anys utilitzat per a publicitat, no.',
+      'Una adreça i un mitjà de pagament són inevitables, però un perfil de consum de deu anys utilitzat per a publicitat no ho és.',
   },
   {
     slug: 'repartiment-a-domicili',
     name: 'Repartiment a domicili',
     functionalNeed: 'Demanar menjar o productes i rebre’ls en poca estona.',
     privacyContext:
-      'Requereix ubicació en temps real durant el lliurament. El que cal mirar és què passa amb aquesta ubicació després.',
+      'Requereix ubicació en temps real durant el lliurament. Cal mirar què es fa amb aquesta ubicació després del lliurament.',
   },
   {
     slug: 'cites',
@@ -649,21 +649,21 @@ export const categories: CategorySeed[] = [
     name: 'Assistents d’intel·ligència artificial',
     functionalNeed: 'Conversar amb un model de llenguatge per escriure, resumir, programar o resoldre dubtes.',
     privacyContext:
-      'La gent explica a un xatbot coses que no explicaria a un cercador. Que les converses serveixin per entrenar models, i si ho pots evitar, és la primera pregunta.',
+      'La gent explica a un xatbot coses que no explicaria a un cercador. La primera pregunta és si les converses serveixen per entrenar models i si ho pots evitar.',
   },
   {
     slug: 'ofimatica-i-productivitat',
     name: 'Ofimàtica i productivitat',
     functionalNeed: 'Crear documents, fulls de càlcul i notes, organitzar l’agenda i escanejar papers.',
     privacyContext:
-      'Els documents de feina i els papers escanejats contenen contractes, nòmines i dades de terceres persones. Importa on es desen i qui hi pot accedir.',
+      'Els documents de feina i els papers escanejats contenen contractes, nòmines i dades de terceres persones. Cal saber on es desen i qui hi pot accedir.',
   },
   {
     slug: 'emmagatzematge-al-nuvol',
     name: 'Emmagatzematge al núvol',
     functionalNeed: 'Desar fotos i fitxers fora del dispositiu i sincronitzar-los.',
     privacyContext:
-      'Una còpia de totes les fotos d’una vida és també un arxiu de cares, llocs i dates. La diferència és si el proveïdor les pot analitzar o només guardar.',
+      'Una còpia de totes les fotos d’una vida és també un arxiu de cares, llocs i dates. Cal saber si el proveïdor les pot analitzar o només les guarda.',
   },
   {
     slug: 'videoconferencia-i-feina',
@@ -677,7 +677,7 @@ export const categories: CategorySeed[] = [
     name: 'Autenticació i seguretat',
     functionalNeed: 'Generar codis d’accés, protegir connexions i gestionar la identitat digital.',
     privacyContext:
-      'Són eines de protecció, i per això es jutgen amb més exigència: una aplicació de seguretat que recull més del necessari contradiu la seva raó de ser.',
+      'Són eines de protecció, i per això es valoren amb més exigència: una aplicació de seguretat que recull més del necessari contradiu la seva pròpia finalitat.',
   },
   {
     slug: 'administracio-publica',
@@ -712,7 +712,7 @@ export const categories: CategorySeed[] = [
     name: 'Viatges i allotjament',
     functionalNeed: 'Reservar vols, trens, hotels i activitats.',
     privacyContext:
-      'Reservar un viatge exigeix el document d’identitat i dades de passatgers que les autoritats poden reclamar. El que cal mirar és què se’n fa més enllà del viatge.',
+      'Reservar un viatge exigeix el document d’identitat i dades de passatgers que les autoritats poden reclamar. Cal mirar què se’n fa més enllà del viatge.',
   },
   {
     slug: 'salut-i-assistencia-sanitaria',
@@ -747,7 +747,7 @@ export const categories: CategorySeed[] = [
     name: 'Feina i ocupació',
     functionalNeed: 'Buscar feina, enviar el currículum i gestionar la relació amb l’empresa de treball temporal.',
     privacyContext:
-      'Un currículum és un expedient complet: formació, trajectòria, edat, sovint foto. Qui el veu i durant quant de temps el conserven decideix molt més que la cerca.',
+      'Un currículum recull formació, trajectòria, edat i sovint una foto. Per a la privadesa, qui el pot veure i quant de temps el conserven compta molt més que la cerca.',
   },
   {
     slug: 'habitatge',
@@ -789,7 +789,7 @@ export const categories: CategorySeed[] = [
     name: 'Traducció, diccionaris i referència',
     functionalNeed: 'Traduir textos i veu, consultar diccionaris i identificar objectes.',
     privacyContext:
-      'El que es tradueix sovint és privat: correus, contractes, converses. La qüestió és si el text s’envia al servidor i si s’hi queda.',
+      'El que es tradueix sovint és privat: correus, contractes, converses. Cal saber si el text s’envia al servidor i si s’hi queda.',
   },
   {
     slug: 'utilitats',
@@ -824,6 +824,6 @@ export const categories: CategorySeed[] = [
     name: 'Llar connectada',
     functionalNeed: 'Controlar càmeres, altaveus, electrodomèstics i alarmes des del mòbil.',
     privacyContext:
-      'Els dispositius de casa veuen i escolten l’espai més privat. El núvol del fabricant, i la jurisdicció on és, fan de porta a aquest espai.',
+      'Els dispositius de casa veuen i escolten l’espai més privat. L’accés a aquest espai passa pel núvol del fabricant i depèn de la jurisdicció on es troba.',
   },
 ]

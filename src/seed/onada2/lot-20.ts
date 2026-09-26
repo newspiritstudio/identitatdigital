@@ -373,7 +373,7 @@ export const lot: SeedLot = {
       ),
       openSource: f('no', 'official', ['petmira-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'El que recull no és només informació del gat. L’àudio del micròfon i les fotografies de la casa viatgen a serveis d’intel·ligència artificial de tercers per ser interpretats, i els identificadors del dispositiu van a plataformes d’atribució publicitària. Del bestiar en surt un perfil publicitari de la persona que el cuida.',
+        'L’àudio del micròfon i les fotografies de la casa viatgen a serveis d’intel·ligència artificial de tercers per ser interpretats, i els identificadors del dispositiu van a plataformes d’atribució publicitària. Amb aquestes dades es pot fer un perfil publicitari de la persona que cuida l’animal.',
       dataCollection: [
         row('veu-i-audio', 'yes', { linked: 'no', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['petmira-privacy-policy'], note: 'La política declara que l’àudio del micròfon s’utilitza per traduir les vocalitzacions i que l’aplicació crida interfícies de serveis d’IA de tercers per fer-ho.' }),
         row('fotografies-i-videos', 'optional', { linked: 'no', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['petmira-privacy-policy'], note: 'Imatges de la càmera i de l’àlbum, per a l’anàlisi d’estat de l’animal.' }),
@@ -406,7 +406,7 @@ export const lot: SeedLot = {
         transparencyReport: unknown('No hem localitzat cap informe de transparència.'),
       },
       retention: {
-        definedPeriods: f('no', 'official', ['petmira-privacy-policy'], 'La política diu que el període d’emmagatzematge el determina la persona usuària, que pot esborrar l’aplicació o les dades locals quan vulgui: no fixa cap termini propi.'),
+        definedPeriods: f('no', 'official', ['petmira-privacy-policy'], 'La política diu que el període d’emmagatzematge el determina la persona usuària, que pot esborrar l’aplicació o les dades locals quan vulgui. La política no fixa cap termini propi.'),
         dataAfterDeletion: unknown('La política no diu què passa amb les dades que ja han arribat als proveïdors d’IA, d’analítica i de publicitat.'),
       },
       accountDeletion: {
@@ -419,7 +419,7 @@ export const lot: SeedLot = {
           'Escriu a support@petmira.ai per demanar la supressió de les dades que quedin als servidors, invocant l’article 17 del RGPD.',
         ],
         obstacles:
-          'Sense compte identificable i sense responsable establert a la Unió Europea, exercir el dret de supressió depèn de la bona voluntat d’una adreça de correu.',
+          'Sense compte identificable i sense responsable establert a la Unió Europea, exercir el dret de supressió depèn que l’empresa respongui a una adreça de correu.',
         sources: ['petmira-privacy-policy'],
       },
       userRights: {
@@ -450,7 +450,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'El contrast entre la promesa i la lletra petita és el que fa útil aquesta fitxa: una aplicació que es presenta com un joc per a gats envia àudio de l’habitatge a proveïdors d’intel·ligència artificial i identificadors publicitaris a plataformes d’atribució, sota una política que no cita ni una sola vegada el RGPD.',
+          'L’aplicació es presenta com un joc per a gats, però envia àudio de l’habitatge a proveïdors d’intel·ligència artificial i identificadors publicitaris a plataformes d’atribució, i la política no cita el RGPD.',
         openQuestions: [
           'L’aplicació funciona sense compte o en crea un d’implícit lligat al dispositiu?',
           'Quin és el proveïdor exacte del model que tradueix les vocalitzacions i quant de temps en conserva els àudios?',
@@ -539,7 +539,7 @@ export const lot: SeedLot = {
         selfService: unknown('El centre d’ajuda de Bumble no s’ha deixat consultar i no hem pogut verificar els passos exactes dins de l’aplicació.'),
         difficulty: 'unknown',
         obstacles:
-          'La conservació de sis anys de les dades bàsiques i de fins a quinze anys dels expedients de moderació vol dir que eliminar el compte no equival a desaparèixer del servei.',
+          'Després d’eliminar el compte, el servei conserva les dades bàsiques sis anys i els expedients de moderació fins a quinze anys.',
         dataRetained: 'Dades bàsiques del compte durant sis anys, correspondència de suport durant sis anys i expedients de moderació fins a quinze anys.',
         sources: ['bumble-privacy-policy'],
       },
@@ -572,7 +572,7 @@ export const lot: SeedLot = {
           app: 'tinder',
           comparability: 'equivalent',
           rationale: 'L’altra gran aplicació de cites del mercat espanyol, amb una base d’usuaris comparable.',
-          tradeOffs: 'Tinder és del grup Match i arrossega les seves pròpies pràctiques de perfilat; canviar-hi no redueix per si sol l’exposició de dades sensibles.',
+          tradeOffs: 'Tinder és del grup Match, que té les seves pròpies pràctiques de perfilat; canviar-hi no redueix per si sol l’exposició de dades sensibles.',
         },
       ],
       review: {
@@ -580,7 +580,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'Bumble fa bé una cosa que gairebé ningú fa: publicar terminis de conservació per categoria i anomenar els proveïdors. Fa malament una altra: declarar la ubicació entre les dades utilitzades per rastrejar en un servei on la ubicació és, literalment, la condició per funcionar.',
+          'Bumble publica terminis de conservació per categoria i anomena els proveïdors, cosa poc habitual al sector. En canvi, declara la ubicació entre les dades utilitzades per rastrejar en un servei que necessita la ubicació per funcionar.',
         openQuestions: [
           'Quins són els passos exactes per eliminar el compte des de l’aplicació?',
           'Quin és l’establiment principal a la Unió Europea i, per tant, l’autoritat de control competent?',
@@ -610,12 +610,12 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['moeve-gow-privacy-policy'], 'La política descriu el registre d’usuaris com a tractament necessari per a l’execució contractual i les mesures precontractuals.'),
       openSource: f('no', 'official', ['moeve-gow-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'Les dades d’una aplicació de benzinera diuen on ets i quan, cada quant omples el dipòsit i quant gastes. Moeve les creua amb el mitjà de pagament i amb els patrons de consum per «optimitzar l’oferta comercial», i demana consentiment a part per a l’elaboració de perfils amb dades de tercers.',
+        'Les dades d’una aplicació de benzinera mostren on ets i quan, cada quant omples el dipòsit i quant gastes. Moeve les creua amb el mitjà de pagament i amb els patrons de consum per «optimitzar l’oferta comercial», i demana consentiment a part per a l’elaboració de perfils amb dades de tercers.',
       dataCollection: [
         row('nom-i-cognoms', 'yes', { linked: 'no', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['moeve-gow-privacy-policy', 'moeve-gow-app-store'], note: 'L’etiqueta declara les dades de contacte com a no vinculades amb la identitat, cosa difícil de conciliar amb un compte de fidelització.' }),
         row('adreca-electronica', 'yes', { linked: 'no', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['moeve-gow-privacy-policy'] }),
         row('dades-de-pagament', 'yes', { linked: 'no', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['moeve-gow-privacy-policy', 'moeve-gow-app-store'], note: 'La política identifica Ingenico com a proveïdor de pagaments, amb contacte propi de protecció de dades.' }),
-        row('historial-de-compres', 'yes', { linked: 'no', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'elaboracio-de-perfils'], sources: ['moeve-gow-privacy-policy'], note: 'Els patrons de consum són la matèria primera del perfilat comercial declarat.' }),
+        row('historial-de-compres', 'yes', { linked: 'no', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'elaboracio-de-perfils'], sources: ['moeve-gow-privacy-policy'], note: 'La política declara un perfilat comercial a partir dels patrons de consum.' }),
         row('ubicacio-precisa', 'optional', { linked: 'no', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['moeve-gow-privacy-policy', 'moeve-gow-app-store'], note: 'La política distingeix la geolocalització per prestar el servei, emparada en la relació contractual, de la geolocalització amb finalitat comercial, que exigeix consentiment.' }),
         row('identificador-de-compte', 'yes', { linked: 'no', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['moeve-gow-app-store'] }),
         row('identificador-de-dispositiu', 'yes', { linked: 'no', tracking: 'no', shared: 'group', purposes: ['mesura-i-analisi-dus'], sources: ['moeve-gow-app-store'] }),
@@ -701,7 +701,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'La incoherència val la pena mirar-la de prop: una aplicació que exigeix registre i mitjà de pagament declara a Apple que cap de les dades que recull està vinculada amb la identitat. O l’etiqueta és incompleta, o el compte de fidelització funciona d’una manera que la política no explica.',
+          'Una aplicació que exigeix registre i mitjà de pagament declara a Apple que cap de les dades que recull està vinculada amb la identitat. O l’etiqueta és incompleta, o el compte de fidelització funciona d’una manera que la política no explica.',
         openQuestions: [
           'Com es concilia una etiqueta sense dades vinculades amb un programa de fidelització nominatiu?',
           'Hi ha una manera de donar-se de baixa del compte des de la mateixa aplicació?',
@@ -717,7 +717,7 @@ export const lot: SeedLot = {
       categories: ['banca-i-finances'],
       tagline: 'Controls de privadesa dins de l’aplicació i un avís per a l’EEE que no es deixa llegir',
       summary:
-        'Revolut presenta la privadesa com un argument de producte: la seva pàgina legal diu que les dades personals són de la persona usuària i descriu controls de seguretat i privadesa dins de l’aplicació. L’etiqueta de l’App Store és moderada per a una entitat financera, però hi consten identificadors utilitzats per rastrejar-te fora del servei. L’avís de privadesa aplicable a l’Espai Econòmic Europeu no s’ha deixat consultar amb eines automàtiques, i això deixa sense documentar la conservació, les transferències i el perfilat.',
+        'La pàgina legal de Revolut diu que les dades personals són de la persona usuària i descriu controls de seguretat i privadesa dins de l’aplicació. L’etiqueta de l’App Store és moderada per a una entitat financera, però hi consten identificadors utilitzats per rastrejar-te fora del servei. L’avís de privadesa aplicable a l’Espai Econòmic Europeu no s’ha deixat consultar amb eines automàtiques, i això deixa sense documentar la conservació, les transferències i el perfilat.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'freemium',
       jurisdiction: 'Regne Unit, amb entitat bancària europea a Lituània',
@@ -730,7 +730,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['revolut-privacy-hub'], 'Tot el servei es presta sobre un compte de client; la pàgina legal distingeix els avisos per tipus de client i per edat.'),
       openSource: f('no', 'official', ['revolut-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'Un compte de Revolut concentra els moviments quotidians, els canvis de divisa, els viatges i, si s’hi contracta, la inversió i els criptoactius. L’etiqueta declara compres, contacte, identificadors, ús i diagnòstics vinculats amb la identitat: el mapa complet de la despesa d’una persona, amb identificadors que segons Apple s’utilitzen també per rastrejar-la fora de l’aplicació.',
+        'Un compte de Revolut concentra els moviments quotidians, els canvis de divisa, els viatges i, si s’hi contracta, la inversió i els criptoactius. L’etiqueta declara compres, contacte, identificadors, ús i diagnòstics vinculats amb la identitat, és a dir, tota la despesa d’una persona, i segons Apple els identificadors s’utilitzen també per rastrejar-la fora de l’aplicació.',
       dataCollection: [
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'compliment-legal'], sources: ['revolut-app-store'] }),
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'atencio-a-lusuari'], sources: ['revolut-app-store'] }),
@@ -814,7 +814,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'La fitxa queda deliberadament incompleta. La pàgina que Revolut enllaça des de l’App Store és un índex d’avisos, i els avisos concrets —el de clients particulars, que és el que s’aplica aquí— bloquegen les consultes automatitzades. Una política de privadesa que no es pot llegir sense un navegador interactiu és, en si mateixa, una decisió de transparència.',
+          'La fitxa és incompleta. La pàgina que Revolut enllaça des de l’App Store és un índex d’avisos, i els avisos concrets (el de clients particulars, que és el que s’aplica aquí) bloquegen les consultes automatitzades. Que la política només es pugui llegir amb un navegador interactiu també és una decisió que afecta la transparència.',
         openQuestions: [
           'Quina entitat del grup és la responsable del tractament per a la clientela de l’Espai Econòmic Europeu i quina n’és l’autoritat de control principal?',
           'Quant de temps es conserven les dades després de tancar el compte?',
@@ -829,9 +829,9 @@ export const lot: SeedLot = {
       name: 'Bizum Pay',
       company: 'bizum',
       categories: ['banca-i-finances'],
-      tagline: 'L’etiqueta més continguda del lot: ni rastreig ni cap dada vinculada amb la identitat',
+      tagline: 'Una etiqueta sense rastreig ni cap dada vinculada amb la identitat',
       summary:
-        'L’aplicació pròpia de Bizum declara a l’App Store només dues categories de dades, ús i diagnòstics, i totes dues sense vincular amb la identitat. És l’etiqueta més continguda de tot el lot, i contrasta amb la de la resta d’aplicacions financeres. La política diu que no hi ha cessions a tercers fora de l’obligació legal, tot i que el servei funciona precisament perquè les entitats adherides, és a dir els bancs, hi participen.',
+        'L’aplicació pròpia de Bizum declara a l’App Store només dues categories de dades, ús i diagnòstics, i totes dues sense vincular amb la identitat. La política diu que no hi ha cessions a tercers fora de l’obligació legal, tot i que el servei funciona perquè les entitats adherides, és a dir els bancs, hi participen.',
       platforms: ['ios', 'android'],
       businessModel: 'commerce',
       jurisdiction: 'Espanya',
@@ -841,7 +841,7 @@ export const lot: SeedLot = {
         privacyPolicy: 'https://bizumpay.com/politica-de-privacidad-app-bizum-pay/',
         appStore: 'https://apps.apple.com/es/app/id6761751498',
       },
-      accountRequired: f('yes', 'official', ['bizum-privacy-policy'], 'L’alta al servei es fa a través d’una entitat adherida: sense banc no hi ha Bizum.'),
+      accountRequired: f('yes', 'official', ['bizum-privacy-policy'], 'L’alta al servei es fa a través d’una entitat adherida, de manera que cal tenir compte en un banc.'),
       openSource: f('no', 'official', ['bizum-pay-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
         'Bizum sap qui paga a qui, quan i quant, encara que els diners els moguin els bancs. La política de l’aplicació enumera dades identificatives, de contacte, d’ús, tècniques i del dispositiu, i dades relacionades amb les operacions; la política general del servei afegeix l’àlies format pel nom i les inicials que es mostra abans de confirmar cada enviament.',
@@ -932,7 +932,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'La lliçó d’aquesta fitxa és per comparació: si una aplicació de pagaments pot funcionar declarant només dades d’ús i diagnòstics no vinculats, les etiquetes molt més carregades de la resta del sector no descriuen una necessitat tècnica, sinó una tria. El punt feble és la contradicció entre la política de l’aplicació, que nega les cessions, i la del servei, que preveu la cessió a les entitats adherides.',
+          'Si una aplicació de pagaments pot funcionar declarant només dades d’ús i diagnòstics no vinculats, les etiquetes molt més carregades de la resta del sector responen a decisions de les empreses i no a una necessitat tècnica. El punt feble és que la política de l’aplicació nega les cessions i la del servei preveu la cessió a les entitats adherides.',
         openQuestions: [
           'Quin és el repartiment de responsabilitats entre Bizum, S.L. i l’entitat adherida sobre les dades de cada operació?',
           'Hi ha una manera de donar-se de baixa de Bizum Pay sense passar per l’aplicació del banc?',
@@ -948,7 +948,7 @@ export const lot: SeedLot = {
       categories: ['banca-i-finances'],
       tagline: 'Un banc que declara contacte, identificadors i ús com a dades per rastrejar-te',
       summary:
-        'L’avís de privadesa de Trade Republic és un document de seixanta-quatre pàgines, bilingüe i actualitzat, que anomena els sis proveïdors integrats a l’aplicació i explica quina base jurídica s’aplica a cadascun. Aquesta transparència conviu amb una etiqueta de l’App Store que declara dades de contacte, identificadors i dades d’ús utilitzats per rastrejar-te fora del servei, cosa poc habitual en una entitat de crèdit. Les dades es conserven deu anys després de tancar el compte per obligació legal alemanya.',
+        'L’avís de privadesa de Trade Republic és un document de seixanta-quatre pàgines, bilingüe i actualitzat, que anomena els sis proveïdors integrats a l’aplicació i explica quina base jurídica s’aplica a cadascun. Alhora, l’etiqueta de l’App Store declara dades de contacte, identificadors i dades d’ús utilitzats per rastrejar-te fora del servei, cosa poc habitual en una entitat de crèdit. Les dades es conserven deu anys després de tancar el compte per obligació legal alemanya.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'commerce',
       jurisdiction: 'Alemanya',
@@ -961,7 +961,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['trade-republic-privacy-notice'], 'L’avís descriu l’obertura del compte bancari i l’execució d’ordres com a tractaments necessaris per al contracte.'),
       openSource: f('no', 'official', ['trade-republic-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'La cartera d’inversió diu molt més que el saldo: diu quant estalvies, quant risc acceptes i quan et fa por el mercat. Trade Republic hi suma la verificació d’identitat amb selfie, la ubicació i el contingut que la persona escriu a l’aplicació, i un conjunt de senyals d’ús que viatgen a Adjust i que poden alimentar publicitat personalitzada fora del servei.',
+        'La cartera d’inversió mostra quant estalvies, quant risc acceptes i com reacciones quan el mercat baixa. Trade Republic hi suma la verificació d’identitat amb selfie, la ubicació i el contingut que la persona escriu a l’aplicació, i un conjunt de senyals d’ús que viatgen a Adjust i que poden alimentar publicitat personalitzada fora del servei.',
       dataCollection: [
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['prestacio-del-servei', 'compliment-legal'], sources: ['trade-republic-privacy-notice', 'trade-republic-app-store'] }),
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['trade-republic-privacy-notice', 'trade-republic-app-store'], note: 'L’avís explica que les adreces xifrades es fan servir per casar audiències a les xarxes socials.' }),
@@ -1016,7 +1016,7 @@ export const lot: SeedLot = {
           'Tingues present que la documentació de la relació es conservarà deu anys i que pots reclamar davant de l’autoritat de protecció de dades alemanya.',
         ],
         obstacles:
-          'El termini de deu anys no és una decisió del banc, sinó de la llei alemanya; però significa que tancar el compte no esborra l’historial d’inversió.',
+          'El termini de deu anys l’imposa la llei alemanya, i vol dir que tancar el compte no esborra l’historial d’inversió.',
         dataRetained: 'Nom, dades de contacte i documentació de les operacions durant deu anys.',
         sources: ['trade-republic-privacy-notice'],
       },
@@ -1035,7 +1035,7 @@ export const lot: SeedLot = {
         telemetryOptOut: f('yes', 'official', ['trade-republic-privacy-notice'], 'L’aplicació té un avís de seguiment separat i un panell de perfil on es decideix el rastreig; l’avís garanteix que la decisió es respecta a tots els dispositius.'),
         granularControls: f('yes', 'official', ['trade-republic-privacy-notice'], 'Preferències de seguiment per finalitat dins del perfil, amb consentiment revocable en qualsevol moment sense efectes retroactius.'),
         defaultPosture: 'mixed',
-        darkPatterns: f('partial', 'editorial', [], 'Advertir que oposar-se a la personalització «no tindrà necessàriament cap efecte sobre la quantitat d’anuncis» és una manera de desincentivar l’exercici del dret just en el moment d’exercir-lo, encara que el que diu sigui literalment cert.'),
+        darkPatterns: f('partial', 'editorial', [], 'Advertir que oposar-se a la personalització «no tindrà necessàriament cap efecte sobre la quantitat d’anuncis» és una manera de desincentivar l’exercici del dret en el moment d’exercir-lo, encara que el que diu sigui cert.'),
       },
       security: {
         e2ee: na('L’aplicació no transporta comunicacions privades entre persones usuàries.'),
@@ -1059,10 +1059,10 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'És un bon exemple que transparència i sobrietat no són el mateix. L’avís de Trade Republic explica millor que el de qualsevol altra entitat d’aquest lot què fa cada proveïdor, i precisament per això es pot afirmar amb font oficial que les dades d’ús d’un banc acaben alimentant publicitat personalitzada fora de l’aplicació.',
+          'L’avís de Trade Republic explica què fa cada proveïdor, i per això es pot afirmar amb font oficial que les dades d’ús d’un banc acaben alimentant publicitat personalitzada fora de l’aplicació.',
         openQuestions: [
           'Quines dades exactes rep cada soci publicitari a través d’Adjust?',
-          'Quin és el procediment real de tancament del compte dins de l’aplicació?',
+          'Quin és el procediment de tancament del compte dins de l’aplicació?',
         ],
       },
     },
@@ -1073,9 +1073,9 @@ export const lot: SeedLot = {
       name: 'Tricount',
       company: 'bunq',
       categories: ['banca-i-finances', 'utilitats'],
-      tagline: 'Esborrar el teu compte no esborra les despeses: només anonimitza qui les va fer',
+      tagline: 'Si esborres el compte, les despeses es conserven i només s’anonimitza qui les va fer',
       summary:
-        'Tricount és una llibreta de despeses compartides que des del 2022 pertany al banc neerlandès bunq. La política ho diu sense embuts: si demanes la supressió, les dades dels tricounts (les despeses) no s’esborren, perquè són compartides amb altres persones; el que es fa és anonimitzar el teu identificador. També anuncia que la versió 8 de l’aplicació no contindrà cap publicitat ni recollirà dades amb aquesta finalitat, mentre que l’etiqueta actual declara identificadors utilitzats per rastrejar-te.',
+        'Tricount és una llibreta de despeses compartides que des del 2022 pertany al banc neerlandès bunq. Segons la política, si demanes la supressió, les dades dels tricounts (les despeses) no s’esborren, perquè són compartides amb altres persones; el que es fa és anonimitzar el teu identificador. També anuncia que la versió 8 de l’aplicació no contindrà cap publicitat ni recollirà dades amb aquesta finalitat, mentre que l’etiqueta actual declara identificadors utilitzats per rastrejar-te.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'freemium',
       jurisdiction: 'Països Baixos',
@@ -1088,7 +1088,7 @@ export const lot: SeedLot = {
       accountRequired: f('partial', 'official', ['tricount-privacy-policy'], 'La política descriu comptes d’usuari i la seva supressió, però el repartiment de despeses es pot compartir amb persones que hi participen per enllaç.'),
       openSource: f('no', 'official', ['tricount-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'Un tricount és un retrat del grup: qui va a sopar amb qui, qui paga el lloguer de la casa de vacances i qui deu diners a qui. La política hi afegeix la recollida automàtica d’adreça IP, tipus de dispositiu, identificadors únics i navegador, i, mentre hi hagi publicitat, finalitats publicitàries basades en l’interès legítim i el consentiment.',
+        'Un tricount registra qui va a sopar amb qui, qui paga el lloguer de la casa de vacances i qui deu diners a qui. La política hi afegeix la recollida automàtica d’adreça IP, tipus de dispositiu, identificadors únics i navegador, i, mentre hi hagi publicitat, finalitats publicitàries basades en l’interès legítim i el consentiment.',
       dataCollection: [
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['tricount-privacy-policy', 'tricount-app-store'] }),
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['tricount-privacy-policy', 'tricount-app-store'], note: 'La política preveu l’enviament de correus que promocionen serveis de Tricount i de bunq per interès legítim.' }),
@@ -1136,7 +1136,7 @@ export const lot: SeedLot = {
           'Si el grup encara és actiu, demana a la resta de participants que esborrin el tricount abans si voleu que desaparegui sencer.',
         ],
         obstacles:
-          'És un cas de manual de dada compartida: el que has apuntat també és història dels altres, i el servei ho resol anonimitzant en lloc d’esborrar.',
+          'Les despeses apuntades també són dades de les altres persones del grup, i el servei les anonimitza en lloc d’esborrar-les.',
         dataRetained: 'Les despeses, els imports i els deutes de cada tricount, amb els identificadors de la persona anonimitzats.',
         sources: ['tricount-privacy-policy'],
       },
@@ -1171,7 +1171,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'Tricount és una de les poques polítiques que afronta de cara el problema de la dada compartida i diu clarament què no esborrarà. Que ho digui no fa que el resultat sigui millor, però permet decidir amb coneixement de causa abans d’apuntar-hi mig any de despeses del pis.',
+          'Tricount és una de les poques polítiques que tracta el problema de la dada compartida i diu què no esborrarà. Això no canvia el resultat, però permet saber-ho abans d’apuntar-hi despeses.',
         openQuestions: [
           'Quins proveïdors publicitaris hi ha integrats mentre no arribi la versió 8 sense publicitat?',
           'Quin tracte reben les persones que participen en un tricount sense tenir-hi compte?',
@@ -1187,7 +1187,7 @@ export const lot: SeedLot = {
       categories: ['banca-i-finances'],
       tagline: 'Etiqueta sense rastreig i una sanció de cinc milions per com demanava el consentiment',
       summary:
-        'L’etiqueta de l’App Store de BBVA no declara cap dada utilitzada per rastrejar-te, i deixa com a no vinculades amb la identitat la ubicació, els contactes i el contingut. El precedent que la fa rellevant és una resolució de l’AEPD del 2020: cinc milions d’euros per informar malament i per demanar el consentiment amb una pantalla dins de la mateixa aplicació que portava la cessió de dades a tercers activada per defecte. BBVA va publicar una política nova el juliol del 2020.',
+        'L’etiqueta de l’App Store de BBVA no declara cap dada utilitzada per rastrejar-te, i deixa com a no vinculades amb la identitat la ubicació, els contactes i el contingut. El 2020, una resolució de l’AEPD li va imposar cinc milions d’euros per informar malament i per demanar el consentiment amb una pantalla dins de la mateixa aplicació que portava la cessió de dades a tercers activada per defecte. BBVA va publicar una política nova el juliol del 2020.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'commerce',
       jurisdiction: 'Espanya',
@@ -1241,7 +1241,7 @@ export const lot: SeedLot = {
         selfService: unknown('No hem pogut consultar la documentació del banc sobre el procediment de baixa.'),
         difficulty: 'hard',
         obstacles:
-          'Com a la resta d’entitats, el dret de supressió xoca amb les obligacions legals de conservació i acaba en un bloqueig, no en un esborrat.',
+          'Com a la resta d’entitats, les obligacions legals de conservació limiten el dret de supressió, i les dades queden bloquejades en lloc d’esborrar-se.',
       },
       userRights: {
         dataExport: unknown('No hem pogut consultar la política de privadesa del banc.'),
@@ -1315,7 +1315,7 @@ export const lot: SeedLot = {
       categories: ['mobilitat-i-transport', 'comerc-electronic'],
       tagline: 'Una aplicació per pagar la benzina que declara l’historial de navegació com a dada de rastreig',
       summary:
-        'Waylet serveix per pagar a les estacions de servei de Repsol i acumular saldo. L’etiqueta de l’App Store declara una sola categoria utilitzada per rastrejar-te fora de l’aplicació, i és sorprenent: l’historial de navegació. La política aplicable és la comuna de Repsol i el grup, que descriu «perfiles sencillos del cliente en base a los consumos realizados» emparats en l’interès legítim, i inclou dades biomètriques i de geolocalització entre les categories tractades.',
+        'Waylet serveix per pagar a les estacions de servei de Repsol i acumular saldo. L’etiqueta de l’App Store declara una sola categoria utilitzada per rastrejar-te fora de l’aplicació: l’historial de navegació. La política aplicable és la comuna de Repsol i el grup, que descriu «perfiles sencillos del cliente en base a los consumos realizados» emparats en l’interès legítim, i inclou dades biomètriques i de geolocalització entre les categories tractades.',
       platforms: ['ios', 'android'],
       businessModel: 'commerce',
       jurisdiction: 'Espanya',
@@ -1328,7 +1328,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['waylet-repsol-privacy-policy'], 'El servei es basa en un compte de client amb mitjà de pagament associat, i la política descriu el tractament de dades identificatives i transaccionals per a l’execució del contracte.'),
       openSource: f('no', 'official', ['waylet-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'El repostatge és una dada de mobilitat: diu per on passes i amb quina freqüència. Repsol la creua amb el mitjà de pagament, amb la geolocalització i amb els perfils de consum, i l’aplicació declara a més l’historial de navegació entre les dades que serveixen per rastrejar-te en aplicacions i webs d’altres empreses.',
+        'Els repostatges mostren per on passes i amb quina freqüència. Repsol la creua amb el mitjà de pagament, amb la geolocalització i amb els perfils de consum, i l’aplicació declara a més l’historial de navegació entre les dades que serveixen per rastrejar-te en aplicacions i webs d’altres empreses.',
       dataCollection: [
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['waylet-app-store', 'waylet-repsol-privacy-policy'] }),
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['waylet-app-store', 'waylet-repsol-privacy-policy'], note: 'És l’única categoria que l’etiqueta declara vinculada amb la identitat.' }),
@@ -1418,7 +1418,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'Val la pena aturar-se a la categoria declarada: l’historial de navegació és una de les dades més reveladores que existeixen, i és l’única que aquesta aplicació reconeix utilitzar per rastrejar. Una aplicació per pagar la benzina no hauria de saber quines pàgines visites.',
+          'L’historial de navegació és una de les dades més reveladores, i és l’única que aquesta aplicació reconeix utilitzar per rastrejar. La funció de pagar la benzina no necessita saber quines pàgines visites.',
         openQuestions: [
           'Quin historial de navegació recull exactament l’aplicació i quins tercers el reben?',
           'En quins serveis de Repsol s’apliquen les dades biomètriques que enumera la política?',
@@ -1433,9 +1433,9 @@ export const lot: SeedLot = {
       name: 'PayPal',
       company: 'paypal-europe',
       categories: ['banca-i-finances', 'comerc-electronic'],
-      tagline: 'Deu anys de conservació, decisions automatitzades de solvència i cap respecte pel senyal «Do Not Track»',
+      tagline: 'Deu anys de conservació, decisions automatitzades de solvència i sense atendre el senyal «Do Not Track»',
       summary:
-        'La declaració de privadesa de PayPal és exhaustiva i, en bona part, ho és per obligació: el mateix document explica que la llei luxemburguesa a què està subjecte exigeix més transparència que la resta de normatives europees. Hi consten catorze categories de dades, entre elles les inferides (gènere, ingressos, hàbits de compra i solvència), decisions automatitzades que poden denegar el servei, conservació de deu anys després d’acabar la relació i una frase poc habitual: no atén la configuració «Do Not Track» del navegador.',
+        'La declaració de privadesa de PayPal és exhaustiva, en part per obligació: el mateix document explica que la llei luxemburguesa a què està subjecte exigeix més transparència que la resta de normatives europees. Hi consten catorze categories de dades, entre elles les inferides (gènere, ingressos, hàbits de compra i solvència), decisions automatitzades que poden denegar el servei, conservació de deu anys després d’acabar la relació i l’avís, poc habitual, que no atén la configuració «Do Not Track» del navegador.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'commerce',
       jurisdiction: 'Luxemburg, per a l’Espai Econòmic Europeu',
@@ -1448,7 +1448,7 @@ export const lot: SeedLot = {
       accountRequired: f('partial', 'official', ['paypal-privacy-statement'], 'La declaració preveu expressament l’ús dels serveis sense compte, i adverteix que si després en crees un, la informació de la transacció s’hi pot vincular.'),
       openSource: f('no', 'official', ['paypal-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'PayPal veu la compra abans que el venedor: què compres, a qui, per quant i des d’on. Hi suma els contactes que importes, l’historial de cerca i de navegació que declara l’etiqueta, dades biomètriques d’autenticació i, sobretot, dades inferides: gènere, ingressos, hàbits de compra i solvència que ningú no ha declarat, sinó que el sistema dedueix.',
+        'PayPal registra què compres, a qui, per quant i des d’on. Hi suma els contactes que importes, l’historial de cerca i de navegació que declara l’etiqueta, dades biomètriques d’autenticació i dades inferides: gènere, ingressos, hàbits de compra i solvència, que la persona no ha declarat i que el sistema dedueix.',
       dataCollection: [
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'compliment-legal'], sources: ['paypal-privacy-statement', 'paypal-app-store'] }),
         row('document-identificatiu-oficial', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['compliment-legal', 'seguretat-i-prevencio-del-frau'], sources: ['paypal-privacy-statement'], note: 'La declaració inclou la identificació emesa pel govern i la signatura entre els identificadors personals.' }),
@@ -1524,7 +1524,7 @@ export const lot: SeedLot = {
         telemetryOptOut: f('no', 'official', ['paypal-privacy-statement'], '«Como muchos de nuestros servicios no funcionan sin los datos de seguimiento, no atendemos la configuración de DNT».'),
         granularControls: f('partial', 'official', ['paypal-privacy-statement'], 'El perfil es pot marcar com a privat i es poden esborrar dades afegides, però no hi ha un panell únic de consentiments per finalitat.'),
         defaultPosture: 'permissive',
-        darkPatterns: f('partial', 'editorial', [], 'Declarar obertament que no s’atén el senyal «Do Not Track» és honest, però converteix una preferència que la persona ja ha expressat al navegador en una decisió unilateral del servei.'),
+        darkPatterns: f('partial', 'editorial', [], 'La declaració diu obertament que no atén el senyal «Do Not Track», de manera que una preferència que la persona ja ha expressat al navegador queda sense efecte per decisió unilateral del servei.'),
         darkPatternList: [
           {
             type: 'confusing-language',
@@ -1565,7 +1565,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'És la política més detallada del lot, i el detall no juga a favor seu: permet llegir negre sobre blanc que el servei dedueix la solvència i els ingressos, que hi ha decisions automatitzades que poden deixar una persona sense servei i que la preferència de no ser rastrejat expressada al navegador no es respecta.',
+          'La política és detallada, i el detall permet documentar que el servei dedueix la solvència i els ingressos, que hi ha decisions automatitzades que poden deixar una persona sense servei i que la preferència de no ser rastrejat expressada al navegador no es respecta.',
         openQuestions: [
           'Quines plataformes publicitàries concretes reben dades i amb quines finalitats?',
           'Quin és l’abast del programa de recompenses de seguretat i on es notifiquen les vulnerabilitats?',

@@ -205,7 +205,7 @@ export const lot: SeedLot = {
     }),
     s('moises-delete-account', 'How to delete my Moises account', 'https://help.moises.ai/hc/en-us/articles/5440087821330', 'Moises Systems, Inc.', 'support-doc', 'primary', {
       language: 'en',
-      summary: 'Passos reals per eliminar el compte, només des de l’aplicació del mòbil i després de cancel·lar la subscripció.',
+      summary: 'Passos per eliminar el compte, només des de l’aplicació del mòbil i després de cancel·lar la subscripció.',
     }),
     /* ── Waze ── */
     s('waze-app-store', 'Waze Navegación y Tráfico — App Store (Privacidad de la app)', 'https://apps.apple.com/es/app/id323229106', 'Apple', 'app-store', 'primary', {
@@ -294,7 +294,7 @@ export const lot: SeedLot = {
       accountRequired: f('no', 'official', ['radio-fm-escucha-privacy-policy', 'radio-fm-escucha-app-store'], 'La política diu que les dades de contacte només s’aporten voluntàriament; l’etiqueta declara el correu i el nom com a dades no vinculades a la identitat, lligades a l’atenció a l’usuari.'),
       openSource: f('no', 'official', ['radio-fm-escucha-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'Sense compte, el que queda és el rastre publicitari: quin dispositiu ets, quines emissores escoltes i quins anuncis has vist. La política admet que, amb consentiment, aquestes dades serveixen per personalitzar la publicitat.',
+        'Sense compte, les dades són sobretot publicitàries: quin dispositiu ets, quines emissores escoltes i quins anuncis has vist. La política admet que, amb consentiment, aquestes dades serveixen per personalitzar la publicitat.',
       dataCollection: [
         row('identificador-de-dispositiu', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['publicitat-personalitzada', 'mesura-publicitaria'], sources: ['radio-fm-escucha-app-store', 'radio-fm-escucha-privacy-policy'], note: 'L’etiqueta el declara com a dada per rastrejar i com a dada vinculada a la identitat per a publicitat de tercers.' }),
         row('identificador-publicitari', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['publicitat-personalitzada', 'mesura-publicitaria'], sources: ['radio-fm-escucha-privacy-policy', 'radio-fm-escucha-app-store'], note: 'La política parla explícitament d’identificadors publicitaris i de dades de consentiment publicitari.' }),
@@ -377,7 +377,7 @@ export const lot: SeedLot = {
       categories: ['musica-i-audio', 'xarxes-socials'],
       tagline: 'Per avisar-te dels concerts connecta l’Spotify, el calendari i la ubicació exacta, i deixa que els artistes facin servir les teves dades',
       summary:
-        'Bandsintown avisa dels concerts dels artistes que escoltes. Per fer-ho vincula comptes de Spotify o de Facebook, llegeix els gustos musicals, demana la ubicació per filtrar els concerts a un radi de milles i, si confirmes assistència, es pot sincronitzar amb el calendari. La política diu clarament que els artistes i els seus equips poden fer servir les dades personals de qui els segueix. Les dades s’allotgen als Estats Units sota el Data Privacy Framework i els drets s’exerceixen amb un formulari.',
+        'Bandsintown avisa dels concerts dels artistes que escoltes. Per fer-ho vincula comptes de Spotify o de Facebook, llegeix els gustos musicals, demana la ubicació per filtrar els concerts a un radi de milles i, si confirmes assistència, es pot sincronitzar amb el calendari. La política diu que els artistes i els seus equips poden fer servir les dades personals de qui els segueix. Les dades s’allotgen als Estats Units sota el Data Privacy Framework i els drets s’exerceixen amb un formulari.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'advertising',
       jurisdiction: 'Estats Units (Data Privacy Framework)',
@@ -389,7 +389,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['bandsintown-privacy-policy'], 'Cal registrar-se amb correu o amb un compte de Facebook o Spotify per seguir artistes i rebre avisos.'),
       openSource: f('no', 'official', ['bandsintown-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'El conjunt dibuixa el gust musical d’una persona, on viu, a quins concerts va i amb qui els comparteix. La combinació d’ubicació exacta, calendari i artistes seguits és especialment reveladora perquè arriba també als mateixos artistes i a les empreses d’entrades.',
+        'El conjunt mostra el gust musical d’una persona, on viu, a quins concerts va i amb qui els comparteix. La combinació d’ubicació exacta, calendari i artistes seguits és especialment sensible perquè arriba també als mateixos artistes i a les empreses d’entrades.',
       dataCollection: [
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['bandsintown-privacy-policy', 'bandsintown-app-store'], note: 'L’etiqueta el declara vinculat a la identitat per al màrqueting del desenvolupador.' }),
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'personalitzacio-de-continguts'], sources: ['bandsintown-privacy-policy', 'bandsintown-app-store'] }),
@@ -504,7 +504,7 @@ export const lot: SeedLot = {
       accountRequired: f('no', 'official', ['offline-musica-privacy-policy'], 'La política no descriu cap registre; només es recullen dades de contacte si escrius al suport.'),
       openSource: f('no', 'official', ['offline-musica-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'La biblioteca musical no marxa del telèfon, segons la política. El que sí que surt és l’identificador del dispositiu, que l’etiqueta declara com a dada per rastrejar-te i per a publicitat de tercers: prou per associar l’ús d’aquesta aplicació amb el teu perfil publicitari.',
+        'Segons la política, la biblioteca musical no surt del telèfon. L’identificador del dispositiu sí que en surt: l’etiqueta el declara com a dada per rastrejar-te i per a publicitat de tercers, i serveix per associar l’ús d’aquesta aplicació amb el teu perfil publicitari.',
       dataCollection: [
         row('identificador-de-dispositiu', 'yes', { linked: 'no', tracking: 'yes', shared: 'third-parties', purposes: ['publicitat-personalitzada', 'mesura-publicitaria'], sources: ['offline-musica-app-store'], note: 'L’etiqueta el declara com a dada per rastrejar i per a publicitat de tercers. La política no en diu res.' }),
         row('interaccions-i-us', 'yes', { linked: 'no', tracking: 'no', shared: 'unknown', purposes: ['mesura-i-analisi-dus'], sources: ['offline-musica-app-store', 'offline-musica-privacy-policy'] }),
@@ -519,7 +519,7 @@ export const lot: SeedLot = {
         thirdPartyTrackersPresent: f('partial', 'official', ['offline-musica-app-store', 'offline-musica-privacy-policy'], 'L’ús publicitari declarat a l’etiqueta implica SDK de tercers, però la política no en cita cap.'),
       },
       dataUses: {
-        targetedAdvertising: f('partial', 'official', ['offline-musica-app-store'], 'L’etiqueta declara l’identificador del dispositiu per a publicitat de tercers; la política guarda silenci.'),
+        targetedAdvertising: f('partial', 'official', ['offline-musica-app-store'], 'L’etiqueta declara l’identificador del dispositiu per a publicitat de tercers; la política no en diu res.'),
         profiling: unknown('Ni la política ni l’etiqueta descriuen cap perfilat.'),
         aiTraining: unknown('La política no parla d’entrenament de models.'),
       },
@@ -586,7 +586,7 @@ export const lot: SeedLot = {
       categories: ['musica-i-audio', 'assistents-d-ia'],
       tagline: 'Separa les pistes de qualsevol cançó amb IA i es compromet per contracte a no entrenar-hi els models sense permís',
       summary:
-        'Moises puja els fitxers d’àudio als seus servidors per separar-ne les veus i els instruments, detectar acords i canviar la tonalitat. Les condicions d’ús tenen una clàusula «NO TRAINING» que diu en majúscules que no faran servir el contingut ni els resultats per entrenar models sense autorització expressa. A canvi, la política conserva l’historial de pujades i de fitxers processats, dedueix la ubicació a partir de la IP també per a publicitat personalitzada, i el nom i la foto de perfil són sempre públics. El compte només es pot eliminar des de l’aplicació del mòbil.',
+        'Moises puja els fitxers d’àudio als seus servidors per separar-ne les veus i els instruments, detectar acords i canviar la tonalitat. Les condicions d’ús tenen una clàusula «NO TRAINING» que diu en majúscules que no faran servir el contingut ni els resultats per entrenar models sense autorització expressa. D’altra banda, la política conserva l’historial de pujades i de fitxers processats, dedueix la ubicació a partir de la IP també per a publicitat personalitzada, i el nom i la foto de perfil són sempre públics. El compte només es pot eliminar des de l’aplicació del mòbil.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'freemium',
       jurisdiction: 'Estats Units, amb representant a la UE a Irlanda',
@@ -599,7 +599,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['moises-privacy-policy'], 'Cal un compte, propi o de Google, Apple, Facebook o Twitter, per processar fitxers i conservar la biblioteca.'),
       openSource: f('no', 'official', ['moises-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'La biblioteca d’un músic diu què assaja, què versiona i amb quina freqüència. Moises hi afegeix l’historial de cerques i de navegació, inferències sobre la persona usuària i una ubicació aproximada derivada de la IP que també es fa servir per a publicitat.',
+        'La biblioteca d’un músic mostra què assaja, què versiona i amb quina freqüència. Moises hi afegeix l’historial de cerques i de navegació, inferències sobre la persona usuària i una ubicació aproximada derivada de la IP que també es fa servir per a publicitat.',
       dataCollection: [
         row('veu-i-audio', 'yes', { linked: 'yes', tracking: 'yes', shared: 'unknown', purposes: ['prestacio-del-servei'], sources: ['moises-app-store', 'moises-privacy-policy', 'moises-terms'], note: 'Els fitxers pujats es processen als servidors. L’etiqueta declara el contingut de l’usuari com a dada per rastrejar-te; les condicions exclouen l’entrenament de models sense permís exprés.' }),
         row('fitxers-i-documents', 'yes', { linked: 'yes', tracking: 'no', shared: 'unknown', purposes: ['prestacio-del-servei'], sources: ['moises-privacy-policy'], note: 'Historial de pujades, fitxers processats i biblioteca, que es conserven mentre el compte és actiu.' }),
@@ -697,7 +697,7 @@ export const lot: SeedLot = {
       name: 'Waze Navegación y Tráfico',
       company: 'waze-mobile',
       categories: ['mapes-i-navegacio', 'mobilitat-i-transport'],
-      tagline: 'Navegació gratuïta a canvi de l’historial complet dels teus desplaçaments, amb anuncis personalitzats lligats al compte de Google',
+      tagline: 'Navegació gratuïta que registra amb detall els teus desplaçaments i hi personalitza anuncis lligats al compte de Google',
       summary:
         'Waze és de Google però conserva Waze Mobile Ltd., d’Israel, com a responsable del tractament. Registra la ubicació i els trajectes amb detall, també quan l’aplicació no està en ús si ho has permès, i hi suma les adreces desades de casa i de la feina, les cerques, les gravacions de veu i, si ho autoritzes, els esdeveniments del calendari. Els anuncis dels comerços del mapa es personalitzen amb aquestes dades i amb l’activitat del compte de Google. Té mode invisible, descàrrega de dades i eliminació del compte des de la mateixa aplicació.',
       platforms: ['ios', 'android', 'web'],
@@ -713,7 +713,7 @@ export const lot: SeedLot = {
       accountRequired: f('partial', 'official', ['waze-privacy-policy'], 'Es pot navegar sense compte, però cal registrar-se per desar adreces, sincronitzar dispositius i fer servir les funcions socials.'),
       openSource: f('no', 'official', ['waze-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'L’historial de trajectes de Waze és un mapa de la vida d’una persona: on viu, on treballa, a quina hora surt, on va els caps de setmana i amb quina freqüència. Hi ha la ubicació precisa contínua, les adreces desades, les cerques i, si s’activa, el calendari, tot vinculat a la identitat i utilitzable per a publicitat.',
+        'L’historial de trajectes de Waze mostra on viu una persona, on treballa, a quina hora surt, on va els caps de setmana i amb quina freqüència. Hi ha la ubicació precisa contínua, les adreces desades, les cerques i, si s’activa, el calendari, tot vinculat a la identitat i utilitzable per a publicitat.',
       dataCollection: [
         row('ubicacio-precisa', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'publicitat-personalitzada', 'mesura-i-analisi-dus'], sources: ['waze-privacy-policy', 'waze-app-store'], note: 'La política admet que es recull també quan l’aplicació no està en ús, si s’hi ha donat permís. L’etiqueta la declara per a publicitat de tercers i del desenvolupador.' }),
         row('adreca-postal', 'optional', { linked: 'yes', tracking: 'no', shared: 'unknown', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['waze-privacy-policy'], note: 'Adreces desades de casa i de la feina, que la política cita expressament com a base dels anuncis personalitzats.' }),
@@ -806,7 +806,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: false,
         editorialNotes:
-          'La política de Waze és la del 8 de juliol del 2026, allotjada al centre d’ajuda de Google, i conviu amb la política general de Google, que reutilitzem del lot 01. Crida l’atenció que l’etiqueta de l’App Store no declari cap dada per rastrejar tot i la publicitat personalitzada. No hem pogut fer la cerca d’incidents perquè la sessió havia exhaurit el pressupost de cerques.',
+          'La política de Waze és la del 8 de juliol del 2026, allotjada al centre d’ajuda de Google, i conviu amb la política general de Google. L’etiqueta de l’App Store no declara cap dada per rastrejar malgrat la publicitat personalitzada. No hem pogut fer la cerca d’incidents perquè la sessió havia exhaurit el pressupost de cerques.',
         openQuestions: [
           'Quant de temps es conserva l’historial de trajectes si no s’elimina el compte?',
           'El programa de recompenses de Google cobreix Waze?',
@@ -936,7 +936,7 @@ export const lot: SeedLot = {
       categories: ['mapes-i-navegacio', 'utilitats'],
       tagline: 'La política diu que no recull dades personals i que la ubicació és anònima; l’etiqueta de l’App Store la declara com a dada per rastrejar-te',
       summary:
-        'Gasall compara els preus dels carburants a partir de les dades obertes del Ministeri. La política de Nunsys afirma que l’aplicació no recull dades personals per defecte, que la ubicació és anònima i que no es mostren anuncis, tot i que admet que fa servir l’identificador publicitari. L’etiqueta de l’App Store diu una altra cosa: declara la ubicació exacta, l’identificador d’usuari i la interacció amb el producte com a dades utilitzades per rastrejar-te i per a publicitat de tercers. L’analítica passa per Firebase, Amplitude i Mixpanel.',
+        'Gasall compara els preus dels carburants a partir de les dades obertes del Ministeri. La política de Nunsys afirma que l’aplicació no recull dades personals per defecte, que la ubicació és anònima i que no es mostren anuncis, tot i que admet que fa servir l’identificador publicitari. L’etiqueta de l’App Store, en canvi, declara la ubicació exacta, l’identificador d’usuari i la interacció amb el producte com a dades utilitzades per rastrejar-te i per a publicitat de tercers. L’analítica passa per Firebase, Amplitude i Mixpanel.',
       platforms: ['ios', 'android'],
       businessModel: 'freemium',
       jurisdiction: 'Espanya (UE)',
@@ -1262,7 +1262,7 @@ export const lot: SeedLot = {
       categories: ['mobilitat-i-transport', 'utilitats'],
       tagline: 'Aparcar amb el compte únic del grup Mutua Madrileña, amb lectura automàtica de la matrícula com a mètode d’obertura per defecte',
       summary:
-        'ElParking és de MutuaMad Digital, del grup Mutua Madrileña, i el compte és compartit amb la resta de serveis del grup: donar-se de baixa cancel·la el compte únic. Quan registres un vehicle, la lectura de la matrícula per càmera passa a ser el mètode d’obertura per defecte als aparcaments adherits, encara que es pot canviar a l’aplicació. La política és de fa tres anys i descriu categories de dades molt àmplies, fins i tot dades de salut «quan siguin estrictament necessàries», amb cessions dins del grup i a asseguradores.',
+        'ElParking és de MutuaMad Digital, del grup Mutua Madrileña, i el compte és compartit amb la resta de serveis del grup: donar-se de baixa cancel·la el compte únic. Quan registres un vehicle, la lectura de la matrícula per càmera passa a ser el mètode d’obertura per defecte als aparcaments adherits, encara que es pot canviar a l’aplicació. La política és del juny del 2023 i descriu categories de dades molt àmplies, fins i tot dades de salut «quan siguin estrictament necessàries», amb cessions dins del grup i a asseguradores.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'commerce',
       jurisdiction: 'Espanya (UE)',
@@ -1367,7 +1367,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: false,
         editorialNotes:
-          'Les condicions legals són de juliol del 2026, però la política de privadesa i galetes encara és la versió 17 del juny del 2023: el desfasament fa que algunes dades hi apareguin amb categories heretades del negoci assegurador. L’empresa MutuaMad Digital també podria aparèixer al lot que documenti altres aplicacions del grup Mutua. No hem pogut fer la cerca d’incidents perquè la sessió havia exhaurit el pressupost de cerques.',
+          'Les condicions legals són de juliol del 2026, però la política de privadesa i galetes encara és la versió 17 del juny del 2023: el desfasament fa que algunes dades hi apareguin amb categories heretades del negoci assegurador. No hem pogut fer la cerca d’incidents perquè la sessió havia exhaurit el pressupost de cerques.',
         openQuestions: [
           'La política de privadesa s’ha actualitzat després del 2023?',
           'Quines dades exactes comparteix ElParking amb les asseguradores del grup?',

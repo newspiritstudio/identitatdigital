@@ -40,7 +40,7 @@ const vinted: AppSeed = {
   accountRequired: f('yes', 'official', ['vinted-platform-terms', 'vinted-delete-account'], 'Per comprar, vendre o parlar amb altres persones cal un compte registrat; la pàgina d’ajuda per eliminar-lo descriu el compte com a requisit del servei.'),
   openSource: f('no', 'official', ['vinted-app-store'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'L’armari d’una persona a Vinted, més les converses privades, l’adreça d’enviament, l’historial de cerca i el de compres, dibuixa talles, gustos, poder adquisitiu, canvis vitals (embaràs, criatures que creixen) i xarxa de relacions comercials. A partir d’un cert volum de vendes, la normativa DAC7 hi afegeix dades fiscals identificatives.',
+    'L’armari d’una persona a Vinted, amb les converses privades, l’adreça d’enviament, l’historial de cerca i el de compres, revela la talla, els gustos, el poder adquisitiu, canvis vitals (un embaràs, criatures que creixen) i amb qui compra i ven. A partir d’un cert volum de vendes, la normativa DAC7 hi afegeix dades fiscals identificatives.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['vinted-app-store', 'vinted-play-data-safety'] }),
     row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['vinted-app-store', 'vinted-play-data-safety'] }),
@@ -145,9 +145,9 @@ const wallapop: AppSeed = {
   name: 'Wallapop - Vende y compra',
   company: 'wallapop',
   categories: ['compravenda-entre-particulars', 'comerc-electronic'],
-  tagline: 'Segona mà amb etiqueta de rastreig: ubicació, contactes i identificadors declarats per rastrejar, i dades fiscals guardades fins a deu anys per la DAC7',
+  tagline: 'Mercat de segona mà que declara ubicació, contactes i identificadors utilitzats per rastrejar, i que guarda dades fiscals fins a deu anys per la DAC7',
   summary:
-    'Wallapop és un mercat entre particulars amb enviament i pagament integrats, de manera que combina l’historial de compravenda amb la ubicació, els mitjans de pagament i les converses. La política detalla els terminis per finalitat —cinc anys per a l’anàlisi de frau i les reclamacions, fins a deu anys per a les obligacions fiscals de la DAC7— i limita la publicitat de tercers al consentiment exprés, amb Meta, Google i LiveRamp com a destinataris. L’etiqueta de l’App Store, però, declara ubicació, dades de contacte, identificadors i dades d’ús utilitzats per rastrejar.',
+    'Wallapop és un mercat entre particulars amb enviament i pagament integrats, de manera que combina l’historial de compravenda amb la ubicació, els mitjans de pagament i les converses. La política detalla els terminis per finalitat (cinc anys per a l’anàlisi de frau i les reclamacions, fins a deu anys per a les obligacions fiscals de la DAC7) i limita la publicitat de tercers al consentiment exprés, amb Meta, Google i LiveRamp com a destinataris. L’etiqueta de l’App Store, però, declara ubicació, dades de contacte, identificadors i dades d’ús utilitzats per rastrejar.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'commerce',
   jurisdiction: 'Espanya',
@@ -253,7 +253,7 @@ const wallapop: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: false,
     editorialNotes:
-      'La política de privadesa, revisada el 24 de febrer del 2026, és de les més completes del lot: presenta una taula amb la finalitat, la base jurídica i el termini de conservació de cada tractament, i identifica els socis publicitaris pel nom. El contrast amb l’etiqueta de l’App Store és el punt feble: declara ubicació, dades de contacte, identificadors i dades d’ús utilitzats per rastrejar, una intensitat que la política no acaba de reflectir. Els apartats de seguretat tècnica queden pràcticament sense documentar.',
+      'La política de privadesa, revisada el 24 de febrer del 2026, és completa: presenta una taula amb la finalitat, la base jurídica i el termini de conservació de cada tractament, i identifica els socis publicitaris pel nom. En canvi, la política no reflecteix del tot el que declara l’etiqueta de l’App Store, que inclou ubicació, dades de contacte, identificadors i dades d’ús utilitzats per rastrejar. Els apartats de seguretat tècnica queden pràcticament sense documentar.',
     openQuestions: [
       'Es pot eliminar el compte des de l’aplicació sense escriure a privacidad@wallapop.com?',
       'El programa de HackerOne amb el nom de Wallapop és actiu i públic?',
@@ -269,7 +269,7 @@ const lidlPlus: AppSeed = {
   categories: ['alimentacio-i-restauracio', 'comerc-electronic'],
   tagline: 'El programa de fidelització basa la publicitat personalitzada en l’execució del contracte, no en el consentiment, i la verificació en dos passos només existeix si fas servir Lidl Pay',
   summary:
-    'Lidl Plus converteix cada tiquet en un perfil de consum: la política diu obertament que la determinació d’interessos i la publicitat personalitzada es fonamenten en l’article 6.1 b) del RGPD, l’execució del contracte, de manera que no s’hi pot renunciar sense deixar el programa. Entre les dades de seguiment hi ha l’identificador publicitari del dispositiu, l’adreça IP, la MAC i l’empremta del dispositiu. L’etiqueta de l’App Store declara identificadors, dades d’ús i diagnòstics utilitzats per rastrejar.',
+    'Lidl Plus elabora un perfil de consum a partir dels tiquets. La política diu que la determinació d’interessos i la publicitat personalitzada es fonamenten en l’article 6.1 b) del RGPD, l’execució del contracte, de manera que no s’hi pot renunciar sense deixar el programa. Entre les dades de seguiment hi ha l’identificador publicitari del dispositiu, l’adreça IP, la MAC i l’empremta del dispositiu. L’etiqueta de l’App Store declara identificadors, dades d’ús i diagnòstics utilitzats per rastrejar.',
   platforms: ['ios', 'android'],
   businessModel: 'commerce',
   jurisdiction: 'Alemanya',
@@ -369,14 +369,14 @@ const lidlPlus: AppSeed = {
   alternatives: [
     { app: 'bonpreu-i-esclat', comparability: 'partial', rationale: 'Cadena d’alimentació que no declara cap dada utilitzada per rastrejar a l’App Store i que no fa publicitat segmentada amb identificadors publicitaris.', tradeOffs: 'Només opera a Catalunya i la política és molt menys detallada, sense terminis concrets.' },
     { app: 'dia', comparability: 'equivalent', rationale: 'Programa de fidelització d’abast estatal amb una política que detalla les cessions i permet retirar el consentiment publicitari.', tradeOffs: 'També basa el perfil comercial en el contracte i declara identificadors utilitzats per rastrejar.' },
-    { app: 'carrefour', comparability: 'equivalent', rationale: 'Alternativa d’abast estatal amb compra en línia i programa de fidelització.', tradeOffs: 'No n’hem analitzat encara les pràctiques de rastreig en aquest lot.' },
+    { app: 'carrefour', comparability: 'equivalent', rationale: 'Alternativa d’abast estatal amb compra en línia i programa de fidelització.', tradeOffs: 'Les pràctiques de rastreig es documenten a la fitxa de Mi Carrefour.' },
   ],
   review: {
     researchStatus: 'documented',
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: false,
     editorialNotes:
-      'La política de Lidl Plus és detallada i explícita amb els terminis, però la troballa important és la base jurídica: la determinació d’interessos i la publicitat personalitzada es fonamenten en l’execució del contracte, no en el consentiment, i per tant no són renunciables dins del programa. L’altre punt destacat és que la verificació en dos passos només existeix per a qui fa servir Lidl Pay i, a més, es pot desactivar.',
+      'La política de Lidl Plus és detallada i explícita amb els terminis. La determinació d’interessos i la publicitat personalitzada es fonamenten en l’execució del contracte, no en el consentiment, i per tant no s’hi pot renunciar dins del programa. La verificació en dos passos només existeix per a qui fa servir Lidl Pay, i es pot desactivar.',
     openQuestions: [
       'Es pot eliminar el compte des de la mateixa aplicació, sense escriure al delegat de protecció de dades?',
       'Quines empreses concretes reben els identificadors publicitaris que declara la política?',
@@ -474,14 +474,14 @@ const mercadona: AppSeed = {
   alternatives: [
     { app: 'bonpreu-i-esclat', comparability: 'partial', rationale: 'Cadena d’alimentació que no declara cap dada utilitzada per rastrejar a l’App Store i que no fa publicitat segmentada amb identificadors publicitaris.', tradeOffs: 'Només opera a Catalunya i la política és molt menys detallada, sense terminis concrets.' },
     { app: 'dia', comparability: 'equivalent', rationale: 'Programa de fidelització d’abast estatal amb una política que detalla les cessions i permet retirar el consentiment publicitari.', tradeOffs: 'També basa el perfil comercial en el contracte i declara identificadors utilitzats per rastrejar.' },
-    { app: 'carrefour', comparability: 'equivalent', rationale: 'Alternativa d’abast estatal amb compra en línia i programa de fidelització.', tradeOffs: 'No n’hem analitzat encara les pràctiques de rastreig en aquest lot.' },
+    { app: 'carrefour', comparability: 'equivalent', rationale: 'Alternativa d’abast estatal amb compra en línia i programa de fidelització.', tradeOffs: 'Les pràctiques de rastreig es documenten a la fitxa de Mi Carrefour.' },
   ],
   review: {
     researchStatus: 'initial',
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'Tots els dominis de Mercadona que allotgen la política de privadesa (info.mercadona.es, www.mercadona.es, tienda.mercadona.es i privacy.mercadona.com) responen amb un error 403 a les peticions automatitzades, i no n’hi ha captures a l’arxiu web. La fitxa es fonamenta només en les dues etiquetes de botiga i en la resolució de l’AEPD, i per això queda com a «initial». Convé subratllar que la sanció del 2021 es refereix al reconeixement facial de les botigues físiques, no a l’aplicació.',
+      'Tots els dominis de Mercadona que allotgen la política de privadesa (info.mercadona.es, www.mercadona.es, tienda.mercadona.es i privacy.mercadona.com) responen amb un error 403 a les peticions automatitzades, i no n’hi ha captures a l’arxiu web. La fitxa es fonamenta només en les dues etiquetes de botiga i en la resolució de l’AEPD, i per això queda com a «initial». La sanció del 2021 es refereix al reconeixement facial de les botigues físiques, no a l’aplicació.',
     openQuestions: [
       'Quines bases jurídiques, terminis de conservació i transferències internacionals declara la política de privadesa de Mercadona?',
       'Com s’elimina el compte de la botiga en línia i què es conserva després?',
@@ -497,7 +497,7 @@ const bonpreu: AppSeed = {
   categories: ['alimentacio-i-restauracio', 'comerc-electronic'],
   tagline: 'Sense rastreig declarat a l’App Store, però per exercir els drets et demanen una còpia del DNI i no hi ha cap camí documentat per eliminar el compte',
   summary:
-    'L’aplicació del grup Bon Preu no declara cap dada utilitzada per rastrejar i la política, escrita en català i prou clara, limita la publicitat de tercers a set sectors concrets i només amb consentiment. El punt feble és l’exercici dels drets: cal enviar una còpia del document d’identitat i no hi ha cap procediment documentat per eliminar el compte, ni terminis de conservació concrets, ni cap apartat sobre transferències internacionals.',
+    'L’aplicació del grup Bon Preu no declara cap dada utilitzada per rastrejar i la política, escrita en català i prou clara, limita la publicitat de tercers a set sectors concrets i només amb consentiment. Per exercir els drets, però, cal enviar una còpia del document d’identitat i no hi ha cap procediment documentat per eliminar el compte, ni terminis de conservació concrets, ni cap apartat sobre transferències internacionals.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'commerce',
   jurisdiction: 'Espanya',
@@ -510,7 +510,7 @@ const bonpreu: AppSeed = {
   accountRequired: f('yes', 'official', ['bonpreu-privacy-policy', 'bonpreu-app-store'], 'La targeta de client i la compra en línia demanen registre amb nom, adreça, correu i telèfon, segons la política i l’etiqueta de l’App Store.'),
   openSource: f('no', 'official', ['bonpreu-app-store'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'L’historial de compres d’un supermercat és un retrat de la dieta, de la mida de la llar i del pressupost familiar. Bon Preu el fa servir per personalitzar ofertes i, amb consentiment, per enviar publicitat d’anunciants de set sectors: oci, assegurances, telecomunicacions, serveis financers, llar, informàtica i electrònica, i moda.',
+    'L’historial de compres d’un supermercat revela la dieta, la mida de la llar i el pressupost familiar. Bon Preu el fa servir per personalitzar ofertes i, amb consentiment, per enviar publicitat d’anunciants de set sectors: oci, assegurances, telecomunicacions, serveis financers, llar, informàtica i electrònica, i moda.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['bonpreu-privacy-policy', 'bonpreu-app-store'] }),
     row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['bonpreu-privacy-policy', 'bonpreu-app-store'] }),
@@ -588,14 +588,14 @@ const bonpreu: AppSeed = {
   alternatives: [
     { app: 'dia', comparability: 'equivalent', rationale: 'Programa de fidelització i compra en línia d’abast estatal, amb una política que detalla les finalitats i els terminis.', tradeOffs: 'Declara identificadors i dades d’ús utilitzats per rastrejar, cosa que Bonpreu no fa.' },
     { app: 'lidl-plus', comparability: 'partial', rationale: 'Descomptes i compra amb una política molt detallada, amb terminis concrets i esborrat automàtic per inactivitat.', tradeOffs: 'La publicitat personalitzada es basa en el contracte i no es pot rebutjar.' },
-    { app: 'carrefour', comparability: 'equivalent', rationale: 'Supermercat amb compra en línia i repartiment d’abast estatal.', tradeOffs: 'No n’hem analitzat encara les pràctiques de rastreig en aquest lot.' },
+    { app: 'carrefour', comparability: 'equivalent', rationale: 'Supermercat amb compra en línia i repartiment d’abast estatal.', tradeOffs: 'Les pràctiques de rastreig es documenten a la fitxa de Mi Carrefour.' },
   ],
   review: {
     researchStatus: 'documented',
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: false,
     editorialNotes:
-      'La política de Bon Preu és en català i s’entén bé, però és breu: no dona terminis de conservació concrets, no té apartat de transferències internacionals i no descriu cap camí per donar-se de baixa que no passi per escriure o trucar. Exigir una còpia del DNI per exercir qualsevol dret és una barrera desproporcionada per a una petició de supressió. A canvi, l’etiqueta de l’App Store és de les més contingudes del lot: cap rastreig i la major part de les dades no vinculades a la identitat.',
+      'La política de Bon Preu és en català i s’entén bé, però és breu: no dona terminis de conservació concrets, no té apartat de transferències internacionals i no descriu cap camí per donar-se de baixa que no passi per escriure o trucar. Exigir una còpia del DNI per exercir qualsevol dret és una barrera desproporcionada per a una petició de supressió. D’altra banda, l’etiqueta de l’App Store és continguda: no declara cap rastreig i presenta la major part de les dades com a no vinculades a la identitat.',
     openQuestions: [
       'Quins terminis de conservació aplica Bon Preu a l’historial de compres?',
       'Hi ha alguna opció d’eliminar el compte des de l’aplicació o de l’àrea privada del web?',
@@ -621,7 +621,7 @@ const aquaservice: AppSeed = {
     appStore: appStore('986255140'),
     playStore: 'https://play.google.com/store/apps/details?id=es.aquaservice.aquaservice',
   },
-  accountRequired: f('yes', 'editorial', [], 'L’aplicació serveix per gestionar un contracte de subministrament a domicili —comandes, factures i visites—, de manera que pressuposa ser client. No hem trobat cap document oficial que ho digui explícitament.'),
+  accountRequired: f('yes', 'editorial', [], 'L’aplicació serveix per gestionar un contracte de subministrament a domicili (comandes, factures i visites), de manera que pressuposa ser client. No hem trobat cap document oficial que ho digui explícitament.'),
   openSource: f('no', 'official', ['aquaservice-app-store'], undefined, { licence: 'Privativa' }),
   dataSummary:
     'El consum d’aigua i de cafè d’una llar o d’una oficina, amb la periodicitat de les entregues i l’adreça, diu quanta gent hi viu o hi treballa i quins són els seus horaris. Les dades contractuals es conserven deu anys.',
@@ -708,7 +708,7 @@ const aquaservice: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: false,
     editorialNotes:
-      'La política de privadesa d’Aquaservice està pensada per als formularis del web i no esmenta l’aplicació en cap moment, de manera que molts apartats (destinataris, transferències, mesures de seguretat) queden sense resposta. Hem detectat, a més, que la URL alternativa /politica-de-privacidad serveix un text en portuguès encapçalat «Política de Privacidade de Aquaservice TEMP», una pàgina aparentment provisional. L’etiqueta de l’App Store només declara dades no vinculades a la identitat, cosa cridanera en un servei que funciona per contracte nominatiu.',
+      'La política de privadesa d’Aquaservice està pensada per als formularis del web i no esmenta l’aplicació en cap moment, de manera que molts apartats (destinataris, transferències, mesures de seguretat) queden sense resposta. Hem detectat, a més, que la URL alternativa /politica-de-privacidad serveix un text en portuguès encapçalat «Política de Privacidade de Aquaservice TEMP», una pàgina aparentment provisional. L’etiqueta de l’App Store només declara dades no vinculades a la identitat, cosa poc habitual en un servei que funciona per contracte nominatiu.',
     openQuestions: [
       'Per què l’etiqueta de l’App Store no declara cap dada vinculada a la identitat si l’aplicació gestiona un contracte nominatiu?',
       'Hi ha alguna política de privadesa específica de l’aplicació?',
@@ -724,7 +724,7 @@ const popeyes: AppSeed = {
   categories: ['alimentacio-i-restauracio', 'repartiment-a-domicili'],
   tagline: 'L’etiqueta de l’App Store declara set categories de dades utilitzades per rastrejar; la política no en descriu cap',
   summary:
-    'L’aplicació de Popeyes a Espanya la gestiona PLK Chicken Iberia, del grup Restaurant Brands. La contradicció central és documental: l’etiqueta de l’App Store declara compres, ubicació, dades de contacte, contingut de la persona usuària, identificadors, dades d’ús i diagnòstics utilitzats per rastrejar, mentre que la política de privadesa és un text genèric que no descriu cap d’aquests tractaments. El delegat de protecció de dades és una consultora externa a la qual només s’arriba per un canal ètic, i per exercir els drets demanen una fotocòpia del DNI.',
+    'L’aplicació de Popeyes a Espanya la gestiona PLK Chicken Iberia, del grup Restaurant Brands. L’etiqueta de l’App Store declara compres, ubicació, dades de contacte, contingut de la persona usuària, identificadors, dades d’ús i diagnòstics utilitzats per rastrejar, però la política de privadesa és un text genèric que no descriu cap d’aquests tractaments. El delegat de protecció de dades és una consultora externa a la qual només s’arriba per un canal ètic, i per exercir els drets demanen una fotocòpia del DNI.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'commerce',
   jurisdiction: 'Espanya',
@@ -793,7 +793,7 @@ const popeyes: AppSeed = {
       'Indica-hi el correu electrònic associat al compte de Popeyes i envia la sol·licitud.',
       'Per a qualsevol altre dret, la política demana un escrit amb una fotocòpia del document d’identitat.',
     ],
-    obstacles: 'L’exercici de la resta de drets exigeix una fotocòpia del DNI, i al delegat de protecció de dades —una consultora externa— només s’hi arriba per un canal ètic extern.',
+    obstacles: 'L’exercici de la resta de drets exigeix una fotocòpia del DNI, i al delegat de protecció de dades, una consultora externa, només s’hi arriba per un canal ètic extern.',
     dataRetained: 'Les dades contractuals es conserven deu anys des del final de la relació.',
     sources: ['popeyes-account-deletion-form', 'popeyes-privacy-policy'],
   },
@@ -843,7 +843,7 @@ const tacoBell: AppSeed = {
   categories: ['alimentacio-i-restauracio', 'repartiment-a-domicili'],
   tagline: 'Fitxa curta perquè la política no es deixa llegir: l’App Store no declara rastreig i Google Play diu que no comparteix cap dada amb tercers',
   summary:
-    'L’aplicació de Taco Bell a Espanya la publica Restabell Franquícias, el franquiciat principal de la marca de Yum! Brands, tot i que a Google Play el desenvolupador que hi consta és Taco Bell UK and Europe Limited. Les dues etiquetes de botiga són de les més contingudes del lot: cap dada utilitzada per rastrejar a l’App Store i cap compartició amb tercers a Google Play. La política de privadesa, en canvi, no es pot llegir perquè el web es carrega amb JavaScript.',
+    'L’aplicació de Taco Bell a Espanya la publica Restabell Franquícias, el franquiciat principal de la marca de Yum! Brands, tot i que a Google Play el desenvolupador que hi consta és Taco Bell UK and Europe Limited. Les dues etiquetes de botiga són contingudes: cap dada utilitzada per rastrejar a l’App Store i cap compartició amb tercers a Google Play. La política de privadesa, en canvi, no es pot llegir perquè el web es carrega amb JavaScript.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'commerce',
   jurisdiction: 'Espanya',
@@ -855,7 +855,7 @@ const tacoBell: AppSeed = {
   accountRequired: f('yes', 'official', ['taco-bell-play-data-safety', 'taco-bell-app-store'], 'Les dues fitxes de botiga declaren la recollida de nom, correu i identificadors d’usuari per al funcionament de l’aplicació.'),
   openSource: f('no', 'official', ['taco-bell-app-store'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'Les comandes de menjar ràpid, amb l’adreça de lliurament i la targeta de pagament, dibuixen els horaris, el barri i la despesa habitual d’una persona.',
+    'Les comandes de menjar ràpid, amb l’adreça de lliurament i la targeta de pagament, revelen els horaris, el barri i la despesa habitual d’una persona.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['taco-bell-app-store', 'taco-bell-play-data-safety'] }),
     row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['taco-bell-app-store', 'taco-bell-play-data-safety'], note: 'Google Play declara que el correu es fa servir també per a publicitat i màrqueting.' }),
@@ -928,7 +928,7 @@ const tacoBell: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: false,
     editorialNotes:
-      'El web de Taco Bell España està fet amb Angular i no serveix cap contingut sense JavaScript, de manera que no hem pogut llegir la política de privadesa ni per l’arxiu web. La fitxa es basa només en les dues etiquetes de botiga i queda com a «initial». Val la pena retenir la discrepància d’editor: a l’App Store el venedor és Restabell Franquícias, S.L., i a Google Play, Taco Bell UK and Europe Limited.',
+      'El web de Taco Bell España està fet amb Angular i no serveix cap contingut sense JavaScript, de manera que no hem pogut llegir la política de privadesa ni per l’arxiu web. La fitxa es basa només en les dues etiquetes de botiga i queda com a «initial». L’editor no coincideix a les dues botigues: a l’App Store el venedor és Restabell Franquícias, S.L., i a Google Play, Taco Bell UK and Europe Limited.',
     openQuestions: [
       'Qui és el responsable del tractament de l’aplicació: Restabell Franquícias o Taco Bell UK and Europe Limited?',
       'Què diu la política de privadesa sobre terminis, destinataris i transferències internacionals?',
@@ -942,9 +942,9 @@ const cestachef: AppSeed = {
   name: 'CestaChef - Menu Semanal',
   company: 'cestachef',
   categories: ['alimentacio-i-restauracio', 'utilitats'],
-  tagline: 'Aplicació petita amb una política inusualment curosa: dades de salut amb consentiment separat i analítica amb PostHog allotjat a la UE',
+  tagline: 'Aplicació petita amb una política detallada: dades de salut amb consentiment separat i analítica amb PostHog allotjat a la UE',
   summary:
-    'CestaChef planifica menús setmanals i llistes de la compra. La seva política de privadesa és més detallada que la de moltes empreses grans del lot: les dades de salut només es tracten si s’activa la funció «Mi objetivo», amb consentiment exprés de l’article 9.2 a), i s’esborren de manera irreversible si es retira; l’analítica és amb PostHog allotjat a la Unió Europea, amb la captura automàtica i l’enregistrament de sessions desactivats. L’etiqueta de l’App Store, en canvi, diu que l’aplicació no recull cap dada, cosa que contradiu la política.',
+    'CestaChef planifica menús setmanals i llistes de la compra. La seva política de privadesa és detallada: les dades de salut només es tracten si s’activa la funció «Mi objetivo», amb consentiment exprés de l’article 9.2 a), i s’esborren de manera irreversible si es retira; l’analítica és amb PostHog allotjat a la Unió Europea, amb la captura automàtica i l’enregistrament de sessions desactivats. L’etiqueta de l’App Store, en canvi, diu que l’aplicació no recull cap dada, cosa que contradiu la política.',
   platforms: ['ios', 'android'],
   businessModel: 'freemium',
   jurisdiction: 'Espanya',
@@ -1029,7 +1029,7 @@ const cestachef: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: false,
     editorialNotes:
-      'CestaChef és el contrapunt del lot: una aplicació d’un desenvolupador individual amb una política actualitzada el juliol del 2026 que tracta les dades de salut amb un consentiment separat de l’article 9.2 a), que en descriu l’esborrat irreversible i que limita l’analítica a esdeveniments declarats amb PostHog allotjat a la Unió Europea. La contradicció a resoldre és que l’etiqueta de l’App Store declara que «el desarrollador no recopila ningún dato en esta app», tot i que la política descriu dades de compte, de salut i d’analítica.',
+      'CestaChef és una aplicació d’un desenvolupador individual amb una política actualitzada el juliol del 2026 que tracta les dades de salut amb un consentiment separat de l’article 9.2 a), que en descriu l’esborrat irreversible i que limita l’analítica a esdeveniments declarats amb PostHog allotjat a la Unió Europea. En canvi, l’etiqueta de l’App Store declara que «el desarrollador no recopila ningún dato en esta app», tot i que la política descriu dades de compte, de salut i d’analítica.',
     openQuestions: [
       'Per què l’etiqueta de l’App Store diu que no es recull cap dada si la política en descriu diverses categories?',
       'Quina és l’entitat responsable del tractament: la política només parla de «l’equip de CestaChef».',
@@ -1182,7 +1182,7 @@ export const lot: SeedLot = {
     s('vinted-app-store', 'Vinted: tu app de segunda mano — Privacidad de la app', appStore('632064380'), 'Apple', 'app-store', 'primary', { language: 'es', summary: 'Etiqueta de privadesa de l’App Store: declara dades d’ús utilitzades per rastrejar i un llarg llistat de dades vinculades a la identitat.' }),
     s('vinted-play-data-safety', 'Vinted — Seguridad de los datos (Google Play)', 'https://play.google.com/store/apps/datasafety?id=fr.vinted', 'Google', 'app-store', 'primary', { language: 'es', summary: 'Fitxa de seguretat de les dades de Google Play: detalla què es comparteix amb tercers i amb quina finalitat.' }),
     s('vinted-privacy-centre', 'Vinted Privacy Centre', 'https://www.vinted.es/privacy', 'Vinted', 'privacy-center', 'primary', { language: 'es', summary: 'Centre de privadesa amb la descàrrega de dades en ZIP, les preferències de personalització i galetes i una descripció general de les mesures de seguretat.' }),
-    s('vinted-delete-account', 'How to delete your Vinted account', 'https://www.vinted.es/help/88', 'Vinted', 'support-doc', 'primary', { language: 'es', summary: 'Ajuda oficial amb els passos reals per eliminar el compte, els requisits previs i el termini de recuperació de tres mesos.' }),
+    s('vinted-delete-account', 'How to delete your Vinted account', 'https://www.vinted.es/help/88', 'Vinted', 'support-doc', 'primary', { language: 'es', summary: 'Ajuda oficial amb els passos per eliminar el compte, els requisits previs i el termini de recuperació de tres mesos.' }),
     s('vinted-platform-terms', 'Our platform — Vinted', 'https://www.vinted.es/our-platform', 'Vinted', 'terms', 'primary', { language: 'es', summary: 'Pàgina institucional que identifica Vinted UAB, amb el número de registre i el domicili a Vílnius, com a operadora de la plataforma.' }),
     s('vinted-security-txt', 'Vinted security.txt', 'https://www.vinted.com/.well-known/security.txt', 'Vinted', 'technical-doc', 'primary', { language: 'en', summary: 'Fitxer security.txt amb l’adreça de contacte per notificar vulnerabilitats.' }),
     s('vinted-sdpi-decision', 'Lithuanian DPA fines Vinted €2,385,276', 'https://www.edpb.europa.eu/news/national-news/2024/lithuanian-dpa-fines-vinted-eu2385276_en', 'European Data Protection Board', 'regulator', 'authority', { language: 'en', summary: 'Nota de l’EDPB sobre la sanció de l’autoritat lituana a Vinted per la gestió dels drets de supressió i d’accés i pels bloquejos ombra.' }),

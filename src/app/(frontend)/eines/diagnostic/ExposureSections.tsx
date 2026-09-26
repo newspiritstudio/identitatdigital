@@ -63,8 +63,8 @@ export function ExposureSections({ exposure }: { exposure: Exposure }) {
         {exposure.unknowns.share} % encara no ho està: {exposure.unknowns.status} files de la matriu
         de dades no diuen si la dada es recull, {exposure.unknowns.sharing} no diuen amb qui es
         comparteix i {exposure.unknowns.indicators} indicadors de puntuació aplicables no s’han
-        pogut documentar. A sota hi ha el que consta documentat, que no és tot el que passa: un
-        buit a la fitxa no vol dir que el servei no ho faci.
+        pogut documentar. A sota hi ha només el que consta documentat. Un buit a la fitxa no
+        vol dir que el servei no ho faci.
       </p>
 
       {/* ─────────────── 1. Dades ─────────────── */}
@@ -145,8 +145,8 @@ export function ExposureSections({ exposure }: { exposure: Exposure }) {
       {exposure.specialCategories.length === 0 ? (
         <p>
           Cap de les {total} {total === 1 ? 'fitxa triada' : 'fitxes triades'} no documenta la
-          recollida de dades de l’article 9 del RGPD —origen ètnic, opinions polítiques, religió,
-          afiliació sindical, genètica, biometria identificativa, salut, vida o orientació sexual.
+          recollida de dades de l’article 9 del RGPD (origen ètnic, opinions polítiques, religió,
+          afiliació sindical, genètica, biometria identificativa, salut, vida o orientació sexual).
           Que no consti documentat no vol dir que no passi.
         </p>
       ) : (
@@ -214,9 +214,9 @@ export function ExposureSections({ exposure }: { exposure: Exposure }) {
       <h3>El que no es pot comptar: cessions sense destinatari</h3>
       <p>
         Les polítiques de privadesa parlen de «socis», «proveïdors de serveis» i «tercers» sense
-        anomenar-los. Quan passa, la fitxa ho recull com el que és: sabem que la dada surt, no sabem
-        cap on. Compta com un forat de documentació, no com un zero, i per això el recompte
-        d’empreses de sobre és sempre un mínim.
+        anomenar-los. En aquests casos, la fitxa recull que la dada surt però no a qui va. Compta
+        com un buit de documentació, no com un zero, i per això el recompte d’empreses de sobre és
+        sempre un mínim.
       </p>
       <ul>
         <li>
@@ -243,8 +243,8 @@ export function ExposureSections({ exposure }: { exposure: Exposure }) {
       <h2 id="grups">Quins grups empresarials t’acumulen</h2>
       <p>
         Cada aplicació compta una sola vegada, al grup de la seva matriu última. La columna de tipus
-        de dada és la unió de tot el que li arriba sumant les seves aplicacions: és la part que no
-        es veu mirant les fitxes d’una en una.
+        de dada és la unió de tot el que li arriba sumant les seves aplicacions, una xifra que no
+        surt mirant les fitxes d’una en una.
       </p>
       <div className={styles.wide}>
         <table>
@@ -340,14 +340,14 @@ export function ExposureSections({ exposure }: { exposure: Exposure }) {
       {exposure.alternatives.length === 0 ? (
         <p className="unknown">
           Cap de les {total} {total === 1 ? 'fitxa triada' : 'fitxes triades'} no té alternatives
-          documentades. No vol dir que no n’hi hagi: vol dir que encara no les hem analitzat.
+          documentades perquè encara no les hem analitzat, cosa que no vol dir que no n’hi hagi.
         </p>
       ) : (
         <>
           <p>
-            Alternatives triades per la redacció a les fitxes que has marcat. Cap canvi és gratuït:
-            la columna de la dreta diu què s’hi perd, i quan és buida és perquè la fitxa encara no
-            ho documenta, no perquè no hi hagi contrapartida.
+            Alternatives triades per la redacció a les fitxes que has marcat. La columna de la dreta
+            diu què s’hi perd; quan és buida, és que la fitxa encara no ho documenta, no que no hi
+            hagi contrapartida.
           </p>
           <div className={styles.wide}>
             <table>
@@ -441,8 +441,7 @@ function Weakest({ app, total }: { app: AppLite; total: number }) {
       </p>
       {app.weakIndicators.length === 0 ? (
         <p className="unknown">
-          La fitxa no té el detall per indicador desat, de manera que no en podem explicar el motiu
-          concret.
+          La fitxa no té el detall per indicador desat, de manera que no en podem explicar el motiu.
         </p>
       ) : (
         <>
@@ -453,8 +452,8 @@ function Weakest({ app, total }: { app: AppLite; total: number }) {
                 <strong>{indicator.label}</strong>{' '}
                 <span className="badge">
                   {DIMENSION_LABELS[indicator.dimension] ?? indicator.dimension}
-                </span>{' '}
-                — puntua {Math.round(indicator.value * 100)} sobre 100.
+                </span>
+                : {Math.round(indicator.value * 100)} sobre 100.
               </li>
             ))}
           </ul>
@@ -463,8 +462,8 @@ function Weakest({ app, total }: { app: AppLite; total: number }) {
       {app.unknownIndicators > 0 ? (
         <p className="meta">
           A més, {app.unknownIndicators} indicadors aplicables d’aquesta fitxa no s’han pogut
-          documentar. No compten com a negatius: en surten del càlcul i el que se’n ressent és el
-          grau de confiança, no la puntuació.
+          documentar. No compten com a negatius: queden fora del càlcul i fan baixar el grau de
+          confiança, no la puntuació.
         </p>
       ) : null}
     </>

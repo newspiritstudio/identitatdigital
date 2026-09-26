@@ -100,7 +100,7 @@ const carpeta: AppSeed = {
   categories: ['administracio-publica'],
   tagline: 'Reuneix dades de desenes d’administracions en una sola aplicació, però l’etiqueta de l’App Store diu que no en recull cap',
   summary:
-    'Mi Carpeta Ciudadana mostra en un sol lloc dades que guarden altres administracions: partida de naixement, prestacions, béns immobles, títols, certificats de discapacitat, vehicles i expedients oberts. L’Agència Estatal d’Administració Digital diu que no les desa i que només les consulta quan les demanes, però sí que conserva preferències, un resum personal i els justificants generats. No hi ha publicitat ni transferències fora de la UE; el punt feble és la transparència, perquè l’etiqueta de l’App Store afirma que l’aplicació no recull cap dada.',
+    'Mi Carpeta Ciudadana mostra en un sol lloc dades que guarden altres administracions: partida de naixement, prestacions, béns immobles, títols, certificats de discapacitat, vehicles i expedients oberts. L’Agència Estatal d’Administració Digital diu que no les desa i que només les consulta quan les demanes, però sí que conserva preferències, un resum personal i els justificants generats. No hi ha publicitat ni transferències fora de la UE. L’etiqueta de l’App Store, però, afirma que l’aplicació no recull cap dada.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'public-service',
   jurisdiction: 'Espanya; servei públic de l’Administració General de l’Estat',
@@ -114,7 +114,7 @@ const carpeta: AppSeed = {
   publicService: {
     isPublicService: true,
     administrationLevel: 'state',
-    legalBasis: f('partial', 'official', ['carpeta-ciudadana-privacy', 'aead-rat-sgad'], 'La política invoca el consentiment (article 6.1.a del RGPD) per a la configuració de privadesa, els avisos i el resum personal, i el compliment d’una missió d’interès públic (article 6.1.e) per a la resta. De la normativa habilitant, però, només en dona el nom: Llei 39/2015, Llei 40/2015 i Reial decret 203/2021, sense cap article. El registre d’activitats encara va més curt i hi inscriu només el consentiment.', {
+    legalBasis: f('partial', 'official', ['carpeta-ciudadana-privacy', 'aead-rat-sgad'], 'La política invoca el consentiment (article 6.1.a del RGPD) per a la configuració de privadesa, els avisos i el resum personal, i el compliment d’una missió d’interès públic (article 6.1.e) per a la resta. De la normativa habilitant, però, només en dona el nom: Llei 39/2015, Llei 40/2015 i Reial decret 203/2021, sense cap article. El registre d’activitats hi inscriu només el consentiment.', {
       norm: 'RGPD, article 6.1.a i 6.1.e; Llei 39/2015 i Llei 40/2015, citades sense article',
     }),
     processingRegistry: f('yes', 'official', ['aead-rat-sgad', 'carpeta-ciudadana-privacy'], 'El registre del ministeri conté dues fitxes identificables del servei: «Mi Carpeta Ciudadana», per a les dades de contacte i les preferències de la persona usuària, i «Mi Carpeta Ciudadana (encargado)», per a les dades que la Carpeta consulta a altres administracions.', {
@@ -126,13 +126,13 @@ const carpeta: AppSeed = {
       contact: 'dpd@digital.gob.es',
     }),
     offlineAlternative: f('yes', 'official', ['boe-ley-39-2015', 'carpeta-ciudadana-privacy'], 'La Carpeta no té dades pròpies: només ensenya el que continua guardant cada administració d’origen, on es pot demanar pels canals de sempre. L’article 14.1 de la Llei 39/2015 garanteix a les persones físiques que puguin triar no relacionar-s’hi per mitjans electrònics.'),
-    accessibilityStatement: f('partial', 'official', ['carpeta-ciudadana-accessibilitat'], 'L’aplicació mòbil té declaració d’accessibilitat pròpia i s’hi declara «parcialment conforme» amb el Reial decret 1112/2018, sobretot pels documents PDF que es descarreguen des de l’aplicació. És una autoavaluació de l’AEAD preparada el 12 de setembre de 2022, i aquella és també l’última revisió: fa més de tres anys que no es refà.', {
+    accessibilityStatement: f('partial', 'official', ['carpeta-ciudadana-accessibilitat'], 'L’aplicació mòbil té declaració d’accessibilitat pròpia i s’hi declara «parcialment conforme» amb el Reial decret 1112/2018, sobretot pels documents PDF que es descarreguen des de l’aplicació. És una autoavaluació de l’AEAD preparada el 12 de setembre de 2022, i no s’ha revisat des d’aleshores.', {
       url: 'https://masinformacioncarpeta.carpetaciudadana.gob.es/infocc/accesibilidad-app',
     }),
     mandatoryRetention: f('no', 'official', ['carpeta-ciudadana-privacy'], 'Cap norma obliga a conservar el que desa la Carpeta: el consentiment del resum personal es pot retirar i la política fixa terminis de supressió per inactivitat. Les dades que no es poden esborrar són les de les administracions d’origen, que la Carpeta no guarda.'),
   },
   dataSummary:
-    'Per disseny, l’aplicació pot ensenyar gairebé tota la relació d’una persona amb l’Estat: identitat, família, feina i pensió, salut i discapacitat, patrimoni, vehicles i tràmits pendents. Que aquestes dades no es desin a la Carpeta redueix el risc, però l’accés al compte Cl@ve dona accés a tot el conjunt.',
+    'L’aplicació pot mostrar gairebé tota la relació d’una persona amb l’Estat: identitat, família, feina i pensió, salut i discapacitat, patrimoni, vehicles i tràmits pendents. Que aquestes dades no es desin a la Carpeta redueix el risc, però qui accedeixi al compte Cl@ve les pot veure totes.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['carpeta-ciudadana-privacy', 'aead-rat-sgad'] }),
     row('document-identificatiu-oficial', 'yes', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['carpeta-ciudadana-privacy'], note: 'El DNI o NIE és la clau amb què es consulten les dades a la resta d’administracions.' }),
@@ -253,7 +253,7 @@ const notifica: AppSeed = {
     dpo: f('yes', 'official', ['notifica-privacy'], 'La política identifica el delegat de protecció de dades amb correu i adreça postal, i el presenta com a via de reclamació prèvia i potestativa.', {
       contact: 'dpd@digital.gob.es',
     }),
-    offlineAlternative: f('partial', 'official', ['boe-ley-39-2015', 'notifica-dehu-portal'], 'L’aplicació mai és obligatòria: el mateix servei és al portal web de la DEHú. La bústia electrònica, en canvi, només té alternativa en paper per a les persones físiques, que segons l’article 14.1 de la Llei 39/2015 poden triar el canal. L’article 14.2 obliga a relacionar-se electrònicament les persones jurídiques, les entitats sense personalitat i qui exerceix una professió col·legiada.'),
+    offlineAlternative: f('partial', 'official', ['boe-ley-39-2015', 'notifica-dehu-portal'], 'L’aplicació no és obligatòria, perquè el mateix servei és al portal web de la DEHú. La bústia electrònica, en canvi, només té alternativa en paper per a les persones físiques, que segons l’article 14.1 de la Llei 39/2015 poden triar el canal. L’article 14.2 obliga a relacionar-se electrònicament les persones jurídiques, les entitats sense personalitat i qui exerceix una professió col·legiada.'),
     accessibilityStatement: f('partial', 'official', ['notifica-accessibilitat'], 'L’aplicació DEHú-Notifica té declaració pròpia i s’hi declara «parcialment conforme» amb el Reial decret 1112/2018: ordre del focus, idioma del programari, etiquetes del formulari de contacte i documents descarregables. L’autoavaluació la va fer un tercer i la declaració es va preparar i revisar el 29 d’octubre de 2025.', {
       url: 'https://dehu.redsara.es/es/accesibility-app',
     }),
@@ -363,7 +363,7 @@ const autofirma: AppSeed = {
     legalBasis: f('partial', 'official', ['autofirma-privacy'], 'La política invoca el consentiment i el compliment d’una missió d’interès públic (article 6.1.e del RGPD), però cita malament el primer: parla de l’«article 6.4a) del RGPD», que no existeix; el consentiment és a l’article 6.1.a. De la normativa habilitant només en dona el nom, sense articles.', {
       norm: 'RGPD, article 6.1.e; el consentiment s’hi cita com a «article 6.4a», inexistent',
     }),
-    processingRegistry: f('partial', 'official', ['autofirma-privacy', 'aead-rat-sgad'], 'La política enllaça el registre d’activitats del ministeri, però no s’hi troba cap fitxa amb el nom d’Autofirma. La més propera és «Identidad digital y firma electrónica», que descriu la identificació i la signatura per accedir als serveis de les administracions i que, curiosament, declara com a base jurídica l’article 89 del RGPD, el de les garanties per a l’arxiu en interès públic.', {
+    processingRegistry: f('partial', 'official', ['autofirma-privacy', 'aead-rat-sgad'], 'La política enllaça el registre d’activitats del ministeri, però no s’hi troba cap fitxa amb el nom d’Autofirma. La més propera és «Identidad digital y firma electrónica», que descriu la identificació i la signatura per accedir als serveis de les administracions i que declara com a base jurídica l’article 89 del RGPD, el de les garanties per a l’arxiu en interès públic.', {
       url: 'https://digital.gob.es/content/dam/portal-mtdfp/ministerio/proteccion-datos/RAT_SGAD.pdf',
     }),
     dpia: unknown('No hem trobat publicada cap avaluació d’impacte de l’aplicació ni del servei de signatura trifàsica que hi ha al darrere.'),
@@ -371,8 +371,8 @@ const autofirma: AppSeed = {
     dpo: f('yes', 'official', ['autofirma-privacy'], 'La política identifica el delegat de protecció de dades del ministeri amb correu i adreça postal, i dona una adreça específica de l’AEAD per a les bretxes de seguretat.', {
       contact: 'dpd@digital.gob.es',
     }),
-    offlineAlternative: f('yes', 'official', ['boe-ley-39-2015', 'autofirma-privacy'], 'Signar amb aquesta aplicació no és mai l’única via: les persones físiques poden presentar el tràmit en paper a les oficines d’assistència en matèria de registres, perquè l’article 14.1 de la Llei 39/2015 els deixa triar el canal, i qui hagi de signar electrònicament ho pot fer amb altres clients de signatura, entre ells el mateix Autofirma d’escriptori.'),
-    accessibilityStatement: f('no', 'official', ['autofirma-accessibilitat'], 'L’AEAD publica una declaració d’accessibilitat del portal firmaelectronica.gob.es —«parcialment conforme» amb el Reial decret 1112/2018, preparada el 2 d’abril de 2025—, però hi diu expressament que s’aplica només al lloc web. No n’hi ha cap per a l’aplicació mòbil, que el mateix reial decret també cobreix.', {
+    offlineAlternative: f('yes', 'official', ['boe-ley-39-2015', 'autofirma-privacy'], 'Signar amb aquesta aplicació no és l’única via: les persones físiques poden presentar el tràmit en paper a les oficines d’assistència en matèria de registres, perquè l’article 14.1 de la Llei 39/2015 els deixa triar el canal, i qui hagi de signar electrònicament ho pot fer amb altres clients de signatura, entre ells el mateix Autofirma d’escriptori.'),
+    accessibilityStatement: f('no', 'official', ['autofirma-accessibilitat'], 'L’AEAD publica una declaració d’accessibilitat del portal firmaelectronica.gob.es («parcialment conforme» amb el Reial decret 1112/2018, preparada el 2 d’abril de 2025), però hi diu expressament que s’aplica només al lloc web. No n’hi ha cap per a l’aplicació mòbil, que el mateix reial decret també cobreix.', {
       url: 'https://firmaelectronica.gob.es/Home/Accesibilidad.html',
     }),
     mandatoryRetention: f('no', 'official', ['autofirma-privacy'], 'No hi ha cap compte ni cap dada conservada en servidors del servei que una norma obligui a mantenir: el certificat i l’historial de signatures es queden al dispositiu i desapareixen quan es desinstal·la l’aplicació.'),
@@ -688,7 +688,7 @@ const antiqsnap: AppSeed = {
   accountRequired: f('no', 'official', ['antiqsnap-privacy-policy'], 'Crear un perfil és opcional.'),
   openSource: f('no', 'official', ['antiqsnap-privacy-policy'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'Fotos d’objectes de casa amb el valor estimat de cadascun: és un inventari del patrimoni domèstic. Unit a identificadors del dispositiu que es fan servir per rastrejar, permet perfilar la persona com a propietària de béns de valor.',
+    'Les fotos d’objectes de casa amb el valor estimat de cadascun formen un inventari del patrimoni domèstic. Unit a identificadors del dispositiu que es fan servir per rastrejar, permet perfilar la persona com a propietària de béns de valor.',
   dataCollection: foilsnap.dataCollection.map((r) => ({
     ...r,
     sources: (r.sources ?? []).map((src) => src.replace('foilsnap-', 'antiqsnap-')),
@@ -797,7 +797,7 @@ const shop: AppSeed = {
   accountRequired: f('yes', 'official', ['shopify-consumer-privacy'], 'La política descriu el servei a partir d’un compte de Shop, on es desen les comandes i Shop Pay.'),
   openSource: f('no', 'official', ['shopify-consumer-privacy'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'L’historial de compres de centenars de botigues independents, junt amb l’adreça d’enviament, la ubicació i els correus de confirmació, dibuixa hàbits de consum, poder adquisitiu i rutines. Es concentra en una sola empresa encara que la persona cregui que compra a botigues diferents.',
+    'L’historial de compres de centenars de botigues independents, junt amb l’adreça d’enviament, la ubicació i els correus de confirmació, mostra hàbits de consum, poder adquisitiu i rutines. Tot queda en una sola empresa, encara que la persona compri a botigues diferents.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'mesura-i-analisi-dus', 'publicitat-personalitzada'], sources: ['shop-app-store', 'shopify-consumer-privacy'], note: 'L’etiqueta el declara també per a publicitat o màrqueting del desenvolupador.' }),
     row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'mesura-i-analisi-dus', 'personalitzacio-de-continguts'], sources: ['shop-app-store'] }),
@@ -889,7 +889,7 @@ const shop: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: false,
     editorialNotes:
-      'L’etiqueta no declara rastreig, però la política de consumidors admet la compartició per a publicitat dirigida. Les dues coses poden ser compatibles (Apple només compta el rastreig entre empreses), però cal tenir-ho present.',
+      'L’etiqueta no declara rastreig, però la política de consumidors admet la compartició per a publicitat dirigida. Les dues coses poden ser compatibles, perquè Apple només compta el rastreig entre empreses.',
     openQuestions: [
       'La cerca d’incidents no s’ha pogut completar: s’havia esgotat el pressupost de cerques web de la sessió.',
       'Quines dades extreu exactament Shop dels correus i quant temps les conserva?',
@@ -905,7 +905,7 @@ const shopify: AppSeed = {
   categories: ['comerc-electronic'],
   tagline: 'Gestió de botigues en línia que conserva les dades dos anys després de tancar-les',
   summary:
-    'L’aplicació serveix per gestionar una botiga de Shopify: comandes, productes, pagaments i personal. Per verificar la identitat i complir la normativa contra el blanqueig, Shopify pot demanar documents d’identitat i una foto amb el document. En tancar la botiga, conserva la informació dos anys abans de començar a esborrar-la. La seguretat està ben documentada: PCI DSS de nivell 1, informes SOC 2, verificació en dos passos amb claus físiques i programa de recompenses.',
+    'L’aplicació serveix per gestionar una botiga de Shopify: comandes, productes, pagaments i personal. Per verificar la identitat i complir la normativa contra el blanqueig, Shopify pot demanar documents d’identitat i una foto amb el document. En tancar la botiga, conserva la informació dos anys abans de començar a esborrar-la. En seguretat, publica la certificació PCI DSS de nivell 1 i informes SOC 2, i té verificació en dos passos amb claus físiques i un programa de recompenses.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'subscription',
   jurisdiction: 'Irlanda (Shopify International Ltd.) per a l’Espai Econòmic Europeu; grup amb seu al Canadà',
@@ -1133,7 +1133,7 @@ const rfafApp: AppSeed = {
   categories: ['esports-i-resultats'],
   tagline: 'Accés mòbil a la intranet federativa que declara no recollir dades malgrat funcionar amb usuari i contrasenya',
   summary:
-    'L’aplicació RFAF dona accés mòbil a la intranet de la federació andalusa amb l’usuari i la contrasenya de cada persona. L’etiqueta de l’App Store diu que no recull cap dada, cosa difícil de conciliar amb un servei que funciona amb credencials i dades federatives. La política enllaçada és la genèrica del web de la RFAF, que preveu perfils, publicitat personalitzada i Google Analytics.',
+    'L’aplicació RFAF dona accés mòbil a la intranet de la federació andalusa amb l’usuari i la contrasenya de cada persona. L’etiqueta de l’App Store diu que no recull cap dada, tot i que el servei funciona amb credencials i dades federatives. La política enllaçada és la genèrica del web de la RFAF, que preveu perfils, publicitat personalitzada i Google Analytics.',
   platforms: ['ios', 'android'],
   jurisdiction: 'Espanya',
   links: {

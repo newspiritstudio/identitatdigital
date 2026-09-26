@@ -70,8 +70,8 @@ export default async function ProcurementPage({
       <h1>Contractar {sheet.name}</h1>
       <p className="lede">
         Els deu punts que una escola o un ajuntament ha de poder respondre abans d’adoptar aquesta
-        eina, amb el precepte que fa rellevant cadascun i el que en sabem. No és un dictamen jurídic
-        ni substitueix l’avaluació d’impacte: és la preparació de l’expedient.
+        eina, amb el precepte que fa rellevant cadascun i el que en sabem. Serveix per preparar
+        l’expedient; no és un dictamen jurídic ni substitueix l’avaluació d’impacte.
       </p>
 
       <div
@@ -138,8 +138,8 @@ export default async function ProcurementPage({
         <>
           <h2>Alternatives documentades</h2>
           <p>
-            Si algun punt no es pot resoldre, la resposta no ha de ser necessàriament renunciar a la
-            funció. Aquestes alternatives estan documentades a la fitxa amb el mateix mètode.
+            Si algun punt no es pot resoldre, no cal renunciar necessàriament a la funció. Aquestes
+            alternatives estan documentades a la fitxa amb el mateix mètode.
           </p>
           <ul>
             {sheet.alternatives.map((alternative) => (
@@ -147,7 +147,7 @@ export default async function ProcurementPage({
                 <Link href={`/institucions/${alternative.slug}`}>{alternative.name}</Link>
                 {alternative.comparability === null
                   ? null
-                  : ` — ${comparabilityLabel(alternative.comparability)?.toLowerCase()}`}
+                  : `: ${comparabilityLabel(alternative.comparability)?.toLowerCase()}`}
               </li>
             ))}
           </ul>

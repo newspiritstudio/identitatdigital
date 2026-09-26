@@ -458,7 +458,7 @@ const dazn: AppSeed = {
   categories: ['video-i-streaming', 'esports-i-resultats'],
   tagline: 'Televisió esportiva de pagament que declara identificadors i dades de publicitat utilitzats per rastrejar',
   summary:
-    'DAZN es paga amb subscripcions, però l’etiqueta de l’App Store declara identificador d’usuari, identificador de dispositiu i dades de publicitat com a dades utilitzades per rastrejar, i el consentiment de galetes es demana amb el marc de l’IAB i 197 socis publicitaris. L’avís de privadesa fixa un termini general de conservació de set anys i identifica DAZN Limited, al Regne Unit, com a responsable, amb DAZN Spain, S.L. per als clients del canal d’Amazon Prime Video. Qui mira futbol hi deixa un registre detallat de competicions, horaris i dispositius.',
+    'DAZN es paga amb subscripcions, però l’etiqueta de l’App Store declara identificador d’usuari, identificador de dispositiu i dades de publicitat com a dades utilitzades per rastrejar, i el consentiment de galetes es demana amb el marc de l’IAB i 197 socis publicitaris. L’avís de privadesa fixa un termini general de conservació de set anys i identifica DAZN Limited, al Regne Unit, com a responsable, amb DAZN Spain, S.L. per als clients del canal d’Amazon Prime Video. El servei registra quines competicions es miren, a quina hora i des de quins dispositius.',
   platforms: ['ios', 'android', 'web', 'other'],
   businessModel: 'subscription',
   jurisdiction: 'Regne Unit i Espanya',
@@ -471,7 +471,7 @@ const dazn: AppSeed = {
   accountRequired: f('yes', 'official', ['dazn-privacy-notice'], 'Cal registrar-se i subscriure’s per veure qualsevol retransmissió.'),
   openSource: f('no', 'official', ['dazn-app-store'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'L’historial de reproducció d’una plataforma esportiva diu de quin equip ets, a quina hora ets a casa i amb quants dispositius comparteixes el compte. Combinat amb les dades de publicitat que DAZN declara utilitzar per rastrejar, permet arribar-te amb anuncis fora de la plataforma.',
+    'L’historial de reproducció d’una plataforma esportiva mostra de quin equip ets, a quines hores mires els partits i amb quants dispositius comparteixes el compte. Combinat amb les dades de publicitat que DAZN declara utilitzar per rastrejar, permet mostrar-te anuncis fora de la plataforma.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'mesura-i-analisi-dus'], sources: ['dazn-app-store', 'dazn-privacy-notice'] }),
     row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['dazn-app-store'], note: 'Declarada també per a publicitat i màrqueting del desenvolupador.' }),
@@ -566,7 +566,7 @@ const dazn: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'El centre d’ajuda de DAZN està darrere d’una protecció que impedeix llegir els articles amb eines automàtiques; l’avís de privadesa s’ha consultat a la còpia arxivada del desembre del 2024, i el diàleg de galetes s’ha comprovat en directe. La troballa útil és el contrast entre un servei que es paga amb subscripció i una etiqueta de l’App Store que declara dades de publicitat per rastrejar.',
+      'El centre d’ajuda de DAZN està darrere d’una protecció que impedeix llegir els articles amb eines automàtiques; l’avís de privadesa s’ha consultat a la còpia arxivada del desembre del 2024, i el diàleg de galetes s’ha comprovat en directe. La fitxa destaca el contrast entre un servei que es paga amb subscripció i una etiqueta de l’App Store que declara dades de publicitat per rastrejar.',
     openQuestions: [
       'DAZN permet eliminar el compte des de la configuració o cal passar pel delegat de protecció de dades?',
       'Ofereix verificació en dos passos per als comptes?',
@@ -582,7 +582,7 @@ const daznBet: AppSeed = {
   categories: ['apostes'],
   tagline: 'Casa d’apostes que exigeix DNI i selfie del document i només deixa tancar el compte pel xat',
   summary:
-    'DAZN Bet és la marca d’apostes associada a DAZN i l’explota a Espanya DZBT Deportes, S.A.U., amb domicili a Ceuta. El registre obliga a identificar-se amb el DNI o el NIE i, en passar dels 150 € dipositats o en demanar la primera retirada, a fotografiar el document per les dues cares. L’etiqueta de l’App Store declara adreça física, dades de pagament, fotos i missatges vinculats al compte. Per tancar el compte, en canvi, no hi ha cap botó: cal demanar-ho pel xat d’atenció al client.',
+    'DAZN Bet és la marca d’apostes associada a DAZN i l’explota a Espanya DZBT Deportes, S.A.U., amb domicili a Ceuta. El registre obliga a identificar-se amb el DNI o el NIE i, en passar dels 150 € dipositats o en demanar la primera retirada, a fotografiar el document per les dues cares. L’etiqueta de l’App Store declara adreça física, dades de pagament, fotos i missatges vinculats al compte. No hi ha cap botó per tancar el compte: cal demanar-ho pel xat d’atenció al client.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'commerce',
   jurisdiction: 'Espanya',
@@ -594,7 +594,7 @@ const daznBet: AppSeed = {
   accountRequired: f('yes', 'official', ['dazn-bet-help-verification', 'dazn-bet-help-operator'], 'El joc en línia a Espanya exigeix registre i verificació d’identitat amb DNI o NIE davant de l’operadora DZBT Deportes, S.A.U.'),
   openSource: f('no', 'official', ['dazn-bet-app-store'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'Un historial d’apostes és una de les dades més sensibles que es poden acumular: diu quant es juga, amb quina freqüència, a quines hores i amb quins diners. Aquí va lligat al document d’identitat, a la imatge del DNI i als moviments de pagament, i el sector té obligacions específiques de conservació i de comunicació amb el regulador.',
+    'Un historial d’apostes és molt sensible perquè mostra quant es juga, amb quina freqüència, a quines hores i amb quins diners. Aquí va lligat al document d’identitat, a la imatge del DNI i als moviments de pagament, i el sector té obligacions específiques de conservació i de comunicació amb el regulador.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'unknown', purposes: ['prestacio-del-servei', 'compliment-legal'], sources: ['dazn-bet-app-store', 'dazn-bet-help-verification'] }),
     row('document-identificatiu-oficial', 'yes', { linked: 'yes', tracking: 'no', shared: 'unknown', purposes: ['compliment-legal', 'seguretat-i-prevencio-del-frau'], sources: ['dazn-bet-help-verification'], note: 'Cal fotografiar l’anvers i el revers del DNI o NIE amb la càmera del mòbil.' }),
@@ -687,7 +687,7 @@ const daznBet: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'La política de privadesa de daznbet.es és una aplicació d’una sola pàgina que no serveix el text a cap lector automàtic, i el centre d’ajuda està protegit contra l’accés automatitzat; la fitxa s’ha construït amb l’etiqueta de l’App Store i amb els articles d’ajuda recuperats. Val la pena deixar constància que l’aplicació es publica a l’App Store sota el nom de desenvolupador «dzbt-es-stage», que sembla un compte d’entorn de proves.',
+      'La política de privadesa de daznbet.es és una aplicació d’una sola pàgina que no serveix el text a cap lector automàtic, i el centre d’ajuda està protegit contra l’accés automatitzat; la fitxa s’ha construït amb l’etiqueta de l’App Store i amb els articles d’ajuda recuperats. L’aplicació es publica a l’App Store sota el nom de desenvolupador «dzbt-es-stage», que sembla un compte d’entorn de proves.',
     openQuestions: [
       'Quins terminis de conservació aplica DZBT Deportes i quines dades cedeix a la Direcció General d’Ordenació del Joc?',
       'Quina és la relació societària entre DZBT Deportes, S.A.U. i el grup DAZN?',
@@ -704,7 +704,7 @@ const acrobatReader: AppSeed = {
   categories: ['ofimatica-i-productivitat'],
   tagline: 'Lector de PDF que demana contactes i historial de cerca i declara identificadors utilitzats per rastrejar',
   summary:
-    'Acrobat Reader és la manera més comuna d’obrir un PDF al mòbil, i cada document que s’hi obre pot ser una nòmina, un informe mèdic o un contracte. L’etiqueta de l’App Store declara contactes, contingut, historial de cerca i historial de compres vinculats al compte, i identificador d’usuari i de dispositiu utilitzats per rastrejar. Adobe analitza el contingut emmagatzemat al núvol amb aprenentatge automàtic per millorar els serveis, amb una exclusió que s’ha d’activar a mà.',
+    'Acrobat Reader és el lector de PDF més habitual al mòbil, i els documents que s’hi obren poden ser nòmines, informes mèdics o contractes. L’etiqueta de l’App Store declara contactes, contingut, historial de cerca i historial de compres vinculats al compte, i identificador d’usuari i de dispositiu utilitzats per rastrejar. Adobe analitza el contingut emmagatzemat al núvol amb aprenentatge automàtic per millorar els serveis, amb una exclusió que s’ha d’activar a mà.',
   platforms: ['ios', 'android', 'web', 'windows', 'macos'],
   businessModel: 'freemium',
   jurisdiction: 'Irlanda',
@@ -718,7 +718,7 @@ const acrobatReader: AppSeed = {
   accountRequired: f('partial', 'official', ['adobe-acrobat-app-store'], 'Es poden obrir documents locals sense compte, però signar, emmagatzemar al núvol o fer servir les funcions de conversió demana un Adobe ID.'),
   openSource: f('no', 'official', ['adobe-acrobat-app-store'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'El que revela aquesta aplicació no és tant el perfil publicitari com el contingut: els documents que obres, signes i emmagatzemes. Sumat a l’historial de cerca dins dels documents i a la llista de contactes amb qui els comparteixes, dibuixa la vida administrativa i laboral d’una persona.',
+    'Les dades més sensibles d’aquesta aplicació són els documents que obres, signes i emmagatzemes. Amb l’historial de cerca dins dels documents i la llista de contactes amb qui els comparteixes, mostren la vida administrativa i laboral d’una persona.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['adobe-acrobat-app-store'], note: 'L’etiqueta el declara també per a publicitat i màrqueting del desenvolupador.' }),
     row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['adobe-acrobat-app-store'] }),
@@ -840,7 +840,7 @@ const adobeScan: AppSeed = {
   categories: ['ofimatica-i-productivitat', 'utilitats'],
   tagline: 'Escàner de documents que converteix el DNI o la factura en text al núvol i declara identificadors per a publicitat de tercers',
   summary:
-    'Adobe Scan fotografia documents i els converteix en PDF amb reconeixement de text. A diferència d’escàners que treballen al dispositiu, el processament passa pel núvol d’Adobe i el contingut queda sota la mateixa política que analitza el material emmagatzemat amb aprenentatge automàtic. L’etiqueta de l’App Store és més agressiva que la d’Acrobat Reader en un punt concret: declara identificadors vinculats al compte per a publicitat de tercers.',
+    'Adobe Scan fotografia documents i els converteix en PDF amb reconeixement de text. A diferència d’escàners que treballen al dispositiu, el processament passa pel núvol d’Adobe i el contingut queda sota la mateixa política que analitza el material emmagatzemat amb aprenentatge automàtic. A diferència de la d’Acrobat Reader, l’etiqueta de l’App Store declara identificadors vinculats al compte per a publicitat de tercers.',
   platforms: ['ios', 'android'],
   businessModel: 'freemium',
   jurisdiction: 'Irlanda',
@@ -853,12 +853,12 @@ const adobeScan: AppSeed = {
   accountRequired: f('yes', 'official', ['adobe-scan-app-store'], 'L’aplicació desa els escanejos al núvol d’Adobe i demana iniciar sessió amb un Adobe ID.'),
   openSource: f('no', 'official', ['adobe-scan-app-store'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'La gent escaneja allò que ha de tramitar: documents d’identitat, receptes, nòmines, contractes de lloguer. Amb reconeixement de text al núvol, aquest contingut deixa de ser una imatge al mòbil i es converteix en text indexable en servidors d’un tercer.',
+    'Sovint s’escanegen documents per fer tràmits: documents d’identitat, receptes, nòmines o contractes de lloguer. Amb el reconeixement de text al núvol, aquest contingut es converteix en text indexable als servidors d’Adobe.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['adobe-scan-app-store'] }),
     row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['adobe-scan-app-store'] }),
     row('fitxers-i-documents', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'millora-del-producte'], sources: ['adobe-scan-app-store', 'adobe-privacy-policy'], note: 'Els escanejos es desen al Document Cloud i queden sotmesos a l’anàlisi automatitzada del contingut descrita a la política.' }),
-    row('fotografies-i-videos', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['adobe-scan-app-store'], note: 'L’etiqueta ho declara com a «otro contenido del usuario»: la captura de la càmera és la matèria primera de l’aplicació.' }),
+    row('fotografies-i-videos', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['adobe-scan-app-store'], note: 'L’etiqueta ho declara com a «otro contenido del usuario»; són les captures de la càmera.' }),
     row('historial-de-cerca', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['adobe-scan-app-store'] }),
     row('historial-de-compres', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['adobe-scan-app-store'] }),
     row('interaccions-i-us', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['mesura-i-analisi-dus', 'millora-del-producte'], sources: ['adobe-scan-app-store'] }),
@@ -938,7 +938,7 @@ const adobeScan: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'La comparació entre les dues etiquetes d’Adobe és la troballa de la fitxa: mateixa política i mateix responsable, però Adobe Scan declara identificadors vinculats al compte per a publicitat de tercers i Acrobat Reader no.',
+      'Adobe Scan i Acrobat Reader tenen la mateixa política i el mateix responsable, però només l’etiqueta d’Adobe Scan declara identificadors vinculats al compte per a publicitat de tercers.',
     openQuestions: ['Adobe Scan processa el reconeixement de text al dispositiu o sempre al núvol?'],
   },
 }
@@ -949,9 +949,9 @@ const learnaAi: AppSeed = {
   name: 'Learna AI',
   company: 'deep-flow-software-services',
   categories: ['educacio', 'assistents-d-ia'],
-  tagline: 'Tutor d’anglès amb IA responsabilitat d’una societat de zona franca de Dubai, amb la veu i les converses com a matèria primera',
+  tagline: 'Tutor d’anglès amb IA que recull la veu i les converses, a càrrec d’una societat de zona franca de Dubai',
   summary:
-    'Learna AI fa practicar anglès conversant amb un model de llenguatge, i per fer-ho recull les indicacions escrites, les imatges i els enregistraments de veu que s’hi envien. El responsable del tractament no és cap societat europea sinó Deep Flow Software Services - FZCO, de Dubai, tot i que les sol·licituds s’atenen des d’una adreça del domini de l’estudi turc Codeway. L’etiqueta de l’App Store declara dades de publicitat utilitzades per rastrejar i, alhora, no vincula res al compte.',
+    'Learna AI fa practicar anglès conversant amb un model de llenguatge, i per fer-ho recull les indicacions escrites, les imatges i els enregistraments de veu que s’hi envien. El responsable del tractament és Deep Flow Software Services - FZCO, de Dubai, tot i que les sol·licituds s’atenen des d’una adreça del domini de l’estudi turc Codeway. L’etiqueta de l’App Store declara dades de publicitat utilitzades per rastrejar i, alhora, no vincula res al compte.',
   platforms: ['ios', 'android'],
   businessModel: 'freemium',
   jurisdiction: 'Emirats Àrabs Units',
@@ -963,7 +963,7 @@ const learnaAi: AppSeed = {
   accountRequired: f('partial', 'official', ['learna-privacy-policy'], 'La política parla del perfil o de la informació de xarxes socials «si tries crear un compte»: el compte no és imprescindible per començar.'),
   openSource: f('no', 'official', ['learna-app-store'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'Practicar un idioma amb una IA vol dir enviar-li la pròpia veu i el que s’explica en veu alta. Les indicacions i els enregistraments són contingut personal, i la política els enumera sense donar terminis de conservació concrets ni dir on es processen.',
+    'Per practicar l’idioma, la persona envia a la IA la seva veu i el que explica en veu alta. Les indicacions i els enregistraments són contingut personal, i la política els enumera sense donar terminis de conservació concrets ni dir on es processen.',
   dataCollection: [
     row('nom-i-cognoms', 'optional', { linked: 'no', tracking: 'no', shared: 'third-parties', purposes: ['personalitzacio-de-continguts'], sources: ['learna-privacy-policy', 'learna-app-store'] }),
     row('adreca-electronica', 'optional', { linked: 'no', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'atencio-a-lusuari'], sources: ['learna-privacy-policy', 'learna-app-store'] }),
@@ -1054,7 +1054,7 @@ const learnaAi: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'Val la pena remarcar la distància entre qui apareix a la botiga i qui respon legalment: l’App Store mostra «DEEP FLOW SOFTWARE SERVICES», la política nomena Deep Flow Software Services - FZCO de Dubai i el correu de contacte és del domini codeway.co, l’estudi turc que publica Cleanup amb el mateix compte de desenvolupador.',
+      'El nom que apareix a la botiga no coincideix amb qui respon legalment: l’App Store mostra «DEEP FLOW SOFTWARE SERVICES», la política nomena Deep Flow Software Services - FZCO de Dubai i el correu de contacte és del domini codeway.co, l’estudi turc que publica Cleanup amb el mateix compte de desenvolupador.',
     openQuestions: [
       'Les converses i els enregistraments de veu s’utilitzen per entrenar o afinar models?',
       'Qui és el representant a la UE previst a l’article 27 del RGPD?',
@@ -1070,7 +1070,7 @@ const cleanup: AppSeed = {
   categories: ['utilitats'],
   tagline: 'Netejador de fotos que promet no pujar cap imatge i, alhora, declara compres i interacció utilitzades per rastrejar',
   summary:
-    'Cleanup busca fotos duplicades i vídeos pesants per alliberar espai. La política de Codeway és explícita en un punt que importa molt en aquesta categoria: ni les fotos, ni els vídeos, ni la llista de contactes s’emmagatzemen als seus servidors, perquè el processament es fa al dispositiu. El contrapès és l’etiqueta de l’App Store, on l’historial de compres, els identificadors i la interacció amb el producte figuren com a dades utilitzades per rastrejar.',
+    'Cleanup busca fotos duplicades i vídeos pesants per alliberar espai. La política de Codeway diu que ni les fotos, ni els vídeos, ni la llista de contactes s’emmagatzemen als seus servidors, perquè el processament es fa al dispositiu. En canvi, a l’etiqueta de l’App Store l’historial de compres, els identificadors i la interacció amb el producte figuren com a dades utilitzades per rastrejar.',
   platforms: ['ios', 'android'],
   businessModel: 'freemium',
   jurisdiction: 'Turquia',
@@ -1082,7 +1082,7 @@ const cleanup: AppSeed = {
   accountRequired: f('partial', 'official', ['cleanup-privacy-policy'], 'L’aplicació funciona sense registre; la política només tracta el correu si es contacta amb l’empresa o es crea un compte.'),
   openSource: f('no', 'official', ['cleanup-app-store'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'Una aplicació que llegeix tota la galeria i la llista de contactes té accés a allò més íntim del telèfon. Aquí la garantia no és tècnica ni verificable per fora, sinó una afirmació de la política: que aquest contingut no surt del dispositiu.',
+    'Una aplicació que llegeix tota la galeria i la llista de contactes accedeix a dades molt personals. L’única garantia que aquest contingut no surt del dispositiu és el que afirma la política, i no es pot verificar des de fora.',
   dataCollection: [
     row('fotografies-i-videos', 'yes', { linked: 'no', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['cleanup-privacy-policy'], note: 'La política afirma que el processament es fa al dispositiu o al núvol propi de la persona i que no se’n desa cap còpia als servidors de Codeway.' }),
     row('llista-de-contactes', 'optional', { linked: 'no', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['cleanup-privacy-policy'], note: 'El permís es pot denegar; la política diu que la llista no s’emmagatzema.' }),
@@ -1162,7 +1162,7 @@ const cleanup: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'El compromís de no pujar fotos ni contactes és el punt fort de la fitxa i queda escrit a la política, que és el que podem verificar; no l’hem comprovat amb una anàlisi de trànsit. L’etiqueta de l’App Store, en canvi, declara un rastreig ampli basat en compres i interacció.',
+      'El compromís de no pujar fotos ni contactes consta a la política, que és el que podem verificar; no l’hem comprovat amb una anàlisi de trànsit. L’etiqueta de l’App Store, en canvi, declara un rastreig ampli basat en compres i interacció.',
     openQuestions: [
       'Una anàlisi del trànsit de l’aplicació confirmaria que cap imatge no surt del dispositiu?',
       'Quina relació societària hi ha entre Codeway i Deep Flow Software Services - FZCO, que comparteixen compte de desenvolupador a l’App Store?',
@@ -1176,9 +1176,9 @@ const movistarPlus: AppSeed = {
   name: 'Movistar Plus+',
   company: 'telefonica-audiovisual-digital',
   categories: ['video-i-streaming'],
-  tagline: 'L’única fitxa del lot sense cap dada declarada com a utilitzada per rastrejar, però amb el que mires alimentant el perfil comercial de Movistar',
+  tagline: 'Sense cap dada declarada per rastrejar, tot i que el que mires entra al perfil comercial de Movistar',
   summary:
-    'Movistar Plus+ el presta Telefónica Audiovisual Digital, i les dades de qui el mira es tracten dins de la política de clients de Movistar, amb Telefónica de España i Telefónica Móviles España com a corresponsables. L’etiqueta de l’App Store és la més continguda del lot: cap dada declarada com a utilitzada per rastrejar. A canvi, la política preveu recomanacions de Movistar i de socis a la televisió basades en el perfil bàsic, emparades en l’interès legítim i amb oposició possible.',
+    'Movistar Plus+ el presta Telefónica Audiovisual Digital, i les dades de qui el mira es tracten dins de la política de clients de Movistar, amb Telefónica de España i Telefónica Móviles España com a corresponsables. L’etiqueta de l’App Store no declara cap dada utilitzada per rastrejar. La política, però, preveu recomanacions de Movistar i de socis a la televisió basades en el perfil bàsic, emparades en l’interès legítim i amb oposició possible.',
   platforms: ['ios', 'android', 'web', 'other'],
   businessModel: 'subscription',
   jurisdiction: 'Espanya',
@@ -1192,7 +1192,7 @@ const movistarPlus: AppSeed = {
   accountRequired: f('yes', 'official', ['movistarplus-privacy-centre', 'movistarplus-legal-notice'], 'Cal ser client de Movistar o subscriure’s a Movistar Plus+ per veure el catàleg; el prestador del servei és Telefónica Audiovisual Digital, S.L.U.'),
   openSource: f('no', 'official', ['movistar-plus-app-store'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'El que una família mira a la televisió revela horaris, idees polítiques, afeccions esportives i qui hi ha a casa a cada hora. La política de Movistar tracta aquestes dades com una peça més del perfil comercial del client, i el detall de l’explotació per a recomanacions de socis depèn de consentiments concrets.',
+    'El que una família mira a la televisió pot indicar horaris, preferències polítiques i esportives i qui és a casa a cada hora. La política de Movistar inclou aquestes dades al perfil comercial del client, i el seu ús per a recomanacions de socis depèn de consentiments concrets.',
   dataCollection: [
     row('identificador-de-compte', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'mesura-i-analisi-dus'], sources: ['movistar-plus-app-store'] }),
     row('historial-de-visualitzacio', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['recomanacions-algoritmiques', 'elaboracio-de-perfils', 'compartir-dins-del-grup'], sources: ['movistar-privacy-policy'], note: 'La política preveu recomanacions de Movistar i de socis a la televisió a partir del perfil bàsic.' }),
@@ -1246,7 +1246,7 @@ const movistarPlus: AppSeed = {
       'Exerceix el dret de supressió escrivint a TE_datos@telefonica.com, identificant-te i indicant les línies afectades.',
       'Si la resposta no et satisfà, escriu al delegat de protecció de dades a DPO_movistar@telefonica.com o reclama a l’Agència Espanyola de Protecció de Dades.',
     ],
-    obstacles: 'La normativa de telecomunicacions i la fiscal obliguen a conservar facturació i dades de trànsit, de manera que la supressió mai és completa mentre corren els terminis.',
+    obstacles: 'La normativa de telecomunicacions i la fiscal obliguen a conservar facturació i dades de trànsit, i la supressió no és completa mentre corren els terminis.',
     dataRetained: 'Dades identificatives i de facturació fins a deu anys després de la baixa.',
     sources: ['movistar-privacy-policy'],
   },
@@ -1281,7 +1281,7 @@ const movistarPlus: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'La política de clients de Movistar és de les més detallades que hem llegit en aquesta onada: defineix quatre nivells de perfil, diu quina base jurídica té cadascun i dona terminis de conservació concrets. Això permet documentar la fitxa amb precisió, però també mostra fins a quin punt el consum televisiu alimenta el perfil comercial.',
+      'La política de clients de Movistar és de les més detallades que hem llegit en aquesta onada: defineix quatre nivells de perfil, diu quina base jurídica té cadascun i dona terminis de conservació concrets. Això permet documentar la fitxa amb precisió i mostra com el consum televisiu s’incorpora al perfil comercial.',
     openQuestions: [
       'Telefónica publica un informe de transparència sobre peticions d’autoritats?',
       'Quina és la via exacta per eliminar el compte de Movistar Plus+ quan no s’és client de telefonia?',
@@ -1297,7 +1297,7 @@ const miMovistar: AppSeed = {
   categories: ['telecomunicacions', 'utilitats'],
   tagline: 'L’aplicació d’autogestió de l’operadora, amb patró biomètric opcional i dues sancions de l’AEPD per identificacions defectuoses',
   summary:
-    'Mi Movistar és el taulell de l’operadora: factures, consum, contractació i suport. El tractament el fan com a corresponsables Telefónica de España i Telefónica Móviles España, amb terminis de conservació llargs i comunicació a fitxers de solvència en cas d’impagament. La política ofereix verificació avançada amb patró biomètric, sempre amb consentiment, i l’AEPD ha multat Telefónica Móviles España dues vegades per lliurar duplicats de SIM i canvis de titularitat sense comprovar bé qui ho demanava.',
+    'Mi Movistar és l’aplicació d’autogestió de l’operadora: factures, consum, contractació i suport. El tractament el fan com a corresponsables Telefónica de España i Telefónica Móviles España, amb terminis de conservació llargs i comunicació a fitxers de solvència en cas d’impagament. La política ofereix verificació avançada amb patró biomètric, sempre amb consentiment, i l’AEPD ha multat Telefónica Móviles España dues vegades per lliurar duplicats de SIM i canvis de titularitat sense comprovar bé qui ho demanava.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'subscription',
   jurisdiction: 'Espanya',
@@ -1311,7 +1311,7 @@ const miMovistar: AppSeed = {
   accountRequired: f('yes', 'official', ['movistar-privacy-policy'], 'Només hi poden entrar els clients identificats de Movistar.'),
   openSource: f('no', 'official', ['mi-movistar-app-store'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'L’operadora ja sap amb qui parles, quan i des d’on, perquè li cal per prestar el servei i perquè la llei l’obliga a conservar-ho. L’aplicació hi afegeix la dimensió comercial: consum, facturació, productes de la llar i, si s’hi consent, un patró biomètric per autenticar-te.',
+    'L’operadora sap amb qui parles, quan i des d’on, perquè ho necessita per prestar el servei i la llei l’obliga a conservar-ho. L’aplicació hi afegeix dades comercials: consum, facturació, productes de la llar i, si s’hi consent, un patró biomètric per autenticar-te.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'yes', shared: 'group', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['mi-movistar-app-store'], note: 'L’etiqueta el declara també per a publicitat i màrqueting del desenvolupador.' }),
     row('numero-de-telefon', 'yes', { linked: 'yes', tracking: 'yes', shared: 'group', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['mi-movistar-app-store'] }),
@@ -1410,7 +1410,7 @@ const miMovistar: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'Les dues sancions de l’AEPD que recull la fitxa no són per publicitat sinó per identificació: un duplicat de SIM i un canvi de titularitat concedits a qui no era el titular, amb frau bancari al darrere. En una aplicació que aspira a ser la teva identitat digital, aquest és l’indicador que importa.',
+      'Les dues sancions de l’AEPD que recull la fitxa són per errors d’identificació: un duplicat de SIM i un canvi de titularitat concedits a qui no era el titular, amb frau bancari al darrere. Són rellevants perquè l’aplicació ofereix verificació avançada de la identitat digital.',
     openQuestions: [
       'Hi ha verificació en dos passos general per entrar a Mi Movistar, més enllà de la verificació avançada biomètrica?',
       'Telefónica té un canal públic per comunicar vulnerabilitats?',
@@ -1426,7 +1426,7 @@ const dramaWave: AppSeed = {
   categories: ['video-i-streaming'],
   tagline: 'Microdrames verticals amb funcions d’IA facial, lectura del porta-retalls i eliminació del compte des de l’aplicació',
   summary:
-    'DramaWave encadena capítols verticals de pocs minuts que es desbloquegen amb monedes, i hi afegeix funcions d’IA que substitueixen cares a partir d’una fotografia. La política per a l’EEE reconeix que això implica tractar dades facials, que són categoria especial, i ho condiciona al consentiment explícit. També declara dues coses poc habituals: que llegeix el porta-retalls i que accedeix al calendari. A canvi, és de les poques fitxes del lot on el compte s’esborra amb dos tocs.',
+    'DramaWave encadena capítols verticals de pocs minuts que es desbloquegen amb monedes, i hi afegeix funcions d’IA que substitueixen cares a partir d’una fotografia. La política per a l’EEE reconeix que això implica tractar dades facials, que són categoria especial, i ho condiciona al consentiment explícit. També declara que llegeix el porta-retalls i que accedeix al calendari, cosa poc habitual. El compte s’esborra des de la mateixa aplicació.',
   platforms: ['ios', 'android'],
   businessModel: 'freemium',
   jurisdiction: 'Singapur',
@@ -1438,7 +1438,7 @@ const dramaWave: AppSeed = {
   accountRequired: f('partial', 'official', ['dramawave-privacy-policy'], 'Es pot mirar contingut com a visitant, però sense compte les dades queden lligades a un identificador del dispositiu i les funcions són limitades.'),
   openSource: f('no', 'official', ['dramawave-app-store'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'L’historial de visualització d’una aplicació de microdrames és molt expressiu: diu què t’enganxa, a quines hores i quant hi gastes. Si a més hi puges una cara per a les funcions d’IA, hi afegeixes dades biomètriques; i el porta-retalls pot contenir qualsevol cosa que hagis copiat abans, des d’una adreça fins a una contrasenya.',
+    'L’historial de visualització d’una aplicació de microdrames mostra quines sèries mires, a quines hores i quant hi gastes. Si hi puges una cara per a les funcions d’IA, hi afegeixes dades biomètriques, i el porta-retalls pot contenir qualsevol cosa que hagis copiat abans, des d’una adreça fins a una contrasenya.',
   dataCollection: [
     row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['dramawave-privacy-policy', 'dramawave-app-store'] }),
     row('nom-i-cognoms', 'optional', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['dramawave-app-store'], note: 'Àlies, avatar i perfil públic.' }),
@@ -1506,7 +1506,7 @@ const dramaWave: AppSeed = {
     telemetryOptOut: unknown('No consta cap control per desactivar l’analítica d’ús.'),
     granularControls: f('partial', 'official', ['dramawave-privacy-policy'], 'Hi ha permisos separats per al porta-retalls, el calendari i les funcions d’IA, revocables des del sistema, però no un panell de privadesa complet.'),
     defaultPosture: 'mixed',
-    darkPatterns: f('partial', 'editorial', ['dramawave-privacy-policy'], 'Interpretació pròpia: la lectura del porta-retalls «per a màrqueting i promocions» és un tractament que cap persona espera d’una aplicació de sèries, encara que es demani permís.'),
+    darkPatterns: f('partial', 'editorial', ['dramawave-privacy-policy'], 'Interpretació pròpia: la lectura del porta-retalls «per a màrqueting i promocions» és un tractament poc previsible en una aplicació de sèries, encara que es demani permís.'),
     darkPatternList: [
       {
         type: 'other',
@@ -1534,7 +1534,7 @@ const dramaWave: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'La política per a l’EEE és sorprenentment completa per a una aplicació d’aquesta mena: taula de bases jurídiques, tractament de dades facials amb consentiment explícit, xifratge descrit i representant a la UE. Els punts febles són la manca de terminis de conservació, unes garanties de transferència internacional genèriques i la submissió a la llei i a l’arbitratge de Singapur.',
+      'La política per a l’EEE és completa: taula de bases jurídiques, tractament de dades facials amb consentiment explícit, xifratge descrit i representant a la UE. No fixa terminis de conservació, descriu les garanties de transferència internacional de manera genèrica i se sotmet a la llei i a l’arbitratge de Singapur.',
     openQuestions: [
       'Quin mecanisme empara concretament les transferències fora de l’EEE?',
       'Quant de temps es conserven l’historial de visualització i les dades facials?',
@@ -1550,7 +1550,7 @@ const dramaReels: AppSeed = {
   categories: ['video-i-streaming'],
   tagline: 'La mateixa plantilla que DramaWave, amb una altra marca al document legal i una adreça de Gmail com a contacte de privadesa',
   summary:
-    'DramaReels és l’altra aplicació de microdrames de SKYWORK AI. La política que enllaça des de l’App Store parla en tot moment de «FreeReels», el nom del domini on s’allotja, i el contacte per exercir drets és una adreça de Gmail. El contingut és el mateix que a DramaWave —historial de visualització, compres de monedes, porta-retalls i calendari— però sense les funcions d’IA facial, i l’eliminació del compte també es fa des de l’aplicació.',
+    'DramaReels és l’altra aplicació de microdrames de SKYWORK AI. La política que enllaça des de l’App Store parla en tot moment de «FreeReels», el nom del domini on s’allotja, i el contacte per exercir drets és una adreça de Gmail. La política cobreix les mateixes dades que la de DramaWave (historial de visualització, compres de monedes, porta-retalls i calendari), però sense les funcions d’IA facial, i l’eliminació del compte també es fa des de l’aplicació.',
   platforms: ['ios', 'android'],
   businessModel: 'freemium',
   jurisdiction: 'Singapur',
@@ -1562,7 +1562,7 @@ const dramaReels: AppSeed = {
   accountRequired: f('partial', 'official', ['dramareels-privacy-policy'], 'Es pot mirar contingut sense registre, amb les dades lligades a un identificador del dispositiu.'),
   openSource: f('no', 'official', ['dramareels-app-store'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'Com a DramaWave, el valor no és el catàleg sinó el consum: quins capítols mires, quan pares i quantes monedes compres per continuar. Això és el que sosté el model de pagament per capítol i el que alimenta la publicitat.',
+    'Com a DramaWave, les dades principals són les de consum: quins capítols mires, quan pares i quantes monedes compres per continuar. Són la base del model de pagament per capítol i de la publicitat.',
   dataCollection: [
     row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['dramareels-privacy-policy', 'dramareels-app-store'] }),
     row('nom-i-cognoms', 'optional', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['dramareels-app-store'], note: 'Àlies i avatar del perfil.' }),
@@ -1618,7 +1618,7 @@ const dramaReels: AppSeed = {
   userRights: {
     dataExport: f('partial', 'official', ['dramareels-privacy-policy'], 'Es pot demanar una còpia de les dades per correu, sense eina automàtica.'),
     exportFormatQuality: 'unknown',
-    rightsExercise: f('partial', 'official', ['dramareels-privacy-policy'], 'El canal per exercir drets és una adreça de Gmail, amb un representant a la UE a Alemanya com a alternativa. Que el responsable atengui els drets des d’un correu gratuït no inspira confiança en la traçabilitat de les sol·licituds.', {
+    rightsExercise: f('partial', 'official', ['dramareels-privacy-policy'], 'El canal per exercir drets és una adreça de Gmail, amb un representant a la UE a Alemanya com a alternativa. Un correu gratuït fa més difícil deixar constància de les sol·licituds.', {
       url: 'mailto:contact.freereels@gmail.com',
     }),
   },
@@ -1654,7 +1654,7 @@ const dramaReels: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'Les dues aplicacions de SKYWORK AI comparteixen plantilla, però la de DramaReels està menys cuidada: marca diferent, contacte a Gmail i cap menció a l’entrenament de models. És un bon exemple de com una mateixa empresa pot oferir nivells de diligència diferents segons l’aplicació.',
+      'Les dues aplicacions de SKYWORK AI comparteixen plantilla, però la política de DramaReels té una marca diferent, un contacte a Gmail i cap menció a l’entrenament de models.',
     openQuestions: [
       'Per què la política parla de FreeReels i l’aplicació es diu DramaReels a l’App Store?',
       'Quin mecanisme empara les transferències internacionals?',
@@ -1678,7 +1678,7 @@ export const lot: SeedLot = {
       company: 'adobe',
       occurredAt: '2013-10-04',
       description:
-        'L’octubre del 2013, un atac contra Adobe va exposar adreces electròniques, noms d’usuari, contrasenyes i, sobretot, les pistes de contrasenya en text clar de més de 152 milions de comptes. Les contrasenyes estaven xifrades amb un algorisme de blocs mal utilitzat i amb la mateixa clau, cosa que va permetre deduir-ne moltes a partir de les pistes. És una de les filtracions més grans i més estudiades de la història d’internet, i encara avui alimenta atacs de reutilització de credencials.',
+        'L’octubre del 2013, un atac contra Adobe va exposar adreces electròniques, noms d’usuari, contrasenyes i les pistes de contrasenya en text clar de més de 152 milions de comptes. Les contrasenyes estaven xifrades amb un algorisme de blocs mal utilitzat i amb la mateixa clau, cosa que va permetre deduir-ne moltes a partir de les pistes. És una de les filtracions més grans i més estudiades, i les credencials exposades encara es fan servir en atacs de reutilització de credencials.',
       affectedPeople: '152.445.165 comptes segons el recompte de Have I Been Pwned',
       sources: ['adobe-hibp-breach'],
     },

@@ -24,9 +24,9 @@ const flashscore: AppSeed = {
   name: 'Flashscore',
   company: 'livesport',
   categories: ['esports-i-resultats'],
-  tagline: 'Resultats en directe finançats per dinou socis publicitaris, amb terminis de conservació insòlitament concrets',
+  tagline: 'Resultats en directe finançats per dinou socis publicitaris i amb terminis de conservació concrets',
   summary:
-    'Flashscore es pot fer servir sense compte i la política de Livesport és de les poques d’aquesta onada que posa números a cada termini de conservació: un mes per a les dades tècniques, quatre anys per al consentiment de màrqueting, cinc per a les enquestes. La contrapartida és el finançament: una llista pública de dinou socis publicitaris i una etiqueta de l’App Store que declara identificadors utilitzats per rastrejar.',
+    'Flashscore es pot fer servir sense compte i la política de Livesport és de les poques d’aquesta onada que posa números a cada termini de conservació: un mes per a les dades tècniques, quatre anys per al consentiment de màrqueting, cinc per a les enquestes. El servei es finança amb publicitat: hi ha una llista pública de dinou socis publicitaris i l’etiqueta de l’App Store declara identificadors utilitzats per rastrejar.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'advertising',
   jurisdiction: 'República Txeca',
@@ -39,7 +39,7 @@ const flashscore: AppSeed = {
   accountRequired: f('no', 'official', ['flashscore-privacy-policy'], 'Els resultats i les notificacions funcionen sense compte; el compte només cal per sincronitzar favorits entre dispositius i es pot obrir amb Google, Apple o Meta.'),
   openSource: f('no', 'official', ['flashscore-privacy-policy'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'Els equips i les competicions que se segueixen, i a quines hores es consulten, dibuixen un perfil d’aficionat prou definit per al mercat publicitari esportiu, que és exactament el que compra la llista de socis programàtics. Si el compte s’ha obert amb Google, Apple o Meta, aquest perfil queda a més lligat a una identitat real.',
+    'Els equips i les competicions que se segueixen, i les hores en què es consulten, formen un perfil d’aficionat útil per al mercat publicitari esportiu, que és el que interessa als socis programàtics. Si el compte s’ha obert amb Google, Apple o Meta, aquest perfil queda lligat també a una identitat real.',
   dataCollection: [
     row('adreca-electronica', 'optional', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['flashscore-privacy-policy', 'flashscore-app-store'], note: 'Només si s’obre compte; el registre es pot fer amb Google, Apple o Meta, que en reben constància.' }),
     row('data-de-naixement', 'optional', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['compliment-legal'], sources: ['flashscore-privacy-policy'], note: 'La política parla de l’edat, per complir els límits d’edat del servei.' }),
@@ -128,7 +128,7 @@ const flashscore: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'La política de Livesport és un bon exemple del que hauria de ser normal: terminis numèrics per categoria i una llista pública i nominal dels socis publicitaris. Això no la fa protectora (l’etiqueta declara rastreig), però sí comprovable.',
+      'La política de Livesport dona terminis numèrics per categoria i una llista pública i nominal dels socis publicitaris, cosa que hauria de ser habitual. L’etiqueta declara rastreig, però el que diu la política es pot comprovar.',
     openQuestions: [
       'Hi ha un botó d’eliminació del compte dins de l’aplicació o cal escriure sempre a privacy@livesport.eu?',
       'Quines mesures tècniques de seguretat aplica Livesport? No en publica cap documentació.',
@@ -142,7 +142,7 @@ const runnerpro: AppSeed = {
   name: 'RunnerPro',
   company: 'runnerwellness',
   categories: ['benestar-i-activitat-fisica'],
-  tagline: 'Entrenament de running amb dades de salut d’Apple, Garmin i Strava, i una política que no diu ni qui és el responsable',
+  tagline: 'Entrenament de running amb dades de salut d’Apple, Garmin i Strava, i una política que no identifica el responsable',
   summary:
     'RunnerPro connecta amb Apple Health, Health Connect, Garmin i Strava per llegir passes, freqüència cardíaca, son i entrenaments, és a dir, dades de salut de categoria especial. La política ho reconeix i hi aplica el consentiment explícit de l’article 9.2.a del RGPD, però no identifica la raó social responsable, dona una adreça que no coincideix amb el registre mercantil i l’enllaç de privadesa declarat a la fitxa de l’App Store retorna un error. L’etiqueta de l’App Store, a més, només declara dades d’ús i diagnòstics.',
   platforms: ['ios', 'android', 'web'],
@@ -156,7 +156,7 @@ const runnerpro: AppSeed = {
   accountRequired: f('yes', 'official', ['runnerpro-privacy-policy'], 'El servei es basa en plans d’entrenament personalitzats amb entrenador, amb subscripció i prova gratuïta.'),
   openSource: f('no', 'official', ['runnerpro-privacy-policy'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'La freqüència cardíaca, el son, el pes i el rastre dels entrenaments són dades de salut: revelen l’estat físic, les lesions, els períodes de malaltia i fins i tot els horaris i els recorreguts habituals de cada dia. Aquí, a més, hi conviuen amb dades de pagament i amb un entrenador humà que llegeix el registre.',
+    'La freqüència cardíaca, el son, el pes i el rastre dels entrenaments són dades de salut: revelen l’estat físic, les lesions, els períodes de malaltia i fins i tot els horaris i els recorreguts habituals de cada dia. RunnerPro les guarda amb les dades de pagament, i un entrenador humà en llegeix el registre.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['runnerpro-privacy-policy'] }),
     row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'atencio-a-lusuari'], sources: ['runnerpro-privacy-policy'] }),
@@ -190,7 +190,7 @@ const runnerpro: AppSeed = {
   },
   transparency: {
     policyClarity: 'low',
-    transparencyReport: unknown('No n’hi ha cap; és una empresa petita i no se li ha de suposar.'),
+    transparencyReport: unknown('No n’hi ha cap, cosa esperable en una empresa petita.'),
   },
   retention: {
     definedPeriods: f('no', 'official', ['runnerpro-privacy-policy'], 'La política diu que la conservació «depèn de diversos factors» i només concreta que les dades de salut es guarden mentre el compte estigui actiu.'),
@@ -254,7 +254,7 @@ const runnerpro: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'Cas il·lustratiu del desajust entre l’etiqueta de l’App Store i la política: l’etiqueta només declara dades d’ús i diagnòstics no vinculades, mentre que la política descriu dades de salut, de contacte i de pagament associades al compte. A més, l’enllaç de privadesa declarat a la fitxa de l’App Store (runnerpro.app/aviso-privacidad) retorna un error 404, i la política no identifica la raó social responsable.',
+      'L’etiqueta de l’App Store i la política no coincideixen: l’etiqueta només declara dades d’ús i diagnòstics no vinculades, mentre que la política descriu dades de salut, de contacte i de pagament associades al compte. A més, l’enllaç de privadesa declarat a la fitxa de l’App Store (runnerpro.app/aviso-privacidad) retorna un error 404, i la política no identifica la raó social responsable.',
     openQuestions: [
       'Per què l’etiqueta de privadesa no declara les dades de salut que la política descriu?',
       'Es conserva el traçat GPS dels entrenaments importats de Garmin i Strava?',
@@ -269,9 +269,9 @@ const bwin: AppSeed = {
   name: 'bwin',
   company: 'electraworks-ceuta',
   categories: ['apostes'],
-  tagline: 'Deu anys de conservació obligatòria i una sanció de l’AEPD per com es va explicar',
+  tagline: 'Deu anys de conservació obligatòria i una sanció de l’AEPD per la manera d’informar-ne',
   summary:
-    'A bwin no hi ha manera de marxar del tot: la llicència de joc espanyola obliga a conservar les dades del client deu anys des del tancament del compte, i l’operador ho aplica com a resposta estàndard a qualsevol sol·licitud de supressió. L’AEPD el va sancionar precisament per la informació que donava sobre això. A l’altre costat, el mateix marc legal imposa verificació d’identitat, contrast amb el registre d’autoexclosos i control de patrons de joc, un tractament molt invasiu que aquí té una justificació de protecció.',
+    'La llicència de joc espanyola obliga bwin a conservar les dades del client deu anys des del tancament del compte, i l’operador ho aplica com a resposta estàndard a qualsevol sol·licitud de supressió. L’AEPD el va sancionar per la informació que donava sobre això. D’altra banda, el mateix marc legal imposa verificació d’identitat, contrast amb el registre d’autoexclosos i control de patrons de joc, un tractament molt invasiu que aquí té una justificació de protecció.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'commerce',
   jurisdiction: 'Espanya',
@@ -284,7 +284,7 @@ const bwin: AppSeed = {
   accountRequired: f('yes', 'official', ['bwin-privacy-policy'], 'Cal compte verificat amb document d’identitat: la llei del joc no permet jugar de manera anònima.'),
   openSource: f('no', 'official', ['bwin-privacy-policy'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'L’historial d’apostes és un dels registres més sensibles que pot generar una persona: diu quant guanya, quant perd, a quines hores juga i si el patró s’està deteriorant. Aquí conviu amb el document d’identitat, els extractes bancaris i les gravacions de trucades, i es conserva deu anys des que es tanca el compte.',
+    'L’historial d’apostes és un dels registres més sensibles d’una persona: mostra quant guanya i quant perd, a quines hores juga i si el patró s’està deteriorant. bwin el guarda amb el document d’identitat, els extractes bancaris i les gravacions de trucades, i el conserva deu anys des que es tanca el compte.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'compliment-legal'], sources: ['bwin-privacy-policy', 'bwin-app-store'] }),
     row('document-identificatiu-oficial', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['compliment-legal', 'seguretat-i-prevencio-del-frau'], sources: ['bwin-privacy-policy'], note: 'Verificació d’identitat i d’edat amb captura documental, feta amb el proveïdor Jumio.' }),
@@ -347,7 +347,7 @@ const bwin: AppSeed = {
       'Espera una resposta que, molt probablement, invocarà el termini de deu anys de conservació obligatòria; si no hi estàs d’acord, reclama davant de l’AEPD.',
     ],
     obstacles:
-      'La conservació decennal és real i deriva dels requisits de llicència i de la normativa antiblanqueig, però l’AEPD va sancionar l’operador per la manera com informava d’aquesta limitació.',
+      'La conservació de deu anys deriva dels requisits de llicència i de la normativa antiblanqueig, però l’AEPD va sancionar l’operador per la manera com informava d’aquesta limitació.',
     dataRetained: 'Identitat, historial de joc i documentació financera durant deu anys des del tancament, i les dades d’autoexclusió mentre calgui per garantir l’eficàcia de l’exclusió.',
     sources: ['bwin-privacy-policy', 'bwin-aepd-2023'],
   },
@@ -379,7 +379,7 @@ const bwin: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'La fitxa distingeix dues coses que és fàcil confondre. El termini de deu anys no és una decisió de l’empresa, sinó una obligació del marc del joc; el que l’AEPD va sancionar és com s’informava l’interessat. En canvi, la sanció de la DGOJ de novembre de 2025 sí que afecta directament el tractament: una de les tres infraccions és haver permès jugar a persones que ho tenien prohibit, cosa que implica una fallida en el contrast contra el registre d’autoexclosos. L’expedient sancionador de l’AEPD va acabar per pagament voluntari, amb les reduccions corresponents.',
+      'El termini de deu anys és una obligació del marc del joc; el que l’AEPD va sancionar és com se n’informava la persona interessada. En canvi, la sanció de la DGOJ de novembre de 2025 sí que afecta directament el tractament: una de les tres infraccions és haver permès jugar a persones que ho tenien prohibit, cosa que implica una fallida en el contrast contra el registre d’autoexclosos. L’expedient sancionador de l’AEPD va acabar per pagament voluntari, amb les reduccions corresponents.',
     openQuestions: [
       'La certificació ISO 27001 d’Entain cobreix ElectraWorks (Ceuta)?',
       'Existeix una documentació oficial de la verificació en dos passos a bwin.es?',
@@ -395,7 +395,7 @@ const matchapp: AppSeed = {
   categories: ['esports-i-resultats'],
   tagline: 'No té política de privadesa de l’aplicació i les etiquetes d’Apple i de Google es contradiuen',
   summary:
-    'Matchapp organitza partits de futbol entre amics, però l’enllaç de privadesa que declara a les botigues porta a un avís legal del web que només parla del formulari de contacte. L’etiqueta de l’App Store declara dades de contacte, identificadors i dades d’ús utilitzades per rastrejar, mentre que la fitxa de Google Play afirma que no comparteix res amb tercers. Les dues declaracions són del mateix producte i no poden ser certes alhora.',
+    'Matchapp organitza partits de futbol entre amics, però l’enllaç de privadesa que declara a les botigues porta a un avís legal del web que només parla del formulari de contacte. L’etiqueta de l’App Store declara dades de contacte, identificadors i dades d’ús utilitzades per rastrejar, mentre que la fitxa de Google Play afirma que no comparteix res amb tercers. Les dues declaracions corresponen al mateix producte i es contradiuen.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'freemium',
   jurisdiction: 'Espanya',
@@ -408,7 +408,7 @@ const matchapp: AppSeed = {
   accountRequired: f('yes', 'official', ['matchapp-play-data-safety'], 'La fitxa de Google Play declara nom i correu per a la gestió del compte.'),
   openSource: f('no', 'official', ['matchapp-terms'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'Saber amb qui juga cada persona, on i cada quan és una radiografia del cercle d’amistats i de la rutina setmanal. Aquí no hi ha cap document que expliqui què se’n fa: l’única descripció del tractament és la llista de l’etiqueta de l’App Store.',
+    'Saber amb qui juga cada persona, on i cada quan revela el seu cercle d’amistats i la seva rutina setmanal. Cap document explica què se’n fa; l’única descripció del tractament és la llista de l’etiqueta de l’App Store.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'unknown', purposes: ['prestacio-del-servei', 'personalitzacio-de-continguts'], sources: ['matchapp-app-store', 'matchapp-play-data-safety'] }),
     row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada', 'mesura-i-analisi-dus'], sources: ['matchapp-app-store'], note: 'L’etiqueta declara les dades de contacte com a utilitzades per rastrejar.' }),
@@ -488,7 +488,7 @@ const matchapp: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'La troballa útil d’aquesta fitxa és documental: no hi ha política de privadesa de l’aplicació, l’enllaç que la substitueix és un avís legal sobre el formulari del web, i l’entitat responsable apareix com a «just team up SL» a l’App Store, «NVDO SMART TECH SL» a Google Play i «MATCH APP, S.L.» als documents legals, totes tres amb el mateix telèfon. La matriu de dades s’ha hagut de construir gairebé sencera a partir de les etiquetes de les botigues.',
+      'El problema principal és documental: no hi ha política de privadesa de l’aplicació, l’enllaç que la substitueix és un avís legal sobre el formulari del web, i l’entitat responsable apareix com a «just team up SL» a l’App Store, «NVDO SMART TECH SL» a Google Play i «MATCH APP, S.L.» als documents legals, totes tres amb el mateix telèfon. La matriu de dades s’ha hagut de construir gairebé sencera a partir de les etiquetes de les botigues.',
     openQuestions: [
       'Quina és l’entitat que realment tracta les dades de l’aplicació?',
       'Hi ha botó d’eliminació del compte dins de l’aplicació, tal com exigeix Apple?',
@@ -505,7 +505,7 @@ const fanalysis: AppSeed = {
   categories: ['esports-i-resultats'],
   tagline: 'Estima l’edat amb reconeixement facial i esborra la imatge en set dies, però l’etiqueta de la botiga no ho declara',
   summary:
-    'Fanalysis recull valoracions de jugadors fetes per aficionats i les cedeix a Sky Sports. La seva política és, de llarg, la més detallada d’aquest lot: llista nominal d’encarregats, terminis per categoria i mecanismes de transferència explicats un per un. El que no explica cap etiqueta de botiga és que l’aplicació estima l’edat amb AWS Rekognition a partir d’una fotografia i genera l’avatar amb OpenAI.',
+    'Fanalysis recull valoracions de jugadors fetes per aficionats i les cedeix a Sky Sports. La seva política és detallada, amb una llista nominal d’encarregats, terminis per categoria i mecanismes de transferència explicats un per un. En canvi, cap etiqueta de botiga no esmenta que l’aplicació estima l’edat amb AWS Rekognition a partir d’una fotografia i genera l’avatar amb OpenAI.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'freemium',
   jurisdiction: 'Regne Unit',
@@ -517,7 +517,7 @@ const fanalysis: AppSeed = {
   accountRequired: f('yes', 'official', ['fanalysis-privacy-policy'], 'Cal compte per valorar jugadors i publicar; l’edat es verifica o s’estima en el registre.'),
   openSource: f('no', 'official', ['fanalysis-privacy-policy'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'Les valoracions, les ressenyes i el club que se segueix formen un perfil d’afició que acaba en un magatzem analític de Snowflake juntament amb el correu, el nom i la nacionalitat. Per sobre hi ha una capa biomètrica: una fotografia que serveix per estimar l’edat i per generar un avatar amb un model de tercers.',
+    'Les valoracions, les ressenyes i el club que se segueix formen un perfil d’afició que es guarda en un magatzem analític de Snowflake juntament amb el correu, el nom i la nacionalitat. A més, l’aplicació tracta dades biomètriques: una fotografia que serveix per estimar l’edat i per generar un avatar amb un model de tercers.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['fanalysis-privacy-policy', 'fanalysis-app-store'] }),
     row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['fanalysis-privacy-policy', 'fanalysis-app-store'], note: 'Arriba a Snowflake juntament amb el nom, la nacionalitat, el club i les valoracions.' }),
@@ -607,7 +607,7 @@ const fanalysis: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'La política de Fanalysis és molt superior a la mitjana d’aquest lot: identifica cada encarregat pel nom, dona terminis per categoria i explica el mecanisme de transferència de cadascun. El contrast és amb les etiquetes de les botigues, que no declaren ni la fotografia ni la representació facial que la política sí que descriu. L’aplicació és nova (abril de 2026) i no té historial.',
+      'La política de Fanalysis és completa: identifica cada encarregat pel nom, dona terminis per categoria i explica el mecanisme de transferència de cadascun. En canvi, les etiquetes de les botigues no declaren la fotografia ni la representació facial que descriu la política. L’aplicació és nova (abril de 2026) i no té historial.',
     openQuestions: [
       'Per què ni l’App Store ni Google Play declaren les dades biomètriques que la política descriu?',
       'Quina és la llista completa de subencarregats? Només s’obté sota petició.',
@@ -623,7 +623,7 @@ const sporttia: AppSeed = {
   categories: ['esports-i-resultats'],
   tagline: 'Reserva d’instal·lacions municipals amb esborrat de compte autoservei i una política que no parla de l’aplicació',
   summary:
-    'Sporttia és el programari amb què molts ajuntaments i patronats gestionen les pistes esportives, de manera que sovint no es tria: si vols reservar, hi has de passar. És l’única aplicació d’aquest lot amb esborrat de compte autoservei verificable i declara la certificació ENS de nivell mitjà, però la política de privadesa és la genèrica del web corporatiu i no descriu ni les reserves, ni els pagaments, ni la ubicació, ni el control d’accés.',
+    'Sporttia és el programari amb què molts ajuntaments i patronats gestionen les pistes esportives, i per això sovint no es pot triar: per reservar, cal fer-lo servir. Té esborrat de compte autoservei verificable i declara la certificació ENS de nivell mitjà, però la política de privadesa és la genèrica del web corporatiu i no descriu ni les reserves, ni els pagaments, ni la ubicació, ni el control d’accés.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'commerce',
   jurisdiction: 'Espanya',
@@ -637,7 +637,7 @@ const sporttia: AppSeed = {
   accountRequired: f('yes', 'official', ['sporttia-app-store'], 'Cal compte amb nom, correu i telèfon per reservar i per accedir a la instal·lació.'),
   openSource: f('no', 'official', ['sporttia-privacy-policy'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'Un calendari de reserves de pista diu on és una persona, a quina hora i amb quina regularitat, i a més amb qui. Quan la instal·lació és municipal, aquesta agenda es reparteix entre una empresa privada i l’ajuntament, i cap de les dues parts no ho explica a la política.',
+    'Un calendari de reserves de pista mostra on és una persona, a quina hora, amb quina regularitat i amb qui. Quan la instal·lació és municipal, aquestes dades les tracten una empresa privada i l’ajuntament, i cap de les dues parts no ho explica a la política.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['sporttia-app-store', 'sporttia-play-data-safety'], note: 'El centre esportiu, sovint municipal, també tracta aquestes dades.' }),
     row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['sporttia-app-store'] }),
@@ -718,7 +718,7 @@ const sporttia: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'Cas típic del programari municipal: qui vol reservar una pista pública no tria el proveïdor. Això fa més greu que la política sigui la genèrica del web i que no expliqui el repartiment de responsabilitats entre Social Cloud i l’ajuntament o el patronat. En canvi, l’esborrat de compte autoservei i la certificació ENS declarada són dos punts favorables. L’esborrat s’ha verificat llegint el codi de l’aplicació web, perquè no hi ha cap pàgina d’ajuda que el documenti.',
+      'Com passa sovint amb el programari municipal, qui vol reservar una pista pública no tria el proveïdor. Per això és més greu que la política sigui la genèrica del web i que no expliqui el repartiment de responsabilitats entre Social Cloud i l’ajuntament o el patronat. En canvi, l’esborrat de compte autoservei i la certificació ENS declarada són dos punts favorables. L’esborrat s’ha verificat llegint el codi de l’aplicació web, perquè no hi ha cap pàgina d’ajuda que el documenti.',
     openQuestions: [
       'Qui és el responsable del tractament de les reserves: Social Cloud o el centre esportiu? Cap document ho aclareix.',
       'Quina entitat ha emès el certificat ENS i quin abast i vigència té?',
@@ -735,7 +735,7 @@ const indeed: AppSeed = {
   categories: ['feina-i-ocupacio'],
   tagline: 'El currículum pot ser cercable per qualsevol ocupador i les converses es conserven deu anys',
   summary:
-    'Indeed, del grup japonès Recruit, cobra els ocupadors per publicar ofertes i per cercar currículums. Això fa que el paràmetre més important de tot el servei sigui si el perfil és «cercable» o no: en el primer estat el poden veure els ocupadors del programa de cerca de currículums i qualsevol persona amb l’enllaç. La política és de les poques que publica terminis: les comunicacions i la missatgeria es conserven deu anys. També hi ha dues sortides diferents i no equivalents, tancar el compte i demanar-ne l’esborrat.',
+    'Indeed, del grup japonès Recruit, cobra els ocupadors per publicar ofertes i per cercar currículums. Per això el paràmetre més important del servei és si el perfil és «cercable»: si ho és, el poden veure els ocupadors del programa de cerca de currículums i qualsevol persona amb l’enllaç. La política és de les poques que publica terminis: les comunicacions i la missatgeria es conserven deu anys. Tancar el compte i demanar-ne l’esborrat són dues opcions diferents, amb efectes diferents.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'advertising',
   jurisdiction: 'Irlanda',
@@ -749,7 +749,7 @@ const indeed: AppSeed = {
   accountRequired: f('partial', 'official', ['indeed-privacy-policy'], 'Es poden consultar ofertes sense compte, però per inscriure-s’hi i desar cerques cal registrar-se.'),
   openSource: f('no', 'official', ['indeed-privacy-policy'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'Un currículum és un expedient sencer: trajectòria, formació, edat deduïble, sovint fotografia. A Indeed s’hi suma quines ofertes es miren i quantes vegades, cosa que revela insatisfacció laboral, canvis de sector o intenció de mudança abans que ho sàpiga ningú més. Les converses amb els ocupadors es conserven deu anys.',
+    'Un currículum inclou la trajectòria, la formació, dades de les quals es pot deduir l’edat i sovint una fotografia. Indeed hi suma quines ofertes es miren i quantes vegades, cosa que pot revelar insatisfacció laboral, canvis de sector o la intenció de mudar-se. Les converses amb els ocupadors es conserven deu anys.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['indeed-privacy-policy', 'indeed-app-store'] }),
     row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['indeed-privacy-policy', 'indeed-app-store'] }),
@@ -812,11 +812,11 @@ const indeed: AppSeed = {
     steps: [
       'Descarrega’t abans una còpia de les dades amb el formulari de sol·licitud, perquè el compte tancat no és recuperable.',
       'Per treure l’accés, entra a la configuració del compte i tria «Cerrar mi cuenta».',
-      'Per esborrar les dades de debò, omple el formulari de requests.hrtechprivacy.com i tria l’opció d’eliminació de dades personals.',
+      'Per esborrar les dades, omple el formulari de requests.hrtechprivacy.com i tria l’opció d’eliminació de dades personals.',
       'Indeed indica un termini aproximat d’un mes per completar-ho.',
     ],
     obstacles:
-      'La distinció entre tancar el compte i esborrar les dades no és òbvia i les dues opcions viuen en llocs diferents. A més, els currículums ja enviats queden en mans de cada ocupador, que és responsable independent i no es veu afectat per la supressió.',
+      'La distinció entre tancar el compte i esborrar les dades no és òbvia i les dues opcions són en llocs diferents. A més, els currículums ja enviats queden en mans de cada ocupador, que és responsable independent i no es veu afectat per la supressió.',
     dataRetained: 'El que exigeixin les obligacions legals i el que ja hagin rebut els ocupadors. La política no ho concreta.',
     sources: ['indeed-close-account', 'indeed-delete-data'],
   },
@@ -834,7 +834,7 @@ const indeed: AppSeed = {
       url: 'https://hrtechprivacy.com/ad-choices',
     }),
     telemetryOptOut: unknown('No hem trobat cap control per desactivar l’analítica d’ús.'),
-    granularControls: f('yes', 'official', ['indeed-profile-privacy'], 'El control decisiu és la visibilitat del perfil: «Los empleadores pueden encontrarte» el fa cercable per als ocupadors del programa de cerca de currículums i visible per a qualsevol que en tingui l’enllaç.'),
+    granularControls: f('yes', 'official', ['indeed-profile-privacy'], 'El control principal és la visibilitat del perfil: «Los empleadores pueden encontrarte» el fa cercable per als ocupadors del programa de cerca de currículums i visible per a qualsevol que en tingui l’enllaç.'),
     defaultPosture: 'unknown',
     darkPatterns: unknown('Les fonts consultades es contradiuen sobre quin és l’estat per defecte de la visibilitat del perfil, i no ho hem pogut resoldre.'),
   },
@@ -869,7 +869,7 @@ const indeed: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'Dues coses mereixen atenció. La primera és la distinció entre tancar el compte i esborrar les dades, que Indeed explica en articles d’ajuda diferents i que molta gent confon. La segona és el desajust entre l’etiqueta de l’App Store, que declara ubicació exacta no vinculada, i la política, que afirma recollir només ubicació aproximada per codi postal. No hem pogut determinar amb seguretat quin és l’estat per defecte de la visibilitat del currículum, perquè la política i el centre d’ajuda diuen coses diferents.',
+      'Indeed explica en articles d’ajuda diferents com tancar el compte i com esborrar les dades, i molta gent confon les dues coses. A més, l’etiqueta de l’App Store declara ubicació exacta no vinculada, mentre que la política afirma recollir només ubicació aproximada per codi postal. No hem pogut determinar amb seguretat quin és l’estat per defecte de la visibilitat del currículum, perquè la política i el centre d’ajuda diuen coses diferents.',
     openQuestions: [
       'El perfil és cercable per defecte o no? Les fonts oficials es contradiuen.',
       'Per què l’etiqueta declara ubicació exacta si la política diu que només se’n recull d’aproximada?',
@@ -884,9 +884,9 @@ const zoomWorkplace: AppSeed = {
   name: 'Zoom Workplace',
   company: 'zoom-communications',
   categories: ['videoconferencia-i-feina'],
-  tagline: 'Sense establiment principal a la UE: l’AEPD hi és plenament competent, i el xifratge d’extrem a extrem existeix però apaga mitja aplicació',
+  tagline: 'Sense establiment principal a la UE, de manera que l’AEPD hi és plenament competent, i amb un xifratge d’extrem a extrem que desactiva bona part de les funcions',
   summary:
-    'Zoom va sortir de la crisi de 2020 amb un acord amb la FTC per haver dit durant anys que xifrava d’extrem a extrem quan no ho feia, i amb una llista llarga de certificacions. El xifratge d’extrem a extrem real existeix des de finals de 2020, però activar-lo desactiva la gravació al núvol, la transcripció, les sales de treball i el xat privat. La clàusula de 2023 que permetia entrenar models amb el contingut dels clients es va rectificar i avui la política ho nega sense condicions.',
+    'Després de la crisi de 2020, Zoom va signar un acord amb la FTC per haver dit durant anys que xifrava d’extrem a extrem quan no ho feia, i té una llista llarga de certificacions. Ofereix xifratge d’extrem a extrem des de finals de 2020, però activar-lo desactiva la gravació al núvol, la transcripció, les sales de treball i el xat privat. La clàusula de 2023 que permetia entrenar models amb el contingut dels clients es va rectificar i la política actual ho descarta sense condicions.',
   platforms: ['ios', 'android', 'web', 'windows', 'macos', 'linux'],
   businessModel: 'freemium',
   jurisdiction: 'Estats Units',
@@ -901,7 +901,7 @@ const zoomWorkplace: AppSeed = {
   accountRequired: f('partial', 'official', ['zoom-privacy-policy'], 'Es pot entrar en una reunió amb un enllaç sense compte, però per convocar-ne cal registrar-se.'),
   openSource: f('no', 'official', ['zoom-privacy-policy'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'El contingut d’una reunió és tot el que s’hi diu i s’hi mostra, més les gravacions i les transcripcions. A l’etiqueta de l’App Store, Zoom declara que àudio, vídeo i missatges s’utilitzen per a «anàlisi de dades» i que queden vinculats a la identitat. Quan el compte és de feina o d’escola, qui decideix què s’hi grava no és la persona participant sinó l’administrador.',
+    'El contingut d’una reunió és tot el que s’hi diu i s’hi mostra, més les gravacions i les transcripcions. A l’etiqueta de l’App Store, Zoom declara que àudio, vídeo i missatges s’utilitzen per a «anàlisi de dades» i que queden vinculats a la identitat. Quan el compte és de feina o d’escola, l’administrador decideix què s’hi grava.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['zoom-privacy-policy', 'zoom-app-store'] }),
     row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['zoom-privacy-policy', 'zoom-app-store'] }),
@@ -1009,7 +1009,7 @@ const zoomWorkplace: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'La troballa jurídica més útil és de competència: Zoom no declara establiment principal a la Unió Europea, només un representant de l’article 27 a Irlanda, i l’autoritat neerlandesa ja ha dit que no n’és l’autoritat principal. Per tant no hi ha finestreta única i l’AEPD és plenament competent per a les reclamacions des d’Espanya. Sobre l’entrenament de models, la clàusula 10.4 de 2023 es va rectificar en pocs dies i la redacció actual és una negativa sense condicions, més forta que la de l’agost de 2023.',
+      'Zoom no declara establiment principal a la Unió Europea, només un representant de l’article 27 a Irlanda, i l’autoritat neerlandesa ja ha dit que no n’és l’autoritat principal. Per tant, no hi ha finestreta única i l’AEPD és plenament competent per a les reclamacions des d’Espanya. Sobre l’entrenament de models, la clàusula 10.4 de 2023 es va rectificar en pocs dies i la redacció actual és una negativa sense condicions, més forta que la de l’agost de 2023.',
     openQuestions: [
       'Quins són els terminis oficials de conservació de Team Chat, d’AI Companion i dels tiquets de suport?',
       'L’abast de les certificacions cobreix també la residència de dades a la UE?',
@@ -1025,7 +1025,7 @@ const jobToday: AppSeed = {
   categories: ['feina-i-ocupacio'],
   tagline: 'La política enllaçada des de l’App Store espanyol encara es basa en la LOPD de 1999, derogada',
   summary:
-    'JOB TODAY posa en contacte candidats i empreses d’hostaleria, comerç i serveis amb un xat directe i ofertes per proximitat. Hi conviuen dues polítiques de privadesa diferents: la versió espanyola, que és la que enllaça la fitxa de l’App Store, encara es fonamenta en la LOPD 15/1999 i el seu reglament, derogats des de 2018. És, a més, l’única aplicació d’aquest lot que declara rastreig entre aplicacions i ubicació exacta alhora.',
+    'JOB TODAY posa en contacte candidats i empreses d’hostaleria, comerç i serveis amb un xat directe i ofertes per proximitat. Hi conviuen dues polítiques de privadesa diferents: la versió espanyola, que és la que enllaça la fitxa de l’App Store, encara es fonamenta en la LOPD 15/1999 i el seu reglament, derogats des de 2018. A més, declara alhora rastreig entre aplicacions i ubicació exacta.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'freemium',
   jurisdiction: 'Luxemburg',
@@ -1039,7 +1039,7 @@ const jobToday: AppSeed = {
   accountRequired: f('yes', 'official', ['jobtoday-privacy-policy-gb'], 'Cal compte per veure ofertes personalitzades i per escriure a les empreses.'),
   openSource: f('no', 'official', ['jobtoday-privacy-policy-gb'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'Un perfil de JOB TODAY porta nom, data de naixement, fotografia o vídeo, historial laboral i coordenades GPS. Les converses amb les empreses són el nucli del producte i es monitoritzen per prevenir abusos. Tot plegat, en una aplicació que declara a Apple que les dades d’interacció es poden fer servir per rastrejar la persona en aplicacions i webs d’altres empreses.',
+    'Un perfil de JOB TODAY porta nom, data de naixement, fotografia o vídeo, historial laboral i coordenades GPS. Les converses amb les empreses són el nucli del producte i es monitoritzen per prevenir abusos. A més, l’aplicació declara a Apple que les dades d’interacció es poden fer servir per rastrejar la persona en aplicacions i webs d’altres empreses.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['jobtoday-privacy-policy-gb', 'jobtoday-app-store'] }),
     row('data-de-naixement', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['jobtoday-privacy-policy-gb'] }),
@@ -1101,12 +1101,12 @@ const jobToday: AppSeed = {
   userRights: {
     dataExport: f('partial', 'official', ['jobtoday-privacy-policy-gb'], 'La portabilitat es reconeix en un «format estructurat, d’ús comú i llegible per màquina», però no hi ha cap eina ni formulari d’autoservei.'),
     exportFormatQuality: 'unknown',
-    rightsExercise: f('yes', 'official', ['jobtoday-privacy-policy-gb'], 'És l’única aplicació d’aquest lot que publica el nom del delegat de protecció de dades.', {
+    rightsExercise: f('yes', 'official', ['jobtoday-privacy-policy-gb'], 'Publica el nom del delegat de protecció de dades.', {
       url: 'mailto:privacy@jobtoday.com',
     }),
   },
   controls: {
-    adPersonalizationOptOut: unknown('No hem trobat cap control de publicitat personalitzada dins de l’aplicació; l’únic fre disponible és la transparència del seguiment d’apps del sistema.'),
+    adPersonalizationOptOut: unknown('No hem trobat cap control de publicitat personalitzada dins de l’aplicació; l’única opció és el permís de transparència del seguiment d’apps del sistema.'),
     telemetryOptOut: unknown('No hem trobat cap control de telemetria.'),
     granularControls: f('partial', 'official', ['jobtoday-delete-chat'], 'Es pot esborrar una conversa concreta amb una empresa, però no hem trobat controls de visibilitat del perfil.'),
     defaultPosture: 'unknown',
@@ -1139,7 +1139,7 @@ const jobToday: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'La troballa central és documental i verificable: la política que la fitxa de l’App Store espanyol enllaça està datada el 13 de febrer de 2019 i es fonamenta en la LOPD 15/1999 i el Reial decret 1720/2007, tots dos desplaçats pel RGPD i la LOPDGDD des de 2018. La versió britànica, de maig de 2018, sí que és una política del RGPD, però tampoc no dona cap termini de conservació. En canvi, l’esborrat del compte és autoservei, amb article d’ajuda i termini de 48 hores, cosa que aquí és excepcional.',
+      'La política que la fitxa de l’App Store espanyol enllaça està datada el 13 de febrer de 2019 i es fonamenta en la LOPD 15/1999 i el Reial decret 1720/2007, tots dos desplaçats pel RGPD i la LOPDGDD des de 2018. La versió britànica, de maig de 2018, sí que és una política del RGPD, però tampoc no dona cap termini de conservació. En canvi, l’esborrat del compte és autoservei, amb article d’ajuda i termini de 48 hores.',
     openQuestions: [
       'Quina és l’autoritat de control principal? Amb responsable a Luxemburg i filial responsable a Espanya, no hi ha designació explícita.',
       'Quant de temps es conserven els missatges del xat amb les empreses?',
@@ -1319,7 +1319,7 @@ export const lot: SeedLot = {
     }),
     s('matchapp-terms', 'Terms — Matchapp', 'https://matchapp.es/terms/', 'Match App, S.L.', 'terms', 'primary', {
       language: 'es',
-      summary: 'Document que la fitxa de l’App Store declara com a política de privadesa. En realitat és un avís legal del web i la part de protecció de dades només cobreix el formulari de contacte.',
+      summary: 'Document que la fitxa de l’App Store declara com a política de privadesa. És un avís legal del web i la part de protecció de dades només cobreix el formulari de contacte.',
     }),
     s('matchapp-conditions', 'Términos y condiciones generales — Matchapp', 'https://matchapp.es/conditions/', 'Match App, S.L.', 'terms', 'primary', {
       language: 'es',
@@ -1590,7 +1590,7 @@ export const lot: SeedLot = {
       occurredAt: '2021-08-16',
       disclosedAt: '2021-08-16',
       description:
-        'L’autoritat de protecció de dades d’Hamburg va adreçar un advertiment formal a la Cancelleria del Senat de la ciutat perquè l’ús de Zoom implicava transferir dades als Estats Units sense una protecció suficient després de la sentència Schrems II. L’advertiment va contra l’organisme públic que feia servir el servei, no contra Zoom, i no comporta cap sanció econòmica, però és rellevant perquè mostra el problema de les transferències en un servei sense establiment principal a la Unió Europea.',
+        'L’autoritat de protecció de dades d’Hamburg va adreçar un advertiment formal a la Cancelleria del Senat de la ciutat perquè l’ús de Zoom implicava transferir dades als Estats Units sense una protecció suficient després de la sentència Schrems II. L’advertiment va contra l’organisme públic que feia servir el servei, no contra Zoom, i no comporta cap sanció econòmica, però mostra el problema de les transferències en un servei sense establiment principal a la Unió Europea.',
       affectedPeople: 'Personal i interlocutors de l’administració d’Hamburg que utilitzaven Zoom.',
       regulatory: {
         authority: 'Hamburgische Beauftragte für Datenschutz und Informationsfreiheit (Alemanya)',

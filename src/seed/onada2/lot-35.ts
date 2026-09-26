@@ -45,7 +45,7 @@ const weatherRadarForecast: AppSeed = {
   accountRequired: f('no', 'official', ['weather-radar-forecast-privacy'], 'La política diu literalment que els seus productes no exigeixen registre.'),
   openSource: unknown('No hem trobat publicat el codi de l’aplicació.'),
   dataSummary:
-    'Una aplicació del temps que demana la ciutat i l’identificador del dispositiu i els pot cedir a anunciants no necessita saber qui ets per fer-te un perfil: la combinació de ciutat, model de terminal i hores d’obertura ja identifica una rutina.',
+    'L’aplicació recull la ciutat i l’identificador del dispositiu i els pot cedir a anunciants. Per fer-te un perfil no cal saber qui ets: la combinació de ciutat, model de terminal i hores d’obertura ja permet identificar una rutina.',
   dataCollection: [
     row('interaccions-i-us', 'yes', { linked: 'no', tracking: 'yes', shared: 'third-parties', purposes: ['mesura-i-analisi-dus', 'publicitat-personalitzada'], sources: ['weather-radar-forecast-app-store', 'weather-radar-forecast-privacy'], note: 'És l’única categoria que declara l’etiqueta de l’App Store, i la declara com a dada per rastrejar.' }),
     row('ubicacio-aproximada', 'yes', { linked: 'unknown', tracking: 'unknown', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['weather-radar-forecast-privacy'], note: 'La política diu que només fa servir la ciutat, no la ubicació precisa. L’etiqueta de l’App Store no declara cap dada d’ubicació.' }),
@@ -129,7 +129,7 @@ const weatherRadarForecast: AppSeed = {
     openQuestions: [
       capCercaIncidents,
       'Quina relació hi ha entre EINMOB LIMITED i «Top Weather Inc.»?',
-      'Quins SDK publicitaris incorpora realment l’aplicació? La política no en dona cap nom.',
+      'Quins SDK publicitaris incorpora l’aplicació? La política no en dona cap nom.',
     ],
   },
 }
@@ -142,7 +142,7 @@ const alarmaDeLluvia: AppSeed = {
   categories: ['meteorologia'],
   tagline: 'Una política de privadesa de deu línies, però amb responsables identificats, dades a la UE i esborrat automàtic als 180 dies',
   summary:
-    'Rain Alarm avisa quan s’acosta la pluja a partir del radar, i per fer-ho necessita la ubicació fins i tot amb l’aplicació tancada. La política és curtíssima, però és de les poques d’aquest lot que diu coses concretes i comprovables: dos corresponsables identificats amb número d’IVA, dades pseudonimitzades i desades a la Unió Europea, i supressió automàtica 180 dies després de l’últim ús. La publicitat la serveix Google, i es pot treure amb una compra única.',
+    'Rain Alarm avisa quan s’acosta la pluja a partir del radar, i per fer-ho necessita la ubicació fins i tot amb l’aplicació tancada. La política és molt curta, però concreta: dos corresponsables identificats amb número d’IVA, dades pseudonimitzades i desades a la Unió Europea, i supressió automàtica 180 dies després de l’últim ús. La publicitat la serveix Google, i es pot treure amb una compra única.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'freemium',
   jurisdiction: 'Alemanya i Itàlia',
@@ -231,7 +231,7 @@ const alarmaDeLluvia: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: false,
     editorialNotes:
-      'El producte és d’origen italià (Michael Diener - Software, Merano) i el publica a iOS un desenvolupador independent establert a Berlín, amb corresponsabilitat declarada entre tots dos. És l’única política d’aquest lot que fixa un termini de conservació concret i que diu explícitament on es desen les dades. La contradicció pendent és que l’etiqueta de l’App Store declara dades de publicitat vinculades a la identitat mentre la política afirma que les dades són pseudonimitzades.',
+      'El producte és d’origen italià (Michael Diener - Software, Merano) i el publica a iOS un desenvolupador independent establert a Berlín, amb corresponsabilitat declarada entre tots dos. La política fixa un termini de conservació concret i diu explícitament on es desen les dades. La contradicció pendent és que l’etiqueta de l’App Store declara dades de publicitat vinculades a la identitat mentre la política afirma que les dades són pseudonimitzades.',
     openQuestions: [
       capCercaIncidents,
       'Per què l’etiqueta declara dades de publicitat vinculades a la identitat si la política diu que les dades són pseudonimitzades?',
@@ -346,10 +346,10 @@ const weatherLiveRadarNoaa: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: false,
     editorialNotes:
-      'El nom evoca l’agència meteorològica federal nord-americana, però no hem trobat cap indici de relació oficial amb la NOAA. La política és clarament una plantilla: taules de socis i de grup buides, l’errata «longer than year» al termini de conservació i una contradicció interna sobre l’edat mínima (13 anys al cos, 18 al resum). El domini liveweatheradar.com només serveix les pàgines legals; la pàgina d’inici és buida.',
+      'El nom evoca l’agència meteorològica federal nord-americana, però no hem trobat cap indici de relació oficial amb la NOAA. La política és una plantilla: taules de socis i de grup buides, l’errata «longer than year» al termini de conservació i una contradicció interna sobre l’edat mínima (13 anys al cos, 18 al resum). El domini liveweatheradar.com només serveix les pàgines legals; la pàgina d’inici és buida.',
     openQuestions: [
       capCercaIncidents,
-      'Quins SDK publicitaris i analítics incorpora realment l’aplicació, si l’etiqueta declara rastreig i la política no n’anomena cap?',
+      'Quins SDK publicitaris i analítics incorpora l’aplicació, si l’etiqueta declara rastreig i la política no n’anomena cap?',
       'L’aplicació exigeix compte? La política ho dona a entendre però la fitxa de l’App Store no declara dades de contacte.',
     ],
   },
@@ -376,7 +376,7 @@ const eltiempoEs: AppSeed = {
   accountRequired: f('no', 'official', ['eltiempo-es-app-store'], 'L’etiqueta no declara cap dada de contacte ni cap dada vinculada a la identitat. La política preveu comptes opcionals per a alguns serveis del web.'),
   openSource: unknown('No hem trobat publicat el codi de l’aplicació.'),
   dataSummary:
-    'La consulta del temps diu on ets i on tens previst anar. Aquí aquesta informació va acompanyada de l’identificador publicitari del mòbil i arriba a una desena de plataformes de compravenda d’anuncis, que la poden creuar amb el que fas en altres llocs.',
+    'Les consultes del temps indiquen on ets i on tens previst anar. En aquesta aplicació, aquesta informació va acompanyada de l’identificador publicitari del mòbil i arriba a una desena de plataformes de compravenda d’anuncis, que la poden creuar amb el que fas en altres llocs.',
   dataCollection: [
     row('ubicacio-precisa', 'yes', { linked: 'no', tracking: 'yes', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['eltiempo-es-app-store', 'eltiempo-es-privacy'], note: 'L’etiqueta la declara per rastrejar i no vinculada a la identitat. La fitxa avisa que l’aplicació pot fer servir la ubicació encara que no estigui oberta.' }),
     row('identificador-publicitari', 'yes', { linked: 'no', tracking: 'yes', shared: 'third-parties', purposes: ['publicitat-personalitzada', 'mesura-publicitaria'], sources: ['eltiempo-es-privacy', 'eltiempo-es-app-store'], note: 'La política l’anomena explícitament «ID de publicitat mòbil».' }),
@@ -461,7 +461,7 @@ const eltiempoEs: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: false,
     editorialNotes:
-      'La troballa d’aquesta fitxa és la data: una política revisada per últim cop el dia en què va començar a aplicar-se el RGPD i que vuit anys després continua vigent per a una aplicació amb rastreig publicitari declarat. La fitxa de l’App Store també fa constar que Pelmorex Corp. no s’ha identificat com a comerciant, cosa que, segons el mateix avís d’Apple, deixa fora els drets de consum de l’Espai Econòmic Europeu. Els casos coneguts de venda de dades d’ubicació d’aplicacions del temps afecten altres empreses: no hem trobat cap font que impliqui Pelmorex.',
+      'El punt principal d’aquesta fitxa és la data: la política es va revisar per últim cop el dia en què va començar a aplicar-se el RGPD i vuit anys després continua vigent per a una aplicació amb rastreig publicitari declarat. La fitxa de l’App Store també fa constar que Pelmorex Corp. no s’ha identificat com a comerciant, cosa que, segons el mateix avís d’Apple, deixa fora els drets de consum de l’Espai Econòmic Europeu. Els casos coneguts de venda de dades d’ubicació d’aplicacions del temps afecten altres empreses: no hem trobat cap font que impliqui Pelmorex.',
     openQuestions: [
       capCercaIncidents,
       'Quina plataforma de consentiment fa servir l’aplicació i està inscrita al marc de transparència de l’IAB?',
@@ -478,7 +478,7 @@ const shadowmap: AppSeed = {
   categories: ['meteorologia'],
   tagline: 'Cap dada declarada per rastrejar i un model de subscripció sense publicitat, però l’esborrat del compte només per correu',
   summary:
-    'Shadowmap simula on toca el sol i on hi ha ombra a qualsevol punt del món i a qualsevol hora. És una empresa petita de Viena que es finança amb subscripcions i llicències professionals, no amb publicitat: l’etiqueta de l’App Store no declara cap dada utilitzada per rastrejar i la política diu explícitament que no ven dades. El punt feble és el de sempre en els serveis petits: la política no anomena cap encarregat, no fixa terminis i l’esborrat del compte s’ha de demanar per correu.',
+    'Shadowmap simula on toca el sol i on hi ha ombra a qualsevol punt del món i a qualsevol hora. L’edita una empresa petita de Viena que es finança amb subscripcions i llicències professionals, sense publicitat. L’etiqueta de l’App Store no declara cap dada utilitzada per rastrejar i la política diu explícitament que no ven dades. En canvi, la política no anomena cap encarregat, no fixa terminis i l’esborrat del compte s’ha de demanar per correu.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'freemium',
   jurisdiction: 'Àustria',
@@ -518,7 +518,7 @@ const shadowmap: AppSeed = {
     thirdPartySharing: f('partial', 'official', ['shadowmap-privacy'], 'La política preveu compartir amb proveïdors i consultors, però no n’anomena cap.'),
     intraGroupSharing: na('No hem trobat cap grup empresarial: l’empresa és una societat austríaca independent.'),
     dataBrokerSales: f('no', 'official', ['shadowmap-privacy'], 'La política diu expressament que no ven dades a tercers.'),
-    internationalTransfers: f('partial', 'official', ['shadowmap-privacy'], 'La política invoca clàusules contractuals tipus i normes corporatives vinculants, però també l’Escut de Privadesa, anul·lat pel Tribunal de Justícia de la Unió Europea el 2020. És un senyal que el text no s’ha revisat.', { mechanism: 'sccs' }),
+    internationalTransfers: f('partial', 'official', ['shadowmap-privacy'], 'La política invoca clàusules contractuals tipus i normes corporatives vinculants, però també l’Escut de Privadesa, anul·lat pel Tribunal de Justícia de la Unió Europea el 2020, cosa que indica que el text no s’ha revisat.', { mechanism: 'sccs' }),
   },
   transparency: {
     policyClarity: 'medium',
@@ -569,7 +569,7 @@ const shadowmap: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: false,
     editorialNotes:
-      'L’avís legal identifica la societat amb número de registre mercantil al Handelsgericht de Viena i número d’IVA, cosa que fa que el responsable sigui perfectament identificable, a diferència de les altres aplicacions petites d’aquest lot. Com que l’aplicació permet crear compte, la directriu 5.1.1(v) de revisió de l’App Store exigeix que l’esborrat es pugui fer des de dins; la política només ofereix el correu i no hem pogut comprovar si el botó hi és.',
+      'L’avís legal identifica la societat amb número de registre mercantil al Handelsgericht de Viena i número d’IVA, cosa que fa que el responsable sigui perfectament identificable. Com que l’aplicació permet crear compte, la directriu 5.1.1(v) de revisió de l’App Store exigeix que l’esborrat es pugui fer des de dins; la política només ofereix el correu i no hem pogut comprovar si el botó hi és.',
     openQuestions: [
       capCercaIncidents,
       'L’aplicació té un botó d’eliminació del compte dins de la interfície, com exigeix la directriu 5.1.1(v) de l’App Store?',
@@ -586,7 +586,7 @@ const predictwind: AppSeed = {
   categories: ['meteorologia'],
   tagline: 'Comparteix nom, embarcació i coordenades GPS amb altres persones usuàries, i cobra 49 dòlars per una còpia de les teves dades',
   summary:
-    'PredictWind és el servei de previsió meteorològica marina que fan servir navegants i regatistes, amb seguiment del vaixell i missatgeria per satèl·lit. L’etiqueta de l’App Store és la més extensa d’aquest lot: sis categories declarades com a dades per rastrejar i vuit vinculades a la identitat. La política és detallada i enumera una vintena de proveïdors, però encara invoca l’Escut de Privadesa i, sobretot, anuncia una taxa administrativa de 49 dòlars per lliurar una còpia de les dades, cosa que xoca amb la gratuïtat que exigeix l’article 12.5 del RGPD.',
+    'PredictWind és el servei de previsió meteorològica marina que fan servir navegants i regatistes, amb seguiment del vaixell i missatgeria per satèl·lit. L’etiqueta de l’App Store és extensa: sis categories declarades com a dades per rastrejar i vuit vinculades a la identitat. La política és detallada i enumera una vintena de proveïdors, però encara invoca l’Escut de Privadesa i anuncia una taxa administrativa de 49 dòlars per lliurar una còpia de les dades, cosa que xoca amb la gratuïtat que exigeix l’article 12.5 del RGPD.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'subscription',
   jurisdiction: 'Nova Zelanda',
@@ -598,7 +598,7 @@ const predictwind: AppSeed = {
   accountRequired: f('yes', 'official', ['predictwind-privacy', 'predictwind-app-store'], 'Cal compte per accedir a les previsions i als plans de subscripció.'),
   openSource: unknown('No hem trobat publicat el codi de l’aplicació.'),
   dataSummary:
-    'La posició GPS d’una embarcació, amb el nom del vaixell i de la persona, és una dada d’una sensibilitat particular: diu on és algú enmig del mar i qui hi ha a bord. La política preveu, a més, que aquestes dades es puguin mostrar a altres persones usuàries segons la configuració.',
+    'La posició GPS d’una embarcació, amb el nom del vaixell i de la persona, és especialment sensible, perquè indica on és algú enmig del mar i qui hi ha a bord. La política preveu, a més, que aquestes dades es puguin mostrar a altres persones usuàries segons la configuració.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['predictwind-privacy', 'predictwind-app-store'] }),
     row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'atencio-a-lusuari'], sources: ['predictwind-privacy'] }),
@@ -658,7 +658,7 @@ const predictwind: AppSeed = {
   userRights: {
     dataExport: f('partial', 'official', ['predictwind-privacy'], 'La política reconeix l’accés i la portabilitat, però hi associa una taxa de 49 dòlars i no ofereix cap eina d’autoservei.'),
     exportFormatQuality: 'unknown',
-    rightsExercise: f('partial', 'official', ['predictwind-privacy'], 'És l’única fitxa d’aquest lot amb delegat de protecció de dades designat i representant a la Unió Europea identificat amb nom i adreça. La taxa de 49 dòlars per a la còpia de les dades en rebaixa el valor pràctic.', {
+    rightsExercise: f('partial', 'official', ['predictwind-privacy'], 'Té delegat de protecció de dades designat i representant a la Unió Europea identificat amb nom i adreça. La taxa de 49 dòlars per a la còpia de les dades en rebaixa el valor pràctic.', {
       url: 'mailto:privacy@predictwind.com',
     }),
   },
@@ -683,7 +683,7 @@ const predictwind: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: false,
     editorialNotes:
-      'És alhora la política més detallada i la més problemàtica del lot: enumera els proveïdors amb nom, designa delegat de protecció de dades i representant a la Unió Europea, i tot seguit cobra per exercir el dret d’accés i empara les transferències als Estats Units en un mecanisme anul·lat el 2020. La taxa de 49 dòlars és l’element que cal vigilar: si s’aplica a una persona resident a la Unió Europea, contradiu l’article 12.5 del RGPD.',
+      'La política és detallada, però planteja problemes: enumera els proveïdors amb nom, designa delegat de protecció de dades i representant a la Unió Europea, però cobra per exercir el dret d’accés i empara les transferències als Estats Units en un mecanisme anul·lat el 2020. Si la taxa de 49 dòlars s’aplica a una persona resident a la Unió Europea, contradiu l’article 12.5 del RGPD.',
     openQuestions: [
       capCercaIncidents,
       'La taxa de 49 dòlars per una còpia de les dades s’aplica també a les sol·licituds emparades en el RGPD?',
@@ -699,9 +699,9 @@ const aemet: AppSeed = {
   name: 'Aemet: tiempo y radar España',
   company: 'aemet',
   categories: ['meteorologia', 'administracio-publica'],
-  tagline: 'L’única aplicació del lot que declara que no recull cap dada, amb una política de quatre paràgrafs que no diu com exercir els drets',
+  tagline: 'Declara que no recull cap dada, amb una política de quatre paràgrafs que no diu com exercir els drets',
   summary:
-    'L’aplicació oficial de l’agència meteorològica estatal declara a l’App Store que no recull cap dada, i la política diu que la ubicació es gestiona dins del dispositiu i no s’envia a l’AEMET. És, de llarg, el perfil de dades més net d’aquest lot. La contrapartida és documental: la política té quatre paràgrafs, no identifica el responsable ni el delegat de protecció de dades, no diu com s’exerceixen els drets i no concreta quant de temps es conserven els registres d’accés, que sí que inclouen l’adreça IP.',
+    'L’aplicació oficial de l’agència meteorològica estatal declara a l’App Store que no recull cap dada, i la política diu que la ubicació es gestiona dins del dispositiu i no s’envia a l’AEMET. La documentació, en canvi, és mínima: la política té quatre paràgrafs, no identifica el responsable ni el delegat de protecció de dades, no diu com s’exerceixen els drets i no concreta quant de temps es conserven els registres d’accés, que sí que inclouen l’adreça IP.',
   platforms: ['ios', 'android', 'web', 'macos'],
   businessModel: 'public-service',
   jurisdiction: 'Espanya; agència estatal adscrita al Ministeri per a la Transició Ecològica i el Repte Demogràfic',
@@ -728,7 +728,7 @@ const aemet: AppSeed = {
     ),
     dpia: unknown('No hem trobat publicada cap avaluació d’impacte relativa a la protecció de dades d’aquest servei.'),
     ensConformity: unknown(
-      'No hem trobat cap declaració de conformitat amb l’Esquema Nacional de Seguretat (Reial decret 311/2022) ni al web de l’agència —inaccessible el dia de la verificació— ni a la seu electrònica.',
+      'No hem trobat cap declaració de conformitat amb l’Esquema Nacional de Seguretat (Reial decret 311/2022) ni al web de l’agència (inaccessible el dia de la verificació) ni a la seu electrònica.',
     ),
     dpo: f(
       'no',
@@ -740,7 +740,7 @@ const aemet: AppSeed = {
       'yes',
       'official',
       ['aemet-privacy-app', 'aemet-nota-legal'],
-      'No hi ha cap tràmit que depengui de l’aplicació: les prediccions, els avisos i les imatges de radar són accessibles sense instal·lar-la al web aemet.es —que és on es publiquen la política i la nota legal— i, a més, com a dades obertes reutilitzables.',
+      'No hi ha cap tràmit que depengui de l’aplicació: les prediccions, els avisos i les imatges de radar són accessibles sense instal·lar-la al web aemet.es (on es publiquen la política i la nota legal) i, a més, com a dades obertes reutilitzables.',
     ),
     accessibilityStatement: f(
       'partial',
@@ -757,7 +757,7 @@ const aemet: AppSeed = {
     ),
   },
   dataSummary:
-    'Si la política diu la veritat, el que queda del costat de l’AEMET és un registre d’accés amb l’adreça IP. És poc, però no és res: l’adreça IP és una dada personal i la política no diu ni durant quant de temps es conserva ni amb quina base jurídica.',
+    'Segons la política, l’única dada que queda del costat de l’AEMET és un registre d’accés amb l’adreça IP. L’adreça IP és una dada personal, i la política no diu durant quant de temps es conserva ni amb quina base jurídica.',
   dataCollection: [
     row('ubicacio-precisa', 'optional', { linked: 'no', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['aemet-privacy-app', 'aemet-app-store'], note: 'La política diu que la ubicació només la gestiona l’aplicació dins del dispositiu i que no s’envia a l’AEMET. La fitxa de l’App Store, però, avisa que l’aplicació pot fer servir la ubicació encara que no estigui oberta.' }),
     row('adreca-ip', 'yes', { linked: 'no', tracking: 'no', shared: 'none', purposes: ['mesura-i-analisi-dus', 'seguretat-i-prevencio-del-frau'], sources: ['aemet-privacy-app'], note: 'La política reconeix que els registres d’accés contenen l’adreça IP i que serveixen per fer estadístiques d’ús i assegurar el servei. L’etiqueta de l’App Store, en canvi, diu que no es recull cap dada.' }),
@@ -826,7 +826,7 @@ const aemet: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: false,
     editorialNotes:
-      'L’enllaç «Política de privacidad» de la fitxa de l’App Store apunta a la nota legal —un document del novembre del 2016 sobre reutilització de dades obertes— i ho fa per HTTP. La política de privadesa específica de l’aplicació existeix, però només s’enllaça des d’aemet.es. La declaració d’accessibilitat de la versió iOS diu «parcialment conforme» i es refereix a la versió 2.9, revisada el novembre del 2022, quan la publicada és la 3.1.7.',
+      'L’enllaç «Política de privacidad» de la fitxa de l’App Store apunta per HTTP a la nota legal, un document del novembre del 2016 sobre reutilització de dades obertes. La política de privadesa específica de l’aplicació existeix, però només s’enllaça des d’aemet.es. La declaració d’accessibilitat de la versió iOS diu «parcialment conforme» i es refereix a la versió 2.9, revisada el novembre del 2022, quan la publicada és la 3.1.7.',
     openQuestions: [
       capCercaIncidents,
       'Quant de temps es conserven els registres d’accés amb adreça IP i amb quina base jurídica?',
@@ -844,7 +844,7 @@ const laMevaSalut: AppSeed = {
   categories: ['salut-i-assistencia-sanitaria', 'administracio-publica'],
   tagline: 'Dades de salut declarades com a sensibles a l’App Store, i un «compte» que és una identitat digital que no es pot donar de baixa des de l’aplicació',
   summary:
-    'La Meva Salut és la porta d’entrada a la història clínica compartida de Catalunya: informes, medicació, vacunes, resultats de proves i cites. La política és exemplar en la part jurídica —responsable identificat, bases jurídiques citades article per article, cap transferència fora de la Unió Europea i terminis legals explícits— i és de les poques d’aquest lot que diu exactament què es conserva i durant quant de temps. El que no ofereix és una sortida: l’accés es fa amb idCAT Mòbil, certificat o Cl@ve, i la història clínica té terminis de conservació propis que no depenen de la voluntat de la persona.',
+    'La Meva Salut dona accés a la història clínica compartida de Catalunya: informes, medicació, vacunes, resultats de proves i cites. La part jurídica de la política és completa: responsable identificat, bases jurídiques citades article per article, cap transferència fora de la Unió Europea i terminis legals explícits. La política diu exactament què es conserva i durant quant de temps. En canvi, no hi ha manera de donar-se de baixa: l’accés es fa amb idCAT Mòbil, certificat o Cl@ve, i la història clínica té terminis de conservació propis que no depenen de la voluntat de la persona.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'public-service',
   jurisdiction: 'Catalunya; servei públic del Departament de Salut de la Generalitat',
@@ -907,14 +907,14 @@ const laMevaSalut: AppSeed = {
       'yes',
       'official',
       ['la-meva-salut-privacitat', 'la-meva-salut-llei-21-2000', 'la-meva-salut-llei-41-2002'],
-      'La història clínica té terminis de conservació imposats per llei, no decidits pel servei: l’article 17.1 de la Llei 41/2002 obliga a conservar la documentació clínica com a mínim cinc anys des de l’alta de cada procés assistencial, i l’article 12 de la Llei 21/2000 de Catalunya fixa quinze anys per al nucli de la documentació —consentiments informats, informes d’alta, fulls operatoris i d’anestèsia, proves complementàries i informes d’anatomia patològica— i la conservació indefinida del que sigui rellevant per a l’assistència, l’epidemiologia, la recerca o els efectes judicials. La política del servei recull aquests terminis, i el registre d’accessos es conserva un mínim de dos anys.',
+      'La història clínica té terminis de conservació imposats per llei, no decidits pel servei: l’article 17.1 de la Llei 41/2002 obliga a conservar la documentació clínica com a mínim cinc anys des de l’alta de cada procés assistencial, i l’article 12 de la Llei 21/2000 de Catalunya fixa quinze anys per al nucli de la documentació (consentiments informats, informes d’alta, fulls operatoris i d’anestèsia, proves complementàries i informes d’anatomia patològica) i la conservació indefinida del que sigui rellevant per a l’assistència, l’epidemiologia, la recerca o els efectes judicials. La política del servei recull aquests terminis, i el registre d’accessos es conserva un mínim de dos anys.',
     ),
   },
   dataSummary:
-    'És el conjunt de dades més sensible de tot el lot: diagnòstics, medicació, vacunes, resultats de proves i visites. A diferència de la resta, aquestes dades no les genera l’aplicació sinó el sistema sanitari, i la persona no en pot demanar l’esborrat: la llei obliga a conservar la història clínica.',
+    'És un conjunt de dades molt sensible: diagnòstics, medicació, vacunes, resultats de proves i visites. Les genera el sistema sanitari, no l’aplicació, i la persona no en pot demanar l’esborrat perquè la llei obliga a conservar la història clínica.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'compliment-legal'], sources: ['la-meva-salut-privacitat', 'la-meva-salut-app-store'] }),
-    row('document-identificatiu-oficial', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'seguretat-i-prevencio-del-frau'], sources: ['la-meva-salut-privacitat', 'la-meva-salut-catsalut'], note: 'La targeta sanitària individual i la identificació digital són la clau d’accés.' }),
+    row('document-identificatiu-oficial', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'seguretat-i-prevencio-del-frau'], sources: ['la-meva-salut-privacitat', 'la-meva-salut-catsalut'], note: 'La targeta sanitària individual i la identificació digital són les credencials d’accés.' }),
     row('dades-de-salut', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'compliment-legal', 'investigacio-i-estadistica'], sources: ['la-meva-salut-privacitat', 'la-meva-salut-app-store'], note: 'Dades de la història clínica compartida de Catalunya. L’etiqueta de l’App Store les declara vinculades a la identitat i inclou una categoria de «datos sensibles».' }),
     row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'atencio-a-lusuari'], sources: ['la-meva-salut-app-store', 'la-meva-salut-privacitat'] }),
     row('numero-de-telefon', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['la-meva-salut-app-store'], note: 'També és el segon factor d’idCAT Mòbil.' }),
@@ -965,7 +965,7 @@ const laMevaSalut: AppSeed = {
       'Per limitar qui pot consultar la teva història clínica compartida, demana-ho al teu centre d’atenció primària o per escrit al Departament de Salut.',
       'Per exercir els drets del RGPD, escriu a protecciodedades.salut@gencat.cat o al delegat de protecció de dades, a dpd@ticsalutsocial.cat.',
     ],
-    obstacles: 'No existeix cap camí d’autoservei. La supressió de la història clínica no és possible mentre corren els terminis legals de conservació, i això s’ha d’entendre com una garantia sanitària, no com un obstacle comercial.',
+    obstacles: 'No existeix cap camí d’autoservei. La supressió de la història clínica no és possible mentre corren els terminis legals de conservació, que responen a una garantia sanitària.',
     dataRetained: 'La història clínica, entre 5 i 15 anys des de l’alta de cada procés assistencial, i el registre d’accessos, un mínim de 2 anys.',
     sources: ['la-meva-salut-privacitat', 'la-meva-salut-catsalut'],
   },
@@ -999,7 +999,7 @@ const laMevaSalut: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: false,
     editorialNotes:
-      'La política designa com a responsable el Departament de Salut, mentre que la fitxa del servei el presenta com un servei gestionat pel CatSalut: és una incoherència entre dues fonts oficials que convé aclarir, perquè determina davant de qui s’exerceixen els drets. El registre d’accessos mereix una menció positiva: poder saber qui ha consultat la teva història clínica és una garantia que gairebé cap servei privat ofereix.',
+      'La política designa com a responsable el Departament de Salut, mentre que la fitxa del servei el presenta com un servei gestionat pel CatSalut: és una incoherència entre dues fonts oficials que convé aclarir, perquè determina davant de qui s’exerceixen els drets. El registre d’accessos permet saber qui ha consultat la teva història clínica, una garantia que gairebé cap servei privat ofereix.',
     openQuestions: [
       capCercaIncidents,
       'Qui és formalment el responsable del tractament, el Departament de Salut o el CatSalut?',
@@ -1030,7 +1030,7 @@ const vitaly: AppSeed = {
   accountRequired: f('yes', 'official', ['vitaly-privacy-app'], 'Cal donar el consentiment i identificar-se: la política diu que sense consentiment no es pot accedir a l’aplicació.'),
   openSource: unknown('No hem trobat publicat el codi de l’aplicació.'),
   dataSummary:
-    'Reconeixements mèdics, analítiques, telemedicina i salut mental lligats a la feina. És una combinació poc habitual: dades de salut i dades laborals al mateix lloc, en un servei que la persona no tria, sinó que li ve donat per l’empresa on treballa.',
+    'Reconeixements mèdics, analítiques, telemedicina i salut mental lligats a la feina. Hi conviuen dades de salut i dades laborals, en un servei que tria l’empresa on treballa la persona.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['vitaly-app-store', 'vitaly-privacy-app'] }),
     row('document-identificatiu-oficial', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'compliment-legal'], sources: ['vitaly-privacy-app'], note: 'Número de document i signatura.' }),
@@ -1066,7 +1066,7 @@ const vitaly: AppSeed = {
     transparencyReport: unknown('No hem trobat cap informe de transparència.'),
   },
   retention: {
-    definedPeriods: f('yes', 'official', ['vitaly-cancelacio'], 'La política de cancel·lació fixa un mínim de 5 anys, amparat en l’article 23 de la Llei 31/1995 de prevenció de riscos laborals i l’article 17.1 de la Llei 41/2002, ampliable per la normativa sanitària.'),
+    definedPeriods: f('yes', 'official', ['vitaly-cancelacio'], 'La política de cancel·lació fixa un mínim de 5 anys, emparat en l’article 23 de la Llei 31/1995 de prevenció de riscos laborals i l’article 17.1 de la Llei 41/2002, ampliable per la normativa sanitària.'),
     dataAfterDeletion: f('yes', 'official', ['vitaly-cancelacio'], 'La documentació de vigilància de la salut s’ha de conservar encara que la persona demani la supressió, mentre corren els terminis legals.'),
     periods: [
       { dataType: 'dades-de-salut', period: 'Mínim 5 anys (Llei 31/1995 i Llei 41/2002), ampliable per la normativa sanitària específica', sources: ['vitaly-cancelacio'] },
@@ -1085,7 +1085,7 @@ const vitaly: AppSeed = {
       'Si Vítaly actua com a encarregat per compte de la teva empresa, et derivarà al responsable: has de repetir la sol·licitud davant de l’empresa ocupadora.',
     ],
     obstacles:
-      'La sol·licitud exigeix un formulari en format .docx i una còpia del document d’identitat, cosa que és un obstacle en si mateixa. A més, en molts casos Vítaly actua com a encarregat del tractament i deriva la petició a l’empresa ocupadora, que és qui decideix.',
+      'La sol·licitud exigeix un formulari en format .docx i una còpia del document d’identitat, dos requisits que ja dificulten la petició. A més, en molts casos Vítaly actua com a encarregat del tractament i deriva la petició a l’empresa ocupadora, que és qui decideix.',
     dataRetained: 'La documentació de vigilància de la salut, durant un mínim de cinc anys.',
     sources: ['vitaly-drets', 'vitaly-cancelacio'],
   },
@@ -1118,7 +1118,7 @@ const vitaly: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'El cercador de resolucions de l’AEPD no retorna cap resultat per als termes «preving», «preving investments», «cualtis» ni «vitaly». La fitxa té dues discrepàncies documentades: el venedor a l’App Store és Preving Investments, S.L., mentre que el responsable del tractament declarat és Vítaly Health Services, S.L.U.; i l’etiqueta de l’App Store no declara cap dada de salut tot i que la política sí que les enumera. Cal recordar que l’ús d’aquesta aplicació no és una tria lliure: la relació ve donada per l’empresa on es treballa.',
+      'El cercador de resolucions de l’AEPD no retorna cap resultat per als termes «preving», «preving investments», «cualtis» ni «vitaly». La fitxa té dues discrepàncies documentades: el venedor a l’App Store és Preving Investments, S.L., mentre que el responsable del tractament declarat és Vítaly Health Services, S.L.U.; i l’etiqueta de l’App Store no declara cap dada de salut tot i que la política sí que les enumera. L’ús d’aquesta aplicació no el tria la persona usuària: el determina l’empresa on treballa.',
     openQuestions: [
       'Com es concilia «no es fan transferències fora de la Unió Europea» amb el paràgraf que preveu el tractament per Microsoft Ireland i la transferència als Estats Units?',
       'Per què l’etiqueta de l’App Store no declara cap dada de salut si la política les enumera expressament?',
@@ -1136,7 +1136,7 @@ const technogym: AppSeed = {
   categories: ['benestar-i-activitat-fisica'],
   tagline: 'Declara rastreig per identificadors a l’App Store i «no es comparteixen dades amb tercers» a Google Play, i conserva les dades deu anys després d’eliminar el compte',
   summary:
-    'L’aplicació de la marca italiana de maquinària de gimnàs connecta els aparells, els entrenaments i el compte Mywellness. L’etiqueta de l’App Store declara ubicació exacta, dades de forma física, fotos i identificadors vinculats a la identitat, i els identificadors també com a dades per rastrejar; la fitxa de Google Play, en canvi, diu que no es comparteixen dades amb tercers. La política és clara en un punt important: encara que el compte s’elimini immediatament, les dades de compres i d’ús es conserven deu anys abans d’anonimitzar-les.',
+    'L’aplicació de la marca italiana de maquinària de gimnàs connecta els aparells, els entrenaments i el compte Mywellness. L’etiqueta de l’App Store declara ubicació exacta, dades de forma física, fotos i identificadors vinculats a la identitat, i els identificadors també com a dades per rastrejar; la fitxa de Google Play, en canvi, diu que no es comparteixen dades amb tercers. La política diu que, encara que el compte s’elimini immediatament, les dades de compres i d’ús es conserven deu anys abans d’anonimitzar-les.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'freemium',
   jurisdiction: 'Itàlia',
@@ -1149,7 +1149,7 @@ const technogym: AppSeed = {
   accountRequired: f('partial', 'official', ['technogym-privacy'], 'Als aparells d’un gimnàs s’hi pot entrenar sense compte de Technogym, i llavors el responsable és el gimnàs. Per fer servir l’aplicació i sincronitzar els entrenaments cal compte, i llavors Technogym passa a ser responsable independent de les mateixes dades.'),
   openSource: unknown('No hem trobat publicat el codi de l’aplicació.'),
   dataSummary:
-    'Un registre d’entrenaments diu quan fas exercici, a quina intensitat i, amb la ubicació exacta, on. Afegit a les fotos del perfil i a l’historial de compres, dibuixa una rutina setmanal molt precisa que, segons l’etiqueta, es fa servir també per a màrqueting i personalització.',
+    'Un registre d’entrenaments diu quan fas exercici, a quina intensitat i, amb la ubicació exacta, on. Amb les fotos del perfil i l’historial de compres, permet reconstruir una rutina setmanal molt precisa que, segons l’etiqueta, es fa servir també per a màrqueting i personalització.',
   dataCollection: [
     row('dades-de-salut', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'personalitzacio-de-continguts'], sources: ['technogym-app-store', 'technogym-privacy'], note: 'L’etiqueta declara «Salud y forma física (Forma física)» vinculada a la identitat.' }),
     row('ubicacio-precisa', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['technogym-app-store'], note: 'L’etiqueta la declara sota «Funcionalidad de la app» i vinculada a la identitat.' }),
@@ -1174,7 +1174,7 @@ const technogym: AppSeed = {
     aiTraining: unknown('La política no diu res sobre l’entrenament de models, tot i que el producte inclou un entrenador amb intel·ligència artificial.'),
   },
   sharing: {
-    thirdPartySharing: f('partial', 'official', ['technogym-privacy', 'technogym-play-store'], 'La política preveu corresponsables locals —sucursals i distribuïdors— per a venda, manteniment i màrqueting. La fitxa de Google Play, en canvi, declara que no es comparteixen dades amb tercers, cosa que xoca amb el rastreig per identificadors declarat a l’App Store.'),
+    thirdPartySharing: f('partial', 'official', ['technogym-privacy', 'technogym-play-store'], 'La política preveu corresponsables locals (sucursals i distribuïdors) per a venda, manteniment i màrqueting. La fitxa de Google Play, en canvi, declara que no es comparteixen dades amb tercers, cosa que xoca amb el rastreig per identificadors declarat a l’App Store.'),
     intraGroupSharing: f('yes', 'official', ['technogym-privacy'], 'Sucursals i distribuïdors locals actuen com a corresponsables del tractament.'),
     dataBrokerSales: unknown('La política no esmenta cap venda de dades.'),
     internationalTransfers: f('partial', 'official', ['technogym-privacy'], 'La política diu que adopta mesures específiques per legitimar les transferències a tercers països, però no concreta ni el mecanisme ni els països.', { mechanism: 'unknown' }),
@@ -1200,7 +1200,7 @@ const technogym: AppSeed = {
       'Si entrenes en un gimnàs, contacta a part amb la instal·lació: eliminar el compte de Technogym no esborra les dades que té el gimnàs, que n’és responsable per separat.',
       'Si vols conservar-ne una còpia, demana la portabilitat abans, perquè un cop anonimitzades les dades ja no es poden recuperar.',
     ],
-    obstacles: 'La conservació de deu anys de les dades de compres i d’ús convé llegir-la abans: el compte desapareix però el registre d’activitat no.',
+    obstacles: 'Les dades de compres i d’ús es conserven deu anys: el compte desapareix, però el registre d’activitat no.',
     dataRetained: 'Dades de compres i d’ús durant deu anys, fins a l’anonimització.',
     sources: ['technogym-privacy'],
   },
@@ -1232,7 +1232,7 @@ const technogym: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'El cercador de resolucions del Garante per la protezione dei dati personali no retorna cap provisió atribuïble a Technogym. La URL que la fitxa de l’App Store publica com a política de privadesa no funciona: la política accessible en castellà és una altra. La distinció més útil de la política és la de rols: al gimnàs, Technogym és encarregat i el responsable és la instal·lació; si es connecta el compte, Technogym passa a ser responsable independent de les mateixes dades.',
+      'El cercador de resolucions del Garante per la protezione dei dati personali no retorna cap provisió atribuïble a Technogym. La URL que la fitxa de l’App Store publica com a política de privadesa no funciona: la política accessible en castellà és una altra. La política distingeix dos rols: al gimnàs, Technogym és encarregat i el responsable és la instal·lació; si es connecta el compte, Technogym passa a ser responsable independent de les mateixes dades.',
     openQuestions: [
       'Quina és la data de l’última revisió de la política? No consta al document.',
       'L’aplicació permet eliminar el compte des de dins, com exigeix la directriu 5.1.1(v) de l’App Store?',
@@ -1522,7 +1522,7 @@ export const lot: SeedLot = {
     }),
     s('departament-salut-registre-tractament', 'Registre d’activitats de tractament del Departament de Salut', 'https://salutweb.gencat.cat/web/.content/_departament/proteccio-de-dades/registre-activitats-tractament.xlsx', 'Departament de Salut', 'support-doc', 'primary', {
       language: 'ca',
-      summary: 'Full de càlcul amb les activitats de tractament del Departament, amb responsable, delegat (dpd@ticsalutsocial.cat), bases jurídiques —articles 6.1.c), 6.1.e), 6.1.d) i 9.2 del RGPD, Llei 21/2000, Llei 16/2020 i Llei 41/2002—, terminis de conservació i mesures de seguretat remeses al «Marc de ciberseguretat per a la protecció de dades». No hi consta cap activitat anomenada La Meva Salut.',
+      summary: 'Full de càlcul amb les activitats de tractament del Departament, amb responsable, delegat (dpd@ticsalutsocial.cat), bases jurídiques (articles 6.1.c), 6.1.e), 6.1.d) i 9.2 del RGPD, Llei 21/2000, Llei 16/2020 i Llei 41/2002), terminis de conservació i mesures de seguretat remeses al «Marc de ciberseguretat per a la protecció de dades». No hi consta cap activitat anomenada La Meva Salut.',
     }),
     s('catsalut-registre-tractament', 'Registre d’activitats de tractament del CatSalut', 'https://catsalut.gencat.cat/ca/coneix-catsalut/proteccio-de-dades/registre-activitats-tractament/', 'Servei Català de la Salut', 'support-doc', 'primary', {
       language: 'ca',

@@ -198,7 +198,7 @@ export default async function CompanyPage({ params }: { params: Promise<{ slug: 
           <h2>Informació addicional</h2>
           <div className="scroller" role="region" tabIndex={0} aria-label={`Informació addicional ${de(company.name)}`}>
             <table>
-              <caption className="visually-hidden">Informació addicional de {company.name}</caption>
+              <caption className="visually-hidden">{`Informació addicional ${de(company.name)}`}</caption>
               <tbody>
                 {companyApps.length > 0 ? (
                   <tr>

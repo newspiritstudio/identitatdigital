@@ -49,7 +49,7 @@ export default async function InstitutionsPage() {
         Reglament general de protecció de dades.
       </p>
       <p>
-        Moltes entitats tenen, ara mateix, un encarregat del tractament amb qui no han signat res,
+        Moltes entitats tenen un encarregat del tractament amb qui no han signat res,
         del qual no coneixen els subencarregats i del qual no saben com recuperarien les dades si
         volguessin marxar.
       </p>
@@ -70,7 +70,7 @@ export default async function InstitutionsPage() {
         <li>
           <strong>Decidiu si cal avaluació d’impacte.</strong> Si l’eina tracta categories especials
           de dades o dades de menors a gran escala, la resposta és que sí, i s’ha de fer abans de
-          desplegar-la, no després.
+          desplegar-la.
         </li>
         <li>
           <strong>Demaneu el contracte d’encarregat per escrit.</strong> Amb la llista de
@@ -78,20 +78,20 @@ export default async function InstitutionsPage() {
           internacionals i el procediment de retorn i supressió en acabar.
         </li>
         <li>
-          <strong>Comproveu que hi ha sortida.</strong> Format d’exportació, termini i cost. Una eina
-          de la qual no se’n pot sortir no és una decisió reversible, i les decisions irreversibles
-          necessiten més justificació, no menys.
+          <strong>Comproveu que hi ha sortida.</strong> Format d’exportació, termini i cost. Triar una
+          eina de la qual no es pot sortir és una decisió irreversible, i una decisió irreversible
+          necessita més justificació.
         </li>
         <li>
           <strong>No traslladeu el cost a les famílies.</strong> Si la solució obliga cada família a
-          obrir un compte en una plataforma comercial, l’entitat no ha eliminat el tractament: l’ha
-          externalitzat a qui té menys capacitat de negociar-lo. Ha d’existir sempre una via
+          obrir un compte en una plataforma comercial, el tractament continua existint, però
+          l’entitat el trasllada a qui té menys capacitat de negociar-lo. Ha d’existir sempre una via
           alternativa que no obligui a registrar-se enlloc.
         </li>
         <li>
           <strong>Deixeu-ho escrit i poseu-hi data de revisió.</strong> Les condicions de les
-          plataformes canvien sense avisar. Si l’expedient no porta data de caducitat, la decisió no
-          es tornarà a mirar mai.
+          plataformes canvien sense avisar, i sense una data de revisió a l’expedient la decisió no es
+          torna a mirar.
         </li>
       </ol>
 
@@ -104,7 +104,7 @@ export default async function InstitutionsPage() {
         <li>
           <strong>Exclusió expressa de l’entrenament de models.</strong> El contingut de l’entitat
           queda fora de qualsevol entrenament, propi o de tercers. Feu-ho constar encara que avui el
-          proveïdor no entreni res: les condicions s’actualitzen.
+          proveïdor no entreni res, perquè les condicions canvien.
         </li>
         <li>
           <strong>Notificació de violacions de seguretat en 24 hores.</strong> L’entitat té 72 hores
@@ -140,11 +140,11 @@ export default async function InstitutionsPage() {
         ))}
       </ul>
 
-      <h2>Què no és això</h2>
+      <h2>Abast</h2>
       <p>
-        No és un dictamen jurídic, no substitueix l’avaluació d’impacte quan cal fer-la i no diu
-        «contracta» ni «no contractis». És la preparació de l’expedient: els punts que s’han de
-        valorar, el que en sabem i d’on ho hem tret. La decisió i la responsabilitat són de l’òrgan
+        Aquesta secció serveix per preparar l’expedient: recull els punts que s’han de valorar, el
+        que en sabem i d’on ho hem tret. No és un dictamen jurídic, no substitueix l’avaluació
+        d’impacte quan cal fer-la i no recomana contractar ni deixar de contractar cap eina. La decisió i la responsabilitat són de l’òrgan
         de contractació. Tot el que hi ha a sota es pot descarregar sencer a la pàgina de{' '}
         <Link href="/dades">dades obertes</Link> i es pot refer amb el{' '}
         <Link href="/metodologia">mètode publicat</Link>.

@@ -76,10 +76,10 @@ export default async function GroupsPage() {
     <>
       <h1>Qui acumula les fitxes</h1>
       <p className="lede">
-        La pregunta d’aquesta pàgina no és de qui és cada aplicació —això ja ho diu la fitxa— sinó
-        quantes de les aplicacions que fem servir acaben a la mateixa taula. Un grup es defineix
-        aquí per la matriu última: pugem per la cadena de propietat fins a l’empresa que ja no en té
-        cap per damunt.
+        Aquesta pàgina compta quantes de les aplicacions del directori pertanyen a un mateix grup
+        empresarial. De qui és cada aplicació ja ho diu la seva fitxa. Un grup es defineix aquí per
+        la matriu última: pugem per la cadena de propietat fins a l’empresa que ja no en té cap per
+        damunt.
       </p>
 
       <KeyNumbers>
@@ -94,8 +94,8 @@ export default async function GroupsPage() {
         {multiApp.length > 0
           ? `Només ${num(multiApp.length)} grups tenen més d’una fitxa al directori; tots els altres en tenen una.`
           : 'Cada grup té una sola fitxa al directori.'}{' '}
-        La columna de tipus de dada és la unió dels que recullen totes les aplicacions del grup: és
-        el perfil que en surt sumat, no el de l’aplicació que més en reculli.
+        La columna de tipus de dada és la unió dels que recullen totes les aplicacions del grup, és
+        a dir, el perfil sumat del grup i no el de l’aplicació que més en recull.
       </p>
       <Scroller label="Grups empresarials del corpus, amb fitxes, tipus de dada acumulats, empreses, seu i model d’ingressos">
         <table>
@@ -134,19 +134,18 @@ export default async function GroupsPage() {
         </table>
       </Scroller>
 
-      <h2>Per què importa la concentració</h2>
+      <h2>La concentració</h2>
       <p>
         Una aplicació sola veu una part de la vida de qui la fa servir. {groups[0]?.rootName} en té{' '}
         {num(groups[0]?.appCount ?? 0)} al directori i, entre totes, hi acumula{' '}
         {num(groups[0]?.dataTypeCount ?? 0)} tipus de dada diferents. Cap de les seves aplicacions
-        no recull tant per si sola: el que hi ha és un cercador, un mapa, un vídeo i un navegador
-        que responen a la mateixa casa.
+        no en recull tants per si sola: són un cercador, un mapa, un servei de vídeo i un navegador
+        que pertanyen a la mateixa empresa.
       </p>
       <p>
-        D’un perfil així se’n dedueix més que de la suma de les parts. Qui sap què cerques i on vas,
-        o amb qui parles i què mires, pot respondre preguntes que cap de les dades no responia per
-        separat. Per això mirem de qui és cada aplicació i no només què diu la seva política de
-        privadesa.
+        Combinar dades permet deduir-ne d’altres. Qui sap què cerques i on vas, o amb qui parles i
+        què mires, pot respondre preguntes que cap d’aquestes dades no respon per separat. Per això
+        mirem de qui és cada aplicació, a més del que diu la seva política de privadesa.
       </p>
       {groups[0] ? (
         <table>
@@ -175,8 +174,8 @@ export default async function GroupsPage() {
 
       <h2>El graf de cessions</h2>
       <p>
-        Aquest graf només dibuixa les cessions que podem anomenar: aquelles on el destinatari té nom
-        i fitxa al directori. Té {num(graph.edges.length)} arestes
+        Aquest graf només dibuixa les cessions on el destinatari té nom i fitxa al directori. Té{' '}
+        {num(graph.edges.length)} arestes
         {onlyIntraGroupEdges ? ' i totes són intragrup' : ''}, i el gruix de cada traç és
         proporcional al nombre de files de la matriu de dades que la sustenten.
       </p>
@@ -206,10 +205,10 @@ export default async function GroupsPage() {
         </tbody>
       </table>
       <p>
-        Llegit literalment, el graf diu una cosa molt concreta: que les dades pugen de la filial
-        europea a la matriu. Una filial com {graph.edges[0]?.fromName} existeix en bona part per fer
-        de responsable del tractament davant del Reglament europeu, i la compartició amb el grup és,
-        precisament, el mecanisme pel qual el que recull acaba on decideix qui mana.
+        El graf mostra que les dades passen de la filial europea a la matriu. Una filial com{' '}
+        {graph.edges[0]?.fromName} existeix en bona part per fer de responsable del tractament
+        davant del Reglament europeu, i la compartició amb el grup és el mecanisme pel qual el que
+        recull arriba a la matriu, que és qui decideix.
       </p>
 
       <h2>El buit més gran del model</h2>
@@ -222,9 +221,9 @@ export default async function GroupsPage() {
       </p>
       <Note>
         Aquestes {num(graph.rowsToThirdParties + graph.rowsToBrokers)} files no es converteixen en
-        cap node inventat del graf: un destinatari sense nom no és un node, és un forat. Mentre
-        aquest forat sigui aquest, el graf de cessions no es pot llegir com un mapa complet dels
-        fluxos de dades, sinó com el mapa de la part que les polítiques de privadesa anomenen.
+        cap node del graf, perquè no inventem destinataris sense nom. Per tant, el graf de cessions
+        no és un mapa complet dels fluxos de dades: només mostra la part que les polítiques de
+        privadesa identifiquen.
       </Note>
       <table>
         <caption className="visually-hidden">
@@ -256,8 +255,8 @@ export default async function GroupsPage() {
 
       <h2>Incidents i sancions per grup</h2>
       <p>
-        El directori registra {num(incidents.total)} incidents —bretxes, sancions, resolucions i
-        usos indeguts— repartits així entre els grups:
+        El directori registra {num(incidents.total)} incidents (bretxes, sancions, resolucions i
+        usos indeguts), repartits així entre els grups:
       </p>
       <table>
         <caption className="visually-hidden">
@@ -286,11 +285,11 @@ export default async function GroupsPage() {
       </table>
       <Note>
         Aquesta taula no és una taxa de reincidència. El registre d’incidents és una selecció
-        editorial dels casos rellevants i documentats, no un cens: un grup amb més incidents pot
-        tenir-ne més perquè n’ha comès més, perquè és més gran o perquè és més vigilat. Dels{' '}
-        {num(incidents.total)} incidents, {num(incidents.finesWithoutAmount)} tenen actuació
-        administrativa sense import documentat, i {millions(incidents.overturnedFinesEur)} milions
-        d’euros del total anunciat corresponen a sancions anul·lades o reduïdes.
+        editorial dels casos rellevants i documentats i no un cens complet. Un grup amb més
+        incidents pot tenir-ne més perquè n’ha comès més, perquè és més gran o perquè és més
+        vigilat. Dels {num(incidents.total)} incidents, {num(incidents.finesWithoutAmount)} tenen
+        actuació administrativa sense import documentat, i {millions(incidents.overturnedFinesEur)}{' '}
+        milions d’euros del total anunciat corresponen a sancions anul·lades o reduïdes.
       </Note>
 
       <p>

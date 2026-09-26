@@ -218,7 +218,7 @@ export const lot: SeedLot = {
     s('bsm-registre-tractament', 'Registre d’Activitats de Tractament de B:SM', 'https://transparencia.bsmsa.cat/coneix-BSM/registre-dactivitats-de-tractament', 'Barcelona de Serveis Municipals', 'privacy-center', 'primary', {
       language: 'ca',
       summary:
-        'Registre publicat al portal de transparència de B:SM, en full de càlcul, PDF i CSV. Inclou una activitat anomenada «Gestió d’usuaris SMOU», però totes les caselles —finalitat, base jurídica, destinataris i terminis— hi diuen «En revisió». Identifica la delegada de protecció de dades i remet les mesures de seguretat a l’annex II del Reial decret 311/2022.',
+        'Registre publicat al portal de transparència de B:SM, en full de càlcul, PDF i CSV. Inclou una activitat anomenada «Gestió d’usuaris SMOU», però totes les caselles (finalitat, base jurídica, destinataris i terminis) hi diuen «En revisió». Identifica la delegada de protecció de dades i remet les mesures de seguretat a l’annex II del Reial decret 311/2022.',
     }),
     s('bsm-ens-certificat', 'Certificación de conformidad con el Esquema Nacional de Seguridad — Barcelona Serveis Municipals', 'https://transparencia.bsmsa.cat/sites/default/files/Media/Files/2026-03/ENS%20certificate_BSM_signedDNV.pdf', 'DNV Business Assurance', 'audit', 'independent', {
       language: 'es',
@@ -339,7 +339,7 @@ export const lot: SeedLot = {
       categories: ['mapes-i-navegacio', 'mobilitat-i-transport'],
       tagline: 'Avisador de radars que finança el servei amb publicitat i puntua la fiabilitat de qui avisa',
       summary:
-        'Radarbot té una de les polítiques de privadesa més detallades del lot: anomena un a un els catorze proveïdors que hi intervenen, des d’AdMob i Meta fins a Braze i Intercom, i distingeix la publicitat personalitzada (només amb consentiment) de la contextual. A canvi, recull la trajectòria de conducció —posicions, velocitat aproximada i rumb— i aplica un sistema de reputació, el Trust Score, que pot limitar funcions o suspendre el compte.',
+        'Radarbot té una política de privadesa detallada: anomena un a un els catorze proveïdors que hi intervenen, des d’AdMob i Meta fins a Braze i Intercom, i distingeix la publicitat personalitzada (només amb consentiment) de la contextual. També recull la trajectòria de conducció (posicions, velocitat aproximada i rumb) i aplica un sistema de reputació, el Trust Score, que pot limitar funcions o suspendre el compte.',
       platforms: ['ios', 'android'],
       businessModel: 'freemium',
       jurisdiction: 'Espanya',
@@ -352,7 +352,7 @@ export const lot: SeedLot = {
       accountRequired: f('no', 'official', ['radarbot-privacy-policy'], 'La política tracta el correu com una dada que l’usuari pot facilitar o no; el compte serveix per a la subscripció premium i la sincronització.'),
       openSource: f('no', 'official', ['radarbot-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'La combinació de posicions GPS contínues, destinacions desades i velocitat aproximada dibuixa el mapa dels desplaçaments habituals de qui condueix. La política diu que aquestes dades es pseudonimitzen i que després s’anonimitzen, però mentre duren van lligades a un identificador d’instal·lació.',
+        'La combinació de posicions GPS contínues, destinacions desades i velocitat aproximada mostra els desplaçaments habituals de qui condueix. La política diu que aquestes dades es pseudonimitzen i que després s’anonimitzen, però mentre duren van lligades a un identificador d’instal·lació.',
       dataCollection: [
         row('adreca-electronica', 'optional', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'atencio-a-lusuari'], sources: ['radarbot-app-store', 'radarbot-privacy-policy'], note: 'Es comparteix amb Braze per a les comunicacions i amb RevenueCat per a la facturació; la política diu que no se cedeix a tercers amb finalitat publicitària.' }),
         row('nom-i-cognoms', 'optional', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['radarbot-app-store', 'radarbot-privacy-policy'], note: 'Dins del perfil voluntari, amb àlies, nom i cognoms.' }),
@@ -365,7 +365,7 @@ export const lot: SeedLot = {
         row('ubicacio-precisa', 'yes', { linked: 'no', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'millora-del-producte'], sources: ['radarbot-app-store', 'radarbot-privacy-policy'], note: 'Posicions GPS, velocitat aproximada, rumb i marques de temps lligades a un identificador de sessió o d’instal·lació, compartides amb proveïdors de mapes i trànsit.' }),
         row('ubicacio-aproximada', 'yes', { linked: 'unknown', tracking: 'yes', shared: 'third-parties', purposes: ['publicitat-personalitzada'], sources: ['radarbot-privacy-policy'], note: 'Els socis publicitaris deriven el país o la ciutat a partir de l’adreça IP.' }),
         row('adreca-ip', 'yes', { linked: 'unknown', tracking: 'yes', shared: 'third-parties', purposes: ['publicitat-personalitzada', 'seguretat-i-prevencio-del-frau'], sources: ['radarbot-privacy-policy'] }),
-        row('adreca-postal', 'optional', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['radarbot-privacy-policy'], note: 'Les destinacions desades com «Casa» o «Feina» són, de fet, adreces postals.' }),
+        row('adreca-postal', 'optional', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['radarbot-privacy-policy'], note: 'Les destinacions desades com «Casa» o «Feina» són adreces postals.' }),
         row('historial-de-cerca', 'yes', { linked: 'no', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei', 'millora-del-producte'], sources: ['radarbot-privacy-policy'], note: 'Rutes, viatges i destinacions introduïdes o desades.' }),
         row('publicacions-i-comentaris', 'optional', { linked: 'unknown', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei', 'moderacio-de-continguts'], sources: ['radarbot-privacy-policy'], note: 'Els avisos que la comunitat reporta, amb les dades tècniques mínimes per validar-los.' }),
         row('interaccions-i-us', 'yes', { linked: 'no', tracking: 'no', shared: 'third-parties', purposes: ['mesura-i-analisi-dus', 'millora-del-producte'], sources: ['radarbot-app-store', 'radarbot-privacy-policy'] }),
@@ -396,7 +396,7 @@ export const lot: SeedLot = {
         transparencyReport: unknown('No hem trobat cap informe de transparència sobre peticions d’autoritats.'),
       },
       retention: {
-        definedPeriods: f('partial', 'official', ['radarbot-privacy-policy'], 'Descriu criteris per a cada categoria —dades de compte mentre hi hagi compte, mobilitat «per períodes limitats»— però no dona cap xifra.'),
+        definedPeriods: f('partial', 'official', ['radarbot-privacy-policy'], 'Descriu criteris per a cada categoria (dades de compte mentre hi hagi compte, mobilitat «per períodes limitats»), però no dona cap xifra.'),
         dataAfterDeletion: f('partial', 'official', ['radarbot-privacy-policy'], 'En casos de frau o abús, conserva identificadors tècnics i registres mínims; la resta s’elimina o s’anonimitza.'),
       },
       accountDeletion: {
@@ -458,7 +458,7 @@ export const lot: SeedLot = {
       categories: ['mapes-i-navegacio', 'mobilitat-i-transport'],
       tagline: 'Planificador de transport públic que guarda l’adreça de casa i la fa servir per personalitzar publicitat',
       summary:
-        'Citymapper necessita saber on ets i on vas per fer la seva feina, però l’etiqueta de l’App Store mostra que la ubicació precisa, l’adreça postal i l’historial de cerca també van a parar a la publicitat de tercers i a la «publicitat o màrqueting del desenvolupador». Des del 2023 forma part de Via Transportation, i les dades agregades poden servir per entrenar els seus models d’intel·ligència artificial.',
+        'Citymapper fa servir la ubicació per planificar trajectes, i l’etiqueta de l’App Store declara que la ubicació precisa, l’adreça postal i l’historial de cerca també s’utilitzen per a la publicitat de tercers i a la «publicitat o màrqueting del desenvolupador». Des del 2023 forma part de Via Transportation, i les dades agregades poden servir per entrenar els seus models d’intel·ligència artificial.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'freemium',
       jurisdiction: 'Regne Unit',
@@ -550,7 +550,7 @@ export const lot: SeedLot = {
         vulnerabilityDisclosure: unknown('El domini citymapper.com no serveix cap fitxer security.txt vàlid.'),
       },
       alternatives: [
-        { app: 'moovit', comparability: 'equivalent', rationale: 'Cobreix les mateixes ciutats amb transport públic en temps real.', tradeOffs: 'És d’Intel i també viu de la publicitat i de la venda de dades de mobilitat agregades.' },
+        { app: 'moovit', comparability: 'equivalent', rationale: 'Cobreix les mateixes ciutats amb transport públic en temps real.', tradeOffs: 'És d’Intel i també es finança amb la publicitat i de la venda de dades de mobilitat agregades.' },
         { app: 'momego', comparability: 'equivalent', rationale: 'Fa la mateixa feina amb una política molt més minimalista: la ubicació es tracta en memòria i no es vincula a la identitat.', tradeOffs: 'Cobreix menys serveis i no integra pagaments ni bicicletes compartides.' },
       ],
       review: {
@@ -558,7 +558,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: false,
         editorialNotes:
-          'El contrast rellevant és entre el text de la política, que presenta la publicitat com una finalitat secundària, i l’etiqueta de l’App Store, que declara la ubicació precisa i l’adreça postal sota «publicitat o màrqueting del desenvolupador». No hem pogut fer la cerca d’incidents.',
+          'La política presenta la publicitat com una finalitat secundària, però l’etiqueta de l’App Store declara la ubicació precisa i l’adreça postal sota «publicitat o màrqueting del desenvolupador». No hem pogut fer la cerca d’incidents.',
         openQuestions: [
           'Quins són els socis publicitaris concrets?',
           'Després de la compra per Via Transportation, quines dades de mobilitat es comparteixen amb els clients públics del grup?',
@@ -572,7 +572,7 @@ export const lot: SeedLot = {
       name: 'MutuaMás',
       company: 'mutua-madrilena',
       categories: ['mobilitat-i-transport', 'banca-i-finances'],
-      tagline: 'Una asseguradora converteix l’aparcament i el peatge en una superapp amb una política de privadesa de fa una dècada',
+      tagline: 'L’app d’una asseguradora per pagar l’aparcament i el peatge, amb una política de privadesa que sembla anterior al RGPD',
       summary:
         'MutuaMás paga el parquímetre, reserva aparcament, demana taxi i gestiona les pòlisses, però la política de privadesa que enllaça a l’App Store encara parla de drets «d’accés, rectificació, cancel·lació i oposició», la terminologia anterior al RGPD, i no identifica el delegat de protecció de dades. L’etiqueta de l’App Store no declara cap dada vinculada a la identitat, cosa difícil de quadrar amb una aplicació on es paga i es consulten assegurances.',
       platforms: ['ios', 'android'],
@@ -633,7 +633,7 @@ export const lot: SeedLot = {
           'Per suprimir les dades, escriu a la Unidad de Cumplimiento Normativo, calle Fortuny 18, 28010 Madrid, o truca al 900 102 711.',
         ],
         obstacles:
-          'La política no dona cap adreça electrònica per exercir els drets ni identifica el delegat de protecció de dades: la via documentada és el correu postal o el telèfon.',
+          'La política no dona cap adreça electrònica per exercir els drets ni identifica el delegat de protecció de dades, i les úniques vies documentades són el correu postal i el telèfon.',
         sources: ['mutuamas-privacy-policy'],
       },
       userRights: {
@@ -697,8 +697,8 @@ export const lot: SeedLot = {
       publicService: {
         isPublicService: true,
         administrationLevel: 'local',
-        legalBasis: f('no', 'official', ['bsm-privacy-policy', 'bsm-registre-tractament'], 'La política de B:SM no declara cap base jurídica: remet la licitud de cada finalitat al registre d’activitats de tractament. I l’activitat «Gestió d’usuaris SMOU» del registre té la casella de la base jurídica amb el text «En revisió». El servei municipal que cobra l’estacionament regulat de Barcelona no diu, doncs, quina norma empara el tractament.'),
-        processingRegistry: f('partial', 'official', ['bsm-registre-tractament'], 'B:SM publica el registre al portal de transparència, en full de càlcul, PDF i CSV, i s’hi localitza l’activitat «Gestió d’usuaris SMOU». Però és una fila buida: finalitat, base jurídica, categories d’interessats, destinataris i terminis de conservació hi consten com a «En revisió». El registre existeix i l’activitat s’hi troba; el contingut, no.', { url: 'https://transparencia.bsmsa.cat/coneix-BSM/registre-dactivitats-de-tractament' }),
+        legalBasis: f('no', 'official', ['bsm-privacy-policy', 'bsm-registre-tractament'], 'La política de B:SM no declara cap base jurídica: remet la licitud de cada finalitat al registre d’activitats de tractament. I l’activitat «Gestió d’usuaris SMOU» del registre té la casella de la base jurídica amb el text «En revisió». Per tant, B:SM no diu quina norma empara el tractament.'),
+        processingRegistry: f('partial', 'official', ['bsm-registre-tractament'], 'B:SM publica el registre al portal de transparència, en full de càlcul, PDF i CSV, i s’hi localitza l’activitat «Gestió d’usuaris SMOU». Però la finalitat, la base jurídica, les categories d’interessats, els destinataris i els terminis de conservació hi consten com a «En revisió».', { url: 'https://transparencia.bsmsa.cat/coneix-BSM/registre-dactivitats-de-tractament' }),
         dpia: unknown('B:SM no publica cap avaluació d’impacte relativa a la protecció de dades, ni al portal de transparència ni al registre d’activitats de tractament.'),
         ensConformity: f('yes', 'independent', ['bsm-ens-certificat'], 'Certificat de conformitat amb el Reial decret 311/2022 emès per DNV, número C849967-ENS amb acreditació ENAC, vigent del 10 de febrer de 2026 al 10 de febrer de 2028. L’abast cita expressament els sistemes que sostenen «los servicios digitales para la movilidad urbana ofrecidos por Barcelona de Serveis Municipals a través de la aplicación SMOU», amb 68 mesures de categoria mitjana.', { category: 'medium', url: 'https://transparencia.bsmsa.cat/sites/default/files/Media/Files/2026-03/ENS%20certificate_BSM_signedDNV.pdf' }),
         dpo: f('yes', 'official', ['bsm-privacy-policy', 'bsm-registre-tractament'], 'B:SM ha nomenat delegada de protecció de dades, Núria Furquet Suàrez, amb contacte publicat tant a l’avís legal com a cada fitxa del registre d’activitats de tractament.', { contact: 'dpo@bsmsa.cat' }),
@@ -787,7 +787,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: false,
         editorialNotes:
-          'El responsable real del tractament és B:SM, tot i que l’App Store presenta l’Ajuntament de Barcelona com a desenvolupador i enllaça l’avís legal genèric del consistori. Les condicions d’ús diuen que la localització es tracta de manera anònima, però l’etiqueta declara ubicació precisa vinculada a la identitat: són dues afirmacions difícils de conciliar. No hem pogut fer la cerca d’incidents.',
+          'El responsable del tractament és B:SM, tot i que l’App Store presenta l’Ajuntament de Barcelona com a desenvolupador i enllaça l’avís legal genèric del consistori. Les condicions d’ús diuen que la localització es tracta de manera anònima, però l’etiqueta declara ubicació precisa vinculada a la identitat. No hem pogut fer la cerca d’incidents.',
         openQuestions: [
           'Per què l’etiqueta declara el correu per a màrqueting si B:SM no documenta aquesta finalitat?',
           'Quina activitat del registre de tractaments de B:SM empara SMOU i amb quina base jurídica?',
@@ -804,7 +804,7 @@ export const lot: SeedLot = {
       categories: ['mobilitat-i-transport', 'administracio-publica'],
       tagline: 'L’aplicació oficial del transport de París no declara cap dada de rastreig, però la seva política és inaccessible des d’Espanya',
       summary:
-        'L’app de l’autoritat de transport de la regió de París ven títols, recarrega el passi Navigo i planifica trajectes. L’etiqueta de l’App Store és de les més contingudes del lot: cap dada utilitzada per rastrejar i la ubicació declarada com a no vinculada a la identitat. No hem pogut documentar-ne res més: el web d’Île-de-France Mobilités bloqueja les consultes automatitzades amb un error 403 i la política de confidencialitat no s’ha deixat llegir.',
+        'L’app de l’autoritat de transport de la regió de París ven títols, recarrega el passi Navigo i planifica trajectes. L’etiqueta de l’App Store és continguda: cap dada utilitzada per rastrejar i la ubicació declarada com a no vinculada a la identitat. No hem pogut documentar-ne res més: el web d’Île-de-France Mobilités bloqueja les consultes automatitzades amb un error 403 i la política de confidencialitat no s’ha deixat llegir.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'public-service',
       jurisdiction: 'França',
@@ -819,12 +819,12 @@ export const lot: SeedLot = {
         isPublicService: true,
         administrationLevel: 'other',
         legalBasis: f('partial', 'official', ['ile-de-france-mobilites-donnees-personnelles'], 'La política invoca el Reglament (UE) 2016/679 i la llei 78-17 «Informatique et libertés» i assigna una base jurídica a cada finalitat: execució de les condicions generals, interès legítim, consentiment per a la prospecció comercial no anàloga i «mission de service public d’Île-de-France Mobilités» per a les comunicacions als usuaris del transport. Cita les normes, però no els articles, i no identifica la norma que crea l’autoritat.', { norm: 'Reglament (UE) 2016/679 i llei 78-17 de 6 de gener de 1978' }),
-        processingRegistry: f('no', 'official', ['ile-de-france-mobilites-donnees-personnelles'], 'La política declara que els tractaments «ont fait l’objet d’une inscription au registre des traitements tenus par le délégué à la protection des données», però aquest registre no es publica enlloc. El dret francès no imposa publicar-lo —l’article 31 de la LOPDGDD és espanyol—, i per això el que hauria de ser verificable queda intern.'),
+        processingRegistry: f('no', 'official', ['ile-de-france-mobilites-donnees-personnelles'], 'La política declara que els tractaments «ont fait l’objet d’une inscription au registre des traitements tenus par le délégué à la protection des données», però aquest registre no es publica enlloc. El dret francès no obliga a publicar-lo (l’article 31 de la LOPDGDD és espanyol), i per això no es pot consultar.'),
         dpia: unknown('No hem trobat cap avaluació d’impacte publicada sobre el compte Île-de-France Mobilités ni sobre el passi Navigo, i el web de l’autoritat bloqueja les consultes automatitzades.'),
         ensConformity: na('L’Esquema Nacional de Seguretat és espanyol i no s’aplica a una autoritat francesa.'),
         dpo: f('yes', 'official', ['ile-de-france-mobilites-donnees-personnelles'], 'Île-de-France Mobilités ha designat una delegada de protecció de dades amb contacte publicat, i la política reparteix explícitament els àmbits de competència entre aquest delegat i el de Comutitres S.A.S., que gestiona els títols Navigo.', { contact: 'dpo@iledefrance-mobilites.fr' }),
-        offlineAlternative: f('yes', 'official', ['ile-de-france-mobilites-donnees-personnelles'], 'La mateixa política enumera els títols en suport físic —passi Navigo, Navigo Easy, Navigo Découverte i el bitllet de cartró magnètic— i un servei d’atenció telefònica unificat, de manera que viatjar i comprar títols no depèn de l’aplicació.'),
-        accessibilityStatement: f('partial', 'official', ['ile-de-france-mobilites-accessibilite'], 'La norma aplicable no és el Reial decret 1112/2018 sinó l’article 47 de la Llei 2005-102 i el referencial francès RGAA. La declaració, establerta el 12 de desembre de 2024 i actualitzada el 4 de setembre de 2025, es declara «partiellement conforme»: l’auditoria RGAA 4.1.2 de Temesis dona 52,24 % de criteris respectats, amb 32 de no conformes, i obre la via del Défenseur des droits. Cobreix el lloc web; de l’aplicació mòbil no en diu res.', { url: 'https://www.iledefrance-mobilites.fr/accessibilite' }),
+        offlineAlternative: f('yes', 'official', ['ile-de-france-mobilites-donnees-personnelles'], 'La mateixa política enumera els títols en suport físic (passi Navigo, Navigo Easy, Navigo Découverte i el bitllet de cartró magnètic) i un servei d’atenció telefònica unificat, de manera que viatjar i comprar títols no depèn de l’aplicació.'),
+        accessibilityStatement: f('partial', 'official', ['ile-de-france-mobilites-accessibilite'], 'La norma aplicable és l’article 47 de la Llei 2005-102 i el referencial francès RGAA, no el Reial decret 1112/2018. La declaració, establerta el 12 de desembre de 2024 i actualitzada el 4 de setembre de 2025, es declara «partiellement conforme»: l’auditoria RGAA 4.1.2 de Temesis dona 52,24 % de criteris respectats, amb 32 de no conformes, i obre la via del Défenseur des droits. Cobreix el lloc web; de l’aplicació mòbil no en diu res.', { url: 'https://www.iledefrance-mobilites.fr/accessibilite' }),
         mandatoryRetention: f('no', 'official', ['ile-de-france-mobilites-donnees-personnelles'], 'El compte es pot tancar a petició de la persona usuària i es tanca sol als dos anys d’inactivitat. L’arxivament posterior es limita al que exigeixin obligacions legals o al termini de prescripció, sense que cap norma impedeixi marxar.'),
       },
       dataSummary:
@@ -900,7 +900,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: false,
         editorialNotes:
-          'Fitxa amb moltes llacunes deliberades. L’única font que hem pogut verificar és l’etiqueta de privadesa de l’App Store espanyol; la política de confidencialitat i la resta del web responen amb un error 403 des de la nostra connexió. Caldria tornar-hi des d’una connexió francesa. No hem pogut fer la cerca d’incidents ni consultar posicionaments de la CNIL.',
+          'Fitxa amb moltes llacunes. L’única font que hem pogut verificar és l’etiqueta de privadesa de l’App Store espanyol; la política de confidencialitat i la resta del web responen amb un error 403 des de la nostra connexió. Caldria tornar-hi des d’una connexió francesa. No hem pogut fer la cerca d’incidents ni consultar posicionaments de la CNIL.',
         openQuestions: [
           'Quina és la base jurídica del tractament: missió d’interès públic, contracte o consentiment?',
           'Quant de temps es conserven les dades de validació i de compra de títols?',
@@ -918,7 +918,7 @@ export const lot: SeedLot = {
       categories: ['mobilitat-i-transport'],
       tagline: 'Cotxe compartit que segueix la ubicació de tothom durant el trajecte perquè ho exigeix el programa de certificats d’estalvi',
       summary:
-        'WAIIS organitza els desplaçaments diaris compartint cotxe i tramita per als seus usuaris els Certificats d’Estalvi Energètic. Per justificar-los davant del ministeri ha de seguir la ubicació exacta del conductor i dels passatgers durant tot el trajecte, vinculada al compte de cadascú: sense aquest permís no hi ha bo. És també la política més concreta del lot en terminis —seixanta dies per esborrar un compte tancat, cinc anys d’inactivitat— i en encarregats, que anomena un a un.',
+        'WAIIS organitza els desplaçaments diaris compartint cotxe i tramita per als seus usuaris els Certificats d’Estalvi Energètic. Per justificar-los davant del ministeri ha de seguir la ubicació exacta del conductor i dels passatgers durant tot el trajecte, vinculada al compte de cadascú, i sense aquest permís no hi ha bo. La política també és concreta en terminis (seixanta dies per esborrar un compte tancat, cinc anys d’inactivitat) i en encarregats, que anomena un a un.',
       platforms: ['ios', 'android'],
       businessModel: 'commerce',
       jurisdiction: 'Espanya',
@@ -1008,7 +1008,7 @@ export const lot: SeedLot = {
             type: 'unbalanced-consent',
             severity: 'medium',
             description:
-              'L’accés a l’incentiu econòmic dels Certificats d’Estalvi Energètic està condicionat a autoritzar la ubicació exacta durant tot el trajecte. La política ho presenta com un requisit legal del ministeri, però el resultat és que la persona no pot triar.',
+              'L’accés a l’incentiu econòmic dels Certificats d’Estalvi Energètic està condicionat a autoritzar la ubicació exacta durant tot el trajecte. La política ho presenta com un requisit legal del ministeri, però la persona no pot triar.',
             sources: ['waiis-privacy-policy'],
           },
         ],
@@ -1027,7 +1027,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: false,
         editorialNotes:
-          'La política del 12 de maig del 2026 és notablement detallada per a una empresa d’aquesta mida: anomena tots els encarregats amb la seva ubicació, dona terminis concrets i explica quan comença i quan acaba el seguiment de la ubicació. La contradicció rellevant és que l’etiqueta de l’App Store declara la ubicació com a dada no vinculada a la identitat, mentre la política diu que es vincula al compte. No hem pogut fer la cerca d’incidents.',
+          'La política del 12 de maig del 2026 és molt detallada per a una empresa d’aquesta mida: anomena tots els encarregats amb la seva ubicació, dona terminis concrets i explica quan comença i quan acaba el seguiment de la ubicació. En canvi, l’etiqueta de l’App Store declara la ubicació com a dada no vinculada a la identitat, mentre que la política diu que es vincula al compte. No hem pogut fer la cerca d’incidents.',
         openQuestions: [
           'Per què l’etiqueta de l’App Store declara els contactes del telèfon si la política no els esmenta?',
           'Quina és la funció d’intel·ligència artificial que anuncia l’app i amb quines dades s’entrena?',
@@ -1043,7 +1043,7 @@ export const lot: SeedLot = {
       categories: ['mobilitat-i-transport', 'administracio-publica'],
       tagline: 'L’app de transport valenciana només declara la ubicació, però l’enllaç de privadesa que publica a l’App Store no existeix',
       summary:
-        'GVA SUMA-T mostra horaris i parades del transport metropolità de València i anuncia que en el futur vendrà títols digitals amb un moneder virtual. L’etiqueta de privadesa és mínima: només la ubicació precisa, declarada com a no vinculada a la identitat, i cap dada de rastreig. Però la política de privadesa que declara a l’App Store, una nota legal de gva.es, respon «recurso no encontrado»: l’aplicació no té cap document de privadesa consultable.',
+        'GVA SUMA-T mostra horaris i parades del transport metropolità de València i anuncia que en el futur vendrà títols digitals amb un moneder virtual. L’etiqueta de privadesa és mínima: només la ubicació precisa, declarada com a no vinculada a la identitat, i cap dada de rastreig. Però la política de privadesa que declara a l’App Store, una nota legal de gva.es, respon «recurso no encontrado», i l’aplicació no té cap document de privadesa consultable.',
       platforms: ['ios', 'android'],
       businessModel: 'public-service',
       jurisdiction: 'Espanya',
@@ -1056,17 +1056,17 @@ export const lot: SeedLot = {
       publicService: {
         isPublicService: true,
         administrationLevel: 'regional',
-        legalBasis: f('partial', 'official', ['atmv-rat-atencio-client', 'gva-suma-t-app-store'], 'L’ATMV, l’organisme que hi ha darrere de sumat.gva.es, sí que documenta la licitud dels seus tractaments: l’article 6.1.e del RGPD, concretat en l’article 90 de la Llei 13/2016 de mesures fiscals, que crea l’Autoritat, i en el Decret 81/2017 del Consell que n’aprova el reglament. Però cap activitat cobreix l’aplicació, i l’enllaç de privadesa que la Generalitat declara a l’App Store no existeix: l’app mateixa no diu amb quina norma tracta la ubicació.', { norm: 'Article 6.1.e del RGPD, article 90 de la Llei 13/2016 i Decret 81/2017 del Consell' }),
+        legalBasis: f('partial', 'official', ['atmv-rat-atencio-client', 'gva-suma-t-app-store'], 'L’ATMV, l’organisme que hi ha darrere de sumat.gva.es, sí que documenta la licitud dels seus tractaments: l’article 6.1.e del RGPD, concretat en l’article 90 de la Llei 13/2016 de mesures fiscals, que crea l’Autoritat, i en el Decret 81/2017 del Consell que n’aprova el reglament. Però cap activitat cobreix l’aplicació, i l’enllaç de privadesa que la Generalitat declara a l’App Store no existeix, de manera que l’app no diu amb quina norma tracta la ubicació.', { norm: 'Article 6.1.e del RGPD, article 90 de la Llei 13/2016 i Decret 81/2017 del Consell' }),
         processingRegistry: f('partial', 'official', ['atmv-proteccio-de-dades'], 'L’ATMV publica el registre d’activitats de tractament al seu web, fitxa per fitxa en PDF: vint activitats, de la gestió de targetes personalitzades a l’atenció al client. Cap no esmenta l’aplicació GVA SUMA-T ni el tractament de la ubicació dels dispositius, de manera que el registre existeix però l’activitat del servei no s’hi localitza.', { url: 'https://atmv.gva.es/va/proteccio-de-dades' }),
         dpia: unknown('No hem trobat cap avaluació d’impacte publicada, ni a l’ATMV ni a la Generalitat Valenciana, sobre aquesta aplicació.'),
         ensConformity: unknown('La seu electrònica de la Generalitat inclou el Reial decret 311/2022 a la llista de normativa reguladora, però no hi hem trobat cap declaració ni certificació de conformitat, i menys encara amb l’abast d’aquesta aplicació.'),
         dpo: f('yes', 'official', ['atmv-proteccio-de-dades'], 'L’ATMV remet a la delegada de protecció de dades de la Generalitat, amb correu i adreça postal a la Ciutat Administrativa 9 d’Octubre. És un contacte únic per a tota l’Administració autonòmica, no específic del servei.', { contact: 'dpd@gva.es' }),
-        offlineAlternative: f('yes', 'official', ['atmv-oficina-atencio', 'gva-suma-t-app-store'], 'L’aplicació, de moment, només consulta horaris i parades. L’ATMV manté una oficina d’atenció presencial a l’estació de metro de Colón amb horari i telèfons publicats, i un mapa dels punts de venda físics de títols: res del que fa l’app no obliga a instal·lar-la.'),
-        accessibilityStatement: f('partial', 'official', ['gva-accessibilitat'], 'La pàgina d’accessibilitat de gva.es diu que el portal s’ha desenvolupat «seguint» el Reial decret 1112/2018, però no declara el grau de conformitat, no porta data, no publica cap resultat d’auditoria ni obre la via de reclamació que la norma exigeix. I parla del portal web: l’aplicació, que el mateix reial decret cobreix, no té declaració pròpia.', { url: 'https://www.gva.es/accessibilitat' }),
+        offlineAlternative: f('yes', 'official', ['atmv-oficina-atencio', 'gva-suma-t-app-store'], 'L’aplicació, de moment, només consulta horaris i parades. L’ATMV manté una oficina d’atenció presencial a l’estació de metro de Colón amb horari i telèfons publicats, i un mapa dels punts de venda físics de títols, i tot el que fa l’app es pot fer sense instal·lar-la.'),
+        accessibilityStatement: f('partial', 'official', ['gva-accessibilitat'], 'La pàgina d’accessibilitat de gva.es diu que el portal s’ha desenvolupat «seguint» el Reial decret 1112/2018, però no declara el grau de conformitat, no porta data, no publica cap resultat d’auditoria ni obre la via de reclamació que la norma exigeix. A més, parla del portal web, i l’aplicació, que el mateix reial decret cobreix, no té declaració pròpia.', { url: 'https://www.gva.es/accessibilitat' }),
         mandatoryRetention: f('no', 'official', ['gva-suma-t-app-store'], 'En la versió actual l’aplicació no crea cap compte ni obre cap expedient, de manera que no hi ha res que cap norma obligui a conservar.'),
       },
       dataSummary:
-        'Amb la informació disponible, l’únic que revela l’aplicació és on ets quan consultes un horari. Si arriba el moneder virtual anunciat, la imatge canviarà del tot i caldrà tornar a revisar la fitxa.',
+        'Amb la informació disponible, l’únic que revela l’aplicació és on ets quan consultes un horari. Si arriba el moneder virtual anunciat, caldrà tornar a revisar la fitxa.',
       dataCollection: [
         row('ubicacio-precisa', 'yes', { linked: 'no', tracking: 'no', shared: 'unknown', purposes: ['prestacio-del-servei'], sources: ['gva-suma-t-app-store'], note: 'És l’única categoria que declara l’etiqueta de privadesa, per al funcionament de l’aplicació.' }),
       ],
@@ -1126,7 +1126,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: false,
         editorialNotes:
-          'La troballa principal és documental: l’enllaç de política de privadesa que la Generalitat Valenciana declara a l’App Store, www.gva.es/es/inicio/nota_legal, retorna «El recurso solicitado no ha sido encontrado». Tampoc hem trobat cap avís de privadesa a sumat.gva.es. La fitxa queda amb molts desconeguts per aquest motiu, no per manca de recerca. No hem pogut fer la cerca d’incidents.',
+          'L’enllaç de política de privadesa que la Generalitat Valenciana declara a l’App Store, www.gva.es/es/inicio/nota_legal, retorna «El recurso solicitado no ha sido encontrado». Tampoc hem trobat cap avís de privadesa a sumat.gva.es. Per aquest motiu la fitxa té molts desconeguts. No hem pogut fer la cerca d’incidents.',
         openQuestions: [
           'Quina activitat del registre de tractaments de la Generalitat empara aquesta aplicació i amb quina base jurídica?',
           'Qui és el responsable concret: la conselleria d’Infraestructures o l’Autoritat de Transport Metropolità de València?',
@@ -1155,7 +1155,7 @@ export const lot: SeedLot = {
       accountRequired: unknown('Ni la fitxa de l’App Store ni la política aclareixen si cal registrar-se per compartir la ubicació.'),
       openSource: f('no', 'official', ['compartir-ubicacion-gps-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'La ubicació precisa i contínua és l’objecte mateix de l’aplicació. El problema no és que la reculli, sinó que no hi ha cap document que digui qui la guarda, on, quant de temps ni amb qui la comparteix.',
+        'La ubicació precisa i contínua és l’objecte mateix de l’aplicació. Cap document no diu qui la guarda, on, quant de temps ni amb qui la comparteix.',
       dataCollection: [
         row('ubicacio-precisa', 'yes', { linked: 'no', tracking: 'no', shared: 'unknown', purposes: ['prestacio-del-servei'], sources: ['compartir-ubicacion-gps-app-store', 'compartir-ubicacion-gps-privacy-policy'], note: 'L’etiqueta la declara per al funcionament de l’app i com a dada no vinculada a la identitat. La política admet que pot transmetre dades de localització anonimitzades a serveis externs.' }),
         row('interaccions-i-us', 'yes', { linked: 'no', tracking: 'yes', shared: 'third-parties', purposes: ['publicitat-personalitzada', 'mesura-i-analisi-dus'], sources: ['compartir-ubicacion-gps-app-store'], note: 'Declarada per a «publicitat de tercers» i utilitzada per rastrejar en apps i webs d’altres empreses.' }),
@@ -1226,7 +1226,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: false,
         editorialNotes:
-          'La política és una plantilla generada, redactada en primera persona del singular («the information that I request»), sense data ni versió. Hi ha un desajust notable entre el nom del venedor a l’App Store, Van Hoa Nguyen, i el responsable que declara la política, Alphalogy Studio: una aplicació que comparteix ubicació en temps real hauria d’identificar amb claredat qui respon de les dades. No hem pogut fer la cerca d’incidents.',
+          'La política és una plantilla generada, redactada en primera persona del singular («the information that I request»), sense data ni versió. Hi ha un desajust entre el nom del venedor a l’App Store, Van Hoa Nguyen, i el responsable que declara la política, Alphalogy Studio, de manera que no queda clar qui respon de les dades d’una aplicació que comparteix la ubicació en temps real. No hem pogut fer la cerca d’incidents.',
         openQuestions: [
           'Qui és el responsable del tractament als efectes del RGPD, la persona física o Alphalogy Studio?',
           'On s’emmagatzemen les ubicacions compartides i quant de temps?',
@@ -1243,7 +1243,7 @@ export const lot: SeedLot = {
       categories: ['mapes-i-navegacio'],
       tagline: 'Navegació amb estètica de videojoc i una política de plantilla que signa una persona física, no l’empresa',
       summary:
-        'Game Maps IRL redibuixa el mapa del teu entorn amb l’estil dels mapes de videojocs coneguts i ofereix navegació a CarPlay. L’etiqueta de l’App Store és més exigent del que suggereix una app d’estètica: ubicació precisa, adreça postal, historial de cerca i identificadors vinculats a la identitat, amb identificadors declarats per rastrejar. La política és una plantilla generada, signada a títol personal pel fundador i no per l’empresa turca que figura com a venedora.',
+        'Game Maps IRL redibuixa el mapa del teu entorn amb l’estil dels mapes de videojocs coneguts i ofereix navegació a CarPlay. L’etiqueta de l’App Store declara més dades del que faria pensar una app estètica: ubicació precisa, adreça postal, historial de cerca i identificadors vinculats a la identitat, amb identificadors declarats per rastrejar. La política és una plantilla generada, signada a títol personal pel fundador i no per l’empresa turca que figura com a venedora.',
       platforms: ['ios'],
       businessModel: 'freemium',
       jurisdiction: 'Turquia',
@@ -1256,7 +1256,7 @@ export const lot: SeedLot = {
       accountRequired: f('no', 'official', ['game-maps-irl-privacy-policy'], 'La política diu que el registre no és obligatori, tot i que algunes funcions poden requerir-lo.'),
       openSource: f('no', 'official', ['game-maps-irl-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'La ubicació precisa i l’historial de cerca, vinculats a la identitat i lligats a identificadors que serveixen per rastrejar, donen a una aplicació decorativa la mateixa capacitat de seguiment que un navegador complet.',
+        'La ubicació precisa i l’historial de cerca, vinculats a la identitat i lligats a identificadors que serveixen per rastrejar, permeten seguir els desplaçaments de qui fa servir l’aplicació, tot i que la seva funció és decorativa.',
       dataCollection: [
         row('ubicacio-precisa', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'personalitzacio-de-continguts'], sources: ['game-maps-irl-app-store', 'game-maps-irl-privacy-policy'], note: 'La política admet que transmet periòdicament dades de localització anonimitzades a serveis externs.' }),
         row('ubicacio-aproximada', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['game-maps-irl-app-store'] }),
@@ -1335,7 +1335,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: false,
         editorialNotes:
-          'La política és una plantilla del generador habitual d’aplicacions mòbils, datada l’11 de març del 2025 i idèntica per a la desena d’apps de l’estudi. Diu que el «proveïdor del servei» és Emre Cem Çelik a títol personal, mentre que l’App Store identifica com a venedora Retry Apps Yazılım Limited Şirketi: per a una persona usuària europea no queda clar davant de qui exerceix els drets. La pàgina de la política només es pot llegir amb JavaScript activat. No hem pogut fer la cerca d’incidents.',
+          'La política és una plantilla del generador habitual d’aplicacions mòbils, datada l’11 de març del 2025 i idèntica per a la desena d’apps de l’estudi. Diu que el «proveïdor del servei» és Emre Cem Çelik a títol personal, mentre que l’App Store identifica com a venedora Retry Apps Yazılım Limited Şirketi, de manera que a una persona usuària europea no li queda clar davant de qui exerceix els drets. La pàgina de la política només es pot llegir amb JavaScript activat. No hem pogut fer la cerca d’incidents.',
         openQuestions: [
           'Qui és el responsable del tractament: l’empresa o la persona física que signa la política?',
           'Què són els identificadors que l’etiqueta declara per rastrejar, si la política no esmenta cap soci publicitari?',
@@ -1351,7 +1351,7 @@ export const lot: SeedLot = {
       categories: ['mobilitat-i-transport', 'mapes-i-navegacio'],
       tagline: 'Transport públic amb la ubicació processada només en memòria i sense cap dada vinculada a la identitat',
       summary:
-        'Momego és el cas contrari a la resta del lot: una política curta que explica decisions tècniques concretes de minimització. La ubicació es converteix en cel·les H3 i només viatja en memòria mentre dura el trajecte; l’analítica va a un OpenPanel autoallotjat; el correu de suport s’esborra trenta dies després de tancar la incidència. L’etiqueta de l’App Store ho confirma: cap dada vinculada a la identitat i cap dada de rastreig, tot i que integra AppLovin i AdMob per als anuncis.',
+        'Momego té una política curta que explica decisions tècniques concretes de minimització. La ubicació es converteix en cel·les H3 i només es manté en memòria mentre dura el trajecte; l’analítica va a un OpenPanel autoallotjat; el correu de suport s’esborra trenta dies després de tancar la incidència. L’etiqueta de l’App Store no declara cap dada vinculada a la identitat ni cap dada de rastreig, tot i que l’app integra AppLovin i AdMob per als anuncis.',
       platforms: ['ios', 'android'],
       businessModel: 'advertising',
       jurisdiction: 'Regne Unit',
@@ -1364,7 +1364,7 @@ export const lot: SeedLot = {
       accountRequired: f('no', 'official', ['momego-privacy-policy'], 'La política no descriu cap registre: el correu només es recull si s’escriu al suport.'),
       openSource: f('no', 'official', ['momego-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'En un servei que sap a quina parada ets i cap a on vas, Momego ha triat no guardar-ho: la ubicació es generalitza en cel·les H3, es tracta en memòria i s’esborra en acabar el viatge. El que queda és l’analítica d’ús i els identificadors que reclamen les xarxes publicitàries.',
+        'Momego no desa a quina parada ets ni cap a on vas: la ubicació es generalitza en cel·les H3, es tracta en memòria i s’esborra en acabar el viatge. Sí que recull l’analítica d’ús i els identificadors que demanen les xarxes publicitàries.',
       dataCollection: [
         row('ubicacio-aproximada', 'yes', { linked: 'no', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['momego-privacy-policy', 'momego-app-store'], note: 'La política diu que es fa servir la cel·la H3 durant el viatge i que no es desa un cop acabat; l’etiqueta la declara per a «publicitat de tercers».' }),
         row('ubicacio-precisa', 'yes', { linked: 'no', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['momego-app-store'], note: 'Declarada per al funcionament de l’app i com a dada no vinculada a la identitat.' }),
@@ -1388,7 +1388,7 @@ export const lot: SeedLot = {
         aiTraining: unknown('La política no en diu res.'),
       },
       sharing: {
-        thirdPartySharing: f('partial', 'official', ['momego-privacy-policy'], 'AppLovin, AdMob, Bugsnag, RevenueCat i els serveis de notificacions de Google i Apple; l’analítica es queda a casa.'),
+        thirdPartySharing: f('partial', 'official', ['momego-privacy-policy'], 'AppLovin, AdMob, Bugsnag, RevenueCat i els serveis de notificacions de Google i Apple; l’analítica és autoallotjada.'),
         intraGroupSharing: f('unknown', 'unknown', ['momego-terms'], 'Les condicions d’ús alternen els noms de Transit Now Ltd i BusExpert Ltd sense explicar la relació entre totes dues ni si es comparteixen dades.'),
         dataBrokerSales: unknown('La política no en diu res.'),
         internationalTransfers: unknown('La política no esmenta les transferències internacionals ni el RGPD.'),
@@ -1438,7 +1438,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: false,
         editorialNotes:
-          'La política té data del 22 de setembre del 2026 i és el document més minimalista del lot en el bon sentit: parla de cel·les H3, de processament en memòria i d’analítica autoallotjada. La contrapartida és que no esmenta el RGPD, no identifica el responsable del tractament, no enumera drets i no diu res de transferències internacionals. Les condicions d’ús, del 2020, alternen els noms de Transit Now Ltd i BusExpert Ltd i enllacen la política amb el domini mal escrit. No hem pogut fer la cerca d’incidents.',
+          'La política té data del 22 de setembre del 2026 i és un document minimalista: parla de cel·les H3, de processament en memòria i d’analítica autoallotjada. En canvi, no esmenta el RGPD, no identifica el responsable del tractament, no enumera drets i no diu res de transferències internacionals. Les condicions d’ús, del 2020, alternen els noms de Transit Now Ltd i BusExpert Ltd i enllacen la política amb el domini mal escrit. No hem pogut fer la cerca d’incidents.',
         openQuestions: [
           'Quina és la relació societària entre Transit Now Ltd i BusExpert Ltd?',
           'Quant de temps es conserven les dades d’OpenPanel i de Bugsnag?',

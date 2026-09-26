@@ -10,7 +10,7 @@ export const socialApps: AppSeed[] = [
     categories: ['xarxes-socials', 'video-i-streaming'],
     tagline: 'Vídeo curt amb recomanació algorítmica i dues sancions milionàries',
     summary:
-      'TikTok és el servei del directori amb l’historial regulador més ràpid: dues sancions de l’autoritat irlandesa en menys de dos anys, una pel tractament de dades de menors i l’altra per les transferències a la Xina. El seu sistema de recomanació aprèn del temps de permanència en cada vídeo, un senyal que la persona usuària no controla conscientment i que resulta extraordinàriament revelador.',
+      'TikTok ha rebut dues sancions de l’autoritat irlandesa en menys de dos anys, una pel tractament de dades de menors i l’altra per les transferències a la Xina. El seu sistema de recomanació aprèn del temps que la persona es queda mirant cada vídeo, un senyal que no controla conscientment i que revela molt sobre ella.',
     platforms: ['ios', 'android', 'web'],
     businessModel: 'advertising',
     jurisdiction: 'Irlanda, per a persones usuàries de l’Espai Econòmic Europeu',
@@ -144,9 +144,9 @@ export const socialApps: AppSeed[] = [
       lastReviewedAt: '2026-09-09',
       incidentsReviewed: true,
       editorialNotes:
-        'Cal evitar tant l’alarmisme geopolític com la banalització. El fet documentat és que TikTok va declarar incorrectament davant d’una autoritat de control que no emmagatzemava dades europees a la Xina, i això afecta la fiabilitat de la resta de les seves declaracions.',
+        'TikTok va declarar incorrectament davant d’una autoritat de control que no emmagatzemava dades europees a la Xina, cosa que afecta la fiabilitat de la resta de les seves declaracions.',
       openQuestions: [
-        'Quin abast real té el Projecte Clover un cop desplegat i quins accessos remots persisteixen?',
+        'Quin abast té el Projecte Clover un cop desplegat i quins accessos remots persisteixen?',
       ],
     },
   },
@@ -159,7 +159,7 @@ export const socialApps: AppSeed[] = [
     categories: ['xarxes-socials'],
     tagline: 'Xarxa pública de missatges curts integrada amb una empresa d’intel·ligència artificial',
     summary:
-      'X, abans Twitter, ha canviat de propietari, de nom i de polítiques en pocs anys, i des de 2025 forma part de xAI. Aquesta integració és el fet més rellevant de la fitxa: el contingut publicat alimenta l’entrenament del model Grok, amb una casella activada per defecte que ja va provocar la intervenció de l’autoritat irlandesa el 2024.',
+      'X, abans Twitter, ha canviat de propietari, de nom i de polítiques en pocs anys, i des de 2025 forma part de xAI. El contingut publicat alimenta l’entrenament de Grok, el model de xAI, amb una casella activada per defecte que ja va provocar la intervenció de l’autoritat irlandesa el 2024.',
     platforms: ['ios', 'android', 'web'],
     businessModel: 'freemium',
     jurisdiction: 'Irlanda, per a persones usuàries de l’Espai Econòmic Europeu',
@@ -170,13 +170,13 @@ export const socialApps: AppSeed[] = [
       terms: 'https://x.com/en/tos',
       privacyCenter: 'https://x.com/settings/your_twitter_data',
     },
-    accountRequired: f('yes', 'official', ['x-privacy-policy'], 'Des de 2023 la lectura sense compte està severament limitada.'),
+    accountRequired: f('yes', 'official', ['x-privacy-policy'], 'Des de 2023 la lectura sense compte està molt limitada.'),
     openSource: f('partial', 'official', ['x-privacy-policy'], 'Una part de l’algoritme de recomanació es va publicar el 2023, però no s’ha mantingut al dia i la resta del sistema és privativa.', {
       repositoryUrl: 'https://github.com/twitter/the-algorithm',
       licence: 'AGPL-3.0 per a la part publicada',
     }),
     dataSummary:
-      'El contingut d’X és públic per naturalesa, i això canvia el marc: el problema no és tant qui el llegeix com què se’n fa. Les dades privades rellevants són els missatges directes, sense xifratge d’extrem a extrem per defecte, i el gràfic de qui segueix qui.',
+      'El contingut d’X és públic. Les dades privades rellevants són els missatges directes, sense xifratge d’extrem a extrem per defecte, i el gràfic de qui segueix qui.',
     dataCollection: [
       row('identificador-de-compte', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['x-privacy-policy'] }),
       row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['x-privacy-policy'] }),
@@ -309,7 +309,7 @@ export const socialApps: AppSeed[] = [
       lastReviewedAt: '2026-09-09',
       incidentsReviewed: true,
       editorialNotes:
-        'La volatilitat de les polítiques d’X és, en si mateixa, un factor de risc: el que és cert avui pot no ser-ho d’aquí a sis mesos. Aquesta fitxa necessita una revisió més freqüent que la resta.',
+        'Les polítiques d’X canvien sovint, i el que és cert avui pot no ser-ho d’aquí a sis mesos. Per això aquesta fitxa necessita una revisió més freqüent que la resta.',
       openQuestions: [
         'Quin abast té la compartició de dades entre X i xAI després de la fusió?',
       ],
@@ -335,7 +335,7 @@ export const socialApps: AppSeed[] = [
       terms: 'https://www.linkedin.com/legal/user-agreement',
       privacyCenter: 'https://www.linkedin.com/psettings/',
     },
-    accountRequired: f('yes', 'official', ['linkedin-privacy-policy'], 'Els perfils públics són visibles sense compte, però qualsevol ús real el requereix.'),
+    accountRequired: f('yes', 'official', ['linkedin-privacy-policy'], 'Els perfils públics són visibles sense compte, però qualsevol altre ús el requereix.'),
     openSource: f('no', 'official', ['linkedin-privacy-policy'], undefined, { licence: 'Privativa' }),
     dataSummary:
       'La informació professional és especialment sensible perquè afecta directament l’ocupabilitat. Una inferència errònia sobre disponibilitat, sector o nivell salarial pot tenir conseqüències materials immediates.',
@@ -349,7 +349,7 @@ export const socialApps: AppSeed[] = [
       row('interessos-inferits', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['publicitat-personalitzada', 'elaboracio-de-perfils'], sources: ['dpc-linkedin-2024'], note: 'Inclou inferències sobre disponibilitat per canviar de feina, sector i nivell d’ingressos.' }),
       row('interaccions-i-us', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['publicitat-personalitzada', 'recomanacions-algoritmiques'], sources: ['linkedin-privacy-policy'] }),
       row('historial-de-cerca', 'yes', { linked: 'yes', tracking: 'yes', shared: 'group', purposes: ['recomanacions-algoritmiques'], sources: ['linkedin-privacy-policy'] }),
-      row('historial-de-navegacio', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['publicitat-personalitzada'], sources: ['dpc-linkedin-2024'], note: 'La sanció de 2024 va afectar precisament l’ús de dades de tercers per a publicitat.' }),
+      row('historial-de-navegacio', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['publicitat-personalitzada'], sources: ['dpc-linkedin-2024'], note: 'La sanció de 2024 va afectar l’ús de dades de tercers per a publicitat.' }),
       row('galetes-i-identificadors-web', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['publicitat-personalitzada'], sources: ['linkedin-privacy-policy'] }),
       row('contingut-de-missatges', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'moderacio-de-continguts'], sources: ['linkedin-privacy-policy'], note: 'Sense xifratge d’extrem a extrem.' }),
       row('ubicacio-aproximada', 'yes', { linked: 'yes', tracking: 'yes', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['linkedin-privacy-policy'] }),
@@ -409,7 +409,7 @@ export const socialApps: AppSeed[] = [
       sources: ['linkedin-close-account'],
     },
     userRights: {
-      dataExport: f('partial', 'official', ['linkedin-download-data'], 'L’exportació existeix però la mateixa documentació reconeix que exclou dades com «Persones que potser coneixes» o «Qui ha vist el teu perfil», que són precisament les inferències més rellevants.', {
+      dataExport: f('partial', 'official', ['linkedin-download-data'], 'L’exportació existeix però la mateixa documentació reconeix que exclou dades com «Persones que potser coneixes» o «Qui ha vist el teu perfil», que són les inferències més rellevants.', {
         url: 'https://www.linkedin.com/psettings/member-data',
       }),
       exportFormatQuality: 'open',
@@ -452,7 +452,7 @@ export const socialApps: AppSeed[] = [
       lastReviewedAt: '2026-09-09',
       incidentsReviewed: true,
       editorialNotes:
-        'L’exportació incompleta és un cas de manual per a la nostra metodologia: existeix el mecanisme, però no cobreix el més important. Per això l’indicador es marca com a parcial i no com a complet.',
+        'El mecanisme d’exportació existeix, però no cobreix les dades més rellevants. Per això l’indicador es marca com a parcial i no com a complet.',
     },
   },
 
@@ -464,7 +464,7 @@ export const socialApps: AppSeed[] = [
     categories: ['missatgeria', 'xarxes-socials'],
     tagline: 'Missatgeria efímera amb ubicació compartida i publicitat',
     summary:
-      'Snapchat es va construir sobre la promesa que els missatges desapareixen, i és una promesa parcialment certa: els Snaps s’esborren dels servidors quan es visualitzen. El que no desapareix són les metadades, els Memories desats, la ubicació compartida al Snap Map i el perfil publicitari. La distinció entre «efímer» i «privat» és el que aquesta fitxa ha de deixar clar.',
+      'Snapchat es va construir sobre la promesa que els missatges desapareixen, i la promesa és parcialment certa: els Snaps s’esborren dels servidors quan es visualitzen. En canvi, es conserven les metadades, els Memories desats, la ubicació compartida al Snap Map i el perfil publicitari.',
     platforms: ['ios', 'android', 'web'],
     businessModel: 'advertising',
     jurisdiction: 'Països Baixos, per a persones usuàries de l’Espai Econòmic Europeu',
@@ -523,7 +523,7 @@ export const socialApps: AppSeed[] = [
       }),
     },
     retention: {
-      definedPeriods: f('yes', 'official', ['snap-your-account'], 'Snap publica terminis concrets per tipus de contingut, cosa que és excepcional en aquest sector.'),
+      definedPeriods: f('yes', 'official', ['snap-your-account'], 'Snap publica terminis concrets per tipus de contingut, cosa poc habitual en aquest sector.'),
       dataAfterDeletion: f('partial', 'official', ['snap-delete-account'], 'Després dels 30 dies de desactivació s’elimina el compte; es conserven registres per a obligacions legals.'),
       periods: [
         { dataType: 'fotografies-i-videos', period: 'Els Snaps s’esborren dels servidors un cop vistos; els no oberts, als 30 dies', sources: ['snap-your-account'] },
@@ -603,7 +603,7 @@ export const socialApps: AppSeed[] = [
       lastReviewedAt: '2026-09-09',
       incidentsReviewed: true,
       editorialNotes:
-        'Snap mereix reconeixement per la seva documentació de privadesa per producte, que és molt més clara i concreta que la de la majoria de plataformes. Això puja la claredat de la política i la confiança de l’anàlisi sense millorar-ne la puntuació de privadesa, que depèn de les pràctiques.',
+        'La documentació de privadesa per producte de Snap és molt més clara i concreta que la de la majoria de plataformes. Això puja la claredat de la política i la confiança de l’anàlisi sense millorar-ne la puntuació de privadesa, que depèn de les pràctiques.',
     },
   },
 
@@ -615,7 +615,7 @@ export const socialApps: AppSeed[] = [
     categories: ['comunitats-i-forums'],
     tagline: 'Comunitats temàtiques amb identitat pseudònima',
     summary:
-      'Reddit és l’única plataforma social gran del directori que no exigeix nom real ni número de telèfon i que permet participar amb un pseudònim. Aquest disseny redueix molt el risc, però té una contrapartida important: el que es publica no s’esborra en tancar el compte, només es desvincula del nom d’usuari.',
+      'Reddit és l’única plataforma social gran del directori que no exigeix nom real ni número de telèfon i que permet participar amb un pseudònim. Aquest disseny redueix molt el risc. En canvi, el que es publica no s’esborra en tancar el compte: només es desvincula del nom d’usuari.',
     platforms: ['web', 'ios', 'android'],
     businessModel: 'freemium',
     jurisdiction: 'Irlanda, per a persones usuàries de l’Espai Econòmic Europeu',
@@ -640,7 +640,7 @@ export const socialApps: AppSeed[] = [
       row('interaccions-i-us', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['recomanacions-algoritmiques', 'publicitat-personalitzada'], sources: ['reddit-privacy-policy'] }),
       row('interessos-inferits', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['publicitat-personalitzada'], sources: ['reddit-privacy-policy'], note: 'Les comunitats subscrites són el senyal d’interès principal.' }),
       row('conviccions-i-opinions', 'no', { linked: 'no', tracking: 'no', shared: 'none', sources: ['reddit-privacy-policy'], note: 'No es demanen, però les comunitats subscrites en són un indicador directe.' }),
-      row('adreca-ip', 'yes', { linked: 'yes', tracking: 'yes', shared: 'group', purposes: ['seguretat-i-prevencio-del-frau'], sources: ['reddit-privacy-policy'], note: 'És el punt feble del pseudonimat: Reddit sap des d’on es connecta cada compte.' }),
+      row('adreca-ip', 'yes', { linked: 'yes', tracking: 'yes', shared: 'group', purposes: ['seguretat-i-prevencio-del-frau'], sources: ['reddit-privacy-policy'], note: 'Limita el pseudonimat, perquè Reddit sap des d’on es connecta cada compte.' }),
       row('galetes-i-identificadors-web', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['publicitat-personalitzada'], sources: ['reddit-privacy-policy'] }),
       row('identificador-publicitari', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['publicitat-personalitzada'], sources: ['reddit-privacy-policy'] }),
       row('informacio-del-dispositiu', 'yes', { linked: 'yes', tracking: 'yes', shared: 'group', purposes: ['seguretat-i-prevencio-del-frau'], sources: ['reddit-privacy-policy'] }),
@@ -659,7 +659,7 @@ export const socialApps: AppSeed[] = [
       targetedAdvertising: f('yes', 'official', ['reddit-privacy-policy'], 'Es pot desactivar la personalització basada en activitat i en dades de socis.', {
         optOutUrl: 'https://www.reddit.com/settings/privacy',
       }),
-      profiling: f('partial', 'official', ['reddit-privacy-policy'], 'El perfilat és real però parteix d’una identitat pseudònima, cosa que en limita l’abast fora de la plataforma.'),
+      profiling: f('partial', 'official', ['reddit-privacy-policy'], 'Hi ha perfilat, però parteix d’una identitat pseudònima, cosa que en limita l’abast fora de la plataforma.'),
       aiTraining: f('yes', 'official', ['reddit-privacy-policy'], 'Reddit ha signat acords de llicència de contingut públic amb empreses d’intel·ligència artificial. No hi ha mecanisme d’oposició per a les persones usuàries.'),
     },
     sharing: {
@@ -695,7 +695,7 @@ export const socialApps: AppSeed[] = [
         'Si vols que desapareguin les publicacions, esborra-les abans una per una.',
       ],
       obstacles:
-        'L’obstacle real no és el procés, que és senzill, sinó el resultat: el contingut publicat es queda. Qui vulgui eliminar-lo ha de fer-ho manualment abans de tancar el compte, i un cop tancat ja no hi ha manera de recuperar-ne el control.',
+        'El procés és senzill, però el contingut publicat es queda. Qui vulgui eliminar-lo ha de fer-ho manualment abans de tancar el compte, i un cop tancat ja no hi ha manera de recuperar-ne el control.',
       dataRetained:
         'Totes les publicacions i comentaris resten visibles de manera anònima. Reddit conserva l’adreça electrònica associada per evitar la reutilització del nom d’usuari.',
       sources: ['reddit-delete-account', 'reddit-delete-data'],
@@ -742,7 +742,7 @@ export const socialApps: AppSeed[] = [
       lastReviewedAt: '2026-09-09',
       incidentsReviewed: true,
       editorialNotes:
-        'Reddit obté una puntuació de privadesa relativament alta pel pseudonimat i la mínima recollida d’identificadors, però una de control més baixa per la impossibilitat d’eliminar el contingut. És el tipus de matís que una xifra global sola amagaria.',
+        'Reddit obté una puntuació de privadesa relativament alta pel pseudonimat i la mínima recollida d’identificadors, però una de control més baixa per la impossibilitat d’eliminar el contingut.',
     },
   },
 
@@ -754,7 +754,7 @@ export const socialApps: AppSeed[] = [
     categories: ['descobriment-visual'],
     tagline: 'Descobriment visual i inferència d’intenció de compra',
     summary:
-      'Pinterest sembla inofensiu perquè el que s’hi desa són imatges, però un tauler d’inspiració és una declaració d’intencions extraordinàriament precisa: reformes, embarassos, casaments, dietes, mudances. Aquesta anticipació és el que el fa valuós per als anunciants.',
+      'A Pinterest es desen imatges, però un tauler d’inspiració mostra amb molta precisió els plans d’una persona: reformes, embarassos, casaments, dietes, mudances. Conèixer-los per endavant és el que el fa valuós per als anunciants.',
     platforms: ['web', 'ios', 'android'],
     businessModel: 'advertising',
     jurisdiction: 'Irlanda, per a persones usuàries de l’Espai Econòmic Europeu',
@@ -869,7 +869,7 @@ export const socialApps: AppSeed[] = [
       lastReviewedAt: '2026-09-09',
       incidentsReviewed: true,
       editorialNotes:
-        'Cap incident regulador registrat, però això no vol dir absència de problemes: vol dir que no n’hi ha de documentats. La casella de revisió d’incidents està marcada, de manera que l’indicador puntua com a favorable amb aquesta base.',
+        'No hi ha cap incident regulador registrat, cosa que només vol dir que no n’hi ha de documentats. La casella de revisió d’incidents està marcada, de manera que l’indicador puntua com a favorable amb aquesta base.',
     },
   },
 ]

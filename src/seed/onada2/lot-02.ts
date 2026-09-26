@@ -87,7 +87,7 @@ const meet: AppSeed = {
   categories: ['videoconferencia-i-feina'],
   tagline: 'Google no desa les reunions si ningú no les grava, però el xifratge és seu i no d’extrem a extrem',
   summary:
-    'Meet xifra les trucades en trànsit per defecte i Google diu que no desa cap enregistrament de vídeo ni d’àudio tret que algú activi la gravació, la transcripció o les notes automàtiques. També declara que no fa servir les dades de client de Meet per a publicitat i que no hi ha cap funció de seguiment de l’atenció. El que queda fora de la promesa són les metadades: qui es connecta, amb qui, quan i des d’on, que entren al compte de Google com la resta de serveis. L’etiqueta de l’App Store és, de fet, la de l’ecosistema sencer, amb contactes, fotos, àudio i historial de cerca vinculats al compte.',
+    'Meet xifra les trucades en trànsit per defecte i Google diu que no desa cap enregistrament de vídeo ni d’àudio tret que algú activi la gravació, la transcripció o les notes automàtiques. També declara que no fa servir les dades de client de Meet per a publicitat i que no hi ha cap funció de seguiment de l’atenció. Aquests compromisos no cobreixen les metadades (qui es connecta, amb qui, quan i des d’on), que entren al compte de Google com les de la resta de serveis. L’etiqueta de l’App Store és la genèrica de l’ecosistema de Google, amb contactes, fotos, àudio i historial de cerca vinculats al compte.',
   platforms: ['web', 'ios', 'android'],
   businessModel: 'freemium',
   jurisdiction: 'Irlanda, per a persones usuàries de l’Espai Econòmic Europeu',
@@ -95,7 +95,7 @@ const meet: AppSeed = {
   accountRequired: f('yes', 'official', ['google-privacy-policy'], 'Cal un compte de Google per crear reunions; per unir-s’hi, l’amfitrió pot admetre convidats sense compte.'),
   openSource: f('no', 'official', ['google-privacy-policy'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'Una reunió revela amb qui treballes, amb qui estudies o a qui visites per motius de salut, i a quines hores. Encara que el contingut no es desi, el graf de participants i els horaris són una radiografia de la vida professional i personal, i queden lligats al mateix compte que la resta de serveis de Google.',
+    'Una reunió revela amb qui treballes, amb qui estudies o a qui visites per motius de salut, i a quines hores. Encara que el contingut no es desi, els participants i els horaris descriuen la vida professional i personal, i queden lligats al mateix compte que la resta de serveis de Google.',
   dataCollection: [
     row('metadades-de-comunicacio', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'mesura-i-analisi-dus'], sources: ['google-meet-app-store', 'google-meet-security'], note: 'Qui participa a cada reunió, quan i durant quanta estona. El contingut només es desa si s’activa la gravació.' }),
     row('veu-i-audio', 'optional', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['google-meet-app-store', 'google-meet-security'], note: 'Només amb la gravació, la transcripció o les notes activades.' }),
@@ -180,9 +180,9 @@ const news: AppSeed = {
   name: 'Google News',
   company: 'google-ireland',
   categories: ['noticies-i-mitjans'],
-  tagline: 'L’única aplicació de Google d’aquest lot que declara dades per a publicitat de tercers',
+  tagline: 'Declara a l’App Store dades per a publicitat de tercers',
   summary:
-    'Google News construeix una portada personalitzada a partir de l’activitat del compte: què cerques, què llegeixes i des d’on. L’etiqueta de l’App Store és la més exposada dels quatre serveis de Google del lot: declara ubicació aproximada, identificador de dispositiu, interacció amb el producte i dades publicitàries per a publicitat de tercers, a més de l’historial de navegació i de cerca per a analítica i personalització. El que llegeixes és una dada d’opinió, i aquí alimenta la personalització i el negoci publicitari alhora.',
+    'Google News construeix una portada personalitzada a partir de l’activitat del compte: què cerques, què llegeixes i des d’on. L’etiqueta de l’App Store declara dades per a publicitat: ubicació aproximada, identificador de dispositiu, interacció amb el producte i dades publicitàries per a publicitat de tercers, a més de l’historial de navegació i de cerca per a analítica i personalització.',
   platforms: ['web', 'ios', 'android'],
   businessModel: 'advertising',
   jurisdiction: 'Irlanda, per a persones usuàries de l’Espai Econòmic Europeu',
@@ -255,7 +255,7 @@ const news: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'La diferència amb la resta de serveis de Google d’aquest lot és la publicitat de tercers declarada a l’etiqueta: aquí el que es llegeix té valor publicitari directe. Les pàgines d’ajuda de Google News remeten sempre als controls generals del compte i no documenten cap tractament propi.',
+      'L’etiqueta declara publicitat de tercers, que dona valor publicitari directe al que es llegeix. Les pàgines d’ajuda de Google News remeten sempre als controls generals del compte i no documenten cap tractament propi.',
     openQuestions: [
       'Quins tercers reben les dades publicitàries declarades a l’etiqueta: només els mitjans editors, o també intermediaris publicitaris?',
       'Es conserva l’historial de lectura de Google News en algun registre diferent de l’activitat web i d’aplicacions?',
@@ -271,7 +271,7 @@ const books: AppSeed = {
   categories: ['llibres-i-lectura'],
   tagline: 'Google desa les últimes cinc pàgines llegides de cada llibre i l’historial de compres no es pot esborrar',
   summary:
-    'La política específica de Llibres diu que Google desa les últimes cinc pàgines que s’han vist de cada llibre amb el compte, per sincronitzar la posició de lectura entre dispositius i per vigilància de seguretat. Els editors reben informació de vendes, no dades personals. El límit clar és el registre de compra: Google diu que no es pot esborrar de l’historial del compte, amb el títol inclòs, encara que el llibre es tregui de la biblioteca. L’etiqueta de l’App Store declara correu, nom i identificadors per a màrqueting del mateix desenvolupador.',
+    'La política específica de Llibres diu que Google desa les últimes cinc pàgines que s’han vist de cada llibre amb el compte, per sincronitzar la posició de lectura entre dispositius i per vigilància de seguretat. Els editors reben informació de vendes, no dades personals. Google diu que el registre de compra, amb el títol inclòs, no es pot esborrar de l’historial del compte encara que el llibre es tregui de la biblioteca. L’etiqueta de l’App Store declara correu, nom i identificadors per a màrqueting del mateix desenvolupador.',
   platforms: ['web', 'ios', 'android'],
   businessModel: 'commerce',
   jurisdiction: 'Irlanda, per a persones usuàries de l’Espai Econòmic Europeu',
@@ -279,7 +279,7 @@ const books: AppSeed = {
   accountRequired: f('yes', 'official', ['google-play-books-privacy'], 'Cal un compte de Google per comprar, desar i sincronitzar llibres.'),
   openSource: f('no', 'official', ['google-privacy-policy'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'Què llegeix una persona, i per on va de cada llibre, diu coses que no diu cap altra dada d’aquest lot: creences, salut, orientació, situació familiar. Google no ho tracta com a categoria especial, però l’historial de compres de llibres és permanent i el ritme de lectura queda registrat.',
+    'Els llibres que llegeix una persona, i fins on n’ha llegit, poden revelar creences, salut, orientació o situació familiar. Google no ho tracta com a categoria especial, però l’historial de compres de llibres és permanent i el ritme de lectura queda registrat.',
   dataCollection: [
     row('historial-de-compres', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'compliment-legal'], sources: ['google-play-books-privacy', 'google-play-books-app-store'], note: 'Google diu que el registre de la transacció, amb el títol del llibre, no es pot esborrar del compte.' }),
     row('interaccions-i-us', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'mesura-i-analisi-dus'], sources: ['google-play-books-privacy', 'google-play-books-app-store'], note: 'S’hi inclouen les últimes cinc pàgines vistes de cada llibre, per sincronitzar la posició de lectura i per vigilància de seguretat.' }),
@@ -368,7 +368,7 @@ const books: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'La política específica de Llibres és antiga i breu, i conviu amb la política general de Google i amb els controls de Play. La combinació que fa la fitxa —posició de lectura desada, historial de compres permanent i etiqueta amb màrqueting propi— surt de tres documents oficials diferents.',
+      'La política específica de Llibres és antiga i breu, i conviu amb la política general de Google i amb els controls de Play. La combinació que recull la fitxa (posició de lectura desada, historial de compres permanent i etiqueta amb màrqueting propi) surt de tres documents oficials diferents.',
     openQuestions: [
       'Les anotacions, els subratllats i les notes dels llibres es desen al compte i entren a Takeout?',
       'Quant de temps conserva Google les últimes cinc pàgines vistes després de treure un llibre de la biblioteca?',
@@ -384,7 +384,7 @@ const home: AppSeed = {
   categories: ['llar-connectada'],
   tagline: 'Google promet no fer servir àudio, vídeo ni sensors per a publicitat, però el text del que li dius a l’Assistent sí que hi pot anar',
   summary:
-    'Els compromisos de seguretat i privadesa de Google Nest són explícits: els dispositius només envien àudio quan detecten una interacció amb l’Assistent, les càmeres només transmeten si algú les ha activat, hi ha indicadors visuals i les dades dels sensors d’ambient i d’activitat no es fan servir per personalitzar anuncis. El matís important és que el text de les interaccions amb l’Assistent de veu sí que pot alimentar la personalització publicitària. A sobre, l’etiqueta de l’App Store declara historial de cerca i de navegació per a publicitat de tercers, cosa que els compromisos no expliquen.',
+    'Els compromisos de seguretat i privadesa de Google Nest són explícits: els dispositius només envien àudio quan detecten una interacció amb l’Assistent, les càmeres només transmeten si algú les ha activat, hi ha indicadors visuals i les dades dels sensors d’ambient i d’activitat no es fan servir per personalitzar anuncis. Ara bé, el text de les interaccions amb l’Assistent de veu sí que pot alimentar la personalització publicitària. A més, l’etiqueta de l’App Store declara historial de cerca i de navegació per a publicitat de tercers, cosa que els compromisos no expliquen.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'commerce',
   jurisdiction: 'Irlanda, per a persones usuàries de l’Espai Econòmic Europeu',
@@ -392,7 +392,7 @@ const home: AppSeed = {
   accountRequired: f('yes', 'official', ['google-home-nest-help'], 'Els compromisos s’apliquen als dispositius fets servir amb un compte de Google, que és el que gestiona la casa i els dispositius.'),
   openSource: f('no', 'official', ['google-privacy-policy'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'És l’aplicació del lot que recull dades de dins de casa: qui hi és i a quina hora, què es diu en veu alta, què veuen les càmeres, quina temperatura hi fa. Google en separa una part del negoci publicitari, però l’adreça física, la ubicació exacta, les dades de pagament i l’historial de navegació queden vinculats al mateix compte.',
+    'Recull dades de dins de casa: qui hi és i a quina hora, què es diu en veu alta, què veuen les càmeres, quina temperatura hi fa. Google en separa una part del negoci publicitari, però l’adreça física, la ubicació exacta, les dades de pagament i l’historial de navegació queden vinculats al mateix compte.',
   dataCollection: [
     row('veu-i-audio', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'mesura-i-analisi-dus'], sources: ['google-home-nest-commitments', 'google-home-app-store'], note: 'Google diu que el dispositiu només envia àudio quan detecta una interacció amb l’Assistent o una funció que el necessita, amb indicador visual.' }),
     row('fotografies-i-videos', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['google-home-nest-commitments', 'google-home-app-store'], note: 'Les càmeres només transmeten si algú les ha activat, amb un indicador lluminós visible.' }),
@@ -488,7 +488,7 @@ const wizzair: AppSeed = {
   categories: ['viatges-i-allotjament'],
   tagline: 'Publicitat de retorn a Google i Meta amb consentiment, i un compte que no deixa canviar el correu tu sol',
   summary:
-    'L’avís de privadesa de Wizz Air és dels més detallats del lot: llista els terminis de conservació purpose a purpose, distingeix els tres responsables del grup (Hongria, Malta i el Regne Unit) i reconeix que tracta dades de salut quan es demana assistència especial o s’informa de l’aptitud per volar. La publicitat de retorn a Google i a les xarxes de Meta es fa amb consentiment, sobre un perfil construït amb les cerques i les reserves que no s’han acabat. El punt feble és operatiu: el correu electrònic del compte no es pot canviar des del perfil i cal passar pel xat o el centre de trucades, que és justament el que va motivar una reclamació de noyb el 2020.',
+    'L’avís de privadesa de Wizz Air és detallat: llista els terminis de conservació finalitat per finalitat, distingeix els tres responsables del grup (Hongria, Malta i el Regne Unit) i reconeix que tracta dades de salut quan es demana assistència especial o s’informa de l’aptitud per volar. La publicitat de retorn a Google i a les xarxes de Meta es fa amb consentiment, sobre un perfil construït amb les cerques i les reserves que no s’han acabat. En canvi, el correu electrònic del compte no es pot canviar des del perfil i cal passar pel xat o el centre de trucades, el mateix problema que va motivar una reclamació de noyb el 2020.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'commerce',
   jurisdiction: 'Hongria: l’autoritat principal és la NAIH; Wizz Air Malta i Wizz Air UK actuen com a responsables separats i, en màrqueting i fidelització, com a responsables conjunts',
@@ -500,7 +500,7 @@ const wizzair: AppSeed = {
   accountRequired: f('partial', 'official', ['wizz-air-privacy-notice'], 'Es pot reservar sense compte, però el compte WIZZ és el que gestiona els Wizz Credits, les reserves i les preferències.'),
   openSource: f('no', 'editorial', [], 'Aplicació privativa; no hi ha cap repositori públic ni cap declaració de codi obert.', { licence: 'Privativa' }),
   dataSummary:
-    'Una reserva d’avió no és només un bitllet: conté el document d’identitat, la nacionalitat, amb qui viatges i quan no seràs a casa. Wizz Air hi afegeix un perfil comercial molt ric (historial de vols, despesa anual, valoracions de l’atenció al client, companys de viatge) i, en alguns casos, dades de salut per a l’assistència a bord.',
+    'Una reserva d’avió conté el document d’identitat, la nacionalitat, amb qui viatges i quan no seràs a casa. Wizz Air hi afegeix un perfil comercial detallat (historial de vols, despesa anual, valoracions de l’atenció al client, companys de viatge) i, en alguns casos, dades de salut per a l’assistència a bord.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'compliment-legal'], sources: ['wizz-air-privacy-notice'], note: 'Ha de coincidir exactament amb el document de viatge.' }),
     row('data-de-naixement', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'compliment-legal'], sources: ['wizz-air-privacy-notice'] }),
@@ -586,7 +586,7 @@ const wizzair: AppSeed = {
       {
         type: 'hidden-exit',
         severity: 'medium',
-        description: 'El correu electrònic del compte no es pot corregir des del perfil i cal passar pel xat o pel centre de trucades, que és el cor de la reclamació de noyb del 2020.',
+        description: 'El correu electrònic del compte no es pot corregir des del perfil i cal passar pel xat o pel centre de trucades, el motiu central de la reclamació de noyb del 2020.',
         sources: ['wizz-air-account-help', 'wizz-air-noyb-2020'],
       },
     ],
@@ -605,7 +605,7 @@ const wizzair: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'L’avís per a clients i viatgers és molt complet i és la base de gairebé tota la fitxa. La part de seguretat, en canvi, és pràcticament opaca: no hi ha pàgina de seguretat, ni security.txt, ni informe de transparència.',
+      'L’avís per a clients i viatgers és molt complet i és la base de gairebé tota la fitxa. La part de seguretat, en canvi, gairebé no està documentada: no hi ha pàgina de seguretat, ni security.txt, ni informe de transparència.',
     openQuestions: [
       'La reclamació de noyb davant de l’autoritat austríaca del 2020 va acabar amb alguna resolució?',
       'Quines mesures de seguretat del compte WIZZ hi ha, més enllà de la contrasenya?',
@@ -621,7 +621,7 @@ const skyscanner: AppSeed = {
   categories: ['viatges-i-allotjament'],
   tagline: 'Un cercador que perfila els teus viatges i comparteix dades amb el grup Trip.com i amb socis publicitaris',
   summary:
-    'Skyscanner no ven bitllets: et passa a l’aerolínia o a l’agència, que passa a ser responsable independent de les teves dades. Mentrestant, la política reconeix que combina el que li dones amb el que observa per deduir preferències i interessos, i personalitzar plataforma, serveis i publicitat. L’etiqueta de l’App Store declara identificadors i dades d’ús per rastrejar entre empreses, i publicitat de tercers amb ubicació precisa a l’analítica. A favor seu té la seguretat: és l’única aplicació de viatges del lot amb security.txt i programa de recompenses actiu a Bugcrowd.',
+    'Skyscanner és un cercador: per comprar, et porta a l’aerolínia o a l’agència, que passa a ser responsable independent de les teves dades. La política reconeix que combina el que li dones amb el que observa per deduir preferències i interessos, i personalitzar plataforma, serveis i publicitat. L’etiqueta de l’App Store declara identificadors i dades d’ús per rastrejar entre empreses, i publicitat de tercers amb ubicació precisa a l’analítica. En seguretat, té security.txt i un programa de recompenses actiu a Bugcrowd.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'advertising',
   jurisdiction: 'Regne Unit, amb delegat de protecció de dades a Edimburg; forma part del grup Trip.com',
@@ -737,7 +737,7 @@ const iberia: AppSeed = {
   categories: ['viatges-i-allotjament'],
   tagline: 'Reconeixement facial voluntari als aeroports d’Aena i una filtració del 2025 a través d’un proveïdor',
   summary:
-    'La política d’Iberia és la d’una aerolínia gran: dades compartides amb tot el grup IAG, cessions obligatòries a duanes i immigració (fins i tot per sobrevolar els Estats Units), i categories especials de dades quan hi ha assistència mèdica, menús o reconeixement facial. La identificació biomètrica als aeroports gestionats per Aena és voluntària i el responsable n’és Aena, amb Iberia com a encarregada. Iberia declara que no ven dades personals, però no publica cap termini de conservació. El novembre de 2025 va notificar una filtració de dades de clients originada als sistemes d’un proveïdor.',
+    'La política d’Iberia preveu dades compartides amb tot el grup IAG, cessions obligatòries a duanes i immigració (fins i tot per sobrevolar els Estats Units), i categories especials de dades quan hi ha assistència mèdica, menús o reconeixement facial. La identificació biomètrica als aeroports gestionats per Aena és voluntària i el responsable n’és Aena, amb Iberia com a encarregada. Iberia declara que no ven dades personals, però no publica cap termini de conservació. El novembre de 2025 va notificar una filtració de dades de clients originada als sistemes d’un proveïdor.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'commerce',
   jurisdiction: 'Espanya; responsable: Iberia Líneas Aéreas de España S.A. Operadora, amb responsabilitat conjunta amb Avios Group per a Iberia Club',
@@ -749,7 +749,7 @@ const iberia: AppSeed = {
   accountRequired: f('partial', 'official', ['iberia-privacy-policy'], 'Es pot reservar sense registre, però la gestió de les reserves, Iberia Club i la majoria de drets s’exerceixen des de l’àrea privada.'),
   openSource: f('no', 'editorial', [], 'Aplicació privativa; no hi ha cap repositori públic del client.', { licence: 'Privativa' }),
   dataSummary:
-    'Iberia acumula el conjunt complet del que és viatjar: document d’identitat, itineraris, targeta de fidelització, despesa i, si s’hi accedeix, la cara. Una part important d’aquestes dades no es queda a l’empresa: va a les autoritats de frontera dels països de l’itinerari i als socis del grup IAG i de l’aliança oneworld.',
+    'Iberia recull el document d’identitat, els itineraris, la targeta de fidelització, la despesa i, si s’hi accedeix, la cara. Una part important d’aquestes dades va a les autoritats de frontera dels països de l’itinerari i als socis del grup IAG i de l’aliança oneworld.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'compliment-legal'], sources: ['iberia-privacy-policy'] }),
     row('document-identificatiu-oficial', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['compliment-legal', 'prestacio-del-servei'], sources: ['iberia-privacy-policy'], note: 'Comunicat a duanes i immigració dels països d’origen, trànsit, destinació i sobrevol.' }),
@@ -852,7 +852,7 @@ const omio: AppSeed = {
   categories: ['viatges-i-allotjament', 'mobilitat-i-transport'],
   tagline: 'Empresa de Delaware amb seu operativa a Berlín que declara terminis concrets i deixa desactivar l’analítica de l’aplicació',
   summary:
-    'Omio compara i ven bitllets de tren, autobús i avió a Europa. La política és alemanya de fet: l’autoritat de control és la de Berlín, els registres del web s’esborren automàticament als dos anys i les dades associades a identificadors publicitaris, als catorze mesos. L’aplicació fa perfils d’ús pseudònims entre dispositius, però es poden desactivar des de les preferències. La ubicació GPS, diu la política, només omple el formulari de cerca i no es desa. El que sí que surt de l’empresa són les dades de reserva: van al transportista i, en alguns països, a Amadeus, que les tracta com a responsable independent.',
+    'Omio compara i ven bitllets de tren, autobús i avió a Europa. L’autoritat de control és la de Berlín. Els registres del web s’esborren automàticament als dos anys i les dades associades a identificadors publicitaris, als catorze mesos. L’aplicació fa perfils d’ús pseudònims entre dispositius, però es poden desactivar des de les preferències. La ubicació GPS, diu la política, només omple el formulari de cerca i no es desa. Les dades de reserva, en canvi, van al transportista i, en alguns països, a Amadeus, que les tracta com a responsable independent.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'commerce',
   jurisdiction: 'Alemanya: Omio Corp. és una societat de Delaware amb seu operativa a Berlín i l’autoritat de control és la de Berlín',
@@ -864,7 +864,7 @@ const omio: AppSeed = {
   accountRequired: f('no', 'official', ['omio-privacy-policy'], 'La política diu expressament que es poden fer servir els serveis sense crear cap compte; el perfil serveix per desar dades per a reserves futures.'),
   openSource: f('no', 'editorial', [], 'Aplicació privativa; no hi ha cap repositori públic del client.', { licence: 'Privativa' }),
   dataSummary:
-    'Les dades d’Omio dibuixen els desplaçaments quotidians i els viatges: d’on surts, on vas, amb qui i quan. A diferència d’altres aplicacions del lot, bona part d’aquestes dades tenen un termini publicat, però la reserva acaba en mans del transportista i, en alguns casos, d’Amadeus, que ja no depenen d’Omio.',
+    'Les dades d’Omio mostren els desplaçaments quotidians i els viatges: d’on surts, on vas, amb qui i quan. Bona part d’aquestes dades tenen un termini publicat, però la reserva acaba en mans del transportista i, en alguns casos, d’Amadeus, que ja no depenen d’Omio.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['omio-privacy-policy'] }),
     row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['omio-privacy-policy'] }),
@@ -923,7 +923,7 @@ const omio: AppSeed = {
       'Si només vols deixar de rebre correus, fes servir l’enllaç de baixa de qualsevol butlletí.',
       'Per aturar el seguiment publicitari, fes servir l’exclusió de l’aplicació i la de les galetes del web.',
     ],
-    obstacles: 'Les dades de la reserva ja transmeses al transportista o a Amadeus les tracten aquestes empreses com a responsables independents i no depenen d’Omio. Les cookies d’exclusió s’han de tornar a configurar en cada navegador i dispositiu.',
+    obstacles: 'Les dades de la reserva ja transmeses al transportista o a Amadeus les tracten aquestes empreses com a responsables independents i no depenen d’Omio. Les galetes d’exclusió s’han de tornar a configurar en cada navegador i dispositiu.',
     dataRetained: 'El que calgui per a obligacions fiscals, comptables i d’investigació del frau.',
     sources: ['omio-privacy-policy'],
   },
@@ -971,7 +971,7 @@ const omio: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'El lloc d’Omio bloqueja la lectura automatitzada; hem consultat la versió en castellà arxivada a la Wayback Machine (gener de 2026) del document actualitzat el 27 de maig de 2024. És de les poques polítiques del lot que fixa terminis concrets i que ofereix desactivar l’analítica de l’aplicació.',
+      'El lloc d’Omio bloqueja la lectura automatitzada; hem consultat la versió en castellà arxivada a la Wayback Machine (gener de 2026) del document actualitzat el 27 de maig de 2024. La política fixa terminis concrets i ofereix desactivar l’analítica de l’aplicació.',
     openQuestions: [
       'Omio permet eliminar el compte des de l’aplicació, o només per correu a l’equip de protecció de dades?',
       'Quin és el règim de protecció de dades aplicable a Omio Corp. com a societat de Delaware amb seu operativa a Berlín?',
@@ -985,9 +985,9 @@ const getyourguide: AppSeed = {
   name: 'GetYourGuide',
   company: 'getyourguide-deutschland',
   categories: ['viatges-i-allotjament'],
-  tagline: 'Política alemanya detallada, servidors a la UE i, tot i això, correu i identificador de dispositiu per a publicitat de tercers',
+  tagline: 'Política alemanya detallada i servidors a la UE, però amb correu i identificador de dispositiu declarats per a publicitat de tercers',
   summary:
-    'GetYourGuide ven entrades i activitats i documenta el tractament amb molt de detall: el proveïdor de cada eina, on és i amb quina garantia de transferència. L’adreça IP es desa xifrada i s’esborra als trenta dies, i els servidors d’AWS són a la Unió Europea. La cara menys visible és la comercial: la llista de desitjos serveix per fer recomanacions i publicitat dirigida per interès legítim, l’etiqueta de l’App Store declara correu i identificador de dispositiu per a publicitat de tercers, i les dades de la reserva —que poden incloure passaport, edat, dieta o necessitats d’accessibilitat— van al proveïdor de l’activitat, que n’és responsable independent.',
+    'GetYourGuide ven entrades i activitats i documenta el tractament amb molt de detall: el proveïdor de cada eina, on és i amb quina garantia de transferència. L’adreça IP es desa xifrada i s’esborra als trenta dies, i els servidors d’AWS són a la Unió Europea. La llista de desitjos serveix per fer recomanacions i publicitat dirigida per interès legítim, l’etiqueta de l’App Store declara correu i identificador de dispositiu per a publicitat de tercers, i les dades de la reserva, que poden incloure passaport, edat, dieta o necessitats d’accessibilitat, van al proveïdor de l’activitat, que n’és responsable independent.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'commerce',
   jurisdiction: 'Alemanya: responsable GetYourGuide Deutschland GmbH, amb seu a Berlín',
@@ -999,7 +999,7 @@ const getyourguide: AppSeed = {
   accountRequired: f('no', 'official', ['getyourguide-privacy-policy'], 'La política diu expressament que no cal registrar-se per fer servir el servei; el compte permet desar llistes de desitjos, gestionar reserves i configurar notificacions.'),
   openSource: f('no', 'editorial', [], 'Aplicació privativa; no hi ha cap repositori públic del client.', { licence: 'Privativa' }),
   dataSummary:
-    'Reservar una activitat diu on seràs, quin dia i a quina hora, amb quanta gent i, sovint, dades que el RGPD tracta com a categoria especial: al·lèrgies, dieta o necessitats d’accessibilitat. Aquestes dades no es queden a Berlín: arriben al guia o a l’empresa que fa l’activitat, sovint fora de la Unió Europea.',
+    'Reservar una activitat diu on seràs, quin dia i a quina hora, amb quanta gent i, sovint, dades que el RGPD tracta com a categoria especial: al·lèrgies, dieta o necessitats d’accessibilitat. Aquestes dades arriben al guia o a l’empresa que fa l’activitat, sovint fora de la Unió Europea.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['getyourguide-privacy-policy', 'getyourguide-app-store'] }),
     row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada', 'cessio-a-tercers'], sources: ['getyourguide-privacy-policy', 'getyourguide-app-store'], note: 'L’etiqueta la declara també per a publicitat de tercers.' }),
@@ -1091,7 +1091,7 @@ const getyourguide: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'La política de GetYourGuide és la més detallada del lot pel que fa a encarregats i a garanties de transferència: identifica cada proveïdor i la base jurídica de cada tractament. El lloc bloqueja la lectura automatitzada i n’hem consultat la versió arxivada a la Wayback Machine (setembre de 2026).',
+      'La política de GetYourGuide és detallada pel que fa a encarregats i a garanties de transferència: identifica cada proveïdor i la base jurídica de cada tractament. El lloc bloqueja la lectura automatitzada i n’hem consultat la versió arxivada a la Wayback Machine (setembre de 2026).',
     openQuestions: [
       'Es pot eliminar el compte des de l’aplicació, o només per sol·licitud a l’equip de privadesa?',
       'Les converses amb el xatbot d’IA s’utilitzen per entrenar o ajustar models?',
@@ -1347,7 +1347,7 @@ export const lot: SeedLot = {
       occurredAt: '2020-10-21',
       disclosedAt: '2020-10-21',
       description:
-        'Una passatgera austríaca que havia canviat legalment de cognom va voler actualitzar el cognom i el correu electrònic del compte. El sistema en línia de Wizz Air només permetia canvis de nom per matrimoni, i la va obligar a trucar a una línia de pagament: 35,67 euros per una trucada de 32 minuts. A sobre, Wizz Air va corregir el cognom però no el correu, i per això la dona no va rebre els avisos de cancel·lació del vol. noyb va presentar una reclamació davant de l’autoritat austríaca de protecció de dades per infracció dels articles 12.5 i 16 del RGPD.',
+        'Una passatgera austríaca que havia canviat legalment de cognom va voler actualitzar el cognom i el correu electrònic del compte. El sistema en línia de Wizz Air només permetia canvis de nom per matrimoni, i la va obligar a trucar a una línia de pagament: 35,67 euros per una trucada de 32 minuts. A més, Wizz Air va corregir el cognom però no el correu, i per això la dona no va rebre els avisos de cancel·lació del vol. noyb va presentar una reclamació davant de l’autoritat austríaca de protecció de dades per infracció dels articles 12.5 i 16 del RGPD.',
       affectedPeople: 'Una passatgera identificada; noyb assenyala que hi havia altres reclamacions equivalents.',
       regulatory: {
         authority: 'Österreichische Datenschutzbehörde',

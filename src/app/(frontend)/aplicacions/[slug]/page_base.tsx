@@ -210,7 +210,7 @@ export default async function AppPage({ params }: { params: Promise<{ slug: stri
         Metodologia {scores?.methodologyVersion ?? '—'}. Cobertura documentada del{' '}
         {typeof scores?.coverage === 'number' ? Math.round(scores.coverage * 100) : '—'} % dels
         indicadors aplicables.
-        {scores?.provisional ? ' Puntuació provisional: encara no en sabem prou.' : ''}{' '}
+        {scores?.provisional ? ' Puntuació provisional: encara no hi ha prou informació documentada.' : ''}{' '}
         <Link href="/metodologia">Com es calcula</Link>
       </p>
 
@@ -288,10 +288,10 @@ export default async function AppPage({ params }: { params: Promise<{ slug: stri
           <p className="meta">
             {ADMINISTRATION_LEVEL[app.publicService.administrationLevel ?? 'other'] ??
               'Administració pública'}
-            . Aquest servei no es mesura amb la vara del sector privat: no té model de negoci ni
-            programa de recompenses, però ha de declarar la base jurídica, publicar el registre
-            d’activitats de tractament i conformar-se a l’Esquema Nacional de Seguretat. Aquests
-            indicadors substitueixen els comercials dins del càlcul.{' '}
+            . Un servei públic no té model de negoci ni programa de recompenses, però ha de
+            declarar la base jurídica, publicar el registre d’activitats de tractament i complir
+            l’Esquema Nacional de Seguretat. Per això aquests indicadors substitueixen els
+            comercials dins del càlcul.{' '}
             <Link href="/metodologia">Com es calcula</Link>
           </p>
           <dl>
@@ -319,9 +319,9 @@ export default async function AppPage({ params }: { params: Promise<{ slug: stri
       <h2>Disponibilitat en català</h2>
       <p className="meta">
         Aquesta dimensió és informativa i <strong>no entra a cap de les puntuacions</strong>. Tenir
-        interfície en català no fa una empresa més respectuosa amb les dades, i barrejar-ho premiaria
-        les plataformes que tradueixen a seixanta idiomes perquè poden i castigaria eines petites i
-        molt bones. Es publica al costat de la nota, mai a dins.{' '}
+        interfície en català no fa una empresa més respectuosa amb les dades, i comptar-ho afavoriria
+        les plataformes que tradueixen a seixanta idiomes per sobre d’eines petites i molt bones. Es
+        mostra al costat de la nota, però no hi suma.{' '}
         <Link href="/analisi/catala">Veure-ho per a tot el directori</Link>
       </p>
       <dl>

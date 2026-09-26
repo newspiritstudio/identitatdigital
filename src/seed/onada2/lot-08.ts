@@ -133,7 +133,7 @@ export const lot: SeedLot = {
     s('orange-tv-app-store', 'Orange TV en el App Store', 'https://apps.apple.com/es/app/id690042828', 'Apple', 'app-store', 'primary', {
       language: 'es',
       summary:
-        'Etiqueta de privadesa declarada per Orange Espagne. Serveix per a la matriu de dades i per confirmar que l’aplicació declara identificadors utilitzats per rastrejar-te fora d’Orange.',
+        'Etiqueta de privadesa declarada per Orange Espagne. Declara identificadors utilitzats per rastrejar-te fora d’Orange.',
     }),
     s('orange-privacy-policy', 'Política de privacidad Mi Orange', 'https://www.orange.es/politicaproteccionmiorange', 'Orange Espagne, S.A.U.', 'privacy-policy', 'primary', {
       language: 'es',
@@ -277,7 +277,7 @@ export const lot: SeedLot = {
       categories: ['video-i-streaming', 'telecomunicacions'],
       tagline: 'Televisió d’operadora que declara identificadors per rastrejar fora d’Orange',
       summary:
-        'Orange TV només té sentit si ets client d’Orange: el compte de televisió és el compte de la línia. Això vol dir que el que mires s’acumula al costat de les dades de facturació i de consum de la teva operadora. L’etiqueta de l’App Store declara identificadors utilitzats per rastrejar-te en aplicacions i webs d’altres empreses, i publicitat de tercers, cosa poc habitual en una aplicació de televisió inclosa a la quota.',
+        'Orange TV és per a la clientela d’Orange i el compte de televisió és el compte de la línia, de manera que el que mires queda al costat de les dades de facturació i de consum de l’operadora. L’etiqueta de l’App Store declara identificadors utilitzats per rastrejar-te en aplicacions i webs d’altres empreses, i publicitat de tercers, cosa poc habitual en una aplicació de televisió inclosa a la quota.',
       platforms: ['ios', 'android', 'web', 'other'],
       businessModel: 'subscription',
       jurisdiction: 'Espanya',
@@ -290,7 +290,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['orange-tv-app-store'], 'L’aplicació és per a la clientela d’Orange i cal identificar-se amb les credencials de la línia.'),
       openSource: f('no', 'official', ['orange-tv-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'L’historial de visualització televisiva és un dels indicadors més fiables de conviccions polítiques, religioses i hàbits domèstics. Aquí no viatja sol: va lligat a un compte d’operadora que ja sap qui ets, on vius, quant pagues i quan ets a casa.',
+        'L’historial de visualització televisiva pot indicar conviccions polítiques i religioses i hàbits domèstics. Aquí va lligat a un compte d’operadora que té la identitat, l’adreça, la facturació i el consum de la persona.',
       dataCollection: [
         row('identificador-de-compte', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['orange-tv-app-store', 'orange-privacy-policy'] }),
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'atencio-a-lusuari'], sources: ['orange-tv-app-store'], note: 'L’etiqueta declara «otros datos de contacto del usuario» vinculats a la identitat.' }),
@@ -372,7 +372,7 @@ export const lot: SeedLot = {
           app: 'movistar-plus',
           comparability: 'partial',
           rationale: 'Televisió d’operadora equivalent en catàleg i funcionament, amb la mateixa lògica de compte lligat a la línia.',
-          tradeOffs: 'No és una millora de privadesa: només canvia l’operadora que acumula l’historial de visualització.',
+          tradeOffs: 'No millora la privadesa; només canvia l’operadora que acumula l’historial de visualització.',
         },
         {
           app: 'netflix',
@@ -403,7 +403,7 @@ export const lot: SeedLot = {
       categories: ['banca-i-finances'],
       tagline: 'Banca mòbil sense rastreig publicitari declarat, però amb perfilat comercial',
       summary:
-        'L’etiqueta de l’App Store de Santander és de les més contingudes de la banca espanyola: no declara cap dada utilitzada per rastrejar-te fora de l’aplicació. El que sí que hi ha és perfilat comercial intern per oferir productes segmentats, i una filtració de 2024 en un proveïdor extern que va afectar la clientela d’Espanya, Xile i l’Uruguai i tota la plantilla del grup.',
+        'L’etiqueta de l’App Store de Santander no declara cap dada utilitzada per rastrejar-te fora de l’aplicació, cosa poc habitual a la banca espanyola. Sí que hi ha perfilat comercial intern per oferir productes segmentats, i una filtració de 2024 en un proveïdor extern que va afectar la clientela d’Espanya, Xile i l’Uruguai i tota la plantilla del grup.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'commerce',
       jurisdiction: 'Espanya',
@@ -416,7 +416,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['santander-app-privacy-policy'], 'L’aplicació només funciona amb les credencials d’un contracte bancari vigent.'),
       openSource: f('no', 'official', ['santander-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'Un extracte bancari és una biografia: on menjes, on t’has tractat, a qui pagues cada mes i quant guanyes. Aquí hi conviuen amb la geolocalització que demana l’aplicació, l’agenda de contactes que necessita Bizum i el perfil comercial que el banc construeix per decidir què t’ofereix.',
+        'Un extracte bancari mostra on menges, on t’has tractat, a qui pagues cada mes i quant guanyes. Aquí s’hi afegeixen la geolocalització que demana l’aplicació, l’agenda de contactes que necessita Bizum i el perfil comercial que el banc elabora per decidir què t’ofereix.',
       dataCollection: [
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'compliment-legal'], sources: ['santander-app-privacy-policy'] }),
         row('document-identificatiu-oficial', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['compliment-legal', 'seguretat-i-prevencio-del-frau'], sources: ['santander-app-privacy-policy'], note: 'L’aplicació demana accés a la càmera per escanejar documents d’identitat.' }),
@@ -469,7 +469,7 @@ export const lot: SeedLot = {
           'Si no obtens resposta dins de termini, reclama davant de l’AEPD.',
         ],
         obstacles:
-          'Com a tota la banca, el dret de supressió xoca amb les obligacions legals de conservació: bona part de les dades quedaran bloquejades, no esborrades.',
+          'Com a tota la banca, les obligacions legals de conservació limiten el dret de supressió, i bona part de les dades queden bloquejades en lloc d’esborrar-se.',
         dataRetained: 'Documentació de la relació contractual i de les operacions durant els terminis fiscals i de prevenció del blanqueig de capitals.',
         sources: ['santander-app-privacy-policy'],
       },
@@ -521,7 +521,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'La troballa útil és el contrast entre l’etiqueta de l’App Store de Santander, que no declara cap rastreig, i la de CaixaBankNow o imagin, que sí que en declaren. Dins d’un mateix sector regulat, la decisió de rastrejar és una tria de l’entitat, no una necessitat tècnica.',
+          'L’etiqueta de l’App Store de Santander no declara cap rastreig, mentre que les de CaixaBankNow i imagin sí que en declaren. Dins d’un mateix sector regulat, rastrejar depèn de cada entitat i no és una necessitat tècnica.',
         openQuestions: [
           'On és exactament el panell de preferències comercials dins de l’aplicació?',
           'Les dades biomètriques d’autenticació surten del dispositiu?',
@@ -537,7 +537,7 @@ export const lot: SeedLot = {
       categories: ['banca-i-finances'],
       tagline: 'Banc digital que documenta el perfilat creditici amb un detall poc habitual',
       summary:
-        'La política d’Openbank és de les poques del sector que explica, pas a pas, quina lògica segueix el perfilat que decideix si et concedeix un préstec o una targeta: quines fonts internes i externes hi entren, quins fitxers de solvència es consulten i com demanar la intervenció d’una persona. A canvi, l’aplicació declara a l’App Store identificadors utilitzats per rastrejar-te i publicitat de tercers.',
+        'La política d’Openbank és de les poques del sector que explica, pas a pas, quina lògica segueix el perfilat que decideix si et concedeix un préstec o una targeta: quines fonts internes i externes hi entren, quins fitxers de solvència es consulten i com demanar la intervenció d’una persona. L’aplicació, però, declara a l’App Store identificadors utilitzats per rastrejar-te i publicitat de tercers.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'commerce',
       jurisdiction: 'Espanya',
@@ -550,7 +550,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['openbank-privacy-policy'], 'L’aplicació és el canal principal d’un banc sense oficines: sense contracte no hi ha servei.'),
       openSource: f('no', 'official', ['openbank-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'A la informació financera habitual s’hi suma el que Openbank obté de fora: els fitxers de solvència ASNEF i BADEXCUG, la Central d’Informació de Riscos del Banc d’Espanya i els agregadors de comptes d’altres entitats. El resultat és un retrat de la teva situació econòmica més complet que el que té qualsevol banc amb el qual només operis tu.',
+        'A la informació financera habitual s’hi suma el que Openbank obté de fora: els fitxers de solvència ASNEF i BADEXCUG, la Central d’Informació de Riscos del Banc d’Espanya i els agregadors de comptes d’altres entitats. Amb aquestes fonts, Openbank coneix la teva situació econòmica millor que un banc que només veu les operacions que hi fas.',
       dataCollection: [
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'compliment-legal'], sources: ['openbank-privacy-policy', 'openbank-app-store'] }),
         row('adreca-postal', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['openbank-app-store'] }),
@@ -608,7 +608,7 @@ export const lot: SeedLot = {
           'Guarda la confirmació i tingues present que les dades quedaran bloquejades durant els terminis legals de conservació.',
         ],
         obstacles:
-          'El bloqueig no és una mala pràctica del banc, sinó una obligació legal; però convé saber que suprimir el compte no equival a esborrar l’historial.',
+          'El bloqueig és una obligació legal, de manera que suprimir el compte no esborra l’historial.',
         dataRetained: 'Dades bloquejades durant els terminis de prescripció fiscal, mercantil i de prevenció del blanqueig.',
         sources: ['openbank-privacy-policy'],
       },
@@ -667,7 +667,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'La política d’Openbank és, en transparència, la millor de les quatre entitats d’aquest lot: explica la lògica del perfilat creditici, les fonts externes que hi entren i com demanar intervenció humana. La contradicció és que la mateixa aplicació declara identificadors per rastrejar fora del banc.',
+          'La política d’Openbank explica la lògica del perfilat creditici, les fonts externes que hi entren i com demanar intervenció humana. Tot i això, la mateixa aplicació declara identificadors per rastrejar fora del banc.',
         openQuestions: [
           'Quins tercers publicitaris reben els identificadors que declara l’etiqueta de l’App Store?',
           'Quin és el resultat pràctic d’oposar-se al perfilat comercial sense cancel·lar els productes?',
@@ -681,9 +681,9 @@ export const lot: SeedLot = {
       name: 'CaixaBankNow',
       company: 'caixabank',
       categories: ['banca-i-finances'],
-      tagline: 'L’única banca del lot que declara informació financera com a dada de rastreig',
+      tagline: 'Declara informació financera com a dada de rastreig',
       summary:
-        'L’etiqueta de l’App Store de CaixaBankNow declara com a dades utilitzades per rastrejar-te, entre altres, la informació financera i la ubicació. És una declaració excepcional en el sector: cap de les altres tres aplicacions bancàries d’aquest lot no arriba tan lluny. L’entitat va rebre l’any 2021 la sanció més alta que havia imposat mai l’AEPD, precisament per la confusió de les bases jurídiques de la seva política de privadesa.',
+        'L’etiqueta de l’App Store de CaixaBankNow declara com a dades utilitzades per rastrejar-te, entre altres, la informació financera i la ubicació. L’entitat va rebre l’any 2021 la sanció més alta que havia imposat mai l’AEPD, per la confusió de les bases jurídiques de la seva política de privadesa.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'commerce',
       jurisdiction: 'Espanya',
@@ -696,7 +696,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['caixabank-privacy-policy'], 'L’accés exigeix les credencials d’un contracte bancari vigent.'),
       openSource: f('no', 'official', ['caixabanknow-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'CaixaBank combina els moviments del compte amb dades socioeconòmiques i professionals, consultes als fitxers de solvència ASNEF, BADEXCUG i CIRBE, i models matemàtics que infereixen preferències. La corresponsabilitat amb VidaCaixa, CaixaBank Payments & Consumer i la resta del grup fa que aquest retrat circuli per assegurances, crèdit al consum i gestió d’actius.',
+        'CaixaBank combina els moviments del compte amb dades socioeconòmiques i professionals, consultes als fitxers de solvència ASNEF, BADEXCUG i CIRBE, i models matemàtics que infereixen preferències. La corresponsabilitat amb VidaCaixa, CaixaBank Payments & Consumer i la resta del grup fa que aquestes dades circulin per assegurances, crèdit al consum i gestió d’actius.',
       dataCollection: [
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'compliment-legal'], sources: ['caixabank-privacy-policy', 'caixabanknow-app-store'] }),
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'yes', shared: 'group', purposes: ['prestacio-del-servei', 'atencio-a-lusuari'], sources: ['caixabanknow-app-store'], note: 'L’etiqueta inclou les dades de contacte entre les utilitzades per rastrejar-te.' }),
@@ -814,7 +814,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'La dada que val la pena retenir és la declaració d’«información financiera» com a dada de rastreig a l’etiqueta de l’App Store. Que una entitat bancària ho declari no vol dir que enviï els teus moviments a una xarxa publicitària, però sí que reconeix que la informació financera pot acabar vinculada a identificadors de rastreig.',
+          'La fitxa destaca la declaració d’«información financiera» com a dada de rastreig a l’etiqueta de l’App Store. Que una entitat bancària ho declari no vol dir que enviï els teus moviments a una xarxa publicitària, però sí que reconeix que la informació financera pot acabar vinculada a identificadors de rastreig.',
         openQuestions: [
           'Què inclou exactament la «información financiera» declarada com a dada de rastreig?',
           'Quins tercers reben les dades de publicitat de l’aplicació?',
@@ -830,7 +830,7 @@ export const lot: SeedLot = {
       categories: ['banca-i-finances'],
       tagline: 'La marca jove de CaixaBank, amb una etiqueta de rastreig encara més àmplia',
       summary:
-        'imagin és una marca de CaixaBank, no un banc independent: el responsable del tractament és la mateixa entitat i s’aplica la mateixa política de privadesa. La diferència és el to i el públic, més jove, i una etiqueta de l’App Store que declara ubicació, identificadors i dades d’ús com a dades utilitzades per rastrejar-te, a més d’historial de compres i contingut fotogràfic com a dades no vinculades.',
+        'imagin és una marca de CaixaBank: el responsable del tractament és la mateixa entitat i s’aplica la mateixa política de privadesa. Canvien el to i el públic, més jove, i l’etiqueta de l’App Store, que declara ubicació, identificadors i dades d’ús com a dades utilitzades per rastrejar-te, a més d’historial de compres i contingut fotogràfic com a dades no vinculades.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'commerce',
       jurisdiction: 'Espanya',
@@ -844,7 +844,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['imagin-data-treatment'], 'Cal ser client d’imagin, és a dir, tenir un contracte amb CaixaBank sota aquesta marca.'),
       openSource: f('no', 'official', ['imagin-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'A les dades bancàries habituals, imagin hi suma una capa d’oci i continguts pensada per a un públic jove. La combinació de moviments del compte, ubicació i interessos culturals fa que el perfil comercial d’aquesta aplicació sigui més ric que el d’una banca convencional.',
+        'A les dades bancàries habituals, imagin hi suma una capa d’oci i continguts pensada per a un públic jove. La combinació de moviments del compte, ubicació i interessos culturals fa que el perfil comercial d’aquesta aplicació sigui més detallat que el d’una banca convencional.',
       dataCollection: [
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'compliment-legal'], sources: ['caixabank-privacy-policy'] }),
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'atencio-a-lusuari'], sources: ['imagin-app-store'] }),
@@ -889,7 +889,7 @@ export const lot: SeedLot = {
       },
       accountDeletion: {
         possible: f('partial', 'official', ['imagin-data-treatment', 'caixabank-privacy-policy'], 'Cal cancel·lar els productes i exercir el dret de supressió; les conservacions legals es mantenen.'),
-        selfService: f('partial', 'official', ['imagin-data-treatment'], 'L’aplicació té un camí propi per exercir drets: Menú General, Configuració i «Ejercicio de derechos». No és un botó d’eliminació, sinó un formulari de sol·licitud.'),
+        selfService: f('partial', 'official', ['imagin-data-treatment'], 'L’aplicació té un camí propi per exercir drets: Menú General, Configuració i «Ejercicio de derechos». És un formulari de sol·licitud i no elimina el compte directament.'),
         difficulty: 'medium',
         steps: [
           'Cancel·la els productes contractats des de l’aplicació o contactant amb CaixaBank.',
@@ -917,7 +917,7 @@ export const lot: SeedLot = {
         telemetryOptOut: unknown('No consta cap control per desactivar l’analítica d’ús.'),
         granularControls: f('partial', 'official', ['imagin-data-treatment'], 'Hi ha un apartat d’exercici de drets dins de l’aplicació, però no un panell de privadesa amb interruptors per finalitat.'),
         defaultPosture: 'permissive',
-        darkPatterns: f('partial', 'editorial', [], 'Declarar l’historial de compres i la ubicació precisa com a dades «no vinculades amb la identitat» en una aplicació bancària, on tot l’ús passa per un compte identificat, costa de sostenir i confon qui llegeix l’etiqueta.'),
+        darkPatterns: f('partial', 'editorial', [], 'Declarar l’historial de compres i la ubicació precisa com a dades «no vinculades amb la identitat» en una aplicació bancària, on tot l’ús passa per un compte identificat, és difícil de justificar i pot confondre qui llegeix l’etiqueta.'),
       },
       security: {
         e2ee: na('L’aplicació no transporta comunicacions privades entre persones usuàries.'),
@@ -949,7 +949,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'imagin no té personalitat jurídica pròpia: el responsable és CaixaBank, S.A., i per tant li afecten la política, la corresponsabilitat de grup i la sanció de l’AEPD de 2021. La fitxa s’ha escrit sobre aquesta base i sobre l’etiqueta de l’App Store, que és pròpia de l’aplicació.',
+          'imagin no té personalitat jurídica pròpia: el responsable és CaixaBank, S.A., i per tant s’hi apliquen la política, la corresponsabilitat de grup i la sanció de l’AEPD de 2021. La fitxa s’ha escrit sobre aquesta base i sobre l’etiqueta de l’App Store, que és pròpia de l’aplicació.',
         openQuestions: [
           'imagin té algun tractament diferenciat respecte de CaixaBankNow, més enllà de la marca?',
           'Per què l’etiqueta declara l’historial de compres com a dada no vinculada amb la identitat?',
@@ -979,7 +979,7 @@ export const lot: SeedLot = {
       accountRequired: f('partial', 'official', ['capcut-privacy-policy'], 'Es pot editar sense compte, però el desament al núvol, l’exportació sense marca i les funcions d’IA demanen registre.'),
       openSource: f('no', 'official', ['capcut-terms'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'El que puges a CapCut no és metratge anònim: són cares, veus i escenes de la teva vida. La política diu que en detecta la presència i la posició, la llicència de les condicions permet reutilitzar-ho indefinidament i el responsable és una societat singapuresa fora de l’abast directe d’una autoritat europea.',
+        'Els vídeos que puges a CapCut solen contenir cares, veus i escenes personals. La política diu que en detecta la presència i la posició, la llicència de les condicions permet reutilitzar-ho indefinidament i el responsable és una societat singapuresa fora de l’abast directe d’una autoritat europea.',
       dataCollection: [
         row('fotografies-i-videos', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'millora-del-producte'], sources: ['capcut-privacy-policy', 'capcut-app-store'], note: 'L’etiqueta declara contingut de la persona usuària vinculat a la identitat; les condicions hi apliquen una llicència perpètua.' }),
         row('veu-i-audio', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['capcut-privacy-policy', 'capcut-app-store'], note: 'Les gravacions d’àudio formen part del contingut declarat a l’etiqueta.' }),
@@ -1079,7 +1079,7 @@ export const lot: SeedLot = {
           app: 'inshot',
           comparability: 'equivalent',
           rationale: 'Editor de vídeo mòbil amb funcions comparables per al muntatge habitual.',
-          tradeOffs: 'Cal revisar-ne igualment les condicions: tenir una alternativa no vol dir que sigui més protectora.',
+          tradeOffs: 'Cal revisar-ne igualment les condicions, perquè una alternativa no és necessàriament més protectora.',
         },
       ],
       review: {
@@ -1087,7 +1087,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'La troballa clau no és de privadesa en sentit estricte sinó de propietat: la llicència perpètua sobre el contingut, ampliada el juny de 2025. Val la pena llegir-la al costat de la política de privadesa, perquè la primera sobreviu a l’eliminació del compte que promet la segona.',
+          'El punt principal de la fitxa és la llicència perpètua sobre el contingut, ampliada el juny de 2025, que afecta la propietat més que la privadesa en sentit estricte. Aquesta llicència de les condicions continua vigent després de l’eliminació del compte que preveu la política de privadesa.',
         openQuestions: [
           'El contingut de les persones usuàries s’utilitza per entrenar els models generatius de ByteDance?',
           'Quina és l’entitat responsable davant d’una autoritat europea, si el responsable declarat és a Singapur?',
@@ -1117,7 +1117,7 @@ export const lot: SeedLot = {
       accountRequired: f('partial', 'official', ['hypic-privacy-policy'], 'L’edició bàsica funciona sense compte; el desament al núvol i algunes funcions demanen registre.'),
       openSource: f('no', 'official', ['hypic-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'Una aplicació de retoc facial treballa, per definició, amb la cara de qui la fa servir. Aquí el compromís explícit d’esborrar les imatges just després de processar-les redueix el risc, però la declaració de rastreig publicitari indica que l’aplicació continua sent una peça de l’ecosistema publicitari de ByteDance.',
+        'Una aplicació de retoc facial treballa amb la cara de qui la fa servir. El compromís explícit d’esborrar les imatges just després de processar-les redueix el risc, però la declaració de rastreig publicitari indica que l’aplicació forma part de l’ecosistema publicitari de ByteDance.',
       dataCollection: [
         row('fotografies-i-videos', 'yes', { linked: 'no', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['hypic-privacy-policy', 'hypic-app-store'], note: 'L’etiqueta les declara com a dades no vinculades amb la identitat; la política diu que s’esborren immediatament després d’aplicar la funció.' }),
         row('dades-biometriques', 'yes', { linked: 'no', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['hypic-privacy-policy'], note: 'La política reconeix l’anàlisi de trets facials i corporals per a les funcions de retoc, i afirma que aquestes dades no es conserven ni es comparteixen amb tercers.' }),
@@ -1212,7 +1212,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'El compromís d’esborrar les imatges just després de processar-les és una bona pràctica i mereix ser citat, però conviu al mateix document amb l’afirmació que les dades serveixen per millorar models d’aprenentatge automàtic. La contradicció queda anotada com a pregunta oberta.',
+          'El compromís d’esborrar les imatges just després de processar-les és una bona pràctica, però el mateix document afirma que les dades serveixen per millorar models d’aprenentatge automàtic. La contradicció queda anotada com a pregunta oberta.',
         openQuestions: [
           'Com es concilia l’esborrat immediat de les imatges amb la millora de models d’aprenentatge automàtic?',
           'Les dades de trets facials es processen al dispositiu o al servidor?',
@@ -1228,7 +1228,7 @@ export const lot: SeedLot = {
       categories: ['llibres-i-lectura'],
       tagline: 'Novel·les per capítols amb baixa per correu i sense representant a la UE',
       summary:
-        'GoodNovel ven capítols solts de novel·la romàntica i de fantasia, un model que converteix el ritme de lectura en dada comercial. L’editora és a Singapur i no declara cap establiment ni representant a la Unió Europea. La baixa no és un botó: cal escriure a una adreça de correu i esperar fins a quinze dies.',
+        'GoodNovel ven capítols solts de novel·la romàntica i de fantasia, i amb aquest model el ritme de lectura esdevé una dada comercial. L’editora és a Singapur i no declara cap establiment ni representant a la Unió Europea. Per donar-se de baixa cal escriure a una adreça de correu i esperar fins a quinze dies.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'freemium',
       jurisdiction: 'Singapur',
@@ -1242,7 +1242,7 @@ export const lot: SeedLot = {
       accountRequired: f('partial', 'official', ['goodnovel-privacy-policy'], 'Es pot llegir una part del catàleg sense compte, però comprar capítols o conservar el progrés en demana un.'),
       openSource: f('no', 'official', ['goodnovel-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'El que llegeixes i, sobretot, on t’atures i quant estàs disposada a pagar per continuar, és informació molt fina sobre gustos, estats d’ànim i capacitat de despesa. GoodNovel la conserva lligada a un historial de compres i la fa servir per recomanar i per anunciar.',
+        'El que llegeixes, on t’atures i quant pagues per continuar donen informació detallada sobre gustos, estats d’ànim i capacitat de despesa. GoodNovel la conserva lligada a un historial de compres i la fa servir per recomanar i per anunciar.',
       dataCollection: [
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'atencio-a-lusuari'], sources: ['goodnovel-privacy-policy'] }),
         row('identificador-de-compte', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['goodnovel-privacy-policy'] }),
@@ -1316,7 +1316,7 @@ export const lot: SeedLot = {
         telemetryOptOut: unknown('No consta cap control per desactivar l’analítica d’ús.'),
         granularControls: unknown('No consta cap panell de privadesa per finalitat.'),
         defaultPosture: 'permissive',
-        darkPatterns: f('partial', 'editorial', [], 'La combinació de baixa només per correu i pèrdua del saldo de monedes comprades converteix la sortida en una decisió amb cost, no en un simple canvi de configuració.'),
+        darkPatterns: f('partial', 'editorial', [], 'La combinació de baixa només per correu i pèrdua del saldo de monedes comprades fa que sortir del servei tingui un cost econòmic.'),
         darkPatternList: [
           {
             type: 'hidden-exit',
@@ -1371,7 +1371,7 @@ export const lot: SeedLot = {
       categories: ['video-i-streaming'],
       tagline: 'Sèries verticals de pagament per episodi amb la mateixa política que GoodNovel',
       summary:
-        'GoodShort és la versió audiovisual de GoodNovel: microsèries verticals que es desbloquegen episodi a episodi amb monedes. La política de privadesa és bessona de la de GoodNovel i comparteix la mateixa adreça de contacte. El model de pagament fragmentat fa que el registre de visualització i de despesa sigui molt detallat, i la baixa implica perdre el saldo.',
+        'GoodShort és la versió audiovisual de GoodNovel: microsèries verticals que es desbloquegen episodi a episodi amb monedes. La política de privadesa és pràcticament idèntica a la de GoodNovel i comparteix la mateixa adreça de contacte. El model de pagament fragmentat fa que el registre de visualització i de despesa sigui molt detallat, i la baixa implica perdre el saldo.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'freemium',
       jurisdiction: 'Singapur',
@@ -1385,7 +1385,7 @@ export const lot: SeedLot = {
       accountRequired: f('partial', 'official', ['goodshort-privacy-policy'], 'Es pot mirar contingut gratuït sense compte, però desbloquejar episodis i conservar el saldo en demana un.'),
       openSource: f('no', 'official', ['goodshort-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'El pagament per episodi genera un registre minut a minut del que es mira i del moment exacte en què es decideix pagar per continuar. És una mesura directa de l’enganxament, i queda lligada a l’historial de despesa.',
+        'El pagament per episodi genera un registre minut a minut del que es mira i del moment exacte en què es decideix pagar per continuar. Aquest registre mostra fins a quin punt enganxa el contingut i queda lligat a l’historial de despesa.',
       dataCollection: [
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'atencio-a-lusuari'], sources: ['goodshort-privacy-policy'] }),
         row('identificador-de-compte', 'yes', { linked: 'yes', tracking: 'yes', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['goodshort-app-store', 'goodshort-privacy-policy'] }),
@@ -1458,7 +1458,7 @@ export const lot: SeedLot = {
         telemetryOptOut: unknown('No consta cap control per desactivar l’analítica d’ús.'),
         granularControls: unknown('No consta cap panell de privadesa per finalitat.'),
         defaultPosture: 'permissive',
-        darkPatterns: f('partial', 'editorial', [], 'El model de monedes prepagades fa que tancar el compte signifiqui renunciar a diners ja pagats: una barrera de sortida que no té res a veure amb cap requisit tècnic ni legal.'),
+        darkPatterns: f('partial', 'editorial', [], 'El model de monedes prepagades fa que tancar el compte signifiqui renunciar a diners ja pagats. Aquesta barrera de sortida no respon a cap requisit tècnic ni legal.'),
         darkPatternList: [
           {
             type: 'other',
@@ -1496,7 +1496,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'GoodShort i GoodNovel comparteixen editora, política i adreça de contacte. La diferència de privadesa rellevant és que aquí la dada principal és l’historial de visualització i el moment exacte de la decisió de pagar.',
+          'GoodShort i GoodNovel comparteixen editora, política i adreça de contacte. Pel que fa a la privadesa, la diferència és que aquí la dada principal és l’historial de visualització i el moment exacte de la decisió de pagar.',
         openQuestions: [
           'Quin mecanisme empara les transferències als Estats Units?',
           'El saldo de monedes es pot reemborsar abans de tancar el compte?',

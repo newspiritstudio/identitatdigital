@@ -28,7 +28,7 @@ const certificadoDigitalFnmt: AppSeed = {
   name: 'Certificado digital FNMT',
   company: 'fnmt-rcm',
   categories: ['administracio-publica', 'autenticacio-i-seguretat'],
-  tagline: 'L’aplicació que custodia la identitat digital de mig país declara a l’App Store que no recull cap dada',
+  tagline: 'L’aplicació del certificat digital de la FNMT declara a l’App Store que no recull cap dada, tot i que el tràmit tracta el DNI',
   summary:
     'L’aplicació de la Fábrica Nacional de Moneda y Timbre serveix per sol·licitar, descarregar i fer servir el certificat de persona física, la clau amb què milions de persones signen davant de l’administració. L’etiqueta de l’App Store diu «No se recopilan datos», però el tràmit tracta el DNI, el domicili, el telèfon i, si s’acredita la identitat per vídeo, la imatge de la cara i del document. La política que enllaça la fitxa de l’App Store és la genèrica de l’organisme, no una política de l’aplicació.',
   platforms: ['ios', 'android'],
@@ -60,12 +60,12 @@ const certificadoDigitalFnmt: AppSeed = {
     accessibilityStatement: f('partial', 'official', ['fnmt-rcm-accesibilidad'], 'La seu es declara «parcialmente conforme» amb el Reial decret 1112/2018: imatges amb text alternatiu incorrecte, formularis amb CAPTCHA poc accessibles i documents PDF que perden l’accessibilitat en signar-los. És una autoavaluació de l’organisme, preparada el 24 d’abril del 2023 i revisada l’1 de juliol del 2026, i cobreix el web de la seu, no l’aplicació mòbil.', {
       url: 'https://www.sede.fnmt.gob.es/accesibilidad',
     }),
-    mandatoryRetention: f('yes', 'official', ['fnmt-rcm-ley-6-2020', 'fnmt-rcm-rat'], 'La llei obliga el prestador qualificat a conservar la informació relativa al servei prestat durant quinze anys des de l’extinció del certificat, i el registre d’activitats fixa el mateix termini de supressió. Per això revocar el certificat no esborra el rastre: no marxar del tot no és una decisió de la FNMT.', {
+    mandatoryRetention: f('yes', 'official', ['fnmt-rcm-ley-6-2020', 'fnmt-rcm-rat'], 'La llei obliga el prestador qualificat a conservar la informació relativa al servei prestat durant quinze anys des de l’extinció del certificat, i el registre d’activitats fixa el mateix termini de supressió. Per això revocar el certificat no esborra aquest registre, i la FNMT no hi pot fer res.', {
       norm: 'Llei 6/2020, article 9.3.a), en relació amb l’article 24.2.h) del Reglament (UE) 910/2014',
     }),
   },
   dataSummary:
-    'Per emetre un certificat cal provar qui ets davant d’un prestador qualificat: número de DNI, nom, domicili, telèfon i correu, més la clau pública del certificat i el seu número de sèrie. Si l’acreditació es fa per vídeo, s’hi afegeixen la imatge de la cara i la del document. Un cop emès, el certificat és la traça que identifica la persona a cada tràmit administratiu que signa.',
+    'Per emetre un certificat cal provar qui ets davant d’un prestador qualificat: número de DNI, nom, domicili, telèfon i correu, més la clau pública del certificat i el seu número de sèrie. Si l’acreditació es fa per vídeo, s’hi afegeixen la imatge de la cara i la del document. Un cop emès, el certificat identifica la persona a cada tràmit administratiu que signa.',
   dataCollection: [
     row('document-identificatiu-oficial', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'compliment-legal'], sources: ['fnmt-rcm-politica-certificado-movil', 'fnmt-rcm-certificado-movil'], note: 'DNI espanyol en vigor, llegit per NFC amb el PIN del DNIe o mostrat en la vídeo-identificació.' }),
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'compliment-legal'], sources: ['fnmt-rcm-politica-certificado-movil'], note: 'Consta al mateix certificat i, per tant, el veu qualsevol destinatari d’un document signat.' }),
@@ -129,9 +129,9 @@ const certificadoDigitalFnmt: AppSeed = {
   controls: {
     adPersonalizationOptOut: na('No hi ha publicitat al servei.'),
     telemetryOptOut: unknown('No hem trobat cap panell de configuració de telemetria ni cap documentació que digui si n’hi ha.'),
-    granularControls: f('no', 'official', ['fnmt-rcm-politica-certificado-movil'], 'El tractament és el mínim necessari per emetre el certificat i no admet opcions: no hi ha res a configurar perquè no hi ha finalitats accessòries.'),
+    granularControls: f('no', 'official', ['fnmt-rcm-politica-certificado-movil'], 'El tractament és el mínim necessari per emetre el certificat i no admet opcions, perquè no té finalitats accessòries que es puguin configurar.'),
     defaultPosture: 'protective',
-    darkPatterns: f('no', 'editorial', [], 'No hem trobat patrons enganyosos: el servei no reté la persona usuària ni li ofereix opcions confuses. El retret és l’oposat, la manca de documentació.'),
+    darkPatterns: f('no', 'editorial', [], 'No hem trobat patrons enganyosos: el servei no reté la persona usuària ni li ofereix opcions confuses. El problema és la manca de documentació.'),
   },
   security: {
     e2ee: na('El servei no transporta comunicacions privades; el que protegeix és la clau del certificat.'),
@@ -195,14 +195,14 @@ const bonoCulturalJoven: AppSeed = {
   publicService: {
     isPublicService: true,
     administrationLevel: 'state',
-    legalBasis: f('yes', 'official', ['bono-cultural-joven-real-decreto', 'bono-cultural-joven-rat-cultura'], 'L’article 15.4.a) del reial decret de la convocatòria cita els articles 6.1.a), 6.1.c), 6.1.e) i 9.2.g) del RGPD i l’obligació legal que deriva de la disposició addicional centèsima quarta de la Llei 31/2022; el consentiment només empara l’enviament de comunicacions per aplicacions de missatgeria. El detall és que la política publicada al web encara invoca el reial decret de la convocatòria anterior.', {
+    legalBasis: f('yes', 'official', ['bono-cultural-joven-real-decreto', 'bono-cultural-joven-rat-cultura'], 'L’article 15.4.a) del reial decret de la convocatòria cita els articles 6.1.a), 6.1.c), 6.1.e) i 9.2.g) del RGPD i l’obligació legal que deriva de la disposició addicional centèsima quarta de la Llei 31/2022; el consentiment només empara l’enviament de comunicacions per aplicacions de missatgeria. La política publicada al web, però, encara invoca el reial decret de la convocatòria anterior.', {
       norm: 'Reial decret 401/2026, article 15.4.a); Reglament (UE) 2016/679, articles 6.1.c) i 6.1.e)',
     }),
     processingRegistry: f('yes', 'official', ['bono-cultural-joven-rat-cultura'], 'El registre d’activitats del Ministeri de Cultura, actualitzat el setembre del 2026, té una fitxa pròpia del tractament «Bono Cultural Joven» amb les categories de dades, els destinataris, el termini de conservació i la llista nominal de transferències internacionals.', {
       url: 'https://www.cultura.gob.es/servicios-a-la-ciudadania/proteccion-datos/pagina-master-rat1/actividad-13.html',
     }),
     dpia: unknown('Ni el reial decret ni la política ni la fitxa del registre esmenten cap avaluació d’impacte, i no n’hem trobat cap de publicada.'),
-    ensConformity: f('partial', 'official', ['bono-cultural-joven-rat-cultura', 'bono-cultural-joven-real-decreto'], 'La fitxa del registre i l’article 15.4.e) del reial decret diuen que s’apliquen les mesures de l’annex II del Reial decret 311/2022 i la política de seguretat del Ministeri aprovada per l’Ordre CLT/832/2024. Invocar la norma no és declarar-s’hi conforme: no hem trobat cap declaració ni certificació de conformitat de la plataforma del bo ni la categoria del sistema.'),
+    ensConformity: f('partial', 'official', ['bono-cultural-joven-rat-cultura', 'bono-cultural-joven-real-decreto'], 'La fitxa del registre i l’article 15.4.e) del reial decret diuen que s’apliquen les mesures de l’annex II del Reial decret 311/2022 i la política de seguretat del Ministeri aprovada per l’Ordre CLT/832/2024. Citar la norma no equival a declarar-s’hi conforme, i no hem trobat cap declaració ni certificació de conformitat de la plataforma del bo ni la categoria del sistema.'),
     dpo: f('yes', 'official', ['bono-cultural-joven-real-decreto', 'bono-cultural-joven-politica-privacidad'], 'El reial decret identifica el delegat de protecció de dades amb el càrrec, l’adreça postal i el correu electrònic; per a l’exercici de drets, el registre remet també al delegat de la FNMT-RCM com a encarregada.', {
       contact: 'dpd@cultura.gob.es',
     }),
@@ -215,7 +215,7 @@ const bonoCulturalJoven: AppSeed = {
     }),
   },
   dataSummary:
-    'La sol·licitud creua la identitat de la persona jove amb la data de naixement, la residència i la comprovació de requisits, i el consum del bo deixa el rastre de les compres culturals fetes amb la targeta que emet Correos. És un cas on la dada sensible no és la identitat sinó el que s’hi compra: llibres, entrades i subscripcions diuen molt de les aficions i les idees d’una persona.',
+    'La sol·licitud creua la identitat de la persona jove amb la data de naixement, la residència i la comprovació de requisits, i el consum del bo deixa el rastre de les compres culturals fetes amb la targeta que emet Correos. Aquí la dada més sensible és el que s’hi compra: llibres, entrades i subscripcions revelen les aficions i les idees d’una persona.',
   dataCollection: [
     row('document-identificatiu-oficial', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'compliment-legal'], sources: ['bono-cultural-joven-politica-privacidad'], note: 'DNI o NIE per comprovar els requisits de l’ajuda.' }),
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['bono-cultural-joven-politica-privacidad'] }),
@@ -325,7 +325,7 @@ const bbc: AppSeed = {
   accountRequired: f('no', 'official', ['bbc-studios-privacy-policy'], 'Es pot llegir sense compte, però la política diu que llavors s’assigna un identificador únic al dispositiu. Cal compte per a butlletins i subscripcions de pagament.'),
   openSource: f('partial', 'official', ['bbc-security-disclosure'], 'La BBC manté repositoris públics a GitHub, però l’aplicació de notícies no és de codi obert.', { licence: 'Privativa' }),
   dataSummary:
-    'Quines notícies llegeixes, quanta estona t’hi estàs i amb quina freqüència tornes és, per a un mitjà, una radiografia ideològica. La política ho anomena «informació inferida» i l’afegeix a un perfil publicitari que combina dades pròpies, correu electrònic xifrat amb funció resum per creuar plataformes i segments comprats a intermediaris de dades.',
+    'Quines notícies llegeixes, quanta estona t’hi estàs i amb quina freqüència tornes permet a un mitjà deduir-ne la ideologia. La política ho anomena «informació inferida» i l’afegeix a un perfil publicitari que combina dades pròpies, correu electrònic xifrat amb funció resum per creuar plataformes i segments comprats a intermediaris de dades.',
   dataCollection: [
     row('nom-i-cognoms', 'optional', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['bbc-studios-privacy-policy'], note: 'Només amb compte BBC.' }),
     row('adreca-electronica', 'optional', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['bbc-studios-privacy-policy'], note: 'La política descriu l’ús del correu xifrat amb funció resum per identificar la mateixa persona en plataformes de tercers.' }),
@@ -403,7 +403,7 @@ const bbc: AppSeed = {
     telemetryOptOut: f('partial', 'official', ['bbc-studios-privacy-policy'], 'Hi ha configuració de galetes i de privadesa, i es respecta el senyal Global Privacy Control a escala de navegador o dispositiu, però no s’aplica necessàriament a les dades associades al compte.'),
     granularControls: f('yes', 'official', ['bbc-studios-privacy-policy'], 'Configuració de galetes, de personalització i de comunicacions dins del compte.'),
     defaultPosture: 'mixed',
-    darkPatterns: f('partial', 'editorial', ['bbc-studios-privacy-policy'], 'La política admet que no respon al senyal «Do Not Track» i que el Global Privacy Control no arriba al perfil del compte: dos controls que la persona creu que l’emparen i que, en part, no ho fan.'),
+    darkPatterns: f('partial', 'editorial', ['bbc-studios-privacy-policy'], 'La política admet que no respon al senyal «Do Not Track» i que el Global Privacy Control no arriba al perfil del compte: són dos controls en què la persona pot confiar i que només la protegeixen en part.'),
     darkPatternList: [
       {
         type: 'confusing-language',
@@ -440,7 +440,7 @@ const bbc: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'El desdoblament de polítiques segons on ets és el punt central: la versió britànica, de servei públic, no és la que s’aplica a Espanya. La política de BBC Studios té el mèrit de descriure obertament la compra de segments a intermediaris de dades, cosa que poques polítiques fan; el problema no és la redacció sinó el tractament que descriu. Els dos incidents documentats del grup afecten dades d’empleats i de pensionistes, no de persones usuàries de l’aplicació.',
+      'El desdoblament de polítiques segons on ets és el punt central: la versió britànica, de servei públic, no és la que s’aplica a Espanya. La política de BBC Studios té el mèrit de descriure obertament la compra de segments a intermediaris de dades, cosa que poques polítiques fan; el que és objectable és el tractament que descriu. Els dos incidents documentats del grup afecten dades d’empleats i de pensionistes, no de persones usuàries de l’aplicació.',
     openQuestions: [
       'La BBC té representant a la Unió Europea segons l’article 27 del RGPD? Cap de les dues polítiques en nomena cap.',
       'El compte BBC admet verificació en dos passos?',
@@ -454,7 +454,7 @@ const bbcWorldService: AppSeed = {
   name: 'BBC World Service',
   company: 'bbc',
   categories: ['noticies-i-mitjans'],
-  tagline: 'La mateixa casa amb una etiqueta molt més sòbria: rastreig limitat a dades d’ús i cap ubicació vinculada amb la identitat',
+  tagline: 'Una etiqueta de l’App Store molt més limitada que la de l’aplicació en anglès, amb rastreig només de dades d’ús i cap ubicació vinculada amb la identitat',
   summary:
     'L’aplicació dels serveis en altres llengües de la BBC, inclòs BBC Mundo, es regeix per l’avís de privadesa del servei públic, no per la política comercial de BBC Studios. Invoca la missió d’interès públic i les exempcions periodístiques, i la seva etiqueta de l’App Store és molt menys invasiva que la de l’aplicació de notícies en anglès. Ara bé, la publicitat que es mostra fora del Regne Unit la segueix gestionant BBC Studios com a responsable independent.',
   platforms: ['ios', 'android', 'web'],
@@ -469,7 +469,7 @@ const bbcWorldService: AppSeed = {
   accountRequired: f('no', 'official', ['bbc-world-service-aviso-privacidad'], 'L’avís diu que moltes pàgines del World Service es poden fer servir sense iniciar la sessió.'),
   openSource: f('partial', 'official', ['bbc-security-disclosure'], 'La BBC publica codi a GitHub, però aquesta aplicació no és de codi obert.', { licence: 'Privativa' }),
   dataSummary:
-    'Per a un servei informatiu internacional, la dada delicada no és el nom sinó el que llegeixes: en quina llengua, sobre quin país i amb quina insistència. L’avís reconeix que recull identificadors de dispositiu i de publicitat, però l’etiqueta de l’App Store els declara majoritàriament com a dades no vinculades amb la identitat.',
+    'En un servei informatiu internacional, la dada més delicada és el que llegeixes: en quina llengua, sobre quin país i amb quina insistència. L’avís reconeix que recull identificadors de dispositiu i de publicitat, però l’etiqueta de l’App Store els declara majoritàriament com a dades no vinculades amb la identitat.',
   dataCollection: [
     row('adreca-electronica', 'optional', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['bbc-world-service-app-store', 'bbc-world-service-aviso-privacidad'], note: 'Butlletins i contacte amb la redacció.' }),
     row('identificador-de-compte', 'optional', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['bbc-world-service-app-store'] }),
@@ -534,7 +534,7 @@ const bbcWorldService: AppSeed = {
     telemetryOptOut: f('partial', 'official', ['bbc-world-service-aviso-privacidad'], 'Consentiment per a galetes i analítica quan la llei ho exigeix, sense un panell propi documentat dins de l’aplicació.'),
     granularControls: f('partial', 'official', ['bbc-world-service-aviso-privacidad'], 'Configuració de butlletins i de consentiment; la resta depèn del compte BBC.'),
     defaultPosture: 'mixed',
-    darkPatterns: f('no', 'editorial', [], 'No hem trobat patrons enganyosos en aquesta aplicació. La confusió, si n’hi ha, és de mapa: saber quina de les tres polítiques de la BBC t’aplica.'),
+    darkPatterns: f('no', 'editorial', [], 'No hem trobat patrons enganyosos en aquesta aplicació. La possible confusió és saber quina de les tres polítiques de la BBC t’aplica.'),
   },
   security: {
     e2ee: na('L’aplicació distribueix continguts públics.'),
@@ -552,7 +552,7 @@ const bbcWorldService: AppSeed = {
       rationale:
         'L’aplicació de notícies en anglès té molt més contingut i personalització, si el que pesa és l’oferta informativa.',
       tradeOffs:
-        'Ho paga amb una etiqueta de privadesa molt més invasiva: rastreig amb ubicació, historial de navegació i identificadors publicitaris.',
+        'A canvi, té una etiqueta de privadesa molt més invasiva: rastreig amb ubicació, historial de navegació i identificadors publicitaris.',
     },
   ],
   review: {
@@ -560,7 +560,7 @@ const bbcWorldService: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'La comparació amb la fitxa de l’aplicació de notícies és el valor d’aquesta: la mateixa organització, el mateix periodisme i dues declaracions de privadesa molt diferents segons quina societat del grup publiqui l’aplicació. L’avís del World Service és l’únic dels documents de la BBC redactat en castellà.',
+      'L’interès d’aquesta fitxa és la comparació amb la de l’aplicació de notícies: la mateixa organització, el mateix periodisme i dues declaracions de privadesa molt diferents segons quina societat del grup publiqui l’aplicació. L’avís del World Service és l’únic dels documents de la BBC redactat en castellà.',
     openQuestions: [
       'Quin mecanisme concret empara les transferències internacionals d’aquest servei? L’avís no cita ni clàusules tipus ni el marc amb els Estats Units.',
       'Quins terminis de conservació s’apliquen als missatges que s’envien a la redacció?',
@@ -589,7 +589,7 @@ const vivagym: AppSeed = {
   accountRequired: f('yes', 'official', ['vivagym-politica-privacidad'], 'L’aplicació és per a persones abonades: l’alta es fa en inscriure’s al club.'),
   openSource: unknown('No hem trobat cap repositori públic del codi.'),
   dataSummary:
-    'Un gimnàs sap quan entres i quan surts, cada dia. Si a més hi afegeixes pes, mesures i entrenaments per rebre dietes i plans personalitzats, el registre resultant és un diari de salut i de rutines, amb les dades bancàries de la quota al costat.',
+    'El gimnàs registra cada entrada i sortida del club. Si a més hi afegeixes pes, mesures i entrenaments per rebre dietes i plans personalitzats, el registre inclou dades de salut i de rutines, al costat de les dades bancàries de la quota.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['vivagym-politica-privacidad', 'vivagym-app-store'] }),
     row('document-identificatiu-oficial', 'yes', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['vivagym-politica-privacidad'], note: 'DNI a la inscripció.' }),
@@ -660,7 +660,7 @@ const vivagym: AppSeed = {
     telemetryOptOut: unknown('No hem trobat cap control d’analítica ni de diagnòstics dins de l’aplicació.'),
     granularControls: unknown('No hem trobat documentació sobre un panell de privadesa dins de l’aplicació.'),
     defaultPosture: 'mixed',
-    darkPatterns: f('partial', 'editorial', ['vivagym-baja'], 'La baixa és autoservei, però està condicionada a un dia límit del mes que varia segons el club i no és ferma fins a rebre un correu de confirmació: una finestra estreta que fa fàcil pagar un mes de més.'),
+    darkPatterns: f('partial', 'editorial', ['vivagym-baja'], 'La baixa és autoservei, però està condicionada a un dia límit del mes que varia segons el club i no és ferma fins a rebre un correu de confirmació. Amb aquestes condicions és fàcil pagar un mes de més.'),
     darkPatternList: [
       {
         type: 'other',
@@ -716,7 +716,7 @@ const forusapp: AppSeed = {
   categories: ['benestar-i-activitat-fisica', 'esports-i-resultats'],
   tagline: 'Dades de salut i geolocalització en una aplicació que enllaça la política de l’empresa desenvolupadora en lloc de la del responsable',
   summary:
-    'Forus gestiona instal·lacions esportives, moltes de titularitat municipal. La seva política de privadesa és de les poques d’aquest lot que diu obertament que l’aplicació la desenvolupa una tercera empresa amb contracte d’encarregat del tractament. La incoherència és a l’App Store, que enllaça la política de l’empresa desenvolupadora, MyVitale, on aquesta es presenta com a responsable i admet elaboració de perfils. La baixa de l’abonament, a diferència de la de VivaGym, s’ha de fer presencialment.',
+    'Forus gestiona instal·lacions esportives, moltes de titularitat municipal. La seva política de privadesa diu obertament que l’aplicació la desenvolupa una tercera empresa amb contracte d’encarregat del tractament. La incoherència és a l’App Store, que enllaça la política de l’empresa desenvolupadora, MyVitale, on aquesta es presenta com a responsable i admet elaboració de perfils. La baixa de l’abonament, a diferència de la de VivaGym, s’ha de fer presencialment.',
   platforms: ['ios', 'android'],
   businessModel: 'subscription',
   jurisdiction: 'Espanya; autoritat de control: Agencia Española de Protección de Datos',
@@ -785,7 +785,7 @@ const forusapp: AppSeed = {
       'Guarda còpia de l’imprès i del correu com a prova.',
     ],
     obstacles:
-      'Obligar a anar físicament al centre per donar-se de baixa d’un servei que es contracta i es gestiona des d’una aplicació és una fricció desproporcionada, i la finestra acaba el dia 25. A més, es perd la matrícula.',
+      'Cal anar físicament al centre per donar-se de baixa d’un servei que es contracta i es gestiona des d’una aplicació, i la finestra acaba el dia 25. A més, es perd la matrícula.',
     dataRetained: 'La política no ho concreta més enllà dels terminis fiscals i comptables habituals.',
     sources: ['forusapp-terminos', 'forusapp-politica-privacidad'],
   },
@@ -802,7 +802,7 @@ const forusapp: AppSeed = {
     telemetryOptOut: unknown('No hem trobat cap control d’analítica dins de l’aplicació.'),
     granularControls: f('partial', 'official', ['forusapp-politica-privacidad'], 'La geolocalització és revocable i el consentiment per a dades de salut és separat i exprés; no hi ha panell general de privadesa documentat.'),
     defaultPosture: 'mixed',
-    darkPatterns: f('yes', 'editorial', ['forusapp-terminos'], 'Contractar i gestionar-ho tot des de l’aplicació però haver d’anar presencialment a recepció per donar-se de baixa, dins d’una finestra que acaba el dia 25, és un camí de sortida deliberadament més costós que el d’entrada.'),
+    darkPatterns: f('yes', 'editorial', ['forusapp-terminos'], 'Contractar i gestionar-ho tot des de l’aplicació però haver d’anar presencialment a recepció per donar-se de baixa, dins d’una finestra que acaba el dia 25, fa que sortir sigui molt més costós que entrar.'),
     darkPatternList: [
       {
         type: 'hidden-exit',
@@ -836,7 +836,7 @@ const forusapp: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'La incoherència documental és la troballa: la política de Forus declara correctament que MyVitale és encarregat del tractament, però la fitxa de l’App Store enllaça la política de MyVitale, on aquesta empresa es presenta com a responsable, sense delegat de protecció de dades, sense llista de categories de dades i admetent l’elaboració de perfils. Qui llegeix l’enllaç de l’App Store, doncs, llegeix el document equivocat. La cerca d’incidents no ha donat cap sanció ni filtració contra Forus ni contra l’empresa desenvolupadora.',
+      'La troballa principal és una incoherència documental: la política de Forus declara correctament que MyVitale és encarregat del tractament, però la fitxa de l’App Store enllaça la política de MyVitale, on aquesta empresa es presenta com a responsable, sense delegat de protecció de dades, sense llista de categories de dades i admetent l’elaboració de perfils. La cerca d’incidents no ha donat cap sanció ni filtració contra Forus ni contra l’empresa desenvolupadora.',
     openQuestions: [
       'Quina de les dues polítiques s’aplica realment a les dades que es tracten dins de l’aplicació?',
       'Els centres municipals que gestiona Forus tenen l’ajuntament com a corresponsable del tractament?',
@@ -852,7 +852,7 @@ const idealista: AppSeed = {
   categories: ['habitatge'],
   tagline: 'Els filtres de cerca es comparteixen amb l’anunciant, i el perfil d’inquilí inclou els ingressos declarats',
   summary:
-    'idealista és el portal immobiliari de referència a Espanya i una de les polítiques de privadesa més detallades d’aquest lot: hi caben la signatura electrònica amb dades biomètriques del traç, la gravació i transcripció automàtica de trucades i la qualificació del perfil d’inquilí amb dades econòmiques. Quan contactes un anunciant, la política diu que també rep els filtres de cerca que has aplicat. L’etiqueta de l’App Store no declara cap dada desvinculada de la identitat.',
+    'idealista és el portal immobiliari de referència a Espanya, i la seva política de privadesa és detallada: hi consten la signatura electrònica amb dades biomètriques del traç, la gravació i transcripció automàtica de trucades i la qualificació del perfil d’inquilí amb dades econòmiques. Quan contactes un anunciant, la política diu que també rep els filtres de cerca que has aplicat. L’etiqueta de l’App Store no declara cap dada desvinculada de la identitat.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'advertising',
   jurisdiction: 'Espanya; autoritat de control: Agencia Española de Protección de Datos',
@@ -865,7 +865,7 @@ const idealista: AppSeed = {
   accountRequired: f('no', 'official', ['idealista-politica-privacidad'], 'Es pot cercar i desar cerques sense registrar-se; la política distingeix expressament entre «usuari» i «usuari registrat». Per contactar un anunciant cal donar dades de contacte.'),
   openSource: f('no', 'official', ['idealista-politica-privacidad'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'Buscar pis és explicar en veu alta quant pots pagar, amb qui vius, on vols viure i quan et mudes. idealista ho recull tot: pressupost, zona, preferències de convivència, ingressos declarats per qualificar el perfil d’inquilí i, si signes un contracte a la plataforma, el traç, la pressió i la velocitat de la teva signatura.',
+    'Una cerca de pis revela quant pots pagar, amb qui vius, on vols viure i quan et mudes. idealista recull el pressupost, zona, preferències de convivència, ingressos declarats per qualificar el perfil d’inquilí i, si signes un contracte a la plataforma, el traç, la pressió i la velocitat de la teva signatura.',
   dataCollection: [
     row('nom-i-cognoms', 'optional', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['idealista-politica-privacidad'] }),
     row('document-identificatiu-oficial', 'optional', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'seguretat-i-prevencio-del-frau'], sources: ['idealista-politica-privacidad'], note: 'DNI, NIE o passaport per verificar anunciants i per als contractes de lloguer.' }),
@@ -979,7 +979,7 @@ const idealista: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'La política d’idealista és de les més completes que hem llegit en aquesta onada: dona terminis concrets per finalitat, anomena les societats del grup que reben dades i publica la llista de transferències internacionals. Això no la fa poc invasiva, però sí auditable. Els dominis bloquegen l’accés automatitzat, i el text s’ha hagut de llegir a través d’una còpia datada de l’Internet Archive; les etiquetes de l’App Store sí que s’han llegit en directe. La cerca d’incidents no ha donat cap sanció ni filtració documentada.',
+      'La política d’idealista és de les més completes que hem llegit en aquesta onada: dona terminis concrets per finalitat, anomena les societats del grup que reben dades i publica la llista de transferències internacionals. El tractament continua sent invasiu, però la política permet auditar-lo. Els dominis bloquegen l’accés automatitzat, i el text s’ha hagut de llegir a través d’una còpia datada de l’Internet Archive; les etiquetes de l’App Store sí que s’han llegit en directe. La cerca d’incidents no ha donat cap sanció ni filtració documentada.',
     openQuestions: [
       'La qualificació del perfil d’inquilí comporta alguna consulta a la base de dades de morositat immobiliària del grup?',
       'Quant de temps es conserven les converses del xat amb intel·ligència artificial i el «perfil de context» que en resulta?',
@@ -993,7 +993,7 @@ const yaencontre: AppSeed = {
   name: 'yaencontre',
   company: 'idealista',
   categories: ['habitatge'],
-  tagline: 'Mateix responsable que idealista i una política clonada més curta, però sense procediment de baixa documentat',
+  tagline: 'Mateix responsable que idealista i una còpia més curta de la seva política, però sense procediment de baixa documentat',
   summary:
     'yaencontre és un portal immobiliari del grup idealista: el responsable del tractament és la mateixa societat, i la política de privadesa és una versió reduïda de la d’idealista. Hi falten les clàusules de veu, biometria i verificació d’anunciants, però es manté intacta la part de perfilat i de creació d’audiències a Google, Meta, TikTok i LinkedIn. A diferència d’idealista, no hem trobat cap pàgina d’autoservei per eliminar el compte.',
   platforms: ['ios', 'android', 'web'],
@@ -1007,7 +1007,7 @@ const yaencontre: AppSeed = {
   accountRequired: f('no', 'official', ['yaencontre-politica-privacidad'], 'Mateixa estructura que idealista: es pot cercar sense registre, i cal donar dades per contactar un anunciant.'),
   openSource: f('no', 'official', ['yaencontre-politica-privacidad'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'El que revela és el mateix que a qualsevol portal d’habitatge: pressupost, zona, tipus de casa i moment vital. La diferència és que aquí el rastre queda sota el mateix responsable que el portal líder del sector, sense que la marca ho faci evident.',
+    'Com qualsevol portal d’habitatge, revela el pressupost, la zona, el tipus de casa i el moment vital. Aquestes dades queden sota el mateix responsable que idealista, el portal líder del sector, i la marca no ho fa evident.',
   dataCollection: [
     row('nom-i-cognoms', 'optional', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['yaencontre-politica-privacidad'] }),
     row('adreca-electronica', 'optional', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['yaencontre-politica-privacidad', 'yaencontre-app-store'], note: 'A l’anunciant se li dona tokenitzat; a les plataformes publicitàries, xifrat amb funció resum.' }),
@@ -1061,7 +1061,7 @@ const yaencontre: AppSeed = {
       'Guarda la resposta: el termini legal de resposta és d’un mes.',
     ],
     obstacles:
-      'La manca d’una opció de baixa dins del servei obliga a exercir formalment un dret que al portal germà es resol amb un clic.',
+      'La manca d’una opció de baixa dins del servei obliga a exercir formalment un dret que a idealista es resol des d’una pàgina de baixa.',
     dataRetained: 'Bloqueig de fins a sis anys per prescripció legal i quatre per prevenció del frau.',
     sources: ['yaencontre-politica-privacidad'],
   },
@@ -1078,7 +1078,7 @@ const yaencontre: AppSeed = {
     telemetryOptOut: f('partial', 'official', ['yaencontre-politica-cookies'], 'Les galetes analítiques es poden refusar; no hi ha control separat de la telemetria de l’aplicació.'),
     granularControls: f('partial', 'official', ['yaencontre-politica-cookies'], 'Consentiment granular de galetes; la resta de controls no estan documentats.'),
     defaultPosture: 'mixed',
-    darkPatterns: f('partial', 'editorial', ['yaencontre-politica-privacidad'], 'La marca no diu enlloc visible que el responsable del tractament és la societat d’idealista: qui evita un portal i fa servir l’altre acaba al mateix lloc.'),
+    darkPatterns: f('partial', 'editorial', ['yaencontre-politica-privacidad'], 'La marca no diu enlloc visible que el responsable del tractament és la societat d’idealista, de manera que qui fa servir yaencontre en lloc d’idealista dona les dades a la mateixa empresa.'),
     darkPatternList: [
       {
         type: 'confusing-language',
@@ -1117,7 +1117,7 @@ const yaencontre: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'La troballa d’aquesta fitxa és de concentració: dues marques que a l’aparador semblen competidores comparteixen responsable del tractament, política i destinataris. La política de yaencontre porta data d’abril del 2025, un any més antiga que la d’idealista. El domini bloqueja l’accés automatitzat i el text s’ha llegit a través d’una còpia datada de l’Internet Archive.',
+      'La troballa d’aquesta fitxa és que dues marques que es presenten com a competidores comparteixen responsable del tractament, política i destinataris. La política de yaencontre porta data d’abril del 2025, un any més antiga que la d’idealista. El domini bloqueja l’accés automatitzat i el text s’ha llegit a través d’una còpia datada de l’Internet Archive.',
     openQuestions: [
       'Hi ha alguna via de baixa autoservei a yaencontre que no estigui documentada públicament?',
       'El canal de vulnerabilitats d’idealista cobreix també els dominis i les aplicacions de yaencontre?',
@@ -1146,7 +1146,7 @@ const miFitness: AppSeed = {
   accountRequired: unknown('No hem trobat documentació oficial que digui si es pot fer servir l’aplicació sense compte Xiaomi; la sincronització al núvol i l’aparellament de dispositius sí que el necessiten.'),
   openSource: f('no', 'official', ['xiaomi-privacy-policy'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'És un registre continu del cos: quantes hores dorms i com, quines pulsacions tens en repòs, quin nivell d’estrès, quanta saturació d’oxigen i, si l’actives, en quin punt del cicle menstrual ets. Amb GPS s’hi afegeix el recorregut dels entrenaments, que diu on vius i per on et mous cada dia.',
+    'L’aplicació registra de manera contínua quantes hores dorms i com, quines pulsacions tens en repòs, quin nivell d’estrès, quanta saturació d’oxigen i, si l’actives, en quin punt del cicle menstrual ets. Amb GPS s’hi afegeix el recorregut dels entrenaments, que mostra on vius i per on et mous cada dia.',
   dataCollection: [
     row('dades-de-salut', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['xiaomi-iot-whitepaper', 'mi-fitness-app-store'], note: 'Freqüència cardíaca, fases i durada del son, saturació d’oxigen, nivell d’estrès, passos, calories i pressió arterial introduïda a mà.' }),
     row('dades-biometriques', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['xiaomi-iot-whitepaper'], note: 'Les mesures fisiològiques contínues del sensor òptic del dispositiu.' }),
@@ -1257,7 +1257,7 @@ const xiaomiHome: AppSeed = {
   name: 'Xiaomi Home',
   company: 'xiaomi-netherlands',
   categories: ['llar-connectada'],
-  tagline: 'L’única fitxa del lot que declara «dades sensibles» a l’App Store, amb una política d’aplicació que no esmenta ni el vídeo ni els mapes de la casa',
+  tagline: 'Declara «dades sensibles» a l’App Store, amb una política d’aplicació que no esmenta ni el vídeo ni els mapes de la casa',
   summary:
     'Xiaomi Home controla càmeres, aspiradores robot, sensors i bombetes. La seva etiqueta de l’App Store declara identificadors com a dada utilitzada per rastrejar i inclou una categoria de dades sensibles. La política enllaçada des de l’App Store no esmenta el vídeo de les càmeres ni els mapes de la casa que generen les aspiradores: això només es documenta al llibre blanc tècnic, que també explica que hi ha un mode local per no pujar el mapa al núvol. La mateixa política declara centres de dades a Pequín, els Estats Units, Rússia, Singapur i Alemanya.',
   platforms: ['ios', 'android'],
@@ -1273,7 +1273,7 @@ const xiaomiHome: AppSeed = {
   accountRequired: f('yes', 'official', ['xiaomi-home-privacy-policy'], 'La política descriu la creació del compte Xiaomi com a pas de configuració, i els dispositius queden vinculats al compte.'),
   openSource: f('no', 'official', ['xiaomi-home-privacy-policy'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'Una aplicació de llar connectada sap quan hi ha algú a casa, a quina hora s’encenen els llums i quan es neteja el terra. Si hi ha càmeres, sap com és la casa per dins; si hi ha aspiradora robot, en té el plànol amb les parets i les zones. És el conjunt de dades que millor descriu la intimitat domèstica, i el que més costa d’esborrar quan el maquinari és a casa.',
+    'Una aplicació de llar connectada registra quan hi ha algú a casa, a quina hora s’encenen els llums i quan es neteja el terra. Amb càmeres, té imatges de l’interior de la casa; amb una aspiradora robot, el plànol amb les parets i les zones. Són dades de la vida domèstica, i costen d’esborrar mentre el maquinari continua a casa.',
   dataCollection: [
     row('identificador-de-dispositiu', 'yes', { linked: 'yes', tracking: 'yes', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['xiaomi-home-privacy-policy', 'xiaomi-home-app-store'], note: 'La política llista IMEI, IMSI, adreça MAC i identificador del dispositiu; l’etiqueta declara identificadors com a dada utilitzada per rastrejar.' }),
     row('ubicacio-precisa', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['xiaomi-home-privacy-policy', 'xiaomi-home-app-store'], note: 'Coordenades, regió i codi de ciutat, per vincular dispositius i automatitzacions.' }),
@@ -1326,7 +1326,7 @@ const xiaomiHome: AppSeed = {
       'Si tens una aspiradora robot, activa el mode local abans si vols que el mapa de la casa no torni a pujar-se.',
     ],
     obstacles:
-      'Tancar el compte inutilitza l’ús connectat de tot el maquinari de la casa alhora: el cost de sortida no és digital, és de maquinari.',
+      'Tancar el compte inutilitza l’ús connectat de tot el maquinari de la casa alhora.',
     dataRetained: 'Desconegut: la documentació no concreta què es conserva.',
     sources: ['xiaomi-account-delete', 'xiaomi-home-privacy-policy'],
   },
@@ -1558,7 +1558,7 @@ export const lot: SeedLot = {
       summary: 'Avís en castellà aplicable als serveis del World Service: base d’interès públic, exempcions periodístiques i publicitat fora del Regne Unit gestionada per BBC Studios.',
     }),
     s('bbc-account-delete', 'How to delete your BBC account', 'https://www.bbc.co.uk/usingthebbc/account/how-to-delete-your-account/', 'BBC', 'support-doc', 'primary', {
-      summary: 'Passos reals per eliminar el compte BBC i advertiment que l’operació és irreversible.',
+      summary: 'Passos per eliminar el compte BBC i advertiment que l’operació és irreversible.',
     }),
     s('bbc-data-request', 'What information do you have about me?', 'https://www.bbc.co.uk/usingthebbc/privacy/what-info-do-you-have-about-me/', 'BBC', 'support-doc', 'primary', {
       summary: 'Com demanar les dades que té la BBC i quines limitacions té la sol·licitud des dels ajustos del compte.',
@@ -1704,7 +1704,7 @@ export const lot: SeedLot = {
     }),
     s('fnmt-rcm-anular', 'Anular el certificado de persona física', 'https://www.sede.fnmt.gob.es/certificados/persona-fisica/anular', 'FNMT-RCM', 'support-doc', 'primary', {
       language: 'es',
-      summary: 'Passos reals per revocar el certificat: en línia amb el certificat, per telèfon amb el codi de sol·licitud o presencialment.',
+      summary: 'Passos per revocar el certificat: en línia amb el certificat, per telèfon amb el codi de sol·licitud o presencialment.',
     }),
     s('fnmt-rcm-certificaciones', 'Calidad y certificaciones — CERES', 'https://www.cert.fnmt.es/que-es-ceres/calidad', 'FNMT-RCM', 'audit', 'primary', {
       language: 'es',
@@ -1820,7 +1820,7 @@ export const lot: SeedLot = {
       occurredAt: '2020-04-30',
       disclosedAt: '2020-04-30',
       description:
-        'Un investigador de seguretat va documentar que Mi Browser, Mi Browser Pro i Mint Browser enviaven les adreces visitades, les cerques i els elements del canal de notícies a servidors a Singapur i Rússia, associats a un identificador que permetia reidentificar la persona, i que ho feien també amb el mode incògnit actiu. Xiaomi ho va negar inicialment i després va afegir una opció per desactivar-ho en mode incògnit. No afecta directament les aplicacions d’aquest lot, però és el precedent més citat sobre les pràctiques de telemetria del grup.',
+        'Un investigador de seguretat va documentar que Mi Browser, Mi Browser Pro i Mint Browser enviaven les adreces visitades, les cerques i els elements del canal de notícies a servidors a Singapur i Rússia, associats a un identificador que permetia reidentificar la persona, i que ho feien també amb el mode incògnit actiu. Xiaomi ho va negar inicialment i després va afegir una opció per desactivar-ho en mode incògnit. No afecta directament Mi Fitness ni Xiaomi Home, però és el precedent més citat sobre les pràctiques de telemetria del grup.',
       affectedPeople: 'Persones usuàries dels navegadors de Xiaomi.',
       sources: ['xiaomi-forbes-mi-browser-2020'],
     },

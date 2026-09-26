@@ -504,8 +504,8 @@ export default function MetadataTool() {
                                 {/* eslint-disable-next-line @next/next/no-img-element -- és un blob local, no hi ha res a optimitzar */}
                                 <img src={item.clean.preview} alt={`Còpia neta ${de(item.name)}`} />
                                 <figcaption className="meta">
-                                  La còpia neta: els píxels són exactament els mateixos, no s’ha
-                                  tornat a comprimir.
+                                  La còpia neta té exactament els mateixos píxels; no s’ha tornat
+                                  a comprimir.
                                 </figcaption>
                               </figure>
                             </details>

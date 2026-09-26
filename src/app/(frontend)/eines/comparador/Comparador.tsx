@@ -307,7 +307,7 @@ export default function Comparador({
       <h2>1. Tria la categoria</h2>
       <p>
         Dues aplicacions només es poden comparar si cobreixen la mateixa necessitat. El directori la
-        té escrita per a cada categoria, i és el criteri que impedeix comparar un servei de
+        té escrita per a cada categoria, i per això no es pot comparar, per exemple, un servei de
         missatgeria amb un cercador.
       </p>
 
@@ -351,8 +351,8 @@ export default function Comparador({
           <fieldset className={styles.picker}>
             <legend>Fitxes de {category.name}</legend>
             <p className="meta" id={`${ids}-limit`}>
-              De dues a {COUNT_WORDS[MAX_APPS] ?? MAX_APPS} alhora. Més columnes farien la taula
-              il·legible i la comparació deixaria de servir de res.
+              De dues a {COUNT_WORDS[MAX_APPS] ?? MAX_APPS} alhora. Amb més columnes, la taula no es
+              podria llegir.
             </p>
             <div className="grid">
               {candidates.map((app) => {
@@ -610,8 +610,7 @@ export default function Comparador({
           <h2>Alternatives documentades</h2>
           <p>
             Les que la redacció ha comprovat que cobreixen raonablement la mateixa necessitat, amb
-            el que s’hi guanya i el que s’hi perd. Una alternativa presentada sense les
-            contrapartides no és informació.
+            el que s’hi guanya i el que s’hi perd.
           </p>
 
           {chosen.map((app) => (
@@ -673,8 +672,8 @@ export default function Comparador({
                             alternative.tradeOffs
                           ) : (
                             <span className="unknown">
-                              No n’hi ha de documentades. Que no les hàgim escrit no vol dir que no
-                              n’hi hagi.
+                              No n’hi ha de documentades, cosa que no vol dir que no n’hi
+                              hagi.
                             </span>
                           )}
                         </p>

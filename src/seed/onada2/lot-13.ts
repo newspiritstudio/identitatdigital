@@ -39,7 +39,7 @@ const idealo: AppSeed = {
   accountRequired: f('no', 'official', ['idealo-privacy-policy'], 'La comparació, la llista de desitjos i les alertes de preu es poden fer servir a l’aplicació sense compte.'),
   openSource: f('no', 'official', ['idealo-privacy-policy'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'Les cerques i les ofertes consultades mostren què vol comprar una persona abans que ho compri: electrodomèstics, medicaments sense recepta, articles per a nadons. Combinat amb perfils entre dispositius i socis publicitaris del grup Axel Springer, anticipa decisions de compra i moments vitals.',
+    'Les cerques i les ofertes consultades mostren què vol comprar una persona abans que ho compri: electrodomèstics, medicaments sense recepta, articles per a nadons. Combinades amb perfils entre dispositius i amb els socis publicitaris del grup Axel Springer, aquestes dades permeten preveure decisions de compra i canvis en la vida de la persona.',
   dataCollection: [
     row('adreca-electronica', 'optional', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['idealo-privacy-policy'], note: 'Només per al compte «Mi idealo», el butlletí o les ressenyes de botigues.' }),
     row('contrasenya', 'optional', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['idealo-privacy-policy'] }),
@@ -151,7 +151,7 @@ const temu: AppSeed = {
   accountRequired: f('yes', 'official', ['temu-privacy-policy'], 'Cal un compte, amb correu, telèfon o inici de sessió de Google o Facebook, per comprar.'),
   openSource: f('no', 'official', ['temu-privacy-policy'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'Compres, cerques, llista de desitjos, cistella i obertura de correus alimenten un perfil de consum molt detallat. S’hi afegeixen la ubicació, les converses amb el xatbot i els venedors, i de vegades el passaport o l’identificador fiscal per a la duana.',
+    'Compres, cerques, llista de desitjos, cistella i obertura de correus serveixen per construir un perfil de consum detallat. S’hi afegeixen la ubicació, les converses amb el xatbot i els venedors, i de vegades el passaport o l’identificador fiscal per a la duana.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['temu-privacy-policy', 'temu-app-store'] }),
     row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['temu-privacy-policy', 'temu-app-store'] }),
@@ -288,7 +288,7 @@ const zalando: AppSeed = {
   accountRequired: f('yes', 'official', ['zalando-privacy-notice'], 'Cal un compte de client per comprar.'),
   openSource: f('no', 'official', ['zalando-privacy-notice'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'Talles, marques, estil, devolucions i hàbits de compra de roba descriuen el cos, el pressupost i el gènere amb què es vesteix una persona. Zalando hi afegeix ubicació, navegació i avaluacions de solvència per decidir quins mètodes de pagament ofereix.',
+    'Les talles, les marques, l’estil, les devolucions i els hàbits de compra de roba donen informació sobre el cos, el pressupost i el gènere de la roba que tria una persona. Zalando hi afegeix ubicació, navegació i avaluacions de solvència per decidir quins mètodes de pagament ofereix.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'yes', shared: 'group', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['zalando-app-store', 'zalando-privacy-notice'] }),
     row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'yes', shared: 'group', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['zalando-app-store', 'zalando-privacy-notice'] }),
@@ -868,7 +868,7 @@ const action: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'La declaració de privadesa (actualitzada el juliol de 2026) és de les més concretes del lot en terminis. No hem trobat cap sanció ni filtració documentada.',
+      'La declaració de privadesa (actualitzada el juliol de 2026) concreta els terminis. No hem trobat cap sanció ni filtració documentada.',
     openQuestions: [
       'Hi ha un canal de notificació de vulnerabilitats per a action.com?',
       'L’eliminació del compte també esborra l’historial de compres vinculat a la targeta, a banda del que exigeix la llei fiscal?',
@@ -897,7 +897,7 @@ const shein: AppSeed = {
   accountRequired: f('yes', 'official', ['shein-privacy-notice'], 'Cal registrar-se amb nom i correu o telèfon per comprar.'),
   openSource: f('no', 'official', ['shein-privacy-notice'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'Talla, forma del cos, estil, compres i preferències de roba de maternitat, que la mateixa política reconeix com a possible dada de salut. Amb els perfils infantils (edat aproximada i gènere) i l’adreça d’enviament, que es comparteix amb venedors de tot el món, dibuixa una llar amb força precisió.',
+    'SHEIN recull la talla, la forma del cos, l’estil, les compres i les preferències de roba de maternitat, que la mateixa política reconeix com a possible dada de salut. Amb els perfils infantils (edat aproximada i gènere) i l’adreça d’enviament, que es comparteix amb venedors de tot el món, permet saber força coses de la composició d’una llar.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['shein-privacy-notice', 'shein-app-store'], note: 'Es comparteix amb els venedors externs quan envien directament.' }),
     row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['shein-privacy-notice', 'shein-app-store'] }),
@@ -1033,7 +1033,7 @@ const ikea: AppSeed = {
   accountRequired: f('partial', 'official', ['ikea-app-privacy-policy'], 'Es pot navegar pel catàleg sense compte; per comprar, desar llistes o fer servir IKEA Family cal registrar-se.'),
   openSource: f('no', 'official', ['ikea-privacy-policy'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'L’historial de compres de mobles i articles per a la llar, l’adreça de lliurament, els plànols i dissenys de l’habitatge i l’escaneig de l’entorn per a la realitat augmentada descriuen com és la casa d’una persona, qui hi viu i quan s’hi ha mudat.',
+    'L’historial de compres de mobles i articles per a la llar, l’adreça de lliurament, els plànols i dissenys de l’habitatge i l’escaneig de l’entorn per a la realitat augmentada permeten deduir com és la casa d’una persona, qui hi viu i quan s’hi ha mudat.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['ikea-app-store', 'ikea-privacy-policy'] }),
     row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['ikea-app-store', 'ikea-privacy-policy'], note: 'Es fa servir per a audiències personalitzades a les xarxes socials.' }),

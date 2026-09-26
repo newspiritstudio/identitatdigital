@@ -39,9 +39,9 @@ export const regulatoryStatusOptions: Option[] = [
 ]
 
 export const researchStatusOptions: Option[] = [
-  { label: 'Inicial — falten apartats', value: 'initial' },
-  { label: 'Documentada — apartats principals amb font', value: 'documented' },
-  { label: 'En profunditat — revisada i contrastada', value: 'in-depth' },
+  { label: 'Inicial (falten apartats)', value: 'initial' },
+  { label: 'Documentada (apartats principals amb font)', value: 'documented' },
+  { label: 'En profunditat (revisada i contrastada)', value: 'in-depth' },
 ]
 
 export const darkPatternTypeLabel = labelOf(darkPatternTypeOptions)

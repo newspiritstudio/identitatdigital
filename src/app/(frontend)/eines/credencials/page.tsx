@@ -16,7 +16,7 @@ export const dynamic = 'force-dynamic'
 export const metadata: Metadata = {
   title: 'Credencials: filtracions i contrasenyes',
   description:
-    'Mira en quines filtracions surt la teva adreça i què has de fer, audita les contrasenyes que fas servir (filtrades, repetides o previsibles) i genera’n de noves. Sense que cap contrasenya surti del teu dispositiu.',
+    'Mira en quines filtracions surt la teva adreça i què has de fer, audita les contrasenyes que fas servir (filtrades, repetides o previsibles) i genera’n de noves. Cap contrasenya no surt del teu dispositiu.',
 }
 
 /**
@@ -60,9 +60,9 @@ export default async function CredentialsPage() {
 
         <h2 id="gestors">Gestors de contrasenyes</h2>
         <p>
-          Un gestor de contrasenyes és la millora de seguretat més gran que es pot fer en una tarda:
-          resol el problema de fons que l’auditoria sol treure a la llum, que ningú no pot recordar
-          cent contrasenyes diferents i acaba repetint-les.
+          Un gestor de contrasenyes és la millora de seguretat més gran que es pot fer en una tarda.
+          Resol el problema que l’auditoria sol detectar: ningú no pot recordar cent contrasenyes
+          diferents, i per això s’acaben repetint.
         </p>
         {index.authenticators.length > 0 ? (
           <p>
@@ -82,20 +82,20 @@ export default async function CredentialsPage() {
           <h3>Per què la repetició és el problema</h3>
           <p>
             Quan una empresa pateix una filtració, les credencials acaben en llistes que es proven
-            automàticament contra altres serveis. Això té nom: <em>credential stuffing</em>. No cal
+            automàticament contra altres serveis, una pràctica que es diu <em>credential stuffing</em>. No cal
             que ningú et tingui a l’objectiu; n’hi ha prou que la teva adreça i la teva contrasenya
             hagin sortit d’un lloc qualsevol. El{' '}
-            <Link href="/filtracions">catàleg de filtracions</Link> d’aquest lloc és, essencialment,
-            la llista de llocs d’on han sortit.
+            <Link href="/filtracions">catàleg de filtracions</Link> d’aquest lloc recull els llocs
+            d’on han sortit.
           </p>
           <p>
-            Amb una contrasenya diferent a cada servei, una filtració és un problema en un sol lloc.
-            Amb la mateixa a tot arreu, és un problema a tot arreu alhora. Ho pots comprovar ara
-            mateix amb l’<a href="#auditoria">auditoria de contrasenyes</a> d’aquesta mateixa
-            pàgina, que fa la consulta sense arribar a enviar mai cap contrasenya.
+            Amb una contrasenya diferent a cada servei, una filtració afecta un sol compte; amb la
+            mateixa a tot arreu, els afecta tots alhora. Ho pots comprovar amb
+            l’<a href="#auditoria">auditoria de contrasenyes</a> d’aquesta pàgina, que fa la consulta
+            sense enviar cap contrasenya.
           </p>
 
-          <h3>Què fa realment un gestor</h3>
+          <h3>Què fa un gestor</h3>
           <ul>
             <li>
               <strong>Genera</strong> una contrasenya llarga i aleatòria diferent per a cada servei,
@@ -107,8 +107,8 @@ export default async function CredentialsPage() {
             </li>
             <li>
               <strong>Les omple</strong> al lloc correcte, cosa que protegeix contra la suplantació
-              de llocs web. Un gestor no omple les credencials de la teva entitat bancària en un
-              domini que se li assembla, i tu sí que ho faries.
+              de llocs web: un gestor no omple les credencials de la teva entitat bancària en un
+              domini que s’hi assembla, i una persona sí que les hi pot escriure.
             </li>
             <li>
               <strong>T’avisa</strong> de les que has repetit i de les que han aparegut en
@@ -116,86 +116,82 @@ export default async function CredentialsPage() {
             </li>
           </ul>
 
-          <h3>Els criteris, amb el vocabulari d’aquest lloc</h3>
+          <h3>Criteris per triar-ne un</h3>
           <p>
-            Aquests són els mateixos indicadors amb què el projecte analitza qualsevol servei,
-            aplicats a un gestor de contrasenyes. Serveixen per fer-te tu la teva tria i, sobretot,
-            per saber què has de preguntar.
+            Són els indicadors amb què el projecte analitza qualsevol servei, aplicats a un gestor
+            de contrasenyes. Et serveixen per triar-ne un i per saber què has de preguntar.
           </p>
           <ol>
             <li>
               <strong>Xifratge d’extrem a extrem, per defecte i sobre tot el magatzem.</strong> Que
-              el proveïdor no pugui llegir el contingut encara que vulgui, i no només si actives una
-              opció. «Per defecte» és la paraula que separa una garantia d’una casella de
-              configuració.
+              el proveïdor no pugui llegir el contingut encara que vulgui, sense que hagis d’activar
+              cap opció. Si depèn d’una casella de configuració, no és una garantia.
             </li>
             <li>
-              <strong>Que el proveïdor no pugui recuperar-te la contrasenya mestra.</strong> Sona
-              incòmode, però si te la pot recuperar és que hi té accés d’alguna manera. La
-              contrapartida és que el codi de recuperació és teu i l’has de guardar bé.
+              <strong>Que el proveïdor no pugui recuperar-te la contrasenya mestra.</strong> Si te la
+              pot recuperar, és que hi té accés d’alguna manera. A canvi, el codi de recuperació és
+              teu i l’has de guardar bé.
             </li>
             <li>
               <strong>Auditories independents publicades, amb informe llegible i data.</strong> Un
-              «auditat per una empresa líder» sense informe publicat no acredita res. Mira la data:
-              una auditoria de fa cinc anys parla d’un programa que ja no existeix.
+              «auditat per una empresa líder» sense informe publicat no acredita res. Mira’n també la
+              data: una auditoria de fa cinc anys descriu una versió del programa que ja no existeix.
             </li>
             <li>
               <strong>Codi obert de la part que xifra.</strong> No garanteix que estigui bé, però
-              permet que algú altre ho comprovi. Sense codi, l’única prova que el xifratge funciona
-              com diuen és que ho diuen.
+              permet que algú altre ho comprovi. Sense el codi, l’única prova que el xifratge
+              funciona com diu el proveïdor és la seva paraula.
             </li>
             <li>
               <strong>Exportació completa en format obert.</strong> Has de poder emportar-te tot el
-              magatzem en un fitxer que un altre gestor pugui llegir. Si no se’n pot sortir, el
-              magatzem es converteix en una dependència.
+              magatzem en un fitxer que un altre gestor pugui llegir. Si no el pots exportar, quedes
+              lligat a aquell proveïdor.
             </li>
             <li>
-              <strong>Verificació en dos passos amb clau física o aplicació.</strong> No amb SMS,
-              que és el segon factor més fàcil de robar.
+              <strong>Verificació en dos passos amb clau física o aplicació.</strong> Millor que no
+              sigui per SMS, que és el segon factor més fàcil de robar.
             </li>
             <li>
               <strong>Jurisdicció i model de negoci.</strong> On és l’empresa, quina autoritat la
               supervisa i de què viu. Un gestor gratuït que no cobra a ningú ha de treure els diners
-              d’algun lloc, i val la pena saber d’on.
+              d’algun lloc: mira d’on.
             </li>
             <li>
               <strong>Què passa si l’empresa tanca.</strong> Si el magatzem xifrat és local i
-              exportable, un tancament és una molèstia. Si només viu al seu servidor, és una pèrdua.
+              exportable, un tancament és una molèstia; si només és al seu servidor, el pots perdre.
             </li>
           </ol>
 
           <h3>La contrasenya mestra</h3>
           <p>
-            És l’única que has de recordar i, per tant, l’única que ha de ser llarga de debò. Una
+            És l’única que has de recordar i, per tant, l’única que ha de ser molt llarga. Una
             frase de pas de sis paraules aleatòries és fàcil de recordar i molt difícil d’endevinar;
             el <a href="#generador">generador d’aquesta pàgina</a> en fa, i explica quants bits
             d’entropia té cada opció i què vol dir això en temps d’atac.
           </p>
           <p>
-            Tres regles que no es poden saltar: que no s’assembli a cap altra que facis servir, que
+            Tres regles: que no s’assembli a cap altra que facis servir, que
             no surti d’enlloc que et puguin endevinar i que en tinguis una còpia de seguretat fora
-            de línia, escrita en paper i guardada com guardaries un document important. Perdre la
-            contrasenya mestra d’un gestor ben fet vol dir perdre-ho tot, i això és el preu de què
-            ningú més no hi pugui entrar.
+            de línia, escrita en paper i guardada com guardaries un document important. Si perds la
+            contrasenya mestra d’un gestor ben fet, ho perds tot, perquè ningú més no hi pot entrar.
           </p>
 
           <h3>El del navegador, serveix?</h3>
           <p>
-            És molt millor que repetir contrasenyes, i si l’alternativa real és no fer res,
-            endavant. Però té tres límits que convé conèixer: sol quedar lligat a l’ecosistema del
+            És molt millor que repetir contrasenyes, i si l’alternativa és no fer res, fes-lo
+            servir. Té tres límits: sol quedar lligat a l’ecosistema del
             navegador, de manera que canviar de navegador es fa costós; el xifratge sovint depèn de
             la sessió del compte, i per tant qui controli aquell compte controla el magatzem; i
-            comparteix empresa amb un negoci que viu de saber què fas, cosa que no el fa insegur
-            però sí que fa que valgui la pena llegir-ne les condicions. Al{' '}
+            comparteix empresa amb un negoci que viu de saber què fas, cosa que no el fa insegur,
+            però és un motiu per llegir-ne les condicions. Al{' '}
             <Link href="/aplicacions">directori</Link> hi ha les fitxes dels navegadors i les
             empreses que hi ha al darrere.
           </p>
 
           <h3>Per a una escola, un ajuntament o una empresa</h3>
           <p>
-            En una organització el problema canvia de forma: no és recordar contrasenyes sinó
-            compartir-les i, sobretot, retirar-les quan algú marxa. Els punts que s’han de mirar són
-            els de dalt més tres:
+            En una organització, el problema passa a ser compartir contrasenyes i, sobretot,
+            retirar-les quan algú marxa. Cal mirar els criteris de dalt i tres més:
           </p>
           <ul>
             <li>
@@ -217,31 +213,31 @@ export default async function CredentialsPage() {
             Perquè encara no hem documentat cap gestor amb el mateix rigor amb què hem documentat
             les fitxes del <Link href="/aplicacions">directori</Link>: cada afirmació amb la seva
             font, el seu nivell d’evidència i la seva data. Sense aquesta feina, una llista dels
-            «millors» seria la nostra opinió amb aparença de mètode.
+            «millors» seria només la nostra opinió.
           </p>
           <p>
             Quan les fitxes hi siguin, sortiran al directori amb la mateixa puntuació desmuntable
             que la resta i es podran descarregar a <Link href="/dades">dades obertes</Link>.
-            Mentrestant, els criteris de més amunt són el mateix que faríem servir nosaltres, i són
-            públics justament perquè no hagis d’esperar-nos.
+            Mentrestant, els criteris de més amunt són els que faríem servir nosaltres, i els pots
+            aplicar tu mateix.
           </p>
         </details>
 
         <h2 id="privadesa">Què surt del teu dispositiu</h2>
         <ul>
           <li>
-            <strong>Filtracions per adreça:</strong> l’adreça va del teu navegador a XposedOrNot,
-            directament. No passa pel nostre servidor, que per tant no la pot desar ni que volgués.
-            No carreguem els logotips que retorna XposedOrNot: cada imatge seria una petició més a
-            un tercer que diria en quines filtracions surts.
+            <strong>Filtracions per adreça:</strong> l’adreça va directament del teu navegador a
+            XposedOrNot, sense passar pel nostre servidor, que per tant no la pot desar. No carreguem
+            els logotips que retorna XposedOrNot, perquè cada imatge seria una petició més a un
+            tercer i li diria en quines filtracions surts.
           </li>
           <li>
             <strong>Auditoria de contrasenyes:</strong> de cada contrasenya només en surten els cinc
-            primers caràcters del resum, tal com s’explica tot seguit. La comparació entre elles
+            primers caràcters del resum. La comparació entre elles
             (repetides, variants) es fa sense xarxa.
           </li>
           <li>
-            <strong>Generadors:</strong> res. Les contrasenyes es generen al navegador.
+            <strong>Generadors:</strong> no en surt res; les contrasenyes es generen al navegador.
           </li>
           <li>
             <strong>Res no es desa:</strong> ni l’adreça, ni les contrasenyes, ni els resultats.
@@ -263,8 +259,8 @@ export default async function CredentialsPage() {
               <span className="visually-hidden"> (s’obre en una pestanya nova)</span>
             </a>
             , que recull més de vuit-cents milions de contrasenyes aparegudes en filtracions.
-            Consultar-lo enviant-hi la contrasenya seria el més senzill i és el que no farem. El
-            mètode que fem servir es diu <strong>k-anonimat</strong> i funciona així:
+            No hi enviem la contrasenya. Fem servir un mètode anomenat <strong>k-anonimat</strong>,
+            que funciona així:
           </p>
           <ol>
             <li>
@@ -283,46 +279,44 @@ export default async function CredentialsPage() {
               calaix.
             </li>
             <li>
-              El teu navegador busca el seu sufix dins d’aquella llista, altra vegada en local. Aquí
-              és on se sap si la contrasenya hi és o no.
+              El teu navegador busca el seu sufix dins d’aquella llista, també en local, i així
+              sap si la contrasenya hi és o no.
             </li>
           </ol>
           <p>
-            El resultat: ni el nostre servidor ni Have I Been Pwned reben mai la contrasenya ni el
+            Així, ni el nostre servidor ni Have I Been Pwned reben mai la contrasenya ni el
             resum sencer. El màxim que poden saber és que algú ha preguntat per un calaix on hi ha
             vuit-centes contrasenyes diferents, i això no permet deduir per quina preguntàvem.
             Demanem a més a Have I Been Pwned que <strong>encoixini</strong> la resposta amb
-            entrades falses, perquè ni tan sols la mida de la resposta no digui res.
+            entrades falses, perquè la mida de la resposta tampoc no reveli res.
           </p>
           <p>
-            <strong>Això es pot comprovar, no cal creure’ns.</strong> Obre les eines de
+            <strong>Ho pots comprovar.</strong> Obre les eines de
             desenvolupament del navegador, ves a la pestanya de xarxa i prem el botó d’auditar: hi
             veuràs una sola petició per contrasenya, a <code>/eines/api/pwned?prefix=</code> seguit
-            de cinc caràcters. Res més. El codi de la ruta i el de l’eina són públics i tenen
-            escrit, en un comentari, que el prefix no es registra enlloc.
+            de cinc caràcters, i cap altra dada. El servidor no registra el prefix enlloc.
           </p>
         </details>
         <details className="tool-more">
           <summary>Què vol dir cada xifra</summary>
           <p>
-            La força es mesura en <strong>bits d’entropia</strong>, que és el nombre de vegades que
-            qui ataca ha de doblar la feina. Cada bit multiplica per dos el cost de trobar-la. És
-            l’única mesura defensable, perquè depèn de com s’ha generat la contrasenya i no de quin
-            aspecte té: les puntuacions de zero a cent i els semàfors que es veuen a molts
-            formularis són inventats.
+            La força es mesura en <strong>bits d’entropia</strong>: cada bit multiplica per dos la
+            feina de qui vol trobar la contrasenya. És l’única mesura defensable, perquè depèn de
+            com s’ha generat la contrasenya i no de quin aspecte té. Les puntuacions de zero a cent
+            i els semàfors que es veuen a molts formularis són inventats.
           </p>
           <p>
             Els temps de trencament que ensenyem van sempre amb la hipòtesi escrita al costat, i
-            n’hi ha tres precisament perquè es vegi que el resultat en depèn: entre l’escenari
-            conservador i l’extrem hi ha deu ordres de magnitud. Una xifra de temps sense dir quin
-            atac se suposa no és informació, és decoració.
+            n’hi ha tres perquè es vegi que el resultat en depèn: entre l’escenari conservador i
+            l’extrem hi ha deu ordres de magnitud. Una xifra de temps que no diu quin atac suposa no
+            informa de res.
           </p>
           <p>
             Si escrius una contrasenya teva per comprovar-la, l’eina no te’n dirà cap xifra de
-            força, i és a posta. L’entropia és una propietat del procés que ha generat la
+            força. L’entropia és una propietat del procés que ha generat la
             contrasenya, i el procés d’una persona que en pensa una no és aleatori: tria paraules,
             dates, noms i les substitucions de sempre, que és el primer que prova qualsevol atac.
-            Ensenyar-te una xifra alta perquè hi has posat un signe d’admiració seria enganyar-te.
+            Una xifra alta perquè hi has posat un signe d’admiració seria enganyosa.
           </p>
         </details>
         <details className="tool-more">
@@ -349,8 +343,8 @@ export default async function CredentialsPage() {
                 Have I Been Pwned — Pwned Passwords
                 <span className="visually-hidden"> (s’obre en una pestanya nova)</span>
               </a>
-              , de Troy Hunt. L’API de consulta per rang és pública i gratuïta. Nosaltres només hi
-              fem de pont.
+              , de Troy Hunt. L’API de consulta per rang és pública i gratuïta. El nostre servidor
+              només li reenvia les consultes.
             </li>
             <li>
               <span className="badge">Paraules</span> La llista de {WORDLIST_META.wordCount}{' '}

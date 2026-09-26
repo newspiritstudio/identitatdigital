@@ -64,6 +64,22 @@ export type ProcurementSheet = {
 
 const yesish = (status: EvidenceStatus): boolean => status === 'yes' || status === 'partial'
 
+// Les constatacions es llegeixen a l'expedient: cap codi intern («yes», «hard») a la vista.
+const STATUS_TEXT: Record<EvidenceStatus, string> = {
+  yes: 'sí',
+  partial: 'parcialment',
+  no: 'no',
+  unknown: 'no documentat',
+  na: 'no aplica',
+}
+const DIFFICULTY_TEXT: Record<string, string> = {
+  easy: 'fàcil',
+  medium: 'mitjana',
+  hard: 'difícil',
+  impossible: 'impossible',
+}
+const said = (status: EvidenceStatus): string => STATUS_TEXT[status]
+
 const level = (
   bad: boolean,
   good: boolean,
@@ -105,7 +121,7 @@ export const buildProcurementSheet = (corpus: Corpus, app: App): ProcurementShee
         : 'No hi ha documentada recollida de categories especials de dades.',
     action:
       specialTypes.length > 0
-        ? 'Cal avaluació d’impacte abans de desplegar-ho, i identificar la base jurídica de l’art. 9.2 que empara el tractament. El consentiment de l’alumnat no serveix: en una relació d’autoritat no és lliure.'
+        ? 'Cal avaluació d’impacte abans de desplegar-ho, i identificar la base jurídica de l’art. 9.2 que empara el tractament. El consentiment de l’alumnat no serveix, perquè en una relació d’autoritat no és lliure.'
         : 'No cal per aquest motiu. Comproveu igualment si concorre algun altre supòsit de l’art. 35.3.',
   })
 
@@ -138,7 +154,7 @@ export const buildProcurementSheet = (corpus: Corpus, app: App): ProcurementShee
     title: 'Publicitat personalitzada i perfils',
     level: yesish(ads) ? 'stop' : ads === 'unknown' && profiling === 'unknown' ? 'unknown' : 'ok',
     basis: 'Considerant 38 i art. 22 del RGPD; art. 28.2 del Reglament (UE) 2022/2065 de serveis digitals',
-    finding: `Publicitat personalitzada: ${ads}. Elaboració de perfils: ${profiling}.`,
+    finding: `Publicitat personalitzada: ${said(ads)}. Elaboració de perfils: ${said(profiling)}.`,
     action: yesish(ads)
       ? 'El Reglament de serveis digitals prohibeix la publicitat basada en perfils a persones menors d’edat. Si l’eina s’adreça a alumnat, cal justificar per escrit com s’hi impedeix, o descartar-la.'
       : 'Deixeu constància de la comprovació a l’expedient.',
@@ -158,8 +174,8 @@ export const buildProcurementSheet = (corpus: Corpus, app: App): ProcurementShee
           ? 'La fitxa documenta que el contingut s’utilitza per entrenar models.'
           : 'La fitxa no documenta ús del contingut per entrenar models.',
     action: yesish(ai)
-      ? 'Cal pactar per contracte l’exclusió del contingut de l’entitat, o descartar l’eina. Un tractament que l’entitat no ha decidit no el pot decidir el proveïdor.'
-      : 'Feu-ho constar al contracte encara que avui no passi: el que no està escrit pot canviar amb una actualització de les condicions.',
+      ? 'Cal pactar per contracte l’exclusió del contingut de l’entitat, o descartar l’eina, perquè el proveïdor no pot fer un tractament que l’entitat no ha decidit.'
+      : 'Feu-ho constar al contracte encara que avui no passi, perquè el que no està escrit pot canviar amb una actualització de les condicions.',
   })
 
   /* 5. Cessió a tercers i venda a intermediaris de dades. */
@@ -170,7 +186,7 @@ export const buildProcurementSheet = (corpus: Corpus, app: App): ProcurementShee
     title: 'Cessió a tercers',
     level: yesish(brokers) ? 'stop' : yesish(sharing) ? 'check' : sharing === 'unknown' ? 'unknown' : 'ok',
     basis: 'Art. 28 del RGPD (encarregat del tractament) i art. 44 del RGPD',
-    finding: `Cessió a tercers: ${sharing}. Venda a intermediaris de dades: ${brokers}.`,
+    finding: `Cessió a tercers: ${said(sharing)}. Venda a intermediaris de dades: ${said(brokers)}.`,
     action:
       'El contracte d’encarregat ha de llistar els subencarregats i el procediment per oposar-se a un de nou. Sense aquesta llista, l’entitat no pot saber on van les dades de les quals respon.',
   })
@@ -185,7 +201,7 @@ export const buildProcurementSheet = (corpus: Corpus, app: App): ProcurementShee
     title: 'Mesures de seguretat',
     level: securityUnknown ? 'unknown' : yesish(transport) && yesish(mfa) ? 'ok' : 'check',
     basis: 'Art. 32 del RGPD i Reial decret 311/2022, de l’Esquema Nacional de Seguretat',
-    finding: `Xifratge en trànsit: ${transport}. Verificació en dos passos: ${mfa}. Auditories independents: ${audits}.`,
+    finding: `Xifratge en trànsit: ${said(transport)}. Verificació en dos passos: ${said(mfa)}. Auditories independents: ${said(audits)}.`,
     action:
       'Per a una entitat del sector públic cal declarar la categoria del sistema segons l’Esquema Nacional de Seguretat i comprovar que el proveïdor acredita les mesures del nivell corresponent.',
   })
@@ -204,9 +220,9 @@ export const buildProcurementSheet = (corpus: Corpus, app: App): ProcurementShee
           ? 'ok'
           : 'check',
     basis: 'Art. 20 del RGPD i art. 28.3.g (retorn o supressió en acabar el servei)',
-    finding: `Exportació de dades: ${exportFact}. Dificultat declarada d’eliminar el compte: ${typeof difficulty === 'string' ? difficulty : 'desconeguda'}.`,
+    finding: `Exportació de dades: ${said(exportFact)}. Dificultat declarada d’eliminar el compte: ${(typeof difficulty === 'string' ? DIFFICULTY_TEXT[difficulty] : undefined) ?? 'desconeguda'}.`,
     action:
-      'El contracte ha de fixar el format i el termini de retorn de les dades en acabar, i la supressió posterior amb certificat. Sense això, la dependència és permanent.',
+      'El contracte ha de fixar el format i el termini de retorn de les dades en acabar, i la supressió posterior amb certificat. Sense aquestes condicions, l’entitat queda lligada al proveïdor.',
   })
 
   /* 8. Patrons enganyosos. Rellevants en contractació pública perquè

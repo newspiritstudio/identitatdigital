@@ -21,15 +21,14 @@ export default function PrivacyPage() {
       <DocMeta version="1.1" updated="25 de setembre de 2026" />
 
       <p className="lede">
-        Aquest lloc existeix per explicar què fan les aplicacions amb les dades de les persones.
-        Seria absurd que la nostra pròpia política de privadesa fos un text llarg i impenetrable. Ho
-        hem intentat evitar: aquí hi ha exactament el que fem, per què ho fem i com pots
-        comprovar-ho.
+        Aquest lloc explica què fan les aplicacions amb les dades de les persones, i la nostra
+        política de privadesa ha de ser igual de clara. Aquí hi ha el que fem, per què ho fem i
+        com pots comprovar-ho.
       </p>
 
       <Resum>
         <p>
-          <strong>El resum honest:</strong>
+          <strong>En resum:</strong>
         </p>
         <ul>
           <li>No hi ha comptes ni registre. No et podem identificar.</li>
@@ -43,12 +42,12 @@ export default function PrivacyPage() {
           </li>
           <li>
             Les eines de la secció <Link href="/eines">Eines</Link> calculen dins del teu
-            dispositiu. Les teves contrasenyes i els fitxers que hi examinis no surten del
-            navegador, mai.
+            dispositiu. Les teves contrasenyes i els fitxers que hi examinis no surten mai del
+            navegador.
           </li>
           <li>
             L’única dada personal teva que podem arribar a tocar és la teva adreça IP als registres
-            del servidor, com a qualsevol servidor web del món. Ho expliquem sota.
+            del servidor, com a qualsevol servidor web. Ho expliquem a l’apartat 3.1.
           </li>
           <li>No venem res, no cedim res i no fem perfils de ningú.</li>
         </ul>
@@ -94,11 +93,10 @@ export default function PrivacyPage() {
         </table>
       </TableWrap>
 
-      <h2>2. Com està fet aquest lloc, i per què això importa</h2>
+      <h2>2. Com està fet aquest lloc</h2>
       <p>
-        La privadesa d’un lloc web no depèn del que digui la seva política, sinó de com està
-        construït. Aquestes són les decisions tècniques que fan que la resta d’aquest document sigui
-        tan curt:
+        La privadesa d’un lloc web depèn sobretot de com està construït. Aquestes decisions
+        tècniques expliquen per què la resta d’aquest document és curt:
       </p>
       <ul>
         <li>
@@ -126,22 +124,21 @@ export default function PrivacyPage() {
         <li>
           <strong>No hi ha cap sistema d’analítica instal·lat.</strong> Ni Google Analytics, ni cap
           alternativa, ni tan sols de les que es presenten com a respectuoses amb la privadesa. No
-          sabem quanta gent ens visita ni d’on ve, i ho acceptem.
+          sabem quanta gent ens visita ni d’on ve.
         </li>
       </ul>
       <p>
-        El codi del lloc és públic. Qualsevol pot verificar aquestes afirmacions llegint-lo, o
-        obrint la pestanya de xarxa del navegador i comprovant que carregar una pàgina no genera cap
-        petició a cap domini de tercers.
+        Pots verificar aquestes afirmacions obrint la pestanya de xarxa del navegador i comprovant
+        que carregar una pàgina no genera cap petició a cap domini de tercers.
       </p>
 
       <h2>3. Quins tractaments fem</h2>
-      <p>Aquests són tots. No n’hi ha cap més.</p>
+      <p>Aquesta és la llista completa.</p>
 
       <h3>3.1. Registres del servidor</h3>
       <p>
-        Qualsevol servidor web deixa constància de les peticions que rep, i el nostre no és cap
-        excepció. Aquests registres poden contenir la teva adreça IP, la data i l’hora, la pàgina
+        Qualsevol servidor web, inclòs el nostre, deixa constància de les peticions que rep. Aquests
+        registres poden contenir la teva adreça IP, la data i l’hora, la pàgina
         demanada, el codi de resposta, l’identificador del navegador i, si hi has arribat des d’un
         enllaç, l’adreça d’origen.
       </p>
@@ -193,8 +190,8 @@ export default function PrivacyPage() {
         ningú de fora: els comptes els crea l’administració i no hi ha registre obert.
       </p>
       <p>
-        De cada persona editora s’hi desa el nom, l’adreça de correu, el rol, la contrasenya —
-        guardada com a resum criptogràfic amb sal, mai en clar — i les dades necessàries per aplicar
+        De cada persona editora s’hi desa el nom, l’adreça de correu, el rol, la contrasenya
+        (guardada com a resum criptogràfic amb sal, mai en clar) i les dades necessàries per aplicar
         el bloqueig per intents fallits. La sessió caduca al cap de vuit hores i el compte es
         bloqueja deu minuts després de cinc intents fallits.
       </p>
@@ -315,8 +312,8 @@ export default function PrivacyPage() {
               <th scope="row">Conservació</th>
               <td>
                 Mentre la informació conservi interès públic i documental. Una fitxa antiga no
-                s’esborra: es marca com a superada i es conserva l’historial, perquè poder saber què
-                dèiem abans forma part del valor del projecte.
+                s’esborra: es marca com a superada i es conserva l’historial, perquè es pugui saber
+                què dèiem abans.
               </td>
             </tr>
             <tr>
@@ -331,7 +328,7 @@ export default function PrivacyPage() {
         </table>
       </TableWrap>
 
-      <h2>4. Les eines: què passa exactament</h2>
+      <h2>4. Què fan les eines amb les teves dades</h2>
       <p>
         La secció <Link href="/eines">Eines</Link> conté el diagnòstic d’identitat digital,
         l’eina de credencials (filtracions per adreça, auditoria de contrasenyes, generador i guia
@@ -351,10 +348,6 @@ export default function PrivacyPage() {
       </p>
 
       <h3>4.2. L’auditoria de contrasenyes filtrades</h3>
-      <p>
-        Aquesta part mereix una explicació llarga, perquè és el tipus d’afirmació que aquest
-        projecte exigeix que les empreses demostrin.
-      </p>
       <p>
         La comprovació funciona amb una tècnica anomenada <strong>k-anonimat</strong>. El
         procediment, pas a pas:
@@ -390,7 +383,6 @@ export default function PrivacyPage() {
         </li>
       </ol>
       <p>
-        Conseqüència:{' '}
         <strong>
           ni nosaltres ni Have I Been Pwned rebem mai la teva contrasenya, ni el seu resum sencer.
         </strong>{' '}
@@ -402,22 +394,19 @@ export default function PrivacyPage() {
         per tant no és una dada personal en el sentit de l’article 4.1 del Reglament. Ara bé, la
         petició HTTP que el transporta sí que arriba al nostre servidor com qualsevol altra, i pot
         deixar rastre als registres descrits a l’apartat 3.1 en els mateixos termes que la resta de
-        peticions: adreça IP, data i ruta. Ho diem perquè la diferència entre «no en desem res» i
-        «no en desem res més enllà del que desa qualsevol servidor» és precisament el tipus de matís
-        que criticaríem si l’ometés una altra empresa.
+        peticions: adreça IP, data i ruta.
       </p>
       <p>
-        Per què el prefix passa pel nostre servidor i no va directe des del teu navegador: perquè la
-        nostra política de seguretat de contingut prohibeix al navegador connectar-se a cap domini
-        que no sigui el nostre. Aquesta restricció, que és una mesura de seguretat, obliga a aquest
-        disseny, i de retruc t’hi afegeix privadesa, perquè la teva adreça IP no arriba al tercer.
+        El prefix passa pel nostre servidor, i no va directe des del teu navegador, perquè la nostra
+        política de seguretat de contingut prohibeix al navegador connectar-se a cap domini que no
+        sigui el nostre. Aquest disseny també fa que la teva adreça IP no arribi al tercer.
       </p>
 
       <h3>4.3. La consulta de filtracions per adreça electrònica</h3>
       <p>
         A l’eina de <Link href="/eines/credencials">credencials</Link> pots escriure la teva adreça
         de correu i saber en quines filtracions conegudes surt. Aquesta és l’única funció del lloc
-        en què una dada personal teva surt del navegador, i per això l’expliquem sencera:
+        en què una dada personal teva surt del navegador. Funciona així:
       </p>
       <ol>
         <li>
@@ -464,8 +453,7 @@ export default function PrivacyPage() {
         la teva tria.
       </p>
       <p>
-        Hi ha diferències entre les eines que val la pena explicar, perquè afecten on acaba la teva
-        tria:
+        Cada eina guarda la teva tria en un lloc diferent:
       </p>
       <ul>
         <li>
@@ -485,9 +473,8 @@ export default function PrivacyPage() {
         </li>
         <li>
           <strong>El comparador no desa res al dispositiu</strong>: posa la selecció a l’adreça de
-          la pàgina perquè puguis copiar l’enllaç i compartir-lo. Això vol dir que qui rebi l’enllaç
-          en veurà la selecció. És el comportament que es vol, i el diem perquè ho sàpigues abans
-          d’enviar-lo.
+          la pàgina perquè puguis copiar l’enllaç i compartir-lo. Qui rebi l’enllaç en veurà la
+          selecció; tingues-ho en compte abans d’enviar-lo.
         </li>
       </ul>
 
@@ -503,9 +490,10 @@ export default function PrivacyPage() {
       </p>
       <Avis>
         <p>
-          <strong>Revisat contra el codi publicat.</strong> A data d’aquesta versió, les eines
+          <strong>Revisat contra el codi del lloc.</strong> A data d’aquesta versió, les eines
           s’han repassat una per una: les úniques escriptures al dispositiu són les dues claus del
-          diagnòstic descrites aquí, no n’hi ha cap altra en emmagatzematge local, ni de sessió, ni
+          diagnòstic descrites aquí i, si fas servir el botó de tema, la clau <code>theme</code>{' '}
+          (<code>light</code> o <code>dark</code>). No n’hi ha cap altra en emmagatzematge local, ni de sessió, ni
           en cap base de dades del navegador, i les úniques peticions que surten del navegador
           mentre les fas servir són el prefix de cinc caràcters de l’apartat 4.2, la consulta a
           XposedOrNot de l’apartat 4.3 (només si la demanes) i la dels textos explicatius del
@@ -617,7 +605,8 @@ export default function PrivacyPage() {
         consulta a Have I Been Pwned surt de la Unió Europea, però no hi viatja cap dada personal:
         només el prefix de cinc caràcters, que no identifica ningú i que no és una dada personal.
         La consulta per adreça de l’apartat 4.3 la fa directament el teu navegador, no nosaltres, i
-        pot sortir de l’Espai Econòmic Europeu; ho expliquem allà perquè ho decideixis abans de fer-la.
+        pot sortir de l’Espai Econòmic Europeu; ho expliquem en aquell apartat perquè ho puguis
+        decidir abans de fer-la.
       </p>
       <p>
         <Pendent>
@@ -630,7 +619,7 @@ export default function PrivacyPage() {
       <h2>8. Els teus drets</h2>
       <p>
         Tens els drets dels articles 15 a 22 del Reglament general de protecció de dades. En aquest
-        lloc són inusualment fàcils d’exercir, perquè tenim molt poques dades teves.
+        lloc són fàcils d’exercir, perquè tenim molt poques dades teves.
       </p>
       <TableWrap label="Drets de protecció de dades i com exercir-los">
         <table>
@@ -763,8 +752,8 @@ export default function PrivacyPage() {
       <h2>10. Seguretat</h2>
       <p>
         L’article 32 del Reglament demana mesures tècniques i organitzatives adequades al risc.
-        Aquestes són les que hi ha, i es poden comprovar totes al codi o a les capçaleres de
-        resposta del servidor:
+        Aquestes són les que hi ha; les capçaleres es poden comprovar a les respostes del
+        servidor:
       </p>
       <ul>
         <li>
@@ -779,8 +768,8 @@ export default function PrivacyPage() {
         <li>
           <strong>Capçaleres complementàries</strong>: <code>X-Content-Type-Options: nosniff</code>,{' '}
           <code>X-Frame-Options: SAMEORIGIN</code>,{' '}
-          <code>Referrer-Policy: strict-origin-when-cross-origin</code> —de manera que quan surts
-          cap a un altre lloc no li enviem la ruta exacta que estaves llegint— i{' '}
+          <code>Referrer-Policy: strict-origin-when-cross-origin</code> (quan surts cap a un altre
+          lloc no li enviem la ruta exacta que estaves llegint) i{' '}
           <code>Cross-Origin-Opener-Policy: same-origin</code>.
         </li>
         <li>
@@ -806,12 +795,12 @@ export default function PrivacyPage() {
         </li>
       </ul>
       <p>
-        I una debilitat coneguda, que preferim dir nosaltres: la política de seguretat de contingut
+        Hi ha una debilitat coneguda: la política de seguretat de contingut
         encara admet <code>&apos;unsafe-inline&apos;</code> per a scripts i estils, cosa que en
         redueix l’eficàcia davant d’atacs d’injecció de codi. Està previst substituir-ho per un
         sistema de valors únics per petició quan el lloc tingui el disseny definitiu. Mentrestant,
         que el lloc no accepti cap entrada de text de qui el visita i que no hi hagi sessions per
-        segrestar en limita molt l’impacte.
+        segrestar en redueix molt el risc.
       </p>
       <p>
         Si tot i això hi hagués una violació de seguretat que impliqués un risc per als drets de les
@@ -829,13 +818,12 @@ export default function PrivacyPage() {
 
       <h2>12. Canvis en aquesta política</h2>
       <p>
-        Si canviem alguna cosa del que hi ha aquí, canviarà primer el codi. Per això aquesta
-        política porta versió i data, i per això el codi del lloc és públic: perquè es pugui
-        comprovar que el document i el programa diuen el mateix.
+        Si canviem alguna cosa del que hi ha aquí, canviarà primer el codi i després aquesta
+        política, que porta versió i data.
       </p>
       <p>
-        Si algun dia afegim una funció que impliqui tractar dades noves —un butlletí, comentaris, un
-        formulari, una analítica—, aquesta política s’actualitzarà <em>abans</em> d’activar-la, i el
+        Si algun dia afegim una funció que impliqui tractar dades noves (un butlletí, comentaris, un
+        formulari, una analítica), aquesta política s’actualitzarà <em>abans</em> d’activar-la, i el
         canvi s’anunciarà de manera visible al lloc.
       </p>
     </>

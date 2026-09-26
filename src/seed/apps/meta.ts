@@ -10,7 +10,7 @@ export const metaApps: AppSeed[] = [
     categories: ['missatgeria'],
     tagline: 'Missatgeria xifrada d’extrem a extrem dins del grup Meta',
     summary:
-      'WhatsApp és el servei de missatgeria més utilitzat als Països Catalans i xifra d’extrem a extrem els missatges, les trucades i, opcionalment, les còpies de seguretat. La tensió de la fitxa és aquesta: el contingut està molt ben protegit, però el servei exigeix un número de telèfon, llegeix l’agenda de contactes sencera i genera un volum considerable de metadades que sí que són accessibles per a Meta i comparteixes amb la resta del grup.',
+      'WhatsApp és el servei de missatgeria més utilitzat als Països Catalans i xifra d’extrem a extrem els missatges, les trucades i, opcionalment, les còpies de seguretat. El contingut està molt ben protegit, però el servei exigeix un número de telèfon, llegeix l’agenda de contactes sencera i genera un volum considerable de metadades accessibles per a Meta, que les comparteix amb la resta del grup.',
     platforms: ['ios', 'android', 'web', 'windows', 'macos'],
     businessModel: 'freemium',
     jurisdiction: 'Irlanda, per a persones usuàries de l’Espai Econòmic Europeu',
@@ -85,7 +85,7 @@ export const metaApps: AppSeed[] = [
         'Tria el motiu i confirma l’eliminació.',
       ],
       obstacles:
-        'No hi ha obstacles reals per eliminar el compte, però desinstal·lar l’aplicació sense fer aquest pas no elimina res: el compte continua actiu i la informació es conserva.',
+        'Eliminar el compte és senzill, però desinstal·lar l’aplicació sense fer aquest pas no elimina res: el compte continua actiu i la informació es conserva.',
       dataRetained:
         'Els missatges que has enviat es conserven als dispositius de les persones destinatàries. La informació dels registres pot trigar fins a 90 dies a desaparèixer i la informació que altres han compartit sobre tu no s’elimina.',
       sources: ['wa-delete-account', 'wa-manage-info'],
@@ -105,7 +105,7 @@ export const metaApps: AppSeed[] = [
       telemetryOptOut: f('no', 'official', ['wa-privacy-policy-eea'], 'No hi ha cap opció per desactivar la recollida de dades d’ús i de diagnòstic.'),
       granularControls: f('partial', 'official', ['wa-privacy-policy-eea'], 'Hi ha controls detallats de visibilitat (última hora de connexió, foto, estats, confirmacions de lectura), però no de recollida de dades.'),
       defaultPosture: 'mixed',
-      darkPatterns: f('partial', 'editorial', ['wa-privacy-policy-eea'], 'La sol·licitud d’accés a l’agenda es presenta com a imprescindible per fer servir l’aplicació, quan tècnicament es pot fer servir sense.'),
+      darkPatterns: f('partial', 'editorial', ['wa-privacy-policy-eea'], 'La sol·licitud d’accés a l’agenda es presenta com a imprescindible per fer servir l’aplicació, tot i que es pot fer servir sense.'),
       darkPatternList: [
         {
           type: 'confusing-language',
@@ -148,7 +148,7 @@ export const metaApps: AppSeed[] = [
         comparability: 'partial',
         rationale:
           'Cobreix la missatgeria i hi afegeix canals i grups massius, però els xats normals no estan xifrats d’extrem a extrem: només els xats secrets, que cal iniciar expressament i no funcionen en grup.',
-        tradeOffs: 'En privadesa del contingut és un pas enrere respecte de WhatsApp, no endavant.',
+        tradeOffs: 'Protegeix menys el contingut que WhatsApp.',
       },
     ],
     review: {
@@ -156,10 +156,10 @@ export const metaApps: AppSeed[] = [
       lastReviewedAt: '2026-09-09',
       incidentsReviewed: true,
       editorialNotes:
-        'Cas clar de per què cal separar contingut i metadades en la puntuació. Si només es mirés el xifratge, WhatsApp sortiria com un dels serveis més protectors del directori; el que penalitza la seva puntuació de privadesa és la compartició dins del grup, l’agenda i la impossibilitat de fer servir el servei sense número de telèfon.',
+        'La puntuació separa contingut i metadades. Si només es mirés el xifratge, WhatsApp sortiria com un dels serveis més protectors del directori; el que penalitza la seva puntuació de privadesa és la compartició dins del grup, l’agenda i la impossibilitat de fer servir el servei sense número de telèfon.',
       openQuestions: [
         'Quina informació concreta de WhatsApp arriba als sistemes publicitaris de Meta i quina es queda dins del servei?',
-        'Quin percentatge real de comptes té activades les còpies de seguretat xifrades?',
+        'Quin percentatge de comptes té activades les còpies de seguretat xifrades?',
       ],
     },
   },
@@ -172,7 +172,7 @@ export const metaApps: AppSeed[] = [
     categories: ['xarxes-socials', 'descobriment-visual'],
     tagline: 'Xarxa social visual amb publicitat basada en perfilat',
     summary:
-      'Instagram funciona amb la mateixa política de privadesa i la mateixa infraestructura publicitària que Facebook. Tot el que s’hi fa —què es mira, quant s’hi atura la mirada, què s’hi cerca, amb qui s’interactua— alimenta un perfil publicitari compartit amb la resta del grup Meta. És, juntament amb Facebook, la plataforma amb més resolucions sancionadores acumulades del directori.',
+      'Instagram funciona amb la mateixa política de privadesa i la mateixa infraestructura publicitària que Facebook. Tot el que s’hi fa (què es mira i durant quant de temps, què s’hi cerca, amb qui s’interactua) alimenta un perfil publicitari compartit amb la resta del grup Meta. És, juntament amb Facebook, la plataforma amb més resolucions sancionadores acumulades del directori.',
     platforms: ['ios', 'android', 'web'],
     businessModel: 'advertising',
     jurisdiction: 'Irlanda, per a persones usuàries de l’Espai Econòmic Europeu',
@@ -183,10 +183,10 @@ export const metaApps: AppSeed[] = [
       terms: 'https://help.instagram.com/581066165581870',
       privacyCenter: 'https://accountscenter.instagram.com/',
     },
-    accountRequired: f('yes', 'official', ['meta-privacy-policy'], 'Es pot veure contingut públic sense compte de manera molt limitada, però qualsevol ús real requereix registre amb adreça electrònica o número de telèfon.'),
+    accountRequired: f('yes', 'official', ['meta-privacy-policy'], 'Es pot veure contingut públic sense compte de manera molt limitada, però qualsevol altre ús requereix registre amb adreça electrònica o número de telèfon.'),
     openSource: f('no', 'official', ['meta-privacy-policy'], 'Codi íntegrament privatiu.', { licence: 'Privativa' }),
     dataSummary:
-      'Instagram recull continguts, interaccions, temps de visualització, cerques, contactes, ubicació i activitat fora de la plataforma a través del píxel de Meta present a milers de llocs web i aplicacions. La combinació d’aquestes dues fonts és el que fa que el perfil publicitari sigui tan detallat.',
+      'Instagram recull continguts, interaccions, temps de visualització, cerques, contactes, ubicació i activitat fora de la plataforma a través del píxel de Meta present a milers de llocs web i aplicacions. Combinar l’activitat dins i fora de la plataforma permet un perfil publicitari molt detallat.',
     dataCollection: [
       row('identificador-de-compte', 'yes', { linked: 'yes', tracking: 'yes', shared: 'group', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['meta-privacy-policy'] }),
       row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['meta-privacy-policy'] }),
@@ -329,7 +329,7 @@ export const metaApps: AppSeed[] = [
       editorialNotes:
         'Instagram i Facebook comparteixen política, infraestructura i sancions. Es mantenen com a fitxes separades perquè el perfil de dades no és idèntic: Instagram recull més senyals visuals i de temps d’atenció, i Facebook més dades de xarxa social i d’esdeveniments.',
       openQuestions: [
-        'Quin abast real té el xifratge d’extrem a extrem dels missatges directes i quines excepcions manté?',
+        'Quin abast té el xifratge d’extrem a extrem dels missatges directes i quines excepcions manté?',
       ],
     },
   },
@@ -342,7 +342,7 @@ export const metaApps: AppSeed[] = [
     categories: ['xarxes-socials'],
     tagline: 'La xarxa social amb més sancions de protecció de dades acumulades',
     summary:
-      'Facebook és el servei amb l’historial regulador més extens del directori: transferències internacionals, base jurídica de la publicitat, recol·lecció massiva de dades públiques, bretxa de testimonis d’accés i galetes. La fitxa és útil precisament per això: permet veure què passa quan una plataforma acumula dades durant vint anys i quins d’aquests problemes s’han corregit i quins no.',
+      'Facebook és el servei amb l’historial regulador més extens del directori: transferències internacionals, base jurídica de la publicitat, recol·lecció massiva de dades públiques, bretxa de testimonis d’accés i galetes. La fitxa permet veure quins d’aquests problemes s’han corregit i quins no en una plataforma que acumula dades des de fa vint anys.',
     platforms: ['ios', 'android', 'web'],
     businessModel: 'advertising',
     jurisdiction: 'Irlanda, per a persones usuàries de l’Espai Econòmic Europeu',
@@ -356,7 +356,7 @@ export const metaApps: AppSeed[] = [
     accountRequired: f('yes', 'official', ['meta-privacy-policy'], 'El contingut públic és accessible parcialment sense compte, però qualsevol interacció requereix registre amb nom real segons les condicions del servei.'),
     openSource: f('no', 'official', ['meta-privacy-policy'], undefined, { licence: 'Privativa' }),
     dataSummary:
-      'Facebook combina el que la persona publica, el que fa dins de la plataforma, el que fa fora a través del píxel de Meta i el que altres persones comparteixen sobre ella. Aquesta darrera categoria és la que fa que existeixin perfils d’ombra de persones que no tenen compte.',
+      'Facebook combina el que la persona publica, el que fa dins de la plataforma, el que fa fora a través del píxel de Meta i el que altres persones comparteixen sobre ella. Aquesta darrera categoria permet que existeixin perfils d’ombra de persones que no tenen compte.',
     dataCollection: [
       row('identificador-de-compte', 'yes', { linked: 'yes', tracking: 'yes', shared: 'group', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['meta-privacy-policy'] }),
       row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['meta-privacy-policy'], note: 'Les condicions exigeixen el nom que es fa servir a la vida quotidiana.' }),
@@ -482,7 +482,7 @@ export const metaApps: AppSeed[] = [
       lastReviewedAt: '2026-09-09',
       incidentsReviewed: true,
       editorialNotes:
-        'Cinc incidents registrats, quatre dels quals amb sanció ferma. És l’exemple més clar de per què l’historial d’incidents ha de tenir pes propi dins de la dimensió de seguretat: les polítiques diuen una cosa i el registre d’execució n’explica una altra.',
+        'Cinc incidents registrats, quatre dels quals amb sanció ferma. Per casos com aquest l’historial d’incidents té pes propi dins de la dimensió de seguretat: el que diuen les polítiques no coincideix amb el que mostren les actuacions dels reguladors.',
       openQuestions: [
         'Quantes persones sense compte de Facebook tenen dades recollides pel píxel de Meta?',
       ],

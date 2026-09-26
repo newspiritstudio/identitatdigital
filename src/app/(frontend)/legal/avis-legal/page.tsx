@@ -17,8 +17,7 @@ export default function LegalNoticePage() {
 
       <p className="lede">
         Qui hi ha darrere d’aquest lloc, com contactar-hi i sota quines regles funciona. És la
-        informació que l’article 10 de la Llei 34/2002 obliga a tenir permanentment accessible, i
-        aquí la trobaràs sencera i sense haver de buscar-la.
+        informació que l’article 10 de la Llei 34/2002 obliga a tenir permanentment accessible.
       </p>
 
       <h2>Titular del lloc</h2>
@@ -94,8 +93,7 @@ export default function LegalNoticePage() {
       <p>
         New Spirit Studio S.L. té subscrita una pòlissa de responsabilitat civil professional amb
         Zurich, número 00000165177759, que inclou una garantia específica de protecció de dades amb
-        un límit de 100.000 euros. Ho fem constar aquí perquè una declaració de responsabilitat
-        sense cobertura darrere val poc.
+        un límit de 100.000 euros.
       </p>
 
       <h3>Activitat i professions regulades</h3>
@@ -117,8 +115,8 @@ export default function LegalNoticePage() {
       <p>
         El projecte forma part de l’activitat pròpia de l’estudi i n’és propietat. No és una
         associació, ni una fundació, ni un organisme públic, ni té cap mena de reconeixement
-        oficial. És una publicació editorial amb una metodologia declarada i amb totes les fonts a
-        la vista.
+        oficial. És una publicació editorial amb una metodologia publicada i amb totes les fonts
+        enllaçades.
       </p>
       <p>
         L’accés al lloc és lliure i gratuït. No cal registrar-s’hi, no s’hi pot obrir cap compte i
@@ -148,10 +146,10 @@ export default function LegalNoticePage() {
       <h2>Propietat intel·lectual i marques</h2>
       <p>
         El contingut editorial del lloc és obra de New Spirit Studio S.L. i es publica sota
-        Creative Commons Reconeixement-CompartirIgual 4.0. El codi és MIT. Els materials de tercers
-        que en queden fora —el catàleg de filtracions de Have I Been Pwned, els logotips i les
-        marques— es detallen al fitxer <code>NOTICE</code> del repositori i a la pàgina de{' '}
-        <Link href="/dades">dades obertes</Link>.
+        Creative Commons Reconeixement-CompartirIgual 4.0. En queden fora els materials de
+        tercers: el catàleg de filtracions prové de Have I Been Pwned i es publica amb llicència
+        CC BY 4.0, i els logotips i les marques no entren en cap llicència. Ho detalla també la
+        pàgina de <Link href="/dades">dades obertes</Link>.
       </p>
       <p>
         Els noms comercials, les marques i els logotips de les aplicacions i de les empreses
@@ -165,7 +163,7 @@ export default function LegalNoticePage() {
         El projecte enllaça sistemàticament les seves fonts: documentació oficial de les empreses,
         resolucions d’autoritats de control, anàlisis independents i premsa. Aquests llocs són de
         tercers i no en controlem el contingut, la disponibilitat ni les pràctiques de privadesa.
-        Quan els obres, hi vas sota les condicions d’aquells llocs, no sota les nostres.
+        Quan els obres, s’hi apliquen les condicions d’aquells llocs.
       </p>
       <p>
         D’acord amb l’article 17 de la Llei 34/2002, no responem del contingut aliè que enllacem
@@ -175,7 +173,7 @@ export default function LegalNoticePage() {
       </p>
       <p>
         Pots enllaçar aquest lloc lliurement. L’única cosa que et demanem és que l’enllaç no doni a
-        entendre una relació, una aprovació o una col·laboració que no existeix, i que no
+        entendre una relació, una aprovació o una col·laboració que no existeix i que no
         reprodueixi el lloc dins d’un marc que n’amagui l’origen.
       </p>
 
@@ -227,9 +225,7 @@ export default function LegalNoticePage() {
       <h2>Modificacions</h2>
       <p>
         Podem actualitzar aquest avís legal quan canviïn les dades del titular, l’arquitectura del
-        lloc o la normativa aplicable. Cada versió porta el número i la data al capdamunt. Els
-        canvis rellevants es fan constar a l’historial del repositori públic del projecte, de manera
-        que sempre es pot veure què deia abans i què diu ara.
+        lloc o la normativa aplicable. Cada versió porta el número i la data al capdamunt.
       </p>
     </>
   )

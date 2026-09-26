@@ -7,7 +7,7 @@ import MetadataTool from './MetadataTool'
 export const metadata: Metadata = {
   title: 'Metadades: què diuen de tu les fotos i els documents',
   description:
-    'Mira quines dades amagades porten les teves fotos i documents (ubicació exacta, el teu nom, el número de sèrie de l’aparell, els autors dels comentaris) i fes-ne una còpia neta. Sense que el fitxer surti del teu dispositiu.',
+    'Mira quines dades amagades porten les teves fotos i documents (ubicació exacta, el teu nom, el número de sèrie de l’aparell, els autors dels comentaris) i fes-ne una còpia neta. El fitxer no surt del teu dispositiu.',
 }
 
 /**
@@ -37,8 +37,8 @@ export default function MetadataPage() {
           <ul>
             <li>
               <strong>Ubicació:</strong> les coordenades GPS d’una foto feta a casa són l’adreça de
-              casa, sovint amb un marge de pocs metres. Una sola foto de venda de segona mà o d’un
-              anunci n’hi ha prou.
+              casa, sovint amb un marge de pocs metres. N’hi ha prou amb una sola foto d’un anunci o
+              d’una venda de segona mà.
             </li>
             <li>
               <strong>Número de sèrie:</strong> les càmeres i alguns mòbils l’escriuen a cada foto.
@@ -67,7 +67,7 @@ export default function MetadataPage() {
         <details className="tool-more" id="com-neteja">
           <summary>Com es fa la còpia neta</summary>
           <p>
-            Sense tornar a codificar res: la imatge o el document queden exactament iguals, només
+            No es torna a codificar res: la imatge o el document queden exactament iguals i només
             canvien les metadades. A les fotos es buiden els camps que identifiquen i es conserva
             l’orientació, que cal perquè la foto no surti tombada. Als documents d’Office es treuen
             l’autor, l’empresa, la plantilla i les dates, els autors dels comentaris passen a dir-se
@@ -104,8 +104,8 @@ export default function MetadataPage() {
           <p>
             Les grans xarxes socials i la majoria d’aplicacions de missatgeria treuen la ubicació en
             publicar una foto, però el correu electrònic, els serveis d’emmagatzematge al núvol i
-            l’enviament «com a fitxer» la deixen tal com és. I la xarxa que la treu per als altres
-            l’ha rebuda igualment.
+            l’enviament «com a fitxer» la deixen tal com és. A més, la xarxa que la treu per als
+            altres l’ha rebuda igualment.
           </p>
         </details>
         <details className="tool-more" id="limits">
@@ -132,7 +132,7 @@ export default function MetadataPage() {
         <details className="tool-more" id="privadesa">
           <summary>Què surt del teu dispositiu</summary>
           <p>
-            Res. Els fitxers es llegeixen i es netegen dins d’aquesta pestanya, sense cap petició al
+            No en surt res: els fitxers es llegeixen i es netegen dins d’aquesta pestanya, sense cap petició al
             nostre servidor ni a cap altre. No es desa res: en tancar o recarregar la pàgina, la
             llista desapareix. L’enllaç al mapa d’una ubicació només obre OpenStreetMap si hi fas
             clic, i llavors és OpenStreetMap qui rep les coordenades. Ho detallem a la{' '}

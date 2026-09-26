@@ -38,9 +38,9 @@ const symmetry: AppSeed = {
   name: 'Symmetry: Rutinas Gimnasio IA',
   company: 'symmetry-club',
   categories: ['benestar-i-activitat-fisica'],
-  tagline: 'Rutines generades amb intel·ligència artificial a partir del teu cos, amb una conservació mínima de cinc anys escrita a la política',
+  tagline: 'Rutines generades amb intel·ligència artificial a partir de les teves dades físiques, amb una conservació mínima de cinc anys',
   summary:
-    'Symmetry genera rutines de gimnàs amb intel·ligència artificial a partir de les mesures corporals, els objectius i l’historial d’entrenaments. La política de l’aplicació és clara en un punt important —diu que les dades de salut no es venen mai a tercers— i opaca en un altre: fixa que les dades es conservaran «por un período mínimo de cinco años» per depurar responsabilitats, un terminí que xoca amb la promesa de suprimir-les quan ho demanis. El responsable és una societat de Delaware i el document no esmenta cap transferència internacional ni cap mecanisme per empararla.',
+    'Symmetry genera rutines de gimnàs amb intel·ligència artificial a partir de les mesures corporals, els objectius i l’historial d’entrenaments. La política de l’aplicació diu que les dades de salut no es venen mai a tercers, però fixa que es conservaran «por un período mínimo de cinco años» per depurar responsabilitats, un termini que xoca amb la promesa de suprimir-les quan ho demanis. El responsable és una societat de Delaware i el document no esmenta cap transferència internacional ni cap mecanisme per emparar-la.',
   platforms: ['ios', 'android'],
   businessModel: 'freemium',
   jurisdiction: 'Estats Units; la política invoca el RGPD i l’Agència Espanyola de Protecció de Dades',
@@ -52,7 +52,7 @@ const symmetry: AppSeed = {
   accountRequired: f('yes', 'official', ['symmetry-politica-app'], 'La política diu que, si no facilites les dades del registre o ho fas de manera incompleta, «no será posible proceder al uso de la Aplicación».'),
   openSource: f('no', 'official', ['symmetry-politica-web'], 'La societat declara que té els drets d’explotació i propietat intel·lectual del programari.', { licence: 'Privativa' }),
   dataSummary:
-    'L’historial d’exercicis, les mesures corporals i els objectius físics dibuixen l’estat de forma d’una persona i com evoluciona mes a mes. A sobre, l’aplicació hi afegeix fotografies de progrés, que són de les dades més identificatives que es poden pujar a un servei d’entrenament.',
+    'L’historial d’exercicis, les mesures corporals i els objectius físics mostren l’estat de forma d’una persona i com evoluciona mes a mes. L’aplicació hi afegeix fotografies de progrés, que són de les dades més identificatives que es poden pujar a un servei d’entrenament.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['symmetry-app-store', 'symmetry-politica-app'] }),
     row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['symmetry-app-store', 'symmetry-politica-app'], note: 'La política diu que el correu també es pot fer servir per a butlletins i comunicacions comercials, sempre amb consentiment previ.' }),
@@ -84,7 +84,7 @@ const symmetry: AppSeed = {
     transparencyReport: unknown('No hem trobat cap informe de transparència ni cap referència a peticions d’autoritats.'),
   },
   retention: {
-    definedPeriods: f('partial', 'official', ['symmetry-politica-app'], 'Hi ha terminis, però juguen en contra: les dades es conserven mentre facis servir l’aplicació i «con el objetivo de depurar las posibles responsabilidades derivadas del tratamiento, los datos se conservarán por un período mínimo de cinco años».'),
+    definedPeriods: f('partial', 'official', ['symmetry-politica-app'], 'Hi ha terminis, però allarguen la conservació: les dades es conserven mentre facis servir l’aplicació i «con el objetivo de depurar las posibles responsabilidades derivadas del tratamiento, los datos se conservarán por un período mínimo de cinco años».'),
     dataAfterDeletion: f('partial', 'official', ['symmetry-politica-app'], 'El mínim de cinc anys i els dotze mesos de dades de connexió de la LSSI sobreviuen a la sol·licitud de supressió.'),
     periods: [
       { period: 'Mínim de cinc anys per depurar responsabilitats del tractament', sources: ['symmetry-politica-app'] },
@@ -142,7 +142,7 @@ const symmetry: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'La política de l’aplicació no és a l’HTML: el web és una aplicació de pàgina única i el text només s’obté del paquet de JavaScript que serveix el mateix domini. La troballa que val la pena és la conservació mínima de cinc anys, escrita com si fos una garantia quan de fet limita el dret de supressió.',
+      'La política de l’aplicació no és a l’HTML: el web és una aplicació de pàgina única i el text només s’obté del paquet de JavaScript que serveix el mateix domini. El punt principal és la conservació mínima de cinc anys, presentada com una garantia tot i que limita el dret de supressió.',
     openQuestions: [
       'Es pot eliminar el compte des de la mateixa aplicació, com exigeix l’App Store des del 2022?',
       'Quin proveïdor de models d’intel·ligència artificial genera les rutines i on es tracten les dades?',
@@ -158,7 +158,7 @@ const synergymApp: AppSeed = {
   categories: ['benestar-i-activitat-fisica'],
   tagline: 'La política de privadesa que enllaça la fitxa de l’App Store és una pàgina d’ajuda que no es pot llegir sense JavaScript',
   summary:
-    'L’aplicació de la cadena de gimnasos Synergym, adquirida pel grup VivaGym, no és pròpia: està construïda sobre la plataforma neerlandesa Virtuagym, i la política de privadesa que enllaça la fitxa de l’App Store és la del programari, no la del gimnàs. Aquesta pàgina és una fitxa d’un centre d’ajuda que només es renderitza amb JavaScript: no l’hem poguda llegir ni al web ni a l’arxiu d’internet, de manera que la principal font documental del servei és, a la pràctica, inaccessible. L’etiqueta de l’App Store sí que és explícita, i declara ubicació exacta i dades de salut vinculades amb la identitat.',
+    'L’aplicació de la cadena de gimnasos Synergym, adquirida pel grup VivaGym, està construïda sobre la plataforma neerlandesa Virtuagym, i la política de privadesa que enllaça la fitxa de l’App Store és la del programari, no la del gimnàs. Aquesta pàgina és una fitxa d’un centre d’ajuda que només es renderitza amb JavaScript: no l’hem poguda llegir ni al web ni a l’arxiu d’internet, de manera que la principal font documental del servei no es pot consultar. L’etiqueta de l’App Store, en canvi, declara ubicació exacta i dades de salut vinculades amb la identitat.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'subscription',
   jurisdiction: 'Espanya; autoritat de control: Agencia Española de Protección de Datos',
@@ -170,7 +170,7 @@ const synergymApp: AppSeed = {
   accountRequired: f('yes', 'official', ['synergym-app-store'], 'L’aplicació és per a persones abonades i l’etiqueta declara dades de contacte i identificador d’usuari per a la funcionalitat bàsica.'),
   openSource: f('no', 'editorial', [], 'No hem trobat cap repositori públic; la plataforma Virtuagym és programari privatiu comercialitzat per subscripció als clubs.', { licence: 'Privativa' }),
   dataSummary:
-    'Registres d’entrada al club, reserves de classes, entrenaments i mesures corporals dibuixen l’horari setmanal d’una persona i el seu estat de forma. L’etiqueta de l’App Store hi afegeix la ubicació exacta i el contingut que puges, i ho declara tot vinculat amb la identitat.',
+    'Registres d’entrada al club, reserves de classes, entrenaments i mesures corporals permeten reconstruir l’horari setmanal d’una persona i el seu estat de forma. L’etiqueta de l’App Store hi afegeix la ubicació exacta i el contingut que puges, i ho declara tot vinculat amb la identitat.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'unknown', purposes: ['prestacio-del-servei'], sources: ['synergym-app-store'] }),
     row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'unknown', purposes: ['prestacio-del-servei'], sources: ['synergym-app-store'] }),
@@ -204,7 +204,7 @@ const synergymApp: AppSeed = {
     transparencyReport: unknown('No hem trobat cap informe de transparència.'),
   },
   retention: {
-    definedPeriods: unknownFrom(['synergym-virtuagym-privacy'], 'No hi ha cap terminis de conservació llegible.'),
+    definedPeriods: unknownFrom(['synergym-virtuagym-privacy'], 'No hi ha cap termini de conservació llegible.'),
     dataAfterDeletion: unknown('No hi ha cap document llegible sobre què es conserva després d’una baixa.'),
   },
   accountDeletion: {
@@ -225,7 +225,7 @@ const synergymApp: AppSeed = {
     telemetryOptOut: unknown('L’etiqueta declara analítica, però no hem trobat cap control per desactivar-la.'),
     granularControls: unknown('No hem trobat cap panell de privadesa documentat.'),
     defaultPosture: 'unknown',
-    darkPatterns: f('partial', 'editorial', ['synergym-virtuagym-privacy'], 'Enllaçar com a política de privadesa una pàgina que només es renderitza amb JavaScript i que ni tan sols queda arxivada equival, a efectes pràctics, a no publicar-ne cap: la persona abonada no té manera de saber què se’n fa, de les seves dades.'),
+    darkPatterns: f('partial', 'editorial', ['synergym-virtuagym-privacy'], 'Enllaçar com a política de privadesa una pàgina que només es renderitza amb JavaScript i que no queda arxivada equival a no publicar-ne cap: la persona abonada no pot saber què es fa amb les seves dades.'),
     darkPatternList: [
       {
         type: 'confusing-language',
@@ -258,7 +258,7 @@ const synergymApp: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'Hem intentat llegir la política enllaçada des de l’App Store per quatre camins: el domini original, les dues redireccions que encadena i l’arxiu d’internet en captures del 2022, el 2025 i el 2026. Totes retornen la mateixa pàgina buida d’un centre d’ajuda fet amb Salesforce. La fitxa queda com a inicial per aquest motiu, no per manca de cerca.',
+      'Hem intentat llegir la política enllaçada des de l’App Store per quatre camins: el domini original, les dues redireccions que encadena i l’arxiu d’internet en captures del 2022, el 2025 i el 2026. Totes retornen la mateixa pàgina buida d’un centre d’ajuda fet amb Salesforce. Per aquest motiu, la fitxa queda com a inicial.',
     openQuestions: [
       'Qui és el responsable del tractament de les dades de l’aplicació: Synergym Holding, el grup VivaGym o Virtuagym?',
       'Per a què serveix la ubicació exacta que declara l’etiqueta de l’App Store?',
@@ -273,9 +273,9 @@ const basicFit: AppSeed = {
   name: 'Basic-Fit',
   company: 'basic-fit',
   categories: ['benestar-i-activitat-fisica'],
-  tagline: 'La cadena que més terminis concrets publica de tot el lot, i que manté les dades dos anys després que donis de baixa la quota',
+  tagline: 'Una cadena que publica terminis concrets i que conserva les dades dos anys després de la baixa de la quota',
   summary:
-    'Basic-Fit és la fitxa d’aquest lot amb la política més treballada: una taula de terminis categoria per categoria, la promesa que les dades de les persones abonades no surten de la Unió Europea tret de Google Analytics, i la negativa explícita a prendre decisions automatitzades. El preu és que la relació no s’acaba quan te’n vas: les dades generals es conserven dos anys després de la baixa i no hi ha cap botó per eliminar el compte, sinó una adreça de correu a la qual escriure.',
+    'Basic-Fit té una política detallada: una taula de terminis categoria per categoria, la promesa que les dades de les persones abonades no surten de la Unió Europea tret de Google Analytics, i la negativa explícita a prendre decisions automatitzades. En canvi, les dades generals es conserven dos anys després de la baixa, i per eliminar el compte no hi ha cap botó: cal escriure a una adreça de correu.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'subscription',
   jurisdiction: 'Països Baixos; l’aplicació opera a Espanya amb la política de l’entitat neerlandesa',
@@ -288,7 +288,7 @@ const basicFit: AppSeed = {
   accountRequired: f('yes', 'official', ['basic-fit-declaracion-privacidad'], 'L’aplicació és per a persones abonades: el compte My Basic-Fit es crea en contractar la quota.'),
   openSource: f('no', 'editorial', [], 'No hem trobat cap repositori públic del codi.', { licence: 'Privativa' }),
   dataSummary:
-    'El registre dels torns d’entrada al club és un diari d’horaris: a quina hora surts de casa, quants dies a la setmana i amb quina regularitat. Si fas servir el Body Analyzer, s’hi afegeix la composició corporal —greix, múscul, aigua, os—, que és una dada de salut en sentit estricte.',
+    'El registre dels torns d’entrada al club mostra a quina hora surts de casa, quants dies a la setmana i amb quina regularitat. Si fas servir el Body Analyzer, s’hi afegeix la composició corporal (greix, múscul, aigua i os), que és una dada de salut en sentit estricte.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['basic-fit-declaracion-privacidad', 'basic-fit-app-store'] }),
     row('adreca-postal', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['basic-fit-declaracion-privacidad', 'basic-fit-app-store'], note: 'La política adverteix que, en cas d’impagament, les agències de cobrament passen a ser responsables independents del tractament.' }),
@@ -366,9 +366,9 @@ const basicFit: AppSeed = {
   controls: {
     adPersonalizationOptOut: f('yes', 'official', ['basic-fit-declaracion-privacidad'], 'Les preferències de màrqueting es canvien en qualsevol moment des de My Basic-Fit, des de l’aplicació o amb l’enllaç de baixa dels correus.'),
     telemetryOptOut: unknown('La política no descriu cap manera de desactivar l’analítica de l’aplicació.'),
-    granularControls: f('partial', 'official', ['basic-fit-declaracion-privacidad'], 'Es poden esborrar dades concretes —salut, foto, objectius— i gestionar el consentiment publicitari, però no hi ha un panell de privadesa per finalitat.'),
+    granularControls: f('partial', 'official', ['basic-fit-declaracion-privacidad'], 'Es poden esborrar dades concretes (salut, foto i objectius) i gestionar el consentiment publicitari, però no hi ha un panell de privadesa per finalitat.'),
     defaultPosture: 'mixed',
-    darkPatterns: f('no', 'editorial', ['basic-fit-declaracion-privacidad'], 'No hem trobat patrons enganyosos a la documentació: el retret és la manca d’un botó d’eliminació, no un camí de sortida amagat expressament.'),
+    darkPatterns: f('no', 'editorial', ['basic-fit-declaracion-privacidad'], 'No hem trobat patrons enganyosos a la documentació; l’objecció és que no hi ha cap botó per eliminar el compte.'),
   },
   security: {
     e2ee: na('El servei no transporta comunicacions privades més enllà del xat amb l’entrenador.'),
@@ -392,7 +392,7 @@ const basicFit: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'La taula de terminis de Basic-Fit és el millor exemple del lot de com s’hauria d’escriure aquesta part d’una política: diu quantes setmanes dura cada cosa i per què. La contradicció que val la pena mirar és que l’etiqueta de l’App Store declara «publicidad o marketing» com a ús de dades vinculades mentre la política insisteix que la segmentació és agregada.',
+      'La taula de terminis de Basic-Fit diu quant de temps es conserva cada categoria i per què. La contradicció principal és que l’etiqueta de l’App Store declara «publicidad o marketing» com a ús de dades vinculades mentre la política insisteix que la segmentació és agregada.',
     openQuestions: [
       'Quines dades vinculades es fan servir exactament per a «publicidad o marketing», segons l’etiqueta de l’App Store?',
       'Hi ha alguna sanció o requeriment de l’Autoriteit Persoonsgegevens neerlandesa o de l’AEPD contra la cadena?',
@@ -406,9 +406,9 @@ const hevy: AppSeed = {
   name: 'Hevy',
   company: 'hevy-studios',
   categories: ['benestar-i-activitat-fisica', 'xarxes-socials'],
-  tagline: 'El perfil és públic per defecte: els teus entrenaments els veu tothom fins que entres a la configuració',
+  tagline: 'Registre d’entrenaments amb el perfil públic per defecte, visible per a qualsevol persona usuària fins que ho canvies a la configuració',
   summary:
-    'Hevy és un registre d’entrenaments fet a Girona amb una capa social: seguidors, rutines compartides i un tauler d’activitat. La política ho diu sense embuts —«quan es crea un compte, el perfil és públic per defecte»— i, si actives la compartició del gimnàs, l’aplicació pot suggerir el teu perfil a qui entreni al mateix lloc. És l’única fitxa del lot amb dues polítiques diferents alhora: la que enllaça l’App Store, allotjada a iubenda, parla de retargeting conductual, i la del web, més extensa, detalla terminis per categoria i anomena OpenAI i Anthropic entre els proveïdors.',
+    'Hevy és un registre d’entrenaments fet a Girona amb una capa social: seguidors, rutines compartides i un tauler d’activitat. La política diu que «quan es crea un compte, el perfil és públic per defecte» i, si actives la compartició del gimnàs, l’aplicació pot suggerir el teu perfil a qui entreni al mateix lloc. Té dues polítiques diferents alhora: la que enllaça l’App Store, allotjada a iubenda, parla de retargeting conductual, i la del web, més extensa, detalla terminis per categoria i anomena OpenAI i Anthropic entre els proveïdors.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'freemium',
   jurisdiction: 'Espanya; autoritat de control: Agencia Española de Protección de Datos',
@@ -420,7 +420,7 @@ const hevy: AppSeed = {
   accountRequired: f('yes', 'official', ['hevy-privacy-policy'], 'Cal crear un compte amb nom d’usuari i adreça electrònica per registrar entrenaments i sincronitzar-los.'),
   openSource: f('no', 'editorial', [], 'No hem trobat cap repositori públic del codi de l’aplicació.', { licence: 'Privativa' }),
   dataSummary:
-    'Un historial d’entrenaments és una sèrie temporal molt regular: dies, hores, durada i progressió de força. Amb el pes, l’alçada i les mesures corporals al costat, i amb el perfil públic per defecte, aquesta sèrie deixa de ser privada sense que calgui cap filtració.',
+    'Un historial d’entrenaments registra dies, hores, durada i progressió de força. Amb el pes, l’alçada i les mesures corporals, i amb el perfil públic per defecte, aquesta informació és visible per a altres persones sense que calgui cap filtració.',
   dataCollection: [
     row('identificador-de-compte', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['hevy-privacy-policy', 'hevy-app-store'], note: 'L’etiqueta de l’App Store declara l’identificador d’usuari com a dada NO vinculada amb la identitat, cosa difícil de quadrar amb un perfil públic amb nom d’usuari.' }),
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['hevy-privacy-policy', 'hevy-app-store'] }),
@@ -444,7 +444,7 @@ const hevy: AppSeed = {
   },
   dataUses: {
     targetedAdvertising: f('partial', 'official', ['hevy-iubenda-privacy'], 'La política d’iubenda inclou «behavioral retargeting» amb anuncis adaptats als interessos i al comportament, amb sortida des de la configuració del dispositiu.'),
-    profiling: f('partial', 'official', ['hevy-privacy-policy'], 'Hi ha recomanacions socials —suggerir perfils de persones del mateix gimnàs— i segmentació publicitària, però no consta cap perfilat amb efectes jurídics.'),
+    profiling: f('partial', 'official', ['hevy-privacy-policy'], 'Hi ha recomanacions socials (suggerir perfils de persones del mateix gimnàs) i segmentació publicitària, però no consta cap perfilat amb efectes jurídics.'),
     aiTraining: f('partial', 'official', ['hevy-privacy-policy'], 'La política anomena OpenAI i Anthropic entre els tercers als quals s’accedeix, però no detalla quines dades hi arriben ni si serveixen per entrenar models.'),
   },
   sharing: {
@@ -518,7 +518,7 @@ const hevy: AppSeed = {
     {
       app: 'symmetry',
       comparability: 'partial',
-      rationale: 'Cobreix el mateix ús —seguiment d’entrenaments de gimnàs— sense component social: no hi ha perfil públic ni suggeriments de persones del mateix gimnàs.',
+      rationale: 'Cobreix el mateix ús, el seguiment d’entrenaments de gimnàs, sense component social: no hi ha perfil públic ni suggeriments de persones del mateix gimnàs.',
       tradeOffs: 'La política de Symmetry és molt més pobra i fixa una conservació mínima de cinc anys.',
     },
   ],
@@ -527,7 +527,7 @@ const hevy: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'Hevy té dues polítiques en circulació alhora: la que enllaça l’App Store, generada amb iubenda, i la del seu web, més detallada. No diuen el mateix, i la primera és la que la gent veu abans d’instal·lar. La troballa central de la fitxa, però, és el perfil públic per defecte, escrit a la política amb totes les lletres.',
+      'Hevy té dues polítiques en circulació alhora: la que enllaça l’App Store, generada amb iubenda, i la del seu web, més detallada. No diuen el mateix, i la primera és la que la gent veu abans d’instal·lar. El punt principal de la fitxa, però, és el perfil públic per defecte, que la política declara explícitament.',
     openQuestions: [
       'Quines dades arriben a OpenAI i a Anthropic, i per a quina funció de l’aplicació?',
       'Per què l’etiqueta de l’App Store declara l’identificador d’usuari i les dades sensibles com a NO vinculades amb la identitat?',
@@ -541,9 +541,9 @@ const yuka: AppSeed = {
   name: 'Yuka',
   company: 'yuca',
   categories: ['benestar-i-activitat-fisica', 'alimentacio-i-restauracio'],
-  tagline: 'L’etiqueta de privadesa més curta del lot: interacció i errors, res més, i un botó d’eliminació que esborra tot el compte',
+  tagline: 'Una etiqueta de privadesa que només declara interacció i errors, i un botó d’eliminació que esborra tot el compte',
   summary:
-    'Yuka escaneja el codi de barres d’aliments i cosmètics i en dona una nota. El model de negoci és una subscripció premium i la companyia publica els comptes anuals per demostrar que no cobra de cap marca. L’etiqueta de l’App Store ho confirma des de l’altra banda: només declara interacció amb el producte i dades d’errors, i cap dada utilitzada per rastrejar-te. Cal registrar-s’hi, això sí, i la política reconeix que les noves funcions d’intel·ligència artificial poden enviar dades a OpenAI o a Google Cloud AI.',
+    'Yuka escaneja el codi de barres d’aliments i cosmètics i en dona una nota. El model de negoci és una subscripció premium i la companyia publica els comptes anuals per demostrar que no cobra de cap marca. L’etiqueta de l’App Store només declara interacció amb el producte i dades d’errors, i cap dada utilitzada per rastrejar-te. Cal registrar-s’hi, i la política reconeix que les noves funcions d’intel·ligència artificial poden enviar dades a OpenAI o a Google Cloud AI.',
   platforms: ['ios', 'android'],
   businessModel: 'freemium',
   jurisdiction: 'França; autoritat de control: Commission nationale de l’informatique et des libertés',
@@ -578,7 +578,7 @@ const yuka: AppSeed = {
   },
   dataUses: {
     targetedAdvertising: f('no', 'official', ['yuka-politica-privacidad', 'yuka-financament'], 'La política nega la publicitat segmentada amb les dades recollides i el finançament ve de la subscripció premium, no de les marques.'),
-    profiling: f('partial', 'official', ['yuka-politica-privacidad'], 'Hi ha personalització —alertes segons les preferències alimentàries—, però no elaboració de perfils amb finalitats comercials.'),
+    profiling: f('partial', 'official', ['yuka-politica-privacidad'], 'Hi ha personalització (alertes segons les preferències alimentàries), però no elaboració de perfils amb finalitats comercials.'),
     aiTraining: f('partial', 'official', ['yuka-politica-privacidad'], 'La política reconeix funcions basades en intel·ligència artificial amb proveïdors com OpenAI o Google Cloud AI i diu que s’hi poden compartir dades amb aquesta finalitat; no aclareix si serveixen per entrenar models.'),
   },
   sharing: {
@@ -589,14 +589,14 @@ const yuka: AppSeed = {
   },
   transparency: {
     policyClarity: 'medium',
-    transparencyReport: f('partial', 'official', ['yuka-financament'], 'No hi ha un informe de transparència sobre peticions d’autoritats, però la companyia publica els seus comptes anuals per acreditar la independència econòmica, cosa que cap altra fitxa del lot fa.'),
+    transparencyReport: f('partial', 'official', ['yuka-financament'], 'No hi ha un informe de transparència sobre peticions d’autoritats, però la companyia publica els seus comptes anuals per acreditar la independència econòmica.'),
   },
   retention: {
     definedPeriods: f('partial', 'official', ['yuka-politica-privacidad'], 'La política diu que les dades es conserven només el temps necessari per a les finalitats o per obligació legal, sense terminis concrets per categoria.'),
     dataAfterDeletion: f('partial', 'official', ['yuka-politica-privacidad', 'yuka-eliminar-compte'], 'En eliminar el compte s’esborren totes les dades associades, però la política reconeix que se’n poden mantenir còpies de seguretat per a la prevenció del frau i el compliment legal.'),
   },
   accountDeletion: {
-    possible: f('yes', 'official', ['yuka-eliminar-compte'], 'La pàgina d’ajuda ho diu clar: en suprimir el compte s’esborren també totes les dades associades.'),
+    possible: f('yes', 'official', ['yuka-eliminar-compte'], 'Segons la pàgina d’ajuda, en suprimir el compte s’esborren també totes les dades associades.'),
     selfService: f('yes', 'official', ['yuka-eliminar-compte'], 'L’eliminació es fa des de la configuració de l’aplicació al mòbil, o amb l’enllaç directe que dona la mateixa pàgina d’ajuda.'),
     directUrl: 'https://app.yuka.io/deleteAccount',
     difficulty: 'easy',
@@ -614,7 +614,7 @@ const yuka: AppSeed = {
       url: 'https://yuka.io/contact/user/form/',
     }),
     exportFormatQuality: 'unknown',
-    rightsExercise: f('yes', 'official', ['yuka-gestionar-dades', 'yuka-politica-privacidad'], 'Hi ha dues vies documentades —correu a equipo@yuka.io i formulari— i un delegat de protecció de dades identificat.', {
+    rightsExercise: f('yes', 'official', ['yuka-gestionar-dades', 'yuka-politica-privacidad'], 'Hi ha dues vies documentades (correu a equipo@yuka.io i formulari) i un delegat de protecció de dades identificat.', {
       url: 'mailto:dpo@yuka.io',
     }),
   },
@@ -639,7 +639,7 @@ const yuka: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'Yuka és el contraexemple útil del lot: una aplicació de salut amb una etiqueta de privadesa de dues línies i una sortida d’un clic. El punt que caldrà revisar és el de la intel·ligència artificial, que la política ha incorporat recentment i encara descriu de manera vaga.',
+      'Yuka és una aplicació de salut amb una etiqueta de privadesa de dues línies i una eliminació del compte d’un clic. El punt que caldrà revisar és el de la intel·ligència artificial, que la política ha incorporat recentment i encara descriu de manera vaga.',
     openQuestions: [
       'Quines dades concretes s’envien a OpenAI o a Google Cloud AI i per a quina funció de l’aplicació?',
       'Per a què es fan servir les dades d’ubicació que enumera la política?',
@@ -653,9 +653,9 @@ const adeslas: AppSeed = {
   name: 'Adeslas',
   company: 'segurcaixa-adeslas',
   categories: ['salut-i-assistencia-sanitaria'],
-  tagline: 'L’única fitxa del lot que declara historial de navegació per rastrejar-te, i cap dada vinculada amb la identitat',
+  tagline: 'Declara historial de navegació per rastrejar-te, i cap dada vinculada amb la identitat',
   summary:
-    'L’aplicació de l’asseguradora gestiona pòlisses, autoritzacions, reembossaments i orientació mèdica a distància, i demana accés a la càmera, al micròfon i als sensors corporals del telèfon. L’etiqueta de l’App Store, en canvi, no declara cap dada vinculada amb la identitat i sí que declara historial de navegació utilitzat per rastrejar-te: la combinació més estranya del lot per a un servei on la identitat és el punt de partida. La política corporativa sí que és extensa i reconeix el tractament de dades de salut i biomètriques, el perfilat actuarial per fixar la prima i la cessió a sistemes sectorials del sector assegurador.',
+    'L’aplicació de l’asseguradora gestiona pòlisses, autoritzacions, reembossaments i orientació mèdica a distància, i demana accés a la càmera, al micròfon i als sensors corporals del telèfon. L’etiqueta de l’App Store, en canvi, no declara cap dada vinculada amb la identitat, tot i que el servei s’identifica amb la pòlissa, i sí que declara historial de navegació utilitzat per rastrejar-te. La política corporativa és extensa i reconeix el tractament de dades de salut i biomètriques, el perfilat actuarial per fixar la prima i la cessió a sistemes sectorials del sector assegurador.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'subscription',
   jurisdiction: 'Espanya; autoritat de control: Agencia Española de Protección de Datos',
@@ -669,7 +669,7 @@ const adeslas: AppSeed = {
   accountRequired: f('yes', 'official', ['adeslas-aviso-legal'], 'Per accedir a l’àrea privada cal ser client de SegurCaixa Adeslas i registrar-se prèviament amb el formulari corresponent.'),
   openSource: f('no', 'editorial', [], 'No hem trobat cap repositori públic; l’aplicació la desenvolupa un proveïdor per a l’asseguradora.', { licence: 'Privativa' }),
   dataSummary:
-    'El que hi ha darrere d’una pòlissa de salut és el registre mèdic d’una persona: quines proves demana, a quins especialistes va, quines autoritzacions li aproven i quines li deneguen. La política hi afegeix dades biomètriques, models estadístics que fixen la prima i la comunicació d’aquestes dades a altres asseguradores quan hi ha un sinistre.',
+    'Una pòlissa de salut genera el registre mèdic d’una persona: quines proves demana, a quins especialistes va, quines autoritzacions li aproven i quines li deneguen. La política hi afegeix dades biomètriques, models estadístics que fixen la prima i la comunicació d’aquestes dades a altres asseguradores quan hi ha un sinistre.',
   dataCollection: [
     row('document-identificatiu-oficial', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'compliment-legal'], sources: ['adeslas-proteccion-de-datos'] }),
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['adeslas-proteccion-de-datos'] }),
@@ -710,7 +710,7 @@ const adeslas: AppSeed = {
     transparencyReport: unknown('No hem trobat cap informe de transparència sobre peticions d’autoritats.'),
   },
   retention: {
-    definedPeriods: f('partial', 'official', ['adeslas-proteccion-de-datos'], 'Hi ha criteris i algun termini concret —divuit mesos per a les comunicacions comercials a clients potencials—, però la regla general és el bloqueig fins que prescriguin les responsabilitats.'),
+    definedPeriods: f('partial', 'official', ['adeslas-proteccion-de-datos'], 'Hi ha criteris i algun termini concret (divuit mesos per a les comunicacions comercials a clients potencials), però la regla general és el bloqueig fins que prescriguin les responsabilitats.'),
     dataAfterDeletion: f('partial', 'official', ['adeslas-proteccion-de-datos'], 'Donar de baixa els serveis digitals suprimeix les dades que hi consten, però les de la pòlissa passen a bloqueig i queden a disposició d’administracions i tribunals.'),
     periods: [
       { dataType: 'adreca-electronica', period: '18 mesos (comunicacions comercials a clients potencials amb consentiment)', sources: ['adeslas-proteccion-de-datos'] },
@@ -729,7 +729,7 @@ const adeslas: AppSeed = {
       'Recorda que cancel·lar la pòlissa no esborra l’expedient: les dades passen a bloqueig pels terminis de prescripció.',
     ],
     obstacles:
-      'És una asseguradora: bona part de les dades es conserven per obligació legal i sectorial, i les que s’han comunicat a sistemes com els de TIREA s’han de reclamar directament a aquestes entitats.',
+      'Com a asseguradora, conserva bona part de les dades per obligació legal i sectorial, i les que s’han comunicat a sistemes com els de TIREA s’han de reclamar directament a aquestes entitats.',
     dataRetained: 'Les dades de la pòlissa i dels sinistres, bloquejades a disposició d’administracions, jutges i tribunals durant el termini de prescripció.',
     sources: ['adeslas-proteccion-de-datos'],
   },
@@ -744,9 +744,9 @@ const adeslas: AppSeed = {
   controls: {
     adPersonalizationOptOut: f('yes', 'official', ['adeslas-proteccion-de-datos'], 'La política diu que l’oposició als tractaments basats en l’interès legítim, inclosa la prospecció comercial, es pot fer de manera senzilla i gratuïta.'),
     telemetryOptOut: unknown('No hem trobat cap control per desactivar l’analítica de l’aplicació.'),
-    granularControls: f('partial', 'official', ['adeslas-proteccion-de-datos'], 'Els permisos del telèfon —memòria, càmera, micròfon i sensors corporals— es poden denegar un per un, però només hi ha oposició per finalitat, no un panell de privadesa.'),
+    granularControls: f('partial', 'official', ['adeslas-proteccion-de-datos'], 'Els permisos del telèfon (memòria, càmera, micròfon i sensors corporals) es poden denegar un per un, però només hi ha oposició per finalitat, no un panell de privadesa.'),
     defaultPosture: 'mixed',
-    darkPatterns: f('partial', 'editorial', ['adeslas-app-store', 'adeslas-proteccion-de-datos'], 'Declarar a l’App Store que no hi ha cap dada vinculada amb la identitat en una aplicació on entres amb la pòlissa i consultes autoritzacions mèdiques és, com a mínim, una etiqueta que no ajuda a entendre què passa.'),
+    darkPatterns: f('partial', 'editorial', ['adeslas-app-store', 'adeslas-proteccion-de-datos'], 'Declarar a l’App Store que no hi ha cap dada vinculada amb la identitat en una aplicació on entres amb la pòlissa i consultes autoritzacions mèdiques fa que l’etiqueta no serveixi per entendre quines dades es tracten.'),
     darkPatternList: [
       {
         type: 'confusing-language',
@@ -771,7 +771,7 @@ const adeslas: AppSeed = {
       app: 'asisa',
       comparability: 'partial',
       rationale: 'És una altra asseguradora de salut espanyola amb una aplicació equivalent; el tractament de fons és comparable perquè el marca la normativa d’assegurances.',
-      tradeOffs: 'Canviar d’asseguradora per la política de privadesa no és realista: el que decideix és la cobertura i el quadre mèdic.',
+      tradeOffs: 'En triar asseguradora pesen més la cobertura i el quadre mèdic que la política de privadesa.',
     },
   ],
   review: {
@@ -779,7 +779,7 @@ const adeslas: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'Els dominis de SegurCaixa Adeslas estan protegits per un tallafoc que bloqueja qualsevol lectura automatitzada; la política s’ha llegit a través de l’arxiu d’internet, i la fitxa ho fa constar a cada font. La troballa útil és el contrast entre una política corporativa llarga i completa i una etiqueta d’App Store que gairebé no declara res.',
+      'Els dominis de SegurCaixa Adeslas estan protegits per un tallafoc que bloqueja qualsevol lectura automatitzada; la política s’ha llegit a través de l’arxiu d’internet, i la fitxa ho fa constar a cada font. El punt principal és el contrast entre una política corporativa llarga i completa i una etiqueta d’App Store que gairebé no declara res.',
     openQuestions: [
       'Quin és l’historial de navegació que l’etiqueta de l’App Store declara com a utilitzat per rastrejar, i a quina empresa arriba?',
       'Per a què es tracten les dades biomètriques que enumera la política?',
@@ -794,9 +794,9 @@ const flo: AppSeed = {
   name: 'Flo',
   company: 'flo-health',
   categories: ['salut-i-assistencia-sanitaria', 'benestar-i-activitat-fisica'],
-  tagline: 'Després de l’acord amb la Federal Trade Commission pel cicle menstrual compartit amb Facebook i Google, és la fitxa del lot que més documenta',
+  tagline: 'Calendari menstrual que va arribar a un acord amb la Federal Trade Commission per haver compartit dades del cicle amb Facebook i Google',
   summary:
-    'Flo és un calendari menstrual amb prediccions de cicle, mode embaràs i xats de comunitat. El 2021 la Federal Trade Commission nord-americana el va acusar d’haver compartit informació de salut amb Facebook, Google, AppsFlyer i Flurry mentre prometia el contrari, i l’acord que en va sortir obliga a demanar consentiment abans de revelar-la i a exigir la destrucció de les dades ja cedides. Avui la política enumera cada encarregat del tractament amb nom i finalitat, la companyia té certificació ISO/IEC 27001 i 27701, i ofereix un mode anònim que desvincula les dades de cicle de la identitat. També és l’única fitxa del lot amb un programa de recompenses actiu i un fitxer security.txt.',
+    'Flo és un calendari menstrual amb prediccions de cicle, mode embaràs i xats de comunitat. El 2021 la Federal Trade Commission nord-americana el va acusar d’haver compartit informació de salut amb Facebook, Google, AppsFlyer i Flurry mentre prometia el contrari, i l’acord que en va sortir obliga a demanar consentiment abans de revelar-la i a exigir la destrucció de les dades ja cedides. Avui la política enumera cada encarregat del tractament amb nom i finalitat, la companyia té certificació ISO/IEC 27001 i 27701, i ofereix un mode anònim que desvincula les dades de cicle de la identitat. També té un programa de recompenses actiu i un fitxer security.txt.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'freemium',
   jurisdiction: 'Regne Unit; establiment principal a la Unió Europea a Lituània, mitjançant Flo Health LTU UAB',
@@ -810,7 +810,7 @@ const flo: AppSeed = {
   accountRequired: f('yes', 'official', ['flo-privacy-policy'], 'Cal registrar-s’hi amb nom, correu, mes i any de naixement; el mode anònim permet fer-ho sense lligar-hi identificadors personals.'),
   openSource: f('no', 'editorial', [], 'No hem trobat cap repositori públic del codi de l’aplicació.', { licence: 'Privativa' }),
   dataSummary:
-    'Un calendari menstrual és una de les bases de dades més sensibles que una persona pot portar al telèfon: dates de regla, símptomes, vida sexual, intents d’embaràs, salut mental i son. La política ho reconeix com a categoria especial de l’article 9 i hi aplica el consentiment; la lliçó del cas de la Federal Trade Commission és que el risc no era la recollida sinó els components publicitaris que hi havia al costat.',
+    'Un calendari menstrual és una de les bases de dades més sensibles que una persona pot portar al telèfon: dates de regla, símptomes, vida sexual, intents d’embaràs, salut mental i son. La política les tracta com a categoria especial de l’article 9 i hi aplica el consentiment. En el cas de la Federal Trade Commission, el problema van ser els components publicitaris integrats a l’aplicació, més que la recollida.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['flo-privacy-policy', 'flo-app-store'], note: 'És opcional: pots posar un nom preferit o cap, sense que afecti el servei.' }),
     row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'atencio-a-lusuari'], sources: ['flo-privacy-policy', 'flo-app-store'] }),
@@ -830,7 +830,7 @@ const flo: AppSeed = {
   tracking: {
     crossAppTracking: f('yes', 'official', ['flo-app-store', 'flo-privacy-policy'], 'L’etiqueta declara compres, ubicació, identificadors i dades d’ús com a utilitzats per rastrejar-te. La política ho emmarca com a màrqueting amb consentiment revocable i insisteix que no s’hi inclou cap dada de salut.'),
     advertisingIdentifiers: f('yes', 'official', ['flo-privacy-policy'], 'IDFA a iOS i identificador publicitari de Google a Android, compartits amb AppsFlyer, Firebase i TikTok Ad Manager si dones consentiment.'),
-    thirdPartyTrackersPresent: f('yes', 'official', ['flo-privacy-policy'], 'AppsFlyer i els seus socis —Pinterest, Google Ads, Apple Search Ads i Meta Audience, entre d’altres—, Firebase amb els serveis de Google enllaçats, i TikTok Ad Manager.'),
+    thirdPartyTrackersPresent: f('yes', 'official', ['flo-privacy-policy'], 'AppsFlyer i els seus socis (Pinterest, Google Ads, Apple Search Ads i Meta Audience, entre d’altres), Firebase amb els serveis de Google enllaçats, i TikTok Ad Manager.'),
   },
   dataUses: {
     targetedAdvertising: f('partial', 'official', ['flo-privacy-policy'], 'Hi ha promoció de Flo amb identificadors tècnics, grup d’edat i estat de la subscripció, sempre amb consentiment i sense dades de salut; la política diu que no ven ni lloga dades personals.', {
@@ -841,7 +841,7 @@ const flo: AppSeed = {
   },
   sharing: {
     thirdPartySharing: f('yes', 'official', ['flo-privacy-policy'], 'La política publica la taula completa d’encarregats: Amazon Web Services, Cloudflare, Auth0, Elastic, Vercel, SendGrid, Trustpilot, SurveyMonkey, Looker, Databricks, Google Analytics 4, Zendesk, Tecton, Apple, Google, Stripe, PayPal i AppsFlyer.'),
-    intraGroupSharing: f('yes', 'official', ['flo-privacy-policy'], 'Flo Health Cyprus Ltd, Flo Health LTU UAB —l’establiment principal a la Unió Europea— i Flo Health NL B.V. actuen com a encarregades del tractament.'),
+    intraGroupSharing: f('yes', 'official', ['flo-privacy-policy'], 'Flo Health Cyprus Ltd, Flo Health LTU UAB (l’establiment principal a la Unió Europea) i Flo Health NL B.V. actuen com a encarregades del tractament.'),
     dataBrokerSales: f('no', 'official', ['flo-privacy-policy'], 'La política diu que no ven ni lloga dades personals per diners i que les dades d’Apple HealthKit i Google Health Connect no es venen a plataformes publicitàries ni a intermediaris.'),
     internationalTransfers: f('yes', 'official', ['flo-privacy-policy'], 'Les dades es transfereixen als Estats Units amb clàusules contractuals tipus i avaluacions de risc; la filial nord-americana Flo Health, Inc. està autocertificada al marc de privadesa de dades UE-EUA.', { mechanism: 'sccs' }),
   },
@@ -886,7 +886,7 @@ const flo: AppSeed = {
     telemetryOptOut: f('partial', 'official', ['flo-privacy-policy'], 'El màrqueting i les notificacions es poden desactivar, però l’ús d’AppsFlyer per enllaçar el registre del web amb l’aplicació no admet oposició.'),
     granularControls: f('yes', 'official', ['flo-privacy-policy'], 'Hi ha consentiments separats per finalitat, un portal de privadesa i el mode anònim com a control estructural.'),
     defaultPosture: 'mixed',
-    darkPatterns: f('no', 'editorial', ['flo-privacy-policy'], 'La política adverteix de les limitacions del mode anònim en lloc de vendre’l com a infal·lible, i explica quins consentiments es poden retirar i quins no. És el to contrari al d’un patró enganyós.'),
+    darkPatterns: f('no', 'editorial', ['flo-privacy-policy'], 'La política adverteix de les limitacions del mode anònim i explica quins consentiments es poden retirar i quins no.'),
   },
   security: {
     e2ee: f('no', 'official', ['flo-privacy-policy'], 'No hi ha xifratge d’extrem a extrem: les dades es xifren en trànsit i en repòs, però Flo hi té accés per prestar el servei. El mode anònim les desvincula de la identitat en lloc de fer-les il·legibles.'),
@@ -904,10 +904,10 @@ const flo: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'Val la pena llegir aquesta fitxa al costat de la de Wellhub: la política de Flo explica que, si t’hi subscrius amb Wellhub, Flo confirma a Wellhub si has estat activa a l’aplicació. És un detall petit escrit al document d’una companyia que diu molt de com funciona l’altra.',
+      'Aquesta fitxa es relaciona amb la de Wellhub: la política de Flo explica que, si t’hi subscrius amb Wellhub, Flo confirma a Wellhub si has estat activa a l’aplicació. És una dada sobre el funcionament de Wellhub que consta al document d’una altra companyia.',
     openQuestions: [
       'Quin és l’estat final de la demanda col·lectiva Frasco contra Flo Health i els altres demandats a Califòrnia? No hem pogut verificar-ne els termes amb una font fiable.',
-      'Alguna autoritat europea —ICO, CNIL o la inspecció lituana— ha obert una investigació sobre el mateix tractament que va motivar l’acord amb la Federal Trade Commission?',
+      'Alguna autoritat europea (ICO, CNIL o la inspecció lituana) ha obert una investigació sobre el mateix tractament que va motivar l’acord amb la Federal Trade Commission?',
     ],
   },
 }
@@ -920,7 +920,7 @@ const fitia: AppSeed = {
   categories: ['benestar-i-activitat-fisica', 'alimentacio-i-restauracio'],
   tagline: 'Al·lèrgies, intoleràncies i condicions de salut recollides amb un consentiment que la política dedueix del fet d’escriure-les',
   summary:
-    'Fitia compta calories i genera plans de menjars a partir del pes, l’alçada, el nivell d’activitat, les al·lèrgies i les condicions de salut que hi declares. La política resol la base jurídica d’aquestes dades dient que el consentiment és exprés perquè les has facilitades «voluntariamente»: per a dades de salut, el RGPD demana un consentiment explícit i informat, no deduït de l’ús. L’etiqueta de l’App Store declara l’identificador del dispositiu com a utilitzat per rastrejar-te i per a publicitat de tercers, i la política anomena Google, OpenAI i Anthropic entre els proveïdors de models.',
+    'Fitia compta calories i genera plans de menjars a partir del pes, l’alçada, el nivell d’activitat, les al·lèrgies i les condicions de salut que hi declares. La política resol la base jurídica d’aquestes dades dient que el consentiment és exprés perquè les has facilitades «voluntariamente». Per a dades de salut, el RGPD demana un consentiment explícit i informat, que no es pot deduir de l’ús. L’etiqueta de l’App Store declara l’identificador del dispositiu com a utilitzat per rastrejar-te i per a publicitat de tercers, i la política anomena Google, OpenAI i Anthropic entre els proveïdors de models.',
   platforms: ['ios', 'android'],
   businessModel: 'freemium',
   jurisdiction: 'Perú i Estats Units; la política no identifica cap responsable ni representant a la Unió Europea',
@@ -932,7 +932,7 @@ const fitia: AppSeed = {
   accountRequired: f('yes', 'official', ['fitia-politica-privacidad'], 'El registre es pot fer amb correu o amb els comptes de Google, Facebook o Apple; sense compte no hi ha pla nutricional.'),
   openSource: f('no', 'editorial', [], 'No hem trobat cap repositori públic del codi.', { licence: 'Privativa' }),
   dataSummary:
-    'Un diari d’ingesta és un registre de conducta molt fi: quantes vegades menges al dia, a quina hora, què evites i com et varia el pes. Fitia hi suma al·lèrgies, intoleràncies i condicions de salut declarades, i fotografies dels plats.',
+    'Un diari d’ingesta registra amb molt detall quantes vegades menges al dia, a quina hora, què evites i com et varia el pes. Fitia hi suma al·lèrgies, intoleràncies i condicions de salut declarades, i fotografies dels plats.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'no', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['fitia-politica-privacidad', 'fitia-app-store'], note: 'L’etiqueta de l’App Store declara les dades de contacte com a NO vinculades amb la identitat, tot i que el compte és nominal.' }),
     row('adreca-electronica', 'yes', { linked: 'no', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['fitia-politica-privacidad', 'fitia-app-store'] }),
@@ -954,7 +954,7 @@ const fitia: AppSeed = {
   dataUses: {
     targetedAdvertising: f('yes', 'official', ['fitia-app-store'], 'L’etiqueta de l’App Store declara expressament la finalitat «publicidad de terceros» per a l’identificador del dispositiu, tot i que la política no descriu cap xarxa publicitària.'),
     profiling: f('yes', 'official', ['fitia-politica-privacidad'], 'L’aplicació genera plans de menjars i recomanacions personalitzades a partir de les dades antropomètriques, les condicions de salut i els hàbits alimentaris.'),
-    aiTraining: f('partial', 'official', ['fitia-politica-privacidad'], 'La política diu que els proveïdors de models —Google LLC, OpenAI L.L.C. i Anthropic PBC— manifesten que no fan servir aquestes dades per entrenar els seus models generals, i tot seguit adverteix que Fitia no en controla les pràctiques.'),
+    aiTraining: f('partial', 'official', ['fitia-politica-privacidad'], 'La política diu que els proveïdors de models (Google LLC, OpenAI L.L.C. i Anthropic PBC) manifesten que no fan servir aquestes dades per entrenar els seus models generals, i tot seguit adverteix que Fitia no en controla les pràctiques.'),
   },
   sharing: {
     thirdPartySharing: f('yes', 'official', ['fitia-politica-privacidad'], 'Firebase, Facebook, Apple i Google per a l’autenticació; Google LLC, OpenAI i Anthropic per als models; Cloudflare per a la distribució de continguts; Apple i Google per a les notificacions i els pagaments.'),
@@ -995,7 +995,7 @@ const fitia: AppSeed = {
     telemetryOptOut: unknown('No hem trobat cap control per desactivar l’analítica.'),
     granularControls: f('no', 'official', ['fitia-politica-privacidad'], 'No hi ha cap panell de privadesa per finalitat: l’únic control descrit és eliminar el compte.'),
     defaultPosture: 'permissive',
-    darkPatterns: f('partial', 'editorial', ['fitia-politica-privacidad', 'fitia-app-store'], 'Dir que el consentiment és exprés perquè has facilitat les dades «voluntariamente» és convertir l’ús del servei en consentiment. Per a al·lèrgies i condicions de salut, el RGPD demana un consentiment explícit i separat.'),
+    darkPatterns: f('partial', 'editorial', ['fitia-politica-privacidad', 'fitia-app-store'], 'La política considera consentiment exprés el fet d’haver facilitat les dades «voluntariamente», és a dir, equipara l’ús del servei al consentiment. Per a al·lèrgies i condicions de salut, el RGPD demana un consentiment explícit i separat.'),
     darkPatternList: [
       {
         type: 'unbalanced-consent',
@@ -1019,7 +1019,7 @@ const fitia: AppSeed = {
     {
       app: 'yuka',
       comparability: 'complementary',
-      rationale: 'Cobreix l’altra meitat del problema —saber què portes al carro— amb una etiqueta de privadesa mínima, sense publicitat i amb eliminació de compte d’un clic.',
+      rationale: 'Cobreix l’altra meitat del problema (saber què portes al carro) amb una etiqueta de privadesa mínima, sense publicitat i amb eliminació de compte d’un clic.',
       tradeOffs: 'Yuka no compta calories ni genera plans de menjars: no substitueix un diari d’ingesta.',
     },
   ],
@@ -1044,7 +1044,7 @@ const wodbuster: AppSeed = {
   categories: ['benestar-i-activitat-fisica'],
   tagline: 'L’avís legal encara invoca la LOPD del 1999 i el reglament del 2007, derogats el 2018',
   summary:
-    'WodBuster és el programari amb què centenars de boxes de CrossFit gestionen reserves de classes, marques personals i rànquings. La política de privadesa publicada només parla del web: el formulari de contacte, la sol·licitud de demostració i les galetes. De les dades que l’etiqueta de l’App Store declara —salut i forma física, adreça postal, telèfon, fotografies, historial de compres— no en diu res, i l’apartat de protecció de dades de l’avís legal encara cita la Llei Orgànica 15/1999 i el Reial decret 1720/2007, derogats quan va entrar en vigor el RGPD.',
+    'WodBuster és el programari amb què centenars de boxes de CrossFit gestionen reserves de classes, marques personals i rànquings. La política de privadesa publicada només parla del web: el formulari de contacte, la sol·licitud de demostració i les galetes. De les dades que l’etiqueta de l’App Store declara (salut i forma física, adreça postal, telèfon, fotografies i historial de compres) no en diu res, i l’apartat de protecció de dades de l’avís legal encara cita la Llei Orgànica 15/1999 i el Reial decret 1720/2007, derogats quan va entrar en vigor el RGPD.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'subscription',
   jurisdiction: 'Espanya; autoritat de control: Agencia Española de Protección de Datos',
@@ -1057,7 +1057,7 @@ const wodbuster: AppSeed = {
   accountRequired: f('yes', 'official', ['wodbuster-app-store'], 'L’aplicació és per a persones sòcies d’un box: el compte el dona d’alta el centre i serveix per reservar classes i registrar marques.'),
   openSource: f('no', 'official', ['wodbuster-aviso-legal'], 'L’avís legal reserva tots els drets de propietat intel·lectual del programari.', { licence: 'Privativa' }),
   dataSummary:
-    'Les reserves de classe diuen a quina hora entrenes cada dia de la setmana, i les marques personals —pes aixecat, temps, repeticions— són un historial de rendiment físic que sovint es publica en rànquings visibles per la resta del box.',
+    'Les reserves de classe diuen a quina hora entrenes cada dia de la setmana, i les marques personals (pes aixecat, temps, repeticions) són un historial de rendiment físic que sovint es publica en rànquings visibles per la resta del box.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'unknown', purposes: ['prestacio-del-servei'], sources: ['wodbuster-app-store'] }),
     row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'unknown', purposes: ['prestacio-del-servei'], sources: ['wodbuster-app-store', 'wodbuster-politica-privacidad'] }),
@@ -1124,7 +1124,7 @@ const wodbuster: AppSeed = {
     telemetryOptOut: unknown('No hem trobat cap control per desactivar l’analítica.'),
     granularControls: f('no', 'official', ['wodbuster-politica-privacidad'], 'No hi ha cap panell de privadesa documentat.'),
     defaultPosture: 'unknown',
-    darkPatterns: f('partial', 'editorial', ['wodbuster-aviso-legal', 'wodbuster-politica-privacidad'], 'No hi ha patrons de retenció, però sí una documentació que no descriu el servei: l’avís legal encara cita la LOPD del 1999 i el seu reglament del 2007, i la política de privadesa parla del web mentre l’aplicació tracta dades de salut i l’adreça postal.'),
+    darkPatterns: f('partial', 'editorial', ['wodbuster-aviso-legal', 'wodbuster-politica-privacidad'], 'No hi ha patrons de retenció, però la documentació no descriu el servei: l’avís legal encara cita la LOPD del 1999 i el seu reglament del 2007, i la política de privadesa parla del web mentre l’aplicació tracta dades de salut i l’adreça postal.'),
     darkPatternList: [
       {
         type: 'confusing-language',
@@ -1149,7 +1149,7 @@ const wodbuster: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'El domini de WodBuster bloqueja la lectura automatitzada; tots dos documents legals s’han llegit a través de l’arxiu d’internet i les fonts en donen la còpia arxivada. La troballa que val la pena és la distància entre el que declara l’etiqueta de l’App Store i el que cobreix la política publicada.',
+      'El domini de WodBuster bloqueja la lectura automatitzada; tots dos documents legals s’han llegit a través de l’arxiu d’internet i les fonts en donen la còpia arxivada. El punt principal és la distància entre el que declara l’etiqueta de l’App Store i el que cobreix la política publicada.',
     openQuestions: [
       'Qui és el responsable del tractament de les dades esportives: el box on entrenes o WODBUSTER, S.L.U. com a encarregat?',
       'Per què l’etiqueta de l’App Store declara l’adreça postal entre les dades vinculades amb la identitat?',
@@ -1165,7 +1165,7 @@ const wellhub: AppSeed = {
   categories: ['benestar-i-activitat-fisica', 'feina-i-ocupacio'],
   tagline: 'L’empresa que et paga la subscripció rep el teu nom, el correu, el pla i el cost, i les aplicacions sòcies li confirmen si has estat activa',
   summary:
-    'Wellhub, abans Gympass, és una plataforma de benestar corporatiu: l’empresa on treballes et paga l’accés a gimnasos i a aplicacions de salut. Això posa un tercer al mig de la relació, i la política ho reconeix: al patrocinador se li comuniquen el nom, els cognoms, l’adreça electrònica, la subscripció i el cost del pla, i també informació d’activitat si es detecten problemes o abusos. La política de Flo, que és una de les aplicacions sòcies, ho confirma des de l’altra banda: en donar-t’hi d’alta amb Wellhub, Flo confirma a Wellhub si has estat activa. L’etiqueta de l’App Store declara vuit categories utilitzades per rastrejar-te, la llista més llarga de tot el lot.',
+    'Wellhub, abans Gympass, és una plataforma de benestar corporatiu: l’empresa on treballes et paga l’accés a gimnasos i a aplicacions de salut. Això afegeix un tercer a la relació. Segons la política, al patrocinador se li comuniquen el nom, els cognoms, l’adreça electrònica, la subscripció i el cost del pla, i també informació d’activitat si es detecten problemes o abusos. La política de Flo, una de les aplicacions sòcies, ho confirma: en donar-t’hi d’alta amb Wellhub, Flo confirma a Wellhub si has estat activa. L’etiqueta de l’App Store declara vuit categories utilitzades per rastrejar-te.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'subscription',
   jurisdiction: 'Estats Units; segons la política, l’autoritat de control principal a la Unió Europea és l’autoritat neerlandesa de protecció de dades',
@@ -1178,7 +1178,7 @@ const wellhub: AppSeed = {
   accountRequired: f('yes', 'official', ['wellhub-politica-privacidad'], 'Cal registrar-s’hi i acreditar l’elegibilitat: la política tracta informació sobre si tens dret a l’avantatge a través de l’empresa o del patrocinador.'),
   openSource: f('no', 'editorial', [], 'No hem trobat cap repositori públic del codi.', { licence: 'Privativa' }),
   dataSummary:
-    'Quines activitats fas, a quins gimnasos vas i quines aplicacions de salut obres és informació d’estil de vida; que la pagui l’empresa no la converteix en informació laboral. La política limita el que arriba al patrocinador a dades administratives, però hi afegeix una excepció d’activitat «si es detecten problemes o abusos» que no acaba de definir.',
+    'Quines activitats fas, a quins gimnasos vas i quines aplicacions de salut obres és informació d’estil de vida, encara que el servei el pagui l’empresa. La política limita el que arriba al patrocinador a dades administratives, però hi afegeix una excepció d’activitat «si es detecten problemes o abusos» que no defineix.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['wellhub-politica-privacidad', 'wellhub-app-store'], note: 'És una de les dades que la política diu que es comuniquen al patrocinador.' }),
     row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['wellhub-politica-privacidad', 'wellhub-app-store'], note: 'També es comunica al patrocinador, juntament amb la subscripció i el cost del pla.' }),
@@ -1228,7 +1228,7 @@ const wellhub: AppSeed = {
       'Per exercir el dret de supressió sobre les dades ja tractades, adreça’t al contacte de protecció de dades a través del centre d’ajuda.',
     ],
     obstacles:
-      'La relació és triangular: tu, Wellhub i l’empresa que paga. Tancar el compte no afecta les dades que ja s’han comunicat al patrocinador ni els comptes que t’hagis creat a les aplicacions sòcies.',
+      'Hi intervenen tres parts: tu, Wellhub i l’empresa que paga. Tancar el compte no afecta les dades que ja s’han comunicat al patrocinador ni els comptes que t’hagis creat a les aplicacions sòcies.',
     sources: ['wellhub-politica-privacidad'],
   },
   userRights: {
@@ -1241,7 +1241,7 @@ const wellhub: AppSeed = {
     telemetryOptOut: unknown('No hem trobat cap control per desactivar l’analítica.'),
     granularControls: f('no', 'official', ['wellhub-politica-privacidad'], 'No hi ha cap panell de privadesa per finalitat documentat.'),
     defaultPosture: 'permissive',
-    darkPatterns: f('partial', 'editorial', ['wellhub-politica-privacidad', 'flo-privacy-policy'], 'La compartició amb el patrocinador es presenta com a administrativa, però l’excepció d’«información de actividad» quan es detecten problemes o abusos no està definida, i les aplicacions sòcies retornen a Wellhub si has estat activa. És molta superfície de contacte amb qui et paga la nòmina.'),
+    darkPatterns: f('partial', 'editorial', ['wellhub-politica-privacidad', 'flo-privacy-policy'], 'La compartició amb el patrocinador es presenta com a administrativa, però l’excepció d’«información de actividad» quan es detecten problemes o abusos no està definida, i les aplicacions sòcies retornen a Wellhub si has estat activa. L’empresa que et paga la nòmina pot rebre informació per més d’una via.'),
     darkPatternList: [
       {
         type: 'confusing-language',
@@ -1266,7 +1266,7 @@ const wellhub: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'La política en espanyol que publica Wellhub porta data del 19 de desembre del 2023, més antiga que la de qualsevol altra fitxa del lot, i no s’ha actualitzat amb el canvi de marca. La confirmació més sòlida de com flueixen les dades no és seva sinó de Flo, que descriu la integració des de l’altra banda.',
+      'La política en espanyol que publica Wellhub porta data del 19 de desembre del 2023 i no s’ha actualitzat amb el canvi de marca. La descripció més clara de com circulen les dades és a la política de Flo, que explica la integració des del costat de l’aplicació sòcia.',
     openQuestions: [
       'Què compta exactament com a «problema o abús» perquè l’empresa rebi informació d’activitat individual?',
       'Quina entitat és responsable del tractament per a Espanya, i per què la política assenyala l’autoritat neerlandesa com a autoritat principal?',
@@ -1512,7 +1512,7 @@ export const lot: SeedLot = {
     }),
     s('fitia-politica-privacidad', 'Política de privacidad', 'https://fitia.app/es/politica-privacidad/', 'Fitia, Inc.', 'privacy-policy', 'primary', {
       language: 'es',
-      summary: 'Política vigent. En fem servir la llista de dades de salut i dietètiques, la base jurídica deduïda del fet de facilitar-les voluntàriament, els proveïdors de models —Google, OpenAI i Anthropic— i el procediment d’eliminació del compte.',
+      summary: 'Política vigent. En fem servir la llista de dades de salut i dietètiques, la base jurídica deduïda del fet de facilitar-les voluntàriament, els proveïdors de models (Google, OpenAI i Anthropic) i el procediment d’eliminació del compte.',
     }),
     s('fitia-app-store', 'Fitia: Contador de Calorías a l’App Store', 'https://apps.apple.com/es/app/id1448277011', 'Apple', 'app-store', 'primary', {
       language: 'es',
@@ -1535,7 +1535,7 @@ export const lot: SeedLot = {
     s('wellhub-politica-privacidad', 'Política de Privacidad', 'https://wellhub.com/es-es/privacy/', 'Wellhub US, LLC', 'privacy-policy', 'primary', {
       language: 'es',
       publishedAt: '2023-12-19',
-      summary: 'Política en espanyol de la plataforma. Concreta què es comunica al patrocinador —nom, cognoms, correu, subscripció i cost del pla, més informació d’activitat si es detecten problemes o abusos—, les entitats responsables per país i les clàusules contractuals tipus.',
+      summary: 'Política en espanyol de la plataforma. Concreta què es comunica al patrocinador (nom, cognoms, correu, subscripció i cost del pla, més informació d’activitat si es detecten problemes o abusos), les entitats responsables per país i les clàusules contractuals tipus.',
     }),
     s('wellhub-app-store', 'Wellhub (Gympass) a l’App Store', 'https://apps.apple.com/es/app/id703761434', 'Apple', 'app-store', 'primary', {
       language: 'es',

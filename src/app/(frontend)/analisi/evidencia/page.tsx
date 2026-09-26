@@ -53,8 +53,8 @@ export default async function EvidencePage() {
     <>
       <h1>Què sabem i què no</h1>
       <p className="lede">
-        Aquesta pàgina no mesura les aplicacions: ens mesura a nosaltres. Diu quina part del que
-        afirmem està documentada, amb quina mena de font i què ens queda per mirar.
+        Aquesta pàgina mesura la feina del projecte: quina part del que afirmem està documentada,
+        amb quina mena de font i què ens queda per mirar.
       </p>
 
       <KeyNumbers>
@@ -66,16 +66,16 @@ export default async function EvidencePage() {
 
       <h2>La regla</h2>
       <p>
-        Un desconegut és una tasca pendent, no una mala nota. «Hem comprovat que no ho fan» i «no
-        ho hem mirat» no es barregen mai en una sola xifra. L’incompliment és publicar una
-        afirmació sense font, i aquesta xifra ha de ser zero: ara mateix és{' '}
+        Un desconegut és una tasca pendent, no una mala nota. «Hem comprovat que no ho fan» i «no ho
+        hem mirat» no es barregen mai en una sola xifra. Incomplir la regla és publicar una
+        afirmació sense font; aquesta xifra hauria de ser zero i ara és{' '}
         {num(analysis.claimsWithoutSources)}.
       </p>
       <StatusStack tally={analysis.claims} unit="afirmacions" />
       <p>
         Les afirmacions marcades com a «no aplica» surten del denominador. Exigir xifratge d’extrem
         a extrem a un navegador o un procés d’eliminació de compte a un servei que no en demana
-        seria mesurar el no-res i inflar artificialment la cobertura.
+        inflaria la cobertura amb preguntes sense objecte.
       </p>
 
       <h2>D’on surt el que afirmem</h2>
@@ -101,14 +101,13 @@ export default async function EvidencePage() {
         </tbody>
       </table>
       <Note>
-        Aquesta és la limitació estructural del projecte, i no la resol cap millora de mètode:{' '}
+        Aquesta és la limitació estructural del projecte, i cap millora de mètode no la resol:{' '}
         {num(official?.claims ?? 0)} de les {num(analysis.claims.documented)} afirmacions
         documentades se sostenen en documents publicats per la mateixa empresa. Són la font més
-        verificable que hi ha —es poden citar, datar i tornar a comprovar— però vol dir que bona
-        part del que sabem és el que les empreses diuen de si mateixes. Només{' '}
-        {num(independent?.claims ?? 0)} afirmacions se sostenen en una anàlisi independent i{' '}
-        {num(regulator?.claims ?? 0)} en una resolució d’un regulador, que són les úniques fonts que
-        poden contradir-les.
+        verificable que hi ha, perquè es poden citar, datar i tornar a comprovar, però bona part del
+        que sabem és el que les empreses diuen de si mateixes. Només {num(independent?.claims ?? 0)}{' '}
+        afirmacions se sostenen en una anàlisi independent i {num(regulator?.claims ?? 0)} en una
+        resolució d’un regulador, que són les úniques fonts que poden contradir-les.
       </Note>
 
       <h2>Els indicadors pitjor documentats</h2>
@@ -154,16 +153,15 @@ export default async function EvidencePage() {
             {num(auditsIndicator.unknown)} de les {num(auditsIndicator.applicable)} fitxes no diuen
             res sobre si el servei publica auditories de seguretat independents (
             {pct(auditsIndicator.unknownShare)}). Amb aquest nivell de desconeixement no es pot
-            concloure res: ni que el sector s’auditi ni que no ho faci.
+            concloure si el sector s’audita o no.
           </p>
           <StatusStack tally={audits} />
           <p>
-            Hi ha un detall que ho explica: de les {num(audits.total)} fitxes, només{' '}
-            {num(audits.no)} declaren que no hi ha auditoria independent. Un recompte tan baix en
-            aquesta casella no vol dir que gairebé totes s’auditin: vol dir que gairebé mai no
-            documentem una absència. Trobar una auditoria publicada és fàcil; demostrar que no n’hi
-            ha cap exigeix una recerca que no hem fet, i mentre no la fem la resposta honesta és «no
-            ho sabem».
+            De les {num(audits.total)} fitxes, només {num(audits.no)} declaren que no hi ha
+            auditoria independent. Un recompte tan baix en aquesta casella indica que gairebé mai no
+            documentem una absència, i no que gairebé totes s’auditin. Trobar una auditoria
+            publicada és fàcil; demostrar que no n’hi ha cap exigeix una recerca que no hem fet, i
+            mentrestant la resposta és «no ho sabem».
           </p>
         </>
       ) : null}
@@ -236,16 +234,15 @@ export default async function EvidencePage() {
           rastrejadors de tercers.
         </li>
         <li>
-          Convertir en afirmacions documentades els casos on avui hi ha silenci, sobretot quan la
-          resposta honesta és «no ho fan»: una absència comprovada val tant com una presència.
+          Convertir en afirmacions documentades els casos on avui no hi ha resposta, sobretot quan
+          la resposta és «no ho fan»: una absència comprovada val tant com una presència.
         </li>
       </ul>
 
       <p className="meta">
         Aquesta pàgina es recalcula a cada visita amb el corpus publicat. Si les xifres han canviat
-        des de l’última vegada, és que hi ha hagut feina, no que hi hagi hagut una correcció de
-        mètode; els canvis de mètode es documenten a <Link href="/metodologia">la metodologia</Link>
-        .
+        des de l’última vegada, és per feina de documentació nova i no per una correcció de mètode;
+        els canvis de mètode es documenten a <Link href="/metodologia">la metodologia</Link>.
       </p>
 
       <BackToIndex />

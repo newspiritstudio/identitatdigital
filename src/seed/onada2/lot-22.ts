@@ -245,7 +245,7 @@ export const lot: SeedLot = {
     }),
     s('wattpad-terms', 'Wattpad Terms of Service', 'https://policies.wattpad.com/terms', 'Wattpad Corp.', 'terms', 'primary', {
       summary:
-        'Condicions del servei de Wattpad: llicència no exclusiva sobre les obres publicades i anonimització —no esborrat— dels comentaris quan es tanca el compte.',
+        'Condicions del servei de Wattpad: llicència no exclusiva sobre les obres publicades i anonimització dels comentaris, que no s’esborren, quan es tanca el compte.',
     }),
     s('wattpad-play-data-safety', 'Wattpad – Seguridad de los datos (Google Play)', 'https://play.google.com/store/apps/datasafety?id=wp.wattpad', 'Google Play', 'app-store', 'primary', {
       language: 'es',
@@ -267,7 +267,7 @@ export const lot: SeedLot = {
       categories: ['edicio-de-foto-i-video'],
       tagline: 'Declara a Google Play que no recull cap dada mentre la seva política enumera sis SDK de publicitat',
       summary:
-        'SCRL és una aplicació sueca per muntar collages i carrusels per a Instagram. La seva política de privadesa és de les més concretes del lot: diu qui és responsable, quins SDK fa servir i quants anys conserva cada categoria de dades. Aquesta transparència xoca amb la declaració que la mateixa empresa fa a Google Play, on afirma que l’aplicació no recull cap dada i que les dades no es xifren.',
+        'SCRL és una aplicació sueca per muntar collages i carrusels per a Instagram. La seva política de privadesa és concreta: diu qui és responsable, quins SDK fa servir i quants anys conserva cada categoria de dades. En canvi, a la declaració que la mateixa empresa fa a Google Play afirma que l’aplicació no recull cap dada i que les dades no es xifren.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'subscription',
       jurisdiction: 'Suècia',
@@ -352,7 +352,7 @@ export const lot: SeedLot = {
       },
       security: {
         e2ee: na('El servei ha de processar les imatges als seus servidors per generar els carrusels i aplicar les funcions d’IA.'),
-        transportEncryption: f('no', 'official', ['scrl-play-data-safety'], 'A la fitxa de seguretat de Google Play, el mateix desenvolupador declara que «les dades no es xifren». És una declaració sorprenent per a un servei que allotja imatges i que caldria contrastar amb una prova de trànsit.'),
+        transportEncryption: f('no', 'official', ['scrl-play-data-safety'], 'A la fitxa de seguretat de Google Play, el mateix desenvolupador declara que «les dades no es xifren». En un servei que allotja imatges, caldria contrastar-ho amb una prova de trànsit.'),
         atRestEncryption: unknown('La política no descriu el xifratge en repòs.'),
         mfa: f('partial', 'official', ['scrl-privacy-policy'], 'L’accés es fa amb un codi d’un sol ús enviat per correu, que substitueix la contrasenya en lloc de reforçar-la.', {
           methods: ['email'],
@@ -365,7 +365,7 @@ export const lot: SeedLot = {
         {
           app: 'canva',
           comparability: 'partial',
-          rationale: 'Cobreix el mateix ús de muntar composicions per a xarxes socials, amb una política de privadesa d’una empresa amb estructura europea i canals de drets més rodats.',
+          rationale: 'Cobreix el mateix ús de muntar composicions per a xarxes socials, amb una política de privadesa més detallada i canals per exercir els drets.',
           tradeOffs: 'És un servei molt més gran i recull més dades d’ús; la finalitat concreta dels carrusels d’Instagram hi està menys resolta.',
         },
       ],
@@ -374,7 +374,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'La contradicció entre la política de privadesa i la declaració a Google Play és la troballa d’aquesta fitxa. Hem mantingut les dues fonts perquè el contrast és el que té valor: o bé la fitxa de Play està mal omplerta, o bé la política descriu tractaments que l’aplicació no fa.',
+          'La política de privadesa i la declaració a Google Play es contradiuen. Hem mantingut les dues fonts: o bé la fitxa de Play està mal omplerta, o bé la política descriu tractaments que l’aplicació no fa.',
         openQuestions: [
           'L’etiqueta de privadesa de l’App Store no s’ha pogut consultar: Apple va respondre amb un error 429 durant tota la revisió.',
           'Les imatges enviades a les funcions d’IA s’utilitzen per entrenar models propis o només per a control de qualitat?',
@@ -390,7 +390,7 @@ export const lot: SeedLot = {
       categories: ['edicio-de-foto-i-video', 'comerc-electronic'],
       tagline: 'Fotos impreses gratis a canvi de nou anys de conservació i de publicitat entre dispositius',
       summary:
-        'FreePrints regala la impressió de les fotografies i cobra només l’enviament. El que en surt a canvi és un arxiu fotogràfic complet lligat a un nom, una adreça postal i un telèfon, que PlanetArt conserva nou anys des de la darrera interacció. La política admet, a més, que pot recollir categories especials de dades si la persona tria funcions de personalització relacionades amb la identitat de gènere o l’orientació sexual.',
+        'FreePrints regala la impressió de les fotografies i cobra només l’enviament. A canvi, PlanetArt conserva les fotografies, lligades a un nom, una adreça postal i un telèfon, durant nou anys des de la darrera interacció. La política admet, a més, que pot recollir categories especials de dades si la persona tria funcions de personalització relacionades amb la identitat de gènere o l’orientació sexual.',
       platforms: ['ios', 'android'],
       businessModel: 'commerce',
       jurisdiction: 'Estats Units, amb representants a la UE i servidors europeus a Irlanda',
@@ -404,7 +404,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['freeprints-privacy-policy'], 'Cal un compte amb adreça de lliurament i dades de pagament per rebre les còpies.'),
       openSource: f('no', 'official', ['freeprints-privacy-policy'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'Un àlbum familiar és una de les col·leccions de dades més reveladores que existeixen: hi ha cares, menors, domicilis, celebracions i estats de salut. FreePrints el guarda a la seva base de dades juntament amb l’adreça postal i el calendari d’ocasions especials que la mateixa aplicació demana.',
+        'Un àlbum familiar conté cares, menors, domicilis, celebracions i estats de salut. FreePrints el guarda a la seva base de dades juntament amb l’adreça postal i el calendari d’ocasions especials que la mateixa aplicació demana.',
       dataCollection: [
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['freeprints-privacy-policy', 'freeprints-play-data-safety'] }),
         row('adreca-postal', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['freeprints-privacy-policy', 'freeprints-play-data-safety'], note: 'Es comparteix amb els proveïdors d’impressió i de transport.' }),
@@ -483,7 +483,7 @@ export const lot: SeedLot = {
         telemetryOptOut: unknown('No consta cap manera de desactivar l’analítica.'),
         granularControls: f('partial', 'official', ['freeprints-privacy-policy'], 'Hi ha un gestor de galetes al web, però no un panell de privadesa per finalitat dins de l’aplicació.'),
         defaultPosture: 'permissive',
-        darkPatterns: f('partial', 'editorial', [], 'La gratuïtat de les còpies és el que finança la recollida: el producte és barat i el preu real és l’arxiu fotogràfic, el domicili i nou anys de conservació. Que l’eliminació no es pugui fer des de l’aplicació ho agreuja.'),
+        darkPatterns: f('partial', 'editorial', [], 'La gratuïtat de les còpies es compensa amb la recollida de l’arxiu fotogràfic i del domicili, que es conserven nou anys. A més, l’eliminació no es pot fer des de l’aplicació.'),
         darkPatternList: [
           {
             type: 'hidden-exit',
@@ -532,7 +532,7 @@ export const lot: SeedLot = {
       categories: ['edicio-de-foto-i-video'],
       tagline: 'Conserva indefinidament les fotos de la teva cara i el model entrenat amb elles',
       summary:
-        'Glam AI demana entre deu i vint selfies per entrenar un model personalitzat que després genera imatges de la persona. La política ho explica amb una franquesa poc habitual: tant les fotografies d’origen com els pesos del model —una representació matemàtica de la cara— es conserven per defecte als servidors, sense termini. A canvi, l’empresa es compromet explícitament a no cedir ni vendre aquest material a xarxes d’IA de tercers.',
+        'Glam AI demana entre deu i vint selfies per entrenar un model personalitzat que després genera imatges de la persona. La política explica, cosa poc habitual, que tant les fotografies d’origen com els pesos del model (una representació matemàtica de la cara) es conserven per defecte als servidors, sense termini. L’empresa es compromet explícitament a no cedir ni vendre aquest material a xarxes d’IA de tercers.',
       platforms: ['ios'],
       businessModel: 'subscription',
       jurisdiction: 'Estats Units',
@@ -544,7 +544,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['glam-ai-privacy-policy'], 'Cal un compte amb adreça electrònica per generar i recuperar els models personalitzats.'),
       openSource: f('no', 'official', ['glam-ai-privacy-policy'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'És el cas més sensible del lot: un conjunt de fotografies de la cara, prou nombrós i variat per entrenar un model, més el model resultant. Junts permeten generar imatges noves de la persona indefinidament, i no hi ha establiment ni responsable a la Unió Europea que respongui de la custòdia.',
+        'Glam AI conserva un conjunt de fotografies de la cara, prou nombrós i variat per entrenar un model, i el model resultant. Junts permeten generar imatges noves de la persona indefinidament, i no hi ha establiment ni responsable a la Unió Europea que respongui de la custòdia.',
       dataCollection: [
         row('fotografies-i-videos', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'entrenament-de-models-dia'], sources: ['glam-ai-privacy-policy'], note: 'Entre deu i vint fotografies d’origen que es conserven per defecte als servidors de DigitalOcean.' }),
         row('dades-biometriques', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['entrenament-de-models-dia', 'prestacio-del-servei'], sources: ['glam-ai-privacy-policy'], note: 'Els punts facials es calculen al dispositiu amb Apple Vision, però els pesos del model personalitzat, derivats de la cara, es guarden al núvol de manera persistent i amb consentiment exprés.' }),
@@ -615,7 +615,7 @@ export const lot: SeedLot = {
         telemetryOptOut: unknown('No consta cap manera de desactivar l’analítica d’Amplitude.'),
         granularControls: f('partial', 'official', ['glam-ai-privacy-policy'], 'Hi ha control sobre el contingut generat i sobre l’eliminació del compte, però no sobre la conservació dels pesos del model, que és l’element més sensible.'),
         defaultPosture: 'permissive',
-        darkPatterns: f('partial', 'editorial', [], 'La conservació indefinida és l’opció per defecte i s’obté amb un consentiment integrat al mateix flux de creació de l’avatar, on ningú no s’atura a llegir.'),
+        darkPatterns: f('partial', 'editorial', [], 'La conservació indefinida és l’opció per defecte i s’obté amb un consentiment integrat al mateix flux de creació de l’avatar.'),
         darkPatternList: [
           {
             type: 'preselected',
@@ -640,7 +640,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'La política és inusualment explícita i això juga a favor seu: permet documentar amb font pròpia un tractament de dades biomètriques que altres aplicacions del mateix gènere no descriuen. El problema no és l’opacitat, sinó el disseny: conservació indefinida per defecte i cap responsable a la Unió Europea.',
+          'La política és inusualment explícita i permet documentar amb font pròpia un tractament de dades biomètriques que altres aplicacions del mateix gènere no descriuen. Els problemes són de disseny: conservació indefinida per defecte i cap responsable a la Unió Europea.',
         openQuestions: [
           'L’etiqueta de privadesa de l’App Store no s’ha pogut consultar: Apple va respondre amb un error 429 durant tota la revisió.',
           'Quina base jurídica invoca Glam Labs per al tractament de dades biomètriques de persones residents a la Unió Europea?',
@@ -670,7 +670,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['picsart-privacy-policy'], 'Cal registrar-se per desar projectes, publicar creacions i gestionar la subscripció.'),
       openSource: f('no', 'official', ['picsart-terms'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'Les fotografies, els vídeos i l’àudio que s’editen es combinen amb l’historial de cerca dins de l’aplicació, la llista de contactes i les aplicacions instal·lades. El resultat és un perfil d’interessos prou detallat per sostenir el model publicitari que la política reconeix obertament.',
+        'Les fotografies, els vídeos i l’àudio que s’editen es combinen amb l’historial de cerca dins de l’aplicació, la llista de contactes i les aplicacions instal·lades. Amb aquestes dades es construeix el perfil d’interessos del model publicitari que la política reconeix.',
       dataCollection: [
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada', 'personalitzacio-de-continguts'], sources: ['picsart-privacy-policy', 'picsart-play-data-safety'] }),
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['picsart-privacy-policy', 'picsart-play-data-safety'] }),
@@ -699,7 +699,7 @@ export const lot: SeedLot = {
         thirdPartyTrackersPresent: f('yes', 'official', ['picsart-privacy-policy'], 'Xarxes publicitàries per a la publicitat basada en interessos.'),
       },
       dataUses: {
-        targetedAdvertising: f('yes', 'official', ['picsart-privacy-policy'], 'La política ho diu sense embuts: «l’ús de Picsart se sosté, en part, amb publicitat basada en interessos, sense la qual Picsart no podria oferir una experiència gratuïta o econòmica».', {
+        targetedAdvertising: f('yes', 'official', ['picsart-privacy-policy'], 'La política diu: «l’ús de Picsart se sosté, en part, amb publicitat basada en interessos, sense la qual Picsart no podria oferir una experiència gratuïta o econòmica».', {
           optOutUrl: 'https://www.aboutads.info/appchoices',
         }),
         profiling: f('yes', 'official', ['picsart-privacy-policy'], 'Perfila interessos per personalitzar contingut i publicitat.'),
@@ -787,7 +787,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'Que una política de privadesa admeti literalment que el model de negoci depèn de la publicitat basada en interessos és útil: estalvia interpretacions. El silenci sobre l’entrenament de models, en canvi, és significatiu en un producte que es ven com a «editor de fotos amb IA», i per això queda com a desconegut i com a pregunta oberta.',
+          'La política admet literalment que el model de negoci depèn de la publicitat basada en interessos. En canvi, no diu res sobre l’entrenament de models, tot i que el producte es ven com a «editor de fotos amb IA»; per això aquest punt consta com a desconegut i com a pregunta oberta.',
         openQuestions: [
           'L’etiqueta de privadesa de l’App Store no s’ha pogut consultar: Apple va respondre amb un error 429 durant tota la revisió.',
           'El contingut de les persones usuàries s’utilitza per entrenar els models generatius de Picsart?',
@@ -803,7 +803,7 @@ export const lot: SeedLot = {
       categories: ['edicio-de-foto-i-video'],
       tagline: 'Les cares pugen al núvol i hi queden entre 24 i 48 hores, amb un botó per esborrar-les abans',
       summary:
-        'FaceApp processa els retrats als servidors, no al telèfon: la fotografia que es vol transformar es puja a Google Cloud o AWS. La política ho reconeix i hi posa un límit clar —entre 24 i 48 hores de memòria cau— i un botó a la configuració per demanar-ne l’esborrat immediat. La resta de dades, en canvi, sí que alimenten publicitat i analítica, i el servei funciona sense compte.',
+        'FaceApp processa els retrats als seus servidors: la fotografia que es vol transformar es puja a Google Cloud o AWS. La política ho reconeix i hi posa un límit (entre 24 i 48 hores de memòria cau) i un botó a la configuració per demanar-ne l’esborrat immediat. La resta de dades es fan servir per a publicitat i analítica, i el servei funciona sense compte.',
       platforms: ['ios', 'android'],
       businessModel: 'freemium',
       jurisdiction: 'Xipre',
@@ -816,7 +816,7 @@ export const lot: SeedLot = {
       accountRequired: f('no', 'official', ['faceapp-privacy-policy'], 'L’edició funciona sense registre; la política descriu un ús basat en identificadors de dispositiu.'),
       openSource: f('no', 'official', ['faceapp-privacy-policy'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'La imatge d’una cara és una dada difícil de substituir: no es pot canviar com una contrasenya. FaceApp la tracta al núvol durant un termini curt i acotat, però el que sí que persisteix és el rastre publicitari: identificadors de dispositiu, ubicació aproximada i interaccions compartides amb finalitats de màrqueting.',
+        'Una cara, a diferència d’una contrasenya, no es pot canviar. FaceApp en tracta la imatge al núvol durant un termini curt, però el que persisteix són les dades publicitàries: identificadors de dispositiu, ubicació aproximada i interaccions compartides amb finalitats de màrqueting.',
       dataCollection: [
         row('fotografies-i-videos', 'yes', { linked: 'no', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['faceapp-privacy-policy', 'faceapp-play-data-safety'], note: 'Només les que se seleccionen per editar. La política afirma que no accedeix a l’àlbum sencer encara que se li hagi donat permís.' }),
         row('identificador-de-dispositiu', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['mesura-i-analisi-dus', 'publicitat-personalitzada', 'seguretat-i-prevencio-del-frau'], sources: ['faceapp-play-data-safety'] }),
@@ -880,7 +880,7 @@ export const lot: SeedLot = {
         telemetryOptOut: unknown('No consta cap manera de desactivar l’analítica.'),
         granularControls: f('partial', 'official', ['faceapp-privacy-policy'], 'El control destacable és el botó d’esborrat de les dades al núvol; no n’hi ha per finalitat.'),
         defaultPosture: 'mixed',
-        darkPatterns: f('partial', 'editorial', ['faceapp-privacy-policy'], 'La política no anomena cap dels SDK de tercers que admet que recullen dades directament des de l’aplicació, cosa que impedeix saber amb qui es comparteix realment el rastre publicitari.'),
+        darkPatterns: f('partial', 'editorial', ['faceapp-privacy-policy'], 'La política no anomena cap dels SDK de tercers que admet que recullen dades directament des de l’aplicació, cosa que impedeix saber amb qui es comparteixen les dades publicitàries.'),
         darkPatternList: [
           {
             type: 'confusing-language',
@@ -905,7 +905,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'FaceApp arrossega una reputació construïda el 2019 a partir de la nacionalitat del seu equip fundador més que de troballes tècniques. La fitxa s’ha fet amb la política vigent i amb la declaració del desenvolupador: la responsable és una societat xipriota, dins de la Unió Europea, i el tractament de les fotografies està acotat en el temps. No hem trobat cap sanció ferma de cap autoritat de protecció de dades.',
+          'La reputació de FaceApp es va formar el 2019 més per la nacionalitat del seu equip fundador que per troballes tècniques. La fitxa s’ha fet amb la política vigent i amb la declaració del desenvolupador: la responsable és una societat xipriota, dins de la Unió Europea, i el tractament de les fotografies està acotat en el temps. No hem trobat cap sanció ferma de cap autoritat de protecció de dades.',
         openQuestions: [
           'L’etiqueta de privadesa de l’App Store no s’ha pogut consultar: Apple va respondre amb un error 429 durant tota la revisió.',
           'Quins són els SDK de tercers presents a l’aplicació, que la política reconeix però no enumera?',
@@ -921,7 +921,7 @@ export const lot: SeedLot = {
       categories: ['video-i-streaming'],
       tagline: 'Declara a Google Play que no recull cap dada mentre la seva política descriu documents d’identitat i publicitat per interessos',
       summary:
-        'Kick és la plataforma australiana de retransmissió en directe que competeix amb Twitch. La seva política descriu un tractament ampli —documents d’identitat i identificadors fiscals per cobrar, adreces electròniques xifrades cedides a anunciants, verificació d’edat delegada a un tercer—, però la fitxa de seguretat de les dades que la mateixa empresa publica a Google Play afirma que l’aplicació no recull ni comparteix res. Les dues coses no poden ser certes alhora.',
+        'Kick és la plataforma australiana de retransmissió en directe que competeix amb Twitch. La seva política descriu un tractament ampli: documents d’identitat i identificadors fiscals per cobrar, adreces electròniques xifrades cedides a anunciants i verificació d’edat delegada a un tercer. En canvi, la fitxa de seguretat de les dades que la mateixa empresa publica a Google Play afirma que l’aplicació no recull ni comparteix res. Les dues declaracions es contradiuen.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'freemium',
       jurisdiction: 'Austràlia',
@@ -930,10 +930,10 @@ export const lot: SeedLot = {
         privacyPolicy: 'https://kick.com/privacy-policy',
         appStore: 'https://apps.apple.com/es/app/id6446202561',
       },
-      accountRequired: f('partial', 'official', ['kick-privacy-policy'], 'Es pot mirar sense compte, però qualsevol interacció —xat, subscripció o retransmissió— en demana un.'),
+      accountRequired: f('partial', 'official', ['kick-privacy-policy'], 'Es pot mirar sense compte, però qualsevol interacció (xat, subscripció o retransmissió) en demana un.'),
       openSource: f('no', 'official', ['kick-privacy-policy'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'Qui retransmet acaba lliurant document d’identitat i número fiscal a un verificador extern. Qui mira deixa el rastre del xat, de les subscripcions i de les hores de connexió, i la seva adreça electrònica —en forma xifrada— arriba a les xarxes publicitàries per identificar-lo com a públic objectiu.',
+        'Qui retransmet ha de lliurar document d’identitat i número fiscal a un verificador extern. De qui mira queden registrats el xat, les subscripcions i les hores de connexió, i la seva adreça electrònica, xifrada, arriba a les xarxes publicitàries per identificar-lo com a públic objectiu.',
       dataCollection: [
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'compliment-legal'], sources: ['kick-privacy-policy'] }),
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['kick-privacy-policy'], note: 'La política admet que es comparteixen adreces electròniques xifrades o identificadors amb els anunciants.' }),
@@ -973,7 +973,7 @@ export const lot: SeedLot = {
         transparencyReport: unknown('No consta cap informe de transparència sobre peticions d’autoritats ni sobre moderació.'),
       },
       retention: {
-        definedPeriods: f('partial', 'official', ['kick-privacy-policy'], 'Els criteris s’expliquen per base jurídica —durada del contracte, termini de prescripció, retirada del consentiment—, però sense terminis numèrics.'),
+        definedPeriods: f('partial', 'official', ['kick-privacy-policy'], 'Els criteris s’expliquen per base jurídica (durada del contracte, termini de prescripció, retirada del consentiment), però sense terminis numèrics.'),
         dataAfterDeletion: f('partial', 'official', ['kick-privacy-policy'], 'Les llicències sobre el contingut publicat poden impedir l’esborrat complet de la informació pública.'),
       },
       accountDeletion: {
@@ -1001,7 +1001,7 @@ export const lot: SeedLot = {
         telemetryOptOut: unknown('No consta cap manera de desactivar l’analítica.'),
         granularControls: f('partial', 'official', ['kick-privacy-policy'], 'Hi ha preferències de comunicacions i de publicitat, però no un panell per finalitat.'),
         defaultPosture: 'permissive',
-        darkPatterns: f('yes', 'editorial', ['kick-play-data-safety', 'kick-privacy-policy'], 'Declarar a la botiga d’aplicacions que no es recull cap dada, quan la política pròpia descriu documents d’identitat, adreces cedides a anunciants i seguiment publicitari, desactiva precisament el resum que la majoria de gent llegeix abans d’instal·lar.'),
+        darkPatterns: f('yes', 'editorial', ['kick-play-data-safety', 'kick-privacy-policy'], 'Declarar a la botiga d’aplicacions que no es recull cap dada, quan la política pròpia descriu documents d’identitat, adreces cedides a anunciants i seguiment publicitari, buida de contingut el resum de la botiga, que és el que es consulta abans d’instal·lar.'),
         darkPatternList: [
           {
             type: 'confusing-language',
@@ -1052,7 +1052,7 @@ export const lot: SeedLot = {
       categories: ['edicio-de-foto-i-video'],
       tagline: 'Edició local i quatre SDK de publicitat, amb una política que no diu qui és la responsable',
       summary:
-        'InShot edita al mateix telèfon: els esborranys es queden al dispositiu i només l’àudio dels subtítols automàtics puja al servidor. A canvi, la versió gratuïta incorpora AdMob i AppLovin, i la política —vigent des del 2023— no identifica la societat responsable del tractament, no fixa cap termini de conservació i no esmenta ni les transferències internacionals ni els drets del RGPD més enllà d’una adreça de contacte.',
+        'InShot edita al mateix telèfon: els esborranys es queden al dispositiu i només l’àudio dels subtítols automàtics puja al servidor. D’altra banda, la versió gratuïta incorpora AdMob i AppLovin, i la política, vigent des del 2023, no identifica la societat responsable del tractament, no fixa cap termini de conservació i no esmenta ni les transferències internacionals ni els drets del RGPD més enllà d’una adreça de contacte.',
       platforms: ['ios', 'android'],
       businessModel: 'freemium',
       jurisdiction: 'No declarada a la política; l’editora de l’App Store és una societat de Singapur',
@@ -1064,7 +1064,7 @@ export const lot: SeedLot = {
       accountRequired: f('no', 'official', ['inshot-privacy-policy'], 'L’edició funciona sense compte; l’adreça electrònica només es demana per a l’atenció a l’usuari.'),
       openSource: f('no', 'official', ['inshot-privacy-policy'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'El contingut que s’edita amb InShot no acostuma a sortir del telèfon, cosa que redueix molt l’exposició. El que sí que en surt és el perfil publicitari que construeixen AdMob i AppLovin a partir dels identificadors del dispositiu, i l’àudio que es processa al servidor quan es generen subtítols automàtics.',
+        'El contingut que s’edita amb InShot no acostuma a sortir del telèfon, cosa que redueix molt l’exposició. Sí que en surten el perfil publicitari que AdMob i AppLovin construeixen a partir dels identificadors del dispositiu i l’àudio que es processa al servidor quan es generen subtítols automàtics.',
       dataCollection: [
         row('fotografies-i-videos', 'yes', { linked: 'no', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'mesura-i-analisi-dus'], sources: ['inshot-privacy-policy', 'inshot-play-data-safety'], note: 'Els esborranys es guarden localment fins que s’esborren; la fitxa de Google Play declara fotografies i vídeos amb finalitat d’anàlisi.' }),
         row('veu-i-audio', 'yes', { linked: 'no', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['inshot-privacy-policy', 'inshot-play-data-safety'], note: 'L’àudio dels subtítols automàtics es puja al servidor i, segons la política, s’esborra un cop processat.' }),
@@ -1125,7 +1125,7 @@ export const lot: SeedLot = {
         telemetryOptOut: unknown('No consta cap manera de desactivar Firebase.'),
         granularControls: f('no', 'official', ['inshot-privacy-policy'], 'L’aplicació no ofereix cap panell de privadesa.'),
         defaultPosture: 'permissive',
-        darkPatterns: f('partial', 'editorial', ['inshot-privacy-policy'], 'Una política que no identifica la responsable del tractament impedeix saber a qui reclamar, que és el primer pas de qualsevol dret.'),
+        darkPatterns: f('partial', 'editorial', ['inshot-privacy-policy'], 'Una política que no identifica la responsable del tractament impedeix saber a qui s’han d’adreçar les reclamacions i les sol·licituds de drets.'),
         darkPatternList: [
           {
             type: 'confusing-language',
@@ -1158,7 +1158,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'La política d’InShot està escrita pensant en Android i en la normativa xinesa d’aplicacions, no en el RGPD: parla de l’identificador d’Android, no anomena cap responsable i no esmenta les transferències internacionals. L’arquitectura local, però, fa que el contingut editat quedi molt menys exposat que en la resta de serveis del lot.',
+          'La política d’InShot està escrita pensant en Android i en la normativa xinesa d’aplicacions, no en el RGPD: parla de l’identificador d’Android, no anomena cap responsable i no esmenta les transferències internacionals. L’arquitectura local, però, fa que el contingut editat quedi poc exposat.',
         openQuestions: [
           'L’etiqueta de privadesa de l’App Store no s’ha pogut consultar: Apple va respondre amb un error 429 durant tota la revisió.',
           'Quina societat és la responsable del tractament i on s’allotgen les dades?',
@@ -1263,7 +1263,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'Aquesta fitxa queda deliberadament plena de desconeguts. Una aplicació que manipula documents impresos i escanejats hauria de tenir una declaració de privadesa pròpia i accessible; no l’hem trobada, i l’única font aplicable parla de màrqueting i de la botiga en línia. Les pàgines de suport d’Epson van respondre amb errors 403 i 404 durant la revisió.',
+          'Molts camps d’aquesta fitxa consten com a desconeguts. Una aplicació que manipula documents impresos i escanejats hauria de tenir una declaració de privadesa pròpia i accessible; no l’hem trobada, i l’única font aplicable parla de màrqueting i de la botiga en línia. Les pàgines de suport d’Epson van respondre amb errors 403 i 404 durant la revisió.',
         openQuestions: [
           'L’etiqueta de privadesa de l’App Store no s’ha pogut consultar: Apple va respondre amb un error 429 durant tota la revisió.',
           'Existeix una declaració de privadesa específica d’Epson Smart Panel? On es publica?',
@@ -1280,7 +1280,7 @@ export const lot: SeedLot = {
       categories: ['llibres-i-lectura'],
       tagline: 'Seguiment de lectures sense publicitat ni seguiment de tercers, amb baixa des de la mateixa aplicació',
       summary:
-        'Mistbook és una aplicació independent per portar el registre de les lectures: llibres, llistes, notes, valoracions i progrés. La política declara que no hi ha publicitat, ni perfilat, ni seguiment de tercers, que l’analítica és anònima i desactivable, i que el compte s’esborra des de la mateixa configuració. El punt feble és el contrari del d’altres fitxes: la política no diu qui és la persona o societat responsable del tractament.',
+        'Mistbook és una aplicació independent per portar el registre de les lectures: llibres, llistes, notes, valoracions i progrés. La política declara que no hi ha publicitat, ni perfilat, ni seguiment de tercers, que l’analítica és anònima i desactivable, i que el compte s’esborra des de la mateixa configuració. El punt feble és que la política no diu qui és la persona o societat responsable del tractament.',
       platforms: ['ios'],
       businessModel: 'freemium',
       jurisdiction: 'No declarada a la política',
@@ -1292,7 +1292,7 @@ export const lot: SeedLot = {
       accountRequired: f('no', 'official', ['mistbook-privacy-policy'], 'Es pot fer servir en local; el compte, amb Apple o Google, només cal per sincronitzar entre dispositius.'),
       openSource: unknown('No consta cap repositori públic del codi.'),
       dataSummary:
-        'El que llegim és una de les dades que millor descriu conviccions, salut, sexualitat o moments vitals. Mistbook la desa localment i la sincronitza amb els seus servidors, però sense publicitat ni cessió a tercers, que és el que normalment converteix un historial de lectures en un perfil comercial.',
+        'Les lectures poden revelar conviccions, salut, sexualitat o moments vitals. Mistbook les desa localment i les sincronitza amb els seus servidors, sense publicitat ni cessió a tercers.',
       dataCollection: [
         row('fitxers-i-documents', 'yes', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['mistbook-privacy-policy'], note: 'La biblioteca, les llistes, les notes, les valoracions i el progrés de lectura: es desen al dispositiu i se sincronitzen amb els servidors de Mistbook.' }),
         row('adreca-electronica', 'optional', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['mistbook-privacy-policy'], note: 'Només si s’entra amb Apple o Google; l’inici de sessió amb Apple permet amagar-la.' }),
@@ -1371,7 +1371,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'És un cas útil de contrast dins del lot: una aplicació petita que renuncia a la publicitat i posa la baixa a la vista. El que li falta és el tràmit formal, no la intenció: sense identificar la responsable del tractament ni el lloc dels servidors, el RGPD no queda cobert.',
+          'És una aplicació petita que renuncia a la publicitat i posa la baixa a la vista. Li falta el tràmit formal: sense identificar la responsable del tractament ni el lloc dels servidors, el RGPD no queda cobert.',
         openQuestions: [
           'L’etiqueta de privadesa de l’App Store no s’ha pogut consultar: Apple va respondre amb un error 429 durant tota la revisió.',
           'Qui és la persona o societat responsable del tractament i on s’allotgen els servidors de sincronització?',
@@ -1401,7 +1401,7 @@ export const lot: SeedLot = {
       accountRequired: f('partial', 'official', ['wattpad-privacy-policy'], 'Es pot llegir sense compte, però desar lectures, comentar o publicar en demana un amb data de naixement.'),
       openSource: f('no', 'official', ['wattpad-terms'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'L’historial de lectura d’una plataforma de ficció diu molt més del que sembla: gèneres, temes, identitat i, en una comunitat adolescent, moments de formació personal. Wattpad hi suma la data de naixement, el gènere declarat i la ubicació aproximada, i ho fa servir per personalitzar i per anunciar.',
+        'L’historial de lectura d’una plataforma de ficció revela gèneres, temes i identitat i, en una comunitat adolescent, etapes de formació personal. Wattpad hi suma la data de naixement, el gènere declarat i la ubicació aproximada, i ho fa servir per personalitzar i per anunciar.',
       dataCollection: [
         row('identificador-de-compte', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['prestacio-del-servei', 'personalitzacio-de-continguts'], sources: ['wattpad-privacy-policy', 'wattpad-play-data-safety'] }),
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['wattpad-privacy-policy'], note: 'La política reconeix que es comparteix amb Google AdSense for Platforms.' }),
@@ -1513,7 +1513,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'La filtració del 2020 continua sent el fet més rellevant de la fitxa i té valor pràctic: qui hi tingués compte abans del juliol d’aquell any hauria de canviar la contrasenya a tot arreu on la reutilitzés. La cessió de l’adreça electrònica a la plataforma publicitària de Google, en un servei amb públic adolescent, és l’altra dada que convé destacar.',
+          'La filtració del 2020 continua sent el fet més rellevant de la fitxa i té valor pràctic: qui hi tingués compte abans del juliol d’aquell any hauria de canviar la contrasenya a tot arreu on la reutilitzés. La cessió de l’adreça electrònica a la plataforma publicitària de Google, en un servei amb públic adolescent, és l’altre punt rellevant.',
         openQuestions: [
           'L’etiqueta de privadesa de l’App Store no s’ha pogut consultar: Apple va respondre amb un error 429 durant tota la revisió.',
           'Les obres publicades a Wattpad s’utilitzen per entrenar models de llenguatge?',

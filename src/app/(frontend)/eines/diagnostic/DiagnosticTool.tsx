@@ -476,7 +476,7 @@ export default function DiagnosticTool({ snapshot }: { snapshot: Snapshot }) {
                 <h2 id="informe">Endú-te’l</h2>
                 <p>
                   L’informe és un fitxer de text (Markdown) amb el pla, el mapa de risc, les
-                  filtracions i les dades. Es genera dins del navegador: no passa per cap servidor.
+                  filtracions i les dades. Es genera dins del navegador i no passa per cap servidor.
                   L’enllaç per compartir porta només la llista de serveis, sense el pla ni res del
                   que has marcat.
                 </p>
@@ -578,7 +578,7 @@ function Headline({
           </>
         ) : null}
         {pending > 0
-          ? `Tens ${pending} ${pending === 1 ? 'acció concreta' : 'accions concretes'} per fer, començant per les de dalt del pla.`
+          ? `Tens ${pending} ${pending === 1 ? 'acció' : 'accions'} per fer, començant per les de dalt del pla.`
           : 'No tens cap acció pendent.'}
       </p>
     </div>

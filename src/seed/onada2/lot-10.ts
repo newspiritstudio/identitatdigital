@@ -144,7 +144,7 @@ const windyWeather: AppSeed = {
   accountRequired: unknown('No hem pogut confirmar si les funcions bàsiques es poden fer servir sense compte.'),
   openSource: f('no', 'official', ['windy-weather-privacy-policy'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'Els spots de vent, surf o pesca que es consulten i la ubicació exacta dibuixen on es practica esport i en quins horaris. Que la ubicació exacta es declari per rastrejar vol dir que pot creuar-se amb dades d’altres empreses.',
+    'Els spots de vent, surf o pesca que es consulten i la ubicació exacta mostren on i quan es practica esport. Que la ubicació exacta es declari per rastrejar vol dir que pot creuar-se amb dades d’altres empreses.',
   dataCollection: [
     row('ubicacio-precisa', 'yes', { linked: 'no', tracking: 'yes', shared: 'third-parties', purposes: ['mesura-i-analisi-dus', 'personalitzacio-de-continguts', 'publicitat-personalitzada'], sources: ['windy-weather-app-store', 'windy-weather-privacy-policy'], note: 'Declarada com a dada per rastrejar entre aplicacions i llocs d’altres empreses.' }),
     row('fotografies-i-videos', 'optional', { linked: 'yes', tracking: 'no', shared: 'unknown', purposes: ['prestacio-del-servei', 'personalitzacio-de-continguts'], sources: ['windy-weather-app-store'] }),
@@ -234,7 +234,7 @@ const windyWeather: AppSeed = {
     researchStatus: 'documented',
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
-    editorialNotes: 'L’etiqueta declara les dades d’analítica com a no vinculades, però la política cita eines com Meta i AppsFlyer que treballen amb identificadors. La contradicció aparent queda anotada sense resoldre.',
+    editorialNotes: 'L’etiqueta declara les dades d’analítica com a no vinculades, però la política cita eines com Meta i AppsFlyer que treballen amb identificadors. No hem pogut resoldre aquesta contradicció aparent.',
     openQuestions: ['Quina entitat fa de representant a la Unió Europea, com exigeix l’article 27 del RGPD?'],
   },
 }
@@ -511,7 +511,7 @@ const wetteronline: AppSeed = {
     researchStatus: 'documented',
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
-    editorialNotes: 'L’etiqueta de l’App Store declara la ubicació exacta com a no vinculada i només per al funcionament, mentre que l’autoritat alemanya investiga justament l’ús publicitari de la ubicació. Segons netzpolitik.org, l’empresa va deixar de recollir la ubicació precisa per a publicitat després de la intervenció de l’autoritat.',
+    editorialNotes: 'L’etiqueta de l’App Store declara la ubicació exacta com a no vinculada i només per al funcionament, mentre que l’autoritat alemanya investiga l’ús publicitari de la ubicació. Segons netzpolitik.org, l’empresa va deixar de recollir la ubicació precisa per a publicitat després de la intervenció de l’autoritat.',
     openQuestions: ['Quin serà l’import i el resultat del procediment sancionador de l’autoritat de Rin del Nord-Westfàlia?'],
   },
 }
@@ -704,7 +704,7 @@ const uber: AppSeed = {
   accountRequired: f('yes', 'official', ['uber-privacy-notice'], 'Cal un compte amb telèfon o correu per demanar un viatge.'),
   openSource: f('no', 'official', ['uber-privacy-notice'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'Els origens i destinacions dels viatges revelen el domicili, la feina, els centres mèdics o religiosos que es visiten i les rutines horàries. Uber també pot inferir el gènere a partir del nom i combina aquestes dades amb la publicitat de la seva pròpia xarxa.',
+    'Els orígens i destinacions dels viatges revelen el domicili, la feina, els centres mèdics o religiosos que es visiten i les rutines horàries. Uber també pot inferir el gènere a partir del nom i combina aquestes dades amb la publicitat de la seva pròpia xarxa.',
   dataCollection: [
     row('ubicacio-precisa', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada', 'mesura-i-analisi-dus', 'seguretat-i-prevencio-del-frau'], sources: ['uber-app-store', 'uber-privacy-notice'], note: 'Des que es demana el viatge fins que s’acaba; es comparteix amb el conductor.' }),
     row('ubicacio-aproximada', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['uber-app-store'] }),
@@ -838,7 +838,7 @@ const uberEats: AppSeed = {
       app: 'glovo',
       comparability: 'equivalent',
       rationale: 'Cobreix la mateixa necessitat de repartiment a domicili.',
-      tradeOffs: 'No és més protectora: Glovo no ofereix eliminació autoservei del compte.',
+      tradeOffs: 'Glovo no és més protectora: no ofereix eliminació autoservei del compte.',
     },
   ],
   review: {
@@ -960,7 +960,7 @@ const tooGoodToGo: AppSeed = {
   categories: ['alimentacio-i-restauracio'],
   tagline: 'Excedents d’aliments amb certificació SOC 2 i esborrat des de l’aplicació, però amb l’historial de compres declarat per rastrejar',
   summary:
-    'Too Good To Go, empresa danesa, connecta botigues amb excedents i persones que els compren. L’etiqueta declara l’historial de compres i els identificadors com a dades per rastrejar, i la política preveu publicitat dirigida a partir de l’ús i interessos legítims per al màrqueting. A canvi, l’aplicació permet descarregar les dades i eliminar el compte sense passar per atenció al client, i publica un centre de confiança amb auditories SOC 2 i PCI DSS.',
+    'Too Good To Go, empresa danesa, connecta botigues amb excedents i persones que els compren. L’etiqueta declara l’historial de compres i els identificadors com a dades per rastrejar, i la política preveu publicitat dirigida a partir de l’ús i interessos legítims per al màrqueting. D’altra banda, l’aplicació permet descarregar les dades i eliminar el compte sense passar per atenció al client, i publica un centre de confiança amb auditories SOC 2 i PCI DSS.',
   platforms: ['ios', 'android', 'web'],
   businessModel: 'commerce',
   jurisdiction: 'Dinamarca',
@@ -973,7 +973,7 @@ const tooGoodToGo: AppSeed = {
   accountRequired: f('yes', 'official', ['too-good-to-go-privacy-policy'], 'Cal un compte per reservar un pack.'),
   openSource: f('no', 'official', ['too-good-to-go-privacy-policy'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'Les botigues on es recull i les hores de recollida dibuixen rutines i barris. Les preferències alimentàries opcionals i les consultes sobre al·lèrgies poden revelar dades de salut.',
+    'Les botigues on es recull i les hores de recollida revelen rutines i barris. Les preferències alimentàries opcionals i les consultes sobre al·lèrgies poden revelar dades de salut.',
   dataCollection: [
     row('ubicacio-precisa', 'optional', { linked: 'unknown', tracking: 'no', shared: 'unknown', purposes: ['prestacio-del-servei'], sources: ['too-good-to-go-privacy-policy'], note: 'Només si es dona permís; si no, la ubicació s’indica a mà.' }),
     row('ubicacio-aproximada', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['publicitat-personalitzada', 'mesura-i-analisi-dus'], sources: ['too-good-to-go-app-store', 'too-good-to-go-privacy-policy'] }),

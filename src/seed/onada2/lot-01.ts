@@ -91,7 +91,7 @@ const classroom: AppSeed = {
   accountRequired: f('yes', 'official', ['google-classroom-edu-privacy'], 'Cal un compte de Google, normalment el que proporciona el centre educatiu.'),
   openSource: f('no', 'official', ['google-privacy-policy'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'Classroom concentra treballs, qualificacions, comentaris del professorat i patrons d’activitat de menors. En conjunt, dibuixa el rendiment acadèmic i el comportament d’una persona durant anys, amb un nivell de detall que cap altre servei d’aquest lot recull sobre infants.',
+    'Classroom recull treballs, qualificacions, comentaris del professorat i patrons d’activitat de menors. Amb aquestes dades es pot seguir durant anys el rendiment acadèmic i el comportament d’un alumne.',
   dataCollection: [
     row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['google-classroom-app-store', 'google-classroom-edu-privacy'] }),
     row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'mesura-i-analisi-dus'], sources: ['google-classroom-app-store'] }),
@@ -187,7 +187,7 @@ const gemini: AppSeed = {
   accountRequired: f('yes', 'official', ['google-gemini-privacy-hub'], 'L’aplicació funciona amb el compte de Google.'),
   openSource: f('no', 'official', ['google-privacy-policy'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'A un assistent s’hi expliquen coses que no es cercarien enlloc: salut, relacions, feina, dubtes legals. Si s’hi connecten altres aplicacions, Gemini hi afegeix correus, documents, ubicació i contactes. L’etiqueta de l’App Store declara fins i tot «dades sensibles» per personalitzar el producte.',
+    'A un assistent se li expliquen sovint qüestions de salut, relacions, feina o dubtes legals. Si s’hi connecten altres aplicacions, Gemini hi afegeix correus, documents, ubicació i contactes. L’etiqueta de l’App Store declara també «dades sensibles» per personalitzar el producte.',
   dataCollection: [
     row('contingut-de-missatges', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'millora-del-producte', 'entrenament-de-models-dia'], sources: ['google-gemini-privacy-hub', 'google-gemini-app-store'], note: 'Les peticions i les respostes. Una part la revisen persones.' }),
     row('fitxers-i-documents', 'optional', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'entrenament-de-models-dia'], sources: ['google-gemini-privacy-hub'] }),
@@ -285,7 +285,7 @@ const gemini: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'La combinació de revisió humana, entrenament activat per defecte i conservació de tres anys de les converses revisades és el punt clau de la fitxa. Amb un compte de Workspace o de Workspace for Education les condicions són molt diferents: no hi ha revisió humana ni entrenament.',
+      'La combinació de revisió humana, entrenament activat per defecte i conservació de tres anys de les converses revisades és el que més pesa en aquesta fitxa. Amb un compte de Workspace o de Workspace for Education les condicions són molt diferents: no hi ha revisió humana ni entrenament.',
     openQuestions: [
       'Quin resultat tindrà la investigació de l’autoritat irlandesa sobre l’entrenament de PaLM 2 amb dades europees?',
       'Quines «dades sensibles» declara l’etiqueta de l’App Store i per a què es fan servir exactament?',
@@ -309,7 +309,7 @@ const drive: AppSeed = {
   accountRequired: f('yes', 'official', ['google-privacy-policy'], 'Cal un compte de Google.'),
   openSource: f('no', 'official', ['google-privacy-policy'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'Drive sol contenir el més delicat que té una persona en format digital: documents d’identitat, contractes, informes mèdics, declaracions de la renda i còpies de seguretat. La confidencialitat depèn de les garanties de Google, no de la criptografia.',
+    'Drive sol contenir documents d’identitat, contractes, informes mèdics, declaracions de la renda i còpies de seguretat. Com que no hi ha xifratge d’extrem a extrem, la confidencialitat depèn de les garanties de Google.',
   dataCollection: [
     row('fitxers-i-documents', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'seguretat-i-prevencio-del-frau'], sources: ['google-drive-privacy', 'google-drive-app-store'], note: 'Google els analitza per detectar brossa, programari maliciós i abusos; no per a publicitat.' }),
     row('fotografies-i-videos', 'optional', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'personalitzacio-de-continguts'], sources: ['google-drive-app-store'] }),
@@ -545,7 +545,7 @@ const authenticator: AppSeed = {
     lastReviewedAt: WAVE2_DATE,
     incidentsReviewed: true,
     editorialNotes:
-      'La sincronització és una comoditat real contra la pèrdua del mòbil, però concentra tots els segons factors en el compte de Google. Qui la vulgui fer servir hauria de protegir aquest compte amb una clau d’accés o una clau física.',
+      'La sincronització protegeix contra la pèrdua del mòbil, però concentra tots els segons factors en el compte de Google. Qui la vulgui fer servir hauria de protegir aquest compte amb una clau d’accés o una clau física.',
     openQuestions: [
       'Google ha activat finalment el xifratge d’extrem a extrem de la sincronització a totes les plataformes?',
       'Per què l’etiqueta declara nom, adreça postal i telèfon per a la funcionalitat d’una aplicació de codis?',
@@ -812,7 +812,7 @@ const photos: AppSeed = {
   accountRequired: f('yes', 'official', ['google-photos-privacy'], 'La còpia al núvol requereix un compte de Google.'),
   openSource: f('no', 'official', ['google-privacy-policy'], undefined, { licence: 'Privativa' }),
   dataSummary:
-    'Una galeria completa documenta la vida d’una persona i de les del seu voltant: cares, cossos, llocs, dates, documents fotografiats. Els models facials identifiquen també persones que no fan servir el servei, i les metadades de les fotos reconstrueixen on s’ha estat.',
+    'Una galeria completa conté cares, cossos, llocs, dates i documents fotografiats de la persona i del seu entorn. Els models facials identifiquen també persones que no fan servir el servei, i les metadades de les fotos reconstrueixen on s’ha estat.',
   dataCollection: [
     row('fotografies-i-videos', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'personalitzacio-de-continguts', 'seguretat-i-prevencio-del-frau'], sources: ['google-photos-privacy', 'google-photos-app-store'], note: 'L’etiqueta les declara també per a publicitat de tercers, cosa que contradiu el compromís públic de Google.' }),
     row('dades-biometriques', 'optional', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['google-photos-privacy', 'google-photos-face-groups'], note: 'Models facials de l’agrupació de cares, visibles només per a la persona titular del compte.' }),

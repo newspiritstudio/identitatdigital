@@ -32,7 +32,7 @@ export function strengthLabel(bits: number): StrengthLabel {
       level: 'molt feble',
       tone: 'bad',
       advice:
-        'Cau en minuts o hores davant d’un atac fora de línia. No serveix per a res que importi.',
+        'Cau en minuts o hores davant d’un atac fora de línia. No la facis servir per a res que importi.',
     }
   }
   if (bits < 60) {
@@ -40,7 +40,7 @@ export function strengthLabel(bits: number): StrengthLabel {
       level: 'feble',
       tone: 'bad',
       advice:
-        'Aguanta davant d’un atac barat, però no davant de qui tingui unes quantes targetes gràfiques i ganes.',
+        'Aguanta davant d’un atac barat, però no davant de qui tingui unes quantes targetes gràfiques.',
     }
   }
   if (bits < 80) {
@@ -62,7 +62,7 @@ export function strengthLabel(bits: number): StrengthLabel {
     level: 'molt forta',
     tone: 'good',
     advice:
-      'La contrasenya deixa de ser la baula feble: el risc passa a ser una filtració del servei o una enganyifa de suplantació.',
+      'El risc principal passa a ser una filtració del servei o una enganyifa de suplantació.',
   }
 }
 
@@ -113,7 +113,7 @@ export const CRACK_SCENARIOS: readonly CrackScenario[] = [
     label: 'Extrem',
     guessesPerSecond: 1e15,
     assumption:
-      'Adversari amb pressupost d’estat, maquinari dedicat fet a mida i anys de temps, contra un resum ràpid: mil bilions de provatures per segon. És una hipòtesi deliberadament exagerada, per veure què aguanta fins i tot així.',
+      'Adversari amb pressupost d’estat, maquinari dedicat fet a mida i anys de temps, contra un resum ràpid: mil bilions de provatures per segon. És una hipòtesi exagerada, per veure què aguanta fins i tot en aquest cas.',
   },
 ]
 

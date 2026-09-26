@@ -240,7 +240,7 @@ export const lot: SeedLot = {
     s('airbnb-delete-account', '¿Cómo puedo desactivar o eliminar mi cuenta?', 'https://www.airbnb.es/help/article/240', 'Airbnb, Inc.', 'support-doc', 'primary', {
       language: 'es',
       summary:
-        'Article d’ajuda amb els passos reals per desactivar el compte de manera reversible o eliminar-lo definitivament des de la configuració, i amb els requisits previs.',
+        'Article d’ajuda amb els passos per desactivar el compte de manera reversible o eliminar-lo definitivament des de la configuració, i amb els requisits previs.',
     }),
     s('airbnb-inactive-accounts', 'Política de Airbnb sobre las cuentas inactivas', 'https://www.airbnb.es/help/article/3846', 'Airbnb, Inc.', 'support-doc', 'primary', {
       language: 'es',
@@ -335,7 +335,7 @@ export const lot: SeedLot = {
     s('edreams-app-store', 'eDreams: Vuelos y hoteles — Privacidad de la app', 'https://apps.apple.com/es/app/id551367321', 'Apple', 'app-store', 'primary', {
       language: 'es',
       summary:
-        'Etiqueta de privadesa declarada per l’editora. Declara cinc categories sota «Datos usados para rastrearte», el conjunt més ampli del lot.',
+        'Etiqueta de privadesa declarada per l’editora. Declara cinc categories sota «Datos usados para rastrearte».',
     }),
     s('edreams-agcm-2026', 'Sanzione di 9 milioni di euro a eDreams per pratiche commerciali scorrette', 'https://www.agcm.it/media-e-comunicazione/dettaglio?id=3ed1d129-c368-404f-99bf-a3e1c8c7beea', 'Autorità Garante della Concorrenza e del Mercato', 'regulator', 'authority', {
       language: 'other',
@@ -425,7 +425,7 @@ export const lot: SeedLot = {
     s('renfe-politica-privacidad-general', 'Política de privacidad', 'https://www.renfe.com/es/es/ayuda/informacion-legal-viajeros/privacidad-cookies/politica-privacidad', 'Renfe Viajeros, S.M.E., S.A.', 'privacy-policy', 'primary', {
       language: 'es',
       summary:
-        'Política general del grup. Publica el contacte del delegat de protecció de dades i cita les normes que emparen alguns tractaments —el Reglament (UE) 2021/782, el Reial decret 1575/1989 i el Reial decret 627/2014—, però sense concretar-ne cap article i sense cap referència al registre d’activitats de tractament.',
+        'Política general del grup. Publica el contacte del delegat de protecció de dades i cita les normes que emparen alguns tractaments (el Reglament (UE) 2021/782, el Reial decret 1575/1989 i el Reial decret 627/2014), però sense concretar-ne cap article i sense cap referència al registre d’activitats de tractament.',
     }),
     s('renfe-certificaciones-ciberseguridad', 'Certificaciones de ciberseguridad', 'https://www.renfe.com/es/es/ayuda/informacion-legal-viajeros/certificaciones-ciberseguridad', 'Renfe Viajeros, S.M.E., S.A.', 'technical-doc', 'primary', {
       language: 'es',
@@ -469,7 +469,7 @@ export const lot: SeedLot = {
       categories: ['mobilitat-i-transport'],
       tagline: 'Baixa autoservei i esborrat automàtic als cinc anys, però ubicació precisa declarada com a dada de seguiment',
       summary:
-        'Cabify és dels pocs serveis d’aquest lot que diu explícitament què passa amb un compte que s’abandona: als seixanta mesos d’inactivitat s’elimina sol. A canvi, l’etiqueta de l’App Store declara la ubicació entre les dades que es fan servir per rastrejar, i la política reconeix que s’elabora un perfil a partir de l’historial de viatges i dels imports gastats per decidir quines promocions es mostren.',
+        'Cabify diu explícitament què passa amb un compte que s’abandona: als seixanta mesos d’inactivitat s’elimina sol. D’altra banda, l’etiqueta de l’App Store declara la ubicació entre les dades que es fan servir per rastrejar, i la política reconeix que s’elabora un perfil a partir de l’historial de viatges i dels imports gastats per decidir quines promocions es mostren.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'commerce',
       jurisdiction: 'Espanya',
@@ -482,7 +482,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['cabify-privacy-policy'], 'Cal registrar-se amb nom, correu, telèfon i mitjà de pagament per demanar un viatge.'),
       openSource: f('no', 'editorial', [], 'Aplicació privativa: no consta cap publicació del codi font.', { licence: 'Privativa' }),
       dataSummary:
-        'L’historial de viatges és un diari de moviments: on vius, on treballes, a quina hora tornes a casa i a quins domicilis vas de nit. Sumat als imports gastats, que la política diu que serveixen per perfilar, dibuixa també un nivell de renda.',
+        'L’historial de viatges mostra on vius, on treballes, a quina hora tornes a casa i a quins domicilis vas de nit. Amb els imports gastats, que la política diu que serveixen per perfilar, també permet deduir el nivell de renda.',
       dataCollection: [
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['cabify-privacy-policy', 'cabify-app-store'], note: 'Es comparteix amb la persona conductora que fa el servei.' }),
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['cabify-privacy-policy', 'cabify-app-store'] }),
@@ -587,7 +587,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'La regla dels seixanta mesos d’inactivitat és poc habitual i val la pena destacar-la: fixa un límit real a la conservació sense que la persona hagi de fer res. En canvi, la política no quantifica cap altre termini.',
+          'La regla dels seixanta mesos d’inactivitat és poc habitual: limita la conservació sense que la persona hagi de fer res. En canvi, la política no quantifica cap altre termini.',
         openQuestions: [
           'Quines dades sobreviuen exactament a l’eliminació del compte i durant quant de temps?',
           'Ofereix Cabify verificació en dos passos per als comptes de passatger?',
@@ -603,7 +603,7 @@ export const lot: SeedLot = {
       categories: ['mobilitat-i-transport', 'viatges-i-allotjament'],
       tagline: 'Les dues botigues declaren coses oposades i la política de privadesa bloqueja la lectura automatitzada',
       summary:
-        'BlaBlaCar és el cas més contradictori del lot. L’etiqueta de l’App Store declara publicitat de tercers, ubicació i fins i tot dades sensibles i de salut, mentre que la fitxa de Google Play afirma que no es comparteix cap dada amb tercers. La política de privadesa, que hauria de resoldre la contradicció, està darrere d’un mur antirobots que impedeix llegir-la sense navegador.',
+        'Les dues botigues d’aplicacions descriuen BlaBlaCar de manera contradictòria. L’etiqueta de l’App Store declara publicitat de tercers, ubicació i fins i tot dades sensibles i de salut, mentre que la fitxa de Google Play afirma que no es comparteix cap dada amb tercers. La política de privadesa, on s’hauria d’aclarir la contradicció, té una protecció antirobots que impedeix llegir-la sense navegador.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'commerce',
       jurisdiction: 'França',
@@ -700,7 +700,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'La contradicció entre les dues botigues és la troballa d’aquesta fitxa: la mateixa empresa declara a Apple una finalitat de publicitat de tercers i a Google que no comparteix dades amb ningú. Almenys una de les dues declaracions és incorrecta.',
+          'La mateixa empresa declara a Apple una finalitat de publicitat de tercers i a Google que no comparteix dades amb ningú. Almenys una de les dues declaracions és incorrecta.',
         openQuestions: [
           'El domini www.blablacar.com rebutja les peticions automatitzades i el centre d’ajuda es carrega per JavaScript: cal revisar la política de privadesa i els passos de baixa amb un navegador real.',
           'Per què l’etiqueta de l’App Store declara dades de salut i de forma física?',
@@ -716,7 +716,7 @@ export const lot: SeedLot = {
       categories: ['mobilitat-i-transport'],
       tagline: 'Geolocalització limitada al primer pla, però cessió del trajecte a la universitat o a l’empresa que paga el servei',
       summary:
-        'Tribbu comparteix cotxe per als trajectes de cada dia entre casa i la universitat o la feina. La política és clara en un punt poc habitual: la ubicació només es llegeix «cuando la aplicación está abierta en primer plano». La contrapartida és qui hi ha a l’altra banda: la plataforma la contracten universitats i empreses, que reben informació de qui comparteix cotxe per concedir beneficis d’aparcament.',
+        'Tribbu comparteix cotxe per als trajectes de cada dia entre casa i la universitat o la feina. La política és clara en un punt poc habitual: la ubicació només es llegeix «cuando la aplicación está abierta en primer plano». D’altra banda, la plataforma la contracten universitats i empreses, que reben informació de qui comparteix cotxe per concedir beneficis d’aparcament.',
       platforms: ['ios', 'android'],
       businessModel: 'freemium',
       jurisdiction: 'Espanya',
@@ -729,7 +729,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['tribbu-privacy-policy'], 'El registre demana nom, correu, telèfon, fotografia i data de naixement; per conduir, també la matrícula i el distintiu ambiental.'),
       openSource: f('no', 'editorial', [], 'Aplicació privativa: no consta cap publicació del codi font.', { licence: 'Privativa' }),
       dataSummary:
-        'Un trajecte diari repetit és la dada més estable que existeix: diu on vius, on estudies o treballes i a quina hora hi ets. Aquí, a més, la vinculació amb la universitat o l’empresa converteix aquesta rutina en informació que un tercer coneix.',
+        'Un trajecte diari repetit indica on vius, on estudies o treballes i a quina hora hi ets. A més, com que el servei va vinculat a la universitat o l’empresa, un tercer també coneix aquesta rutina.',
       dataCollection: [
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['tribbu-privacy-policy', 'tribbu-app-store'] }),
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['tribbu-privacy-policy', 'tribbu-app-store'] }),
@@ -768,7 +768,7 @@ export const lot: SeedLot = {
         transparencyReport: unknown('No hem trobat cap informe de transparència.'),
       },
       retention: {
-        definedPeriods: f('yes', 'official', ['tribbu-privacy-policy'], 'És la política més concreta del lot en aquest punt: dona terminis per a cada situació.'),
+        definedPeriods: f('yes', 'official', ['tribbu-privacy-policy'], 'La política dona terminis per a cada situació.'),
         dataAfterDeletion: f('yes', 'official', ['tribbu-privacy-policy'], 'Les dades es conserven seixanta dies després del tancament del compte i les comptables, el que exigeixi la normativa fiscal.'),
         periods: [
           { period: '5 anys des de l’últim ús de la plataforma.', sources: ['tribbu-privacy-policy'] },
@@ -826,7 +826,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'La política és de les poques del lot que dona terminis de conservació numerats. El punt feble és la distància entre el document i l’etiqueta de l’App Store: la política no explica per a què es fan servir els identificadors com a dada de seguiment.',
+          'La política dona terminis de conservació numerats. En canvi, no explica per a què es fan servir els identificadors que l’etiqueta de l’App Store declara com a dada de seguiment.',
         openQuestions: [
           'Quina informació concreta reben les universitats i les empreses que contracten el servei?',
           'Hi ha un botó d’eliminació del compte dins de l’aplicació?',
@@ -842,7 +842,7 @@ export const lot: SeedLot = {
       categories: ['mobilitat-i-transport', 'administracio-publica'],
       tagline: 'Cap dada declarada per rastrejar, però tampoc cap termini de conservació concret',
       summary:
-        'L’aplicació de l’operadora ferroviària pública és, en declaracions de botiga, la més continguda del lot: no hi ha cap categoria sota «Datos utilizados para rastrearte» i la ubicació es declara com a dada no vinculada amb la identitat. La política de l’aplicació identifica el responsable, el delegat de protecció de dades i la base jurídica de cada finalitat, però no fixa cap termini de conservació concret ni explica com es dona de baixa un compte «Mi Renfe».',
+        'L’aplicació de l’operadora ferroviària pública declara poques dades a la botiga: no hi ha cap categoria sota «Datos utilizados para rastrearte» i la ubicació es declara com a dada no vinculada amb la identitat. La política de l’aplicació identifica el responsable, el delegat de protecció de dades i la base jurídica de cada finalitat, però no fixa cap termini de conservació concret ni explica com es dona de baixa un compte «Mi Renfe».',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'public-service',
       jurisdiction: 'Espanya',
@@ -858,7 +858,7 @@ export const lot: SeedLot = {
       publicService: {
         isPublicService: true,
         administrationLevel: 'state',
-        legalBasis: f('partial', 'official', ['renfe-privacy-policy', 'renfe-politica-privacidad-general'], 'La política assigna una base jurídica a cada finalitat —relació contractual per a la compra i la gestió del bitllet, interès legítim per a la seguretat i les enquestes, consentiment per a la publicitat i per a WhatsApp— i cita normes concretes per als avisos de viatge, però no en concreta cap article.', {
+        legalBasis: f('partial', 'official', ['renfe-privacy-policy', 'renfe-politica-privacidad-general'], 'La política assigna una base jurídica a cada finalitat (relació contractual per a la compra i la gestió del bitllet, interès legítim per a la seguretat i les enquestes, consentiment per a la publicitat i per a WhatsApp) i cita normes concretes per als avisos de viatge, però no en concreta cap article.', {
           norm: 'Reglament (UE) 2021/782 sobre els drets i les obligacions dels viatgers de ferrocarril, citat sense article; la política general hi afegeix el Reial decret 1575/1989 i el Reial decret 627/2014',
         }),
         processingRegistry: unknown('Renfe Viajeros és sector públic institucional estatal i l’article 31 de la LOPDGDD li obliga a fer públic el registre d’activitats de tractament, però no l’hem localitzat ni a la informació legal del web ni enllaçat des de cap de les dues polítiques de privadesa.'),
@@ -869,14 +869,14 @@ export const lot: SeedLot = {
         dpo: f('yes', 'official', ['renfe-privacy-policy', 'renfe-politica-privacidad-general'], 'Totes dues polítiques publiquen el contacte del delegat de protecció de dades del grup Renfe i el presenten com a canal de reclamació previ a l’Agència Espanyola de Protecció de Dades.', {
           contact: 'dpd@renfe.es',
         }),
-        offlineAlternative: f('yes', 'official', ['renfe-condiciones-venta'], 'El bitllet es pot comprar «en las estaciones, Oficinas de ventas o agencias de viaje autorizadas», sense cap compte ni aplicació: el tràmit complet existeix fora del telèfon.'),
+        offlineAlternative: f('yes', 'official', ['renfe-condiciones-venta'], 'El bitllet es pot comprar «en las estaciones, Oficinas de ventas o agencias de viaje autorizadas», sense cap compte ni aplicació.'),
         accessibilityStatement: f('partial', 'official', ['renfe-accesibilidad-app'], 'Renfe publica la declaració d’accessibilitat de les versions d’Android i iOS, preparada i revisada el 13 de novembre del 2024 amb avaluació externa del centre tecnològic CTIC. S’hi declara «parcialmente conforme» amb el Reial decret 1112/2018 i enumera el contingut no accessible: text alternatiu absent, contrast insuficient, impossibilitat de girar la pantalla, navegació per teclat inaccessible i mida de text del dispositiu no respectada.', {
           url: 'https://www.renfe.com/es/es/ayuda/informacion-legal-viajeros/accesibilidad-web/accesibilidad-app-renfe',
         }),
         mandatoryRetention: f('no', 'official', ['renfe-privacy-policy'], 'Cap de les dues polítiques invoca una norma que obligui a conservar les dades i impedeixi tancar el compte: el criteri declarat és el temps estrictament necessari «o hasta que solicite la supresión». Els terminis fiscals de la facturació afecten els justificants de compra, no l’existència del compte «Mi Renfe».'),
       },
       dataSummary:
-        'Un historial de bitllets de tren és un mapa de la vida d’una persona a escala estatal: on va, amb quina freqüència, amb qui i quan no és a casa. Que sigui una empresa pública qui el custodia no el fa menys revelador.',
+        'Un historial de bitllets de tren mostra on va una persona, amb quina freqüència, amb qui i quan no és a casa.',
       dataCollection: [
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'compliment-legal'], sources: ['renfe-privacy-policy', 'renfe-app-store'] }),
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'atencio-a-lusuari'], sources: ['renfe-privacy-policy', 'renfe-app-store'] }),
@@ -966,7 +966,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'És un bon exemple del patró que el briefing avisa per a l’administració pública: la base jurídica està ben identificada per a cada finalitat, però falten els terminis de conservació, el canal de vulnerabilitats i qualsevol informe de transparència. Hem preferit deixar-ho com a desconegut abans que llegir-ho com una absència provada.',
+          'La base jurídica està ben identificada per a cada finalitat, però falten els terminis de conservació, el canal de vulnerabilitats i qualsevol informe de transparència. Ho deixem com a desconegut i no com una absència provada.',
         openQuestions: [
           'Inclou l’àrea «Mi Renfe» una opció d’eliminació del compte sense escriure cap correu?',
           'Quins terminis de conservació concrets aplica Renfe a l’historial de bitllets?',
@@ -996,7 +996,7 @@ export const lot: SeedLot = {
       accountRequired: f('partial', 'official', ['vueling-app-store'], 'Es pot comprar sense compte, però l’etiqueta declara identificador d’usuari i el programa Vueling Club requereix registre.'),
       openSource: f('no', 'editorial', [], 'Aplicació privativa: no consta cap publicació del codi font.', { licence: 'Privativa' }),
       dataSummary:
-        'Una reserva de vol conté el nom legal, el document d’identitat, la data del viatge, els acompanyants i sovint dades d’assistència especial. És un dels conjunts de dades més sensibles del sector i, alhora, el que aquí està pitjor documentat.',
+        'Una reserva de vol conté el nom legal, el document d’identitat, la data del viatge, els acompanyants i sovint dades d’assistència especial. Vueling no publica la política completa que n’hauria d’explicar el tractament.',
       dataCollection: [
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'unknown', purposes: ['prestacio-del-servei', 'personalitzacio-de-continguts'], sources: ['vueling-app-store'] }),
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'yes', shared: 'unknown', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['vueling-app-store'], note: 'Declarada sota publicitat o màrqueting de l’editora i, com a dada de contacte, també sota seguiment.' }),
@@ -1054,7 +1054,7 @@ export const lot: SeedLot = {
         telemetryOptOut: unknown('No consta cap control sobre l’analítica.'),
         granularControls: unknown('No hem pogut revisar el panell de preferències del compte.'),
         defaultPosture: 'unknown',
-        darkPatterns: f('partial', 'editorial', [], 'Remetre a una política de privadesa completa que no és accessible a cap adreça pública deixa la persona usuària sense la informació que l’article 13 del RGPD exigeix facilitar. Ho anotem com a indici, no com a patró de disseny verificat.'),
+        darkPatterns: f('partial', 'editorial', [], 'Remetre a una política de privadesa completa que no és accessible a cap adreça pública deixa la persona usuària sense la informació que l’article 13 del RGPD exigeix facilitar. Ho anotem com a indici; no l’hem verificat com a patró de disseny.'),
       },
       security: {
         e2ee: na('El servei no transporta comunicacions privades entre persones usuàries.'),
@@ -1070,7 +1070,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'La troballa principal és documental: una companyia aèria amb desenes de milions de passatgers anuals no publica, en cap idioma del seu web, la política de privadesa que ella mateixa diu tenir. Tot el que hem pogut afirmar surt de l’etiqueta de l’App Store.',
+          'Una companyia aèria amb desenes de milions de passatgers anuals no publica, en cap idioma del seu web, la política de privadesa que ella mateixa diu tenir. Tot el que hem pogut afirmar surt de l’etiqueta de l’App Store.',
         openQuestions: [
           'On és publicada la «Política de Privacidad» completa a què remet la pàgina de compromís?',
           'Per què l’etiqueta de l’App Store declara l’accés als contactes del telèfon com a dada vinculada?',
@@ -1087,7 +1087,7 @@ export const lot: SeedLot = {
       categories: ['viatges-i-allotjament'],
       tagline: 'L’etiqueta de l’App Store només declara un identificador; la política descriu un perfil de viatger que s’envia a cada allotjament',
       summary:
-        'Booking.com és el cas més clar de distància entre el que es declara a la botiga i el que diu el document legal. A Apple hi consta un únic identificador no vinculat amb la identitat; a la política hi ha pagaments, acompanyants, gravacions de trucades, entrenament de models d’IA i un resum de conducta que s’envia a l’allotjament abans de l’arribada. No hi ha cap manera d’eliminar el compte sense passar pel formulari de drets.',
+        'Hi ha molta diferència entre el que Booking.com declara a la botiga i el que diu el document legal. A Apple hi consta un únic identificador no vinculat amb la identitat; a la política hi ha pagaments, acompanyants, gravacions de trucades, entrenament de models d’IA i un resum de conducta que s’envia a l’allotjament abans de l’arribada. No hi ha cap manera d’eliminar el compte sense passar pel formulari de drets.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'commerce',
       jurisdiction: 'Països Baixos',
@@ -1101,7 +1101,7 @@ export const lot: SeedLot = {
       accountRequired: f('partial', 'official', ['booking-privacy-policy'], 'Es pot reservar com a convidat, però el compte és necessari per gestionar les reserves i per als programes de fidelització.'),
       openSource: f('no', 'editorial', [], 'Aplicació privativa: no consta cap publicació del codi font.', { licence: 'Privativa' }),
       dataSummary:
-        'Una reserva d’allotjament diu on dorms, amb qui, quantes nits i quan la teva casa és buida. Booking hi afegeix la data de naixement, si viatges per feina i un historial de cancel·lacions i d’opinions que converteix la persona viatgera en un perfil reputacional.',
+        'Una reserva d’allotjament diu on dorms, amb qui, quantes nits i quan la teva casa és buida. Booking hi afegeix la data de naixement, si viatges per feina i un historial de cancel·lacions i d’opinions amb què fa un perfil reputacional de la persona viatgera.',
       dataCollection: [
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['booking-privacy-policy'], note: 'Es comunica a l’allotjament o al proveïdor de transport reservat.' }),
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['booking-privacy-policy'] }),
@@ -1139,7 +1139,7 @@ export const lot: SeedLot = {
       },
       transparency: {
         policyClarity: 'high',
-        transparencyReport: f('partial', 'official', ['booking-dsa'], 'Publica els informes que exigeix el Reglament de serveis digitals —articles 15, 24 i 42, avaluació de riscos i auditoria independent—, però cap informe sobre peticions de dades de les autoritats.'),
+        transparencyReport: f('partial', 'official', ['booking-dsa'], 'Publica els informes que exigeix el Reglament de serveis digitals (articles 15, 24 i 42, avaluació de riscos i auditoria independent), però cap informe sobre peticions de dades de les autoritats.'),
       },
       retention: {
         definedPeriods: f('partial', 'official', ['booking-privacy-policy'], 'La regla general és oberta. Els dos únics terminis numèrics són els de les gravacions de trucades.'),
@@ -1162,7 +1162,7 @@ export const lot: SeedLot = {
           'Respon les preguntes de comprovació sobre reserves anteriors si te les demanen.',
         ],
         obstacles:
-          'El formulari no indica cap termini de resposta i la verificació pot incloure preguntes sobre reserves passades. Convertir la baixa en un exercici formal de drets és, en si mateix, una fricció.',
+          'El formulari no indica cap termini de resposta i la verificació pot incloure preguntes sobre reserves passades. A més, la baixa exigeix un exercici formal de drets, que afegeix passos.',
         dataRetained: 'Dades comptables i fiscals i les necessàries per a la prevenció del frau i les reclamacions legals.',
         sources: ['booking-dsar-form', 'booking-privacy-policy'],
       },
@@ -1178,7 +1178,7 @@ export const lot: SeedLot = {
         telemetryOptOut: f('partial', 'official', ['booking-privacy-policy'], 'Les galetes analítiques es poden desactivar des de la configuració de galetes; no consta cap control equivalent per a la telemetria de l’aplicació.'),
         granularControls: f('yes', 'official', ['booking-privacy-policy', 'booking-dsar-form'], 'Configuració de galetes per categories, control de recomanacions i oposició específica a compartir dades amb Booking Holdings.'),
         defaultPosture: 'mixed',
-        darkPatterns: f('partial', 'editorial', ['booking-privacy-policy'], 'Que el control de recomanacions només valgui per al dispositiu on es fa servir obliga a repetir-lo indefinidament. No és un engany, però desplaça el cost de la privadesa a la persona usuària.'),
+        darkPatterns: f('partial', 'editorial', ['booking-privacy-policy'], 'El control de recomanacions només s’aplica al dispositiu on es fa servir i cal repetir-lo a cada telèfon i navegador. No el considerem enganyós, però la feina recau en la persona usuària.'),
         darkPatternList: [
           {
             type: 'hidden-exit',
@@ -1213,7 +1213,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'La troballa central és el perfil resumit del viatger que la política diu que s’envia a l’allotjament: nombre de reserves completades, percentatge de cancel·lacions prèvies i absència de reports de mala conducta. És una puntuació reputacional que la persona no veu i que no apareix enlloc de l’etiqueta de l’App Store.',
+          'La política diu que s’envia a l’allotjament un perfil resumit del viatger: nombre de reserves completades, percentatge de cancel·lacions prèvies i absència de reports de mala conducta. És una puntuació reputacional que la persona no veu i que no apareix enlloc de l’etiqueta de l’App Store.',
         openQuestions: [
           'Hi ha cap opció d’eliminació del compte dins de l’àrea autenticada, o el formulari és l’únic camí?',
           'Per què l’etiqueta de l’App Store no declara cap dada vinculada amb la identitat si la política en descriu tantes?',
@@ -1229,7 +1229,7 @@ export const lot: SeedLot = {
       categories: ['viatges-i-allotjament'],
       tagline: 'Baixa i exportació autoservei i esborrat dels comptes inactius als quatre anys, amb una etiqueta que ho declara gairebé tot vinculat a la identitat',
       summary:
-        'Airbnb documenta bé el camí de sortida: es pot desactivar o eliminar el compte des de la configuració, descarregar les dades sense formularis i els comptes inactius s’esborren automàticament als quatre anys, amb dos avisos previs. A canvi, l’etiqueta de l’App Store declara onze categories de dades, totes vinculades amb la identitat, i el tractament inclou verificació biomètrica i anàlisi de les converses entre persones usuàries.',
+        'Airbnb documenta bé el camí de sortida: es pot desactivar o eliminar el compte des de la configuració, descarregar les dades sense formularis i els comptes inactius s’esborren automàticament als quatre anys, amb dos avisos previs. D’altra banda, l’etiqueta de l’App Store declara onze categories de dades, totes vinculades amb la identitat, i el tractament inclou verificació biomètrica i anàlisi de les converses entre persones usuàries.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'commerce',
       jurisdiction: 'Irlanda',
@@ -1243,7 +1243,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['airbnb-privacy-policy'], 'No es pot reservar ni contactar amb un amfitrió sense compte verificat.'),
       openSource: f('no', 'editorial', [], 'Aplicació privativa, tot i que l’empresa publica biblioteques lliures sense relació amb el servei.', { licence: 'Privativa' }),
       dataSummary:
-        'L’historial d’estades és un registre d’on has dormit, amb qui i quan no eres a casa. A sobre, la plataforma verifica la identitat amb reconeixement facial i analitza les converses per detectar indicis de delictes: és de les poques aplicacions de consum que combina biometria, missatgeria i pagaments.',
+        'L’historial d’estades és un registre d’on has dormit, amb qui i quan no eres a casa. A més, la plataforma verifica la identitat amb reconeixement facial i analitza les converses per detectar indicis de delictes. Poques aplicacions de consum combinen biometria, missatgeria i pagaments.',
       dataCollection: [
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['airbnb-privacy-policy', 'airbnb-app-store'] }),
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['airbnb-privacy-policy', 'airbnb-app-store'] }),
@@ -1354,7 +1354,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'La política d’Airbnb està partida en dues capes i el contingut que obliga el RGPD —bases jurídiques, transferències, drets— és al suplement per a fora dels Estats Units, no al document principal. Qui llegeixi només la política general no trobarà cap mecanisme de transferència internacional.',
+          'La política d’Airbnb està partida en dues capes i el contingut que obliga el RGPD (bases jurídiques, transferències, drets) és al suplement per a fora dels Estats Units, no al document principal. Qui llegeixi només la política general no trobarà cap mecanisme de transferència internacional.',
         openQuestions: [
           'En quin format i en quin termini es lliura la còpia de dades descarregada?',
           'On publica Airbnb els informes de transparència que exigeix el Reglament de serveis digitals?',
@@ -1370,7 +1370,7 @@ export const lot: SeedLot = {
       categories: ['telecomunicacions', 'viatges-i-allotjament'],
       tagline: 'Un operador de dades mòbils amb seu irlandesa, perfils de màrqueting i cap informe de transparència',
       summary:
-        'Holafly ven targetes eSIM per a viatges i, per fer-ho, tracta identificadors de xarxa mòbil com l’IMSI, el MSISDN i l’adreça IP, que comparteix amb els operadors com a responsables independents. La política és recent i detallada i reconeix obertament l’elaboració de perfils de màrqueting i la publicitat programàtica. Malgrat tractar dades de connectivitat, no publica cap informe de transparència ni cap canal de seguretat.',
+        'Holafly ven targetes eSIM per a viatges i, per fer-ho, tracta identificadors de xarxa mòbil com l’IMSI, el MSISDN i l’adreça IP, que comparteix amb els operadors com a responsables independents. La política és recent i detallada i reconeix l’elaboració de perfils de màrqueting i la publicitat programàtica. Malgrat tractar dades de connectivitat, no publica cap informe de transparència ni cap canal de seguretat.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'commerce',
       jurisdiction: 'Irlanda',
@@ -1415,12 +1415,12 @@ export const lot: SeedLot = {
       sharing: {
         thirdPartySharing: f('yes', 'official', ['holafly-privacy-policy'], 'Operadors de telecomunicacions com a responsables independents, passarel·les de pagament, encarregats tecnològics, publicitat programàtica, assessors i clients corporatius.'),
         intraGroupSharing: f('yes', 'official', ['holafly-privacy-policy'], 'Compartició amb empreses del grup Holafly per a serveis intragrup.'),
-        dataBrokerSales: f('partial', 'official', ['holafly-privacy-policy'], 'No es declara cap venda, però la cessió a publicitat programàtica posa dades en mans d’un ecosistema d’intermediaris.'),
+        dataBrokerSales: f('partial', 'official', ['holafly-privacy-policy'], 'No es declara cap venda, però la cessió a publicitat programàtica fa arribar dades a una cadena d’intermediaris publicitaris.'),
         internationalTransfers: f('yes', 'official', ['holafly-privacy-policy'], 'Es reconeixen destinataris fora de l’Espai Econòmic Europeu sense decisió d’adequació, amb clàusules contractuals tipus i ús excepcional de les excepcions de l’article 49.', { mechanism: 'sccs' }),
       },
       transparency: {
         policyClarity: 'high',
-        transparencyReport: unknown('No hem trobat cap informe de transparència, cosa especialment rellevant en un servei que tracta identificadors de xarxa mòbil.'),
+        transparencyReport: unknown('No hem trobat cap informe de transparència, tot i que el servei tracta identificadors de xarxa mòbil.'),
       },
       retention: {
         definedPeriods: f('partial', 'official', ['holafly-privacy-policy'], 'Hi ha un termini clar per a les dades econòmiques i fiscals; la resta es lliga a la petició de supressió i al bloqueig per litigi.'),
@@ -1457,7 +1457,7 @@ export const lot: SeedLot = {
         telemetryOptOut: unknown('No consta cap control per desactivar l’analítica de l’aplicació.'),
         granularControls: f('partial', 'official', ['holafly-privacy-policy'], 'La configuració del compte permet actualitzar dades i gestionar les comunicacions, però no hi ha un panell per finalitat.'),
         defaultPosture: 'mixed',
-        darkPatterns: f('partial', 'editorial', ['holafly-app-store'], 'L’enllaç a la política de privadesa que publica la fitxa de l’App Store porta a una adreça que retorna un error: la informació obligatòria no és a un clic, com hauria de ser.'),
+        darkPatterns: f('partial', 'editorial', ['holafly-app-store'], 'L’enllaç a la política de privadesa que publica la fitxa de l’App Store porta a una adreça que retorna un error, de manera que la informació obligatòria no és accessible des de la fitxa.'),
       },
       security: {
         e2ee: na('El servei ven connectivitat; no transporta comunicacions pròpies entre persones usuàries.'),
@@ -1473,9 +1473,9 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'Contra el que fa pensar la marca, el responsable del tractament no és una societat espanyola sinó Holafly Limited, amb domicili a Dublín i número d’empresa 745325, i l’autoritat de referència és la irlandesa, no l’Agència Espanyola de Protecció de Dades. Tampoc hem localitzat cap avís legal, que la normativa espanyola de comerç electrònic exigeix.',
+          'Tot i que la marca és d’origen espanyol, el responsable del tractament és Holafly Limited, amb domicili a Dublín i número d’empresa 745325, i l’autoritat de referència és la irlandesa i no l’Agència Espanyola de Protecció de Dades. Tampoc hem localitzat cap avís legal, que la normativa espanyola de comerç electrònic exigeix.',
         openQuestions: [
-          'Quines certificacions acredita realment el centre de confiança allotjat a Vanta?',
+          'Quines certificacions acredita el centre de confiança allotjat a Vanta?',
           'Per què l’enllaç a la política de privadesa que publica la fitxa de l’App Store retorna un error?',
         ],
       },
@@ -1502,7 +1502,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['trip-com-privacy-policy'], 'El registre amb correu o telèfon és necessari per reservar i per gestionar les reserves.'),
       openSource: f('no', 'editorial', [], 'Aplicació privativa: no consta cap publicació del codi font.', { licence: 'Privativa' }),
       dataSummary:
-        'És el conjunt de dades més ampli del lot: passaport i fotografia del passaport, nacionalitat, número de document per als trens de la Xina continental, informació mèdica per a l’assistència d’emergència i documents sanitaris per justificar reemborsaments. Tot plegat és informació de l’article 9 del RGPD en mans d’un responsable establert fora de la Unió Europea.',
+        'Recull passaport i fotografia del passaport, nacionalitat, número de document per als trens de la Xina continental, informació mèdica per a l’assistència d’emergència i documents sanitaris per justificar reemborsaments. La informació mèdica és una categoria especial de l’article 9 del RGPD, i la tracta un responsable establert fora de la Unió Europea.',
       dataCollection: [
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['trip-com-privacy-policy', 'trip-com-app-store'] }),
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['trip-com-privacy-policy', 'trip-com-app-store'], note: 'La política declara que es comparteixen correus i telèfons xifrats amb Google, Facebook, TikTok i Bing per a publicitat.' }),
@@ -1595,9 +1595,9 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'Val la pena llegir junts dos fets: l’etiqueta de l’App Store no declara cap dada desvinculada de la identitat —tot el que recull ho lliga a la persona— i la política no diu a quin país van les dades. La combinació deixa la persona usuària sense saber ni què se separa del seu nom ni on acaba.',
+          'L’etiqueta de l’App Store no declara cap dada desvinculada de la identitat (tot el que recull ho lliga a la persona) i la política no diu a quin país van les dades. La persona usuària no pot saber quines dades se separen del seu nom ni on s’acaben tractant.',
         openQuestions: [
-          'A quins tercers països es transfereixen realment les dades, i en particular a la Xina continental?',
+          'A quins tercers països es transfereixen les dades, i en particular a la Xina continental?',
           'Quins són els passos i els terminis reals de la pàgina de cancel·lació del compte?',
         ],
       },
@@ -1609,9 +1609,9 @@ export const lot: SeedLot = {
       name: 'eDreams',
       company: 'vacaciones-edreams',
       categories: ['viatges-i-allotjament'],
-      tagline: 'Els terminis de conservació més concrets del lot, una política sense revisar des del 2023 i una sanció de nou milions per patrons foscos',
+      tagline: 'Terminis de conservació concrets, una política sense revisar des del 2023 i una sanció de nou milions per patrons foscos',
       summary:
-        'eDreams és alhora la millor i la pitjor documentació del lot. La política és la més precisa en terminis de conservació i en la llista de tractaments als quals et pots oposar, però no s’ha revisat des del juny del 2023, es carrega per JavaScript des d’un fitxer JSON i basa les transferències als sistemes globals de distribució en l’excepció contractual de l’article 49 en lloc de clàusules tipus. El febrer del 2026 l’autoritat italiana de la competència va multar el grup amb nou milions d’euros per patrons foscos a la subscripció Prime.',
+        'La política d’eDreams és precisa en terminis de conservació i en la llista de tractaments als quals et pots oposar, però no s’ha revisat des del juny del 2023, es carrega per JavaScript des d’un fitxer JSON i basa les transferències als sistemes globals de distribució en l’excepció contractual de l’article 49 en lloc de clàusules tipus. El febrer del 2026 l’autoritat italiana de la competència va multar el grup amb nou milions d’euros per patrons foscos a la subscripció Prime.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'commerce',
       jurisdiction: 'Espanya',
@@ -1625,7 +1625,7 @@ export const lot: SeedLot = {
       accountRequired: f('partial', 'official', ['edreams-privacy-policy'], 'Es pot comprar sense compte, però la subscripció Prime i la gestió de les reserves el requereixen.'),
       openSource: f('no', 'editorial', [], 'Aplicació privativa: no consta cap publicació del codi font.', { licence: 'Privativa' }),
       dataSummary:
-        'Un cercador de vols acumula les rutes que has mirat i no has comprat, que diuen tant com les que has comprat. eDreams hi suma el document de viatge, el mitjà de pagament guardat per defecte si ets Prime i un historial de cerques que declara a Apple com a dada de seguiment.',
+        'Un cercador de vols acumula també les rutes que has mirat i no has comprat. eDreams hi suma el document de viatge, el mitjà de pagament guardat per defecte si ets Prime i un historial de cerques que declara a Apple com a dada de seguiment.',
       dataCollection: [
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['edreams-privacy-policy', 'edreams-app-store'] }),
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['edreams-privacy-policy', 'edreams-app-store'] }),
@@ -1666,7 +1666,7 @@ export const lot: SeedLot = {
         transparencyReport: unknown('No hem trobat cap informe de transparència.'),
       },
       retention: {
-        definedPeriods: f('yes', 'official', ['edreams-privacy-policy'], 'És la política amb els terminis més concrets de tot el lot, amb una xifra per a cada tipus de tractament.'),
+        definedPeriods: f('yes', 'official', ['edreams-privacy-policy'], 'La política fixa un termini concret, amb una xifra, per a cada tipus de tractament.'),
         dataAfterDeletion: f('partial', 'official', ['edreams-privacy-policy'], 'La política adverteix que pot no ser possible esborrar-ho tot per raons contractuals, antifrau i legals, i que les còpies residuals de seguretat romanen fins a una setmana.'),
         periods: [
           { period: 'Màxim 5 anys des del final de l’últim viatge o de l’última acció al compte.', sources: ['edreams-privacy-policy'] },
@@ -1747,10 +1747,10 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'Tenim dues troballes que conviuen malament. La primera és positiva: cap altra política del lot dona terminis de conservació tan concrets ni llista tan bé a què et pots oposar. La segona és que el text no s’ha revisat des del juny del 2023 i que el web el serveix com un fitxer JSON per JavaScript, de manera que amb l’script desactivat la pàgina de la política queda pràcticament buida.',
+          'La política dona terminis de conservació concrets i llista bé a què et pots oposar. En canvi, el text no s’ha revisat des del juny del 2023 i el web el serveix com un fitxer JSON per JavaScript, de manera que amb l’script desactivat la pàgina de la política queda pràcticament buida.',
         openQuestions: [
           'Per què les transferències als sistemes globals de distribució es basen en l’excepció de l’article 49 i no en clàusules contractuals tipus?',
-          'Quina entitat és realment la responsable: la política diu Vacaciones eDreams S.L.U. i la fitxa de comerciant de l’App Store diu eDreams International Network, S.L.',
+          'Quina entitat és la responsable: la política diu Vacaciones eDreams S.L.U. i la fitxa de comerciant de l’App Store diu eDreams International Network, S.L.',
           'Hi ha cap expedient d’una autoritat de protecció de dades espanyola sobre la subscripció Prime?',
         ],
       },
@@ -1787,7 +1787,7 @@ export const lot: SeedLot = {
       occurredAt: '2026-02-04',
       disclosedAt: '2026-02-04',
       description:
-        'L’autoritat italiana de la competència i del mercat va sancionar Vacaciones eDreams, eDreams International Network i eDreams S.r.l. amb sis milions d’euros per fer servir patrons foscos, informació ambigua sobre què inclou la subscripció Prime i tècniques de pressió temporal i d’escassetat artificial per induir-hi les persones usuàries, i amb tres milions més, en solidari, per obstaculitzar l’exercici del dret de desistiment amb estratègies de retenció. No és una sanció de protecció de dades, sinó de dret de consum, però documenta el disseny de la interfície. El grup va anunciar que hi recorreria.',
+        'L’autoritat italiana de la competència i del mercat va sancionar Vacaciones eDreams, eDreams International Network i eDreams S.r.l. amb sis milions d’euros per fer servir patrons foscos, informació ambigua sobre què inclou la subscripció Prime i tècniques de pressió temporal i d’escassetat artificial per induir-hi les persones usuàries, i amb tres milions més, en solidari, per obstaculitzar l’exercici del dret de desistiment amb estratègies de retenció. La sanció es basa en el dret de consum i no en la normativa de protecció de dades, però documenta el disseny de la interfície. El grup va anunciar que hi recorreria.',
       affectedPeople: 'Persones usuàries de la plataforma a Itàlia; la subscripció Prime superava els set milions de persones el febrer del 2025.',
       regulatory: {
         authority: 'Autorità Garante della Concorrenza e del Mercato (Itàlia)',

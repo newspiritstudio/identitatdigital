@@ -111,9 +111,9 @@ export const lot: SeedLot = {
       name: 'Microsoft Teams',
       company: 'microsoft',
       categories: ['videoconferencia-i-feina', 'missatgeria'],
-      tagline: 'Cap dada per a seguiment, però qui controla la conversa és l’organització, no tu',
+      tagline: 'Cap dada per a seguiment; amb un compte de feina o d’escola, l’organització decideix què es conserva',
       summary:
-        'Teams no declara cap dada per a rastrejar-te entre aplicacions de tercers i les dades de client dels plans empresarials queden fora de qualsevol explotació publicitària. El preu és un altre: quan hi entres amb el compte de la feina o del centre educatiu, Microsoft actua com a encarregat i és l’organització qui decideix què es conserva, qui hi accedeix i quan es revisa. Els xats, les reunions i els fitxers queden retinguts i auditables segons les polítiques que fixa l’administrador, no tu.',
+        'Teams no declara cap dada per a rastrejar-te entre aplicacions de tercers, i les dades de client dels plans empresarials queden fora de qualsevol explotació publicitària. Quan hi entres amb el compte de la feina o del centre educatiu, Microsoft actua com a encarregat i és l’organització qui decideix què es conserva, qui hi accedeix i quan es revisa. Els xats, les reunions i els fitxers es conserven i es poden auditar segons les polítiques que fixa l’administrador.',
       platforms: ['ios', 'android', 'web', 'windows', 'macos', 'linux'],
       businessModel: 'freemium',
       jurisdiction: 'Irlanda',
@@ -127,7 +127,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['microsoft-privacy-statement'], 'Cal un compte de Microsoft personal o un compte d’empresa o de centre educatiu de Microsoft Entra ID.'),
       openSource: f('no', 'official', ['microsoft-privacy-statement'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'L’etiqueta de l’App Store declara ubicació exacta, contactes, fotografies, àudio i altres continguts vinculats a la identitat. En conjunt dibuixen amb qui parles, quan i des d’on: la graella de reunions d’una persona és un mapa complet de la seva jornada i de la seva xarxa professional. En els comptes corporatius, tot això és accessible per a l’organització a través de les eines de retenció i de descoberta electrònica.',
+        'L’etiqueta de l’App Store declara ubicació exacta, contactes, fotografies, àudio i altres continguts vinculats a la identitat. En conjunt mostren amb qui parles, quan i des d’on, i el calendari de reunions reflecteix la jornada i els contactes professionals de cada persona. En els comptes corporatius, l’organització hi pot accedir amb les eines de retenció i de descoberta electrònica.',
       dataCollection: [
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['microsoft-teams-app-store', 'microsoft-privacy-statement'] }),
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['microsoft-teams-app-store'] }),
@@ -238,7 +238,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'La lectura clau de Teams és que l’absència de seguiment publicitari no equival a control: en un compte corporatiu, la persona usuària no decideix la retenció, ni l’accés, ni la baixa. La fitxa ho separa del cas del compte personal per no confondre els dos règims.',
+          'Que Teams no faci seguiment publicitari no vol dir que la persona usuària controli les seves dades: en un compte corporatiu no decideix la retenció, ni l’accés, ni la baixa. La fitxa separa aquest cas del compte personal perquè són dos règims diferents.',
         openQuestions: [
           'Quins components de tercers incorpora exactament l’aplicació mòbil de Teams?',
           'Per què el xifratge d’extrem a extrem continua limitat a les trucades individuals i no s’estén als xats?',
@@ -254,7 +254,7 @@ export const lot: SeedLot = {
       categories: ['autenticacio-i-seguretat', 'utilitats'],
       tagline: 'Una aplicació de seguretat que declara ubicació exacta vinculada a la teva identitat',
       summary:
-        'Authenticator guarda les claus d’accés al Secure Enclave del telèfon i no les deixa sortir del dispositiu, cosa que el converteix en un segon factor resistent a la suplantació. Al mateix temps és l’única aplicació d’aquest lot que declara ubicació exacta vinculada a la identitat, perquè les notificacions d’inici de sessió mostren des d’on s’intenta entrar. Aquesta dada, acumulada, és un registre precís d’on ets cada vegada que t’autentiques.',
+        'Authenticator guarda les claus d’accés al Secure Enclave del telèfon i no les deixa sortir del dispositiu, de manera que funciona com a segon factor resistent a la suplantació. També declara ubicació exacta vinculada a la identitat, perquè les notificacions d’inici de sessió mostren des d’on s’intenta entrar. Acumulada, aquesta dada registra on eres cada vegada que t’has autenticat.',
       platforms: ['ios', 'android'],
       businessModel: 'freemium',
       jurisdiction: 'Irlanda',
@@ -267,7 +267,7 @@ export const lot: SeedLot = {
       accountRequired: f('partial', 'official', ['microsoft-authenticator-method'], 'Per als codis OATH de serveis de tercers no cal cap compte; per a les claus d’accés, l’inici de sessió sense contrasenya i la còpia de seguretat al núvol, sí.'),
       openSource: f('no', 'official', ['microsoft-privacy-statement'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'Un registre d’autenticacions és, de facto, un registre de presència: diu a quina hora comences a treballar, quan viatges i des de quin dispositiu entres a cada servei. Que l’etiqueta declari ubicació exacta vinculada a la identitat converteix aquest registre en una traça geogràfica.',
+        'Un registre d’autenticacions indica a quina hora comences a treballar, quan viatges i des de quin dispositiu entres a cada servei. Com que l’etiqueta declara ubicació exacta vinculada a la identitat, el registre també recull on era la persona en cada autenticació.',
       dataCollection: [
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['microsoft-authenticator-app-store'] }),
         row('identificador-de-compte', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei', 'seguretat-i-prevencio-del-frau'], sources: ['microsoft-authenticator-app-store'] }),
@@ -316,7 +316,7 @@ export const lot: SeedLot = {
           'Si també vols tancar el compte de Microsoft, obre la pàgina de tancament del compte, verifica la identitat, marca les caselles de comprovació i tria la finestra de reobertura de 30 o de 60 dies.',
         ],
         obstacles:
-          'Desinstal·lar l’aplicació sense haver registrat un altre segon factor pot deixar-te sense accés als comptes que en depenen. És un risc pràctic, no un patró enganyós.',
+          'Desinstal·lar l’aplicació sense haver registrat un altre segon factor pot deixar-te sense accés als comptes que en depenen. És un risc pràctic, que no classifiquem com a patró enganyós.',
         dataRetained: 'Els registres d’inici de sessió de l’organització es conserven segons les polítiques de Microsoft Entra ID de cada empresa.',
         sources: ['microsoft-close-account', 'microsoft-authenticator-method'],
       },
@@ -360,7 +360,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'La troballa que val la pena destacar és la ubicació exacta vinculada a la identitat en una aplicació de seguretat. Té una justificació raonable —mostrar des d’on prové un intent d’inici de sessió—, però convé saber-la, perquè acumulada és una traça geogràfica associada a cada autenticació.',
+          'L’aplicació de seguretat declara ubicació exacta vinculada a la identitat. Té una justificació raonable (mostrar des d’on prové un intent d’inici de sessió), però acumulada deixa un registre geogràfic associat a cada autenticació.',
         openQuestions: [
           'Quant de temps conserva Microsoft la ubicació associada a cada sol·licitud d’inici de sessió en comptes personals?',
           'Hi ha cap manera de desactivar la telemetria opcional des de l’aplicació?',
@@ -374,9 +374,9 @@ export const lot: SeedLot = {
       name: 'Microsoft Outlook',
       company: 'microsoft',
       categories: ['correu-electronic', 'ofimatica-i-productivitat'],
-      tagline: 'L’única aplicació del lot que declara seguiment entre aplicacions de tercers i publicitat amb el contingut del correu',
+      tagline: 'Declara seguiment entre aplicacions de tercers i publicitat amb el contingut del correu',
       summary:
-        'Outlook és el cas més delicat del lot. L’etiqueta de l’App Store declara dades d’ús utilitzades per rastrejar-te en aplicacions i llocs d’altres empreses, publicitat de tercers amb dades d’ús i de publicitat, i —el punt més rellevant— correus, missatges i historial de cerca emprats per a analítica i per a la personalització del producte. És a dir: la safata d’entrada no és només un magatzem, és una font de senyals.',
+        'L’etiqueta de l’App Store d’Outlook declara dades d’ús utilitzades per rastrejar-te en aplicacions i llocs d’altres empreses i publicitat de tercers amb dades d’ús i de publicitat. També declara que els correus, els missatges i l’historial de cerca s’utilitzen per a analítica i per personalitzar el producte, a més de desar-los.',
       platforms: ['ios', 'android', 'web', 'windows', 'macos'],
       businessModel: 'freemium',
       jurisdiction: 'Irlanda',
@@ -390,7 +390,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['microsoft-privacy-statement'], 'Cal un compte de correu; l’aplicació admet comptes de Microsoft i de tercers, com Gmail o IMAP.'),
       openSource: f('no', 'official', ['microsoft-privacy-statement'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'El correu ho conté tot: bancs, metges, advocats, relacions personals, compres i desplaçaments. Quan a això s’hi afegeixen els contactes, el calendari i l’historial de cerca dins de la bústia, el conjunt supera de llarg el que revela qualsevol xarxa social. El detall que ho agreuja és que l’etiqueta declara aquest contingut com a matèria primera d’analítica i de personalització, no només d’emmagatzematge.',
+        'El correu sol contenir comunicacions amb bancs, metges i advocats, relacions personals, compres i desplaçaments. S’hi afegeixen els contactes, el calendari i l’historial de cerca dins de la bústia. L’etiqueta declara que aquest contingut s’utilitza per a analítica i per a personalització, a més de desar-lo.',
       dataCollection: [
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['outlook-app-store'] }),
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['outlook-app-store'] }),
@@ -427,7 +427,7 @@ export const lot: SeedLot = {
       },
       transparency: {
         policyClarity: 'medium',
-        transparencyReport: f('yes', 'official', ['microsoft-law-enforcement-report'], 'A l’informe semestral, Microsoft desglossa les peticions de contingut —que en el cas del correu vol dir els missatges— de les de dades no de contingut.'),
+        transparencyReport: f('yes', 'official', ['microsoft-law-enforcement-report'], 'A l’informe semestral, Microsoft separa les peticions de contingut (en el cas del correu, els missatges) de les de dades no de contingut.'),
       },
       retention: {
         definedPeriods: f('partial', 'official', ['microsoft-privacy-statement', 'microsoft-trust-center-data-management'], 'Terminis concrets per a la baixa dels serveis empresarials, però criteris generals per al correu dels comptes personals.'),
@@ -512,7 +512,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'La dada que no consta resumida enlloc és que l’etiqueta d’Outlook declara el contingut dels correus i l’historial de cerca sota les finalitats d’analítica i de personalització del producte, i les dades d’ús com a dades de seguiment entre aplicacions de tercers. És l’única aplicació del lot que ho fa.',
+          'L’etiqueta d’Outlook declara el contingut dels correus i l’historial de cerca sota les finalitats d’analítica i de personalització del producte, i les dades d’ús com a dades de seguiment entre aplicacions de tercers.',
         openQuestions: [
           'Quin tractament concret rep el contingut dels correus sota la finalitat «Análisis de datos» declarada a l’App Store?',
           'El seguiment amb dades d’ús també s’aplica quan l’aplicació només gestiona comptes de tercers com Gmail o IMAP?',
@@ -528,7 +528,7 @@ export const lot: SeedLot = {
       categories: ['assistents-d-ia', 'ofimatica-i-productivitat'],
       tagline: 'L’antiga aplicació d’Office convertida en assistent d’IA, amb identificadors declarats per a seguiment',
       summary:
-        'Aquesta fitxa correspon a l’aplicació amb identificador de paquet com.microsoft.officemobile, que era la de Microsoft Office i ara es publica com a Microsoft Copilot. Declara identificadors utilitzats per rastrejar-te en aplicacions i llocs de tercers i publicitat de tercers amb la interacció amb el producte, cosa que la separa de Word i de Teams. A canvi, quan s’hi entra amb un compte empresarial, Microsoft es compromet a no fer servir les indicacions ni les respostes per entrenar els models de base.',
+        'Aquesta fitxa correspon a l’aplicació amb identificador de paquet com.microsoft.officemobile, que era la de Microsoft Office i ara es publica com a Microsoft Copilot. Declara identificadors utilitzats per rastrejar-te en aplicacions i llocs de tercers i publicitat de tercers amb la interacció amb el producte, cosa que Word i Teams no declaren. Quan s’hi entra amb un compte empresarial, Microsoft es compromet a no fer servir les indicacions ni les respostes per entrenar els models de base.',
       platforms: ['ios', 'android', 'web', 'windows'],
       businessModel: 'freemium',
       jurisdiction: 'Irlanda',
@@ -542,7 +542,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['microsoft-privacy-statement'], 'Cal un compte de Microsoft personal o un compte d’empresa o de centre educatiu per accedir a les funcions d’IA i als documents.'),
       openSource: f('no', 'official', ['microsoft-privacy-statement'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'El que escrius a un assistent és sovint més íntim que el que publiques enlloc: dubtes de salut, conflictes laborals, esborranys de cartes. Si a això s’hi suma que l’etiqueta declara identificadors per a seguiment i publicitat de tercers, el mateix compte que guarda les converses és el que alimenta la personalització publicitària del grup.',
+        'Les converses amb un assistent poden incloure dubtes de salut, conflictes laborals o esborranys de cartes. L’etiqueta declara identificadors per a seguiment i publicitat de tercers, i el compte que guarda les converses és el mateix que fa servir la personalització publicitària del grup.',
       dataCollection: [
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['microsoft-copilot-app-store'] }),
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['microsoft-copilot-app-store'] }),
@@ -657,7 +657,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'Convé deixar constància que l’identificador de paquet d’aquesta fitxa, com.microsoft.officemobile, és el de l’antiga aplicació de Microsoft Office: la fitxa documenta el producte tal com es publica avui, Microsoft Copilot. La documentació pública de Copilot està molt orientada al client empresarial i costa trobar-ne l’equivalent per al compte personal.',
+          'L’identificador de paquet d’aquesta fitxa, com.microsoft.officemobile, és el de l’antiga aplicació de Microsoft Office; la fitxa documenta el producte tal com es publica avui, Microsoft Copilot. La documentació pública de Copilot està molt orientada al client empresarial i costa trobar-ne l’equivalent per al compte personal.',
         openQuestions: [
           'Les converses de Copilot amb un compte personal de Microsoft s’utilitzen per entrenar models, i hi ha cap control per evitar-ho?',
           'Quins socis publicitaris reben exactament els identificadors declarats a l’etiqueta d’aquesta aplicació?',
@@ -671,9 +671,9 @@ export const lot: SeedLot = {
       name: 'Microsoft Word',
       company: 'microsoft',
       categories: ['ofimatica-i-productivitat'],
-      tagline: 'Sense seguiment declarat, però amb telemetria que no es pot apagar del tot',
+      tagline: 'Sense seguiment declarat, amb telemetria que no es pot desactivar del tot',
       summary:
-        'Word és l’aplicació més continguda del lot: l’etiqueta de l’App Store no declara cap dada utilitzada per rastrejar-te ni cap finalitat publicitària. El que sí que hi ha és telemetria estructural. Encara que es triï el nivell «cap» de dades de diagnòstic, Microsoft documenta que les dades de servei necessàries s’envien igualment des del dispositiu, i les experiències connectades que analitzen el contingut processen el text del document al núvol.',
+        'L’etiqueta de l’App Store de Word no declara cap dada utilitzada per rastrejar-te ni cap finalitat publicitària. Sí que hi ha telemetria que no es pot desactivar: encara que es triï el nivell «cap» de dades de diagnòstic, Microsoft documenta que les dades de servei necessàries s’envien igualment des del dispositiu, i les experiències connectades que analitzen el contingut processen el text del document al núvol.',
       platforms: ['ios', 'android', 'web', 'windows', 'macos'],
       businessModel: 'freemium',
       jurisdiction: 'Irlanda',
@@ -687,7 +687,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['microsoft-privacy-statement'], 'Cal iniciar la sessió amb un compte de Microsoft per editar documents a l’aplicació mòbil.'),
       openSource: f('no', 'official', ['microsoft-privacy-statement'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'Els documents d’una persona són esborranys de cartes de comiat, informes mèdics, contractes i currículums. La qüestió aquí no és la publicitat, que no hi és, sinó quina part d’aquest text viatja al núvol: les experiències connectades que analitzen el contingut, com el traductor o l’editor, hi envien el text seleccionat per poder funcionar.',
+        'Els documents poden incloure cartes de comiat, informes mèdics, contractes i currículums. L’aplicació no declara publicitat. Les experiències connectades que analitzen el contingut, com el traductor o l’editor, envien el text seleccionat al núvol per poder funcionar.',
       dataCollection: [
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['microsoft-word-app-store'] }),
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['prestacio-del-servei'], sources: ['microsoft-word-app-store'] }),
@@ -790,7 +790,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'La frase que val la pena rescatar de la documentació de Microsoft és que, encara que es triï el nivell «cap» de dades de diagnòstic, les dades de servei necessàries continuen sortint del dispositiu. És un límit estructural del producte, no una lletra petita anecdòtica.',
+          'La documentació de Microsoft indica que, encara que es triï el nivell «cap» de dades de diagnòstic, les dades de servei necessàries continuen sortint del dispositiu. És un límit del producte que afecta totes les persones usuàries.',
         openQuestions: [
           'Quines dades de servei necessàries envia exactament l’aplicació d’iOS quan el diagnòstic està desactivat?',
         ],
@@ -803,9 +803,9 @@ export const lot: SeedLot = {
       name: 'Microsoft Edge',
       company: 'microsoft',
       categories: ['navegadors', 'utilitats'],
-      tagline: 'Prevenció de seguiment activada per defecte, però en el nivell intermedi i amb contingut declarat per a seguiment',
+      tagline: 'Prevenció de seguiment activada per defecte en el nivell intermedi, i contingut declarat per a seguiment',
       summary:
-        'Edge porta prevenció de seguiment activada de sèrie, però en el nivell «equilibrat», que bloqueja els rastrejadors de tercers de llocs que no has visitat i deixa passar la resta. L’etiqueta de l’App Store declara, a més, contingut de la persona usuària com a dada utilitzada per rastrejar-la entre aplicacions i llocs d’altres empreses. Els controls existeixen i estan ben documentats; el que no és protector és la configuració que ve de fàbrica.',
+        'Edge porta prevenció de seguiment activada de sèrie, però en el nivell «equilibrat», que bloqueja els rastrejadors de tercers de llocs que no has visitat i deixa passar la resta. L’etiqueta de l’App Store declara, a més, contingut de la persona usuària com a dada utilitzada per rastrejar-la entre aplicacions i llocs d’altres empreses. Els controls existeixen i estan ben documentats, però la configuració de fàbrica no és la més protectora.',
       platforms: ['ios', 'android', 'windows', 'macos', 'linux'],
       businessModel: 'advertising',
       jurisdiction: 'Irlanda',
@@ -819,7 +819,7 @@ export const lot: SeedLot = {
       accountRequired: f('no', 'official', ['microsoft-edge-privacy-whitepaper'], 'Es pot navegar sense iniciar la sessió; el compte només cal per sincronitzar dades entre dispositius.'),
       openSource: f('partial', 'official', ['microsoft-edge-privacy-whitepaper'], 'Es basa en el projecte lliure Chromium, però les capes pròpies de Microsoft són privatives.', { licence: 'Privativa sobre base Chromium' }),
       dataSummary:
-        'L’historial de navegació és el document més revelador que genera una persona: hi consten les consultes de salut, les cerques de feina, les creences i les compres. Edge el vincula a la identitat quan s’inicia la sessió, i, si s’activa la personalització, l’envia a Microsoft per adaptar-hi els anuncis, les notícies i la cerca durant 180 dies.',
+        'L’historial de navegació pot incloure consultes de salut, cerques de feina, creences i compres. Edge el vincula a la identitat quan s’inicia la sessió, i, si s’activa la personalització, l’envia a Microsoft per adaptar-hi els anuncis, les notícies i la cerca durant 180 dies.',
       dataCollection: [
         row('historial-de-navegacio', 'yes', { linked: 'yes', tracking: 'no', shared: 'group', purposes: ['mesura-i-analisi-dus', 'personalitzacio-de-continguts', 'publicitat-personalitzada'], sources: ['microsoft-edge-app-store', 'microsoft-edge-privacy-whitepaper'], note: 'Amb la personalització activada, l’activitat de navegació s’envia a Microsoft i es conserva fins a 180 dies per personalitzar Bing, Microsoft News, els anuncis i els resultats de cerca.' }),
         row('historial-de-cerca', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'personalitzacio-de-continguts'], sources: ['microsoft-edge-privacy-whitepaper'], note: 'Els caràcters escrits a la barra d’adreces s’envien per defecte al cercador predeterminat; amb Bing s’hi afegeix un identificador de navegador reinicialitzable.' }),
@@ -939,7 +939,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'El document tècnic de privadesa d’Edge és dels més detallats que hem vist en aquesta onada i mereix reconeixement: dona terminis concrets i la ruta exacta de cada control. Això fa encara més visible el contrast amb la configuració de fàbrica, que deixa la prevenció de seguiment en el nivell intermedi.',
+          'El document tècnic de privadesa d’Edge és dels més detallats que hem vist en aquesta onada: dona terminis concrets i la ruta exacta de cada control. En canvi, la configuració de fàbrica deixa la prevenció de seguiment en el nivell intermedi.',
         openQuestions: [
           'Quin contingut de la persona usuària declara exactament l’etiqueta de l’App Store com a dada utilitzada per rastrejar-la?',
         ],

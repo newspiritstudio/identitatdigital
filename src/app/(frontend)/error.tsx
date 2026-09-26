@@ -18,7 +18,7 @@ export default function PageError({
     <div className="content-wrapper">
       <h1>Aquesta pàgina no s’ha pogut carregar</h1>
       <p className="lede">
-        És un error nostre, no teu. Torna-ho a provar d’aquí a una estona o ves a la{' '}
+        L’error és nostre. Torna-ho a provar d’aquí a una estona o ves a la{' '}
         <Link href="/">portada</Link>.
       </p>
       <p>

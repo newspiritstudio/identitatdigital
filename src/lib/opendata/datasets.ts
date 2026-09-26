@@ -88,7 +88,7 @@ const appsDataset: DatasetSpec = {
   title: 'Aplicacions',
   unit: 'Una fila per fitxa publicada.',
   description:
-    'El directori sencer amb les quatre puntuacions, la confiança, la cobertura i la versió de metodologia amb què s’han calculat. És el punt d’entrada: la columna «slug» enllaça amb tots els altres conjunts.',
+    'El directori sencer amb les quatre puntuacions, la confiança, la cobertura i la versió de metodologia amb què s’han calculat. La columna «slug» permet enllaçar-lo amb tots els altres conjunts.',
   columns: [
     {
       name: 'slug',
@@ -129,7 +129,7 @@ const appsDataset: DatasetSpec = {
       type: 'number',
       description: '0–100. Privadesa 0,45 · seguretat 0,30 · control 0,25.',
     },
-    { name: 'confianca', type: 'number', description: '0–100. Quant sabem, no com de bé ho fan.' },
+    { name: 'confianca', type: 'number', description: '0–100. Mesura quant hem pogut documentar, no la qualitat del servei.' },
     {
       name: 'cobertura',
       type: 'number',
@@ -215,7 +215,7 @@ const collectionDataset: DatasetSpec = {
   title: 'Recollida de dades',
   unit: 'Una fila per parella aplicació × tipus de dada documentada.',
   description:
-    'La matriu que sosté bona part de l’anàlisi transversal: quina aplicació recull quin tipus de dada, si queda vinculada a la identitat, si s’utilitza per fer seguiment i amb qui es comparteix. És el conjunt més útil per fer-hi preguntes noves.',
+    'La matriu que sosté bona part de l’anàlisi transversal: quina aplicació recull quin tipus de dada, si queda vinculada a la identitat, si s’utilitza per fer seguiment i amb qui es comparteix.',
   columns: [
     { name: 'aplicacio_slug', type: 'text', description: 'Clau cap a «aplicacions».' },
     { name: 'aplicacio', type: 'text', description: 'Nom del servei.' },
@@ -250,7 +250,7 @@ const collectionDataset: DatasetSpec = {
     {
       name: 'matis',
       type: 'text',
-      description: 'Aclariment editorial quan la casella sola enganyaria.',
+      description: 'Aclariment editorial quan el valor sol pot induir a error.',
     },
   ],
   build: ({ corpus }) => {
@@ -291,7 +291,7 @@ const indicatorsDataset: DatasetSpec = {
   title: 'Indicadors de puntuació',
   unit: 'Una fila per indicador de cada fitxa.',
   description:
-    'El desglossament complet de cada nota, tal com el desa el càlcul. Amb aquest conjunt i la metodologia publicada, qualsevol persona pot refer les puntuacions des de zero i comprovar si li surten les mateixes. Aquesta és la comprovació que fa que la resta del projecte sigui verificable i no només llegible.',
+    'El desglossament complet de cada nota, tal com el desa el càlcul. Amb aquest conjunt i la metodologia publicada, qualsevol persona pot refer les puntuacions des de zero i comprovar si li surten les mateixes.',
   columns: [
     { name: 'aplicacio_slug', type: 'text', description: 'Clau cap a «aplicacions».' },
     { name: 'indicador', type: 'text', description: 'Clau estable de l’indicador.' },
@@ -301,7 +301,7 @@ const indicatorsDataset: DatasetSpec = {
     {
       name: 'valor',
       type: 'number',
-      description: '0–1. Buit quan no hi ha evidència: buit no és zero.',
+      description: '0–1. Buit quan no hi ha evidència (buit no vol dir zero).',
     },
     {
       name: 'aplicable',
@@ -348,7 +348,7 @@ const companiesDataset: DatasetSpec = {
   title: 'Empreses i grups',
   unit: 'Una fila per empresa del catàleg.',
   description:
-    'Qui hi ha darrere de cada aplicació, amb la cadena de propietat fins a la matriu última. Serveix per veure quantes aplicacions aparentment independents acaben al mateix lloc.',
+    'Qui hi ha darrere de cada aplicació, amb la cadena de propietat fins a la matriu última. Permet veure quantes aplicacions aparentment independents pertanyen al mateix grup.',
   columns: [
     { name: 'slug', type: 'text', description: 'Clau primària.' },
     { name: 'nom', type: 'text', description: 'Nom comercial.' },
@@ -604,7 +604,7 @@ const darkPatternsDataset: DatasetSpec = {
   title: 'Patrons enganyosos',
   unit: 'Una fila per patró documentat a una fitxa.',
   description:
-    'Els patrons de disseny que empenyen cap a la decisió que convé al servei i no a la persona, documentats un per un amb la seva gravetat i les seves fonts. És el conjunt que fa servir l’anàlisi de patrons i el que més directament interessa a qui fa formació o inspecció.',
+    'Els patrons de disseny que empenyen cap a la decisió que convé al servei i no a la persona, documentats un per un amb la seva gravetat i les seves fonts. És el conjunt en què es basa l’anàlisi de patrons.',
   columns: [
     { name: 'aplicacio_slug', type: 'text', description: 'Clau cap a «aplicacions».' },
     { name: 'tipus', type: 'text', description: 'Tipus de patró.' },
@@ -638,7 +638,7 @@ const sourcesDataset: DatasetSpec = {
   title: 'Catàleg de fonts',
   unit: 'Una fila per font documental.',
   description:
-    'Tots els documents que sostenen les afirmacions del projecte, amb el seu tipus, la seva fiabilitat, la data de publicació, la data en què els vam consultar i l’enllaç a la còpia arxivada quan n’hi ha. Sense aquest conjunt, la resta són opinions.',
+    'Tots els documents que sostenen les afirmacions del projecte, amb el seu tipus, la seva fiabilitat, la data de publicació, la data en què els vam consultar i l’enllaç a la còpia arxivada quan n’hi ha.',
   columns: [
     {
       name: 'id',

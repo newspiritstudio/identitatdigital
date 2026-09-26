@@ -91,8 +91,8 @@ export default async function QueriesPage() {
     <div className="content-wrapper">
       <h1>Consultes creuades</h1>
       <p className="lede">
-        Preguntes que només es poden respondre si les fitxes estan estructurades. Cap d’aquestes
-        llistes s’ha escrit a mà: totes surten de consultar la base de dades.
+        Preguntes que només es poden respondre si les fitxes estan estructurades. Totes aquestes
+        llistes surten de consultar la base de dades, sense cap edició a mà.
       </p>
 
       <h2>On no et pots donar de baixa tot sol</h2>
@@ -152,7 +152,11 @@ export default async function QueriesPage() {
             {mostCollected.map(([key, count]) => (
               <tr key={key}>
                 <td>{dataTypeById.get(key)?.name ?? key}</td>
-                <td>{dataTypeById.get(key)?.sensitivity ?? '—'}</td>
+                <td>
+                  {typeof dataTypeById.get(key)?.sensitivity === 'number'
+                    ? `${dataTypeById.get(key)?.sensitivity} sobre 5`
+                    : '—'}
+                </td>
                 <td>
                   {count} de {allApps.length}
                 </td>

@@ -44,9 +44,9 @@ export default async function CompaniesPage() {
           <h1>Empreses i grups</h1>
         </div>
         <p className="lede">
-          El mapa dels principals grups digitals. La vista combina l’arbre de propietat, la
-          concentració d’aplicacions i les dades més habituals per mostrar qui domina el panorama i
-          quina responsabilitat real té cada empresa.
+          Els principals grups digitals del directori. La pàgina combina l’arbre de propietat, el
+          nombre d’aplicacions de cada grup i les dades que recullen més sovint, per veure quins grups
+          concentren més fitxes i quina empresa respon de cada servei.
         </p>
       </header>
 
@@ -118,7 +118,7 @@ export default async function CompaniesPage() {
               <dd>{pct(topGroupShare)}</dd>
             </div>
             <div>
-              <dt>Dada més frequent</dt>
+              <dt>Dada més freqüent</dt>
               <dd>{mostCollected ? mostCollected.name : '—'}</dd>
             </div>
             <div>
@@ -173,13 +173,13 @@ export default async function CompaniesPage() {
       <section className="company-dashboard company-dashboard--lower" aria-label="Dades i fluxos dels grups">
         <div className="company-panel company-panel--wide">
           <div className="company-panel-header">
-            <h2>Què acumula el grup principal</h2>
+            <h2>Dades més recollides pel grup principal</h2>
             <span className="company-panel-kicker">Dades</span>
           </div>
 
           <div className="company-top-data-list">
             {biggestGroupDataTypes.length === 0 ? (
-              <p className="company-empty-state">Aquest grup encara no té dades acumulades.</p>
+              <p className="company-empty-state">Encara no hi ha dades documentades d’aquest grup.</p>
             ) : (
               biggestGroupDataTypes.map((row) => (
                 <div key={row.dataTypeId} className="company-top-data-row">

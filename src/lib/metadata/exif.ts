@@ -232,7 +232,7 @@ export function readExif(bytes: Uint8Array, start: number, length: number, sourc
       value: `${lat.toFixed(6)}, ${lon.toFixed(6)}${gps.altitude !== null ? ` · ${Math.round(gps.altitude)} m` : ''}`,
       group: 'location',
       risk: 'high',
-      why: 'El punt exacte on es va fer la foto, sovint a pocs metres: casa teva, la feina, l’escola.',
+      why: 'El punt on es va fer la foto, sovint amb un marge de pocs metres: casa teva, la feina, l’escola.',
     })
   }
   const gpsDate = gpsEntries.get(29)

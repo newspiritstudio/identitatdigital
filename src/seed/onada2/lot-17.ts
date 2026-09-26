@@ -276,7 +276,7 @@ export const lot: SeedLot = {
     s('canvas-lms-app-store-privacy', 'Canvas by Instructure — Privacidad de la app', 'https://apps.apple.com/es/app/id480883488', 'Apple', 'app-store', 'primary', {
       language: 'es',
       summary:
-        'Etiqueta de privadesa d’Instructure. És l’única del lot que no declara cap dada utilitzada per rastrejar la persona a través d’altres empreses.',
+        'Etiqueta de privadesa d’Instructure. No declara cap dada utilitzada per rastrejar la persona a través d’altres empreses.',
     }),
     s('canvas-lms-privacy-notice', 'Instructure Product Privacy Notice', 'https://www.instructure.com/policies/privacy', 'Instructure, Inc.', 'privacy-policy', 'primary', {
       summary:
@@ -324,7 +324,7 @@ export const lot: SeedLot = {
     }),
     s('preply-delete-profile', 'How to delete your profile — Preply Help Center', 'https://help.preply.com/en/articles/4179308-how-to-delete-your-profile', 'Preply, Inc.', 'support-doc', 'primary', {
       summary:
-        'Passos reals per eliminar el perfil d’estudiant: botó vermell «Delete account» al final de la configuració i confirmació escrivint l’adreça electrònica.',
+        'Passos per eliminar el perfil d’estudiant: botó vermell «Delete account» al final de la configuració i confirmació escrivint l’adreça electrònica.',
     }),
   ],
 
@@ -335,7 +335,7 @@ export const lot: SeedLot = {
       name: 'Moodle',
       company: 'moodle-pty',
       categories: ['educacio'],
-      tagline: 'L’aplicació no recull res: qui decideix sobre les dades és el teu centre educatiu',
+      tagline: 'L’aplicació no recull dades i qui en decideix l’ús és el teu centre educatiu',
       summary:
         'Moodle és un client mòbil que es connecta al servidor Moodle del teu institut, universitat o empresa. Per això l’etiqueta de l’App Store diu que la desenvolupadora no recull cap dada: tot el que hi escrius, lliures o consultes queda al servidor del centre, que és el responsable del tractament i qui fixa els terminis i els drets. El programari és lliure i el codi de l’aplicació és públic, cosa que permet auditar què envia i cap on.',
       platforms: ['ios', 'android', 'web', 'windows', 'macos', 'linux'],
@@ -353,7 +353,7 @@ export const lot: SeedLot = {
         url: 'https://github.com/moodlehq/moodleapp',
       }),
       dataSummary:
-        'El conjunt de dades d’un Moodle de centre és un retrat acadèmic complet: quan es connecta cada persona, quant triga a lliurar, què escriu als fòrums, quines notes treu i quines converses manté amb el professorat. La diferència respecte de les altres fitxes del lot és que aquest retrat no surt del centre cap a una empresa de publicitat.',
+        'Un Moodle de centre registra quan es connecta cada persona, quant triga a lliurar, què escriu als fòrums, quines notes treu i quines converses manté amb el professorat. Aquestes dades no surten del centre cap a una empresa de publicitat.',
       dataCollection: [
         row('identificador-de-compte', 'yes', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['moodle-org-privacy'], note: 'El compte el gestiona la institució que opera el servidor.' }),
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['moodle-org-privacy'] }),
@@ -403,7 +403,7 @@ export const lot: SeedLot = {
           'Per a les dades que tracta Moodle Pty Ltd (moodle.org, MoodleCloud, formació), escriu a dpo@moodle.com.',
         ],
         obstacles:
-          'La responsabilitat repartida és garantia i alhora entrebanc: cal saber a quina de les dues organitzacions et toca reclamar, i la política del centre no sempre és fàcil de trobar.',
+          'Com que la responsabilitat està repartida, cal saber a quina de les dues organitzacions et toca reclamar, i la política del centre no sempre és fàcil de trobar.',
         sources: ['moodle-privacy-notice', 'moodle-org-privacy'],
       },
       userRights: {
@@ -445,7 +445,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'La lectura útil d’aquesta fitxa és que el risc no és a l’aplicació sinó al servidor: qui vulgui saber què se’n fa de les seves dades ha de demanar la política de privadesa del seu centre, no la de Moodle Pty Ltd.',
+          'Les dades es tracten al servidor del centre. Qui vulgui saber què se’n fa ha de demanar la política de privadesa del seu centre, i no la de Moodle Pty Ltd.',
         openQuestions: [
           'Quantes instal·lacions de Moodle als centres espanyols tenen activada l’eina de privadesa que permet demanar exportació i supressió des del perfil?',
           'L’aplicació envia alguna telemetria pròpia al fabricant, més enllà del trànsit amb el servidor del centre?',
@@ -461,7 +461,7 @@ export const lot: SeedLot = {
       categories: ['educacio'],
       tagline: 'Perfil públic per defecte, publicitat personalitzada i gravació de sessions dins l’aplicació',
       summary:
-        'Duolingo és l’aplicació educativa més descarregada i també la que més superfície de dades exposa d’aquest lot: el perfil és públic per defecte i indexable des d’internet, la política declara vuit famílies de dades utilitzades per rastrejar la persona a través d’altres empreses, i l’activitat dins l’aplicació es grava amb eines de reproducció de sessió. Les funcions de conversa amb IA envien text i àudio a OpenAI i a Google, i Duolingo en desa transcripcions per entrenar els seus propis models. A la Unió Europea la publicitat personalitzada està desactivada per defecte.',
+        'Duolingo és l’aplicació educativa més descarregada. El perfil és públic per defecte i indexable des d’internet, la política declara vuit famílies de dades utilitzades per rastrejar la persona a través d’altres empreses, i l’activitat dins l’aplicació es grava amb eines de reproducció de sessió. Les funcions de conversa amb IA envien text i àudio a OpenAI i a Google, i Duolingo en desa transcripcions per entrenar els seus propis models. A la Unió Europea la publicitat personalitzada està desactivada per defecte.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'freemium',
       jurisdiction: 'Estats Units; Duolingo, Inc. és la responsable del tractament també a la UE',
@@ -474,7 +474,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['duolingo-privacy-policy'], 'Cal registrar-se amb nom d’usuari, edat i adreça electrònica, o bé amb un compte de Google o de Facebook.'),
       openSource: f('no', 'official', ['duolingo-privacy-policy'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'La combinació de ratxa diària, hores de connexió, llengua que s’aprèn, contactes del telèfon i adreça IP dibuixa una rutina personal molt precisa. El perfil públic hi afegeix una capa poc habitual: el nom, la biografia i la xarxa de seguidors són visibles a tot internet si no es canvia la configuració.',
+        'La ratxa diària, les hores de connexió, la llengua que s’aprèn, els contactes del telèfon i l’adreça IP permeten reconstruir amb precisió la rutina d’una persona. A més, el nom, la biografia i la xarxa de seguidors del perfil són visibles a tot internet si no es canvia la configuració.',
       dataCollection: [
         row('identificador-de-compte', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['duolingo-privacy-policy', 'duolingo-app-store-privacy'] }),
         row('nom-i-cognoms', 'optional', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['duolingo-privacy-policy'], note: 'El nom forma part del perfil públic, visible per defecte a tot internet.' }),
@@ -555,7 +555,7 @@ export const lot: SeedLot = {
         telemetryOptOut: f('partial', 'official', ['duolingo-privacy-policy'], 'El commutador «Tracking» de la configuració atura FullStory i Session Replay, i hi ha un control separat per no cedir l’àudio per a la millora del producte. L’analítica bàsica no es pot desactivar.'),
         granularControls: f('yes', 'official', ['duolingo-privacy-policy'], 'Perfil públic o privat, sincronització de contactes, àudio, publicitat personalitzada i notificacions tenen controls separats.'),
         defaultPosture: 'mixed',
-        darkPatterns: f('partial', 'editorial', ['duolingo-privacy-policy'], 'El perfil públic per defecte és la decisió més discutible: la política admet que qualsevol web o robot d’extracció pot llegir-ne el contingut, i cal saber-ho per canviar-ho.'),
+        darkPatterns: f('partial', 'editorial', ['duolingo-privacy-policy'], 'El perfil és públic per defecte i la política admet que qualsevol web o robot d’extracció en pot llegir el contingut. Per canviar-ho, cal saber-ho i entrar a la configuració.'),
         darkPatternList: [
           {
             type: 'preselected',
@@ -588,7 +588,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'La política és de les més clares que hem llegit en tota l’onada: diu els noms de les xarxes publicitàries, explica el resum criptogràfic dels contactes i reconeix la gravació de sessions. Claredat no és el mateix que contenció: el que declara és molt.',
+          'La política és de les més clares que hem llegit en tota l’onada: diu els noms de les xarxes publicitàries, explica el resum criptogràfic dels contactes i reconeix la gravació de sessions. Tot i ser clara, declara molts tractaments.',
         openQuestions: [
           'Duolingo ofereix verificació en dos passos als comptes normals? No hem trobat documentació oficial.',
           'Quin percentatge de comptes europeus ha activat la publicitat personalitzada, que hi arriba desactivada?',
@@ -603,7 +603,7 @@ export const lot: SeedLot = {
       categories: ['educacio', 'assistents-d-ia'],
       tagline: 'Apunts compartits entre adolescents amb píxels de Meta, TikTok, Snap i LinkedIn a dins',
       summary:
-        'Knowunity és una xarxa d’apunts escolars amb un assistent d’IA, «SchoolGPT», dirigida a alumnat de secundària. La política de privadesa és de les més detallades del lot: diu el nom de cada encarregat i la base jurídica de cada tractament. Això fa visible el contrast: al costat del compromís contractual que cap proveïdor d’IA entreni models amb els textos de l’alumnat, hi ha píxels i SDK de Meta, TikTok, Snap, LinkedIn i Google per mesurar la captació publicitària.',
+        'Knowunity és una xarxa d’apunts escolars amb un assistent d’IA, «SchoolGPT», dirigida a alumnat de secundària. La política de privadesa és detallada: diu el nom de cada encarregat i la base jurídica de cada tractament. Hi consta el compromís contractual que cap proveïdor d’IA entreni models amb els textos de l’alumnat i, alhora, l’ús de píxels i SDK de Meta, TikTok, Snap, LinkedIn i Google per mesurar la captació publicitària.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'freemium',
       jurisdiction: 'Alemanya; Knowunity GmbH és la responsable del tractament',
@@ -616,7 +616,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['knowunity-privacy-policy'], 'Cal registrar-se amb adreça electrònica o amb un compte de Google o d’Apple; sense tractament de dades personals l’aplicació no funciona.'),
       openSource: f('no', 'official', ['knowunity-privacy-policy'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'El conjunt revela el curs, les assignatures que costen, què es pregunta a l’assistent d’IA a mitja nit i quins apunts es descarreguen abans d’un examen. Com que l’ús majoritari és d’adolescents, aquestes inferències recauen sobre persones menors d’edat, i una part es mesura amb píxels d’empreses publicitàries.',
+        'Aquestes dades mostren el curs, les assignatures que costen, què es pregunta a l’assistent d’IA i quins apunts es descarreguen abans d’un examen. Com que la majoria d’usuaris són adolescents, aquestes inferències afecten persones menors d’edat, i una part es mesura amb píxels d’empreses publicitàries.',
       dataCollection: [
         row('identificador-de-compte', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['knowunity-privacy-policy', 'knowunity-app-store-privacy'] }),
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['knowunity-privacy-policy'] }),
@@ -700,7 +700,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'El compromís contractual que cap proveïdor d’IA entreni models amb les entrades de l’alumnat és el més explícit que hem llegit en tota l’onada, i convé reconèixer-ho. Ara bé, conviu amb una densitat de píxels publicitaris poc habitual en un servei que sap que les seves persones usuàries són adolescents.',
+          'El compromís contractual que cap proveïdor d’IA entreni models amb les entrades de l’alumnat és el més explícit que hem llegit en tota l’onada. Conviu amb un nombre de píxels publicitaris poc habitual en un servei que sap que les seves persones usuàries són adolescents.',
         openQuestions: [
           'On és exactament l’opció d’eliminar el compte dins de l’aplicació? La política hi remet però no la descriu.',
           'Com es verifica l’edat i el consentiment parental de l’alumnat menor de setze anys?',
@@ -716,7 +716,7 @@ export const lot: SeedLot = {
       categories: ['educacio', 'assistents-d-ia'],
       tagline: 'La política nega el rastreig que la mateixa aplicació declara a l’App Store',
       summary:
-        'Astra AI és un tutor escolar d’IA amb responsable establert a Eslovènia i delegat de protecció de dades designat, cosa que el situa clarament sota el RGPD. El problema és la contradicció: la seva política afirma que no hi ha elaboració de perfils i que les dades no surten de la Unió Europea, mentre que l’etiqueta de l’App Store declara dades de contacte, identificadors i dades d’ús utilitzades per rastrejar la persona a través d’altres empreses, i el nom cedit per a publicitat de tercers. A més, la política descriu el lloc web, no l’aplicació, i no esmenta enlloc el tractament de les fotografies dels exercicis ni els models d’IA que els resolen.',
+        'Astra AI és un tutor escolar d’IA amb responsable establert a Eslovènia i delegat de protecció de dades designat, cosa que el situa sota el RGPD. La política afirma que no hi ha elaboració de perfils i que les dades no surten de la Unió Europea, però l’etiqueta de l’App Store declara dades de contacte, identificadors i dades d’ús utilitzades per rastrejar la persona a través d’altres empreses, i el nom cedit per a publicitat de tercers. A més, la política descriu el lloc web, no l’aplicació, i no esmenta el tractament de les fotografies dels exercicis ni els models d’IA que els resolen.',
       platforms: ['ios', 'android'],
       businessModel: 'freemium',
       jurisdiction: 'Eslovènia; Astra AI d.o.o. és la responsable del tractament',
@@ -729,7 +729,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['astra-ai-privacy-policy'], 'La política indica que facilitar dades personals és condició per utilitzar els serveis i que el registre és necessari per a la subscripció.'),
       openSource: f('no', 'official', ['astra-ai-privacy-policy'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'La política reconeix que es recullen el programa educatiu, el curs, l’any de secundària i les notes. És a dir: rendiment acadèmic identificat d’una persona menor d’edat. L’etiqueta hi afegeix fotografies dels exercicis i ubicació aproximada.',
+        'La política reconeix que es recullen el programa educatiu, el curs, l’any de secundària i les notes, és a dir, el rendiment acadèmic identificat d’una persona menor d’edat. L’etiqueta hi afegeix fotografies dels exercicis i ubicació aproximada.',
       dataCollection: [
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['astra-ai-privacy-policy', 'astra-ai-app-store-privacy'], note: 'L’etiqueta declara el nom com a dada cedida per a publicitat de tercers.' }),
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['astra-ai-privacy-policy', 'astra-ai-app-store-privacy'] }),
@@ -777,7 +777,7 @@ export const lot: SeedLot = {
           'La política es compromet a resoldre en un termini de deu dies.',
         ],
         obstacles:
-          'No hi ha cap botó documentat: el camí de sortida passa per escriure un correu i esperar. Per a una aplicació amb usuàries adolescents, és un obstacle real.',
+          'No hi ha cap botó documentat i l’única via és escriure un correu i esperar la resposta. Per a una aplicació amb usuàries adolescents, és un obstacle.',
         sources: ['astra-ai-privacy-policy'],
       },
       userRights: {
@@ -809,7 +809,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'La discrepància entre la política i l’etiqueta de l’App Store és la troballa d’aquesta fitxa. Totes dues són declaracions de la mateixa empresa, i no poden ser certes alhora: o hi ha publicitat de tercers i rastreig, o no n’hi ha.',
+          'La principal troballa d’aquesta fitxa és la discrepància entre la política i l’etiqueta de l’App Store. Totes dues són declaracions de la mateixa empresa i es contradiuen sobre si hi ha publicitat de tercers i rastreig.',
         openQuestions: [
           'Quins models d’IA processen les fotografies dels exercicis i on? La política no ho diu.',
           'Hi ha una opció d’eliminar el compte dins de l’aplicació, o l’única via és el correu electrònic?',
@@ -935,7 +935,7 @@ export const lot: SeedLot = {
       categories: ['educacio', 'assistents-d-ia'],
       tagline: 'Grava classes senceres, però la política de privadesa no esmenta l’àudio enlloc',
       summary:
-        'Kiwi AI converteix gravacions de classe, PDF i vídeos en apunts, fitxes i qüestionaris. L’etiqueta de l’App Store declara que recull dades d’àudio i fotografies vinculades a la identitat. La política de privadesa, generada amb una plantilla, no esmenta ni una sola vegada les gravacions, ni la transcripció, ni els models de llenguatge que generen els apunts: només parla d’analítica amb PostHog, pagaments amb Stripe i inici de sessió amb Google o Apple. Qui gravi una classe amb aquesta aplicació no té cap document que li digui on va aquell àudio.',
+        'Kiwi AI converteix gravacions de classe, PDF i vídeos en apunts, fitxes i qüestionaris. L’etiqueta de l’App Store declara que recull dades d’àudio i fotografies vinculades a la identitat. La política de privadesa, generada amb una plantilla, no esmenta les gravacions, ni la transcripció, ni els models de llenguatge que generen els apunts. Només parla d’analítica amb PostHog, pagaments amb Stripe i inici de sessió amb Google o Apple. Cap document explica on s’envia l’àudio gravat.',
       platforms: ['ios', 'web'],
       businessModel: 'freemium',
       jurisdiction: 'Itàlia; Blackboard Studio S.r.l. és la responsable del tractament',
@@ -948,7 +948,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['kiwi-ai-privacy-policy'], 'Cal crear un compte amb nom, cognoms, adreça electrònica i contrasenya, o bé amb Google o Apple.'),
       openSource: f('no', 'official', ['kiwi-ai-privacy-policy'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'Una gravació de classe no conté només la veu de qui la fa: conté la del professorat i la de tota la resta de l’aula, que no han consentit res. A això s’hi sumen els apunts, les cerques dins dels apunts i l’historial de navegació que recull PostHog.',
+        'Una gravació de classe conté la veu de qui la fa, la del professorat i la de la resta de l’aula, que no hi han donat el consentiment. S’hi sumen els apunts, les cerques dins dels apunts i l’historial de navegació que recull PostHog.',
       dataCollection: [
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['kiwi-ai-privacy-policy', 'kiwi-ai-app-store-privacy'] }),
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['kiwi-ai-privacy-policy'] }),
@@ -1028,7 +1028,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'El buit documental és la troballa: una aplicació la funció essencial de la qual és gravar l’aula té una política que no esmenta ni l’àudio ni la IA. Deixem gairebé tots els indicadors com a desconeguts perquè no hi ha cap document on basar-los, no perquè no els haguem buscat.',
+          'La principal troballa és el buit documental: una aplicació que serveix per gravar l’aula té una política que no esmenta ni l’àudio ni la IA. Gairebé tots els indicadors queden com a desconeguts perquè, després de buscar-los, no hem trobat cap document on basar-los.',
         openQuestions: [
           'A quins proveïdors s’envien les gravacions per transcriure-les i resumir-les?',
           'Quant de temps es conserven les gravacions als servidors i què passa en eliminar el compte?',
@@ -1045,7 +1045,7 @@ export const lot: SeedLot = {
       categories: ['educacio'],
       tagline: 'L’App Store enllaça un avís legal com si fos la política de privadesa',
       summary:
-        'AeolCloud és el client d’alumnat de Visual AEOL Cloud, el programari amb què moltes autoescoles espanyoles gestionen els tests teòrics. Cal un número de llicència que dona l’autoescola, i els resultats se sincronitzen amb el centre, que és qui els analitza. L’etiqueta de l’App Store declara que no es recull cap dada, i l’enllaç a la política de privadesa del desenvolupador porta a un avís legal que no descriu cap tractament: no hi ha, doncs, cap document públic que expliqui què fa el servei amb les dades de l’alumnat.',
+        'AeolCloud és el client d’alumnat de Visual AEOL Cloud, el programari amb què moltes autoescoles espanyoles gestionen els tests teòrics. Cal un número de llicència que dona l’autoescola, i els resultats se sincronitzen amb el centre, que és qui els analitza. L’etiqueta de l’App Store declara que no es recull cap dada, i l’enllaç a la política de privadesa del desenvolupador porta a un avís legal que no descriu cap tractament. Per tant, no hi ha cap document públic que expliqui què fa el servei amb les dades de l’alumnat.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'subscription',
       jurisdiction: 'Espanya',
@@ -1125,7 +1125,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'Aquesta fitxa té molts desconeguts perquè no hi ha res a llegir: l’únic document que l’empresa ofereix com a política de privadesa és un avís legal sobre propietat intel·lectual i responsabilitat per enllaços. Publicar una política de privadesa real seria la millora més barata i més gran que podria fer aquest servei.',
+          'Aquesta fitxa té molts desconeguts perquè l’únic document que l’empresa ofereix com a política de privadesa és un avís legal sobre propietat intel·lectual i responsabilitat per enllaços. La millora més senzilla i important que podria fer aquest servei és publicar una política de privadesa.',
         openQuestions: [
           'Existeix alguna política de privadesa d’AeolCloud que no hàgim sabut trobar?',
           'Qui és el responsable del tractament dels resultats dels tests: l’autoescola o AEOL Service?',
@@ -1139,9 +1139,9 @@ export const lot: SeedLot = {
       name: 'Canvas by Instructure',
       company: 'instructure',
       categories: ['educacio'],
-      tagline: 'Cap rastreig publicitari i, tot i així, la filtració educativa més gran documentada',
+      tagline: 'Sense rastreig publicitari, però amb la filtració educativa més gran documentada',
       summary:
-        'Canvas és l’aula virtual d’universitats i instituts de mig món, i la seva fitxa mostra les dues cares del model institucional. D’una banda, és l’única aplicació d’aquest lot que no declara cap dada utilitzada per rastrejar, l’avís diu expressament que no es fa publicitat a l’alumnat ni perfilat, el codi de Canvas LMS és lliure i hi ha certificacions ISO 27001 i SOC 2. De l’altra, el maig de 2026 una intrusió va exposar dades de prop de nou mil institucions, incloses universitats europees, i l’empresa va acabar pagant els extorsionadors. Concentrar les dades acadèmiques de mig món en un sol proveïdor és, en si mateix, el risc.',
+        'Canvas és l’aula virtual d’universitats i instituts de mig món. No declara cap dada utilitzada per rastrejar, l’avís diu expressament que no es fa publicitat a l’alumnat ni perfilat, el codi de Canvas LMS és lliure i hi ha certificacions ISO 27001 i SOC 2. Però el maig de 2026 una intrusió va exposar dades de prop de nou mil institucions, incloses universitats europees, i l’empresa va acabar pagant els extorsionadors. El risc principal ve de concentrar les dades acadèmiques de tantes institucions en un sol proveïdor.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'subscription',
       jurisdiction: 'Estats Units, amb el centre educatiu com a responsable del tractament a la UE',
@@ -1157,7 +1157,7 @@ export const lot: SeedLot = {
         url: 'https://github.com/instructure/canvas-lms',
       }),
       dataSummary:
-        'Canvas conté els lliuraments, les qualificacions, les converses amb el professorat i el registre de quan entra cadascú a cada recurs. Són dades acadèmiques de menors i de joves adults que, centralitzades, resulten un objectiu atractiu: la intrusió de 2026 ho va demostrar.',
+        'Canvas conté els lliuraments, les qualificacions, les converses amb el professorat i el registre de quan entra cadascú a cada recurs. Són dades acadèmiques de menors i de joves adults, i tenir-les centralitzades les converteix en un objectiu per als atacants, com va mostrar la intrusió de 2026.',
       dataCollection: [
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['canvas-lms-privacy-notice', 'canvas-lms-app-store-privacy'], note: 'Es comparteix amb el centre educatiu, que és el responsable del tractament.' }),
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['canvas-lms-app-store-privacy'] }),
@@ -1254,7 +1254,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'És l’aplicació del lot amb millors garanties documentals i, alhora, la que arrossega l’incident més greu. Val la pena llegir-la com un avís: les certificacions i l’absència de publicitat no substitueixen el risc de concentració.',
+          'Té bones garanties documentals, però ha patit un incident greu. Les certificacions i l’absència de publicitat no eliminen el risc de concentrar tantes dades en un sol proveïdor.',
         openQuestions: [
           'Quines institucions espanyoles van quedar afectades per la intrusió de maig de 2026 i què van comunicar a l’alumnat?',
           'Les dades de l’alumnat s’utilitzen per entrenar les funcions d’IA del producte?',
@@ -1270,7 +1270,7 @@ export const lot: SeedLot = {
       categories: ['educacio', 'assistents-d-ia'],
       tagline: 'Una política comuna a tot l’estudi que parla d’avatars i no del tutor d’anglès',
       summary:
-        'YayTalk ofereix converses en anglès amb un tutor d’intel·ligència artificial. La política de privadesa no és seva: és la que l’estudi de Singapur IdeaLabs aplica a totes les seves aplicacions, i parla sobretot de generació de vídeos i de fotografies amb IA, amb apartats sobre dades facials que aquí no vénen a tomb. El que sí que diu i afecta qui hi parli: la veu es processa amb OpenAI i amb un proveïdor extern, hi ha publicitat conductual amb AppsFlyer, Facebook i Firebase, i el contingut aportat es fa servir per entrenar els models de l’estudi.',
+        'YayTalk ofereix converses en anglès amb un tutor d’intel·ligència artificial. La política de privadesa és la que l’estudi de Singapur IdeaLabs aplica a totes les seves aplicacions i parla sobretot de generació de vídeos i de fotografies amb IA, amb apartats sobre dades facials que no afecten aquesta aplicació. Pel que fa a la conversa, diu que la veu es processa amb OpenAI i amb un proveïdor extern, hi ha publicitat conductual amb AppsFlyer, Facebook i Firebase, i el contingut aportat es fa servir per entrenar els models de l’estudi.',
       platforms: ['ios', 'android'],
       businessModel: 'freemium',
       jurisdiction: 'Singapur; IdeaLabs Pte. Ltd. es declara responsable del tractament als efectes del RGPD',
@@ -1283,7 +1283,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['yaytalk-app-store-privacy'], 'L’etiqueta declara nom i adreça electrònica recollits per a la funcionalitat de l’aplicació.'),
       openSource: f('no', 'official', ['yaytalk-privacy-policy'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'Practicar un idioma en veu alta és explicar-se: qui parla amb un tutor d’IA hi aboca feina, viatges, família i preocupacions. Aquesta conversa passa per OpenAI i per un proveïdor de veu no identificat, i la política admet que el contingut aportat serveix per entrenar models.',
+        'En una conversa per practicar un idioma sovint es parla de la feina, els viatges, la família o les preocupacions. Aquestes converses passen per OpenAI i per un proveïdor de veu no identificat, i la política admet que el contingut aportat serveix per entrenar models.',
       dataCollection: [
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['yaytalk-app-store-privacy'] }),
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'atencio-a-lusuari'], sources: ['yaytalk-app-store-privacy', 'yaytalk-privacy-policy'] }),
@@ -1364,7 +1364,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'La política de plantilla compartida entre aplicacions diferents és un problema documental de fons: qui la llegeix no pot saber quines frases l’afecten. Hi mantenim els indicadors que el text sosté i deixem com a desconegut tot el que només es podria endevinar.',
+          'Amb una política de plantilla compartida entre aplicacions diferents, qui la llegeix no pot saber quines frases l’afecten. Hi mantenim els indicadors que el text sosté i deixem com a desconegut tot el que només es podria endevinar.',
         openQuestions: [
           'Qui és el proveïdor extern que processa els missatges de veu? La política l’esmenta sense anomenar-lo.',
           'Les converses del tutor d’anglès entren dins de l’entrenament de models que la política descriu per al contingut de vídeo i fotografia?',
@@ -1381,7 +1381,7 @@ export const lot: SeedLot = {
       categories: ['educacio'],
       tagline: 'Classes per videoconferència amb gravacions que alimenten l’entrenament d’IA durant dos anys',
       summary:
-        'Preply connecta alumnat amb professorat particular per videoconferència. La política és de les més completes del lot i també de les que declaren més tractaments: gravacions de veu i de classe analitzades amb eines d’IA i conservades dos anys a la Unió Europea amb finalitat d’entrenament, verificació biomètrica de la identitat del professorat, obligacions fiscals DAC7 per a qui hi ensenya, i publicitat amb dades utilitzades per rastrejar a través d’altres empreses. L’eliminació del compte, en canvi, és senzilla i autoservei.',
+        'Preply connecta alumnat amb professorat particular per videoconferència. La política és completa i declara molts tractaments: gravacions de veu i de classe analitzades amb eines d’IA i conservades dos anys a la Unió Europea amb finalitat d’entrenament, verificació biomètrica de la identitat del professorat, obligacions fiscals DAC7 per a qui hi ensenya, i publicitat amb dades utilitzades per rastrejar a través d’altres empreses. L’eliminació del compte, en canvi, és senzilla i autoservei.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'commerce',
       jurisdiction: 'Estats Units, amb representant a la Unió Europea a Barcelona',
@@ -1394,7 +1394,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['preply-privacy-policy'], 'El web es pot consultar sense compte, però l’aplicació mòbil exigeix registrar-s’hi primer.'),
       openSource: f('no', 'official', ['preply-privacy-policy'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'Una hora de classe particular gravada conté molt més que vocabulari: motius per aprendre l’idioma, feina, projectes de migració i vida personal. Preply desa aquestes gravacions i les transcripcions, les analitza amb eines d’IA i les conserva dos anys amb finalitat d’entrenament.',
+        'Una classe particular gravada pot recollir els motius per aprendre l’idioma, la feina, projectes de migració i detalls de la vida personal. Preply desa aquestes gravacions i les transcripcions, les analitza amb eines d’IA i les conserva dos anys amb finalitat d’entrenament.',
       dataCollection: [
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['preply-privacy-policy', 'preply-app-store-privacy'] }),
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'yes', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['preply-privacy-policy', 'preply-app-store-privacy'] }),
@@ -1456,7 +1456,7 @@ export const lot: SeedLot = {
           'Abans de fer-ho, demana el reemborsament del saldo no utilitzat: eliminar el perfil no cancel·la les classes ni retorna els diners.',
         ],
         obstacles:
-          'El mateix centre d’ajuda avisa que la supressió no atura les classes ni retorna el saldo pendent, cosa que converteix un botó senzill en una decisió amb cost econòmic si no s’ordena bé.',
+          'El centre d’ajuda avisa que la supressió no atura les classes ni retorna el saldo pendent. Si no es demana abans el reemborsament, eliminar el compte pot costar diners.',
         dataRetained:
           'Contingut lligat a classes fetes amb altres persones i dades subjectes a obligacions fiscals i comptables.',
         sources: ['preply-delete-profile', 'preply-privacy-policy'],
@@ -1485,7 +1485,7 @@ export const lot: SeedLot = {
         ],
       },
       security: {
-        e2ee: na('La plataforma processa i analitza les classes, de manera que no pot ser cega als continguts.'),
+        e2ee: na('La plataforma processa i analitza les classes, i per tant ha de poder accedir als continguts.'),
         transportEncryption: f('partial', 'official', ['preply-privacy-policy'], 'La política diu que les dades de pagament es tracten xifrades pels proveïdors; no detalla la resta de la infraestructura.'),
         atRestEncryption: unknown('No consta informació pública sobre el xifratge en repòs.'),
         mfa: unknown('No hem trobat documentació oficial sobre verificació en dos passos, malgrat que hi ha queixes públiques de professorat per pagaments desviats després d’una suplantació.'),
@@ -1506,7 +1506,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'La conservació de dues anys de gravacions i transcripcions amb finalitat d’entrenament d’IA és la dada més rellevant d’aquesta fitxa, i està declarada amb claredat a la política. La mateixa política permet retirar el consentiment a l’anàlisi de les classes en vídeo.',
+          'La dada més rellevant d’aquesta fitxa és la conservació durant dos anys de gravacions i transcripcions amb finalitat d’entrenament d’IA, declarada amb claredat a la política. La mateixa política permet retirar el consentiment a l’anàlisi de les classes en vídeo.',
         openQuestions: [
           'Preply ofereix verificació en dos passos al professorat, que hi té ingressos associats?',
           'Quins proveïdors d’IA reben les gravacions i les transcripcions de les classes?',

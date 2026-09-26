@@ -349,9 +349,9 @@ export const lot: SeedLot = {
       name: 'Strava',
       company: 'strava-ireland',
       categories: ['benestar-i-activitat-fisica', 'xarxes-socials'],
-      tagline: 'Xarxa social d’esport on la privadesa depèn d’uns quants interruptors que no vénen posats',
+      tagline: 'Xarxa social d’esport en què els ajustos de privadesa s’han d’activar a mà',
       summary:
-        'Strava no és només un registre d’entrenaments: és una xarxa social on cada sortida porta el traçat GPS, l’hora i el ritme. L’etiqueta de l’App Store declara ubicació exacta, salut, contactes i fotos vinculades amb la persona, i compres i identificadors per rastrejar. La política designa Strava Ireland com a responsable a Europa i demana consentiment per a les dades de salut i per a les funcions d’IA. El problema històric no ha estat el que Strava ven, sinó el que ensenya per defecte: dues vegades, els traçats dels seus usuaris han revelat bases militars i els moviments d’escortes de caps d’estat.',
+        'Strava és un registre d’entrenaments i una xarxa social on cada sortida inclou el traçat GPS, l’hora i el ritme. L’etiqueta de l’App Store declara ubicació exacta, salut, contactes i fotos vinculades amb la persona, i compres i identificadors per rastrejar. La política designa Strava Ireland com a responsable a Europa i demana consentiment per a les dades de salut i per a les funcions d’IA. Els incidents coneguts vénen del que l’app mostra per defecte: en dues ocasions, els traçats dels usuaris han revelat bases militars i els moviments d’escortes de caps d’estat.',
       platforms: ['ios', 'android', 'web'],
       businessModel: 'freemium',
       jurisdiction: 'Irlanda (responsable a la UE), Estats Units',
@@ -363,7 +363,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['strava-privacy-policy'], 'El servei és una xarxa social: tot passa dins d’un compte amb perfil.'),
       openSource: f('no', 'official', ['strava-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'El conjunt revela on vius, a quina hora surts de casa, per on passes cada dia, amb qui entrenes i com està el teu cos. És una de les combinacions més delicades del directori: un historial de moviments amb marca de temps, lligat a un nom i a una freqüència cardíaca.',
+        'Juntes, aquestes dades revelen on vius, a quina hora surts de casa, quins recorreguts fas cada dia, amb qui entrenes i quina forma física tens. Formen un historial de moviments amb marca de temps lligat a un nom i a una freqüència cardíaca, una de les combinacions més delicades del directori.',
       dataCollection: [
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['strava-app-store', 'strava-privacy-policy'] }),
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['strava-app-store'], note: 'L’etiqueta la declara també per a publicitat i màrqueting del desenvolupador.' }),
@@ -434,7 +434,7 @@ export const lot: SeedLot = {
         telemetryOptOut: f('partial', 'official', ['strava-activity-privacy'], 'Desmarcar «Millora del producte» treu les activitats del mapa de calor global, però no atura la resta d’analítica.'),
         granularControls: f('yes', 'official', ['strava-activity-privacy'], 'Cada activitat es pot publicar per a tothom, només per a seguidors o només per a tu, i hi ha una preferència per defecte per a les noves.'),
         defaultPosture: 'mixed',
-        darkPatterns: f('partial', 'editorial', [], 'No hem documentat patrons enganyosos al consentiment, però el valor per defecte de les activitats és visible i alimenta el mapa de calor global mentre no es toqui res: la privadesa cal buscar-la, no ve donada.'),
+        darkPatterns: f('partial', 'editorial', [], 'No hem documentat patrons enganyosos al consentiment, però el valor per defecte de les activitats és visible i alimenta el mapa de calor global si no es canvia.'),
         darkPatternList: [
           {
             type: 'preselected',
@@ -468,7 +468,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'No hem trobat cap sanció del RGPD ni de l’AEPD contra Strava. Els dos incidents registrats no són bretxes de seguretat sinó conseqüències del disseny per defecte: dades que la gent publicava creient que no deien res.',
+          'No hem trobat cap sanció del RGPD ni de l’AEPD contra Strava. Els dos incidents registrats no van ser bretxes de seguretat, sinó dades que la gent publicava amb la configuració per defecte creient que no revelaven res.',
         openQuestions: [
           'Strava ofereix segon factor d’autenticació i amb quins mètodes?',
           'Quins socis publicitaris concrets hi ha darrere de les galetes de la web i de l’app?',
@@ -484,7 +484,7 @@ export const lot: SeedLot = {
       categories: ['traduccio-i-referencia'],
       tagline: 'A la versió gratuïta, el que tradueixes entrena el traductor; a la de pagament, no',
       summary:
-        'DeepL és una de les poques aplicacions d’aquest directori que no declara cap dada de rastreig ni cap dada vinculada amb la persona a l’etiqueta de l’App Store. La contrapartida és a la política: als serveis gratuïts, els textos que hi enganxes es tracten temporalment per entrenar les xarxes neuronals, i la companyia demana explícitament que no hi tradueixis dades personals. Amb DeepL Pro, els textos no es guarden ni s’usen per millorar els models, i ho ha verificat una auditoria SOC 2 Type II. És una empresa alemanya sota el RGPD i la llei federal alemanya, amb servidors a la UE.',
+        'DeepL és una de les poques aplicacions d’aquest directori que no declara cap dada de rastreig ni cap dada vinculada amb la persona a l’etiqueta de l’App Store. Segons la política, als serveis gratuïts els textos que hi enganxes es tracten temporalment per entrenar les xarxes neuronals, i la companyia demana explícitament que no hi tradueixis dades personals. Amb DeepL Pro, els textos no es guarden ni s’usen per millorar els models, i ho ha verificat una auditoria SOC 2 Type II. És una empresa alemanya sota el RGPD i la llei federal alemanya, amb servidors a la UE.',
       platforms: ['ios', 'android', 'web', 'windows', 'macos'],
       businessModel: 'freemium',
       jurisdiction: 'Alemanya',
@@ -496,7 +496,7 @@ export const lot: SeedLot = {
       accountRequired: f('no', 'official', ['deepl-privacy-policy'], 'Es pot traduir sense compte; el compte cal per a l’historial, els glossaris i les subscripcions Pro.'),
       openSource: f('no', 'official', ['deepl-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'El que tradueix una persona diu molt d’ella: contractes, correus, informes mèdics. La qüestió aquí no és el perfil publicitari, que no hi és, sinó si el text s’envia al servidor i s’hi queda. Amb el pla gratuït, sí, durant un temps limitat i per entrenar els models.',
+        'Els textos que es tradueixen poden ser contractes, correus o informes mèdics. DeepL no declara cap perfil publicitari; el que compta és si el text s’envia al servidor i s’hi conserva. Amb el pla gratuït s’hi conserva durant un temps limitat per entrenar els models.',
       dataCollection: [
         row('adreca-electronica', 'optional', { linked: 'no', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['deepl-app-store', 'deepl-privacy-policy'], note: 'L’etiqueta la declara com a dada no vinculada amb la persona, cosa poc habitual en un servei amb compte.' }),
         row('contingut-de-missatges', 'yes', { linked: 'no', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei', 'entrenament-de-models-dia'], sources: ['deepl-privacy-policy'], note: 'Els textos i documents del servei gratuït es tracten durant un període limitat per entrenar i millorar les xarxes neuronals. A DeepL Pro no es guarden ni s’usen per millorar els models.' }),
@@ -556,7 +556,7 @@ export const lot: SeedLot = {
       controls: {
         adPersonalizationOptOut: na('El producte no mostra publicitat.'),
         telemetryOptOut: unknown('No hem trobat un interruptor d’analítica dins de l’aplicació.'),
-        granularControls: f('partial', 'official', ['deepl-privacy-policy'], 'El control real és triar entre el pla gratuït i DeepL Pro: només el de pagament garanteix que els textos no s’usin per entrenar.'),
+        granularControls: f('partial', 'official', ['deepl-privacy-policy'], 'El control principal és triar entre el pla gratuït i DeepL Pro: només el de pagament garanteix que els textos no s’usin per entrenar.'),
         defaultPosture: 'mixed',
         darkPatterns: unknown('No hem documentat patrons enganyosos.'),
       },
@@ -582,7 +582,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'No hem trobat cap sanció del RGPD ni cap filtració documentada contra DeepL. L’advertiment més rellevant és seu: la política demana explícitament no traduir dades personals amb la versió gratuïta.',
+          'No hem trobat cap sanció del RGPD ni cap filtració documentada contra DeepL. La mateixa política demana explícitament no traduir dades personals amb la versió gratuïta.',
         openQuestions: [
           'Quant temps exactament es conserven els textos del servei gratuït abans d’esborrar-los?',
           'Hi ha recompensa econòmica al programa de divulgació de vulnerabilitats?',
@@ -596,9 +596,9 @@ export const lot: SeedLot = {
       name: 'Merlin Bird ID',
       company: 'cornell-lab-ornithology',
       categories: ['traduccio-i-referencia'],
-      tagline: 'Identificador d’ocells d’una universitat sense ànim de lucre: les dades van a la ciència, no a la publicitat',
+      tagline: 'Identificador d’ocells d’una universitat sense ànim de lucre, que fa servir les observacions per a la recerca i no per a publicitat',
       summary:
-        'Merlin identifica ocells per foto, per so i per descripció, i el publica el laboratori d’ornitologia de la Universitat Cornell. L’etiqueta de l’App Store no declara cap dada de rastreig i només vincula amb la persona l’identificador de compte. La contrapartida no és comercial sinó científica: si hi entres amb compte del Cornell Lab, les observacions que desis passen a eBird, una base de dades pública que consulten investigadors de tot el món, i queden visibles per a la resta de persones usuàries.',
+        'Merlin identifica ocells per foto, per so i per descripció, i el publica el laboratori d’ornitologia de la Universitat Cornell. L’etiqueta de l’App Store no declara cap dada de rastreig i només vincula amb la persona l’identificador de compte. Si hi entres amb compte del Cornell Lab, les observacions que desis passen a eBird, una base de dades pública que consulten investigadors de tot el món, i queden visibles per a la resta de persones usuàries.',
       platforms: ['ios', 'android'],
       businessModel: 'donations',
       jurisdiction: 'Estats Units',
@@ -611,7 +611,7 @@ export const lot: SeedLot = {
       accountRequired: f('partial', 'official', ['cornell-lab-privacy'], 'Es pot identificar sense compte; el compte del Cornell Lab cal per desar observacions i per lligar-les a eBird.'),
       openSource: f('no', 'official', ['merlin-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'Una observació d’ocell porta data, hora i coordenades. Un historial d’observacions és, de retruc, un historial de per on t’has mogut i a quina hora. La diferència respecte d’altres apps és que aquí aquesta informació va a una base de dades científica oberta, no a un mercat publicitari.',
+        'Cada observació d’ocell porta data, hora i coordenades, de manera que un historial d’observacions també és un historial de per on t’has mogut i a quina hora. Aquesta informació va a una base de dades científica oberta i no a un mercat publicitari.',
       dataCollection: [
         row('identificador-de-compte', 'optional', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['merlin-app-store'], note: 'És l’única categoria que l’etiqueta declara vinculada amb la persona.' }),
         row('adreca-electronica', 'optional', { linked: 'no', tracking: 'no', shared: 'unknown', purposes: ['prestacio-del-servei', 'atencio-a-lusuari'], sources: ['merlin-app-store', 'cornell-lab-privacy'], note: 'L’etiqueta la declara també per a publicitat o màrqueting del desenvolupador, que en aquest cas són les campanyes de socis i donacions del laboratori.' }),
@@ -690,7 +690,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'No hem trobat sancions ni filtracions que afectin el Cornell Lab of Ornithology, eBird o Merlin. El punt delicat de la fitxa no és la seguretat sinó la publicitat de les dades: les observacions són públiques per disseny i això no sempre és evident quan s’instal·la l’app per saber quin ocell canta al balcó.',
+          'No hem trobat sancions ni filtracions que afectin el Cornell Lab of Ornithology, eBird o Merlin. El punt delicat és que les observacions són públiques per disseny, cosa que no sempre és evident per a qui instal·la l’app només per identificar un ocell.',
         openQuestions: [
           'Les fotos i els enregistraments de Merlin serveixen per entrenar els models d’identificació?',
           'Què passa amb les observacions ja incorporades a eBird quan s’esborra el compte?',
@@ -707,7 +707,7 @@ export const lot: SeedLot = {
       categories: ['benestar-i-activitat-fisica'],
       tagline: 'Diari d’emocions sense ànim de lucre que, si no obres compte, no envia res al servidor',
       summary:
-        'How We Feel el publica una organització sense ànim de lucre fundada pel cofundador de Pinterest amb investigadors de Yale, Harvard i el MIT. La política diu una cosa que gairebé cap altra aplicació de benestar diu: sense compte, tot el que hi anotes es queda al dispositiu i l’organització no hi té accés. Amb compte, recull els registres d’emocions, les notes, les fotos, les notes de veu i, si ho actives, la ubicació per al temps i les dades d’Apple Salut. No ven dades ni en fa publicitat, i la compartició amb investigadors és voluntària i anonimitzada.',
+        'How We Feel el publica una organització sense ànim de lucre fundada pel cofundador de Pinterest amb investigadors de Yale, Harvard i el MIT. Segons la política, sense compte tot el que hi anotes es queda al dispositiu i l’organització no hi té accés, un compromís que gairebé cap altra aplicació de benestar fa. Amb compte, recull els registres d’emocions, les notes, les fotos, les notes de veu i, si ho actives, la ubicació per al temps i les dades d’Apple Salut. No ven dades ni en fa publicitat, i la compartició amb investigadors és voluntària i anonimitzada.',
       platforms: ['ios', 'android'],
       businessModel: 'donations',
       jurisdiction: 'Estats Units',
@@ -719,7 +719,7 @@ export const lot: SeedLot = {
       accountRequired: f('no', 'official', ['how-we-feel-privacy'], 'Es pot fer servir sense compte, i llavors les dades no surten del dispositiu.'),
       openSource: f('no', 'official', ['how-we-feel-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'Un registre diari d’emocions amb notes, fotos i àudio és un diari íntim. Lligat al son, a l’exercici i a la ubicació, descriu l’estat mental d’una persona dia a dia. Aquí el risc no és la venda, que la política exclou, sinó la concentració: tot aquest material en un sol compte d’una entitat petita.',
+        'Un registre diari d’emocions amb notes, fotos i àudio és un diari íntim; combinat amb el son, l’exercici i la ubicació, descriu l’estat mental d’una persona dia a dia. La política exclou la venda de dades. El risc que queda és que tot aquest material es concentra en un sol compte d’una entitat petita.',
       dataCollection: [
         row('identificador-de-compte', 'optional', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei', 'mesura-i-analisi-dus'], sources: ['how-we-feel-app-store'] }),
         row('nom-i-cognoms', 'optional', { linked: 'yes', tracking: 'no', shared: 'none', purposes: ['prestacio-del-servei'], sources: ['how-we-feel-app-store', 'how-we-feel-privacy'], note: 'Si entres amb Apple o Google, el nom arriba del proveïdor d’identitat.' }),
@@ -797,7 +797,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'No hem trobat sancions ni filtracions. La política és de les més clares del lot, però la part de seguretat tècnica no està documentada enlloc: per a un diari d’emocions, saber si el contingut es xifra al servidor seria decisiu.',
+          'No hem trobat sancions ni filtracions. La política és clara, però la part de seguretat tècnica no està documentada enlloc: en un diari d’emocions és especialment rellevant saber si el contingut es xifra al servidor.',
         openQuestions: [
           'Com es xifren les entrades del diari, les fotos i les notes de veu al servidor?',
           'Què diu exactament l’avís complementari sobre les funcions d’IA?',
@@ -814,7 +814,7 @@ export const lot: SeedLot = {
       categories: ['benestar-i-activitat-fisica'],
       tagline: 'App d’una cadena de gimnasos amb dues polítiques que no diuen el mateix',
       summary:
-        'L’aplicació de Fitness Park la construeix Virtuagym, un proveïdor neerlandès de programari per a gimnasos, i la fitxa de l’App Store enllaça la política d’aquest proveïdor. A Espanya, però, qui respon de les dades és Upgyms, S.L., de Barcelona, amb una política pròpia que descriu la foto del soci, les dades bancàries i les hores d’entrada i sortida del club. Les dues no encaixen: la política espanyola afirma que no hi ha transferències fora de la Unió Europea mentre fa servir Google Analytics, i remet les reclamacions a la CNIL francesa en comptes de l’AEPD.',
+        'L’aplicació de Fitness Park la construeix Virtuagym, un proveïdor neerlandès de programari per a gimnasos, i la fitxa de l’App Store enllaça la política d’aquest proveïdor. A Espanya, però, qui respon de les dades és Upgyms, S.L., de Barcelona, amb una política pròpia que descriu la foto del soci, les dades bancàries i les hores d’entrada i sortida del club. La política espanyola afirma que no hi ha transferències fora de la Unió Europea tot i fer servir Google Analytics, i remet les reclamacions a la CNIL francesa en comptes de l’AEPD.',
       platforms: ['ios', 'android'],
       businessModel: 'subscription',
       jurisdiction: 'Espanya',
@@ -826,7 +826,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['fitness-park-privacy'], 'L’aplicació és per als socis dels clubs: sense abonament no té funció.'),
       openSource: f('no', 'official', ['fitness-park-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'Les hores d’entrada i sortida del gimnàs són un registre de presència: diuen quan ets fora de casa i amb quina rutina. Sumades al pes, als entrenaments, a la foto i a les dades bancàries, componen un expedient de client amb dades de salut al mig.',
+        'Les hores d’entrada i sortida del gimnàs són un registre de presència que indica quan ets fora de casa i quina rutina tens. Amb el pes, els entrenaments, la foto i les dades bancàries, formen un expedient de client que inclou dades de salut.',
       dataCollection: [
         row('nom-i-cognoms', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['fitness-park-app-store', 'fitness-park-privacy'] }),
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['fitness-park-app-store', 'fitness-park-privacy'] }),
@@ -908,7 +908,7 @@ export const lot: SeedLot = {
           app: 'basic-fit',
           comparability: 'partial',
           rationale: 'Cadena equivalent al mercat espanyol, amb una app de funcions similars.',
-          tradeOffs: 'Canviar de gimnàs no és una decisió de privadesa: l’app ve amb l’abonament.',
+          tradeOffs: 'L’app va lligada a l’abonament: triar-ne una altra vol dir canviar de gimnàs.',
         },
       ],
       review: {
@@ -931,9 +931,9 @@ export const lot: SeedLot = {
       name: 'Cicla',
       company: 'cicla',
       categories: ['benestar-i-activitat-fisica'],
-      tagline: 'Calendari menstrual que promet no vendre res, amb una política massa curta per a les dades que tracta',
+      tagline: 'Calendari menstrual que es compromet a no vendre dades, amb una política massa breu per a les dades que tracta',
       summary:
-        'Cicla és un projecte català de seguiment del cicle menstrual fet per un equip de dones i sostingut amb donacions. Diu, i ho repeteix a la pàgina de compromisos, que no ven ni comparteix dades, i l’etiqueta de l’App Store no declara cap dada de rastreig ni cap dada vinculada amb la persona. Però la política és de 2021, no identifica cap responsable del tractament amb raó social ni NIF, no cita l’article 9 del RGPD per a unes dades que inclouen el desig sexual, i situa la base de dades a Supabase, una empresa amb seu a Singapur, sense esmentar cap mecanisme de transferència internacional.',
+        'Cicla és un projecte català de seguiment del cicle menstrual fet per un equip de dones i sostingut amb donacions. Afirma a la política i a la pàgina de compromisos que no ven ni comparteix dades, i l’etiqueta de l’App Store no declara cap dada de rastreig ni cap dada vinculada amb la persona. Però la política és de 2021, no identifica cap responsable del tractament amb raó social ni NIF, no cita l’article 9 del RGPD per a unes dades que inclouen el desig sexual, i situa la base de dades a Supabase, una empresa amb seu a Singapur, sense esmentar cap mecanisme de transferència internacional.',
       platforms: ['ios', 'android'],
       businessModel: 'donations',
       jurisdiction: 'Espanya',
@@ -1030,7 +1030,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'No hem trobat sancions de l’AEPD ni filtracions relacionades amb Cicla. Els informes generals sobre apps de menstruació (Privacy International, la UOC) no s’hi refereixen i no els hem atribuït a aquesta fitxa. La valoració baixa de la claredat no posa en dubte la intenció del projecte: la política és honesta però massa curta per a dades de l’article 9 del RGPD, i no identifica el responsable del tractament.',
+          'No hem trobat sancions de l’AEPD ni filtracions relacionades amb Cicla. Els informes generals sobre apps de menstruació (Privacy International, la UOC) no s’hi refereixen i no els hem atribuït a aquesta fitxa. La valoració baixa de la claredat no posa en dubte la intenció del projecte; la política és massa curta per a dades de l’article 9 del RGPD i no identifica el responsable del tractament.',
         openQuestions: [
           'Quina és la raó social i el NIF del responsable del tractament?',
           'Quin mecanisme empara l’ús de Supabase, amb seu social a Singapur?',
@@ -1134,7 +1134,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'No hem trobat incidents documentats. És una aplicació nova d’un estudi petit: la política és un text de plantilla que no descriu el producte que realment hi ha a l’App Store, i per això molts apartats queden com a desconeguts.',
+          'No hem trobat incidents documentats. És una aplicació nova d’un estudi petit: la política és un text de plantilla que no descriu el producte publicat a l’App Store, i per això molts apartats queden com a desconeguts.',
         openQuestions: [
           'Què fa exactament l’assistent d’IA amb les fotos i amb les preguntes que se li fan?',
           'Hi ha opció d’esborrar el compte dins de l’aplicació?',
@@ -1163,7 +1163,7 @@ export const lot: SeedLot = {
       accountRequired: f('no', 'official', ['traductor-go-app-store'], 'L’etiqueta declara totes les dades com a no vinculades amb la persona, cosa que indica que no cal registre.'),
       openSource: f('no', 'official', ['traductor-go-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'El que es tradueix sol ser privat, i la política no diu on va ni quant s’hi queda. El que sí que està documentat és la part publicitària: identificadors, ubicació a escala de ciutat i esdeveniments dins de l’aplicació cap a cinc plataformes grans.',
+        'Els textos que es tradueixen solen ser privats, i la política no diu on van ni quant de temps es conserven. Sí que documenta la part publicitària: identificadors, ubicació a escala de ciutat i esdeveniments dins de l’aplicació que s’envien a cinc plataformes grans.',
       dataCollection: [
         row('identificador-publicitari', 'yes', { linked: 'no', tracking: 'yes', shared: 'third-parties', purposes: ['publicitat-personalitzada', 'mesura-publicitaria'], sources: ['traductor-go-privacy'] }),
         row('identificador-de-dispositiu', 'yes', { linked: 'no', tracking: 'yes', shared: 'third-parties', purposes: ['mesura-i-analisi-dus', 'publicitat-personalitzada'], sources: ['traductor-go-app-store', 'traductor-go-privacy'] }),
@@ -1248,7 +1248,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'No hem trobat incidents documentats. La fitxa queda com a inicial perquè la política enllaçada no correspon al producte: descriu un escàner de documents i deixa sense respondre la pregunta central d’un traductor, què passa amb el text.',
+          'No hem trobat incidents documentats. La fitxa queda com a inicial perquè la política enllaçada no correspon al producte: descriu un escàner de documents i no explica què passa amb el text que es tradueix.',
         openQuestions: [
           'On s’envien i quant es conserven els textos, la veu i les imatges traduïdes?',
           'Quina relació hi ha entre el compte de desenvolupador Tung To Dinh i SmartTechnologyApp PTE. LTD.?',
@@ -1277,7 +1277,7 @@ export const lot: SeedLot = {
       accountRequired: f('yes', 'official', ['holodex-privacy'], 'La col·lecció es lliga a un compte, amb registre propi o amb Apple i Google.'),
       openSource: f('no', 'official', ['holodex-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'Una col·lecció escanejada és un inventari de béns amb valor de mercat, lligat a un correu i, segons l’etiqueta, a la ubicació exacta. És informació d’interès tant per a la publicitat com per a qualsevol que vulgui saber què guardes a casa.',
+        'Una col·lecció escanejada és un inventari de béns amb valor de mercat, lligat a un correu i, segons l’etiqueta, a la ubicació exacta. Aquesta informació pot interessar tant als anunciants com a qualsevol que vulgui saber què guardes a casa.',
       dataCollection: [
         row('adreca-electronica', 'yes', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei', 'publicitat-personalitzada'], sources: ['holodex-app-store', 'holodex-privacy'] }),
         row('nom-i-cognoms', 'optional', { linked: 'yes', tracking: 'no', shared: 'third-parties', purposes: ['prestacio-del-servei'], sources: ['holodex-app-store'] }),
@@ -1361,7 +1361,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'No hem trobat incidents documentats. El punt que menys s’aguanta és la ubicació: l’etiqueta la declara exacta, vinculada amb la persona i entre les dades de rastreig, i la política no explica quina funció d’un escàner de cartes la necessita.',
+          'No hem trobat incidents documentats. El punt menys justificat és la ubicació: l’etiqueta la declara exacta, vinculada amb la persona i entre les dades de rastreig, i la política no explica quina funció d’un escàner de cartes la necessita.',
         openQuestions: [
           'Per a què fa servir HoloDex la ubicació exacta?',
           'Les imatges de les cartes serveixen per entrenar el model de valoració?',
@@ -1376,9 +1376,9 @@ export const lot: SeedLot = {
       name: 'Test DGT 2026',
       company: 'vavien-technology',
       categories: ['educacio'],
-      tagline: 'Tests del carnet amb etiqueta neta i una política de privadesa que no és de l’empresa que la publica',
+      tagline: 'Tests del carnet amb una etiqueta de privadesa mínima i una política que no signa l’empresa que publica l’app',
       summary:
-        'Test DGT 2026 simula l’examen teòric de conduir. L’etiqueta de l’App Store és de les més sòbries del lot: només dades d’ús i diagnòstics, sense vincular amb la persona i sense rastreig. La contradicció és documental: el desenvolupador declarat és una societat amb domicili a Dublín, però la política de privadesa és un text allotjat a Google Sites signat per una persona física, que cita AdMob i Firebase, no fixa terminis de conservació i no descriu cap dret del RGPD.',
+        'Test DGT 2026 simula l’examen teòric de conduir. L’etiqueta de l’App Store és sòbria: només dades d’ús i diagnòstics, sense vincular amb la persona i sense rastreig. Les fonts no coincideixen. El desenvolupador declarat és una societat amb domicili a Dublín, però la política de privadesa és un text allotjat a Google Sites signat per una persona física, que cita AdMob i Firebase, no fixa terminis de conservació i no descriu cap dret del RGPD.',
       platforms: ['ios'],
       businessModel: 'freemium',
       jurisdiction: 'Irlanda',
@@ -1390,7 +1390,7 @@ export const lot: SeedLot = {
       accountRequired: f('no', 'official', ['test-dgt-app-store'], 'L’etiqueta no declara cap dada vinculada amb la persona, cosa que indica que no cal registre.'),
       openSource: f('no', 'official', ['test-dgt-app-store'], undefined, { licence: 'Privativa' }),
       dataSummary:
-        'El que es pot deduir d’aquesta aplicació és poc: quins temes falles i quantes vegades ho intentes. El risc no és el perfil sinó l’opacitat, perquè la política no diu qui respon ni durant quant de temps guarda res.',
+        'Les dades d’aquesta aplicació diuen poca cosa: quins temes falles i quantes vegades ho intentes. El que falta és transparència, perquè la política no diu qui en respon ni quant de temps conserva les dades.',
       dataCollection: [
         row('interaccions-i-us', 'yes', { linked: 'no', tracking: 'no', shared: 'third-parties', purposes: ['mesura-i-analisi-dus', 'millora-del-producte'], sources: ['test-dgt-app-store', 'test-dgt-privacy'], note: 'Estadístiques d’ús recollides amb Google Analytics for Firebase.' }),
         row('dades-de-diagnostic', 'yes', { linked: 'no', tracking: 'no', shared: 'third-parties', purposes: ['millora-del-producte'], sources: ['test-dgt-app-store', 'test-dgt-privacy'] }),
@@ -1460,7 +1460,7 @@ export const lot: SeedLot = {
         lastReviewedAt: WAVE2_DATE,
         incidentsReviewed: true,
         editorialNotes:
-          'No hem trobat incidents documentats. La fitxa queda com a inicial perquè la política enllaçada no la signa l’empresa que consta com a desenvolupadora i no cobreix els mínims del RGPD: ni responsable identificat, ni terminis, ni drets. L’etiqueta de l’App Store, en canvi, és neta, i les dues fonts no es poden conciliar sense provar l’aplicació.',
+          'No hem trobat incidents documentats. La fitxa queda com a inicial perquè la política enllaçada no la signa l’empresa que consta com a desenvolupadora i no cobreix els mínims del RGPD: ni responsable identificat, ni terminis, ni drets. L’etiqueta de l’App Store, en canvi, no declara rastreig ni dades vinculades, i les dues fonts no es poden conciliar sense provar l’aplicació.',
         openQuestions: [
           'Quina relació hi ha entre Vavien Technology Limited i la persona que signa la política?',
           'L’aplicació mostra anuncis d’AdMob i, si ho fa, són segmentats?',
@@ -1481,7 +1481,7 @@ export const lot: SeedLot = {
       occurredAt: '2017-11-01',
       disclosedAt: '2018-01-28',
       description:
-        'El mapa de calor global que Strava va publicar el novembre del 2017 agregava milers de milions de punts GPS d’activitats visibles per a tothom. En zones sense població civil, com deserts de Síria o l’Afganistan, els únics traçats eren els del personal militar que corria dins de bases i llocs d’escolta no declarats, cosa que en dibuixava el perímetre i les rutes de patrulla. Strava no va patir cap intrusió: la informació era pública perquè els comptes tenien la configuració per defecte. L’empresa va acabar restringint la visibilitat de les dades del mapa.',
+        'El mapa de calor global que Strava va publicar el novembre del 2017 agregava milers de milions de punts GPS d’activitats visibles per a tothom. En zones sense població civil, com deserts de Síria o l’Afganistan, els únics traçats eren els del personal militar que corria dins de bases i llocs d’escolta no declarats, cosa que en revelava el perímetre i les rutes de patrulla. Strava no va patir cap intrusió: la informació era pública perquè els comptes tenien la configuració per defecte. L’empresa va acabar restringint la visibilitat de les dades del mapa.',
       affectedPeople: 'Personal militar i de seguretat de diversos països que feia servir l’aplicació amb la configuració per defecte.',
       sources: ['strava-heatmap-guardian-2018'],
     },
