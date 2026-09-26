@@ -1276,7 +1276,7 @@ main > .apps-page-hero::before {
   max-width: 48rem;
   margin-top: 1.5rem;
   padding: 1rem 1.25rem;
-  border-left: 3px solid var(--line-strong);
+  border-radius: 0.6rem;
   background: color-mix(in srgb, var(--line) 25%, transparent);
 }
 

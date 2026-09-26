@@ -142,8 +142,6 @@
 /* ─────────────────────────────── resultats ───────────────────────────────── */
 
 .summary {
-  border-left: 3px solid var(--accent);
-  padding: 0.25rem 0 0.25rem 0.75rem;
   margin: 1.5rem 0 0;
 }
 

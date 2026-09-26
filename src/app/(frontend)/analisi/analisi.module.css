@@ -121,8 +121,6 @@
 }
 
 .note {
-  border-left: 3px solid var(--line);
-  padding-left: 0.8rem;
   margin: 1rem 0;
   color: var(--muted);
   font-size: 0.92rem;

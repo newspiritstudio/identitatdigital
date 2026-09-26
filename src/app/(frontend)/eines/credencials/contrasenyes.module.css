@@ -249,21 +249,20 @@
   margin-top: 0.9rem;
   padding: 0.75rem 1rem;
   border: 1px solid var(--line);
-  border-left-width: 4px;
   border-radius: 0.7rem;
   background: color-mix(in srgb, var(--surface) 55%, transparent);
 }
 
 .resultAlert {
-  border-left-color: var(--bad);
+  border-color: color-mix(in srgb, var(--bad) 50%, var(--line));
 }
 
 .resultOk {
-  border-left-color: var(--good);
+  border-color: color-mix(in srgb, var(--good) 50%, var(--line));
 }
 
 .resultUnknown {
-  border-left-color: var(--mid);
+  border-color: color-mix(in srgb, var(--mid) 50%, var(--line));
 }
 
 .result p {
