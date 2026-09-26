@@ -7,7 +7,7 @@ import ToolsStatus from './ToolsStatus'
 export const metadata: Metadata = {
   title: 'Eines',
   description:
-    'Diagnòstic d’identitat digital, filtracions i contrasenyes, metadades de fotos i documents i comparador d’aplicacions. Tot es calcula al teu navegador.',
+    'Diagnòstic d’identitat digital, filtracions i contrasenyes, metadades de fotos i documents i comparador d’aplicacions, calculats al teu navegador.',
 }
 
 /**
@@ -25,7 +25,9 @@ export default function ToolsPage() {
         <h1>Eines</h1>
         <p className="lede">
           Per passar de saber què fan amb les teves dades a fer-hi alguna cosa. Tot es calcula al
-          teu navegador: res del que hi posis no surt del dispositiu.
+          teu navegador. L’única excepció és la consulta de filtracions: l’adreça de correu va a
+          XposedOrNot, i de les contrasenyes només en surt el començament d’un resum, mai la
+          contrasenya.
         </p>
 
         <ToolsStatus />

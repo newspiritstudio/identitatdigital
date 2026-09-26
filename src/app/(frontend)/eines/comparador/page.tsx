@@ -38,6 +38,9 @@ export default async function ComparadorPage({
   return (
     <div className="content-wrapper">
       <div className="text-page tool-page">
+        <p className="meta">
+          <Link href="/eines">Eines</Link>
+        </p>
         <h1>Comparador i alternatives</h1>
         <p className="lede">
           Posa dues o tres fitxes de la mateixa categoria una al costat de l’altra, indicador per

@@ -262,9 +262,10 @@ function PassphrasePanel({ onSend }: { onSend: (value: string) => void }) {
     <section className={`card ${styles.tool}`} aria-labelledby="frases">
       <h3 id="frases">Frase de pas</h3>
       <p>
-        Sis paraules catalanes triades a l’atzar són 66 bits: resisteixen qualsevol atac de força
-        bruta d’avui i, a diferència d’una ristra de símbols, es poden recordar i teclejar. És el
-        que val la pena fer servir per a les poques contrasenyes que has de saber de memòria.
+        Sis paraules catalanes triades a l’atzar són 66 bits: n’hi ha prou per a gairebé qualsevol
+        compte i, a diferència d’una ristra de símbols, es poden recordar i teclejar. És el que val
+        la pena fer servir per a les poques contrasenyes que has de saber de memòria; per a la
+        mestra del gestor, posa’n set o vuit.
       </p>
 
       <fieldset className={styles.controls}>

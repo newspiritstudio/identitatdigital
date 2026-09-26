@@ -7,6 +7,7 @@ import { ownershipLabel, revenueModelLabel } from '@/lib/companies'
 import { countryName } from '@/lib/countries'
 import { supervisoryAuthorityName } from '@/lib/supervisory-authorities'
 import type { Company } from '@/payload-types'
+import { de } from '@/lib/apostrof'
 
 /** L'establiment a la UE és un codi de país o una societat amb la ciutat. */
 const establishmentLabel = (value: string) => (/^[A-Z]{2}$/.test(value) ? countryName(value) : value)
@@ -695,7 +696,7 @@ export function CompanyGraph({
           <svg
             viewBox={`0 0 ${nodes.width} ${nodes.height}`}
             role="img"
-            aria-label={`Diagrama del grup empresarial de ${company.name}`}
+            aria-label={`Diagrama del grup empresarial ${de(company.name)}`}
             className="company-graph-svg"
             preserveAspectRatio="xMidYMid meet"
             style={{
@@ -940,7 +941,7 @@ export function CompanyGraph({
         className="scroller company-graph-details"
         role="region"
         tabIndex={0}
-        aria-label={`Identificació de ${selectedCompany.name}`}
+        aria-label={`Identificació ${de(selectedCompany.name)}`}
       >
         <table>
           <caption className="visually-hidden">

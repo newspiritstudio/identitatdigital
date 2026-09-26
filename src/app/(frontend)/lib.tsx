@@ -4,6 +4,7 @@ import React from 'react'
 
 import config from '@/payload.config'
 import type { App, Media, Source } from '@/payload-types'
+import { de } from '@/lib/apostrof'
 
 /**
  * Utilitats compartides de la interfície de validació.
@@ -124,7 +125,7 @@ export function Logo({
   return (
     <Image
       src={src}
-      alt={media.alt ?? `Logotip de ${name}`}
+      alt={media.alt ?? `Logotip ${de(name)}`}
       width={size}
       height={size}
       className="logo"

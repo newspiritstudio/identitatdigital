@@ -12,6 +12,7 @@ import {
   type MfaMethod,
   type Snapshot,
 } from './types'
+import { de } from '@/lib/apostrof'
 
 /**
  * Pla d'acció personalitzat i senyals de risc.
@@ -222,7 +223,7 @@ const actionsForApp = (
           id: `password:${app.slug}`,
           kind: 'password',
           app,
-          title: `Canvia la contrasenya de ${app.name} si el compte és anterior a ${year ?? 'la filtració'}`,
+          title: `Canvia la contrasenya ${de(app.name)} si el compte és anterior a ${year ?? 'la filtració'}`,
           benefit:
             'Una contrasenya que ha sortit en una filtració ja és a les llistes que es proven automàticament contra tots els serveis.',
           detail: `${latest.title}${year ? ` (${year})` : ''} va exposar contrasenyes de comptes del servei. Si la vas fer servir també en un altre lloc, canvia-la allà primer.`,
@@ -250,6 +251,10 @@ const actionsForApp = (
   if (available(controls.mfa.status)) {
     const best = bestMfaMethod(controls.mfa.methods)
     const methods = controls.mfa.methods
+    /* «Parcial» vol dir que no hi ha un segon factor complet (Netflix només
+     * confirma amb un codi els accessos que troba sospitosos): l'acció no pot
+     * prometre el que el servei no ofereix. */
+    const partial = controls.mfa.status === 'partial'
     actions.push(
       finish(
         {
@@ -257,9 +262,12 @@ const actionsForApp = (
           id: `mfa:${app.slug}`,
           kind: 'mfa',
           app,
-          title: `Activa la verificació en dos passos a ${app.name}${best ? ` amb ${MFA_METHOD_LABELS[best]}` : ''}`,
-          benefit:
-            'Encara que algú aconsegueixi la contrasenya, sense el segon factor no pot entrar.',
+          title: partial
+            ? `Revisa la verificació d’accés ${de(app.name)}${best ? ` (${MFA_METHOD_LABELS[best]})` : ''}`
+            : `Activa la verificació en dos passos a ${app.name}${best ? ` amb ${MFA_METHOD_LABELS[best]}` : ''}`,
+          benefit: partial
+            ? 'No és un segon factor complet, però els codis de confirmació només serveixen si arriben a un correu i un telèfon que siguin teus i estiguin al dia.'
+            : 'Encara que algú aconsegueixi la contrasenya, sense el segon factor no pot entrar.',
           detail:
             details?.controls.mfa ??
             (methods.length > 0
@@ -270,7 +278,7 @@ const actionsForApp = (
               ? [
                   'L’únic mètode documentat és l’SMS: és millor que res, però es pot interceptar amb un duplicat de la targeta SIM.',
                 ]
-              : methods.includes('sms') && best !== null
+              : !partial && methods.includes('sms') && best !== null
                 ? [`Si pots triar, evita l’SMS i fes servir ${MFA_METHOD_LABELS[best]}.`]
                 : [],
           url: controls.mfa.url,
@@ -369,7 +377,7 @@ const actionsForApp = (
           id: `ai:${app.slug}`,
           kind: 'ai',
           app,
-          title: `Oposa’t a l’ús del teu contingut per entrenar la IA de ${app.name}`,
+          title: `Oposa’t a l’ús del teu contingut per entrenar la IA ${de(app.name)}`,
           benefit:
             'El que s’incorpora a un model no se’n pot treure després: l’oposició només té efecte cap endavant.',
           detail: details?.controls.aiTraining ?? null,
@@ -396,7 +404,7 @@ const actionsForApp = (
           id: `telemetry:${app.slug}`,
           kind: 'telemetry',
           app,
-          title: `Desactiva la telemetria de ${app.name}`,
+          title: `Desactiva la telemetria ${de(app.name)}`,
           benefit: 'Menys dades d’ús i del dispositiu que surten cap al fabricant.',
           detail: details?.controls.telemetryOptOut ?? null,
           url: controls.telemetryOptOut.url,
@@ -419,7 +427,7 @@ const actionsForApp = (
           id: `defaults:${app.slug}`,
           kind: 'defaults',
           app,
-          title: `Revisa la configuració de privadesa de ${app.name}`,
+          title: `Revisa la configuració de privadesa ${de(app.name)}`,
           benefit:
             'La fitxa documenta que el servei ve configurat per compartir tant com pot: el que no canviïs tu queda així.',
           url: app.controls.privacyCenter,
@@ -544,7 +552,7 @@ const deletionAction = (
       id: `delete:${app.slug}`,
       kind: 'delete',
       app,
-      title: `Esborra el compte de ${app.name}`,
+      title: `Esborra el compte ${de(app.name)}`,
       benefit:
         'Un compte que no fas servir continua acumulant dades i continua sent a les properes filtracions.',
       detail: `Dificultat documentada: ${DIFFICULTY_LABELS[deletion.difficulty]}.`,

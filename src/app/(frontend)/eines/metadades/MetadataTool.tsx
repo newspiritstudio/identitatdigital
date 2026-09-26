@@ -19,6 +19,7 @@ import {
 import { downloadBlob, useHydrated } from '@/lib/tools/useCopy'
 
 import styles from '../credencials/contrasenyes.module.css'
+import { de } from '@/lib/apostrof'
 
 /**
  * Inspector i netejador de metadades.
@@ -369,7 +370,7 @@ export default function MetadataTool() {
             <dd className={styles.count}>{withIdentity}</dd>
           </div>
           <div>
-            <dt>Identifiquen l’aparell</dt>
+            <dt>Identifiquen l’aparell concret</dt>
             <dd className={styles.count}>{withDevice}</dd>
           </div>
         </dl>
@@ -420,8 +421,8 @@ export default function MetadataTool() {
 
                     {item.inspection.gps ? (
                       <p className="metadata-gps">
-                        <strong>Ubicació exacta:</strong> {item.inspection.gps.lat.toFixed(5)},{' '}
-                        {item.inspection.gps.lon.toFixed(5)}.{' '}
+                        <strong>Ubicació exacta:</strong> {item.inspection.gps.lat.toFixed(6)},{' '}
+                        {item.inspection.gps.lon.toFixed(6)}.{' '}
                         <ExternalLink
                           href={osmUrl(item.inspection.gps.lat, item.inspection.gps.lon)}
                         >
@@ -501,7 +502,7 @@ export default function MetadataTool() {
                               <summary>Mostra la còpia neta</summary>
                               <figure>
                                 {/* eslint-disable-next-line @next/next/no-img-element -- és un blob local, no hi ha res a optimitzar */}
-                                <img src={item.clean.preview} alt={`Còpia neta de ${item.name}`} />
+                                <img src={item.clean.preview} alt={`Còpia neta ${de(item.name)}`} />
                                 <figcaption className="meta">
                                   La còpia neta: els píxels són exactament els mateixos, no s’ha
                                   tornat a comprimir.

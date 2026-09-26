@@ -7,6 +7,7 @@ import { Logo, getClient } from '../../lib'
 import { CompanyGraph, type GraphCompany } from './CompanyGraph'
 import { loadCorpus, relationId } from '@/lib/analysis'
 import type { Company, Media } from '@/payload-types'
+import { de } from '@/lib/apostrof'
 
 export const dynamic = 'force-dynamic'
 
@@ -195,7 +196,7 @@ export default async function CompanyPage({ params }: { params: Promise<{ slug: 
 
         <section>
           <h2>Informació addicional</h2>
-          <div className="scroller" role="region" tabIndex={0} aria-label={`Informació addicional de ${company.name}`}>
+          <div className="scroller" role="region" tabIndex={0} aria-label={`Informació addicional ${de(company.name)}`}>
             <table>
               <caption className="visually-hidden">Informació addicional de {company.name}</caption>
               <tbody>

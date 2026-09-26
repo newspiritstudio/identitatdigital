@@ -21,20 +21,35 @@
 /*
  * Contenidor desplaçable.
  *
- * La taula comparativa no cap en una pantalla estreta i no ha de cabre-hi: el
- * que no pot passar és que desbordi la pàgina sencera i deixi el text del
- * voltant inaccessible. Per això el desplaçament horitzontal viu aquí dins, i
- * el contenidor és focusable perquè també s'hi pugui arribar amb el teclat.
+ * En una pantalla ampla la taula hi cap sencera: columnes d'amplada fixa i el
+ * text que trenca dins de cada casella. Si les columnes creixien segons el
+ * contingut, la tercera fitxa quedava fora de la vista, darrere d'una barra de
+ * desplaçament que en molts sistemes no es veu, i semblava que no hi era.
+ * En pantalles estretes (vegeu més avall) sí que cal desplaçar-se de costat; el
+ * desplaçament viu aquí dins perquè no arrossegui la pàgina sencera, i el
+ * contenidor és focusable perquè també s'hi pugui arribar amb el teclat.
  */
 .scroller {
   overflow-x: auto;
   border: 1px solid var(--line);
+  border-radius: 0.85rem;
   margin: 0.75rem 0;
+  background: color-mix(in srgb, var(--surface) 55%, transparent);
 }
 
 .matrix {
-  min-width: 100%;
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
   font-size: 0.85rem;
+}
+
+/* `.text-page td:nth-child(2)` no parteix línies (és per a les taules de dues
+   columnes); aquí la segona columna és una fitxa més. Cal més especificitat
+   que aquella regla, que no depèn de l'ordre de càrrega. */
+.scroller .matrix th:nth-child(n),
+.scroller .matrix td:nth-child(n) {
+  white-space: normal;
 }
 
 .matrix caption {
@@ -47,7 +62,6 @@
 
 .matrix th,
 .matrix td {
-  min-width: 13rem;
   vertical-align: top;
   /* Les explicacions porten adreces llargues: que trenquin dins de la columna. */
   overflow-wrap: anywhere;
@@ -65,7 +79,7 @@
   z-index: 1;
   background: var(--bg);
   box-shadow: inset -1px 0 var(--line);
-  min-width: 14rem;
+  width: 26%;
 }
 
 /*
@@ -85,7 +99,12 @@
  * pitjor— però ocupa menys.
  */
 @media (max-width: 48rem) {
+  .matrix {
+    table-layout: auto;
+  }
+
   .matrix .rowHead {
+    width: auto;
     min-width: 9rem;
   }
 
@@ -134,6 +153,8 @@
 }
 
 .scoreBlock {
+  /* Bloc sencer: si no hi cap, baixa de línia en comptes de sortir de la cel·la. */
+  display: inline-block;
   white-space: nowrap;
 }
 

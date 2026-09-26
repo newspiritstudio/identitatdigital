@@ -117,8 +117,14 @@ main {
   border: 1px solid var(--header-border);
   border-radius: 1.2rem;
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08), inset 0 1px 1px rgba(255, 255, 255, 0.5), inset 0 -1px 1px rgba(255, 255, 255, 0.12);
-  -webkit-backdrop-filter: blur(30px) saturate(180%);
-  backdrop-filter: blur(30px) saturate(180%);
+  /*
+   * Només saturació, sense desenfocament. Darrere hi ha el degradat llis del
+   * cos, que desenfocat queda igual; en canvi, desenfocar una superfície de
+   * desenes de milers de píxels d'alçada obligava el navegador a refer-ho a
+   * cada scroll i deixava zones en blanc.
+   */
+  -webkit-backdrop-filter: saturate(180%);
+  backdrop-filter: saturate(180%);
 }
 
 .content-wrapper + .content-wrapper {

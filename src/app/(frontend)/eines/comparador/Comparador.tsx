@@ -28,6 +28,9 @@ import {
 
 /* ─────────────────────────── utilitats visuals ───────────────────────────── */
 
+/** Per escriure el límit en lletres, com la resta del text («de dues a tres»). */
+const COUNT_WORDS: Record<number, string> = { 2: 'dues', 3: 'tres', 4: 'quatre' }
+
 /**
  * Mateixos talls que la resta del lloc (`scoreClass` a `lib.tsx`). Es repeteix
  * aquí perquè aquell mòdul obre el client de Payload i no pot travessar la
@@ -348,8 +351,8 @@ export default function Comparador({
           <fieldset className={styles.picker}>
             <legend>Fitxes de {category.name}</legend>
             <p className="meta" id={`${ids}-limit`}>
-              De dues a {MAX_APPS} alhora. El màxim és {MAX_APPS} perquè amb quatre columnes la
-              taula deixa de ser llegible i la comparació deixa de servir de res.
+              De dues a {COUNT_WORDS[MAX_APPS] ?? MAX_APPS} alhora. Més columnes farien la taula
+              il·legible i la comparació deixaria de servir de res.
             </p>
             <div className="grid">
               {candidates.map((app) => {
@@ -389,7 +392,7 @@ export default function Comparador({
 
       {/* ─────────────────── Pas 3: la comparació ──────────────────────────── */}
       {chosen.length < 2 ? (
-        <p className="unknown">
+        <p className="meta">
           {category
             ? 'Tria almenys dues fitxes d’aquesta categoria per veure la comparació.'
             : 'Tria una categoria per començar.'}

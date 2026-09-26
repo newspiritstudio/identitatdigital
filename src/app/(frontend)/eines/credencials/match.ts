@@ -4,6 +4,7 @@ import type { XonBreach } from '@/lib/breaches/xposedornot'
 
 import { MFA_METHOD_LABELS, MFA_METHOD_RANK, type MfaMethod } from '../diagnostic/types'
 import type { CredApp, CredIndex } from './types'
+import { de } from '@/lib/apostrof'
 
 /**
  * Creuament del resultat de XposedOrNot amb el directori. Tot pur: rep el
@@ -264,9 +265,9 @@ export function buildEmailActions(
             : 'Amb el segon factor, la contrasenya sola ja no obre el compte.',
           because: [entry.breach.id],
           url: app.mfa.url ?? app.securityUrl,
-          urlLabel: app.mfa.url ?? app.securityUrl ? `Configuració de seguretat de ${app.name}` : null,
+          urlLabel: app.mfa.url ?? app.securityUrl ? `Configuració de seguretat ${de(app.name)}` : null,
           internalHref: `/aplicacions/${app.slug}`,
-          internalLabel: `Fitxa de ${app.name}`,
+          internalLabel: `Fitxa ${de(app.name)}`,
           factors,
         }),
       )

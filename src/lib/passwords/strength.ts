@@ -48,7 +48,7 @@ export function strengthLabel(bits: number): StrengthLabel {
       level: 'acceptable',
       tone: 'mid',
       advice:
-        'Raonable per a comptes de poca importància. Per al correu, el banc o el gestor de contrasenyes, val més pujar.',
+        'N’hi ha prou per a la majoria de comptes, sobretot si el servei desa les contrasenyes amb un resum lent. Per al correu o la contrasenya mestra del gestor, val més passar dels 80 bits.',
     }
   }
   if (bits < 100) {
@@ -62,7 +62,7 @@ export function strengthLabel(bits: number): StrengthLabel {
     level: 'molt forta',
     tone: 'good',
     advice:
-      'La contrasenya deixa de ser la baula feble: el risc passa a ser una filtració del servei o un enganyifa de suplantació.',
+      'La contrasenya deixa de ser la baula feble: el risc passa a ser una filtració del servei o una enganyifa de suplantació.',
   }
 }
 

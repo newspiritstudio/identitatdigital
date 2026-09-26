@@ -7,6 +7,7 @@ import { FLAG_LABELS, buildProcurementSheet, type FlagLevel } from '@/lib/procur
 
 import { getClient } from '../../lib'
 import { comparabilityLabel } from '@/lib/labels'
+import { de } from '@/lib/apostrof'
 
 export const dynamic = 'force-dynamic'
 
@@ -77,10 +78,10 @@ export default async function ProcurementPage({
         className="scroller"
         role="region"
         tabIndex={0}
-        aria-label={`Resum de la fitxa de contractació de ${sheet.name}`}
+        aria-label={`Resum de la fitxa de contractació ${de(sheet.name)}`}
       >
         <table>
-          <caption className="visually-hidden">{`Resum de la fitxa de contractació de ${sheet.name}`}</caption>
+          <caption className="visually-hidden">{`Resum de la fitxa de contractació ${de(sheet.name)}`}</caption>
           <tbody>
             <tr>
               <th scope="row">Servei</th>

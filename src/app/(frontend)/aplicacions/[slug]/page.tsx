@@ -13,6 +13,7 @@ import { breachMatchesApp, relationId } from '@/lib/analysis'
 import type { App, Breach, Category, Company, DataType, Incident, ProcessingPurpose } from '@/payload-types'
 import { countryName } from '@/lib/countries'
 import { darkPatternTypeLabel, regulatoryStatusLabel, researchStatusLabel, severityLabel } from '@/lib/labels'
+import { de } from '@/lib/apostrof'
 
 export const dynamic = 'force-dynamic'
 
@@ -197,7 +198,7 @@ export default async function AppPage({ params }: { params: Promise<{ slug: stri
   return (
     <div className="app-page" style={brand}>
       <div className="content-wrapper two-columns">
-      <aside className="app-sidebar" aria-label={`Resum de ${app.name}`}>
+      <aside className="app-sidebar" aria-label={`Resum ${de(app.name)}`}>
         <header className="app-identity">
           <h1 className={app.brandColor ? 'with-logo branded' : 'with-logo'}>
             <Logo logo={app.logo} name={app.name} size={140} />
@@ -303,7 +304,7 @@ export default async function AppPage({ params }: { params: Promise<{ slug: stri
 
       <section className="app-content">
 
-        <nav className="app-primary-links" aria-label={`Accions principals de ${app.name}`} style={brand}>
+        <nav className="app-primary-links" aria-label={`Accions principals ${de(app.name)}`} style={brand}>
           <ul>
             {app.links?.privacyPolicy ? (
               <li>
@@ -559,10 +560,10 @@ export default async function AppPage({ params }: { params: Promise<{ slug: stri
           className="scroller"
           role="region"
           tabIndex={0}
-          aria-label={`Bretxes de seguretat de ${app.name}, amb any, filtració i comptes afectats`}
+          aria-label={`Bretxes de seguretat ${de(app.name)}, amb any, filtració i comptes afectats`}
         >
           <table>
-            <caption className="visually-hidden">{`Bretxes de seguretat de ${app.name}, amb any, filtració i comptes afectats`}</caption>
+            <caption className="visually-hidden">{`Bretxes de seguretat ${de(app.name)}, amb any, filtració i comptes afectats`}</caption>
             <thead>
               <tr>
                 <th scope="col">Any</th>
@@ -703,10 +704,10 @@ export default async function AppPage({ params }: { params: Promise<{ slug: stri
         className="scroller"
         role="region"
         tabIndex={0}
-        aria-label={`Dades identificatives de ${app.name}`}
+        aria-label={`Dades identificatives ${de(app.name)}`}
       >
         <table>
-          <caption className="visually-hidden">{`Dades identificatives de ${app.name}`}</caption>
+          <caption className="visually-hidden">{`Dades identificatives ${de(app.name)}`}</caption>
           <tbody>
             <tr>
               <th scope="row">{isPublic ? 'Organisme responsable' : 'Empresa'}</th>
@@ -756,10 +757,10 @@ export default async function AppPage({ params }: { params: Promise<{ slug: stri
           className="scroller"
           role="region"
           tabIndex={0}
-          aria-label={`Incidents registrats de ${app.name}, amb any, gravetat, sanció i estat`}
+          aria-label={`Incidents registrats ${de(app.name)}, amb any, gravetat, sanció i estat`}
         >
           <table>
-            <caption className="visually-hidden">{`Incidents registrats de ${app.name}, amb any, gravetat, sanció i estat`}</caption>
+            <caption className="visually-hidden">{`Incidents registrats ${de(app.name)}, amb any, gravetat, sanció i estat`}</caption>
             <thead>
               <tr>
                 <th scope="col">Any</th>
