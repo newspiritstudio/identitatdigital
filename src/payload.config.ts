@@ -110,7 +110,7 @@ export default buildConfig({
     dateFormat: 'dd/MM/yyyy HH:mm',
     meta: {
       title: 'Panell d’edició',
-      titleSuffix: ' · identitat.digital',
+      titleSuffix: '· identitat.digital',
       metadataBase: new URL(env.publicAppUrl || 'http://localhost:3000'),
       description: 'Base de coneixement sobre privadesa digital',
       // Les icones i la imatge social són les del web, no les de sèrie del CMS.
