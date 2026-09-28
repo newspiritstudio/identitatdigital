@@ -19,7 +19,7 @@ export default function PageError({
       <h1>Aquesta pàgina no s’ha pogut carregar</h1>
       <p className="lede">
         L’error és nostre. Torna-ho a provar d’aquí a una estona o ves a la{' '}
-        <Link href="/">portada</Link>.
+        <Link href="/aplicacions">portada</Link>.
       </p>
       <p>
         <button type="button" onClick={() => retry()}>

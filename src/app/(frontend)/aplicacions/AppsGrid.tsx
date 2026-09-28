@@ -72,6 +72,9 @@ export default function AppsGrid({ apps }: Props) {
               key={app.id}
               href={`/aplicacions/${app.slug}`}
               className="app-card"
+              // Centenars de targetes: prebuscar-les en entrar a la vista eren
+              // desenes de peticions al servidor per pàgina oberta.
+              prefetch={false}
             >
               <div className="app-card-logo">
                 {logo?.url ? (

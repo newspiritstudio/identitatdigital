@@ -6,6 +6,11 @@ export default defineConfig([
   ...nextVitals,
   ...nextTypescript,
   {
+    /*
+     * Amb `version: 'detect'`, eslint-plugin-react crida una API que ESLint 10
+     * ja no té i falla abans de revisar res. Declarar-la evita la detecció.
+     */
+    settings: { react: { version: '19.3' } },
     rules: {
       '@typescript-eslint/ban-ts-comment': 'warn',
       '@typescript-eslint/no-explicit-any': 'warn',

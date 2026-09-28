@@ -1,7 +1,9 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
+import { headers } from 'next/headers'
 import Link from 'next/link'
 import React from 'react'
 
+import { fontVariables } from '../fonts'
 import './styles.css'
 import { MainNav } from './nav'
 import { THEME_INIT_SCRIPT, ThemeToggle } from './theme-toggle'
@@ -20,6 +22,14 @@ export const metadata: Metadata = {
   twitter: { card: 'summary' },
 }
 
+/** Color de la barra del navegador, d'acord amb el tema del sistema. */
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#f1f1f1' },
+    { media: '(prefers-color-scheme: dark)', color: '#02080d' },
+  ],
+}
+
 /**
  * Estructura comuna de totes les pàgines.
  *
@@ -33,19 +43,22 @@ export const metadata: Metadata = {
  *  - Noms a les regions de navegació. N'hi ha dues i, sense nom, un lector de
  *    pantalla les anuncia totes dues com a «navegació» i no es distingeixen.
  */
-export default function FrontendLayout({ children }: { children: React.ReactNode }) {
+export default async function FrontendLayout({ children }: { children: React.ReactNode }) {
+  // La política de seguretat només deixa executar scripts amb aquest `nonce`
+  // (`src/proxy.ts`); Next el posa als seus, i aquest és l'únic script propi.
+  const nonce = (await headers()).get('x-nonce') ?? undefined
   return (
     // Extensions com LanguageTool afegeixen atributs a <html> abans de la
     // hidratació; sense això, React ho marca com a error a cada càrrega.
-    <html lang="ca" suppressHydrationWarning>
+    <html lang="ca" className={fontVariables} suppressHydrationWarning>
       <body>
-        <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
+        <script nonce={nonce} dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
         <a className="skip-link" href="#contingut">
           Vés al contingut
         </a>
         <ThemeToggle />
         <header className="site-header">
-          <Link href="/" className="site-title">
+          <Link href="/aplicacions" className="site-title">
             <strong>identitat</strong>.digital
           </Link>
           <div className="site-header-tools">

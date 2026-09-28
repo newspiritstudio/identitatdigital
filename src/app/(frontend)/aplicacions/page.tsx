@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import { getClient } from '../lib'
 import AppsGrid from './AppsGrid'
 import DataFlowAnimation from './DataFlowAnimation'
-import { loadCorpus, relationId } from '@/lib/analysis'
+import { loadCorpus, memoizeOnCorpus, relationId } from '@/lib/analysis'
 
 export const dynamic = 'force-dynamic'
 
@@ -19,28 +19,28 @@ export default async function AppsPage() {
    * logotip fitxa per fitxa: milers de consultes per dibuixar una llista de
    * noms.
    */
-  const [corpus, media] = await Promise.all([
-    loadCorpus(payload),
-    payload.find({
+  const corpus = await loadCorpus(payload)
+  // El testimoni del corpus inclou la biblioteca multimèdia: la graella es
+  // calcula un cop per contingut i no a cada visita.
+  const apps = await memoizeOnCorpus(corpus, 'directory:apps', async () => {
+    const media = await payload.find({
       collection: 'media',
       limit: 0,
       pagination: false,
       depth: 0,
       overrideAccess: true,
       select: { alt: true, url: true, sizes: true },
-    }),
-  ])
-
-  const mediaById = new Map(media.docs.map((file) => [String(file.id), file]))
-
-  const apps = corpus.apps.map((app) => {
-    const logo = mediaById.get(relationId(app.logo) ?? '')
-    return {
-      id: app.id,
-      name: app.name,
-      slug: app.slug,
-      logo: logo ? { url: logo.sizes?.thumbnail?.url ?? logo.url, alt: logo.alt } : null,
-    }
+    })
+    const mediaById = new Map(media.docs.map((file) => [String(file.id), file]))
+    return corpus.apps.map((app) => {
+      const logo = mediaById.get(relationId(app.logo) ?? '')
+      return {
+        id: app.id,
+        name: app.name,
+        slug: app.slug,
+        logo: logo ? { url: logo.sizes?.thumbnail?.url ?? logo.url, alt: logo.alt } : null,
+      }
+    })
   })
 
   return (

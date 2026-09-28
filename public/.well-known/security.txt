@@ -1,0 +1,6 @@
+# Si has trobat una vulnerabilitat a identitat.digital, escriu-nos.
+# Si has trobat una vulnerabilidad, escríbenos. / Found a vulnerability? Write to us.
+Contact: mailto:hola@identitat.digital
+Expires: 2027-09-28T00:00:00.000Z
+Preferred-Languages: ca, es, en
+Canonical: https://identitat.digital/.well-known/security.txt

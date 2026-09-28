@@ -4,6 +4,7 @@ import {
   at,
   factStatus,
   loadCorpus,
+  memoizeOnCorpus,
   localizedText,
   relationId,
   relationIds,
@@ -703,16 +704,24 @@ export const datasetByKey = (key: string): DatasetSpec | undefined =>
  * les fonts es carreguen a part perquè no formen part del corpus d'anàlisi.
  */
 export const loadExportInput = async (payload: Payload): Promise<ExportInput> => {
-  const [corpus, sources] = await Promise.all([
-    loadCorpus(payload),
-    payload.find({
+  const corpus = await loadCorpus(payload)
+  // Una sola lectura de les fonts per corpus: el testimoni del corpus ja
+  // inclou la col·lecció `sources`, de manera que un canvi n'obliga a refer-la.
+  return memoizeOnCorpus(corpus, 'opendata:input', async () => {
+    const sources = await payload.find({
       collection: 'sources',
       depth: 0,
       limit: 0,
       pagination: false,
       overrideAccess: true,
       sort: 'slug',
-    }),
-  ])
-  return { corpus, sources: sources.docs }
+    })
+    return { corpus, sources: sources.docs }
+  })
 }
+
+/** Files de cada conjunt, calculades una sola vegada per contingut. */
+export const datasetRowCounts = (input: ExportInput): { dataset: DatasetSpec; rows: number }[] =>
+  memoizeOnCorpus(input.corpus, 'opendata:counts', () =>
+    DATASETS.map((dataset) => ({ dataset, rows: dataset.build(input).length })),
+  )

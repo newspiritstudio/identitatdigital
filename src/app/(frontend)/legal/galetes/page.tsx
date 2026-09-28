@@ -130,8 +130,7 @@ export default function CookiesPage() {
           <tbody>
             <tr>
               <td>
-                Galeta de sessió del gestor de continguts Payload, anomenada{' '}
-                <code>payload-token</code> per defecte
+                Galeta de sessió del gestor de continguts, anomenada <code>identitat-token</code>
               </td>
               <td>
                 Només qui inicia sessió a <code>/admin</code>, és a dir, l’equip editorial

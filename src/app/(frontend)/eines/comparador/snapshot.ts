@@ -1,3 +1,4 @@
+import { createHash } from 'node:crypto'
 import type { Payload } from 'payload'
 
 import { EVIDENCE_LEVELS, type EvidenceLevel, type EvidenceStatus } from '@/fields/evidence'
@@ -15,6 +16,7 @@ import {
   factStatus,
   loadCorpus,
   localizedText,
+  memoizeOnCorpus,
   relationId,
   relationIds,
   selectValue,
@@ -40,10 +42,13 @@ import {
   type AppSnapshot,
   type CategorySnapshot,
   type CellState,
+  type CellsBundle,
   type ComparatorSnapshot,
   type IndicatorCell,
   type InitialSelection,
   type SourceLink,
+  type WireCell,
+  packCell,
 } from './types'
 
 /**
@@ -450,7 +455,6 @@ export const buildCell = (
     value,
     applicable: outcome.applicable,
     evidenceLevel,
-    evidenceLabel: EVIDENCE_LEVEL_LABELS[evidenceLevel],
     detail,
     note,
     sourceIds,
@@ -466,7 +470,6 @@ const missingCell = (): IndicatorCell => ({
   value: null,
   applicable: true,
   evidenceLevel: 'unknown',
-  evidenceLabel: EVIDENCE_LEVEL_LABELS.unknown,
   detail: null,
   note: null,
   sourceIds: [],
@@ -513,9 +516,46 @@ const alternativesOf = (app: App, corpus: Corpus): AlternativeSnapshot[] => {
 
 /* ───────────────────────────── instantània ───────────────────────────────── */
 
-export const buildComparatorSnapshot = async (payload: Payload): Promise<ComparatorSnapshot> => {
-  const corpus = await loadCorpus(payload)
+/** Adreça de les caselles; la versió fa que el navegador la pugui guardar per sempre. */
+export const CELLS_PATH = '/eines/comparador/caselles'
 
+export type ComparatorData = {
+  snapshot: ComparatorSnapshot
+  bundle: CellsBundle
+  /** El paquet de caselles ja serialitzat, tal com surt per la ruta. */
+  bundleJson: string
+  version: string
+}
+
+/**
+ * Instantània del comparador per al corpus vigent. Es calcula una sola vegada
+ * per corpus: el càlcul i la lectura de les fonts costaven prop d'un segon per
+ * petició.
+ */
+export const loadComparator = async (payload: Payload): Promise<ComparatorData> => {
+  const corpus = await loadCorpus(payload)
+  return memoizeOnCorpus(corpus, 'comparator', () => buildComparator(payload, corpus))
+}
+
+/** Caselles i fonts només de les fitxes indicades: les de la selecció inicial. */
+export const pickCells = (data: ComparatorData, appIds: readonly string[]): CellsBundle => {
+  const cells: CellsBundle['cells'] = {}
+  const sources: CellsBundle['sources'] = {}
+  for (const appId of appIds) {
+    const appCells = data.bundle.cells[appId]
+    if (!appCells) continue
+    cells[appId] = appCells
+    for (const cell of Object.values(appCells)) {
+      for (const sourceId of cell.f ?? []) {
+        const source = data.bundle.sources[sourceId]
+        if (source) sources[sourceId] = source
+      }
+    }
+  }
+  return { cells, sources }
+}
+
+const buildComparator = async (payload: Payload, corpus: Corpus): Promise<ComparatorData> => {
   // Les fonts no formen part del corpus i les necessitem per poder enllaçar
   // l'evidència de cada casella. Es carreguen un cop i s'indexen per
   // identificador: una mateixa política de privadesa sustenta desenes
@@ -604,6 +644,7 @@ export const buildComparatorSnapshot = async (payload: Payload): Promise<Compara
   /* Fitxes. */
   const usedSourceIds = new Set<string>()
   const apps: AppSnapshot[] = []
+  const cellsByApp: CellsBundle['cells'] = {}
 
   for (const app of corpus.apps) {
     const appId = relationId(app)
@@ -613,7 +654,7 @@ export const buildComparatorSnapshot = async (payload: Payload): Promise<Compara
       recomputeOutcomes(app, dataTypeMeta, incidentsByApp.get(appId) ?? []),
     )
 
-    const cells: Record<string, IndicatorCell> = {}
+    const cells: Record<string, WireCell> = {}
     for (const indicator of INDICATORS) {
       const outcome = outcomes.get(indicator.key)
       const cell = outcome ? buildCell(indicator.key, app, outcome, dataTypeMeta) : missingCell()
@@ -621,8 +662,9 @@ export const buildComparatorSnapshot = async (payload: Payload): Promise<Compara
         if (sourceById.has(sourceId)) usedSourceIds.add(sourceId)
       }
       cell.sourceIds = cell.sourceIds.filter((sourceId) => sourceById.has(sourceId))
-      cells[indicator.key] = cell
+      cells[indicator.key] = packCell(cell)
     }
+    cellsByApp[appId] = cells
 
     const companyId = relationId(at(app, 'company'))
     const company = companyId ? corpus.companyById.get(companyId) : undefined
@@ -650,7 +692,6 @@ export const buildComparatorSnapshot = async (payload: Payload): Promise<Compara
         provisional: at(scores, 'provisional') === true,
         methodologyVersion: typeof methodologyVersion === 'string' ? methodologyVersion : null,
       },
-      cells,
       alternatives: alternativesOf(app, corpus),
     })
   }
@@ -675,12 +716,17 @@ export const buildComparatorSnapshot = async (payload: Payload): Promise<Compara
     })),
   }))
 
-  return {
+  const bundle: CellsBundle = { cells: cellsByApp, sources }
+  const bundleJson = JSON.stringify(bundle)
+  const version = createHash('sha256').update(bundleJson).digest('base64url').slice(0, 16)
+
+  const snapshot: ComparatorSnapshot = {
     methodologyVersion: METHODOLOGY_VERSION,
     categories,
     apps,
     dimensions,
-    sources,
+    evidenceLabels: EVIDENCE_LEVEL_LABELS,
+    cellsUrl: `${CELLS_PATH}?v=${version}`,
     indicatorCount: INDICATORS.length,
     // Quinze punts de confiança és, a la pràctica, la distància entre una fitxa
     // revisada en profunditat i una que encara té apartats sencers per mirar.
@@ -690,6 +736,8 @@ export const buildComparatorSnapshot = async (payload: Payload): Promise<Compara
     provisionalThreshold: PROVISIONAL_CONFIDENCE_THRESHOLD,
     appsOutsideComparison: corpus.apps.length - apps.length,
   }
+
+  return { snapshot, bundle, bundleJson, version }
 }
 
 /* ──────────────────── selecció que arriba per l'URL ──────────────────────── */

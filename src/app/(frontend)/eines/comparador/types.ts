@@ -9,9 +9,12 @@ import type { Dimension } from '@/lib/scoring/methodology'
  * component de servidor que prepara una instantània i la passa a un component
  * de client, i el que no es pot serialitzar falla en temps d'execució.
  *
- * La instantània es calcula sencera al servidor i viatja una sola vegada.
- * Triar categoria, triar fitxes i filtrar indicadors són operacions locals del
- * navegador, de manera que cap petició no diu al servidor què s'està mirant.
+ * La instantània es calcula sencera al servidor i viatja en dues peces: la
+ * pàgina porta l'índex (categories, fitxes, puntuacions) i les caselles de la
+ * selecció inicial, i el navegador baixa després les caselles de totes les
+ * fitxes d'un sol cop (`CellsBundle`). Triar categoria, triar fitxes i filtrar
+ * indicadors continuen sent operacions locals: cap petició no diu al servidor
+ * què s'està mirant.
  */
 
 /** Font citable, ja resolta a enllaç. */
@@ -52,7 +55,6 @@ export type IndicatorCell = {
   /** `false` quan l'indicador no aplica al servei. */
   applicable: boolean
   evidenceLevel: EvidenceLevel
-  evidenceLabel: string
   /** Explicació editorial de la fitxa. */
   detail: string | null
   /** Nota del càlcul, amb els denominadors que expliquen la xifra. */
@@ -100,8 +102,6 @@ export type AppSnapshot = {
   company: string | null
   categoryIds: string[]
   scores: AppScores
-  /** Una casella per clau d'indicador de la metodologia. */
-  cells: Record<string, IndicatorCell>
   alternatives: AlternativeSnapshot[]
 }
 
@@ -137,8 +137,10 @@ export type ComparatorSnapshot = {
   categories: CategorySnapshot[]
   apps: AppSnapshot[]
   dimensions: DimensionSnapshot[]
-  /** Fonts citades a les caselles, indexades per identificador per no repetir-les. */
-  sources: Record<string, SourceLink>
+  /** Nom de cada nivell d'evidència: les caselles només porten el nivell. */
+  evidenceLabels: Record<EvidenceLevel, string>
+  /** Adreça de les caselles de totes les fitxes, amb la versió del contingut. */
+  cellsUrl: string
   indicatorCount: number
   /** Fitxes publicades que encara no tenen cap altra fitxa de la seva categoria. */
   appsOutsideComparison: number
@@ -147,6 +149,56 @@ export type ComparatorSnapshot = {
   /** Per sota d'aquesta confiança, la puntuació és provisional. */
   provisionalThreshold: number
 }
+
+/**
+ * Casella tal com viatja: claus curtes, sense valors per defecte ni `null`.
+ * Són 45 caselles per fitxa i centenars de fitxes; els noms llargs i els buits
+ * repetits pesaven més que el contingut.
+ */
+export type WireCell = {
+  k: CellKind
+  s: CellState
+  c: string
+  v?: number
+  /** Present només quan l'indicador no aplica. */
+  x?: 1
+  l?: EvidenceLevel
+  d?: string
+  n?: string
+  f?: string[]
+  a: string
+}
+
+/** Caselles per identificador de fitxa i clau d'indicador, i les fonts que citen. */
+export type CellsBundle = {
+  cells: Record<string, Record<string, WireCell>>
+  /** Fonts citades a les caselles, indexades per identificador per no repetir-les. */
+  sources: Record<string, SourceLink>
+}
+
+export const packCell = (cell: IndicatorCell): WireCell => {
+  const wire: WireCell = { k: cell.kind, s: cell.state, c: cell.claim, a: cell.answer }
+  if (cell.value !== null) wire.v = cell.value
+  if (!cell.applicable) wire.x = 1
+  if (cell.evidenceLevel !== 'unknown') wire.l = cell.evidenceLevel
+  if (cell.detail) wire.d = cell.detail
+  if (cell.note) wire.n = cell.note
+  if (cell.sourceIds.length > 0) wire.f = cell.sourceIds
+  return wire
+}
+
+export const unpackCell = (wire: WireCell): IndicatorCell => ({
+  kind: wire.k,
+  state: wire.s,
+  claim: wire.c,
+  value: wire.v ?? null,
+  applicable: wire.x !== 1,
+  evidenceLevel: wire.l ?? 'unknown',
+  detail: wire.d ?? null,
+  note: wire.n ?? null,
+  sourceIds: wire.f ?? [],
+  answer: wire.a,
+})
 
 /** Selecció inicial, ja validada contra el corpus. */
 export type InitialSelection = {

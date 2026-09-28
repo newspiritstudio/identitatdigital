@@ -10,18 +10,21 @@ import {
   type AppSnapshot,
   type CategorySnapshot,
   type CellState,
+  type CellsBundle,
   type ComparatorSnapshot,
   type DimensionSnapshot,
   type IndicatorCell,
   type InitialSelection,
   type SourceLink,
+  unpackCell,
 } from './types'
 
 /**
  * Interacció del comparador.
  *
- * Rep la instantània sencera i no torna a parlar mai amb el servidor. Tota la
- * feina d'aquest component és triar què s'ensenya d'una estructura que ja ve
+ * Rep l'índex i les caselles de la selecció inicial, i en carregar-se baixa les
+ * caselles de totes les fitxes d'un sol cop. No hi ha cap altra petició: tota
+ * la feina d'aquest component és triar què s'ensenya d'una estructura que ja ve
  * calculada: quines fitxes, quins indicadors i quan dues fitxes diuen coses
  * diferents.
  */
@@ -94,11 +97,13 @@ const STATE_NAMES: Record<CellState, string> = {
 function Cell({
   cell,
   sources,
+  evidenceLabel,
   appName,
   indicatorLabel,
 }: {
   cell: IndicatorCell
   sources: Record<string, SourceLink>
+  evidenceLabel: string
   appName: string
   indicatorLabel: string
 }) {
@@ -119,7 +124,7 @@ function Cell({
 
       {cell.note ? <p className="meta">{cell.note}</p> : null}
 
-      <p className="meta">Evidència: {cell.evidenceLabel}</p>
+      <p className="meta">Evidència: {evidenceLabel}</p>
 
       <details className={styles.evidence}>
         <summary>
@@ -175,20 +180,47 @@ const EMPTY_CELL: IndicatorCell = {
   value: null,
   applicable: true,
   evidenceLevel: 'unknown',
-  evidenceLabel: 'Sense nivell declarat',
   detail: null,
   note: null,
   sourceIds: [],
   answer: 'unknown:x',
 }
 
+type CellsState = { bundle: CellsBundle; failed: boolean }
+
 export default function Comparador({
   snapshot,
   initial,
+  initialCells,
 }: {
   snapshot: ComparatorSnapshot
   initial: InitialSelection
+  initialCells: CellsBundle
 }) {
+  const [cellsState, setCellsState] = useState<CellsState>({
+    bundle: initialCells,
+    failed: false,
+  })
+
+  /*
+   * Totes les caselles, per a totes les fitxes, en una sola descàrrega: el
+   * servidor no sap quines se'n faran servir. L'adreça porta la versió del
+   * contingut i el navegador la guarda mentre no canviï.
+   */
+  useEffect(() => {
+    const controller = new AbortController()
+    fetch(snapshot.cellsUrl, { signal: controller.signal })
+      .then((response) => {
+        if (!response.ok) throw new Error(String(response.status))
+        return response.json() as Promise<CellsBundle>
+      })
+      .then((bundle) => setCellsState({ bundle, failed: false }))
+      .catch(() => {
+        if (!controller.signal.aborted) setCellsState((current) => ({ ...current, failed: true }))
+      })
+    return () => controller.abort()
+  }, [snapshot.cellsUrl])
+
   const [categorySlug, setCategorySlug] = useState(initial.categorySlug ?? '')
   const [selection, setSelection] = useState<string[]>(initial.appSlugs)
   const [onlyDifferences, setOnlyDifferences] = useState(false)
@@ -259,12 +291,17 @@ export default function Comparador({
     setSelection([])
   }, [])
 
+  const cellsReady = chosen.every((app) => Boolean(cellsState.bundle.cells[app.id]))
+
   const dimensionRows = useMemo(() => {
-    if (chosen.length < 2) return []
+    if (chosen.length < 2 || !cellsReady) return []
     return snapshot.dimensions.map((dimension: DimensionSnapshot) => {
       const total = dimension.indicators.reduce((sum, indicator) => sum + indicator.weight, 0)
       const rows: Row[] = dimension.indicators.map((indicator) => {
-        const cells = chosen.map((app) => app.cells[indicator.key] ?? EMPTY_CELL)
+        const cells = chosen.map((app) => {
+          const wire = cellsState.bundle.cells[app.id]?.[indicator.key]
+          return wire ? unpackCell(wire) : EMPTY_CELL
+        })
         const answers = new Set(cells.map((cell) => cell.answer))
         return {
           key: indicator.key,
@@ -278,7 +315,7 @@ export default function Comparador({
       })
       return { dimension, rows }
     })
-  }, [snapshot.dimensions, chosen])
+  }, [snapshot.dimensions, chosen, cellsReady, cellsState.bundle])
 
   const tally = useMemo(() => {
     let differing = 0
@@ -504,32 +541,43 @@ export default function Comparador({
 
           {/* ─────────────── Diferències primer ─────────────── */}
           <h3>Indicador per indicador</h3>
-          <p>
-            De {snapshot.indicatorCount} indicadors de la metodologia,{' '}
-            <strong>{tally.differing}</strong> mostren alguna diferència entre les {chosen.length}{' '}
-            fitxes triades, {tally.identical} diuen el mateix i {tally.notApplicable} no apliquen a
-            cap.
-          </p>
+          {!cellsReady ? (
+            <p className="meta" role="status">
+              {cellsState.failed
+                ? 'No s’han pogut carregar els indicadors. Torna a carregar la pàgina per provar-ho de nou.'
+                : 'Carregant els indicadors de les fitxes triades…'}
+            </p>
+          ) : null}
+          {cellsReady ? (
+            <>
+            <p>
+              De {snapshot.indicatorCount} indicadors de la metodologia,{' '}
+              <strong>{tally.differing}</strong> mostren alguna diferència entre les {chosen.length}{' '}
+              fitxes triades, {tally.identical} diuen el mateix i {tally.notApplicable} no apliquen a
+              cap.
+            </p>
 
-          <div className="filters">
-            <span className={styles.option}>
-              <input
-                type="checkbox"
-                id={`${ids}-diff`}
-                checked={onlyDifferences}
-                onChange={(event) => setOnlyDifferences(event.target.checked)}
-              />
-              <label htmlFor={`${ids}-diff`}>
-                Amaga els indicadors on totes les fitxes diuen el mateix
-              </label>
-            </span>
-          </div>
+            <div className="filters">
+              <span className={styles.option}>
+                <input
+                  type="checkbox"
+                  id={`${ids}-diff`}
+                  checked={onlyDifferences}
+                  onChange={(event) => setOnlyDifferences(event.target.checked)}
+                />
+                <label htmlFor={`${ids}-diff`}>
+                  Amaga els indicadors on totes les fitxes diuen el mateix
+                </label>
+              </span>
+            </div>
 
-          <p className="meta">
-            Dues caselles «diuen el mateix» quan coincideixen en l’afirmació i en el tram de deu
-            punts de l’indicador. Les files amb diferència es marquen amb l’etiqueta{' '}
-            <span className="badge">Difereix</span>, no només amb el color.
-          </p>
+            <p className="meta">
+              Dues caselles «diuen el mateix» quan coincideixen en l’afirmació i en el tram de deu
+              punts de l’indicador. Les files amb diferència es marquen amb l’etiqueta{' '}
+              <span className="badge">Difereix</span>, no només amb el color.
+            </p>
+            </>
+          ) : null}
 
           {dimensionRows.map(({ dimension, rows }) => {
             const visible = onlyDifferences ? rows.filter((row) => row.differs) : rows
@@ -591,7 +639,8 @@ export default function Comparador({
                               <Cell
                                 key={chosen[index].id}
                                 cell={cell}
-                                sources={snapshot.sources}
+                                sources={cellsState.bundle.sources}
+                                evidenceLabel={snapshot.evidenceLabels[cell.evidenceLevel]}
                                 appName={chosen[index].name}
                                 indicatorLabel={row.label}
                               />

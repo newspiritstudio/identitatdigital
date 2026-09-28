@@ -349,11 +349,23 @@ export const buildCorpus = (input: {
  */
 /**
  * Identificador de l'estat del contingut: quants documents hi ha i quan es va
- * desar el darrer de cada col·lecció. Són sis consultes d'un sol document, i
+ * desar el darrer de cada col·lecció. Són vuit consultes d'un sol document, i
  * serveixen per saber si el corpus que tenim a la memòria encara val.
+ *
+ * `sources` i `media` no formen part del corpus, però el que se'n deriva (les
+ * fonts del comparador, els logos del directori) es desa amb la mateixa clau.
  */
 const contentToken = async (payload: Payload): Promise<string> => {
-  const collections = ['apps', 'companies', 'data-types', 'categories', 'incidents', 'breaches'] as const
+  const collections = [
+    'apps',
+    'companies',
+    'data-types',
+    'categories',
+    'incidents',
+    'breaches',
+    'sources',
+    'media',
+  ] as const
   const parts = await Promise.all(
     collections.map(async (collection) => {
       try {
@@ -386,19 +398,77 @@ const contentToken = async (payload: Payload): Promise<string> => {
 type CorpusMemory = {
   cached: { token: string; corpus: Corpus } | null
   pending: { token: string; promise: Promise<Corpus> } | null
+  /** Darrer testimoni comprovat i quan, per no repetir les consultes a cada petició. */
+  checked: { token: string; at: number } | null
 }
 
 const MEMORY = Symbol.for('identitat.corpus')
 const memory = ((globalThis as Record<symbol, unknown>)[MEMORY] ??= {
   cached: null,
   pending: null,
+  checked: null,
 }) as CorpusMemory
+memory.checked ??= null
+
+/*
+ * Durant quant temps es dona per bo el testimoni sense tornar-lo a demanar.
+ * Les edicions del panell l'invaliden a l'acte (`markContentChanged`, als hooks
+ * de Payload); aquest marge només afecta el que s'escriu des de fora del
+ * procés, com els scripts d'importació.
+ */
+const TOKEN_TTL_MS = 30_000
 
 /** Buida la memòria del corpus. Els scripts que escriuen contingut l'han de cridar. */
 export const forgetCorpus = () => {
   memory.cached = null
   memory.pending = null
+  memory.checked = null
 }
+
+/**
+ * Avís que el contingut ha canviat: la petició següent torna a comprovar el
+ * testimoni. No buida res; si el canvi no toca el corpus, el corpus es conserva.
+ */
+export const markContentChanged = () => {
+  memory.checked = null
+}
+
+const currentToken = async (payload: Payload): Promise<string> => {
+  const now = Date.now()
+  if (memory.checked && now - memory.checked.at < TOKEN_TTL_MS) return memory.checked.token
+  const token = await contentToken(payload)
+  memory.checked = { token, at: now }
+  return token
+}
+
+/*
+ * Resultats derivats del corpus (anàlisis, instantànies), un joc per corpus.
+ * Quan el corpus es torna a llegir és un objecte nou i els derivats de l'antic
+ * se'n van amb ell.
+ */
+const derived = new WeakMap<Corpus, Map<string, unknown>>()
+
+/**
+ * Calcula `build` una sola vegada per corpus i clau. El resultat es comparteix
+ * entre peticions: qui el rebi no el pot modificar (ordena còpies, no l'original).
+ */
+export const memoizeOnCorpus = <T>(corpus: Corpus, key: string, build: () => T): T => {
+  let entries = derived.get(corpus)
+  if (!entries) {
+    entries = new Map()
+    derived.set(corpus, entries)
+  }
+  if (entries.has(key)) return entries.get(key) as T
+  const value = build()
+  entries.set(key, value)
+  // Una promesa rebutjada no s'ha de quedar desada: la propera petició ho reintenta.
+  if (value instanceof Promise) value.catch(() => entries.delete(key))
+  return value
+}
+
+/** Embolcalla una anàlisi pura del corpus perquè es calculi una sola vegada per corpus. */
+export const memoizedAnalysis = <T>(key: string, analyse: (corpus: Corpus) => T) =>
+  (corpus: Corpus): T => memoizeOnCorpus(corpus, key, () => analyse(corpus))
 
 export const loadCorpus = async (
   payload: Payload,
@@ -411,7 +481,7 @@ export const loadCorpus = async (
    * testimoni de contingut costa mil·lisegons i la càrrega, segons.
    */
   if (!options.fresh && !options.now) {
-    const token = await contentToken(payload)
+    const token = await currentToken(payload)
     if (memory.cached?.token === token) return memory.cached.corpus
     if (memory.pending?.token === token) return memory.pending.promise
     const promise = readCorpus(payload, options).then((corpus) => {

@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
 
-import { loadCorpus } from '@/lib/analysis'
+import { loadCorpus, memoizeOnCorpus } from '@/lib/analysis'
 
 import { getClient } from '../../lib'
 import '../eines.css'
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 export default async function DiagnosticPage() {
   const payload = await getClient()
   const corpus = await loadCorpus(payload)
-  const snapshot = buildSnapshot(corpus)
+  const snapshot = memoizeOnCorpus(corpus, 'diagnostic:snapshot', () => buildSnapshot(corpus))
 
   return (
     <div className="content-wrapper">

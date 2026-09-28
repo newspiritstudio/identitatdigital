@@ -11,6 +11,18 @@
  * els llistats de manera estable.
  */
 
+import { analyseCatalan as analyseCatalanRaw } from './catalan'
+import { analyseDataTypes as analyseDataTypesRaw } from './dataTypes'
+import { analyseGroups as analyseGroupsRaw } from './groups'
+import { buildSharingGraph as buildSharingGraphRaw } from './sharing'
+import { analyseDarkPatterns as analyseDarkPatternsRaw } from './darkPatterns'
+import { analyseJurisdictions as analyseJurisdictionsRaw } from './jurisdictions'
+import { analyseDeletion as analyseDeletionRaw } from './deletion'
+import { analyseSecurity as analyseSecurityRaw } from './security'
+import { analyseEvidence as analyseEvidenceRaw } from './evidence'
+import { analyseIncidents as analyseIncidentsRaw } from './incidents'
+import { memoizedAnalysis } from './corpus'
+
 export {
   addStatus,
   appRef,
@@ -24,7 +36,10 @@ export {
   factLevel,
   factSources,
   factStatus,
+  forgetCorpus,
   loadCorpus,
+  markContentChanged,
+  memoizeOnCorpus,
   localizedText,
   median,
   percentage,
@@ -39,20 +54,17 @@ export {
 } from './corpus'
 
 export {
-  analyseCatalan,
   type CatalanAnalysis,
   type CatalanApp,
   type CatalanGroupRow,
 } from './catalan'
 
 export {
-  analyseDataTypes,
   type DataTypeReach,
   type DataTypesAnalysis,
 } from './dataTypes'
 
 export {
-  analyseGroups,
   parseUserBase,
   resolveOwnershipChain,
   ultimateParentId,
@@ -63,14 +75,12 @@ export {
 } from './groups'
 
 export {
-  buildSharingGraph,
   type SharingEdge,
   type SharingGraph,
   type SharingNode,
 } from './sharing'
 
 export {
-  analyseDarkPatterns,
   DARK_PATTERN_SEVERITIES,
   DARK_PATTERN_SEVERITY_LABELS,
   DARK_PATTERN_TYPE_LABELS,
@@ -83,7 +93,6 @@ export {
 } from './darkPatterns'
 
 export {
-  analyseJurisdictions,
   primaryJurisdiction,
   TRANSFER_MECHANISM_LABELS,
   TRANSFER_MECHANISMS,
@@ -94,7 +103,6 @@ export {
 } from './jurisdictions'
 
 export {
-  analyseDeletion,
   DELETION_DIFFICULTIES,
   DELETION_DIFFICULTY_LABELS,
   WAITING_BUCKETS,
@@ -105,7 +113,6 @@ export {
 } from './deletion'
 
 export {
-  analyseSecurity,
   E2EE_SCOPE_LABELS,
   E2EE_SCOPES,
   MFA_METHOD_LABELS,
@@ -117,7 +124,6 @@ export {
 } from './security'
 
 export {
-  analyseEvidence,
   EVIDENCE_LEVEL_LABELS,
   EVIDENCED_FACTS,
   SELECT_INDICATORS,
@@ -127,7 +133,6 @@ export {
 } from './evidence'
 
 export {
-  analyseIncidents,
   FINE_STATUS_LABELS,
   FINE_STATUSES,
   INCIDENT_SEVERITIES,
@@ -143,3 +148,19 @@ export {
   type IncidentType,
   type IncidentYearRow,
 } from './incidents'
+
+/*
+ * Les anàlisis són pures i el corpus es comparteix entre peticions: cada una es
+ * calcula un sol cop per corpus. Els resultats són compartits, per tant qui els
+ * rep ordena còpies (`[...x].sort()`), mai l'original.
+ */
+export const analyseCatalan = memoizedAnalysis('analyseCatalan', analyseCatalanRaw)
+export const analyseDataTypes = memoizedAnalysis('analyseDataTypes', analyseDataTypesRaw)
+export const analyseGroups = memoizedAnalysis('analyseGroups', analyseGroupsRaw)
+export const buildSharingGraph = memoizedAnalysis('buildSharingGraph', buildSharingGraphRaw)
+export const analyseDarkPatterns = memoizedAnalysis('analyseDarkPatterns', analyseDarkPatternsRaw)
+export const analyseJurisdictions = memoizedAnalysis('analyseJurisdictions', analyseJurisdictionsRaw)
+export const analyseDeletion = memoizedAnalysis('analyseDeletion', analyseDeletionRaw)
+export const analyseSecurity = memoizedAnalysis('analyseSecurity', analyseSecurityRaw)
+export const analyseEvidence = memoizedAnalysis('analyseEvidence', analyseEvidenceRaw)
+export const analyseIncidents = memoizedAnalysis('analyseIncidents', analyseIncidentsRaw)

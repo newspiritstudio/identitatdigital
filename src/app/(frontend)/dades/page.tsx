@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
 
-import { DATASETS, loadExportInput } from '@/lib/opendata/datasets'
+import { DATASETS, datasetRowCounts, loadExportInput } from '@/lib/opendata/datasets'
 
 import { getClient } from '../lib'
 
@@ -24,7 +24,7 @@ const CA = new Intl.NumberFormat('ca-ES')
 export default async function OpenDataPage() {
   const payload = await getClient()
   const input = await loadExportInput(payload)
-  const counts = DATASETS.map((dataset) => ({ dataset, rows: dataset.build(input).length }))
+  const counts = datasetRowCounts(input)
   const total = counts.reduce((sum, entry) => sum + entry.rows, 0)
 
   return (

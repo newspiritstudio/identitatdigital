@@ -1,1 +1,99 @@
-/* Estils propis del panell d'administració. De moment, cap. */
+/*
+ * Estils propis del panell d'edició: tipografies i colors del web públic.
+ *
+ * El panell pinta tot a partir d'una escala de grisos (`--color-base-*`) que en
+ * mode clar va del fons al text i en mode fosc a l'inrevés. Tenyint-la amb el
+ * color de marca, tots dos modes queden coherents amb el web: text `#002730`
+ * sobre blanc en clar, i els fons `#02080d` / `#09131a` del web en fosc.
+ * Les tipografies arriben com a variables des de `layout.tsx` (`next/font`).
+ */
+@layer payload {
+  :root {
+    --color-base-0: rgb(255, 255, 255);
+    --color-base-50: rgb(239, 242, 242);
+    --color-base-100: rgb(223, 228, 229);
+    --color-base-150: rgb(207, 214, 216);
+    --color-base-200: rgb(191, 201, 203);
+    --color-base-250: rgb(175, 188, 190);
+    --color-base-300: rgb(159, 174, 177);
+    --color-base-350: rgb(143, 160, 164);
+    --color-base-400: rgb(128, 147, 152);
+    --color-base-450: rgb(112, 134, 139);
+    --color-base-500: rgb(96, 120, 126);
+    --color-base-550: rgb(80, 106, 113);
+    --color-base-600: rgb(64, 93, 100);
+    --color-base-650: rgb(48, 80, 87);
+    --color-base-700: rgb(32, 66, 74);
+    --color-base-750: rgb(16, 52, 61);
+    --color-base-800: rgb(0, 39, 48);
+    --color-base-850: #09131a;
+    --color-base-900: #02080d;
+    --color-base-950: #01050a;
+    --color-base-1000: #000000;
+
+    --font-body: var(--font-noto-sans), system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --font-mono: var(--font-roboto-mono), 'SFMono-Regular', Consolas, monospace;
+  }
+
+  /* En fosc, el text secundari puja un to perquè no baixi del 4,5:1. */
+  html[data-theme='dark'] {
+    --theme-elevation-500: var(--color-base-450);
+  }
+
+  /* Pàgina d'entrada: el degradat de fons del web. */
+  .template-minimal {
+    background: linear-gradient(
+      135deg,
+      rgb(241, 230, 213) 0%,
+      rgb(223, 234, 245) 48%,
+      rgb(223, 230, 189) 100%
+    );
+  }
+
+  html[data-theme='dark'] .template-minimal {
+    background: linear-gradient(to right bottom, rgb(0, 0, 0), rgb(78, 102, 126) 48%, rgb(77, 53, 109));
+  }
+
+  .id-visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .id-brand-icon {
+    display: inline-flex;
+    color: var(--theme-text);
+
+    svg {
+      width: auto;
+      height: 1.6rem;
+    }
+  }
+
+  .id-brand-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.9rem;
+    color: var(--theme-text);
+  }
+
+  .id-brand-logo__mark {
+    width: auto;
+    height: 3.25rem;
+  }
+
+  .id-brand-logo__name {
+    font-family: var(--font-mono);
+    font-size: 1.6rem;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+
+    strong {
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+  }
+}

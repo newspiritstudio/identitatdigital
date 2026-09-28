@@ -1,7 +1,7 @@
 import { getPayload } from 'payload'
 
 import config from '@payload-config'
-import { loadCorpus } from '@/lib/analysis'
+import { loadCorpus, memoizeOnCorpus } from '@/lib/analysis'
 
 import { buildDetails } from '../snapshot'
 
@@ -19,7 +19,11 @@ export async function GET(): Promise<Response> {
   try {
     const payload = await getPayload({ config })
     const corpus = await loadCorpus(payload)
-    return new Response(JSON.stringify(buildDetails(corpus)), {
+    // Serialitzat un sol cop per corpus: és igual per a tothom.
+    const body = memoizeOnCorpus(corpus, 'diagnostic:details', () =>
+      JSON.stringify(buildDetails(corpus)),
+    )
+    return new Response(body, {
       status: 200,
       headers: {
         'Content-Type': 'application/json; charset=utf-8',

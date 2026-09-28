@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import type { Where } from 'payload'
-import React from 'react'
+import React, { cache } from 'react'
 import './app-page.css'
 
 import AccountDeletionModal from './AccountDeletionModal'
@@ -94,60 +94,63 @@ const publishedSlug = (slug: string): Where => ({
   and: [{ slug: { equals: slug } }, { _status: { equals: 'published' } }],
 })
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params
+/*
+ * Profunditat 2: l'empresa (1) i la seva matriu (2), i les alternatives (1)
+ * amb el seu logotip (2). Les fonts de cada afirmació ja arriben a 1.
+ */
+const APP_DEPTH = 2
+
+/*
+ * Una sola lectura de la fitxa per petició: `generateMetadata` i la pàgina
+ * comparteixen el resultat gràcies a `cache`.
+ */
+const findApp = cache(async (slug: string): Promise<App | undefined> => {
   const payload = await getClient()
   const { docs } = await payload.find({
     collection: 'apps',
     where: publishedSlug(slug),
     draft: false,
     limit: 1,
-    depth: 0,
+    depth: APP_DEPTH,
   })
-  return { title: docs[0]?.name ?? 'Aplicació' }
+  return docs[0] as App | undefined
+})
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  const app = await findApp(slug)
+  return { title: app?.name ?? 'Aplicació' }
 }
 
 export default async function AppPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   const payload = await getClient()
 
-  /*
-   * Profunditat 1: n'hi ha prou per tenir les fonts de cada afirmació, les
-   * categories i les alternatives. A profunditat 2, cada alternativa arrossega
-   * la seva pròpia fitxa sencera amb totes les fonts, i la pàgina passava de
-   * mig segon a mig minut.
-   */
-  const { docs } = await payload.find({
-    collection: 'apps',
-    where: publishedSlug(slug),
-    draft: false,
-    limit: 1,
-    depth: 2,
-  })
-  const app = docs[0] as App | undefined
+  const app = await findApp(slug)
   if (!app) notFound()
 
-  const { docs: incidents } = await payload.find({
-    collection: 'incidents',
-    where: { apps: { in: [app.id] } },
-    sort: '-occurredAt',
-    limit: 50,
-    depth: 1,
-  })
-
   const appCompanyId = relationId(app.company)
-  const { docs: breachDocs } = await payload.find({
-    collection: 'breaches',
-    where: {
-      or: [
-        { apps: { in: [app.id] } },
-        ...(appCompanyId ? [{ company: { equals: appCompanyId } }] : []),
-      ],
-    },
-    sort: '-breachDate',
-    limit: 50,
-    depth: 1,
-  })
+  const [{ docs: incidents }, { docs: breachDocs }] = await Promise.all([
+    payload.find({
+      collection: 'incidents',
+      where: { apps: { in: [app.id] } },
+      sort: '-occurredAt',
+      limit: 50,
+      depth: 1,
+    }),
+    payload.find({
+      collection: 'breaches',
+      where: {
+        or: [
+          { apps: { in: [app.id] } },
+          ...(appCompanyId ? [{ company: { equals: appCompanyId } }] : []),
+        ],
+      },
+      sort: '-breachDate',
+      limit: 50,
+      depth: 1,
+    }),
+  ])
 
   const breaches = breachDocs.filter((breach) =>
     breachMatchesApp(app, breach as App['id'] extends never ? never : Breach),

@@ -52,6 +52,8 @@ RUN groupadd --system --gid 1001 nodejs \
 
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+# Icones del manifest i `/.well-known/security.txt`.
+COPY --from=builder --chown=nextjs:nodejs /app/public ./public
 
 # Payload desa les pujades a `media/` relatiu al directori de treball. Al VPS
 # s'hi munta /opt/identitatdigital/media, que ha de ser de l'uid 1001.

@@ -4,14 +4,15 @@ import Link from 'next/link'
 import { getClient } from '../../lib'
 import '../eines.css'
 import Comparador from './Comparador'
-import { buildComparatorSnapshot, resolveSelection } from './snapshot'
+import { loadComparator, pickCells, resolveSelection } from './snapshot'
 
 /**
  * Comparador d'aplicacions i cercador d'alternatives.
  *
  * Component de servidor: llegeix el corpus, en prepara una instantània mínima i
- * serialitzable i la passa al navegador. A partir d'aquí no hi ha cap petició
- * més; triar categoria, triar fitxes, amagar els indicadors coincidents i obrir
+ * serialitzable i la passa al navegador, amb les caselles de la selecció
+ * inicial. Les de la resta de fitxes arriben en una sola descàrrega sencera;
+ * triar categoria, triar fitxes, amagar els indicadors coincidents i obrir
  * l'evidència són operacions locals.
  *
  * L'excepció és la selecció, que viatja per l'URL (`?a=whatsapp&b=signal`) per
@@ -32,8 +33,14 @@ export default async function ComparadorPage({
 }) {
   const params = await searchParams
   const payload = await getClient()
-  const snapshot = await buildComparatorSnapshot(payload)
+  const data = await loadComparator(payload)
+  const { snapshot } = data
   const initial = resolveSelection(snapshot, params)
+  const appIdBySlug = new Map(snapshot.apps.map((app) => [app.slug, app.id]))
+  const initialCells = pickCells(
+    data,
+    initial.appSlugs.flatMap((slug) => appIdBySlug.get(slug) ?? []),
+  )
 
   return (
     <div className="content-wrapper">
@@ -54,7 +61,7 @@ export default async function ComparadorPage({
           <Link href="/metodologia">Com es calculen els indicadors</Link>.
         </p>
 
-        <Comparador snapshot={snapshot} initial={initial} />
+        <Comparador snapshot={snapshot} initial={initial} initialCells={initialCells} />
       </div>
     </div>
   )
