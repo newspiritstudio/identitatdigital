@@ -420,6 +420,10 @@
   background: linear-gradient(180deg, #fff 0%, #f8f8f8 100%);
 }
 
+:root[data-theme='dark'] .company-top-data-row {
+  background: rgba(255, 255, 255, 0.05);
+}
+
 .company-top-data-row__label {
   display: flex;
   align-items: baseline;
@@ -452,6 +456,11 @@
   padding: 0.8rem 1rem;
   font: inherit;
   background: #fff;
+}
+
+:root[data-theme='dark'] .company-search input {
+  background: var(--surface);
+  color: var(--text);
 }
 
 .company-directory-list {

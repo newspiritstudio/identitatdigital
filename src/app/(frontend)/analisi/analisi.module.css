@@ -50,6 +50,11 @@
   border: 1px solid var(--line);
 }
 
+/* En fosc el rail ha de ser fosc: l'emplenat (`--accent`) hi passa a ser clar. */
+:global(:root[data-theme='dark']) .track {
+  background: rgba(255, 255, 255, 0.12);
+}
+
 .fill {
   display: block;
   height: 100%;
