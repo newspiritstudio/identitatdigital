@@ -24,6 +24,13 @@ services:
         NEXT_PUBLIC_APP_URL: https://identitat.digital
     image: identitatdigital:local
     container_name: identitatdigital
+    # Registres limitats per mida: la política de privadesa diu que no se'n
+    # guarden gaires, i sense límit Docker els conserva per sempre.
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: '3'
     restart: unless-stopped
     depends_on:
       mongo:
@@ -56,6 +63,11 @@ services:
     # en kernels ≥ 6.19 (SERVER-121912). Les 8.2 ja porten el TCMalloc corregit.
     image: mongo:8.2
     container_name: identitatdigital-mongo
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: '3'
     restart: unless-stopped
     # Per defecte WiredTiger es queda la meitat de la RAM de la màquina. La base
     # de dades fa uns 70 MB: 256 MB de memòria cau n'hi ha de sobres.

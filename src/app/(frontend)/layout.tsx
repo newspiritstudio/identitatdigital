@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { headers } from 'next/headers'
 import Link from 'next/link'
-import React from 'react'
+import React, { ViewTransition } from 'react'
 
 import { fontVariables } from '../fonts'
 import './styles.css'
@@ -66,7 +66,9 @@ export default async function FrontendLayout({ children }: { children: React.Rea
           </div>
         </header>
         <main id="contingut" tabIndex={-1}>
-          {children}
+          {/* Fos encadenat suau del contingut en canviar de pàgina (styles.css).
+              La capçalera i el peu queden fora i no es mouen. */}
+          <ViewTransition>{children}</ViewTransition>
         </main>
         <footer className="site-footer">
           <div className="site-footer-grid">

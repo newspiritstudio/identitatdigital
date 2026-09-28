@@ -1510,3 +1510,37 @@ main > .apps-page-hero::before {
     padding: 0.7rem 0.75rem;
   }
 }
+/*
+ * Transicions entre pàgines.
+ *
+ * Les navegacions internes les anima React (`<ViewTransition>` al layout) amb
+ * un fos encadenat curt del contingut; `@view-transition` fa el mateix quan el
+ * navegador carrega una pàgina sencera del lloc. Sense suport, la pàgina canvia
+ * de cop, com sempre. Els clics passen a la pàgina nova encara que l'animació
+ * no hagi acabat, i qui demana menys moviment no en veu cap.
+ */
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition {
+  pointer-events: none;
+}
+
+::view-transition-old(*),
+::view-transition-new(*) {
+  animation-duration: 220ms;
+  animation-timing-function: ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @view-transition {
+    navigation: none;
+  }
+
+  ::view-transition-old(*),
+  ::view-transition-new(*),
+  ::view-transition-group(*) {
+    animation: none !important;
+  }
+}

@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
 
-import { Avis, DocMeta, Pendent, TableWrap } from '../parts'
+import { Avis, DocMeta, TableWrap } from '../parts'
 
 export const metadata: Metadata = { title: 'Avís legal' }
 
@@ -13,7 +13,7 @@ export default function LegalNoticePage() {
   return (
     <>
       <h1>Avís legal</h1>
-      <DocMeta version="1.0" updated="12 de setembre de 2026" />
+      <DocMeta version="1.1" updated="28 de setembre de 2026" />
 
       <p className="lede">
         Qui hi ha darrere d’aquest lloc, com contactar-hi i sota quines regles funciona. És la
@@ -60,10 +60,12 @@ export default function LegalNoticePage() {
             <tr>
               <th scope="row">Dades registrals</th>
               <td>
-                <Pendent>
-                  dades d’inscripció al Registre Mercantil de Barcelona: tom, foli, full i
-                  inscripció
-                </Pendent>
+                Inscrita al Registre Mercantil de Barcelona, secció 8, full B-623198, inscripció 1a,
+                de 21 d’octubre de 2024. Publicada al{' '}
+                <a href="https://www.boe.es/borme/dias/2024/10/28/pdfs/BORME-A-2024-208-08.pdf">
+                  BORME núm. 208, de 28 d’octubre de 2024
+                </a>
+                .
               </td>
             </tr>
             <tr>

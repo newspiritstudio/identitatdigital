@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
 
-import { Avis, DocMeta, Pendent, Resum, TableWrap } from '../parts'
+import { Avis, DocMeta, Resum, TableWrap } from '../parts'
 
 export const metadata: Metadata = { title: 'Política de privadesa' }
 
@@ -18,7 +18,7 @@ export default function PrivacyPage() {
   return (
     <>
       <h1>Política de privadesa</h1>
-      <DocMeta version="1.1" updated="25 de setembre de 2026" />
+      <DocMeta version="1.2" updated="28 de setembre de 2026" />
 
       <p className="lede">
         Aquest lloc explica què fan les aplicacions amb les dades de les persones, i la nostra
@@ -165,18 +165,17 @@ export default function PrivacyPage() {
               <td>
                 El nostre criteri és no conservar-los més de 30 dies, tret que un registre concret
                 sigui necessari per documentar un incident de seguretat, cas en què es conserva el
-                temps estrictament necessari per resoldre’l.{' '}
-                <Pendent>
-                  confirmar la retenció de registres que aplica per defecte el proveïdor
-                  d’allotjament i alinear-la amb aquest criteri
-                </Pendent>
+                temps estrictament necessari per resoldre’l. A la pràctica en guardem encara menys:
+                el servidor web que rep les connexions no desa registres d’accés, i l’aplicació
+                només n’escriu de tècnics (arrencades i errors), limitats per mida i que es van
+                sobreescrivint.
               </td>
             </tr>
             <tr>
               <th scope="row">Destinataris</th>
               <td>
-                El proveïdor d’allotjament, com a encarregat del tractament.{' '}
-                <Pendent>identitat del proveïdor d’allotjament i contracte de l’article 28</Pendent>
+                Hetzner Online GmbH, proveïdora del servidor, com a encarregada del tractament amb el
+                contracte de l’article 28 del Reglament.
               </td>
             </tr>
           </tbody>
@@ -220,10 +219,9 @@ export default function PrivacyPage() {
             <tr>
               <th scope="row">Destinataris</th>
               <td>
-                El proveïdor d’allotjament i el proveïdor de la base de dades, com a encarregats.{' '}
-                <Pendent>
-                  identitat dels proveïdors i contractes d’encarregat del tractament signats
-                </Pendent>
+                Hetzner Online GmbH, com a encarregada del tractament amb el contracte de l’article
+                28 del Reglament. La base de dades funciona al mateix servidor: no hi ha cap altre
+                proveïdor que hi tingui accés.
               </td>
             </tr>
           </tbody>
@@ -576,11 +574,22 @@ export default function PrivacyPage() {
       <p>
         Els únics tercers que hi intervenen són els proveïdors tècnics imprescindibles perquè el
         lloc funcioni, que actuen com a encarregats del tractament amb el contracte de l’article 28
-        del Reglament: el proveïdor d’allotjament i el de correu electrònic, Proton AG.{' '}
-        <Pendent>
-          llista definitiva d’encarregats del tractament, amb la seva identitat, el servei que
-          presten i la referència del contracte
-        </Pendent>
+        del Reglament. Són dos:
+      </p>
+      <ul>
+        <li>
+          <strong>Hetzner Online GmbH</strong> (Gunzenhausen, Alemanya): el servidor on funcionen
+          el web, el panell d’edició i la base de dades.
+        </li>
+        <li>
+          <strong>Proton AG</strong> (Plan-les-Ouates, Suïssa): el correu de{' '}
+          <a href="mailto:hola@identitat.digital">hola@identitat.digital</a>.
+        </li>
+      </ul>
+      <p>
+        Totes dues hi intervenen amb el contracte d’encarregat del tractament que ofereixen als seus
+        clients, que és el que fixa què poden fer amb les dades (només prestar el servei) i quines
+        mesures de seguretat hi han d’aplicar.
       </p>
       <p>
         A més, quan fas servir la comprovació de contrasenyes, el nostre servidor consulta l’API de
@@ -612,7 +621,8 @@ export default function PrivacyPage() {
         aquesta decisió d’adequació empara la transferència.
       </p>
       <p>
-        <Pendent>confirmar la ubicació física dels servidors del proveïdor d’allotjament</Pendent>
+        El servidor del lloc és al centre de dades de Hetzner a Nuremberg, a Alemanya, dins la Unió
+        Europea. Les dades que hi desem no en surten.
       </p>
 
       <h2>8. Els teus drets</h2>

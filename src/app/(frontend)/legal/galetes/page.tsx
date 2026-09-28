@@ -17,7 +17,7 @@ export default function CookiesPage() {
   return (
     <>
       <h1>Política de galetes</h1>
-      <DocMeta version="1.1" updated="25 de setembre de 2026" />
+      <DocMeta version="1.2" updated="28 de setembre de 2026" />
 
       <p className="lede">
         Aquest lloc no t’instal·la cap galeta i per això no veus cap bàner demanant-te permís. A
