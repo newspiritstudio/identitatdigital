@@ -160,32 +160,35 @@ export default async function DataTypesPage() {
         amb aquell compte. Per fer-ho calen identificadors estables, i aquestes són les dades que
         més fitxes declaren fer servir amb aquesta finalitat.
       </p>
-      <table>
-        <caption className="visually-hidden">
-          Tipus de dada utilitzats per fer seguiment fora del servei, ordenats per nombre de fitxes
-        </caption>
-        <thead>
-          <tr>
-            <th scope="col">Tipus de dada</th>
-            <th scope="col">Fitxes que la fan servir per al seguiment</th>
-            <th scope="col">Sobre les que la recullen</th>
-          </tr>
-        </thead>
-        <tbody>
-          {topTracking.map((row) => (
-            <tr key={row.dataTypeId}>
-              <td>{row.name}</td>
-              <td>
-                <Bar value={row.usedForTracking} total={apps} unit="fitxes" />
-              </td>
-              <td className="meta">
-                {num(row.usedForTracking)} de {num(row.reach)} (
-                {pct(percentage(row.usedForTracking, row.reach))})
-              </td>
+      <Scroller label="Tipus de dada utilitzats per fer seguiment fora del servei, ordenats per nombre de fitxes">
+        <table>
+          <caption className="visually-hidden">
+            Tipus de dada utilitzats per fer seguiment fora del servei, ordenats per nombre de
+            fitxes
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Tipus de dada</th>
+              <th scope="col">Fitxes que la fan servir per al seguiment</th>
+              <th scope="col">Sobre les que la recullen</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {topTracking.map((row) => (
+              <tr key={row.dataTypeId}>
+                <td>{row.name}</td>
+                <td>
+                  <Bar value={row.usedForTracking} total={apps} unit="fitxes" />
+                </td>
+                <td className="meta">
+                  {num(row.usedForTracking)} de {num(row.reach)} (
+                  {pct(percentage(row.usedForTracking, row.reach))})
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </Scroller>
       <p>
         En aquest punt pesa la cessió a tercers. De les {num(analysis.totalRows)} files de la
         matriu, {num(graph.rowsToThirdParties)} declaren que la dada es comparteix amb tercers,{' '}
@@ -201,31 +204,33 @@ export default async function DataTypesPage() {
         biometria, conviccions, orientació sexual, origen ètnic) perquè el dany d’una filtració és
         més greu. Al directori hi apareixen així:
       </p>
-      <table>
-        <caption className="visually-hidden">
-          Categories especials de l’article 9 del RGPD documentades al corpus
-        </caption>
-        <thead>
-          <tr>
-            <th scope="col">Categoria</th>
-            <th scope="col">Fitxes que la recullen</th>
-            <th scope="col">Lligada a la identitat</th>
-          </tr>
-        </thead>
-        <tbody>
-          {special.map((row) => (
-            <tr key={row.dataTypeId}>
-              <td>{row.name}</td>
-              <td>
-                <Bar value={row.reach} total={apps} unit="fitxes" />
-              </td>
-              <td className="meta">
-                {row.reach > 0 ? `${num(row.linkedToIdentity)} de ${num(row.reach)}` : '—'}
-              </td>
+      <Scroller label="Categories especials de l’article 9 del RGPD documentades al corpus">
+        <table>
+          <caption className="visually-hidden">
+            Categories especials de l’article 9 del RGPD documentades al corpus
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Categoria</th>
+              <th scope="col">Fitxes que la recullen</th>
+              <th scope="col">Lligada a la identitat</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {special.map((row) => (
+              <tr key={row.dataTypeId}>
+                <td>{row.name}</td>
+                <td>
+                  <Bar value={row.reach} total={apps} unit="fitxes" />
+                </td>
+                <td className="meta">
+                  {row.reach > 0 ? `${num(row.linkedToIdentity)} de ${num(row.reach)}` : '—'}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </Scroller>
       <Note>
         Les xifres d’aquesta taula són massa petites per generalitzar sobre el sector. Indiquen
         quines fitxes ho declaren, i cada cas s’ha de llegir a la seva fitxa, amb la funció que el

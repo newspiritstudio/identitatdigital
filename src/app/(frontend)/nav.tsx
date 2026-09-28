@@ -78,7 +78,6 @@ export function MainNav() {
         id="site-nav"
         className={`site-nav${open ? ' is-open' : ''}`}
         aria-label="Seccions del lloc"
-        aria-hidden={!open}
       >
         {LINKS.map(({ href, label }) => {
           const current = pathname === href || pathname.startsWith(`${href}/`)

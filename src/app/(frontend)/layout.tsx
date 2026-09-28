@@ -40,10 +40,10 @@ export default function FrontendLayout({ children }: { children: React.ReactNode
     <html lang="ca" suppressHydrationWarning>
       <body>
         <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
-        <ThemeToggle />
         <a className="skip-link" href="#contingut">
           Vés al contingut
         </a>
+        <ThemeToggle />
         <header className="site-header">
           <Link href="/" className="site-title">
             <strong>identitat</strong>.digital
@@ -68,7 +68,7 @@ export default function FrontendLayout({ children }: { children: React.ReactNode
             </div>
 
             <div className="site-footer-column">
-              <h3>Explora</h3>
+              <h2>Explora</h2>
               <nav aria-label="Navegació principal del peu de pàgina">
                 <Link href="/aplicacions">Aplicacions</Link>
                 <Link href="/empreses">Empreses i grups</Link>
@@ -79,7 +79,7 @@ export default function FrontendLayout({ children }: { children: React.ReactNode
             </div>
 
             <div className="site-footer-column">
-              <h3>Aprendre</h3>
+              <h2>Aprendre</h2>
               <nav aria-label="Recursos i metodologia">
                 <Link href="/metodologia">Metodologia</Link>
                 <Link href="/dades">Dades obertes</Link>
@@ -89,7 +89,7 @@ export default function FrontendLayout({ children }: { children: React.ReactNode
             </div>
 
             <div className="site-footer-column">
-              <h3>Legal</h3>
+              <h2>Legal</h2>
               <nav aria-label="Informació legal i codi font">
                 <Link href="/legal">Informació legal</Link>
                 <Link href="/legal/privadesa">Privadesa</Link>
@@ -107,8 +107,8 @@ export default function FrontendLayout({ children }: { children: React.ReactNode
 
           <div className="site-footer-meta">
             <p className="site-owner">
-              Identitat.digital és un projecte de New Spirit Studio S.L. El contingut es publica sota
-              llicència Creative Commons Reconeixement-CompartirIgual 4.0.
+              Identitat.digital és un projecte de New Spirit Studio S.L. El contingut es publica
+              sota llicència Creative Commons Reconeixement-CompartirIgual 4.0.
             </p>
           </div>
         </footer>

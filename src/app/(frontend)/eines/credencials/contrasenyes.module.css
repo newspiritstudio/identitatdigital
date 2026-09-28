@@ -226,6 +226,17 @@
   font-size: 0.85rem;
 }
 
+/* Dues columnes que caben a 320 px: sense el mínim de 36rem de les taules de
+   `.text-page`, que aquí no té contenidor desplaçable i desbordava (1.4.10). */
+.tool table.scenarios {
+  min-width: 0;
+}
+
+.tool table.scenarios th,
+.tool table.scenarios td {
+  white-space: normal;
+}
+
 .scenarios th,
 .scenarios td {
   padding: 0.35rem 0.5rem;
@@ -233,7 +244,6 @@
 
 .scenarios td:nth-child(2) {
   font-variant-numeric: tabular-nums;
-  white-space: nowrap;
 }
 
 .assumption {

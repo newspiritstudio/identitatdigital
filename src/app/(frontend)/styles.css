@@ -21,6 +21,13 @@
   --good: #13b15a;
   --mid: #f59e0b;
   --bad: #a32020;
+  /*
+   * Versions per a text dels colors de puntuació. El verd i el taronja de
+   * sobre serveixen per a traços i fons, però com a lletra sobre blanc no
+   * arriben al 4,5:1 (1.4.3).
+   */
+  --good-text: #0b7a3b;
+  --mid-text: #b45309;
   --site-header-height: 104px;
   --header-surface: rgba(255, 255, 255, 0.22);
   --header-border: rgba(255, 255, 255, 0.32);
@@ -39,7 +46,9 @@
   --accent: #dfefff;
   --good: rgb(24, 251, 108);
   --mid: rgb(255, 171, 28);
-  --bad: rgb(255, 48, 48) ;
+  --bad: rgb(255, 48, 48);
+  --good-text: var(--good);
+  --mid-text: var(--mid);
   --header-surface: rgba(255, 255, 255, 0.08);
   --header-border: rgba(255, 255, 255, 0.18);
   --content-glass: rgba(14, 22, 30, 0.52);
@@ -75,7 +84,7 @@ body {
 }
 
 :root[data-theme='dark'] body {
-  background: linear-gradient(to right bottom, rgb(0, 0, 0), rgb(94, 122, 150) 48%, rgb(77, 53, 109)) !important;
+  background: linear-gradient(to right bottom, rgb(0, 0, 0), rgb(78, 102, 126) 48%, rgb(77, 53, 109)) !important;
   color: aliceblue;
 }
 
@@ -88,7 +97,7 @@ body:has(.app-page) {
 }
 
 :root[data-theme='dark'] body:has(.app-page) {
-  background: linear-gradient(to right bottom, rgb(0, 0, 0), rgb(94, 122, 150) 48%, rgb(77, 53, 109)) !important;
+  background: linear-gradient(to right bottom, rgb(0, 0, 0), rgb(78, 102, 126) 48%, rgb(77, 53, 109)) !important;
 }
 
 :root[data-theme='dark'] body:has(.app-page) .site-header * {
@@ -97,10 +106,10 @@ body:has(.app-page) {
 
 body:has(.app-page) .site-header * {
   color: black;
-  font-size: 16px;
+  font-size: 1rem;
 }
 body:has(.app-page) .site-header .site-title{
-  font-size: 20px !important;
+  font-size: 1.25rem !important;
 }
 
 
@@ -129,6 +138,14 @@ main {
    */
   -webkit-backdrop-filter: saturate(180%);
   backdrop-filter: saturate(180%);
+}
+
+/*
+ * En fosc, el vidre enfosqueix en lloc d'aclarir. Amb el blanc translúcid, el
+ * text quedava a 3,2–3,7:1 on el degradat del fons és més clar.
+ */
+:root[data-theme='dark'] .content-wrapper {
+  background: var(--content-glass);
 }
 
 .content-wrapper + .content-wrapper {
@@ -219,11 +236,11 @@ a {
 }
 
 .site-header .site-title{
-  font-size: 20px;
+  font-size: 1.25rem;
 }
 
 .site-header .site-title strong{
-  font-size: 20px !important;
+  font-size: 1.25rem !important;
   letter-spacing: 1px;
 }
 
@@ -248,6 +265,10 @@ a {
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
+:root[data-theme='dark'] .theme-toggle {
+  background: var(--content-glass);
+}
+
 .theme-toggle:hover {
   transform: translateY(-1px);
 }
@@ -266,7 +287,7 @@ a {
 }
 
 .theme-wipe-overlay[data-theme='dark'] {
-  background: linear-gradient(to right bottom, rgb(0, 0, 0), rgb(94, 122, 150) 48%, rgb(77, 53, 109));
+  background: linear-gradient(to right bottom, rgb(0, 0, 0), rgb(78, 102, 126) 48%, rgb(77, 53, 109));
 }
 
 .theme-wipe-overlay.is-animating {
@@ -353,8 +374,10 @@ a {
   gap: 0.8rem;
 }
 
-.site-footer-column h3 {
+.site-footer-column h2 {
   margin: 0;
+  padding: 0;
+  border: 0;
   color: rgba(237 243 255 / 72%);
   font-size: 0.72rem;
   font-weight: 700;
@@ -406,7 +429,7 @@ a {
 }
 
 :root:not([data-theme='dark']) .site-footer-brand p,
-:root:not([data-theme='dark']) .site-footer-column h3,
+:root:not([data-theme='dark']) .site-footer-column h2,
 :root:not([data-theme='dark']) .site-footer-column a,
 :root:not([data-theme='dark']) .site-footer-column nav a,
 :root:not([data-theme='dark']) .site-owner {
@@ -508,7 +531,13 @@ a {
     opacity: 0;
     transform: translateY(-8px);
     pointer-events: none;
-    transition: opacity 180ms ease, transform 180ms ease;
+    /*
+     * `visibility` i no només l'opacitat: amb el menú tancat, els enllaços no
+     * han de rebre el focus del teclat ni els ha d'anunciar el lector de
+     * pantalla. Es retarda fins que acaba el fos perquè l'animació es vegi.
+     */
+    visibility: hidden;
+    transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms;
     z-index: 40;
   }
 
@@ -520,6 +549,8 @@ a {
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
+    visibility: visible;
+    transition-delay: 0s;
   }
 
   .site-nav a {
@@ -622,11 +653,11 @@ th {
 }
 
 .score-good {
-  color: var(--good);
+  color: var(--good-text);
 }
 
 .score-mid {
-  color: var(--mid);
+  color: var(--mid-text);
 }
 
 .score-bad {

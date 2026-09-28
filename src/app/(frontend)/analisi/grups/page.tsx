@@ -180,30 +180,32 @@ export default async function GroupsPage() {
         proporcional al nombre de files de la matriu de dades que la sustenten.
       </p>
       <SharingDiagram edges={graph.edges} />
-      <table>
-        <caption className="visually-hidden">
-          Cessions documentades entre empreses del corpus, amb les files de matriu i les fitxes
-          implicades
-        </caption>
-        <thead>
-          <tr>
-            <th scope="col">Qui cedeix</th>
-            <th scope="col">Qui rep</th>
-            <th scope="col">Files de la matriu</th>
-            <th scope="col">Fitxes implicades</th>
-          </tr>
-        </thead>
-        <tbody>
-          {graph.edges.map((edge) => (
-            <tr key={`${edge.fromCompanyId}-${edge.toCompanyId}`}>
-              <td>{edge.fromName}</td>
-              <td>{edge.toName}</td>
-              <td className="meta">{num(edge.weight)}</td>
-              <td className="meta">{num(edge.appIds.length)}</td>
+      <Scroller label="Cessions documentades entre empreses del corpus, amb les files de matriu i les fitxes implicades">
+        <table>
+          <caption className="visually-hidden">
+            Cessions documentades entre empreses del corpus, amb les files de matriu i les fitxes
+            implicades
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Qui cedeix</th>
+              <th scope="col">Qui rep</th>
+              <th scope="col">Files de la matriu</th>
+              <th scope="col">Fitxes implicades</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {graph.edges.map((edge) => (
+              <tr key={`${edge.fromCompanyId}-${edge.toCompanyId}`}>
+                <td>{edge.fromName}</td>
+                <td>{edge.toName}</td>
+                <td className="meta">{num(edge.weight)}</td>
+                <td className="meta">{num(edge.appIds.length)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </Scroller>
       <p>
         El graf mostra que les dades passen de la filial europea a la matriu. Una filial com{' '}
         {graph.edges[0]?.fromName} existeix en bona part per fer de responsable del tractament
@@ -225,64 +227,68 @@ export default async function GroupsPage() {
         no és un mapa complet dels fluxos de dades: només mostra la part que les polítiques de
         privadesa identifiquen.
       </Note>
-      <table>
-        <caption className="visually-hidden">
-          Empreses amb més files cedides a destinataris que no s’identifiquen pel nom
-        </caption>
-        <thead>
-          <tr>
-            <th scope="col">Empresa</th>
-            <th scope="col">Files cedides a destinataris sense nom</th>
-            <th scope="col">Fitxes al directori</th>
-          </tr>
-        </thead>
-        <tbody>
-          {unidentifiedSenders.map((node) => (
-            <tr key={node.companyId}>
-              <td>{node.name}</td>
-              <td>
-                <Bar
-                  value={node.toUnidentifiedThirdParties + node.toUnidentifiedBrokers}
-                  total={graph.rowsToThirdParties + graph.rowsToBrokers}
-                  unit="files"
-                />
-              </td>
-              <td className="meta">{num(node.apps)}</td>
+      <Scroller label="Empreses amb més files cedides a destinataris que no s’identifiquen pel nom">
+        <table>
+          <caption className="visually-hidden">
+            Empreses amb més files cedides a destinataris que no s’identifiquen pel nom
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Empresa</th>
+              <th scope="col">Files cedides a destinataris sense nom</th>
+              <th scope="col">Fitxes al directori</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {unidentifiedSenders.map((node) => (
+              <tr key={node.companyId}>
+                <td>{node.name}</td>
+                <td>
+                  <Bar
+                    value={node.toUnidentifiedThirdParties + node.toUnidentifiedBrokers}
+                    total={graph.rowsToThirdParties + graph.rowsToBrokers}
+                    unit="files"
+                  />
+                </td>
+                <td className="meta">{num(node.apps)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </Scroller>
 
       <h2>Incidents i sancions per grup</h2>
       <p>
         El directori registra {num(incidents.total)} incidents (bretxes, sancions, resolucions i
         usos indeguts), repartits així entre els grups:
       </p>
-      <table>
-        <caption className="visually-hidden">
-          Incidents i sancions anunciades per grup empresarial
-        </caption>
-        <thead>
-          <tr>
-            <th scope="col">Grup</th>
-            <th scope="col">Incidents</th>
-            <th scope="col">Sancions anunciades</th>
-          </tr>
-        </thead>
-        <tbody>
-          {incidents.byGroup.map((row) => (
-            <tr key={row.groupId}>
-              <td>{row.groupName}</td>
-              <td>
-                <Bar value={row.incidents} total={incidents.total} unit="incidents" />
-              </td>
-              <td className="meta">
-                {row.finesEur > 0 ? `${millions(row.finesEur)} milions d’euros` : '—'}
-              </td>
+      <Scroller label="Incidents i sancions anunciades per grup empresarial">
+        <table>
+          <caption className="visually-hidden">
+            Incidents i sancions anunciades per grup empresarial
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Grup</th>
+              <th scope="col">Incidents</th>
+              <th scope="col">Sancions anunciades</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {incidents.byGroup.map((row) => (
+              <tr key={row.groupId}>
+                <td>{row.groupName}</td>
+                <td>
+                  <Bar value={row.incidents} total={incidents.total} unit="incidents" />
+                </td>
+                <td className="meta">
+                  {row.finesEur > 0 ? `${millions(row.finesEur)} milions d’euros` : '—'}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </Scroller>
       <Note>
         Aquesta taula no és una taxa de reincidència. El registre d’incidents és una selecció
         editorial dels casos rellevants i documentats i no un cens complet. Un grup amb més

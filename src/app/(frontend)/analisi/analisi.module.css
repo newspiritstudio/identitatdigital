@@ -37,8 +37,9 @@
 /* Barra horitzontal proporcional. */
 .bar {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.25rem 0.5rem;
   min-width: 8rem;
 }
 
@@ -60,11 +61,10 @@
 }
 
 .value {
-  flex: 0 0 auto;
+  flex: 0 1 auto;
   font-size: 0.82rem;
   color: var(--muted);
   font-variant-numeric: tabular-nums;
-  white-space: nowrap;
 }
 
 /* Barra apilada dels cinc estats d'una afirmació. Colors deliberadament

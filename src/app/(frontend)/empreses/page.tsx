@@ -68,8 +68,16 @@ export default async function CompaniesPage() {
     .slice(0, 8)
 
   const stats = [
-    { title: 'Grups', value: num(groups.groups.length), description: 'matrius i holdings documentats' },
-    { title: 'Empreses', value: num(corpus.companies.length), description: 'entitats dins l’arbre' },
+    {
+      title: 'Grups',
+      value: num(groups.groups.length),
+      description: 'matrius i holdings documentats',
+    },
+    {
+      title: 'Empreses',
+      value: num(corpus.companies.length),
+      description: 'entitats dins l’arbre',
+    },
     { title: 'Aplicacions', value: num(totalApps), description: 'fitxes publicades al directori' },
     {
       title: 'Dada més estesa',
@@ -86,8 +94,8 @@ export default async function CompaniesPage() {
         </div>
         <p className="lede">
           Els principals grups digitals del directori. La pàgina combina l’arbre de propietat, el
-          nombre d’aplicacions de cada grup i les dades que recullen més sovint, per veure quins grups
-          concentren més fitxes i quina empresa respon de cada servei.
+          nombre d’aplicacions de cada grup i les dades que recullen més sovint, per veure quins
+          grups concentren més fitxes i quina empresa respon de cada servei.
         </p>
       </header>
 
@@ -101,14 +109,25 @@ export default async function CompaniesPage() {
         ))}
       </div>
 
-      <section className="company-summary-section" aria-label="Taules resum del panell general d’empreses">
+      <section
+        className="company-summary-section"
+        aria-label="Taules resum del panell general d’empreses"
+      >
         <div className="company-summary-grid">
           <article className="company-panel company-summary-card">
             <div className="company-panel-header">
               <h2>Grups empresarials amb més serveis digitals</h2>
             </div>
-            <div className="company-group-table-wrap">
+            <div
+              className="company-group-table-wrap"
+              role="region"
+              aria-label="Grups empresarials amb més serveis digitals"
+              tabIndex={0}
+            >
               <table className="company-group-table compact-table">
+                <caption className="visually-hidden">
+                  Grups empresarials amb més serveis digitals
+                </caption>
                 <thead>
                   <tr>
                     <th scope="col">Grup</th>
@@ -119,9 +138,16 @@ export default async function CompaniesPage() {
                 <tbody>
                   {servicePowerGroups.map((group) => (
                     <tr key={group.rootId}>
-                      <td><Link href={`/empreses/${group.rootSlug}`}>{group.rootName}</Link></td>
+                      <td>
+                        <Link href={`/empreses/${group.rootSlug}`}>{group.rootName}</Link>
+                      </td>
                       <td>{num(group.appCount)}</td>
-                      <td>{group.apps.slice(0, 3).map((app) => app.name).join(', ') || '—'}</td>
+                      <td>
+                        {group.apps
+                          .slice(0, 3)
+                          .map((app) => app.name)
+                          .join(', ') || '—'}
+                      </td>
                     </tr>
                   ))}
                 </tbody>
@@ -133,8 +159,14 @@ export default async function CompaniesPage() {
             <div className="company-panel-header">
               <h2>Grups que recullen més tipus de dades</h2>
             </div>
-            <div className="company-group-table-wrap">
+            <div
+              className="company-group-table-wrap"
+              role="region"
+              aria-label="Grups que recullen més tipus de dades"
+              tabIndex={0}
+            >
               <table className="company-group-table compact-table">
+                <caption className="visually-hidden">Grups que recullen més tipus de dades</caption>
                 <thead>
                   <tr>
                     <th scope="col">Grup</th>
@@ -145,9 +177,16 @@ export default async function CompaniesPage() {
                 <tbody>
                   {dataTypeGroups.map((group) => (
                     <tr key={group.rootId}>
-                      <td><Link href={`/empreses/${group.rootSlug}`}>{group.rootName}</Link></td>
+                      <td>
+                        <Link href={`/empreses/${group.rootSlug}`}>{group.rootName}</Link>
+                      </td>
                       <td>{num(group.dataTypeCount)}</td>
-                      <td>{group.dataTypes.slice(0, 3).map((row) => row.name).join(', ') || '—'}</td>
+                      <td>
+                        {group.dataTypes
+                          .slice(0, 3)
+                          .map((row) => row.name)
+                          .join(', ') || '—'}
+                      </td>
                     </tr>
                   ))}
                 </tbody>
@@ -159,8 +198,14 @@ export default async function CompaniesPage() {
             <div className="company-panel-header">
               <h2>Tipus de dades més recollides</h2>
             </div>
-            <div className="company-group-table-wrap">
+            <div
+              className="company-group-table-wrap"
+              role="region"
+              aria-label="Tipus de dades més recollides"
+              tabIndex={0}
+            >
               <table className="company-group-table compact-table">
+                <caption className="visually-hidden">Tipus de dades més recollides</caption>
                 <thead>
                   <tr>
                     <th scope="col">Categoria de dada</th>
@@ -185,8 +230,14 @@ export default async function CompaniesPage() {
             <div className="company-panel-header">
               <h2>Dades més sensibles recollides</h2>
             </div>
-            <div className="company-group-table-wrap">
+            <div
+              className="company-group-table-wrap"
+              role="region"
+              aria-label="Dades més sensibles recollides"
+              tabIndex={0}
+            >
               <table className="company-group-table compact-table">
+                <caption className="visually-hidden">Dades més sensibles recollides</caption>
                 <thead>
                   <tr>
                     <th scope="col">Categoria</th>
@@ -199,7 +250,12 @@ export default async function CompaniesPage() {
                     <tr key={row.dataTypeId}>
                       <td>{row.name}</td>
                       <td>{num(row.reach)}</td>
-                      <td>{row.collectedBy.slice(0, 3).map((app) => app.name).join(', ') || '—'}</td>
+                      <td>
+                        {row.collectedBy
+                          .slice(0, 3)
+                          .map((app) => app.name)
+                          .join(', ') || '—'}
+                      </td>
                     </tr>
                   ))}
                 </tbody>
@@ -211,8 +267,16 @@ export default async function CompaniesPage() {
             <div className="company-panel-header">
               <h2>Grups amb més incidències de seguretat</h2>
             </div>
-            <div className="company-group-table-wrap">
+            <div
+              className="company-group-table-wrap"
+              role="region"
+              aria-label="Grups amb més incidències de seguretat"
+              tabIndex={0}
+            >
               <table className="company-group-table compact-table">
+                <caption className="visually-hidden">
+                  Grups amb més incidències de seguretat
+                </caption>
                 <thead>
                   <tr>
                     <th scope="col">Grup</th>
@@ -237,8 +301,16 @@ export default async function CompaniesPage() {
             <div className="company-panel-header">
               <h2>Grups amb més sancions en matèria de protecció de dades</h2>
             </div>
-            <div className="company-group-table-wrap">
+            <div
+              className="company-group-table-wrap"
+              role="region"
+              aria-label="Grups amb més sancions en matèria de protecció de dades"
+              tabIndex={0}
+            >
               <table className="company-group-table compact-table">
+                <caption className="visually-hidden">
+                  Grups amb més sancions en matèria de protecció de dades
+                </caption>
                 <thead>
                   <tr>
                     <th scope="col">Grup</th>
@@ -265,8 +337,16 @@ export default async function CompaniesPage() {
             <div className="company-panel-header">
               <h2>Grups amb més empreses o serveis sota el seu control</h2>
             </div>
-            <div className="company-group-table-wrap">
+            <div
+              className="company-group-table-wrap"
+              role="region"
+              aria-label="Grups amb més empreses o serveis sota el seu control"
+              tabIndex={0}
+            >
               <table className="company-group-table compact-table">
+                <caption className="visually-hidden">
+                  Grups amb més empreses o serveis sota el seu control
+                </caption>
                 <thead>
                   <tr>
                     <th scope="col">Grup</th>
@@ -278,10 +358,16 @@ export default async function CompaniesPage() {
                 <tbody>
                   {controlledGroups.map((group) => (
                     <tr key={group.rootId}>
-                      <td><Link href={`/empreses/${group.rootSlug}`}>{group.rootName}</Link></td>
+                      <td>
+                        <Link href={`/empreses/${group.rootSlug}`}>{group.rootName}</Link>
+                      </td>
                       <td>{num(group.companies.length)}</td>
                       <td>{num(group.appCount)}</td>
-                      <td>{group.appCount > 0 ? `${num(group.dataTypeCount)} categories documentades` : '—'}</td>
+                      <td>
+                        {group.appCount > 0
+                          ? `${num(group.dataTypeCount)} categories documentades`
+                          : '—'}
+                      </td>
                     </tr>
                   ))}
                 </tbody>
@@ -366,10 +452,16 @@ export default async function CompaniesPage() {
           <span className="company-panel-kicker">Llistat</span>
         </div>
 
-        <div className="company-group-table-wrap">
+        <div
+          className="company-group-table-wrap"
+          role="region"
+          aria-label="Grups del corpus"
+          tabIndex={0}
+        >
           <table className="company-group-table">
             <caption className="visually-hidden">
-              Grups empresarials del corpus, amb les fitxes, els tipus de dada, les empreses i la seu
+              Grups empresarials del corpus, amb les fitxes, els tipus de dada, les empreses i la
+              seu
             </caption>
             <thead>
               <tr>
@@ -401,7 +493,10 @@ export default async function CompaniesPage() {
         </div>
       </section>
 
-      <section className="company-dashboard company-dashboard--lower" aria-label="Dades i fluxos dels grups">
+      <section
+        className="company-dashboard company-dashboard--lower"
+        aria-label="Dades i fluxos dels grups"
+      >
         <div className="company-panel company-panel--wide">
           <div className="company-panel-header">
             <h2>Dades més recollides pel grup principal</h2>
@@ -410,7 +505,9 @@ export default async function CompaniesPage() {
 
           <div className="company-top-data-list">
             {biggestGroupDataTypes.length === 0 ? (
-              <p className="company-empty-state">Encara no hi ha dades documentades d’aquest grup.</p>
+              <p className="company-empty-state">
+                Encara no hi ha dades documentades d’aquest grup.
+              </p>
             ) : (
               biggestGroupDataTypes.map((row) => (
                 <div key={row.dataTypeId} className="company-top-data-row">

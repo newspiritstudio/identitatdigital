@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useSyncExternalStore } from 'react'
+import { useEffect, useRef, useSyncExternalStore } from 'react'
 
 type Theme = 'light' | 'dark'
 
@@ -36,6 +36,24 @@ const applyTheme = (theme: Theme) => {
 export function ThemeToggle() {
   const theme = useSyncExternalStore(subscribe, getTheme, getServerTheme)
   const buttonRef = useRef<HTMLButtonElement | null>(null)
+
+  // Quan React ha de tornar a pintar el document al client (la pàgina 404,
+  // un error d'hidratació), refà <html> sense l'atribut que havia posat
+  // l'script inicial i la pàgina tornava al mode clar. Es torna a aplicar.
+  useEffect(() => {
+    if (document.documentElement.hasAttribute('data-theme')) return
+    let stored: string | null = null
+    try {
+      stored = window.localStorage.getItem('theme')
+    } catch {
+      // Sense emmagatzematge mana la preferència del sistema.
+    }
+    const dark =
+      stored === 'dark' ||
+      (stored !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches)
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light')
+    document.documentElement.style.colorScheme = dark ? 'dark' : 'light'
+  }, [])
 
   const handleToggle = () => {
     const nextTheme: Theme = theme === 'dark' ? 'light' : 'dark'

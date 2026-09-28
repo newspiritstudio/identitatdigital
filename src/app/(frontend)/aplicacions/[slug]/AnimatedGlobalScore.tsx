@@ -45,6 +45,10 @@ export default function AnimatedGlobalScore({ value }: Props) {
       : target >= 40
         ? 'var(--mid)' // taronja
         : 'var(--bad)' // vermell
+  // La xifra fa servir la variant de text: el verd i el taronja del traç no
+  // arriben al contrast mínim com a lletra sobre fons clar.
+  const numberColor =
+    target >= 70 ? 'var(--good-text)' : target >= 40 ? 'var(--mid-text)' : 'var(--bad)'
 
   return (
     <div
@@ -53,18 +57,9 @@ export default function AnimatedGlobalScore({ value }: Props) {
       aria-label={`Puntuació global: ${target} sobre 100`}
     >
       <div className="animated-global-score-circle">
-        <svg
-          className="animated-global-score-ring"
-          viewBox="0 0 120 120"
-          aria-hidden="true"
-        >
+        <svg className="animated-global-score-ring" viewBox="0 0 120 120" aria-hidden="true">
           {/* Cercle de fons */}
-          <circle
-            className="animated-global-score-track"
-            cx="60"
-            cy="60"
-            r={radius}
-          />
+          <circle className="animated-global-score-track" cx="60" cy="60" r={radius} />
 
           {/* Cercle de progrés */}
           <circle
@@ -81,10 +76,7 @@ export default function AnimatedGlobalScore({ value }: Props) {
         </svg>
 
         {/* Número dins del cercle */}
-        <div
-          className="animated-global-score-number"
-          style={{ color: scoreColor }}
-        >
+        <div className="animated-global-score-number" style={{ color: numberColor }}>
           {score}
         </div>
       </div>

@@ -110,7 +110,13 @@ body:has(.apps-search-page) {
 
 .app-company-title-block h2{
   margin: 0;
-  font-size: 16px;
+  font-size: 1rem;
+}
+
+/* Àrea de clic d'almenys 24 px d'alt (2.5.8) sense moure res: el farciment
+   d'un element en línia no altera el flux. */
+#identificacio-title a {
+  padding-block: 0.2rem;
 }
 
 .identity-details {
@@ -334,13 +340,21 @@ body:has(.apps-search-page) {
 
   border-radius: 999px;
 
-  color: #fff;
+  /*
+   * Lletra fosca sobre el verd i el taronja, blanca sobre el vermell: el blanc
+   * sobre els dos primers no arriba al 4,5:1.
+   */
+  color: #002730;
   font-size: 0.8rem;
   font-weight: 700;
   line-height: 1;
   font-variant-numeric: tabular-nums;
 
   box-shadow: 0 1px 3px rgb(0 0 0 / 15%);
+}
+
+.alternative-score.is-bad {
+  color: #fff;
 }
 
 :root[data-theme='dark'] .alternative-score{
@@ -684,7 +698,7 @@ box-shadow: 0 12px 30px #0000002e;
 }
 
 .deletion-status.is-positive {
-  color: var(--good);
+  color: var(--good-text);
 }
 
 .deletion-status.is-negative {
@@ -889,8 +903,18 @@ button.deletion-action {
   font-size: .88rem;
 }
 
-button.deletion-action:hover {
-  background-color: var(--bad);
+/*
+ * En fosc, el vermell del tema és massa clar per dur lletra blanca (3,7:1);
+ * aquest en fa 5,7:1.
+ */
+:root[data-theme='dark'] button.deletion-action {
+  background-color: #c81e1e;
+}
+
+/* Abans el fons i la lletra eren del mateix vermell i el text desapareixia. */
+button.deletion-action:hover,
+:root[data-theme='dark'] button.deletion-action:hover {
+  background-color: var(--bg);
   color: var(--bad) !important;
 }
 .account-deletion-action {

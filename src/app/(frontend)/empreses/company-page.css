@@ -70,13 +70,21 @@
   height: 2rem;
   padding: 0 0.45rem;
   border-radius: 999px;
-  color: #fff;
+  /*
+   * Lletra fosca sobre el verd i el taronja, blanca sobre el vermell: el blanc
+   * sobre els dos primers no arriba al 4,5:1.
+   */
+  color: #002730;
   font-size: 0.8rem;
   font-weight: 700;
   line-height: 1;
   font-variant-numeric: tabular-nums;
   box-shadow: 0 1px 3px rgb(0 0 0 / 15%);
 }
+.company-group-app-score.is-bad {
+  color: #fff;
+}
+
 :root[data-theme='dark'] .company-group-app-score{
   color: black;
 }
@@ -547,9 +555,11 @@
 }
 
 @media (max-width: 760px) {
+  /* `minmax(0, …)`: amb `1fr` sol, la columna no baixa de l'amplada del
+     contingut i a 320 px la pàgina es desplaçava en horitzontal (1.4.10). */
   .company-dashboard,
   .company-dashboard--lower {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .company-page-stats {

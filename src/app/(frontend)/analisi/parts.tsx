@@ -191,9 +191,9 @@ export function SharingDiagram({ edges }: { edges: readonly DiagramEdge[] }) {
             strokeLinecap="round"
             opacity={0.75}
           >
-            <title>
-              {edge.fromName} cedeix dades a {edge.toName}: {num(edge.weight)} files
-            </title>
+            {/* Un sol text: amb diversos fills, React hi intercala marcadors i
+                la hidratació no quadra amb l'HTML del servidor. */}
+            <title>{`${edge.fromName} cedeix dades a ${edge.toName}: ${num(edge.weight)} files`}</title>
           </line>
         ))}
         {senders.map((name) => (
@@ -204,7 +204,7 @@ export function SharingDiagram({ edges }: { edges: readonly DiagramEdge[] }) {
               y={yOf(senders, name) + 4}
               textAnchor="end"
               fontSize="11.5"
-              fill="#1a1a1a"
+              style={{ fill: 'var(--text)' }}
             >
               {name}
             </text>
@@ -218,16 +218,16 @@ export function SharingDiagram({ edges }: { edges: readonly DiagramEdge[] }) {
               y={yOf(receivers, name) + 4}
               textAnchor="start"
               fontSize="11.5"
-              fill="#1a1a1a"
+              style={{ fill: 'var(--text)' }}
             >
               {name}
             </text>
           </React.Fragment>
         ))}
-        <text x={188} y={14} textAnchor="end" fontSize="10.5" fill="#5c5c5c">
+        <text x={188} y={14} textAnchor="end" fontSize="10.5" style={{ fill: 'var(--muted)' }}>
           qui cedeix
         </text>
-        <text x={392} y={14} textAnchor="start" fontSize="10.5" fill="#5c5c5c">
+        <text x={392} y={14} textAnchor="start" fontSize="10.5" style={{ fill: 'var(--muted)' }}>
           qui rep
         </text>
       </svg>
